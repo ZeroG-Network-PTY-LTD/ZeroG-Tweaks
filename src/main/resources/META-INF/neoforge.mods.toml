@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="All Rights Reserved"
+issueTrackerURL=""
+
+[[mods]]
+modId="zerog_tweaks"
+version="${file.jarVersion}"
+displayName="ZeroG Tweaks"
+description='''Allthemodium-style space progression: shattered-void Nullifite, galaxy teleporters, planet ores (cyrrium, cerulite, olympium...), space woods, ores, gems and machines.'''
+authors="Jake M. and Co-Owner"
+logoFile="logo_blank.png"
+logoBlur=false
+
+[[dependencies.zerog_tweaks]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.zerog_tweaks]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+side="BOTH"
