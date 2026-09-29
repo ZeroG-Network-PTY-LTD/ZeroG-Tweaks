@@ -10,6 +10,13 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CaveVines;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.GlowLichenBlock;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.zerog.tweaks.ZeroGTweaks;
 
 import net.neoforged.bus.api.IEventBus;
@@ -21,6 +28,17 @@ public final class BlockInit {
 
     private static BlockBehaviour.Properties props(MapColor mc, SoundType st, float str, float res) {
         return BlockBehaviour.Properties.of().mapColor(mc).sound(st).strength(str, res);
+    }
+
+    /** Vanilla small-flower properties (poppy/dandelion): instabreak, no collision, XZ jitter. */
+    private static BlockBehaviour.Properties flowerProps() {
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak()
+                .sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY);
+    }
+
+    private static DeferredBlock<FlowerPotBlock> potted(String plant, DeferredBlock<? extends Block> content) {
+        return BLOCKS.register("potted_" + plant, () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, content,
+                BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
     }
 
     public static final DeferredBlock<Block> ABYSSAL_STONE = BLOCKS.register("abyssal_stone", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -192,7 +210,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> CHISELED_SUNBAKED_STONE_SLAB = BLOCKS.register("chiseled_sunbaked_stone_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CHISELED_SUNBAKED_STONE_STAIRS = BLOCKS.register("chiseled_sunbaked_stone_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CHISELED_SUNBAKED_STONE_WALL = BLOCKS.register("chiseled_sunbaked_stone_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<ZGPlantBlock> CINDER_CAP = BLOCKS.registerBlock("cinder_cap", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGMushroomBlock> CINDER_CAP = BLOCKS.registerBlock("cinder_cap", ZGMushroomBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission().randomTicks().instabreak().lightLevel(s -> 3).pushReaction(PushReaction.DESTROY));
     public static final DeferredBlock<Block> CINNABRITE_BLOCK = BLOCKS.register("cinnabrite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CINNABRITE_ORE = BLOCKS.register("cinnabrite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> COBALTIUM_BLOCK = BLOCKS.register("cobaltium_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -356,13 +374,13 @@ public final class BlockInit {
     public static final DeferredBlock<Block> EMBER_CRUST = BLOCKS.register("ember_crust", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> EMBERITE_BLOCK = BLOCKS.register("emberite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> EMBERITE_ORE = BLOCKS.register("emberite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
-    public static final DeferredBlock<ZGPlantBlock> EMBERTHORN = BLOCKS.registerBlock("emberthorn", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGThornBushBlock> EMBERTHORN = BLOCKS.registerBlock("emberthorn", ZGThornBushBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission().instabreak().lightLevel(s -> 2).pushReaction(PushReaction.DESTROY));
     public static final DeferredBlock<Block> FERROX_BLOCK = BLOCKS.register("ferrox_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> FERROX_ORE = BLOCKS.register("ferrox_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> FLARE_VENT = BLOCKS.register("flare_vent", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<ZGCrystalClusterBlock> FROST_CRYSTAL = BLOCKS.registerBlock("frost_crystal", ZGCrystalClusterBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F));
     public static final DeferredBlock<Block> FROST_GLASS = BLOCKS.register("frost_glass", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
-    public static final DeferredBlock<ZGPlantBlock> FROSTFERN = BLOCKS.registerBlock("frostfern", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGFernBlock> FROSTFERN = BLOCKS.registerBlock("frostfern", ZGFernBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).replaceable().noCollission().instabreak().offsetType(BlockBehaviour.OffsetType.XYZ).ignitedByLava().pushReaction(PushReaction.DESTROY));
     public static final DeferredBlock<Block> FROSTROCK = BLOCKS.register("frostrock", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> FROSTROCK_BRICK_SLAB = BLOCKS.register("frostrock_brick_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> FROSTROCK_BRICK_STAIRS = BLOCKS.register("frostrock_brick_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -384,7 +402,7 @@ public final class BlockInit {
     public static final DeferredBlock<ZGOrientedBlock> GATE_LENS_HOUSING = BLOCKS.registerBlock("gate_lens_housing", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<Block> GATE_PAD_PLATE = BLOCKS.register("gate_pad_plate", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> GATE_PYLON = BLOCKS.register("gate_pylon", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<ZGPlantBlock> GHOSTBLOOM = BLOCKS.registerBlock("ghostbloom", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGFlowerBlock> GHOSTBLOOM = BLOCKS.registerBlock("ghostbloom", p -> new ZGFlowerBlock(MobEffects.INVISIBILITY, 8.0F, p), flowerProps());
     public static final DeferredBlock<Block> GILDWOOD_BUTTON = BLOCKS.register("gildwood_button", () -> new net.minecraft.world.level.block.ButtonBlock(BlockSetType.OAK, 30, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
     public static final DeferredBlock<ZGDoorBlock> GILDWOOD_DOOR = BLOCKS.registerBlock("gildwood_door", ZGDoorBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.5F, 7.0F));
     public static final DeferredBlock<Block> GILDWOOD_FENCE = BLOCKS.register("gildwood_fence", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -400,7 +418,8 @@ public final class BlockInit {
     public static final DeferredBlock<Block> GILDWOOD_WOOD = BLOCKS.register("gildwood_wood", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> GLACIAL_ICE = BLOCKS.register("glacial_ice", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> GLASSY_OBSIDIAN = BLOCKS.register("glassy_obsidian", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
-    public static final DeferredBlock<ZGPlantBlock> GLOWKELP = BLOCKS.registerBlock("glowkelp", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGKelpBlock> GLOWKELP = BLOCKS.registerBlock("glowkelp", ZGKelpBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WATER).noCollission().randomTicks().instabreak().lightLevel(s -> 8).sound(SoundType.WET_GRASS).pushReaction(PushReaction.DESTROY));
+    public static final DeferredBlock<ZGKelpPlantBlock> GLOWKELP_PLANT = BLOCKS.registerBlock("glowkelp_plant", ZGKelpPlantBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WATER).noCollission().instabreak().lightLevel(s -> 8).sound(SoundType.WET_GRASS).pushReaction(PushReaction.DESTROY));
     public static final DeferredBlock<Block> HOARWOOD_BUTTON = BLOCKS.register("hoarwood_button", () -> new net.minecraft.world.level.block.ButtonBlock(BlockSetType.OAK, 30, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
     public static final DeferredBlock<ZGDoorBlock> HOARWOOD_DOOR = BLOCKS.registerBlock("hoarwood_door", ZGDoorBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.5F, 7.0F));
     public static final DeferredBlock<Block> HOARWOOD_FENCE = BLOCKS.register("hoarwood_fence", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -423,7 +442,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> LUMENITE_BLOCK = BLOCKS.register("lumenite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> LUMENITE_ORE = BLOCKS.register("lumenite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> LUNAR_GLASS = BLOCKS.register("lunar_glass", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
-    public static final DeferredBlock<ZGPlantBlock> LUNAR_LICHEN = BLOCKS.registerBlock("lunar_lichen", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<GlowLichenBlock> LUNAR_LICHEN = BLOCKS.registerBlock("lunar_lichen", GlowLichenBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).replaceable().noCollission().strength(0.2F).sound(SoundType.GLOW_LICHEN).lightLevel(GlowLichenBlock.emission(7)).ignitedByLava().pushReaction(PushReaction.DESTROY));
     public static final DeferredBlock<Block> LUNAR_STONE = BLOCKS.register("lunar_stone", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> LUNAR_STONE_BRICK_SLAB = BLOCKS.register("lunar_stone_brick_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> LUNAR_STONE_BRICK_STAIRS = BLOCKS.register("lunar_stone_brick_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -676,7 +695,8 @@ public final class BlockInit {
     public static final DeferredBlock<Block> PULSAR_DUST_BLOCK = BLOCKS.register("pulsar_dust_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> PULSAR_DUST_ORE = BLOCKS.register("pulsar_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> PULSAR_LAMP = BLOCKS.register("pulsar_lamp", () -> new Block(props(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST, 1.0F, 6.0F).lightLevel(s -> 15)));
-    public static final DeferredBlock<ZGPlantBlock> PYREVINE = BLOCKS.registerBlock("pyrevine", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGCaveVinesBlock> PYREVINE = BLOCKS.registerBlock("pyrevine", ZGCaveVinesBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).randomTicks().noCollission().lightLevel(CaveVines.emission(14)).instabreak().sound(SoundType.CAVE_VINES).pushReaction(PushReaction.DESTROY));
+    public static final DeferredBlock<ZGCaveVinesPlantBlock> PYREVINE_PLANT = BLOCKS.registerBlock("pyrevine_plant", ZGCaveVinesPlantBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission().lightLevel(CaveVines.emission(14)).instabreak().sound(SoundType.CAVE_VINES).pushReaction(PushReaction.DESTROY));
     public static final DeferredBlock<Block> PYRIUM_BLOCK = BLOCKS.register("pyrium_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> PYRIUM_ORE = BLOCKS.register("pyrium_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> RADIANT_BRICK_SLAB = BLOCKS.register("radiant_brick_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -719,7 +739,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> RUSKITE_BLOCK = BLOCKS.register("ruskite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> RUSKITE_ORE = BLOCKS.register("ruskite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> RUST_GLASS = BLOCKS.register("rust_glass", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
-    public static final DeferredBlock<ZGPlantBlock> RUST_LICHEN = BLOCKS.registerBlock("rust_lichen", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<GlowLichenBlock> RUST_LICHEN = BLOCKS.registerBlock("rust_lichen", GlowLichenBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).replaceable().noCollission().strength(0.2F).sound(SoundType.GLOW_LICHEN).ignitedByLava().pushReaction(PushReaction.DESTROY));
     public static final DeferredBlock<RustTuberCropBlock> RUST_TUBER_CROP = BLOCKS.registerBlock("rust_tuber_crop", RustTuberCropBlock::new, props(MapColor.PLANT, SoundType.CROP, 0.0F, 0.0F).noCollission().randomTicks());
     public static final DeferredBlock<Block> RUSTSAND = BLOCKS.register("rustsand", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SALT_CRUST = BLOCKS.register("salt_crust", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -858,14 +878,14 @@ public final class BlockInit {
     public static final DeferredBlock<Block> SOLAR_STONE_SLAB = BLOCKS.register("solar_stone_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SOLAR_STONE_STAIRS = BLOCKS.register("solar_stone_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SOLAR_STONE_WALL = BLOCKS.register("solar_stone_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<ZGPlantBlock> SOLFLOWER = BLOCKS.registerBlock("solflower", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGFlowerBlock> SOLFLOWER = BLOCKS.registerBlock("solflower", p -> new ZGFlowerBlock(MobEffects.FIRE_RESISTANCE, 4.0F, p), flowerProps());
     public static final DeferredBlock<Block> SOLVANITE_BLOCK = BLOCKS.register("solvanite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SOLVANITE_GATE_FRAME = BLOCKS.register("solvanite_gate_frame", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SOLVANITE_ORE = BLOCKS.register("solvanite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> SPECTRAL_DUST_BLOCK = BLOCKS.register("spectral_dust_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SPECTRAL_DUST_ORE = BLOCKS.register("spectral_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> SPECTRAL_LANTERN = BLOCKS.register("spectral_lantern", () -> new Block(props(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST, 1.0F, 6.0F).lightLevel(s -> 15)));
-    public static final DeferredBlock<ZGPlantBlock> STARBLOOM = BLOCKS.registerBlock("starbloom", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGFlowerBlock> STARBLOOM = BLOCKS.registerBlock("starbloom", p -> new ZGFlowerBlock(MobEffects.NIGHT_VISION, 5.0F, p), flowerProps().lightLevel(s -> 5));
     public static final DeferredBlock<Block> STARLITE_BLOCK = BLOCKS.register("starlite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> STARLITE_ORE = BLOCKS.register("starlite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> STRIPPED_CHARWOOD_LOG = BLOCKS.register("stripped_charwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
@@ -902,8 +922,37 @@ public final class BlockInit {
     public static final DeferredBlock<Block> WRAITHSTEEL_CASING = BLOCKS.register("wraithsteel_casing", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> WRAITHSTEEL_ORE = BLOCKS.register("wraithsteel_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
 
+
+    // ---- flower pots (vanilla potted_* counterparts) ----
+    public static final DeferredBlock<FlowerPotBlock> POTTED_STARBLOOM = potted("starbloom", STARBLOOM);
+    public static final DeferredBlock<FlowerPotBlock> POTTED_GHOSTBLOOM = potted("ghostbloom", GHOSTBLOOM);
+    public static final DeferredBlock<FlowerPotBlock> POTTED_SOLFLOWER = potted("solflower", SOLFLOWER);
+    public static final DeferredBlock<FlowerPotBlock> POTTED_FROSTFERN = potted("frostfern", FROSTFERN);
+    public static final DeferredBlock<FlowerPotBlock> POTTED_CINDER_CAP = potted("cinder_cap", CINDER_CAP);
+    public static final DeferredBlock<FlowerPotBlock> POTTED_CHARWOOD_SAPLING = potted("charwood_sapling", CHARWOOD_SAPLING);
+    public static final DeferredBlock<FlowerPotBlock> POTTED_GILDWOOD_SAPLING = potted("gildwood_sapling", GILDWOOD_SAPLING);
+    public static final DeferredBlock<FlowerPotBlock> POTTED_HOARWOOD_SAPLING = potted("hoarwood_sapling", HOARWOOD_SAPLING);
+    public static final DeferredBlock<FlowerPotBlock> POTTED_SHARDWOOD_SAPLING = potted("shardwood_sapling", SHARDWOOD_SAPLING);
+
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);
+        bus.addListener(BlockInit::onCommonSetup);
+    }
+
+    /** Lets players put our plants into a vanilla flower pot (right-click), like poppies. */
+    private static void onCommonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            FlowerPotBlock pot = (FlowerPotBlock) Blocks.FLOWER_POT;
+            pot.addPlant(STARBLOOM.getId(), POTTED_STARBLOOM);
+            pot.addPlant(GHOSTBLOOM.getId(), POTTED_GHOSTBLOOM);
+            pot.addPlant(SOLFLOWER.getId(), POTTED_SOLFLOWER);
+            pot.addPlant(FROSTFERN.getId(), POTTED_FROSTFERN);
+            pot.addPlant(CINDER_CAP.getId(), POTTED_CINDER_CAP);
+            pot.addPlant(CHARWOOD_SAPLING.getId(), POTTED_CHARWOOD_SAPLING);
+            pot.addPlant(GILDWOOD_SAPLING.getId(), POTTED_GILDWOOD_SAPLING);
+            pot.addPlant(HOARWOOD_SAPLING.getId(), POTTED_HOARWOOD_SAPLING);
+            pot.addPlant(SHARDWOOD_SAPLING.getId(), POTTED_SHARDWOOD_SAPLING);
+        });
     }
 
     private BlockInit() {}

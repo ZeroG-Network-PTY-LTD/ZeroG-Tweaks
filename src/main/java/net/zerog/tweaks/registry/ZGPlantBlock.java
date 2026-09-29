@@ -30,6 +30,8 @@ public class ZGPlantBlock extends BushBlock {
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return true; // accept any solid support so planet terrain works
+        // any solid-topped planet surface (stone/regolith/sand) plus vanilla dirt/farmland;
+        // air/non-sturdy tops are rejected so plants pop off like vanilla instead of floating
+        return ZGPlantSupport.canSupport(state, level, pos);
     }
 }
