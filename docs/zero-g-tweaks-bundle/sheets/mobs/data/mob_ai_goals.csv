@@ -1,0 +1,171 @@
+mob,priority,goal
+regolith_crawler,0,FloatGoal
+regolith_crawler,1,"BurrowAmbushGoal (custom): burrow when no target, wait"
+regolith_crawler,2,"LungeAtTargetGoal (custom, range 3, cooldown 60t)"
+regolith_crawler,3,MeleeAttackGoal
+regolith_crawler,4,WaterAvoidingRandomStrollGoal
+regolith_crawler,5,NearestAttackableTargetGoal<Player>
+rust_beetle,0,FloatGoal
+rust_beetle,1,MeleeAttackGoal (only when angry)
+rust_beetle,2,HurtByTargetGoal
+rust_beetle,3,EatBlockGoal-style: graze Rust Lichen
+rust_beetle,4,BreedGoal
+rust_beetle,5,TemptGoal(rust_lichen)
+rust_beetle,6,FollowParentGoal
+rust_beetle,7,WaterAvoidingRandomStrollGoal
+rust_beetle,8,LookAtPlayerGoal
+rust_beetle,9,ResetUniversalAngerTargetGoal
+crystal_stag,0,FloatGoal
+crystal_stag,1,PanicGoal(1.8)
+crystal_stag,2,BreedGoal
+crystal_stag,3,TemptGoal(starbloom)
+crystal_stag,4,FollowParentGoal
+crystal_stag,5,WaterAvoidingRandomStrollGoal
+crystal_stag,6,LookAtPlayerGoal
+crystal_stag,7,RandomLookAroundGoal
+prismling,0,FloatGoal
+prismling,1,MeleeAttackGoal
+prismling,2,WaterAvoidingRandomStrollGoal
+prismling,3,NearestAttackableTargetGoal<Player>
+prismling,4,HurtByTargetGoal (alert others)
+cinder_hound,0,FloatGoal
+cinder_hound,1,PackCircleGoal (custom): circle target at 5 blocks until 3+ pack members ready
+cinder_hound,2,LeapAtTargetGoal(0.4)
+cinder_hound,3,MeleeAttackGoal
+cinder_hound,4,WaterAvoidingRandomStrollGoal
+cinder_hound,5,HurtByTargetGoal (alert pack)
+cinder_hound,6,NearestAttackableTargetGoal<Player>
+frost_warden,0,FloatGoal
+frost_warden,1,"GlaiveSweepGoal (custom: 12 dmg arc, Slowness II)"
+frost_warden,2,MeleeAttackGoal
+frost_warden,3,SummonAddsGoal (phase 2: 2 rime_stalker)
+frost_warden,4,"IceWallRingGoal (phase 2: ring of glacial_ice radius 6, melts after 200t)"
+frost_warden,5,StayNearHomeGoal (wreck)
+frost_warden,6,NearestAttackableTargetGoal<Player>
+flare_sprite,0,FloatGoal
+flare_sprite,1,"RangedAttackGoal (small fireball, range 10)"
+flare_sprite,2,OrbitVentGoal (custom: circle nearest flare_vent)
+flare_sprite,3,MeleeAttackGoal
+flare_sprite,4,WaterAvoidingRandomFlyingGoal
+flare_sprite,5,NearestAttackableTargetGoal<Player>
+sun_colossus,0,FloatGoal
+sun_colossus,1,SlamGoal (custom: 14 dmg AoE + fire line ground wave)
+sun_colossus,2,CoreOpenWindowGoal (custom: 60t vulnerable after slam)
+sun_colossus,3,DormantUntilTriggeredGoal (custom: wake when player on plateau)
+sun_colossus,4,NearestAttackableTargetGoal<Player>
+dune_burrower,0,FloatGoal
+dune_burrower,1,"BurrowTravelGoal (custom: move under sand, ripple particles)"
+dune_burrower,2,BurstAmbushGoal (custom: target still for 40t)
+dune_burrower,3,SwallowGoal (custom: hold player 40t)
+dune_burrower,4,MeleeAttackGoal
+dune_burrower,5,NearestAttackableTargetGoal<Player>
+ash_strider,0,FloatGoal
+ash_strider,1,MeleeAttackGoal (angry)
+ash_strider,2,HurtByTargetGoal
+ash_strider,3,BreedGoal
+ash_strider,4,TemptGoal(cinder_cap)
+ash_strider,5,StriderGoToLavaGoal-like
+ash_strider,6,WaterAvoidingRandomStrollGoal
+ash_strider,7,LookAtPlayerGoal
+rime_stalker,0,FloatGoal
+rime_stalker,1,StalkFromBehindGoal (custom: approach outside player view cone)
+rime_stalker,2,MeleeAttackGoal
+rime_stalker,3,WaterAvoidingRandomStrollGoal
+rime_stalker,4,NearestAttackableTargetGoal<Player>
+bog_lurker,0,FloatGoal (not in acid)
+bog_lurker,1,SubmergeGoal (custom: sit in acid with eyes above surface)
+bog_lurker,2,"RangedAttackGoal (acid spit, Poison II 80t)"
+bog_lurker,3,MeleeAttackGoal
+bog_lurker,4,NearestAttackableTargetGoal<Player>
+crater_drifter,0,FloatGoal
+crater_drifter,1,DriftGoal (custom: random float 4-10 blocks above ground)
+crater_drifter,2,MeleeAttackGoal (angry)
+crater_drifter,3,HurtByTargetGoal (alert others in 16)
+crater_drifter,4,DropFragmentGoal (custom: drop meteorite_fragment item every 6000t)
+prism_sentinel,0,BeamAttackGoal (custom: 10 dmg beams reflecting off orbiting shards)
+prism_sentinel,1,"ShardSpinGoal (8 dmg, phase 2)"
+prism_sentinel,2,StayInArenaGoal
+rift_tyrant,0,ChargeGoal
+rift_tyrant,1,ClawGoal (16 dmg)
+rift_tyrant,2,"RiftPullGoal (pull players toward rift, remove arena blocks)"
+rift_tyrant,3,VoidShardVolleyGoal (phase 3)
+eidolon_captain,0,DuelGoal (cutlass 13)
+eidolon_captain,1,SummonCrewGoal (phase 2: Hollow Crewmen = new entity or Shattered Skies Hollow Sentinel)
+eidolon_captain,2,LanternFreezeGoal (phase 3: freeze deck)
+dying_star,0,SolarFlareGoal (20 dmg)
+dying_star,1,CoronaRaySweepGoal (phase 2)
+dying_star,2,FallingStarsGoal (12 dmg)
+dying_star,3,CollapseGoal (phase 3: arena shrink)
+moon_hopper,0,FloatGoal
+moon_hopper,1,PanicGoal(2.2)
+moon_hopper,2,BreedGoal
+moon_hopper,3,TemptGoal(lunar_lichen)
+moon_hopper,4,AvoidEntityGoal<Player> (when not tempted)
+moon_hopper,5,WaterAvoidingRandomStrollGoal
+moon_hopper,6,LookAtPlayerGoal
+dust_grazer,0,FloatGoal
+dust_grazer,1,"StampedeGoal (custom: when one is hurt, herd within 12 panics in the same direction)"
+dust_grazer,2,PanicGoal(2.0)
+dust_grazer,3,BreedGoal
+dust_grazer,4,TemptGoal(rust_tuber)
+dust_grazer,5,FollowParentGoal
+dust_grazer,6,EatBlockGoal-style graze
+dust_grazer,7,WaterAvoidingRandomStrollGoal
+dust_grazer,8,LookAtPlayerGoal
+azure_fowl,0,FloatGoal
+azure_fowl,1,PanicGoal(1.4)
+azure_fowl,2,BreedGoal
+azure_fowl,3,TemptGoal(skyberries)
+azure_fowl,4,FollowParentGoal
+azure_fowl,5,WaterAvoidingRandomStrollGoal
+azure_fowl,6,LookAtPlayerGoal
+glimmerfish,0,PanicGoal
+glimmerfish,1,AvoidEntityGoal<Player>
+glimmerfish,2,FollowFlockLeaderGoal
+glimmerfish,3,RandomSwimmingGoal
+slag_boar,0,FloatGoal
+slag_boar,1,"ChargeGoal (custom, when angry)"
+slag_boar,2,HurtByTargetGoal
+slag_boar,3,"ProtectBabiesGoal (custom, range 4)"
+slag_boar,4,BreedGoal
+slag_boar,5,TemptGoal(cinder_cap)
+slag_boar,6,FollowParentGoal
+slag_boar,7,WaterAvoidingRandomStrollGoal
+slag_boar,8,LookAtPlayerGoal
+scorch_wyrmling,0,FloatGoal
+scorch_wyrmling,1,"RangedAttackGoal (fire bolt, 40t cooldown, range 12)"
+scorch_wyrmling,2,MeleeAttackGoal
+scorch_wyrmling,3,GuardOreGoal (custom: stay near emberite_ore)
+scorch_wyrmling,4,WaterAvoidingRandomStrollGoal
+scorch_wyrmling,5,NearestAttackableTargetGoal<Player>
+frost_yak,0,FloatGoal
+frost_yak,1,PanicGoal
+frost_yak,2,BreedGoal
+frost_yak,3,TemptGoal(frostfern)
+frost_yak,4,FollowParentGoal
+frost_yak,5,"ShelterCalvesGoal (custom, during snow)"
+frost_yak,6,WaterAvoidingRandomStrollGoal
+frost_yak,7,LookAtPlayerGoal
+ice_leech,0,FloatGoal
+ice_leech,1,HideUnderSnowGoal (custom)
+ice_leech,2,LatchOnGoal (custom: ride target)
+ice_leech,3,MeleeAttackGoal
+ice_leech,4,NearestAttackableTargetGoal<Player>
+gildcrab,0,FloatGoal
+gildcrab,1,MeleeAttackGoal (only when angry)
+gildcrab,2,HurtByTargetGoal
+gildcrab,3,BaskGoal (custom: rest on sunspot_rock)
+gildcrab,4,BreedGoal
+gildcrab,5,TemptGoal(pyrefruit)
+gildcrab,6,FollowParentGoal
+gildcrab,7,SidewaysStrollGoal (custom)
+gildcrab,8,LookAtPlayerGoal
+deep_eel,0,FollowLightSourceGoal (custom: move toward block light > 10 or player holding light)
+deep_eel,1,MeleeAttackGoal
+deep_eel,2,RandomSwimmingGoal
+deep_eel,3,NearestAttackableTargetGoal<Player> (in water only)
+sand_skitter,0,FloatGoal
+sand_skitter,1,"BuriedAmbushGoal (custom: bury in dunesand, burst in 2-3)"
+sand_skitter,2,LeapAtTargetGoal(0.4)
+sand_skitter,3,MeleeAttackGoal
+sand_skitter,4,NearestAttackableTargetGoal<Player>

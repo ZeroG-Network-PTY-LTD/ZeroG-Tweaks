@@ -1,0 +1,11 @@
+stateDiagram-v2
+  direction LR
+  state "stalking" as s0
+  state "hidden_in_blizzard" as s1
+  state "attacking" as s2
+  [*] --> s0
+  s0 --> s1 : snowfall and player > 8 blocks
+  s1 --> s0 : player within 8 / weather clears
+  s0 --> s2 : behind target, in range
+  s1 --> s2 : behind target, in range
+  s2 --> s0 : target turns to face it

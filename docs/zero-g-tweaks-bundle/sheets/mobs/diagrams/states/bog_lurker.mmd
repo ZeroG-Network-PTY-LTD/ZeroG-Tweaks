@@ -1,0 +1,12 @@
+stateDiagram-v2
+  direction LR
+  state "submerged" as s0
+  state "surfacing" as s1
+  state "spitting" as s2
+  state "crawling" as s3
+  [*] --> s0
+  s0 --> s1 : target near acid edge
+  s1 --> s2 : target in 10 blocks
+  s2 --> s3 : target on land, close
+  s3 --> s0 : back in acid
+  s2 --> s0 : target lost
