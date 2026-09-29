@@ -16,6 +16,7 @@ public final class ModContentHooks {
     public static void register(IEventBus modBus) {
         modBus.addListener(EntityAttributeCreationEvent.class, event -> {
             event.put(EntityInit.CRYSTAL_STAG.get(), CrystalStag.createAttributes().build());
+            event.put(EntityInit.FROST_YAK.get(), FrostYak.createAttributes().build());
             event.put(EntityInit.PRISMLING_HOLDER.get(), Prismling.createAttributes().build());
             event.put(EntityInit.RUST_BEETLE.get(), RustBeetle.createAttributes().build());
             event.put(EntityInit.DUNE_BURROWER.get(), DuneBurrower.createAttributes().build());

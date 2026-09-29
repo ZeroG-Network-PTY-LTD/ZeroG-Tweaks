@@ -14,6 +14,7 @@ import net.zerog.tweaks.ZeroGTweaks;
 
 import net.neoforged.bus.api.IEventBus;
 import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.SnowLayerBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -35,7 +36,7 @@ public final class BlockInit {
     public static final DeferredBlock<ZGOrientedBlock> ALLOY_FORGE = BLOCKS.registerBlock("alloy_forge", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<Block> ARESITE_BLOCK = BLOCKS.register("aresite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> ARESITE_ORE = BLOCKS.register("aresite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
-    public static final DeferredBlock<ZGLayersBlock> ASHFALL = BLOCKS.registerBlock("ashfall", ZGLayersBlock::new, props(MapColor.STONE, SoundType.WOOL, 0.5F, 0.5F));
+    public static final DeferredBlock<SnowLayerBlock> ASHFALL = BLOCKS.registerBlock("ashfall", SnowLayerBlock::new, props(MapColor.STONE, SoundType.WOOL, 0.5F, 0.5F));
     public static final DeferredBlock<Block> ASTRIUM_BLOCK = BLOCKS.register("astrium_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> ASTRIUM_CASING = BLOCKS.register("astrium_casing", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> ASTRIUM_ORE = BLOCKS.register("astrium_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
@@ -326,7 +327,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> CRACKED_SUNBAKED_STONE_BRICK_STAIRS = BLOCKS.register("cracked_sunbaked_stone_brick_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CRACKED_SUNBAKED_STONE_BRICK_WALL = BLOCKS.register("cracked_sunbaked_stone_brick_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CRACKED_SUNBAKED_STONE_BRICKS = BLOCKS.register("cracked_sunbaked_stone_bricks", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<ZGLayersBlock> CRATER_DUST = BLOCKS.registerBlock("crater_dust", ZGLayersBlock::new, props(MapColor.STONE, SoundType.WOOL, 0.5F, 0.5F));
+    public static final DeferredBlock<SnowLayerBlock> CRATER_DUST = BLOCKS.registerBlock("crater_dust", SnowLayerBlock::new, props(MapColor.STONE, SoundType.WOOL, 0.5F, 0.5F));
     public static final DeferredBlock<Block> CRATER_ICE = BLOCKS.register("crater_ice", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CRATERSTONE = BLOCKS.register("craterstone", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CRATERSTONE_BRICK_SLAB = BLOCKS.register("craterstone_brick_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -850,7 +851,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> SMOOTH_SUNBAKED_STONE_SLAB = BLOCKS.register("smooth_sunbaked_stone_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SMOOTH_SUNBAKED_STONE_STAIRS = BLOCKS.register("smooth_sunbaked_stone_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SMOOTH_SUNBAKED_STONE_WALL = BLOCKS.register("smooth_sunbaked_stone_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<ZGLayersBlock> SNOWPACK = BLOCKS.registerBlock("snowpack", ZGLayersBlock::new, props(MapColor.STONE, SoundType.WOOL, 0.5F, 0.5F));
+    public static final DeferredBlock<SnowLayerBlock> SNOWPACK = BLOCKS.registerBlock("snowpack", SnowLayerBlock::new, props(MapColor.STONE, SoundType.WOOL, 0.5F, 0.5F));
     public static final DeferredBlock<Block> SOLAR_ARRAY = BLOCKS.register("solar_array", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SOLAR_STONE = BLOCKS.register("solar_stone", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SOLAR_STONE_BRICK_SLAB = BLOCKS.register("solar_stone_brick_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
