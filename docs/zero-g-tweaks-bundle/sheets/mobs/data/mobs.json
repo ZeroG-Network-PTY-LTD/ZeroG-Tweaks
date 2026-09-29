@@ -1,0 +1,4419 @@
+{
+  "schema": "zerog_tweaks.mobs.v1",
+  "count": 28,
+  "mobs": [
+    {
+      "id": "zerog_tweaks:regolith_crawler",
+      "key": "regolith_crawler",
+      "name": "Regolith Crawler",
+      "sheet": "01_regolith_crawler.png",
+      "galaxy": 1,
+      "world": "Moon",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:moon"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster",
+      "hitbox_width": 0.9,
+      "hitbox_height": 0.5,
+      "hitbox_length": 1.1,
+      "max_health": 14,
+      "attack_damage": 3,
+      "damage_text": "3, plus Slowness I for 3 s",
+      "movement_speed": 0.2,
+      "speed_class": "slow",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [],
+      "behavior": "Burrows under Regolith and waits; lunges when a player walks within 3 blocks",
+      "spawns_text": "Moon surface, groups of 1\u20133",
+      "drops_text": "Crawler Leg 0\u20132, Regolith Dust 1\u20133, rare Selenite shard",
+      "design_notes": [
+        "Burrowed state: only the dust plates and eyes show above the block surface.",
+        "Eyes on the emissive layer.",
+        "Walk cycle: legs alternate in two sets of three."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "BurrowAmbushGoal (custom): burrow when no target, wait",
+        "LungeAtTargetGoal (custom, range 3, cooldown 60t)",
+        "MeleeAttackGoal",
+        "WaterAvoidingRandomStrollGoal",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "burrowed",
+        "emerging",
+        "hunting",
+        "lunging",
+        "dead"
+      ],
+      "transitions": [
+        {
+          "frm": "burrowed",
+          "to": "emerging",
+          "trigger": "player within 3 blocks, not sneaking"
+        },
+        {
+          "frm": "emerging",
+          "to": "hunting",
+          "trigger": "emerge anim done (20t)"
+        },
+        {
+          "frm": "hunting",
+          "to": "lunging",
+          "trigger": "target in 3 blocks, cooldown ready"
+        },
+        {
+          "frm": "lunging",
+          "to": "hunting",
+          "trigger": "lunge lands"
+        },
+        {
+          "frm": "hunting",
+          "to": "burrowed",
+          "trigger": "no target 200t"
+        },
+        {
+          "frm": "hunting",
+          "to": "dead",
+          "trigger": "health 0"
+        },
+        {
+          "frm": "dead",
+          "to": "[removed]",
+          "trigger": ""
+        }
+      ],
+      "animations_required": [
+        "animation.regolith_crawler.idle",
+        "animation.regolith_crawler.walk",
+        "animation.regolith_crawler.burrow",
+        "animation.regolith_crawler.emerge",
+        "animation.regolith_crawler.lunge",
+        "animation.regolith_crawler.death"
+      ],
+      "animations_existing": [
+        "animation.regolith_crawler.idle",
+        "animation.regolith_crawler.walk"
+      ],
+      "mechanics": [
+        "While burrowed: invisible except dust plates + eyes (model bone visibility), no collision push, takes 50% less damage",
+        "Emerges when a player is within 3 blocks and not sneaking",
+        "Hit applies Slowness I 60 ticks"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/regolith_crawler",
+      "drops": [
+        {
+          "item": "zerog_tweaks:crawler_leg",
+          "item_name": "Crawler Leg",
+          "min": 0,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:regolith",
+          "item_name": "Regolith",
+          "min": 1,
+          "max": 3,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:selenite",
+          "item_name": "Selenite",
+          "min": 1,
+          "max": 1,
+          "chance": 0.05,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": true
+        }
+      ],
+      "spawn_egg": {
+        "base": "#9A9AA0",
+        "spots": "#6FE0FF",
+        "item": "zerog_tweaks:regolith_crawler_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/regolith_crawler.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/regolith_crawler.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/regolith_crawler.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/regolith_crawler_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/01_regolith_crawler.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3",
+        "leg4",
+        "leg5",
+        "wing_left",
+        "wing_right"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:lunar_highlands zerog_tweaks:lunar_mare zerog_tweaks:shadowed_craters",
+          "weight": 60,
+          "min_group": 1,
+          "max_group": 2,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_moon.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:rust_beetle",
+      "key": "rust_beetle",
+      "name": "Rust Beetle",
+      "sheet": "02_rust_beetle.png",
+      "galaxy": 1,
+      "world": "Mars",
+      "role": "neutral",
+      "dimensions": [
+        "zerog_tweaks:mars"
+      ],
+      "mob_category": "CREATURE",
+      "java_base": "Animal + NeutralMob (tameable, saddle + chest like a llama)",
+      "hitbox_width": 0.8,
+      "hitbox_height": 0.7,
+      "hitbox_length": 1.0,
+      "max_health": 20,
+      "attack_damage": 4,
+      "damage_text": "4 (horn ram) when provoked",
+      "movement_speed": 0.2,
+      "speed_class": "slow",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": "zerog_tweaks:rust_lichen",
+      "interactions": [],
+      "immunities": [],
+      "behavior": "Grazes on Rust Lichen; rams back when hit; tamed beetles with a Ferrox saddle carry a chest",
+      "spawns_text": "Mars plains, herds of 2\u20134",
+      "drops_text": "Beetle Grub 0\u20131, Ferrox bits 1\u20132, Rust Shell (armor upgrade)",
+      "design_notes": [
+        "Shell splits open when it flies short hops (low gravity).",
+        "Spots use the shell spot color."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "MeleeAttackGoal (only when angry)",
+        "HurtByTargetGoal",
+        "EatBlockGoal-style: graze Rust Lichen",
+        "BreedGoal",
+        "TemptGoal(rust_lichen)",
+        "FollowParentGoal",
+        "WaterAvoidingRandomStrollGoal",
+        "LookAtPlayerGoal",
+        "ResetUniversalAngerTargetGoal"
+      ],
+      "states": [
+        "grazing",
+        "wandering",
+        "angry",
+        "hopping",
+        "tamed",
+        "saddled"
+      ],
+      "transitions": [
+        {
+          "frm": "grazing",
+          "to": "wandering",
+          "trigger": "grazed / random"
+        },
+        {
+          "frm": "wandering",
+          "to": "grazing",
+          "trigger": "finds rust_lichen"
+        },
+        {
+          "frm": "grazing",
+          "to": "hopping",
+          "trigger": "random hop (low gravity)"
+        },
+        {
+          "frm": "wandering",
+          "to": "hopping",
+          "trigger": "random hop"
+        },
+        {
+          "frm": "hopping",
+          "to": "wandering",
+          "trigger": "lands"
+        },
+        {
+          "frm": "grazing",
+          "to": "angry",
+          "trigger": "hurt"
+        },
+        {
+          "frm": "wandering",
+          "to": "angry",
+          "trigger": "hurt"
+        },
+        {
+          "frm": "angry",
+          "to": "wandering",
+          "trigger": "anger timer ends"
+        },
+        {
+          "frm": "wandering",
+          "to": "tamed",
+          "trigger": "fed rust_lichen (tame roll)"
+        },
+        {
+          "frm": "tamed",
+          "to": "saddled",
+          "trigger": "ferrox saddle + chest"
+        }
+      ],
+      "animations_required": [
+        "animation.rust_beetle.idle",
+        "animation.rust_beetle.walk",
+        "animation.rust_beetle.ram",
+        "animation.rust_beetle.hop",
+        "animation.rust_beetle.graze"
+      ],
+      "animations_existing": [
+        "animation.rust_beetle.idle",
+        "animation.rust_beetle.walk"
+      ],
+      "mechanics": [
+        "Low-gravity hop: occasional jump with shell-open animation",
+        "Tame with Rust Lichen; Ferrox saddle (new item) + chest gives 15-slot storage"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/rust_beetle",
+      "drops": [
+        {
+          "item": "zerog_tweaks:beetle_grub",
+          "item_name": "Beetle Grub",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:ferrox_nugget",
+          "item_name": "Ferrox Nugget",
+          "min": 1,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:rust_shell",
+          "item_name": "Rust Shell",
+          "min": 1,
+          "max": 1,
+          "chance": 0.15,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": true
+        }
+      ],
+      "spawn_egg": {
+        "base": "#9C4424",
+        "spots": "#E89A62",
+        "item": "zerog_tweaks:rust_beetle_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/rust_beetle.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/rust_beetle.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/rust_beetle.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/rust_beetle_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/02_rust_beetle.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3",
+        "leg4",
+        "leg5",
+        "wing_right"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:rust_plains zerog_tweaks:oxide_badlands zerog_tweaks:polar_caps",
+          "weight": 8,
+          "min_group": 1,
+          "max_group": 3,
+          "category": "CREATURE",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_mars.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:crystal_stag",
+      "key": "crystal_stag",
+      "name": "Crystal Stag",
+      "sheet": "03_crystal_stag.png",
+      "galaxy": 2,
+      "world": "Cerulon",
+      "role": "passive",
+      "dimensions": [
+        "zerog_tweaks:cerulon"
+      ],
+      "mob_category": "CREATURE",
+      "java_base": "Animal + Shearable",
+      "hitbox_width": 0.9,
+      "hitbox_height": 1.8,
+      "hitbox_length": 1.3,
+      "max_health": 20,
+      "attack_damage": 0,
+      "damage_text": "None",
+      "movement_speed": 0.33,
+      "speed_class": "fast",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": "zerog_tweaks:starbloom",
+      "interactions": [
+        "shears -> starlite x1-2"
+      ],
+      "immunities": [],
+      "behavior": "Shear the antlers for 1\u20132 Starlite; they regrow over 5 minutes. Breeds with Starbloom",
+      "spawns_text": "Cerulon Azure Moss plains, herds of 3\u20135",
+      "drops_text": "Stag Venison 1\u20133, Crystal Hide 0\u20132",
+      "design_notes": [
+        "Sheared state: antlers shrink to stubs; glow turns off.",
+        "Antlers, eyes on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "PanicGoal(1.8)",
+        "BreedGoal",
+        "TemptGoal(starbloom)",
+        "FollowParentGoal",
+        "WaterAvoidingRandomStrollGoal",
+        "LookAtPlayerGoal",
+        "RandomLookAroundGoal"
+      ],
+      "states": [
+        "antlered",
+        "sheared (regrowing 6000t)",
+        "fleeing"
+      ],
+      "transitions": [
+        {
+          "frm": "antlered",
+          "to": "sheared (regrowing 6000t)",
+          "trigger": "sheared: drop starlite"
+        },
+        {
+          "frm": "sheared (regrowing 6000t)",
+          "to": "antlered",
+          "trigger": "6000t regrow"
+        },
+        {
+          "frm": "antlered",
+          "to": "fleeing",
+          "trigger": "hurt"
+        },
+        {
+          "frm": "sheared (regrowing 6000t)",
+          "to": "fleeing",
+          "trigger": "hurt"
+        },
+        {
+          "frm": "fleeing",
+          "to": "antlered",
+          "trigger": "panic ends, antlers intact"
+        },
+        {
+          "frm": "fleeing",
+          "to": "sheared (regrowing 6000t)",
+          "trigger": "panic ends, sheared"
+        }
+      ],
+      "animations_required": [
+        "animation.crystal_stag.idle",
+        "animation.crystal_stag.walk",
+        "animation.crystal_stag.run",
+        "animation.crystal_stag.graze"
+      ],
+      "animations_existing": [
+        "animation.crystal_stag.idle",
+        "animation.crystal_stag.walk"
+      ],
+      "mechanics": [
+        "Shears: drop 1-2 starlite, set SHEARED synced data, regrow after 6000 ticks",
+        "Sheared: antler bones hidden, glowmask off"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/crystal_stag",
+      "drops": [
+        {
+          "item": "zerog_tweaks:stag_venison",
+          "item_name": "Stag Venison",
+          "min": 1,
+          "max": 3,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:crystal_hide",
+          "item_name": "Crystal Hide",
+          "min": 0,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#2C3D57",
+        "spots": "#3FC9E8",
+        "item": "zerog_tweaks:crystal_stag_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/crystal_stag.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/crystal_stag.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/crystal_stag.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/crystal_stag_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/03_crystal_stag.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:azure_plains zerog_tweaks:crystal_shores zerog_tweaks:shardwood_grove",
+          "weight": 6,
+          "min_group": 1,
+          "max_group": 3,
+          "category": "CREATURE",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_cerulon.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:prismling",
+      "key": "prismling",
+      "name": "Prismling",
+      "sheet": "04_prismling.png",
+      "galaxy": 2,
+      "world": "Cerulon",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:cerulon"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster",
+      "hitbox_width": 0.5,
+      "hitbox_height": 0.75,
+      "hitbox_length": null,
+      "max_health": 8,
+      "attack_damage": 2,
+      "damage_text": "2",
+      "movement_speed": 0.33,
+      "speed_class": "fast",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [],
+      "behavior": "Swarms in groups; shatters into 2\u20133 crystal shards on death that deal 1 damage nearby",
+      "spawns_text": "Cerulean geodes and crystal caves",
+      "drops_text": "Crystal shard 1\u20133 (smelts to Cerulite dust)",
+      "design_notes": [
+        "Name changed: \"Shardling\" is already the minion line in Shattered Skies.",
+        "Core pulses on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "MeleeAttackGoal",
+        "WaterAvoidingRandomStrollGoal",
+        "NearestAttackableTargetGoal<Player>",
+        "HurtByTargetGoal (alert others)"
+      ],
+      "states": [
+        "idle",
+        "swarming",
+        "shattering"
+      ],
+      "transitions": [
+        {
+          "frm": "idle",
+          "to": "swarming",
+          "trigger": "player seen / ally hurt"
+        },
+        {
+          "frm": "swarming",
+          "to": "idle",
+          "trigger": "target lost"
+        },
+        {
+          "frm": "swarming",
+          "to": "shattering",
+          "trigger": "health 0: burst 2-3 shards"
+        },
+        {
+          "frm": "shattering",
+          "to": "[removed]",
+          "trigger": ""
+        }
+      ],
+      "animations_required": [
+        "animation.prismling.idle",
+        "animation.prismling.walk",
+        "animation.prismling.attack",
+        "animation.prismling.shatter"
+      ],
+      "animations_existing": [
+        "animation.prismling.idle",
+        "animation.prismling.walk"
+      ],
+      "mechanics": [
+        "On death: spawn 2-3 shard particles/projectiles dealing 1 damage within 2 blocks",
+        "Spawns in geodes and crystal caves (low light)"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/prismling",
+      "drops": [
+        {
+          "item": "zerog_tweaks:pulsar_dust",
+          "item_name": "Pulsar Dust",
+          "min": 1,
+          "max": 3,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#1592B8",
+        "spots": "#E8FFFF",
+        "item": "zerog_tweaks:prismling_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/prismling.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/prismling.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/prismling.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/prismling_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/04_prismling.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3",
+        "wing_right"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:azure_plains zerog_tweaks:crystal_shores zerog_tweaks:shardwood_grove",
+          "weight": 60,
+          "min_group": 2,
+          "max_group": 4,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_cerulon.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:cinder_hound",
+      "key": "cinder_hound",
+      "name": "Cinder Hound",
+      "sheet": "05_cinder_hound.png",
+      "galaxy": 3,
+      "world": "Skarn",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:skarn"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster",
+      "hitbox_width": 0.7,
+      "hitbox_height": 0.9,
+      "hitbox_length": 1.2,
+      "max_health": 18,
+      "attack_damage": 4,
+      "damage_text": "4, sets target on fire for 2 s",
+      "movement_speed": 0.33,
+      "speed_class": "fast",
+      "flying_speed": null,
+      "follow_range": 24,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [
+        "fire",
+        "lava"
+      ],
+      "behavior": "Hunts in packs of 3\u20135; circles, then lunges together. Immune to fire",
+      "spawns_text": "Skarn Ember Crust fields",
+      "drops_text": "Cinder pelt, Emberite 0\u20132",
+      "design_notes": [
+        "Ember cracks and tail on the emissive layer.",
+        "Leaves a short ember particle trail when running."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "PackCircleGoal (custom): circle target at 5 blocks until 3+ pack members ready",
+        "LeapAtTargetGoal(0.4)",
+        "MeleeAttackGoal",
+        "WaterAvoidingRandomStrollGoal",
+        "HurtByTargetGoal (alert pack)",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "roaming",
+        "circling",
+        "lunging",
+        "attacking"
+      ],
+      "transitions": [
+        {
+          "frm": "roaming",
+          "to": "circling",
+          "trigger": "target found"
+        },
+        {
+          "frm": "circling",
+          "to": "lunging",
+          "trigger": "3+ pack members circling"
+        },
+        {
+          "frm": "lunging",
+          "to": "attacking",
+          "trigger": "lands next to target"
+        },
+        {
+          "frm": "attacking",
+          "to": "circling",
+          "trigger": "target retreats"
+        },
+        {
+          "frm": "attacking",
+          "to": "roaming",
+          "trigger": "target lost"
+        }
+      ],
+      "animations_required": [
+        "animation.cinder_hound.idle",
+        "animation.cinder_hound.walk",
+        "animation.cinder_hound.run",
+        "animation.cinder_hound.lunge",
+        "animation.cinder_hound.bite"
+      ],
+      "animations_existing": [
+        "animation.cinder_hound.idle",
+        "animation.cinder_hound.walk"
+      ],
+      "mechanics": [
+        "fireImmune() in EntityType builder",
+        "Bite: target.igniteForSeconds(2)",
+        "Ember particle trail while sprinting"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/cinder_hound",
+      "drops": [
+        {
+          "item": "zerog_tweaks:cinder_pelt",
+          "item_name": "Cinder Pelt",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:emberite",
+          "item_name": "Emberite",
+          "min": 0,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#221C1A",
+        "spots": "#FFD070",
+        "item": "zerog_tweaks:cinder_hound_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/cinder_hound.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/cinder_hound.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/cinder_hound.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/cinder_hound_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/05_cinder_hound.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3",
+        "wing_right"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:ember_fields zerog_tweaks:marble_contact_zone zerog_tweaks:charwood_barrens",
+          "weight": 50,
+          "min_group": 3,
+          "max_group": 5,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_skarn.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:frost_warden",
+      "key": "frost_warden",
+      "name": "Frost Warden",
+      "sheet": "06_frost_warden.png",
+      "galaxy": 4,
+      "world": "Eidolon",
+      "role": "mini_boss",
+      "dimensions": [
+        "zerog_tweaks:eidolon"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster + ServerBossEvent (pale cyan)",
+      "hitbox_width": 1.0,
+      "hitbox_height": 2.4,
+      "hitbox_length": null,
+      "max_health": 120,
+      "attack_damage": 9,
+      "damage_text": "9; glaive sweep 12 and Slowness II",
+      "movement_speed": 0.2,
+      "speed_class": "slow",
+      "flying_speed": null,
+      "follow_range": 32,
+      "armor": 10,
+      "knockback_resistance": 0.8,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [
+        "freezing"
+      ],
+      "behavior": "Guards the largest wrecks. Phase 2 at half health: summons 2 Rime Stalkers and an ice wall ring",
+      "spawns_text": "One per large wreck on Eidolon; does not respawn",
+      "drops_text": "Wraithsteel Ingots 3\u20135, Frost Warden Helm (trophy), Remnant Shard",
+      "design_notes": [
+        "Visor, core, antler-like pauldron tips and glaive edge on the emissive layer.",
+        "Boss bar in pale cyan."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "GlaiveSweepGoal (custom: 12 dmg arc, Slowness II)",
+        "MeleeAttackGoal",
+        "SummonAddsGoal (phase 2: 2 rime_stalker)",
+        "IceWallRingGoal (phase 2: ring of glacial_ice radius 6, melts after 200t)",
+        "StayNearHomeGoal (wreck)",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "guarding",
+        "phase1",
+        "phase2 (<50% hp)",
+        "dead"
+      ],
+      "transitions": [
+        {
+          "frm": "guarding",
+          "to": "phase1",
+          "trigger": "player enters wreck (16 blocks)"
+        },
+        {
+          "frm": "phase1",
+          "to": "phase2 (<50% hp)",
+          "trigger": "health < 50%: summon 2 rime_stalker + ice ring"
+        },
+        {
+          "frm": "phase2 (<50% hp)",
+          "to": "dead",
+          "trigger": "health 0"
+        },
+        {
+          "frm": "phase1",
+          "to": "guarding",
+          "trigger": "no players 600t (heal)"
+        },
+        {
+          "frm": "dead",
+          "to": "[removed]",
+          "trigger": ""
+        }
+      ],
+      "animations_required": [
+        "animation.frost_warden.idle",
+        "animation.frost_warden.walk",
+        "animation.frost_warden.sweep",
+        "animation.frost_warden.summon",
+        "animation.frost_warden.death"
+      ],
+      "animations_existing": [
+        "animation.frost_warden.idle",
+        "animation.frost_warden.walk"
+      ],
+      "mechanics": [
+        "Placed by wreck structure; persistenceRequired, no natural respawn",
+        "Boss bar only within 32 blocks"
+      ],
+      "boss": {
+        "bar_color": "BLUE",
+        "phases": 2
+      },
+      "loot_table": "zerog_tweaks:entities/frost_warden",
+      "drops": [
+        {
+          "item": "zerog_tweaks:wraithsteel_ingot",
+          "item_name": "Wraithsteel Ingot",
+          "min": 3,
+          "max": 5,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:remnant_shard",
+          "item_name": "Remnant Shard",
+          "min": 1,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#5E6E74",
+        "spots": "#9FF0F0",
+        "item": "zerog_tweaks:frost_warden_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/frost_warden.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/frost_warden.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/frost_warden.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/frost_warden_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/06_frost_warden.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "leg0",
+        "leg1"
+      ],
+      "spawns": []
+    },
+    {
+      "id": "zerog_tweaks:flare_sprite",
+      "key": "flare_sprite",
+      "name": "Flare Sprite",
+      "sheet": "07_flare_sprite.png",
+      "galaxy": 5,
+      "world": "Solvane",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:solvane"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "FlyingMob / Monster with FlyingMoveControl (Blaze/Vex pattern)",
+      "hitbox_width": 0.5,
+      "hitbox_height": 0.5,
+      "hitbox_length": null,
+      "max_health": 6,
+      "attack_damage": 3,
+      "damage_text": "3 fire, or a small fireball at range",
+      "movement_speed": 0.33,
+      "speed_class": "fast",
+      "flying_speed": 0.6,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [
+        "fire",
+        "lava"
+      ],
+      "behavior": "Swarms around Flare Vents; bursts into flame when a vent erupts. Water puts it out instantly",
+      "spawns_text": "Solvane near Flare Vents, swarms of 4\u20138",
+      "drops_text": "Fusion Dust 0\u20131, Solar Spark",
+      "design_notes": [
+        "Whole mob is emissive; no shadow.",
+        "Animated wing flicker (4 frames)."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "RangedAttackGoal (small fireball, range 10)",
+        "OrbitVentGoal (custom: circle nearest flare_vent)",
+        "MeleeAttackGoal",
+        "WaterAvoidingRandomFlyingGoal",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "orbiting",
+        "flaring (vent eruption)",
+        "attacking",
+        "extinguished"
+      ],
+      "transitions": [
+        {
+          "frm": "orbiting",
+          "to": "flaring (vent eruption)",
+          "trigger": "nearby flare_vent erupts"
+        },
+        {
+          "frm": "flaring (vent eruption)",
+          "to": "orbiting",
+          "trigger": "100t"
+        },
+        {
+          "frm": "orbiting",
+          "to": "attacking",
+          "trigger": "target in 10 blocks"
+        },
+        {
+          "frm": "flaring (vent eruption)",
+          "to": "attacking",
+          "trigger": "target in 10 blocks"
+        },
+        {
+          "frm": "attacking",
+          "to": "orbiting",
+          "trigger": "target lost"
+        },
+        {
+          "frm": "orbiting",
+          "to": "extinguished",
+          "trigger": "water or rain"
+        },
+        {
+          "frm": "attacking",
+          "to": "extinguished",
+          "trigger": "water or rain"
+        },
+        {
+          "frm": "extinguished",
+          "to": "[removed]",
+          "trigger": "instant death"
+        }
+      ],
+      "animations_required": [
+        "animation.flare_sprite.fly",
+        "animation.flare_sprite.attack"
+      ],
+      "animations_existing": [
+        "animation.flare_sprite.idle",
+        "animation.flare_sprite.walk"
+      ],
+      "mechanics": [
+        "Dies instantly in water or rain (isInWaterRainOrBubble -> kill)",
+        "Whole model fullbright, no shadow (shadowRadius 0)",
+        "Near erupting vent: +50% damage for 100t"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/flare_sprite",
+      "drops": [
+        {
+          "item": "zerog_tweaks:fusion_dust",
+          "item_name": "Fusion Dust",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:solar_spark",
+          "item_name": "Solar Spark",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#FFA030",
+        "spots": "#FFF0A0",
+        "item": "zerog_tweaks:flare_sprite_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/flare_sprite.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/flare_sprite.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/flare_sprite.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/flare_sprite_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/07_flare_sprite.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "wing_left",
+        "wing_right"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:corona_flats zerog_tweaks:sunspot_plateaus zerog_tweaks:gildwood_oasis",
+          "weight": 50,
+          "min_group": 1,
+          "max_group": 3,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_solvane.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:sun_colossus",
+      "key": "sun_colossus",
+      "name": "Sun Colossus",
+      "sheet": "08_sun_colossus.png",
+      "galaxy": 5,
+      "world": "Solvane",
+      "role": "mini_boss",
+      "dimensions": [
+        "zerog_tweaks:solvane"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster + ServerBossEvent (yellow)",
+      "hitbox_width": 2.6,
+      "hitbox_height": 2.9,
+      "hitbox_length": null,
+      "max_health": 200,
+      "attack_damage": 14,
+      "damage_text": "14 slam; ground wave sets fire in a line",
+      "movement_speed": 0.15,
+      "speed_class": "very_slow",
+      "flying_speed": null,
+      "follow_range": 32,
+      "armor": 20,
+      "knockback_resistance": 1.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [
+        "fire",
+        "lava"
+      ],
+      "behavior": "Wakes when a player steps on its Sunspot Rock plateau. Core opens to take damage after each slam",
+      "spawns_text": "One per Solvane plateau structure",
+      "drops_text": "Astrium 4\u20136, Coronite 6\u201310, Colossus Core (Fusion Reactor upgrade)",
+      "design_notes": [
+        "Core only takes damage while open (animated plates).",
+        "Cracks, core, vents on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "SlamGoal (custom: 14 dmg AoE + fire line ground wave)",
+        "CoreOpenWindowGoal (custom: 60t vulnerable after slam)",
+        "DormantUntilTriggeredGoal (custom: wake when player on plateau)",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "dormant",
+        "awake",
+        "slamming",
+        "core_open",
+        "dead"
+      ],
+      "transitions": [
+        {
+          "frm": "dormant",
+          "to": "awake",
+          "trigger": "player on plateau"
+        },
+        {
+          "frm": "awake",
+          "to": "slamming",
+          "trigger": "target in 6 blocks"
+        },
+        {
+          "frm": "slamming",
+          "to": "core_open",
+          "trigger": "slam done"
+        },
+        {
+          "frm": "core_open",
+          "to": "awake",
+          "trigger": "60t window closes"
+        },
+        {
+          "frm": "awake",
+          "to": "dead",
+          "trigger": "health 0"
+        },
+        {
+          "frm": "core_open",
+          "to": "dead",
+          "trigger": "health 0"
+        },
+        {
+          "frm": "dead",
+          "to": "[removed]",
+          "trigger": ""
+        }
+      ],
+      "animations_required": [
+        "animation.sun_colossus.dormant",
+        "animation.sun_colossus.wake",
+        "animation.sun_colossus.walk",
+        "animation.sun_colossus.slam",
+        "animation.sun_colossus.core_open",
+        "animation.sun_colossus.death"
+      ],
+      "animations_existing": [
+        "animation.sun_colossus.idle",
+        "animation.sun_colossus.walk"
+      ],
+      "mechanics": [
+        "Invulnerable except during core_open window (hurt() returns false otherwise)",
+        "Drops colossus_core (fusion_reactor upgrade)"
+      ],
+      "boss": {
+        "bar_color": "YELLOW",
+        "phases": 1
+      },
+      "loot_table": "zerog_tweaks:entities/sun_colossus",
+      "drops": [
+        {
+          "item": "zerog_tweaks:astrium_ingot",
+          "item_name": "Astrium Ingot",
+          "min": 4,
+          "max": 6,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:coronite",
+          "item_name": "Coronite",
+          "min": 6,
+          "max": 10,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:colossus_core",
+          "item_name": "Colossus Core",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:solvanite_upgrade_smithing_template",
+          "item_name": "Solvanite Upgrade Smithing Template",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#7A3C1A",
+        "spots": "#FFF0A0",
+        "item": "zerog_tweaks:sun_colossus_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/sun_colossus.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/sun_colossus.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/sun_colossus.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/sun_colossus_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/08_sun_colossus.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "leg0",
+        "leg1",
+        "wing_right"
+      ],
+      "spawns": []
+    },
+    {
+      "id": "zerog_tweaks:dune_burrower",
+      "key": "dune_burrower",
+      "name": "Dune Burrower",
+      "sheet": "09_dune_burrower.png",
+      "galaxy": 0,
+      "world": "Desert wasteland",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:g2_p1",
+        "zerog_tweaks:g2_p2",
+        "zerog_tweaks:g2_p3",
+        "zerog_tweaks:g2_p4",
+        "zerog_tweaks:g2_p5",
+        "zerog_tweaks:g2_p6",
+        "zerog_tweaks:g3_p1",
+        "zerog_tweaks:g3_p2",
+        "zerog_tweaks:g3_p3",
+        "zerog_tweaks:g3_p4",
+        "zerog_tweaks:g3_p5",
+        "zerog_tweaks:g3_p6",
+        "zerog_tweaks:g4_p1",
+        "zerog_tweaks:g4_p2",
+        "zerog_tweaks:g4_p3",
+        "zerog_tweaks:g4_p4",
+        "zerog_tweaks:g4_p5",
+        "zerog_tweaks:g4_p6",
+        "zerog_tweaks:g5_p1",
+        "zerog_tweaks:g5_p2",
+        "zerog_tweaks:g5_p3",
+        "zerog_tweaks:g5_p4",
+        "zerog_tweaks:g5_p5",
+        "zerog_tweaks:g5_p6",
+        "(any slot rolled as desert)"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster",
+      "hitbox_width": 1.2,
+      "hitbox_height": 1.9,
+      "hitbox_length": null,
+      "max_health": 40,
+      "attack_damage": 8,
+      "damage_text": "8; can swallow and hold a player for 2 s",
+      "movement_speed": 0.33,
+      "speed_class": "fast",
+      "flying_speed": null,
+      "follow_range": 24,
+      "armor": 4,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [],
+      "behavior": "Travels under sand shown as a moving ripple; bursts up under players who stand still",
+      "spawns_text": "Desert wastelands in every galaxy",
+      "drops_text": "Burrower Steak 1\u20133, Burrower Scale, Star Map Fragment (rare)",
+      "design_notes": [
+        "Colors tinted per galaxy like the terrain.",
+        "Underground: only a sand ripple particle trail."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "BurrowTravelGoal (custom: move under sand, ripple particles)",
+        "BurstAmbushGoal (custom: target still for 40t)",
+        "SwallowGoal (custom: hold player 40t)",
+        "MeleeAttackGoal",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "burrowed_travel",
+        "bursting",
+        "swallowing",
+        "surface_fight",
+        "reburrow"
+      ],
+      "transitions": [
+        {
+          "frm": "burrowed_travel",
+          "to": "bursting",
+          "trigger": "target still 40t above it"
+        },
+        {
+          "frm": "bursting",
+          "to": "swallowing",
+          "trigger": "catches target"
+        },
+        {
+          "frm": "bursting",
+          "to": "surface_fight",
+          "trigger": "misses"
+        },
+        {
+          "frm": "swallowing",
+          "to": "surface_fight",
+          "trigger": "40t, spit out"
+        },
+        {
+          "frm": "surface_fight",
+          "to": "reburrow",
+          "trigger": "200t or target lost"
+        },
+        {
+          "frm": "reburrow",
+          "to": "burrowed_travel",
+          "trigger": "under sand"
+        }
+      ],
+      "animations_required": [
+        "animation.dune_burrower.burrow",
+        "animation.dune_burrower.burst",
+        "animation.dune_burrower.swallow",
+        "animation.dune_burrower.walk",
+        "animation.dune_burrower.attack"
+      ],
+      "animations_existing": [
+        "animation.dune_burrower.idle",
+        "animation.dune_burrower.walk"
+      ],
+      "mechanics": [
+        "While burrowed: noPhysics through sand-tagged blocks, invisible, ripple particles",
+        "Swallow: player riding mob, invisible, 2 dmg/s for 2 s"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/dune_burrower",
+      "drops": [
+        {
+          "item": "zerog_tweaks:burrower_steak",
+          "item_name": "Burrower Steak",
+          "min": 1,
+          "max": 3,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:burrower_scale",
+          "item_name": "Burrower Scale",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:star_map_fragment",
+          "item_name": "Star Map Fragment",
+          "min": 1,
+          "max": 1,
+          "chance": 0.05,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": true
+        }
+      ],
+      "spawn_egg": {
+        "base": "#D8C090",
+        "spots": "#F0E6D0",
+        "item": "zerog_tweaks:dune_burrower_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/dune_burrower.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/dune_burrower.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/dune_burrower.png",
+        "glowmask": null,
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/09_dune_burrower.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:wasteland_dune_seas zerog_tweaks:wasteland_mesa_canyons zerog_tweaks:wasteland_salt_flats",
+          "weight": 40,
+          "min_group": 1,
+          "max_group": 2,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_wasteland_desert.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:ash_strider",
+      "key": "ash_strider",
+      "name": "Ash Strider",
+      "sheet": "10_ash_strider.png",
+      "galaxy": 0,
+      "world": "Volcanic wasteland",
+      "role": "neutral",
+      "dimensions": [
+        "zerog_tweaks:g2_p1",
+        "zerog_tweaks:g2_p2",
+        "zerog_tweaks:g2_p3",
+        "zerog_tweaks:g2_p4",
+        "zerog_tweaks:g2_p5",
+        "zerog_tweaks:g2_p6",
+        "zerog_tweaks:g3_p1",
+        "zerog_tweaks:g3_p2",
+        "zerog_tweaks:g3_p3",
+        "zerog_tweaks:g3_p4",
+        "zerog_tweaks:g3_p5",
+        "zerog_tweaks:g3_p6",
+        "zerog_tweaks:g4_p1",
+        "zerog_tweaks:g4_p2",
+        "zerog_tweaks:g4_p3",
+        "zerog_tweaks:g4_p4",
+        "zerog_tweaks:g4_p5",
+        "zerog_tweaks:g4_p6",
+        "zerog_tweaks:g5_p1",
+        "zerog_tweaks:g5_p2",
+        "zerog_tweaks:g5_p3",
+        "zerog_tweaks:g5_p4",
+        "zerog_tweaks:g5_p5",
+        "zerog_tweaks:g5_p6",
+        "(any slot rolled as volcanic)"
+      ],
+      "mob_category": "CREATURE",
+      "java_base": "Animal + NeutralMob + ItemSteerable (Strider pattern)",
+      "hitbox_width": 1.0,
+      "hitbox_height": 1.9,
+      "hitbox_length": null,
+      "max_health": 30,
+      "attack_damage": 6,
+      "damage_text": "6 stomp",
+      "movement_speed": 0.25,
+      "speed_class": "medium",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": "zerog_tweaks:cinder_cap",
+      "interactions": [],
+      "immunities": [
+        "fire",
+        "lava"
+      ],
+      "behavior": "Wades across lava lakes; rideable with a saddle, making it the lava crossing mount",
+      "spawns_text": "Volcanic wastelands",
+      "drops_text": "Heatproof Plating (rare), ash 1\u20133",
+      "design_notes": [
+        "Vents on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "MeleeAttackGoal (angry)",
+        "HurtByTargetGoal",
+        "BreedGoal",
+        "TemptGoal(cinder_cap)",
+        "StriderGoToLavaGoal-like",
+        "WaterAvoidingRandomStrollGoal",
+        "LookAtPlayerGoal"
+      ],
+      "states": [
+        "wading",
+        "walking",
+        "saddled",
+        "ridden",
+        "angry"
+      ],
+      "transitions": [
+        {
+          "frm": "wading",
+          "to": "walking",
+          "trigger": "leaves lava"
+        },
+        {
+          "frm": "walking",
+          "to": "wading",
+          "trigger": "enters lava"
+        },
+        {
+          "frm": "wading",
+          "to": "saddled",
+          "trigger": "saddle"
+        },
+        {
+          "frm": "walking",
+          "to": "saddled",
+          "trigger": "saddle"
+        },
+        {
+          "frm": "saddled",
+          "to": "ridden",
+          "trigger": "player mounts"
+        },
+        {
+          "frm": "ridden",
+          "to": "saddled",
+          "trigger": "dismount"
+        },
+        {
+          "frm": "wading",
+          "to": "angry",
+          "trigger": "hurt"
+        },
+        {
+          "frm": "walking",
+          "to": "angry",
+          "trigger": "hurt"
+        },
+        {
+          "frm": "angry",
+          "to": "walking",
+          "trigger": "anger timer ends"
+        }
+      ],
+      "animations_required": [
+        "animation.ash_strider.idle",
+        "animation.ash_strider.walk",
+        "animation.ash_strider.stomp"
+      ],
+      "animations_existing": [
+        "animation.ash_strider.idle",
+        "animation.ash_strider.walk"
+      ],
+      "mechanics": [
+        "Walks on lava: canStandOnFluid(lava) = true (copy Strider)",
+        "Rideable with saddle; steer with a cinder_cap on a stick is optional"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/ash_strider",
+      "drops": [
+        {
+          "item": "zerog_tweaks:heatproof_plating",
+          "item_name": "Heatproof Plating",
+          "min": 1,
+          "max": 1,
+          "chance": 0.08,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": true
+        }
+      ],
+      "spawn_egg": {
+        "base": "#1A1A1A",
+        "spots": "#FF8A2A",
+        "item": "zerog_tweaks:ash_strider_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/ash_strider.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/ash_strider.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/ash_strider.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/ash_strider_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/10_ash_strider.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:wasteland_basalt_fields zerog_tweaks:wasteland_ash_plains zerog_tweaks:wasteland_lava_lakes",
+          "weight": 50,
+          "min_group": 1,
+          "max_group": 3,
+          "category": "CREATURE",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_wasteland_volcanic.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:rime_stalker",
+      "key": "rime_stalker",
+      "name": "Rime Stalker",
+      "sheet": "11_rime_stalker.png",
+      "galaxy": 0,
+      "world": "Frozen wasteland",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:g2_p1",
+        "zerog_tweaks:g2_p2",
+        "zerog_tweaks:g2_p3",
+        "zerog_tweaks:g2_p4",
+        "zerog_tweaks:g2_p5",
+        "zerog_tweaks:g2_p6",
+        "zerog_tweaks:g3_p1",
+        "zerog_tweaks:g3_p2",
+        "zerog_tweaks:g3_p3",
+        "zerog_tweaks:g3_p4",
+        "zerog_tweaks:g3_p5",
+        "zerog_tweaks:g3_p6",
+        "zerog_tweaks:g4_p1",
+        "zerog_tweaks:g4_p2",
+        "zerog_tweaks:g4_p3",
+        "zerog_tweaks:g4_p4",
+        "zerog_tweaks:g4_p5",
+        "zerog_tweaks:g4_p6",
+        "zerog_tweaks:g5_p1",
+        "zerog_tweaks:g5_p2",
+        "zerog_tweaks:g5_p3",
+        "zerog_tweaks:g5_p4",
+        "zerog_tweaks:g5_p5",
+        "zerog_tweaks:g5_p6",
+        "(any slot rolled as frozen)"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster",
+      "hitbox_width": 0.8,
+      "hitbox_height": 1.0,
+      "hitbox_length": null,
+      "max_health": 24,
+      "attack_damage": 5,
+      "damage_text": "5, plus Freezing",
+      "movement_speed": 0.33,
+      "speed_class": "fast",
+      "flying_speed": null,
+      "follow_range": 24,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [
+        "freezing"
+      ],
+      "behavior": "Stalks from behind; only visible within 8 blocks during blizzards",
+      "spawns_text": "Frozen wastelands; summoned by the Frost Warden",
+      "drops_text": "Cryo Core (rare), Frost pelt",
+      "design_notes": [
+        "Spines on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "StalkFromBehindGoal (custom: approach outside player view cone)",
+        "MeleeAttackGoal",
+        "WaterAvoidingRandomStrollGoal",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "stalking",
+        "hidden_in_blizzard",
+        "attacking"
+      ],
+      "transitions": [
+        {
+          "frm": "stalking",
+          "to": "hidden_in_blizzard",
+          "trigger": "snowfall and player > 8 blocks"
+        },
+        {
+          "frm": "hidden_in_blizzard",
+          "to": "stalking",
+          "trigger": "player within 8 / weather clears"
+        },
+        {
+          "frm": "stalking",
+          "to": "attacking",
+          "trigger": "behind target, in range"
+        },
+        {
+          "frm": "hidden_in_blizzard",
+          "to": "attacking",
+          "trigger": "behind target, in range"
+        },
+        {
+          "frm": "attacking",
+          "to": "stalking",
+          "trigger": "target turns to face it"
+        }
+      ],
+      "animations_required": [
+        "animation.rime_stalker.idle",
+        "animation.rime_stalker.walk",
+        "animation.rime_stalker.pounce",
+        "animation.rime_stalker.attack"
+      ],
+      "animations_existing": [
+        "animation.rime_stalker.idle",
+        "animation.rime_stalker.walk"
+      ],
+      "mechanics": [
+        "During snowfall: invisible to players more than 8 blocks away (client-side render check)",
+        "Hit adds 100 frozen ticks (setTicksFrozen)"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/rime_stalker",
+      "drops": [
+        {
+          "item": "zerog_tweaks:frost_pelt",
+          "item_name": "Frost Pelt",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:cryo_core",
+          "item_name": "Cryo Core",
+          "min": 1,
+          "max": 1,
+          "chance": 0.06,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": true
+        }
+      ],
+      "spawn_egg": {
+        "base": "#DCE6EC",
+        "spots": "#7AE8FF",
+        "item": "zerog_tweaks:rime_stalker_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/rime_stalker.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/rime_stalker.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/rime_stalker.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/rime_stalker_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/11_rime_stalker.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:wasteland_glaciers zerog_tweaks:wasteland_ice_spike_forest zerog_tweaks:wasteland_frozen_canyons",
+          "weight": 50,
+          "min_group": 1,
+          "max_group": 2,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_wasteland_frozen.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:bog_lurker",
+      "key": "bog_lurker",
+      "name": "Bog Lurker",
+      "sheet": "12_bog_lurker.png",
+      "galaxy": 0,
+      "world": "Toxic wasteland",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:g2_p1",
+        "zerog_tweaks:g2_p2",
+        "zerog_tweaks:g2_p3",
+        "zerog_tweaks:g2_p4",
+        "zerog_tweaks:g2_p5",
+        "zerog_tweaks:g2_p6",
+        "zerog_tweaks:g3_p1",
+        "zerog_tweaks:g3_p2",
+        "zerog_tweaks:g3_p3",
+        "zerog_tweaks:g3_p4",
+        "zerog_tweaks:g3_p5",
+        "zerog_tweaks:g3_p6",
+        "zerog_tweaks:g4_p1",
+        "zerog_tweaks:g4_p2",
+        "zerog_tweaks:g4_p3",
+        "zerog_tweaks:g4_p4",
+        "zerog_tweaks:g4_p5",
+        "zerog_tweaks:g4_p6",
+        "zerog_tweaks:g5_p1",
+        "zerog_tweaks:g5_p2",
+        "zerog_tweaks:g5_p3",
+        "zerog_tweaks:g5_p4",
+        "zerog_tweaks:g5_p5",
+        "zerog_tweaks:g5_p6",
+        "(any slot rolled as toxic)"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster (amphibious, Drowned-like navigation)",
+      "hitbox_width": 1.0,
+      "hitbox_height": 0.7,
+      "hitbox_length": 1.4,
+      "max_health": 28,
+      "attack_damage": 5,
+      "damage_text": "5, and spits acid (Poison II, 4 s)",
+      "movement_speed": 0.2,
+      "speed_class": "slow",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [
+        "zerog_tweaks:acid",
+        "poison"
+      ],
+      "behavior": "Lies submerged in Acid with only eyes showing",
+      "spawns_text": "Toxic wastelands",
+      "drops_text": "Lurker Leg 1\u20132, Venom Gland 0\u20131, Neutralizer (rare)",
+      "design_notes": [
+        "Sacs and eyes on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal (not in acid)",
+        "SubmergeGoal (custom: sit in acid with eyes above surface)",
+        "RangedAttackGoal (acid spit, Poison II 80t)",
+        "MeleeAttackGoal",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "submerged",
+        "surfacing",
+        "spitting",
+        "crawling"
+      ],
+      "transitions": [
+        {
+          "frm": "submerged",
+          "to": "surfacing",
+          "trigger": "target near acid edge"
+        },
+        {
+          "frm": "surfacing",
+          "to": "spitting",
+          "trigger": "target in 10 blocks"
+        },
+        {
+          "frm": "spitting",
+          "to": "crawling",
+          "trigger": "target on land, close"
+        },
+        {
+          "frm": "crawling",
+          "to": "submerged",
+          "trigger": "back in acid"
+        },
+        {
+          "frm": "spitting",
+          "to": "submerged",
+          "trigger": "target lost"
+        }
+      ],
+      "animations_required": [
+        "animation.bog_lurker.idle",
+        "animation.bog_lurker.walk",
+        "animation.bog_lurker.swim",
+        "animation.bog_lurker.spit"
+      ],
+      "animations_existing": [
+        "animation.bog_lurker.idle",
+        "animation.bog_lurker.walk"
+      ],
+      "mechanics": [
+        "Speed x2.5 while in zerog_tweaks:acid fluid",
+        "Immune to acid damage type"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/bog_lurker",
+      "drops": [
+        {
+          "item": "zerog_tweaks:lurker_leg",
+          "item_name": "Lurker Leg",
+          "min": 1,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:venom_gland",
+          "item_name": "Venom Gland",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:neutralizer",
+          "item_name": "Neutralizer",
+          "min": 1,
+          "max": 1,
+          "chance": 0.06,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": true
+        }
+      ],
+      "spawn_egg": {
+        "base": "#4A5A3A",
+        "spots": "#E8FF80",
+        "item": "zerog_tweaks:bog_lurker_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/bog_lurker.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/bog_lurker.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/bog_lurker.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/bog_lurker_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/12_bog_lurker.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:wasteland_acid_swamps zerog_tweaks:wasteland_mud_flats zerog_tweaks:wasteland_moss_bogs",
+          "weight": 50,
+          "min_group": 1,
+          "max_group": 2,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_wasteland_toxic.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:crater_drifter",
+      "key": "crater_drifter",
+      "name": "Crater Drifter",
+      "sheet": "13_crater_drifter.png",
+      "galaxy": 0,
+      "world": "Barren wasteland",
+      "role": "neutral",
+      "dimensions": [
+        "zerog_tweaks:g2_p1",
+        "zerog_tweaks:g2_p2",
+        "zerog_tweaks:g2_p3",
+        "zerog_tweaks:g2_p4",
+        "zerog_tweaks:g2_p5",
+        "zerog_tweaks:g2_p6",
+        "zerog_tweaks:g3_p1",
+        "zerog_tweaks:g3_p2",
+        "zerog_tweaks:g3_p3",
+        "zerog_tweaks:g3_p4",
+        "zerog_tweaks:g3_p5",
+        "zerog_tweaks:g3_p6",
+        "zerog_tweaks:g4_p1",
+        "zerog_tweaks:g4_p2",
+        "zerog_tweaks:g4_p3",
+        "zerog_tweaks:g4_p4",
+        "zerog_tweaks:g4_p5",
+        "zerog_tweaks:g4_p6",
+        "zerog_tweaks:g5_p1",
+        "zerog_tweaks:g5_p2",
+        "zerog_tweaks:g5_p3",
+        "zerog_tweaks:g5_p4",
+        "zerog_tweaks:g5_p5",
+        "zerog_tweaks:g5_p6",
+        "(any slot rolled as barren)",
+        "zerog_tweaks:g2_moons",
+        "zerog_tweaks:g3_moons",
+        "zerog_tweaks:g4_moons",
+        "zerog_tweaks:g5_moons"
+      ],
+      "mob_category": "CREATURE",
+      "java_base": "FlyingMob + NeutralMob (Ghast-like drift, small)",
+      "hitbox_width": 0.8,
+      "hitbox_height": 1.4,
+      "hitbox_length": null,
+      "max_health": 20,
+      "attack_damage": 4,
+      "damage_text": "None unless hit, then 4",
+      "movement_speed": 0.2,
+      "speed_class": "slow",
+      "flying_speed": 0.3,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [],
+      "behavior": "Floats over craters; drops Meteorite Fragments as it drifts. Attacking one makes nearby drifters swarm",
+      "spawns_text": "Barren wastelands",
+      "drops_text": "Stardust 1\u20132, Meteorite Fragment",
+      "design_notes": [
+        "Fissure on the emissive layer.",
+        "Bobs up and down (2 s cycle)."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "DriftGoal (custom: random float 4-10 blocks above ground)",
+        "MeleeAttackGoal (angry)",
+        "HurtByTargetGoal (alert others in 16)",
+        "DropFragmentGoal (custom: drop meteorite_fragment item every 6000t)"
+      ],
+      "states": [
+        "drifting",
+        "swarming"
+      ],
+      "transitions": [
+        {
+          "frm": "drifting",
+          "to": "swarming",
+          "trigger": "this or nearby drifter hurt"
+        },
+        {
+          "frm": "swarming",
+          "to": "drifting",
+          "trigger": "anger timer ends"
+        }
+      ],
+      "animations_required": [
+        "animation.crater_drifter.float",
+        "animation.crater_drifter.attack"
+      ],
+      "animations_existing": [
+        "animation.crater_drifter.idle",
+        "animation.crater_drifter.walk"
+      ],
+      "mechanics": [
+        "No gravity (setNoGravity); bob 2 s cycle in animation only"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/crater_drifter",
+      "drops": [
+        {
+          "item": "zerog_tweaks:stardust",
+          "item_name": "Stardust",
+          "min": 1,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#3A3A3A",
+        "spots": "#CFCFCF",
+        "item": "zerog_tweaks:crater_drifter_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/crater_drifter.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/crater_drifter.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/crater_drifter.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/crater_drifter_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/13_crater_drifter.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "wing_right",
+        "tendril0",
+        "tendril1",
+        "tendril2",
+        "tendril3",
+        "tendril4",
+        "tendril5"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:wasteland_cratered_plains zerog_tweaks:wasteland_dust_badlands zerog_tweaks:wasteland_canyon_scars",
+          "weight": 50,
+          "min_group": 1,
+          "max_group": 3,
+          "category": "CREATURE",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_wasteland_barren.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:prism_sentinel",
+      "key": "prism_sentinel",
+      "name": "Prism Sentinel",
+      "sheet": "14_prism_sentinel.png",
+      "galaxy": 2,
+      "world": "Galaxy 2 key world",
+      "role": "boss",
+      "dimensions": [
+        "(Galaxy 2 key world arena)"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster + ServerBossEvent (cyan) ; no natural spawn",
+      "hitbox_width": 2.0,
+      "hitbox_height": 2.4,
+      "hitbox_length": null,
+      "max_health": 300,
+      "attack_damage": 10,
+      "damage_text": "Light beams 10; shard spin 8",
+      "movement_speed": 0.2,
+      "speed_class": "slow",
+      "flying_speed": null,
+      "follow_range": 48,
+      "armor": 15,
+      "knockback_resistance": 1.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [],
+      "behavior": "1: beams bounce off the orbiting shards. 2: shards break loose and circle the arena. 3: core cracks open, and hits to the heart light deal double",
+      "spawns_text": "Crystal amphitheater on Galaxy 2's key world",
+      "drops_text": "Galaxy 3 gate key, Cerulite 4\u20136, Sentinel Prism (T3 lens upgrade)",
+      "design_notes": [
+        "Shards orbit on a 4 s loop around the core.",
+        "Core and shards on the emissive layer; boss bar cyan.",
+        "Test, not a hunt: Opens by asking \"Are you Concord?\" in the chat; beaten, it names you an heir"
+      ],
+      "goals_in_priority_order": [
+        "BeamAttackGoal (custom: 10 dmg beams reflecting off orbiting shards)",
+        "ShardSpinGoal (8 dmg, phase 2)",
+        "StayInArenaGoal"
+      ],
+      "states": [
+        "dialogue (\"Are you Concord?\")",
+        "phase1 beams",
+        "phase2 shards loose",
+        "phase3 core open (x2 damage to heart)",
+        "defeated (names you heir)"
+      ],
+      "transitions": [
+        {
+          "frm": "dialogue (\"Are you Concord?\")",
+          "to": "phase1 beams",
+          "trigger": "player answers / attacks"
+        },
+        {
+          "frm": "phase1 beams",
+          "to": "phase2 shards loose",
+          "trigger": "health < 66%"
+        },
+        {
+          "frm": "phase2 shards loose",
+          "to": "phase3 core open (x2 damage to heart)",
+          "trigger": "health < 33%"
+        },
+        {
+          "frm": "phase3 core open (x2 damage to heart)",
+          "to": "defeated (names you heir)",
+          "trigger": "health 0"
+        },
+        {
+          "frm": "defeated (names you heir)",
+          "to": "[removed]",
+          "trigger": "heir granted"
+        }
+      ],
+      "animations_required": [
+        "animation.prism_sentinel.idle",
+        "animation.prism_sentinel.beam",
+        "animation.prism_sentinel.shard_spin",
+        "animation.prism_sentinel.core_open",
+        "animation.prism_sentinel.death"
+      ],
+      "animations_existing": [
+        "animation.prism_sentinel.idle",
+        "animation.prism_sentinel.walk"
+      ],
+      "mechanics": [
+        "Phase thresholds 66% / 33%",
+        "Chat line on start and on defeat (translatable)",
+        "Drops galaxy_3_gate_key, cerulite 4-6, sentinel_prism, cerulite template"
+      ],
+      "boss": {
+        "bar_color": "BLUE",
+        "phases": 3
+      },
+      "loot_table": "zerog_tweaks:entities/prism_sentinel",
+      "drops": [
+        {
+          "item": "zerog_tweaks:galaxy_3_gate_key",
+          "item_name": "Galaxy 3 Gate Key",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:cerulite",
+          "item_name": "Cerulite",
+          "min": 4,
+          "max": 6,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:sentinel_prism",
+          "item_name": "Sentinel Prism",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:cerulite_upgrade_smithing_template",
+          "item_name": "Cerulite Upgrade Smithing Template",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#3FC9E8",
+        "spots": "#E0DCB8",
+        "item": "zerog_tweaks:prism_sentinel_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/prism_sentinel.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/prism_sentinel.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/prism_sentinel.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/prism_sentinel_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/14_prism_sentinel.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "orbit"
+      ],
+      "spawns": []
+    },
+    {
+      "id": "zerog_tweaks:rift_tyrant",
+      "key": "rift_tyrant",
+      "name": "Rift Tyrant",
+      "sheet": "15_rift_tyrant.png",
+      "galaxy": 3,
+      "world": "Galaxy 3 key world",
+      "role": "boss",
+      "dimensions": [
+        "(Galaxy 3 key world arena)"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster + ServerBossEvent (purple) ; no natural spawn",
+      "hitbox_width": 2.4,
+      "hitbox_height": 2.4,
+      "hitbox_length": 3.2,
+      "max_health": 450,
+      "attack_damage": 16,
+      "damage_text": "Claw 16; rift pull drags you toward the rift",
+      "movement_speed": 0.25,
+      "speed_class": "medium",
+      "flying_speed": null,
+      "follow_range": 48,
+      "armor": 18,
+      "knockback_resistance": 1.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [],
+      "behavior": "1: charges and claws. 2: rift pulls chunks of the arena into the void. 3: spines fire void shards",
+      "spawns_text": "Fractured island over the void on Galaxy 3's key world",
+      "drops_text": "Galaxy 4 gate key, Skarnite 4\u20136, Rift Heart",
+      "design_notes": [
+        "Arena blocks near the rift fall away over the fight.",
+        "Cracks, spines and eyes on the emissive layer; boss bar violet.",
+        "Lore: Vael's lieutenant, fused into the rift he helped tear open"
+      ],
+      "goals_in_priority_order": [
+        "ChargeGoal",
+        "ClawGoal (16 dmg)",
+        "RiftPullGoal (pull players toward rift, remove arena blocks)",
+        "VoidShardVolleyGoal (phase 3)"
+      ],
+      "states": [
+        "phase1 charge/claw",
+        "phase2 rift pull (arena crumbles)",
+        "phase3 void shards",
+        "defeated"
+      ],
+      "transitions": [
+        {
+          "frm": "phase1 charge/claw",
+          "to": "phase2 rift pull (arena crumbles)",
+          "trigger": "health < 66%"
+        },
+        {
+          "frm": "phase2 rift pull (arena crumbles)",
+          "to": "phase3 void shards",
+          "trigger": "health < 33%"
+        },
+        {
+          "frm": "phase3 void shards",
+          "to": "defeated",
+          "trigger": "health 0"
+        },
+        {
+          "frm": "defeated",
+          "to": "[removed]",
+          "trigger": ""
+        }
+      ],
+      "animations_required": [
+        "animation.rift_tyrant.idle",
+        "animation.rift_tyrant.walk",
+        "animation.rift_tyrant.charge",
+        "animation.rift_tyrant.claw",
+        "animation.rift_tyrant.roar",
+        "animation.rift_tyrant.shard_volley",
+        "animation.rift_tyrant.death"
+      ],
+      "animations_existing": [
+        "animation.rift_tyrant.idle",
+        "animation.rift_tyrant.walk"
+      ],
+      "mechanics": [
+        "Arena block removal: only blocks tagged zerog_tweaks:rift_arena (new tag), restore on reset",
+        "Void damage type zerog_tweaks:void_rift for pull-into-void"
+      ],
+      "boss": {
+        "bar_color": "PURPLE",
+        "phases": 3
+      },
+      "loot_table": "zerog_tweaks:entities/rift_tyrant",
+      "drops": [
+        {
+          "item": "zerog_tweaks:galaxy_4_gate_key",
+          "item_name": "Galaxy 4 Gate Key",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:skarnite",
+          "item_name": "Skarnite",
+          "min": 4,
+          "max": 6,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:rift_heart",
+          "item_name": "Rift Heart",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:skarnite_upgrade_smithing_template",
+          "item_name": "Skarnite Upgrade Smithing Template",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#2E2624",
+        "spots": "#B48CFF",
+        "item": "zerog_tweaks:rift_tyrant_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/rift_tyrant.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/rift_tyrant.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/rift_tyrant.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/rift_tyrant_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/15_rift_tyrant.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "leg0",
+        "leg1"
+      ],
+      "spawns": []
+    },
+    {
+      "id": "zerog_tweaks:eidolon_captain",
+      "key": "eidolon_captain",
+      "name": "Eidolon Captain",
+      "sheet": "16_eidolon_captain.png",
+      "galaxy": 4,
+      "world": "Galaxy 4 key world",
+      "role": "boss",
+      "dimensions": [
+        "(Galaxy 4 key world arena)"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster + ServerBossEvent (white) ; no natural spawn",
+      "hitbox_width": 0.9,
+      "hitbox_height": 2.6,
+      "hitbox_length": null,
+      "max_health": 400,
+      "attack_damage": 13,
+      "damage_text": "Cutlass 13; lantern beam chills",
+      "movement_speed": 0.25,
+      "speed_class": "medium",
+      "flying_speed": null,
+      "follow_range": 48,
+      "armor": 14,
+      "knockback_resistance": 0.9,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [],
+      "behavior": "1: duels with the cutlass. 2: calls Hollow Crewmen. 3: fleet lantern freezes the deck",
+      "spawns_text": "Flagship deck on Galaxy 4's key world",
+      "drops_text": "Galaxy 5 gate key, Eidolite 4\u20136; Captain's Lantern if spared",
+      "design_notes": [
+        "Whole body at 80% opacity; legs fade to 40%.",
+        "Eyes, lantern and blade on the emissive layer; boss bar pale blue.",
+        "Peaceful ending: Show him the crew's final log (enough Remnant Shards) and he yields without a fight"
+      ],
+      "goals_in_priority_order": [
+        "DuelGoal (cutlass 13)",
+        "SummonCrewGoal (phase 2: Hollow Crewmen = new entity or Shattered Skies Hollow Sentinel)",
+        "LanternFreezeGoal (phase 3: freeze deck)"
+      ],
+      "states": [
+        "waiting",
+        "parley (holding enough remnant_shard)",
+        "phase1 duel",
+        "phase2 crew",
+        "phase3 lantern",
+        "yielded",
+        "defeated"
+      ],
+      "transitions": [
+        {
+          "frm": "waiting",
+          "to": "parley (holding enough remnant_shard)",
+          "trigger": "player right-clicks holding 16 remnant_shard"
+        },
+        {
+          "frm": "waiting",
+          "to": "phase1 duel",
+          "trigger": "player attacks / enters deck without shards"
+        },
+        {
+          "frm": "parley (holding enough remnant_shard)",
+          "to": "yielded",
+          "trigger": "reads final log"
+        },
+        {
+          "frm": "phase1 duel",
+          "to": "phase2 crew",
+          "trigger": "health < 66%"
+        },
+        {
+          "frm": "phase2 crew",
+          "to": "phase3 lantern",
+          "trigger": "health < 33%"
+        },
+        {
+          "frm": "phase3 lantern",
+          "to": "defeated",
+          "trigger": "health 0"
+        },
+        {
+          "frm": "yielded",
+          "to": "[removed]",
+          "trigger": "key + captains_lantern"
+        },
+        {
+          "frm": "defeated",
+          "to": "[removed]",
+          "trigger": "key"
+        }
+      ],
+      "animations_required": [
+        "animation.eidolon_captain.idle",
+        "animation.eidolon_captain.walk",
+        "animation.eidolon_captain.slash",
+        "animation.eidolon_captain.summon",
+        "animation.eidolon_captain.lantern",
+        "animation.eidolon_captain.yield",
+        "animation.eidolon_captain.death"
+      ],
+      "animations_existing": [
+        "animation.eidolon_captain.idle",
+        "animation.eidolon_captain.walk"
+      ],
+      "mechanics": [
+        "Right-click with >= 16 remnant_shard before combat: peaceful path, drops key + captains_lantern",
+        "Render at 80% alpha, legs 40% (translucent render type)"
+      ],
+      "boss": {
+        "bar_color": "WHITE",
+        "phases": 3
+      },
+      "loot_table": "zerog_tweaks:entities/eidolon_captain",
+      "drops": [
+        {
+          "item": "zerog_tweaks:galaxy_5_gate_key",
+          "item_name": "Galaxy 5 Gate Key",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:eidolite",
+          "item_name": "Eidolite",
+          "min": 4,
+          "max": 6,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:eidolite_upgrade_smithing_template",
+          "item_name": "Eidolite Upgrade Smithing Template",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#2A4050",
+        "spots": "#C4E0EC",
+        "item": "zerog_tweaks:eidolon_captain_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/eidolon_captain.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/eidolon_captain.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/eidolon_captain.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/eidolon_captain_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/16_eidolon_captain.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "leg0"
+      ],
+      "spawns": []
+    },
+    {
+      "id": "zerog_tweaks:dying_star",
+      "key": "dying_star",
+      "name": "The Dying Star",
+      "sheet": "17_dying_star.png",
+      "galaxy": 5,
+      "world": "Solvane (orbit arena)",
+      "role": "final_boss",
+      "dimensions": [
+        "(Solvane orbital ring arena)"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "FlyingMob + ServerBossEvent (yellow->white) ; no natural spawn",
+      "hitbox_width": 3.6,
+      "hitbox_height": 3.6,
+      "hitbox_length": null,
+      "max_health": 900,
+      "attack_damage": 20,
+      "damage_text": "Solar flare 20; falling stars 12",
+      "movement_speed": 0.2,
+      "speed_class": "slow",
+      "flying_speed": 0.4,
+      "follow_range": 64,
+      "armor": 20,
+      "knockback_resistance": 1.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [],
+      "behavior": "1: Vael fights from the surface. 2: corona rays sweep the arena. 3: the star collapses, the core opens and the arena shrinks",
+      "spawns_text": "Floating ring platform above Solvane",
+      "drops_text": "Heart of Solvane, Solvanite 6\u20138, T6 crown",
+      "design_notes": [
+        "Rays rotate slowly; the body pulses brighter as health drops.",
+        "Everything but Vael emissive; boss bar gold to white.",
+        "Ending: Heart of Solvane drops; each player chooses Rekindle or Let it fade"
+      ],
+      "goals_in_priority_order": [
+        "SolarFlareGoal (20 dmg)",
+        "CoronaRaySweepGoal (phase 2)",
+        "FallingStarsGoal (12 dmg)",
+        "CollapseGoal (phase 3: arena shrink)"
+      ],
+      "states": [
+        "phase1 Vael on surface",
+        "phase2 corona rays",
+        "phase3 collapse",
+        "defeated (ending choice)"
+      ],
+      "transitions": [
+        {
+          "frm": "phase1 Vael on surface",
+          "to": "phase2 corona rays",
+          "trigger": "health < 66%"
+        },
+        {
+          "frm": "phase2 corona rays",
+          "to": "phase3 collapse",
+          "trigger": "health < 33%"
+        },
+        {
+          "frm": "phase3 collapse",
+          "to": "defeated (ending choice)",
+          "trigger": "health 0"
+        },
+        {
+          "frm": "defeated (ending choice)",
+          "to": "[removed]",
+          "trigger": "Heart of Solvane: choose ending"
+        }
+      ],
+      "animations_required": [
+        "animation.dying_star.idle",
+        "animation.dying_star.flare",
+        "animation.dying_star.sweep",
+        "animation.dying_star.collapse",
+        "animation.dying_star.death"
+      ],
+      "animations_existing": [
+        "animation.dying_star.idle",
+        "animation.dying_star.walk"
+      ],
+      "mechanics": [
+        "Drops heart_of_solvane; each player chooses Rekindle / Let it fade (Codex screen)",
+        "Brightness pulse scales with missing health"
+      ],
+      "boss": {
+        "bar_color": "YELLOW",
+        "phases": 3
+      },
+      "loot_table": "zerog_tweaks:entities/dying_star",
+      "drops": [
+        {
+          "item": "zerog_tweaks:heart_of_solvane",
+          "item_name": "Heart of Solvane",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:solvanite",
+          "item_name": "Solvanite",
+          "min": 6,
+          "max": 8,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:solvanite_upgrade_smithing_template",
+          "item_name": "Solvanite Upgrade Smithing Template",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#F08A14",
+        "spots": "#FFF0A0",
+        "item": "zerog_tweaks:dying_star_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/dying_star.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/dying_star.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/dying_star.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/dying_star_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/17_dying_star.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "orbit"
+      ],
+      "spawns": []
+    },
+    {
+      "id": "zerog_tweaks:moon_hopper",
+      "key": "moon_hopper",
+      "name": "Moon Hopper",
+      "sheet": "18_moon_hopper.png",
+      "galaxy": 1,
+      "world": "Moon",
+      "role": "passive",
+      "dimensions": [
+        "zerog_tweaks:moon"
+      ],
+      "mob_category": "CREATURE",
+      "java_base": "Animal (Rabbit pattern: JumpControl + RabbitMoveControl)",
+      "hitbox_width": 0.5,
+      "hitbox_height": 0.6,
+      "hitbox_length": null,
+      "max_health": 6,
+      "attack_damage": 0,
+      "damage_text": "None",
+      "movement_speed": 0.25,
+      "speed_class": "medium",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": "zerog_tweaks:lunar_lichen",
+      "interactions": [],
+      "immunities": [],
+      "behavior": "Hops up to 4 blocks high in Moon gravity; flees when hit",
+      "spawns_text": "Moon surface, groups of 2\u20134",
+      "drops_text": "Hopper Meat 0\u20132, Hopper Fluff 1\u20132",
+      "design_notes": [
+        "Jump animation: hind feet stretch, ears fold back.",
+        "Eyes on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "PanicGoal(2.2)",
+        "BreedGoal",
+        "TemptGoal(lunar_lichen)",
+        "AvoidEntityGoal<Player> (when not tempted)",
+        "WaterAvoidingRandomStrollGoal",
+        "LookAtPlayerGoal"
+      ],
+      "states": [
+        "hopping",
+        "grazing",
+        "fleeing"
+      ],
+      "transitions": [
+        {
+          "frm": "hopping",
+          "to": "grazing",
+          "trigger": "finds lunar_lichen"
+        },
+        {
+          "frm": "grazing",
+          "to": "hopping",
+          "trigger": "random"
+        },
+        {
+          "frm": "hopping",
+          "to": "fleeing",
+          "trigger": "hurt / player close"
+        },
+        {
+          "frm": "grazing",
+          "to": "fleeing",
+          "trigger": "hurt"
+        },
+        {
+          "frm": "fleeing",
+          "to": "hopping",
+          "trigger": "safe"
+        }
+      ],
+      "animations_required": [
+        "animation.moon_hopper.idle",
+        "animation.moon_hopper.hop",
+        "animation.moon_hopper.graze"
+      ],
+      "animations_existing": [
+        "animation.moon_hopper.idle",
+        "animation.moon_hopper.walk"
+      ],
+      "mechanics": [
+        "Jump power scaled so it clears ~4 blocks at Moon gravity (0.5x)",
+        "No fall damage (causeFallDamage returns false)"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/moon_hopper",
+      "drops": [
+        {
+          "item": "zerog_tweaks:hopper_meat",
+          "item_name": "Hopper Meat",
+          "min": 0,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:hopper_fluff",
+          "item_name": "Hopper Fluff",
+          "min": 1,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#ECEEF2",
+        "spots": "#E8A0B0",
+        "item": "zerog_tweaks:moon_hopper_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/moon_hopper.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/moon_hopper.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/moon_hopper.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/moon_hopper_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/18_moon_hopper.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:lunar_highlands zerog_tweaks:lunar_mare zerog_tweaks:shadowed_craters",
+          "weight": 10,
+          "min_group": 2,
+          "max_group": 4,
+          "category": "CREATURE",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_moon.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:dust_grazer",
+      "key": "dust_grazer",
+      "name": "Dust Grazer",
+      "sheet": "19_dust_grazer.png",
+      "galaxy": 1,
+      "world": "Mars",
+      "role": "passive",
+      "dimensions": [
+        "zerog_tweaks:mars"
+      ],
+      "mob_category": "CREATURE",
+      "java_base": "Animal (Cow pattern)",
+      "hitbox_width": 1.3,
+      "hitbox_height": 1.4,
+      "hitbox_length": null,
+      "max_health": 24,
+      "attack_damage": 0,
+      "damage_text": "None",
+      "movement_speed": 0.25,
+      "speed_class": "medium",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": "zerog_tweaks:rust_tuber",
+      "interactions": [],
+      "immunities": [],
+      "behavior": "Grazes in herds; the whole herd stampedes if one is hit",
+      "spawns_text": "Mars plains, herds of 3\u20136",
+      "drops_text": "Grazer Steak 1\u20133, Grazer Hide 0\u20132",
+      "design_notes": [
+        "Mane sways in dust storms."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "StampedeGoal (custom: when one is hurt, herd within 12 panics in the same direction)",
+        "PanicGoal(2.0)",
+        "BreedGoal",
+        "TemptGoal(rust_tuber)",
+        "FollowParentGoal",
+        "EatBlockGoal-style graze",
+        "WaterAvoidingRandomStrollGoal",
+        "LookAtPlayerGoal"
+      ],
+      "states": [
+        "grazing",
+        "wandering",
+        "stampeding"
+      ],
+      "transitions": [
+        {
+          "frm": "grazing",
+          "to": "wandering",
+          "trigger": "random"
+        },
+        {
+          "frm": "wandering",
+          "to": "grazing",
+          "trigger": "finds grass-like block"
+        },
+        {
+          "frm": "grazing",
+          "to": "stampeding",
+          "trigger": "any herd member within 12 hurt"
+        },
+        {
+          "frm": "wandering",
+          "to": "stampeding",
+          "trigger": "herd member hurt"
+        },
+        {
+          "frm": "stampeding",
+          "to": "wandering",
+          "trigger": "panic ends (100t)"
+        }
+      ],
+      "animations_required": [
+        "animation.dust_grazer.idle",
+        "animation.dust_grazer.walk",
+        "animation.dust_grazer.run",
+        "animation.dust_grazer.graze"
+      ],
+      "animations_existing": [
+        "animation.dust_grazer.idle",
+        "animation.dust_grazer.walk"
+      ],
+      "mechanics": [
+        "Stampede: entities in the herd trample (1 dmg) anything they run through",
+        "Mane sway animation driven by dust-storm weather flag"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/dust_grazer",
+      "drops": [
+        {
+          "item": "zerog_tweaks:grazer_steak",
+          "item_name": "Grazer Steak",
+          "min": 1,
+          "max": 3,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:grazer_hide",
+          "item_name": "Grazer Hide",
+          "min": 0,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#C4683A",
+        "spots": "#E8D0B0",
+        "item": "zerog_tweaks:dust_grazer_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/dust_grazer.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/dust_grazer.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/dust_grazer.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/dust_grazer_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/19_dust_grazer.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:rust_plains zerog_tweaks:oxide_badlands zerog_tweaks:polar_caps",
+          "weight": 10,
+          "min_group": 3,
+          "max_group": 6,
+          "category": "CREATURE",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_mars.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:azure_fowl",
+      "key": "azure_fowl",
+      "name": "Azure Fowl",
+      "sheet": "20_azure_fowl.png",
+      "galaxy": 2,
+      "world": "Cerulon",
+      "role": "passive",
+      "dimensions": [
+        "zerog_tweaks:cerulon"
+      ],
+      "mob_category": "CREATURE",
+      "java_base": "Animal (Chicken-like)",
+      "hitbox_width": 0.4,
+      "hitbox_height": 0.8,
+      "hitbox_length": null,
+      "max_health": 4,
+      "attack_damage": 0,
+      "damage_text": "None",
+      "movement_speed": 0.25,
+      "speed_class": "medium",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": "zerog_tweaks:skyberries",
+      "interactions": [],
+      "immunities": [],
+      "behavior": "Glides slowly when falling; lays a Blue Egg every 5\u201310 minutes",
+      "spawns_text": "Cerulon moss plains and Shardwood forests",
+      "drops_text": "Raw Fowl 1, Azure Feather 0\u20132",
+      "design_notes": [
+        "Crest on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "PanicGoal(1.4)",
+        "BreedGoal",
+        "TemptGoal(skyberries)",
+        "FollowParentGoal",
+        "WaterAvoidingRandomStrollGoal",
+        "LookAtPlayerGoal"
+      ],
+      "states": [
+        "walking",
+        "gliding",
+        "laying"
+      ],
+      "transitions": [
+        {
+          "frm": "walking",
+          "to": "gliding",
+          "trigger": "falling (not on ground)"
+        },
+        {
+          "frm": "gliding",
+          "to": "walking",
+          "trigger": "lands"
+        },
+        {
+          "frm": "walking",
+          "to": "laying",
+          "trigger": "egg timer 6000-12000t"
+        },
+        {
+          "frm": "laying",
+          "to": "walking",
+          "trigger": "blue_egg dropped"
+        }
+      ],
+      "animations_required": [
+        "animation.azure_fowl.idle",
+        "animation.azure_fowl.walk",
+        "animation.azure_fowl.glide",
+        "animation.azure_fowl.flap"
+      ],
+      "animations_existing": [
+        "animation.azure_fowl.idle",
+        "animation.azure_fowl.walk"
+      ],
+      "mechanics": [
+        "Slow fall like a chicken (cap downward velocity at -0.1 while not on ground)",
+        "Lays blue_egg every 6000-12000 ticks (Chicken eggTime pattern)"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/azure_fowl",
+      "drops": [
+        {
+          "item": "zerog_tweaks:fowl",
+          "item_name": "Raw Fowl",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:azure_feather",
+          "item_name": "Azure Feather",
+          "min": 0,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#4A8AD0",
+        "spots": "#3FC9E8",
+        "item": "zerog_tweaks:azure_fowl_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/azure_fowl.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/azure_fowl.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/azure_fowl.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/azure_fowl_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/20_azure_fowl.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "leg0",
+        "leg1",
+        "wing_left",
+        "wing_right"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:azure_plains zerog_tweaks:crystal_shores zerog_tweaks:shardwood_grove",
+          "weight": 10,
+          "min_group": 2,
+          "max_group": 4,
+          "category": "CREATURE",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_cerulon.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:glimmerfish",
+      "key": "glimmerfish",
+      "name": "Glimmerfish",
+      "sheet": "21_glimmerfish.png",
+      "galaxy": 2,
+      "world": "Cerulon",
+      "role": "passive",
+      "dimensions": [
+        "zerog_tweaks:cerulon"
+      ],
+      "mob_category": "WATER_AMBIENT",
+      "java_base": "AbstractSchoolingFish",
+      "hitbox_width": 0.5,
+      "hitbox_height": 0.4,
+      "hitbox_length": null,
+      "max_health": 3,
+      "attack_damage": 0,
+      "damage_text": "None",
+      "movement_speed": 0.33,
+      "speed_class": "fast",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [
+        "water bucket -> glimmerfish_bucket (new)"
+      ],
+      "immunities": [],
+      "behavior": "Schools of 4\u20138; lights the water around it at night",
+      "spawns_text": "Cerulon lakes and oceans",
+      "drops_text": "Glimmerfish 1, Glimmer Scale 0\u20131 (rare)",
+      "design_notes": [
+        "Scales and fins on the emissive layer.",
+        "Catching: Bucket, or fishing on Cerulon"
+      ],
+      "goals_in_priority_order": [
+        "PanicGoal",
+        "AvoidEntityGoal<Player>",
+        "FollowFlockLeaderGoal",
+        "RandomSwimmingGoal"
+      ],
+      "states": [
+        "schooling",
+        "fleeing",
+        "flopping (out of water)"
+      ],
+      "transitions": [
+        {
+          "frm": "schooling",
+          "to": "fleeing",
+          "trigger": "hurt / player close"
+        },
+        {
+          "frm": "fleeing",
+          "to": "schooling",
+          "trigger": "safe"
+        },
+        {
+          "frm": "schooling",
+          "to": "flopping (out of water)",
+          "trigger": "out of water"
+        },
+        {
+          "frm": "fleeing",
+          "to": "flopping (out of water)",
+          "trigger": "out of water"
+        },
+        {
+          "frm": "flopping (out of water)",
+          "to": "schooling",
+          "trigger": "back in water"
+        }
+      ],
+      "animations_required": [
+        "animation.glimmerfish.swim",
+        "animation.glimmerfish.flop"
+      ],
+      "animations_existing": [
+        "animation.glimmerfish.idle",
+        "animation.glimmerfish.walk"
+      ],
+      "mechanics": [
+        "Bucketable: glimmerfish_bucket (new item)",
+        "At night: emits light via client dynamic light is not vanilla; approximate with glowmask + particles"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/glimmerfish",
+      "drops": [
+        {
+          "item": "zerog_tweaks:glimmerfish",
+          "item_name": "Glimmerfish",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:glimmer_scale",
+          "item_name": "Glimmer Scale",
+          "min": 1,
+          "max": 1,
+          "chance": 0.1,
+          "looting": false,
+          "cooks_if_on_fire": false,
+          "player_kill_only": true
+        }
+      ],
+      "spawn_egg": {
+        "base": "#3FC9E8",
+        "spots": "#B0F2FF",
+        "item": "zerog_tweaks:glimmerfish_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/glimmerfish.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/glimmerfish.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/glimmerfish.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/glimmerfish_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/21_glimmerfish.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "wing_right"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:azure_plains zerog_tweaks:crystal_shores zerog_tweaks:shardwood_grove",
+          "weight": 15,
+          "min_group": 4,
+          "max_group": 8,
+          "category": "WATER_AMBIENT",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_cerulon.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:slag_boar",
+      "key": "slag_boar",
+      "name": "Slag Boar",
+      "sheet": "22_slag_boar.png",
+      "galaxy": 3,
+      "world": "Skarn",
+      "role": "neutral",
+      "dimensions": [
+        "zerog_tweaks:skarn"
+      ],
+      "mob_category": "CREATURE",
+      "java_base": "Animal + NeutralMob",
+      "hitbox_width": 0.9,
+      "hitbox_height": 0.9,
+      "hitbox_length": 1.3,
+      "max_health": 26,
+      "attack_damage": 6,
+      "damage_text": "6 charge, only when provoked",
+      "movement_speed": 0.25,
+      "speed_class": "medium",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": "zerog_tweaks:cinder_cap",
+      "interactions": [],
+      "immunities": [
+        "fire"
+      ],
+      "behavior": "Roots through Slag; charges if hit or if you get too close to its young",
+      "spawns_text": "Skarn slag fields",
+      "drops_text": "Boar Chop 1\u20133, Boar Tusk 0\u20131",
+      "design_notes": [
+        "Ember tail and eyes on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "ChargeGoal (custom, when angry)",
+        "HurtByTargetGoal",
+        "ProtectBabiesGoal (custom, range 4)",
+        "BreedGoal",
+        "TemptGoal(cinder_cap)",
+        "FollowParentGoal",
+        "WaterAvoidingRandomStrollGoal",
+        "LookAtPlayerGoal"
+      ],
+      "states": [
+        "rooting",
+        "wandering",
+        "charging"
+      ],
+      "transitions": [
+        {
+          "frm": "rooting",
+          "to": "wandering",
+          "trigger": "random"
+        },
+        {
+          "frm": "wandering",
+          "to": "rooting",
+          "trigger": "finds slag"
+        },
+        {
+          "frm": "rooting",
+          "to": "charging",
+          "trigger": "hurt / player near baby"
+        },
+        {
+          "frm": "wandering",
+          "to": "charging",
+          "trigger": "hurt / player near baby"
+        },
+        {
+          "frm": "charging",
+          "to": "wandering",
+          "trigger": "anger timer ends"
+        }
+      ],
+      "animations_required": [
+        "animation.slag_boar.idle",
+        "animation.slag_boar.walk",
+        "animation.slag_boar.charge",
+        "animation.slag_boar.root"
+      ],
+      "animations_existing": [
+        "animation.slag_boar.idle",
+        "animation.slag_boar.walk"
+      ],
+      "mechanics": [
+        "Charge deals 6 + knockback 1.5",
+        "Angers when a player comes within 4 blocks of its baby"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/slag_boar",
+      "drops": [
+        {
+          "item": "zerog_tweaks:boar_chop",
+          "item_name": "Boar Chop",
+          "min": 1,
+          "max": 3,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:boar_tusk",
+          "item_name": "Boar Tusk",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#3E2A20",
+        "spots": "#8A8A8A",
+        "item": "zerog_tweaks:slag_boar_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/slag_boar.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/slag_boar.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/slag_boar.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/slag_boar_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/22_slag_boar.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:ember_fields zerog_tweaks:marble_contact_zone zerog_tweaks:charwood_barrens",
+          "weight": 10,
+          "min_group": 2,
+          "max_group": 4,
+          "category": "CREATURE",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_skarn.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:scorch_wyrmling",
+      "key": "scorch_wyrmling",
+      "name": "Scorch Wyrmling",
+      "sheet": "23_scorch_wyrmling.png",
+      "galaxy": 3,
+      "world": "Skarn",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:skarn"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster (glides, not full flight)",
+      "hitbox_width": 0.6,
+      "hitbox_height": 0.6,
+      "hitbox_length": 1.0,
+      "max_health": 16,
+      "attack_damage": 3,
+      "damage_text": "3 bite; spits a fire bolt (3 + fire)",
+      "movement_speed": 0.25,
+      "speed_class": "medium",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [
+        "fire"
+      ],
+      "behavior": "Glides between ledges; guards Emberite veins",
+      "spawns_text": "Skarn lava contact zones",
+      "drops_text": "Scorch Tail 1, Scorch Scale 0\u20132",
+      "design_notes": [
+        "Flame tip and eyes on the emissive layer.",
+        "Wings flap only when gliding."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "RangedAttackGoal (fire bolt, 40t cooldown, range 12)",
+        "MeleeAttackGoal",
+        "GuardOreGoal (custom: stay near emberite_ore)",
+        "WaterAvoidingRandomStrollGoal",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "perched",
+        "gliding",
+        "spitting",
+        "biting"
+      ],
+      "transitions": [
+        {
+          "frm": "perched",
+          "to": "gliding",
+          "trigger": "jumps off ledge"
+        },
+        {
+          "frm": "gliding",
+          "to": "perched",
+          "trigger": "lands"
+        },
+        {
+          "frm": "perched",
+          "to": "spitting",
+          "trigger": "target in 12 blocks"
+        },
+        {
+          "frm": "gliding",
+          "to": "spitting",
+          "trigger": "target in 12 blocks"
+        },
+        {
+          "frm": "spitting",
+          "to": "biting",
+          "trigger": "target in melee range"
+        },
+        {
+          "frm": "biting",
+          "to": "spitting",
+          "trigger": "target backs off"
+        },
+        {
+          "frm": "spitting",
+          "to": "perched",
+          "trigger": "target lost"
+        }
+      ],
+      "animations_required": [
+        "animation.scorch_wyrmling.idle",
+        "animation.scorch_wyrmling.walk",
+        "animation.scorch_wyrmling.glide",
+        "animation.scorch_wyrmling.spit",
+        "animation.scorch_wyrmling.bite"
+      ],
+      "animations_existing": [
+        "animation.scorch_wyrmling.idle",
+        "animation.scorch_wyrmling.walk"
+      ],
+      "mechanics": [
+        "Fire bolt: SmallFireball-like projectile (3 dmg + fire)",
+        "Glide: slow fall + forward motion when jumping off ledges"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/scorch_wyrmling",
+      "drops": [
+        {
+          "item": "zerog_tweaks:scorch_tail",
+          "item_name": "Scorch Tail",
+          "min": 1,
+          "max": 1,
+          "chance": 1.0,
+          "looting": false,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:scorch_scale",
+          "item_name": "Scorch Scale",
+          "min": 0,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#E8661E",
+        "spots": "#FFB040",
+        "item": "zerog_tweaks:scorch_wyrmling_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/scorch_wyrmling.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/scorch_wyrmling.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/scorch_wyrmling.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/scorch_wyrmling_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/23_scorch_wyrmling.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3",
+        "wing_left",
+        "wing_right"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:ember_fields zerog_tweaks:marble_contact_zone zerog_tweaks:charwood_barrens",
+          "weight": 30,
+          "min_group": 1,
+          "max_group": 2,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_skarn.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:frost_yak",
+      "key": "frost_yak",
+      "name": "Frost Yak",
+      "sheet": "24_frost_yak.png",
+      "galaxy": 4,
+      "world": "Eidolon",
+      "role": "passive",
+      "dimensions": [
+        "zerog_tweaks:eidolon"
+      ],
+      "mob_category": "CREATURE",
+      "java_base": "Animal + Shearable (Sheep + Cow pattern)",
+      "hitbox_width": 1.4,
+      "hitbox_height": 1.7,
+      "hitbox_length": null,
+      "max_health": 30,
+      "attack_damage": 0,
+      "damage_text": "None",
+      "movement_speed": 0.2,
+      "speed_class": "slow",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": "zerog_tweaks:frostfern",
+      "interactions": [
+        "shears -> yak_wool",
+        "glass_bottle -> frost_milk"
+      ],
+      "immunities": [
+        "freezing"
+      ],
+      "behavior": "Shear for Yak Wool; milk with a glass bottle for Frost Milk. Shelters calves in blizzards",
+      "spawns_text": "Eidolon glaciers, herds of 2\u20134",
+      "drops_text": "Yak Meat 1\u20133, Yak Wool 1\u20132",
+      "design_notes": [
+        "Sheared state: wool shrinks to a thin coat."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "PanicGoal",
+        "BreedGoal",
+        "TemptGoal(frostfern)",
+        "FollowParentGoal",
+        "ShelterCalvesGoal (custom, during snow)",
+        "WaterAvoidingRandomStrollGoal",
+        "LookAtPlayerGoal"
+      ],
+      "states": [
+        "woolly",
+        "sheared (regrow by grazing)",
+        "sheltering"
+      ],
+      "transitions": [
+        {
+          "frm": "woolly",
+          "to": "sheared (regrow by grazing)",
+          "trigger": "sheared: yak_wool"
+        },
+        {
+          "frm": "sheared (regrow by grazing)",
+          "to": "woolly",
+          "trigger": "eats snowpack / frozen_regolith"
+        },
+        {
+          "frm": "woolly",
+          "to": "sheltering",
+          "trigger": "snowfall + calf nearby"
+        },
+        {
+          "frm": "sheared (regrow by grazing)",
+          "to": "sheltering",
+          "trigger": "snowfall + calf nearby"
+        },
+        {
+          "frm": "sheltering",
+          "to": "woolly",
+          "trigger": "weather clears"
+        }
+      ],
+      "animations_required": [
+        "animation.frost_yak.idle",
+        "animation.frost_yak.walk",
+        "animation.frost_yak.graze"
+      ],
+      "animations_existing": [
+        "animation.frost_yak.idle",
+        "animation.frost_yak.walk"
+      ],
+      "mechanics": [
+        "Shears -> yak_wool 1-2; regrows after eating a snowpack/frozen_regolith block",
+        "Glass bottle -> frost_milk (see ZGInteractions)"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/frost_yak",
+      "drops": [
+        {
+          "item": "zerog_tweaks:yak_meat",
+          "item_name": "Yak Meat",
+          "min": 1,
+          "max": 3,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:yak_wool",
+          "item_name": "Yak Wool",
+          "min": 1,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#A6B6C0",
+        "spots": "#3A464C",
+        "item": "zerog_tweaks:frost_yak_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/frost_yak.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/frost_yak.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/frost_yak.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/frost_yak_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/24_frost_yak.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:frozen_graveyard zerog_tweaks:phantom_ice_sheets zerog_tweaks:hoarwood_taiga",
+          "weight": 10,
+          "min_group": 2,
+          "max_group": 4,
+          "category": "CREATURE",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_eidolon.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:ice_leech",
+      "key": "ice_leech",
+      "name": "Ice Leech",
+      "sheet": "25_ice_leech.png",
+      "galaxy": 4,
+      "world": "Eidolon",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:eidolon"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster",
+      "hitbox_width": 0.6,
+      "hitbox_height": 0.4,
+      "hitbox_length": 1.2,
+      "max_health": 14,
+      "attack_damage": 2,
+      "damage_text": "2 and latches on: Hunger II while attached",
+      "movement_speed": 0.25,
+      "speed_class": "medium",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [
+        "freezing"
+      ],
+      "behavior": "Hides under Snowpack; shake it off by sprinting or hitting it",
+      "spawns_text": "Eidolon snowfields and wreck interiors",
+      "drops_text": "Leech Gel 1\u20133",
+      "design_notes": [
+        "Body at 75% opacity.",
+        "Crystals on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "HideUnderSnowGoal (custom)",
+        "LatchOnGoal (custom: ride target)",
+        "MeleeAttackGoal",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "hidden",
+        "crawling",
+        "latched"
+      ],
+      "transitions": [
+        {
+          "frm": "hidden",
+          "to": "crawling",
+          "trigger": "player steps within 2 blocks"
+        },
+        {
+          "frm": "crawling",
+          "to": "latched",
+          "trigger": "touches target: ride"
+        },
+        {
+          "frm": "latched",
+          "to": "crawling",
+          "trigger": "player sprints 20t / leech hit"
+        },
+        {
+          "frm": "crawling",
+          "to": "hidden",
+          "trigger": "no target 200t"
+        }
+      ],
+      "animations_required": [
+        "animation.ice_leech.idle",
+        "animation.ice_leech.crawl",
+        "animation.ice_leech.latch"
+      ],
+      "animations_existing": [
+        "animation.ice_leech.idle",
+        "animation.ice_leech.walk"
+      ],
+      "mechanics": [
+        "Latch: startRiding(player), apply Hunger II while attached",
+        "Detach when rider sprints 20 ticks or leech is hit"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/ice_leech",
+      "drops": [
+        {
+          "item": "zerog_tweaks:leech_gel",
+          "item_name": "Leech Gel",
+          "min": 1,
+          "max": 3,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#6AD0C0",
+        "spots": "#D0FBFB",
+        "item": "zerog_tweaks:ice_leech_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/ice_leech.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/ice_leech.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/ice_leech.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/ice_leech_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/25_ice_leech.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:frozen_graveyard zerog_tweaks:phantom_ice_sheets zerog_tweaks:hoarwood_taiga",
+          "weight": 40,
+          "min_group": 1,
+          "max_group": 3,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_eidolon.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:gildcrab",
+      "key": "gildcrab",
+      "name": "Gildcrab",
+      "sheet": "26_gildcrab.png",
+      "galaxy": 5,
+      "world": "Solvane",
+      "role": "neutral",
+      "dimensions": [
+        "zerog_tweaks:solvane"
+      ],
+      "mob_category": "CREATURE",
+      "java_base": "Animal + NeutralMob",
+      "hitbox_width": 0.9,
+      "hitbox_height": 0.5,
+      "hitbox_length": null,
+      "max_health": 12,
+      "attack_damage": 3,
+      "damage_text": "3 pinch, only when attacked",
+      "movement_speed": 0.25,
+      "speed_class": "medium",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": "zerog_tweaks:pyrefruit",
+      "interactions": [],
+      "immunities": [
+        "fire",
+        "zerog_tweaks:corona_crust"
+      ],
+      "behavior": "Walks sideways; basks on Sunspot Rock and is immune to heat",
+      "spawns_text": "Solvane Sunspot Rock shores",
+      "drops_text": "Gildcrab Meat 1\u20132, Gildcrab Shell 0\u20131",
+      "design_notes": [
+        "Eyes on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "MeleeAttackGoal (only when angry)",
+        "HurtByTargetGoal",
+        "BaskGoal (custom: rest on sunspot_rock)",
+        "BreedGoal",
+        "TemptGoal(pyrefruit)",
+        "FollowParentGoal",
+        "SidewaysStrollGoal (custom)",
+        "LookAtPlayerGoal"
+      ],
+      "states": [
+        "basking",
+        "scuttling",
+        "pinching"
+      ],
+      "transitions": [
+        {
+          "frm": "basking",
+          "to": "scuttling",
+          "trigger": "random / disturbed"
+        },
+        {
+          "frm": "scuttling",
+          "to": "basking",
+          "trigger": "on sunspot_rock"
+        },
+        {
+          "frm": "basking",
+          "to": "pinching",
+          "trigger": "hurt"
+        },
+        {
+          "frm": "scuttling",
+          "to": "pinching",
+          "trigger": "hurt"
+        },
+        {
+          "frm": "pinching",
+          "to": "scuttling",
+          "trigger": "anger timer ends"
+        }
+      ],
+      "animations_required": [
+        "animation.gildcrab.idle",
+        "animation.gildcrab.walk_sideways",
+        "animation.gildcrab.pinch",
+        "animation.gildcrab.bask"
+      ],
+      "animations_existing": [
+        "animation.gildcrab.idle",
+        "animation.gildcrab.walk"
+      ],
+      "mechanics": [
+        "Moves sideways: rotate body 90 degrees from travel direction",
+        "Immune to corona_crust/ember_crust damage types"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/gildcrab",
+      "drops": [
+        {
+          "item": "zerog_tweaks:gildcrab_meat",
+          "item_name": "Gildcrab Meat",
+          "min": 1,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:gildcrab_shell",
+          "item_name": "Gildcrab Shell",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#E0A010",
+        "spots": "#FFFFFF",
+        "item": "zerog_tweaks:gildcrab_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/gildcrab.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/gildcrab.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/gildcrab.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/gildcrab_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/26_gildcrab.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3",
+        "leg4",
+        "leg5"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:corona_flats zerog_tweaks:sunspot_plateaus zerog_tweaks:gildwood_oasis",
+          "weight": 10,
+          "min_group": 2,
+          "max_group": 4,
+          "category": "CREATURE",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_solvane.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:deep_eel",
+      "key": "deep_eel",
+      "name": "Deep Eel",
+      "sheet": "27_deep_eel.png",
+      "galaxy": 0,
+      "world": "Ocean wasteland",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:g2_p1",
+        "zerog_tweaks:g2_p2",
+        "zerog_tweaks:g2_p3",
+        "zerog_tweaks:g2_p4",
+        "zerog_tweaks:g2_p5",
+        "zerog_tweaks:g2_p6",
+        "zerog_tweaks:g3_p1",
+        "zerog_tweaks:g3_p2",
+        "zerog_tweaks:g3_p3",
+        "zerog_tweaks:g3_p4",
+        "zerog_tweaks:g3_p5",
+        "zerog_tweaks:g3_p6",
+        "zerog_tweaks:g4_p1",
+        "zerog_tweaks:g4_p2",
+        "zerog_tweaks:g4_p3",
+        "zerog_tweaks:g4_p4",
+        "zerog_tweaks:g4_p5",
+        "zerog_tweaks:g4_p6",
+        "zerog_tweaks:g5_p1",
+        "zerog_tweaks:g5_p2",
+        "zerog_tweaks:g5_p3",
+        "zerog_tweaks:g5_p4",
+        "zerog_tweaks:g5_p5",
+        "zerog_tweaks:g5_p6",
+        "(any slot rolled as ocean)"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "WaterAnimal/Monster with SmoothSwimmingMoveControl (Guardian/Drowned nav)",
+      "hitbox_width": 0.6,
+      "hitbox_height": 0.6,
+      "hitbox_length": 1.8,
+      "max_health": 22,
+      "attack_damage": 6,
+      "damage_text": "6 bite; pulls you down 2 blocks",
+      "movement_speed": 0.33,
+      "speed_class": "fast",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [],
+      "behavior": "Lurks in trenches; follows light sources",
+      "spawns_text": "Ocean wastelands in every galaxy (tinted)",
+      "drops_text": "Eel Fillet 1\u20132, Eel Skin 0\u20131",
+      "design_notes": [
+        "Fin ridge and eyes on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FollowLightSourceGoal (custom: move toward block light > 10 or player holding light)",
+        "MeleeAttackGoal",
+        "RandomSwimmingGoal",
+        "NearestAttackableTargetGoal<Player> (in water only)"
+      ],
+      "states": [
+        "lurking",
+        "following_light",
+        "biting"
+      ],
+      "transitions": [
+        {
+          "frm": "lurking",
+          "to": "following_light",
+          "trigger": "light source > 10 or player with light"
+        },
+        {
+          "frm": "following_light",
+          "to": "biting",
+          "trigger": "target in water, in range"
+        },
+        {
+          "frm": "biting",
+          "to": "lurking",
+          "trigger": "target leaves water"
+        },
+        {
+          "frm": "following_light",
+          "to": "lurking",
+          "trigger": "light gone"
+        }
+      ],
+      "animations_required": [
+        "animation.deep_eel.swim",
+        "animation.deep_eel.bite"
+      ],
+      "animations_existing": [
+        "animation.deep_eel.idle",
+        "animation.deep_eel.walk"
+      ],
+      "mechanics": [
+        "Bite pulls target down: target.push(0,-0.6,0)",
+        "Out of water: flop and take suffocation damage like fish"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/deep_eel",
+      "drops": [
+        {
+          "item": "zerog_tweaks:eel_fillet",
+          "item_name": "Eel Fillet",
+          "min": 1,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:eel_skin",
+          "item_name": "Eel Skin",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        }
+      ],
+      "spawn_egg": {
+        "base": "#5A6A7A",
+        "spots": "#9FF0F0",
+        "item": "zerog_tweaks:deep_eel_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/deep_eel.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/deep_eel.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/deep_eel.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/deep_eel_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/27_deep_eel.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "wing_right"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:wasteland_deep_trenches zerog_tweaks:wasteland_kelp_jungles zerog_tweaks:wasteland_island_chains",
+          "weight": 20,
+          "min_group": 1,
+          "max_group": 2,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_wasteland_ocean.json"
+        }
+      ]
+    },
+    {
+      "id": "zerog_tweaks:sand_skitter",
+      "key": "sand_skitter",
+      "name": "Sand Skitter",
+      "sheet": "28_sand_skitter.png",
+      "galaxy": 0,
+      "world": "Desert wasteland",
+      "role": "hostile",
+      "dimensions": [
+        "zerog_tweaks:g2_p1",
+        "zerog_tweaks:g2_p2",
+        "zerog_tweaks:g2_p3",
+        "zerog_tweaks:g2_p4",
+        "zerog_tweaks:g2_p5",
+        "zerog_tweaks:g2_p6",
+        "zerog_tweaks:g3_p1",
+        "zerog_tweaks:g3_p2",
+        "zerog_tweaks:g3_p3",
+        "zerog_tweaks:g3_p4",
+        "zerog_tweaks:g3_p5",
+        "zerog_tweaks:g3_p6",
+        "zerog_tweaks:g4_p1",
+        "zerog_tweaks:g4_p2",
+        "zerog_tweaks:g4_p3",
+        "zerog_tweaks:g4_p4",
+        "zerog_tweaks:g4_p5",
+        "zerog_tweaks:g4_p6",
+        "zerog_tweaks:g5_p1",
+        "zerog_tweaks:g5_p2",
+        "zerog_tweaks:g5_p3",
+        "zerog_tweaks:g5_p4",
+        "zerog_tweaks:g5_p5",
+        "zerog_tweaks:g5_p6",
+        "(any slot rolled as desert)"
+      ],
+      "mob_category": "MONSTER",
+      "java_base": "Monster (Spider-like)",
+      "hitbox_width": 1.0,
+      "hitbox_height": 0.6,
+      "hitbox_length": null,
+      "max_health": 16,
+      "attack_damage": 3,
+      "damage_text": "3 and Poison I for 4 s",
+      "movement_speed": 0.33,
+      "speed_class": "fast",
+      "flying_speed": null,
+      "follow_range": 16,
+      "armor": 0,
+      "knockback_resistance": 0.0,
+      "breeding_item": null,
+      "interactions": [],
+      "immunities": [
+        "poison"
+      ],
+      "behavior": "Buries itself in Dunesand; bursts out in groups of 2\u20133",
+      "spawns_text": "Desert wastelands (tinted)",
+      "drops_text": "Skitter Leg 1\u20132, Skitter Carapace 0\u20131, Venom Gland 0\u20131",
+      "design_notes": [
+        "Stinger and eyes on the emissive layer."
+      ],
+      "goals_in_priority_order": [
+        "FloatGoal",
+        "BuriedAmbushGoal (custom: bury in dunesand, burst in 2-3)",
+        "LeapAtTargetGoal(0.4)",
+        "MeleeAttackGoal",
+        "NearestAttackableTargetGoal<Player>"
+      ],
+      "states": [
+        "buried",
+        "bursting",
+        "attacking"
+      ],
+      "transitions": [
+        {
+          "frm": "buried",
+          "to": "bursting",
+          "trigger": "player within 4 or group member bursts"
+        },
+        {
+          "frm": "bursting",
+          "to": "attacking",
+          "trigger": "out of sand"
+        },
+        {
+          "frm": "attacking",
+          "to": "buried",
+          "trigger": "target lost 200t (re-bury)"
+        }
+      ],
+      "animations_required": [
+        "animation.sand_skitter.idle",
+        "animation.sand_skitter.walk",
+        "animation.sand_skitter.burst",
+        "animation.sand_skitter.sting"
+      ],
+      "animations_existing": [
+        "animation.sand_skitter.idle",
+        "animation.sand_skitter.walk"
+      ],
+      "mechanics": [
+        "Sting: Poison I 80t",
+        "Wake one buried skitter triggers the group within 8 blocks"
+      ],
+      "boss": null,
+      "loot_table": "zerog_tweaks:entities/sand_skitter",
+      "drops": [
+        {
+          "item": "zerog_tweaks:skitter_leg",
+          "item_name": "Skitter Leg",
+          "min": 1,
+          "max": 2,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": true,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:skitter_carapace",
+          "item_name": "Skitter Carapace",
+          "min": 0,
+          "max": 1,
+          "chance": 1.0,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": false
+        },
+        {
+          "item": "zerog_tweaks:venom_gland",
+          "item_name": "Venom Gland",
+          "min": 1,
+          "max": 1,
+          "chance": 0.3,
+          "looting": true,
+          "cooks_if_on_fire": false,
+          "player_kill_only": true
+        }
+      ],
+      "spawn_egg": {
+        "base": "#C8A868",
+        "spots": "#8AC040",
+        "item": "zerog_tweaks:sand_skitter_spawn_egg"
+      },
+      "files": {
+        "geo_model": "assets/zerog_tweaks/geckolib/models/entity/sand_skitter.geo.json",
+        "animations": "assets/zerog_tweaks/geckolib/animations/entity/sand_skitter.animation.json",
+        "texture": "assets/zerog_tweaks/textures/entity/sand_skitter.png",
+        "glowmask": "assets/zerog_tweaks/textures/entity/sand_skitter_glowmask.png",
+        "reference_sheet": "docs/zero-g-tweaks-bundle/sheets/mobs/28_sand_skitter.png"
+      },
+      "geo_bones": [
+        "root",
+        "body",
+        "head",
+        "tail",
+        "leg0",
+        "leg1",
+        "leg2",
+        "leg3",
+        "leg4",
+        "leg5",
+        "leg6",
+        "leg7"
+      ],
+      "spawns": [
+        {
+          "biomes": "zerog_tweaks:wasteland_dune_seas zerog_tweaks:wasteland_mesa_canyons zerog_tweaks:wasteland_salt_flats",
+          "weight": 40,
+          "min_group": 2,
+          "max_group": 4,
+          "category": "MONSTER",
+          "source": "docs/zero-g-tweaks-bundle/pending-data/neoforge/biome_modifier/spawns_wasteland_desert.json"
+        }
+      ]
+    }
+  ]
+}

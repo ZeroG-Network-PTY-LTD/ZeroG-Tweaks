@@ -684,9 +684,8 @@ MOBS = {'moon': [('moon_hopper', 'creature', 10, 2, 4), ('regolith_crawler', 'mo
                     ('prismling', 'monster', 60, 2, 4), ('glimmerfish', 'water_ambient', 15, 4, 8)],
         'skarn': [('slag_boar', 'creature', 10, 2, 4), ('cinder_hound', 'monster', 50, 3, 5), ('scorch_wyrmling', 'monster', 30, 1, 2),
                   ('slagjaw', 'monster', 10, 1, 1), ('shardmother', 'monster', 3, 1, 1)],
-        'eidolon': [('frost_yak', 'creature', 10, 2, 4), ('ice_leech', 'monster', 40, 1, 3), ('hollow_sentinel', 'monster', 30, 1, 2),
-                    ('frost_warden', 'monster', 2, 1, 1)],
-        'solvane': [('gildcrab', 'creature', 10, 2, 4), ('flare_sprite', 'monster', 50, 1, 3), ('sun_colossus', 'monster', 2, 1, 1)]}
+        'eidolon': [('frost_yak', 'creature', 10, 2, 4), ('ice_leech', 'monster', 40, 1, 3), ('hollow_sentinel', 'monster', 30, 1, 2)],
+        'solvane': [('gildcrab', 'creature', 10, 2, 4), ('flare_sprite', 'monster', 50, 1, 3)]}
 WMOBS = {'ocean': [('tidewraith', 'monster', 40, 1, 2), ('deep_eel', 'water_creature', 20, 1, 2)],
          'desert': [('dune_burrower', 'monster', 40, 1, 2), ('sand_skitter', 'monster', 40, 2, 4)],
          'volcanic': [('ash_strider', 'monster', 50, 1, 3)], 'frozen': [('rime_stalker', 'monster', 50, 1, 2)],

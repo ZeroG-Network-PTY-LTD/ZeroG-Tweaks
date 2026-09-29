@@ -38,6 +38,7 @@ This file is for the AI coding agent (or human) turning this repo into a working
 | `docs/zero-g-tweaks-bundle/pending-data/` | **Data that needs Java first** (see "Pending data" below). Move each file into `src/main/resources/data/zerog_tweaks/` once its registry exists. |
 | `docs/zero-g-tweaks-bundle/data-manifest.json` | Machine-readable summary: planets, gravity, ores per planet, wasteland types, galaxy slot defaults, structure loot tables, damage types. |
 | `docs/zero-g-tweaks-bundle/sheets/` | Texture reference sheets. |
+| `docs/zero-g-tweaks-bundle/sheets/mobs/` | **Mob spec pack:** `data/mobs.json` (start here), CSVs for attributes, AI goals, state transitions, animations, drops and spawns, `mobs.xlsx`, and diagrams (world map, food chain, boss progression, a state machine per mob). See its README. |
 | `docs/zero-g-tweaks-bundle/generators/` | Python scripts that produced the art and data. Re-run `data_extra.py` to regenerate recipes, worldgen, tags, loot, advancements and damage types. |
 
 ## What the data layer already provides (no Java needed)
@@ -153,7 +154,7 @@ Tick these off in order; each milestone should leave something testable. Ids ref
 
 ### M6–M9 Galaxies 2–5
 
-- [ ] **Entities:** register the 28 entity types with attributes, AI goals, spawn placements, renderers (`docs/.../client/ZGGeoEntities.java`) and spawn eggs (`docs/.../item/ZGSpawnEggs.java`). Then move the spawn biome modifiers in.
+- [ ] **Entities:** register the 28 entity types from `sheets/mobs/data/mobs.json` (attributes, goal order, states and mechanics are all there) with spawn placements, renderers (`docs/.../client/ZGGeoEntities.java`) and spawn eggs (`docs/.../item/ZGSpawnEggs.java`). Then move the spawn biome modifiers in.
 - [ ] **Bosses:** Prism Sentinel, Rift Tyrant, Eidolon Captain and Dying Star, with arenas on each key world. Loot tables are already done.
 - [ ] **Structures (Jigsaw):** Sunken Relay, Buried Observatory, Collapsed Forge, Frozen Outpost, Sunken Lab, Prism Spire and Impact Site; Eidolon derelict wrecks; Mars crash site; Solar shrine. Point their chests at the matching `loot_table/chests/*`.
 - [ ] **Liquids:** wire `docs/.../fluid/ZGFluids.java` and `client/ZGClientExtensions.java`. The fluid tags already exist.

@@ -1,0 +1,11 @@
+stateDiagram-v2
+  direction LR
+  state "phase1 charge/claw" as s0
+  state "phase2 rift pull (arena crumbles)" as s1
+  state "phase3 void shards" as s2
+  state "defeated" as s3
+  [*] --> s0
+  s0 --> s1 : health < 66%
+  s1 --> s2 : health < 33%
+  s2 --> s3 : health 0
+  s3 --> [*]

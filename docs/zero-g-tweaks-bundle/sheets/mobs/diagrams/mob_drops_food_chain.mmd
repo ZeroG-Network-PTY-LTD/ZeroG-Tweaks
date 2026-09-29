@@ -1,0 +1,48 @@
+flowchart LR
+  regolith_crawler(["Regolith Crawler"]):::hostile --> zerog_tweaks_crawler_leg["Crawler Leg"]
+  zerog_tweaks_crawler_leg -- cook --> zerog_tweaks_roasted_crawler_leg["Roasted Crawler Leg"]:::cooked
+  rust_beetle(["Rust Beetle"]):::neutral --> zerog_tweaks_beetle_grub["Beetle Grub"]
+  zerog_tweaks_beetle_grub -- cook --> zerog_tweaks_toasted_grub["Toasted Grub"]:::cooked
+  crystal_stag(["Crystal Stag"]):::passive --> zerog_tweaks_stag_venison["Stag Venison"]
+  zerog_tweaks_stag_venison -- cook --> zerog_tweaks_cooked_venison["Cooked Venison"]:::cooked
+  dune_burrower(["Dune Burrower"]):::hostile --> zerog_tweaks_burrower_steak["Burrower Steak"]
+  zerog_tweaks_burrower_steak -- cook --> zerog_tweaks_cooked_burrower_steak["Cooked Burrower Steak"]:::cooked
+  bog_lurker(["Bog Lurker"]):::hostile --> zerog_tweaks_lurker_leg["Lurker Leg"]
+  zerog_tweaks_lurker_leg -- cook --> zerog_tweaks_crispy_lurker_leg["Crispy Lurker Leg"]:::cooked
+  crater_drifter(["Crater Drifter"]):::neutral --> zerog_tweaks_stardust["Stardust"]
+  zerog_tweaks_stardust --> zerog_tweaks_low_g_jelly["Low-G Jelly"]:::dish
+  moon_hopper(["Moon Hopper"]):::passive --> zerog_tweaks_hopper_meat["Hopper Meat"]
+  zerog_tweaks_hopper_meat -- cook --> zerog_tweaks_cooked_hopper["Cooked Hopper"]:::cooked
+  dust_grazer(["Dust Grazer"]):::passive --> zerog_tweaks_grazer_steak["Grazer Steak"]
+  zerog_tweaks_grazer_steak -- cook --> zerog_tweaks_seared_grazer_steak["Seared Grazer Steak"]:::cooked
+  zerog_tweaks_seared_grazer_steak --> zerog_tweaks_astronaut_ration["Astronaut Ration"]:::dish
+  zerog_tweaks_seared_grazer_steak --> zerog_tweaks_orbit_burger["Orbit Burger"]:::dish
+  azure_fowl(["Azure Fowl"]):::passive --> zerog_tweaks_fowl["Raw Fowl"]
+  zerog_tweaks_fowl -- cook --> zerog_tweaks_roast_fowl["Roast Fowl"]:::cooked
+  glimmerfish(["Glimmerfish"]):::passive --> zerog_tweaks_glimmerfish["Glimmerfish"]
+  zerog_tweaks_glimmerfish -- cook --> zerog_tweaks_cooked_glimmerfish["Cooked Glimmerfish"]:::cooked
+  slag_boar(["Slag Boar"]):::neutral --> zerog_tweaks_boar_chop["Boar Chop"]
+  zerog_tweaks_boar_chop -- cook --> zerog_tweaks_smoked_boar_chop["Smoked Boar Chop"]:::cooked
+  zerog_tweaks_smoked_boar_chop --> zerog_tweaks_ember_chili["Ember Chili"]:::dish
+  scorch_wyrmling(["Scorch Wyrmling"]):::hostile --> zerog_tweaks_scorch_tail["Scorch Tail"]
+  zerog_tweaks_scorch_tail -- cook --> zerog_tweaks_grilled_scorch_tail["Grilled Scorch Tail"]:::cooked
+  zerog_tweaks_grilled_scorch_tail --> zerog_tweaks_ember_chili["Ember Chili"]:::dish
+  frost_yak(["Frost Yak"]):::passive --> zerog_tweaks_yak_meat["Yak Meat"]
+  zerog_tweaks_yak_meat -- cook --> zerog_tweaks_yak_roast["Yak Roast"]:::cooked
+  zerog_tweaks_yak_roast --> zerog_tweaks_cryo_chowder["Cryo Chowder"]:::dish
+  zerog_tweaks_yak_roast --> zerog_tweaks_ration_pack["Ration Pack"]:::dish
+  ice_leech(["Ice Leech"]):::hostile --> zerog_tweaks_leech_gel["Leech Gel"]
+  zerog_tweaks_leech_gel --> zerog_tweaks_low_g_jelly["Low-G Jelly"]:::dish
+  gildcrab(["Gildcrab"]):::neutral --> zerog_tweaks_gildcrab_meat["Gildcrab Meat"]
+  zerog_tweaks_gildcrab_meat -- cook --> zerog_tweaks_cooked_gildcrab["Cooked Gildcrab"]:::cooked
+  zerog_tweaks_cooked_gildcrab --> zerog_tweaks_starfall_feast["Starfall Feast"]:::dish
+  deep_eel(["Deep Eel"]):::hostile --> zerog_tweaks_eel_fillet["Eel Fillet"]
+  zerog_tweaks_eel_fillet -- cook --> zerog_tweaks_cooked_eel["Cooked Eel"]:::cooked
+  sand_skitter(["Sand Skitter"]):::hostile --> zerog_tweaks_skitter_leg["Skitter Leg"]
+  zerog_tweaks_skitter_leg -- cook --> zerog_tweaks_roasted_skitter_leg["Roasted Skitter Leg"]:::cooked
+  classDef passive fill:#d9f2e3,stroke:#2e7d4f,color:#123
+  classDef neutral fill:#fff1cc,stroke:#b8860b,color:#321
+  classDef hostile fill:#ffd9d6,stroke:#b3261e,color:#300
+  classDef boss fill:#e6dcff,stroke:#5b3fb3,color:#102,stroke-width:2px
+  classDef cooked fill:#ffe6cc,stroke:#c26a00,color:#310
+  classDef dish fill:#e0ecff,stroke:#2458b3,color:#012
