@@ -1,76 +1,187 @@
-# ZeroG Tweaks
+<p align="center"><img src="docs/images/logo.png" alt="ZeroG Tweaks + Bees" width="720"></p>
 
-A NeoForge 1.21.1 content/companion mod for the ZeroG modpack — shattered-void
-Nullifite progression, galaxy teleporters, planet ores, space woods, machine
-blocks, and the food/economy layer that ties the ZeroG planet network's
-economy together. Zero dependencies beyond NeoForge itself.
+# ZeroG Tweaks + ZeroG Bees
 
-Mod version **1.0.0** · NeoForge **21.1.252** · Minecraft **1.21.1** · Java **21**
+Two NeoForge **1.21.1** jars that form the content backbone of the **ZeroG** modpack —
+a shattered-void progression across five seeded galaxies, plus the orbital
+beekeeping industry that runs on top of it.
+
+| | ZeroG Tweaks | ZeroG Bees |
+| --- | --- | --- |
+| Mod id | `zerog_tweaks` | `aeroapiary` |
+| Jar | `zerog-tweaks-1.21.1-1.0.0.jar` | `zerog-binnie-expansion-1.21.1-1.0.0.jar` |
+| Version / size | 1.0.0 · 2,884,809 bytes | 1.0.0 · 3,905,219 bytes |
+| Content | 878 blockstates · 340 items · 28 entities | 85 blocks · 65 items (closed id set) |
+| Requires | NeoForge only — **zero** required deps | Productive Bees **+** GeckoLib 4.9, loads AFTER both |
+| Creative tab | `zerog_tweaks` | `itemGroup.aeroapiary` |
+| Source | `src/` (this repo) | `Desktop/ZeroG_Mods/zero-g-Orbital-Bee's` (sibling project) |
+
+**Baseline:** Minecraft **1.21.1** · NeoForge **21.1.252** · Java **21** (Temurin)
+
+---
+
+## Docs map
+
+| Doc | What's in it |
+| --- | --- |
+| [docs/HELP.md](docs/HELP.md) | **Player + admin help** — install, every machine, troubleshooting |
+| [docs/zero-g-tweaks-bundle/](docs/zero-g-tweaks-bundle/) | Preserved authority asset/design bundle (design doc, sheets, generators) |
+| [docs/jars/SHA256SUMS.txt](docs/jars/SHA256SUMS.txt) | Release-jar SHA256 hashes — verify before deploying |
+
+---
+
+## ZeroG Tweaks — what's inside
+
+An Allthemodium-style progression mod: shattered-void Nullifite, a tiered galaxy
+teleporter, planet ores, space woods, machines, and the food/economy layer that
+ties the ZeroG planet network together.
+
+<p align="center"><img src="docs/images/diagram_galaxy_progression.png" alt="Galaxy progression" width="820"></p>
+
+**Content families**
+
+- **86 planet/terrain blocks** — lunar/martian/abyssal stone sets, a glass + sand type per planet (lunar, rust, crystal, frost, tide, dune, shimmer), the Nullifite family, space woods.
+- **4 standing crystals/clusters** — Brine Crystal, Frost Crystal, Cerulite Cluster, Prism Cluster. Real amethyst-cluster behavior: thin spike hitbox, place against any face, pop when support is removed, sheared off by pistons.
+- **2 crops** — Rust Tuber Crop and Skyberry Bush, 4 growth stages each, bonemeal-able, with proper item models.
+- **17 machine/functional blocks** — gate frames/controller/energy ports/lens housing/pad plate, alloy forge, combustion generator, fusion reactor + lamp, ore refinery, salvage station, crystal growth chamber, solar array, landing platform, cryo pod, spectral lantern.
+- **65 food/util items** — 30+ dishes, planet materials, 5 smithing templates, galaxy gate keys, Heart of Solvane, Ration Pack, Neutralizer.
+- **9+ gear sets** — astrium, cerulite, cyrrium, moonsteel, olympium, nullifite, radiante, salvium, skarnite, solvanite… full 9-piece kits (pick/shovel/axe/hoe/sword + 4 armor pieces).
+- **5 mobs** — Crystal Stag, Amethyst Stalker, Prismling, Rust Beetle, Dune Burrower — **loot/interaction data only for now; no live entity classes yet**. `ZGInteractions.java` documents planned shearing (Crystal Stag antlers, Frost Yak wool) and bottle-filling.
+
+Gallery: [machines & gates](docs/images/gallery_machines.png) · [teleporter blocks](docs/images/gallery_teleporter.png) · [gear](docs/images/gallery_gear.png) · [armor](docs/images/gallery_armor.png) · [food & items](docs/images/gallery_food.png) · [mob sheets](docs/images/gallery_mobs.png)
+
+---
+
+## ZeroG Bees (`aeroapiary`) — what's inside
+
+Zero-G beekeeping as a **required addon for Productive Bees** (`1.21.1-13.14.x`):
+the Forestry-style Orbital Alveary, seven machines, tiers 1–7, and a full
+space-comb/frames/genetics item set.
+
+<p align="center"><img src="docs/images/diagram_5x5_alveary.png" alt="Orbital Alveary structure" width="820"></p>
+
+**The Orbital Alveary** — a formed 125-cell multiblock (5×5×5). Every structure
+cell must be an `aeroapiary` block of the alveary's own tier (`tierN_*`), the
+central 3×3 of the two middle floors stays air, the top ring is strictly
+`tierN_roof`, and at least one `tierN_energy_port` is required. Composition
+report counts frame housings; the controller GUI shows **green ALVEARY FORMED /
+red INCOMPLETE** with the exact failing cell until it verifies.
+
+**Tier controllers** — `apiary_controller` (counts as tier 1) plus
+`tier2_controller` … `tier7_controller`, right-click activated, manifest-driven
+GUIs (queen / drone / frames / products), tier-scaled production cycle
+(800 ticks → 200 ticks from tier 1 to tier 7).
+
+**Machines** (right-click, manifest-driven GUIs; tick via
+`ZeroGMachineBlockEntity` + the shared `zerog_machine` BE type):
+`zero_g_hive`, `stardust_smelter`, `starmetal_smelter`, `silk_weaver`,
+`gravitational_centrifuge`, `frame_assembler`, `frame_infusion_altar`,
+`genetic_splicer`, `geno_station`, `centrifuge`, `infusion_altar`,
+`frame_component_assembler` — built from 70 tiered part blocks
+(casings, hatches, roofs, ports, coil/loader/fan/etc).
+
+**Space bees** — six Productive Bees species bridged into the pack:
+comet · meteor · nebula · solar · stardust · void. PB breeding chains,
+PB centrifuge recipes, bee_produce into named combs
+(`stardust_comb` … `molten_comb`, comb blocks too), spawn-egg→our-hive bridge,
+per-bee comb dispatch.
+
+**Items (65)** — 4 comb tiers + blocks, stardust/starmetal/aeronautic alloys,
+woven silk + silk thread, frames (untreated, proven, impregnated, honeyed,
+chocolate, cryo, soul, starlit, starmetal, void, oblivion, solar, lunar,
+healing, restraint, swift-mutation, cosmic vigor), apiarist + cosmic armor,
+scoops, smoker, wrench, beealyzer/beealyzer portable, habitat locator,
+grafters, serums, royal jelly (+ solidified), honey drop, astro honey,
+cosmic jelly, alveary blueprint, confinement coil, advanced circuit.
+
+<p align="center"><img src="docs/images/bees_machines.png" alt="ZeroG Bees machines" width="780"></p>
+<p align="center"><img src="docs/images/bees_items.png" alt="ZeroG Bees items" width="780"></p>
+
+<p align="center"><img src="docs/images/diagram_product_flow.png" alt="Product flow" width="820"></p>
+
+---
+
+## The two jars
+
+Release jars are **committed in this repo** under [`docs/jars/`](docs/jars/) so an install never depends on a build machine.
+
+| File | In `docs/jars/` | Also lives at |
+| --- | --- | --- |
+| `zerog-tweaks-1.21.1-1.0.0.jar` | ✔ | build/ output of this repo |
+| `zerog-binnie-expansion-1.21.1-1.0.0.jar` | ✔ | Bee's build output (built 2026-09-30, sha `7ff60d42…`) |
+
+**Note:** the Bee's STABLE_1.0.0.md references sha `2c327638…` from 2026-09-29 —
+the jar was rebuilt on 09-30 (typed-listener + duplicate-supplier boot fixes) and the current release is `7ff60d42…`. SHA256SUMS.txt is the source of truth.
+
+Verify before deploying:
+
+    sha256sum -c docs/jars/SHA256SUMS.txt
+
+Deploy law: copy into the instance mods folder
+(`C:\Users\jakem\curseforge\minecraft\Instances\ZeroG\mods\`) and sha-verify the copy.
+
+<p align="center"><img src="docs/images/diagram_pack_layout.png" alt="Pack layout" width="820"></p>
+
+---
+
+## Players: quick start
+
+1. Install CurseForge → instance **ZeroG** (Minecraft 1.21.1, NeoForge 21.1.252).
+2. Drop both jars from [`docs/jars/`](docs/jars/) into `mods/` **plus** the pack's `geckolib-neoforge-1.21.1-4.9.3.jar` (ZeroG Bees hard-requires it).
+3. Verify hashes (`sha256sum -c docs/jars/SHA256SUMS.txt`), launch.
+4. Both mods show their own creative tab; full guide in [docs/HELP.md](docs/HELP.md).
+
+---
+
+## Developers: build from source
+
+Requirements: Windows box with Temurin **JDK 21** (WSL has no Java — build Windows-side).
+
+        set JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot
+        gradlew.bat build --no-daemon --console=plain
+
+Output: `build/libs/zerog-tweaks-1.21.1-1.0.0.jar` → copy into the instance mods dir, re-run the sha check.
+
+- **ZeroG Tweaks** (this repo): first-ever build runs the full NeoForm pipeline (5–15 min); incremental runs ~10–15 s.
+- **ZeroG Bees** (sibling repo `zero-g-Orbital-Bee's`, same recipe): vendored GeckoLib 4.9.3 in `libs/`, NeoForge 21.1.252, Productive Bees bridge under `data/aeroapiary/productivebees/`.
+- One-host law: `.ex5` kit builds live on the VPS; local Algo OFF — don't cross-copy.
+
+---
+
+## Project structure (this repo)
+
+    ZeroG_Tweaks/
+    ├── src/main/java/net/zerog/tweaks/     Java source (registry/, event/, item/)
+    ├── src/main/resources/                  assets + data + neoforge.mods.toml
+    │   ├── assets/zerog_tweaks/             878 blockstates, models, textures, lang
+    │   └── data/zerog_tweaks/               loot tables, recipes, tags
+    ├── docs/HELP.md                         player + admin help guide
+    ├── docs/images/                         README diagrams, gallery, logo
+    ├── docs/jars/                           committed release jars + SHA256SUMS.txt
+    ├── docs/zero-g-tweaks-bundle/           preserved authority bundle
+    │   ├── resources/                       original asset/data bundle
+    │   ├── sheets/                          art reference sheets (mobs, gear, blocks, armor, food)
+    │   ├── generators/                      the Python scripts that generated all art/JSON
+    │   └── ZeroG_Tweaks_Design_Doc.md       full design document (galaxies, teleporter, planets)
+    ├── build.gradle / gradlew(.bat)         Gradle wiring (wrapper 8.x)
+    └── .gitignore
 
 ## Branches
 
 | Branch | Contents |
 | --- | --- |
-| `1.21.1-update` | **Active line.** Full NeoForge source (src/), Gradle build wiring, working Gradle wrapper, crystal-cluster + crop fixes. Recommended. |
-| `main` | Placeholder line (empty). |
+| `1.21.1-update` | **Active line.** Full NeoForge source, Gradle wiring, crystal-cluster + crop + plant-light fixes, help/docs + images + release jars. Recommended. |
+| `main` | Placeholder line. |
 
-## What's in this mod
+## Roadmap — known open items
 
-- **86 planet/terrain blocks, stone families, woods** — lunar/martian/abyssal stone sets, a glass and sand type for every planet (lunar, rust, crystal, frost, tide, dune, shimmer), the Nullifite family.
-- **4 standing crystals/clusters** — Brine Crystal, Frost Crystal, Cerulite Cluster, Prism Cluster. Render as vanilla amethyst-cluster-style billboards and behave like real clusters: thin spike hitbox, place against any clicked face, pop when the support block is removed, sheared off by pistons (PushReaction.DESTROY).
-- **2 crops** — Rust Tuber Crop (drops Rust Tuber / Baked Tuber) and Skyberry Bush (drops Skyberries), 4 growth stages each, bonemeal-able.
-- **17 machine/functional blocks** — gate frames / controller / energy ports / lens housing / pad plate, alloy forge, combustion generator, fusion reactor + lamp, ore refinery, salvage station, crystal growth chamber, solar array, landing platform, cryo pod, spectral lantern.
-- **65 food/util items** — 30+ dishes, planet materials, 5 smithing templates, galaxy gate keys, Heart of Solvane, Ration Pack, Neutralizer.
-- **9+ gear sets** — astrium, cerulite, cyrrium, moonsteel, olympium, nullifite, radiante, salvium, skarnite, solvanite... full 9-piece kits (pick/shovel/axe/hoe/sword + 4 armor pieces).
-- **5 mobs** — Crystal Stag, Amethyst Stalker, Prismling, Rust Beetle, Dune Burrower — **loot/interaction data only for now; no live entity classes yet.** ZGInteractions.java documents the planned shearing (Crystal Stag antlers, Frost Yak wool) and bottle-filling behaviors.
-
-## Getting started
-
-### Requirements
-
-- Java 21 (Temurin recommended), on PATH or set via JAVA_HOME.
-
-The mod has **zero required dependencies** — it is pure NeoForge. If you run
-alongside GeckoLib-based mods, add the GeckoLib **4.9.3** jar for NeoForge
-1.21.1 to the same mods/ folder. The build's flatDir repo points at `libs/`
-(empty by default) for local jars if you ever vendor one.
-
-### Build (developers)
-
-    ./gradlew build          # Linux/macOS
-    gradlew.bat build        # Windows
-
-Output: build/libs/zerog-tweaks-1.21.1-1.0.0.jar
-
-First build pulls NeoForge, NeoForm and Parchment, and recompiles vanilla
-sources — expect 5–15 minutes. Incremental builds after that run ~15s
-(--no-daemon on low-RAM machines).
-
-### Install (players)
-
-1. Copy the built jar (or download it from Releases) into your instance's mods/ folder.
-2. Add the GeckoLib 4.9.3 jar for NeoForge 1.21.1 into the same mods/ folder.
-3. Launch — the mod appears as "ZeroG Tweaks" with its own creative tab (zerog_tweaks).
-
-## Project structure
-
-    ZeroG_Tweaks/                (this repo)
-    ├── src/main/java/net/zerog/tweaks/        Java source
-    │   ├── registry/                           BlockInit / ItemInit / CreativeTabs / block classes
-    │   └── event/                              ZGInteractions (shearing, bottles)
-    ├── src/main/resources/                     assets + data + neoforge.mods.toml
-    │   ├── assets/zerog_tweaks/                blockstates, models, textures, lang (878 blockstates)
-    │   └── data/zerog_tweaks/                  loot tables, recipes, tags
-    ├── docs/zero-g-tweaks-bundle/              preserved asset/design bundle (authority snapshot)
-    │   ├── resources/                          original asset/data bundle
-    │   ├── java/                               ZGFoodItems / ZGInteractions / ZGFoods reference
-    │   ├── sheets/                             9.1MB art reference sheets (mobs, gear, blocks)
-    │   ├── generators/                         the Python scripts that generated all art/JSON
-    │   └── ZeroG_Tweaks_Design_Doc.md          full design document
-    ├── gradle/ + gradlew(.bat)                 Gradle wrapper 8.x
-    ├── build.gradle / settings.gradle / gradle.properties
-    └── .gitignore                              build/ and IDE outputs excluded
+- ZeroG Tweaks × Bees cross-link: **ore_refinery cyrrium/aresite recipes** (needs both jars in the pack — both now ship).
+- Multiblock formation is live; next: **textures_emissive → glowmask conversion** and geo/BER models (the authority stack has none — it animates via mcmeta frame sequences).
+- 5 mobs are loot/interaction data only — live entity classes TBD.
+- `ZGInteractions` shearing + bottle-filling behaviors are documented, not wired.
 
 ## Credits
 
-Jake M. and Co-Owner — ZeroG Network PTY LTD
+**Jake M. and Co-Owner** — ZeroG Network PTY LTD.
+Art is original placeholder-quality pixel art generated by the bundled `generators/` scripts.
+"Productive Bees" is by its respective authors; GeckoLib by GeckoLib Team.
