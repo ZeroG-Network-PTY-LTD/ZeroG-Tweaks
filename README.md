@@ -13,6 +13,7 @@ Mod version **1.0.0** · NeoForge **21.1.252** · Minecraft **1.21.1** · Java *
 | --- | --- |
 | `1.21.1-update` | **Active line.** Full NeoForge source (src/), Gradle build wiring, working Gradle wrapper, crystal-cluster + crop fixes. Recommended. |
 | `main` | Placeholder line (empty). |
+| `design/v1.2-assets` | Design v1.2 bundle: gear stats and abilities, six liquids, GeckoLib mob and armor models, wasteland tinting, spawn eggs, custom effects. Assets merged into `src/main/resources` (team edits kept); new Java stays in `docs/` until it is wired in. |
 
 ## What's in this mod
 

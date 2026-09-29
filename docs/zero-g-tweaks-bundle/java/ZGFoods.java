@@ -4,6 +4,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Items;
+import net.zerog.tweaks.effect.ZGEffects;
 
 /** Generated from the ZeroG Tweaks food table (NeoForge 1.21.1). Values are proposals for playtesting. */
 public final class ZGFoods {
@@ -45,7 +46,7 @@ public final class ZGFoods {
             .build();
     public static final FoodProperties SMOKED_BOAR_CHOP = new FoodProperties.Builder().nutrition(8).saturationModifier(0.8f)
             .build();
-    // TODO: sets the eater on fire for 2 s (ScorchTailItem)
+    // Raw Scorch Tail sets the eater on fire for 2 s (ScorchTailItem).
     public static final FoodProperties SCORCH_TAIL = new FoodProperties.Builder().nutrition(2).saturationModifier(0.3f)
             .build();
     public static final FoodProperties GRILLED_SCORCH_TAIL = new FoodProperties.Builder().nutrition(6).saturationModifier(0.6f)
@@ -93,13 +94,14 @@ public final class ZGFoods {
             .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1200, 0), 1f)
             .usingConvertsTo(Items.BOWL)
             .build();
-    // TODO: Freeze Ward 60 s (custom effect)
     public static final FoodProperties FROSTFERN_TEA = new FoodProperties.Builder().nutrition(2).saturationModifier(0.4f)
             .usingConvertsTo(Items.GLASS_BOTTLE).alwaysEdible()
+            .effect(new MobEffectInstance(ZGEffects.FREEZE_WARD, 1200, 0), 1f)
             .build();
-    // TODO: clears effects + Slowness immunity 30 s (FrostMilkItem + custom effect)
+    // Frost Milk also clears all effects first (FrostMilkItem), then applies Surefoot.
     public static final FoodProperties FROST_MILK = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2f)
             .usingConvertsTo(Items.GLASS_BOTTLE).alwaysEdible()
+            .effect(new MobEffectInstance(ZGEffects.SUREFOOT, 600, 0), 1f)
             .build();
     public static final FoodProperties PYREFRUIT = new FoodProperties.Builder().nutrition(4).saturationModifier(0.4f)
             .effect(new MobEffectInstance(MobEffects.GLOWING, 200, 0), 1f)
@@ -119,10 +121,10 @@ public final class ZGFoods {
             .effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 600, 0), 1f)
             .usingConvertsTo(Items.BOWL)
             .build();
-    // TODO: Freeze Ward 180 s (custom effect)
     public static final FoodProperties CRYO_CHOWDER = new FoodProperties.Builder().nutrition(10).saturationModifier(0.9f)
             .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 600, 0), 1f)
             .usingConvertsTo(Items.BOWL)
+            .effect(new MobEffectInstance(ZGEffects.FREEZE_WARD, 3600, 0), 1f)
             .build();
     public static final FoodProperties RATION_PACK = new FoodProperties.Builder().nutrition(6).saturationModifier(0.8f)
             .fast()

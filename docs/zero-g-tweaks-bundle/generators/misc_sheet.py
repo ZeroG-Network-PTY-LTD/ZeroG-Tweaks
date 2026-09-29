@@ -2,7 +2,9 @@ from PIL import Image, ImageDraw, ImageFont
 Fp='/usr/share/fonts/truetype/dejavu/'; FB=lambda s:ImageFont.truetype(Fp+'DejaVuSans-Bold.ttf',s); FR=lambda s:ImageFont.truetype(Fp+'DejaVuSans.ttf',s)
 TB='out/assets/zerog_tweaks/textures/block'; TI='out/assets/zerog_tweaks/textures/item'
 BG=(246,245,242,255); INK=(34,32,40,255); SUB=(110,108,118,255); BORDER=(214,212,222,255)
-def L(p): return Image.open(p).convert('RGBA')
+def L(p):
+    im=Image.open(p).convert('RGBA')
+    return im.crop((0,0,im.width,im.width)) if im.height>im.width else im
 def checker(n,c=8):
     im=Image.new('RGBA',(n,n),(255,255,255,255)); d=ImageDraw.Draw(im)
     for y in range(0,n,c):
