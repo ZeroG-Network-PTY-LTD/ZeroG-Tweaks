@@ -1,0 +1,93 @@
+{
+  "type": "zerog_tweaks:airless",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "zerog_tweaks:moon",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "zerog_tweaks:lunar_highlands",
+          "parameters": {
+            "temperature": [
+              -0.85,
+              -0.15000000000000002
+            ],
+            "humidity": [
+              -0.35,
+              0.35
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:lunar_mare",
+          "parameters": {
+            "temperature": [
+              0.15000000000000002,
+              0.85
+            ],
+            "humidity": [
+              -0.35,
+              0.35
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:shadowed_craters",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              -0.55
+            ],
+            "humidity": [
+              0.15000000000000002,
+              0.85
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

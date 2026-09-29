@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:solvanite"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.solvane.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.solvane.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "enter_solvane": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "zerog_tweaks:solvane"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "enter_solvane"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/captain"
+}

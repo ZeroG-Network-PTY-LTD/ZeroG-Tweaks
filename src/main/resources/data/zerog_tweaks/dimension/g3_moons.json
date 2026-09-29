@@ -1,0 +1,93 @@
+{
+  "type": "zerog_tweaks:airless",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "zerog_tweaks:wasteland_barren",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "zerog_tweaks:wasteland_cratered_plains",
+          "parameters": {
+            "temperature": [
+              -0.35,
+              0.35
+            ],
+            "humidity": [
+              -0.35,
+              0.35
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:wasteland_dust_badlands",
+          "parameters": {
+            "temperature": [
+              0.25,
+              0.95
+            ],
+            "humidity": [
+              -0.14999999999999997,
+              0.55
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:wasteland_canyon_scars",
+          "parameters": {
+            "temperature": [
+              -0.04999999999999999,
+              0.6499999999999999
+            ],
+            "humidity": [
+              0.35,
+              1.0
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:eidolite"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.eidolon.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.eidolon.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "enter_eidolon": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "zerog_tweaks:eidolon"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "enter_eidolon"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/rift_tyrant"
+}

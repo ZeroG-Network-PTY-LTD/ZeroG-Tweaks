@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:gate_controller"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.first_gate.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.first_gate.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_gate_controller": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:gate_controller"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gate_controller"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/root"
+}

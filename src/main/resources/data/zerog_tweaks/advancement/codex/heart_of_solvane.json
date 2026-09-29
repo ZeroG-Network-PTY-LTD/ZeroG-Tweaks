@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:heart_of_solvane"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.heart_of_solvane.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.heart_of_solvane.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_heart_of_solvane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:heart_of_solvane"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_heart_of_solvane"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/nova_pearl"
+}

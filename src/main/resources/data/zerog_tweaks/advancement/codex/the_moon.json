@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:regolith"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.the_moon.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.the_moon.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "enter_moon": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "zerog_tweaks:moon"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "enter_moon"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/first_gate"
+}
