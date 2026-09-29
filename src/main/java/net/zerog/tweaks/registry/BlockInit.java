@@ -13,6 +13,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.zerog.tweaks.ZeroGTweaks;
 
 import net.neoforged.bus.api.IEventBus;
+import net.minecraft.world.level.block.FenceBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -60,7 +61,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> CERULITE_ORE = BLOCKS.register("cerulite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> CHARWOOD_BUTTON = BLOCKS.register("charwood_button", () -> new net.minecraft.world.level.block.ButtonBlock(BlockSetType.OAK, 30, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
     public static final DeferredBlock<ZGDoorBlock> CHARWOOD_DOOR = BLOCKS.registerBlock("charwood_door", ZGDoorBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.5F, 7.0F));
-    public static final DeferredBlock<Block> CHARWOOD_FENCE = BLOCKS.register("charwood_fence", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
+    public static final DeferredBlock<FenceBlock> CHARWOOD_FENCE = BLOCKS.registerBlock("charwood_fence", FenceBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F));
     public static final DeferredBlock<Block> CHARWOOD_FENCE_GATE = BLOCKS.register("charwood_fence_gate", () -> new net.minecraft.world.level.block.FenceGateBlock(WoodType.OAK, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> CHARWOOD_LEAVES = BLOCKS.register("charwood_leaves", () -> new net.minecraft.world.level.block.LeavesBlock(props(MapColor.PLANT, SoundType.GRASS, 0.2F, 0.2F).noOcclusion()));
     public static final DeferredBlock<Block> CHARWOOD_LOG = BLOCKS.register("charwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
@@ -387,7 +388,7 @@ public final class BlockInit {
     public static final DeferredBlock<ZGPlantBlock> GHOSTBLOOM = BLOCKS.registerBlock("ghostbloom", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
     public static final DeferredBlock<Block> GILDWOOD_BUTTON = BLOCKS.register("gildwood_button", () -> new net.minecraft.world.level.block.ButtonBlock(BlockSetType.OAK, 30, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
     public static final DeferredBlock<ZGDoorBlock> GILDWOOD_DOOR = BLOCKS.registerBlock("gildwood_door", ZGDoorBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.5F, 7.0F));
-    public static final DeferredBlock<Block> GILDWOOD_FENCE = BLOCKS.register("gildwood_fence", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
+    public static final DeferredBlock<FenceBlock> GILDWOOD_FENCE = BLOCKS.registerBlock("gildwood_fence", FenceBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F));
     public static final DeferredBlock<Block> GILDWOOD_FENCE_GATE = BLOCKS.register("gildwood_fence_gate", () -> new net.minecraft.world.level.block.FenceGateBlock(WoodType.OAK, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> GILDWOOD_LEAVES = BLOCKS.register("gildwood_leaves", () -> new net.minecraft.world.level.block.LeavesBlock(props(MapColor.PLANT, SoundType.GRASS, 0.2F, 0.2F).noOcclusion()));
     public static final DeferredBlock<Block> GILDWOOD_LOG = BLOCKS.register("gildwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
@@ -404,7 +405,7 @@ public final class BlockInit {
     public static final DeferredBlock<ZGKelpPlantBlock> GLOWKELP_PLANT = BLOCKS.registerBlock("glowkelp_plant", ZGKelpPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
     public static final DeferredBlock<Block> HOARWOOD_BUTTON = BLOCKS.register("hoarwood_button", () -> new net.minecraft.world.level.block.ButtonBlock(BlockSetType.OAK, 30, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
     public static final DeferredBlock<ZGDoorBlock> HOARWOOD_DOOR = BLOCKS.registerBlock("hoarwood_door", ZGDoorBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.5F, 7.0F));
-    public static final DeferredBlock<Block> HOARWOOD_FENCE = BLOCKS.register("hoarwood_fence", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
+    public static final DeferredBlock<FenceBlock> HOARWOOD_FENCE = BLOCKS.registerBlock("hoarwood_fence", FenceBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F));
     public static final DeferredBlock<Block> HOARWOOD_FENCE_GATE = BLOCKS.register("hoarwood_fence_gate", () -> new net.minecraft.world.level.block.FenceGateBlock(WoodType.OAK, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> HOARWOOD_LEAVES = BLOCKS.register("hoarwood_leaves", () -> new net.minecraft.world.level.block.LeavesBlock(props(MapColor.PLANT, SoundType.GRASS, 0.2F, 0.2F).noOcclusion()));
     public static final DeferredBlock<Block> HOARWOOD_LOG = BLOCKS.register("hoarwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
@@ -751,7 +752,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> SELENITE_ORE = BLOCKS.register("selenite_ore", () -> new Block(props(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST, 1.0F, 6.0F).lightLevel(s -> 15)));
     public static final DeferredBlock<Block> SHARDWOOD_BUTTON = BLOCKS.register("shardwood_button", () -> new net.minecraft.world.level.block.ButtonBlock(BlockSetType.OAK, 30, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
     public static final DeferredBlock<ZGDoorBlock> SHARDWOOD_DOOR = BLOCKS.registerBlock("shardwood_door", ZGDoorBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.5F, 7.0F));
-    public static final DeferredBlock<Block> SHARDWOOD_FENCE = BLOCKS.register("shardwood_fence", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
+    public static final DeferredBlock<FenceBlock> SHARDWOOD_FENCE = BLOCKS.registerBlock("shardwood_fence", FenceBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F));
     public static final DeferredBlock<Block> SHARDWOOD_FENCE_GATE = BLOCKS.register("shardwood_fence_gate", () -> new net.minecraft.world.level.block.FenceGateBlock(WoodType.OAK, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> SHARDWOOD_LEAVES = BLOCKS.register("shardwood_leaves", () -> new net.minecraft.world.level.block.LeavesBlock(props(MapColor.PLANT, SoundType.GRASS, 0.2F, 0.2F).noOcclusion()));
     public static final DeferredBlock<Block> SHARDWOOD_LOG = BLOCKS.register("shardwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
