@@ -44,7 +44,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> BLIGHTMOSS = BLOCKS.register("blightmoss", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<ZGCrystalClusterBlock> BRINE_CRYSTAL = BLOCKS.registerBlock("brine_crystal", ZGCrystalClusterBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F));
     public static final DeferredBlock<Block> BROKEN_CONSOLE = BLOCKS.register("broken_console", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> BUDDING_CERULITE = BLOCKS.register("budding_cerulite", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
+    public static final DeferredBlock<Block> BUDDING_CERULITE = BLOCKS.register("budding_cerulite", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F).lightLevel(s -> 4)));
     public static final DeferredBlock<Block> CERULEAN_GEODE_SHELL = BLOCKS.register("cerulean_geode_shell", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CERULEAN_STONE = BLOCKS.register("cerulean_stone", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CERULEAN_STONE_BRICK_SLAB = BLOCKS.register("cerulean_stone_brick_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -55,7 +55,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> CERULEAN_STONE_STAIRS = BLOCKS.register("cerulean_stone_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CERULEAN_STONE_WALL = BLOCKS.register("cerulean_stone_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CERULITE_BLOCK = BLOCKS.register("cerulite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<ZGCrystalClusterBlock> CERULITE_CLUSTER = BLOCKS.registerBlock("cerulite_cluster", ZGCrystalClusterBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F));
+    public static final DeferredBlock<ZGCrystalClusterBlock> CERULITE_CLUSTER = BLOCKS.registerBlock("cerulite_cluster", ZGCrystalClusterBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F).lightLevel(s -> 11));
     public static final DeferredBlock<Block> CERULITE_GATE_FRAME = BLOCKS.register("cerulite_gate_frame", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CERULITE_ORE = BLOCKS.register("cerulite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> CHARWOOD_BUTTON = BLOCKS.register("charwood_button", () -> new net.minecraft.world.level.block.ButtonBlock(BlockSetType.OAK, 30, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
@@ -66,7 +66,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> CHARWOOD_LOG = BLOCKS.register("charwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> CHARWOOD_PLANKS = BLOCKS.register("charwood_planks", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CHARWOOD_PRESSURE_PLATE = BLOCKS.register("charwood_pressure_plate", () -> new net.minecraft.world.level.block.PressurePlateBlock(BlockSetType.OAK, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
-    public static final DeferredBlock<ZGSaplingBlock> CHARWOOD_SAPLING = BLOCKS.registerBlock("charwood_sapling", p -> new ZGSaplingBlock(TreeGrower.OAK, p), props(MapColor.PLANT, SoundType.GRASS, 0.0F, 0.0F));
+    public static final DeferredBlock<ZGSaplingBlock> CHARWOOD_SAPLING = BLOCKS.registerBlock("charwood_sapling", p -> new ZGSaplingBlock(ZGTreeGrowers.CHARWOOD, p), props(MapColor.PLANT, SoundType.GRASS, 0.0F, 0.0F));
     public static final DeferredBlock<Block> CHARWOOD_SLAB = BLOCKS.register("charwood_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CHARWOOD_STAIRS = BLOCKS.register("charwood_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CHARWOOD_TRAPDOOR = BLOCKS.register("charwood_trapdoor", () -> new net.minecraft.world.level.block.TrapDoorBlock(BlockSetType.OAK, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
@@ -260,7 +260,7 @@ public final class BlockInit {
     public static final DeferredBlock<ZGOrientedBlock> COMBUSTION_GENERATOR = BLOCKS.registerBlock("combustion_generator", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<Block> CORONA_CRUST = BLOCKS.register("corona_crust", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CORONITE_BLOCK = BLOCKS.register("coronite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> CORONITE_ORE = BLOCKS.register("coronite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> CORONITE_ORE = BLOCKS.register("coronite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 9)));
     public static final DeferredBlock<Block> CORRODED_HULL = BLOCKS.register("corroded_hull", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CORRODED_HULL_SLAB = BLOCKS.register("corroded_hull_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CORRODED_HULL_STAIRS = BLOCKS.register("corroded_hull_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -337,7 +337,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> CRATERSTONE_WALL = BLOCKS.register("craterstone_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CRYO_POD = BLOCKS.register("cryo_pod", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CRYOCITE_BLOCK = BLOCKS.register("cryocite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> CRYOCITE_ORE = BLOCKS.register("cryocite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> CRYOCITE_ORE = BLOCKS.register("cryocite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 9)));
     public static final DeferredBlock<Block> CRYSTAL_CELL = BLOCKS.register("crystal_cell", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CRYSTAL_GLASS = BLOCKS.register("crystal_glass", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
     public static final DeferredBlock<ZGOrientedBlock> CRYSTAL_GROWTH_CHAMBER = BLOCKS.registerBlock("crystal_growth_chamber", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
@@ -347,7 +347,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> CYRRIUM_ORE = BLOCKS.register("cyrrium_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> DAWNSTONE_BLOCK = BLOCKS.register("dawnstone_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> DAWNSTONE_ORE = BLOCKS.register("dawnstone_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
-    public static final DeferredBlock<Block> DEEPSLATE_NULLIFITE_ORE = BLOCKS.register("deepslate_nullifite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> DEEPSLATE_NULLIFITE_ORE = BLOCKS.register("deepslate_nullifite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 7)));
     public static final DeferredBlock<Block> DUNE_GLASS = BLOCKS.register("dune_glass", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
     public static final DeferredBlock<Block> DUNESAND = BLOCKS.register("dunesand", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> EIDOLITE_BLOCK = BLOCKS.register("eidolite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -355,7 +355,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> EIDOLITE_ORE = BLOCKS.register("eidolite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> EMBER_CRUST = BLOCKS.register("ember_crust", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> EMBERITE_BLOCK = BLOCKS.register("emberite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> EMBERITE_ORE = BLOCKS.register("emberite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> EMBERITE_ORE = BLOCKS.register("emberite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 9)));
     public static final DeferredBlock<ZGPlantBlock> EMBERTHORN = BLOCKS.registerBlock("emberthorn", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
     public static final DeferredBlock<Block> FERROX_BLOCK = BLOCKS.register("ferrox_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> FERROX_ORE = BLOCKS.register("ferrox_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
@@ -376,7 +376,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> FROZEN_REGOLITH_STAIRS = BLOCKS.register("frozen_regolith_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> FROZEN_REGOLITH_WALL = BLOCKS.register("frozen_regolith_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> FUSION_DUST_BLOCK = BLOCKS.register("fusion_dust_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> FUSION_DUST_ORE = BLOCKS.register("fusion_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> FUSION_DUST_ORE = BLOCKS.register("fusion_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 12)));
     public static final DeferredBlock<Block> FUSION_LAMP = BLOCKS.register("fusion_lamp", () -> new Block(props(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST, 1.0F, 6.0F).lightLevel(s -> 15)));
     public static final DeferredBlock<ZGOrientedBlock> FUSION_REACTOR = BLOCKS.registerBlock("fusion_reactor", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<ZGOrientedBlock> GATE_CONTROLLER = BLOCKS.registerBlock("gate_controller", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
@@ -393,14 +393,15 @@ public final class BlockInit {
     public static final DeferredBlock<Block> GILDWOOD_LOG = BLOCKS.register("gildwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> GILDWOOD_PLANKS = BLOCKS.register("gildwood_planks", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> GILDWOOD_PRESSURE_PLATE = BLOCKS.register("gildwood_pressure_plate", () -> new net.minecraft.world.level.block.PressurePlateBlock(BlockSetType.OAK, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
-    public static final DeferredBlock<ZGSaplingBlock> GILDWOOD_SAPLING = BLOCKS.registerBlock("gildwood_sapling", p -> new ZGSaplingBlock(TreeGrower.OAK, p), props(MapColor.PLANT, SoundType.GRASS, 0.0F, 0.0F));
+    public static final DeferredBlock<ZGSaplingBlock> GILDWOOD_SAPLING = BLOCKS.registerBlock("gildwood_sapling", p -> new ZGSaplingBlock(ZGTreeGrowers.GILDWOOD, p), props(MapColor.PLANT, SoundType.GRASS, 0.0F, 0.0F));
     public static final DeferredBlock<Block> GILDWOOD_SLAB = BLOCKS.register("gildwood_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> GILDWOOD_STAIRS = BLOCKS.register("gildwood_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> GILDWOOD_TRAPDOOR = BLOCKS.register("gildwood_trapdoor", () -> new net.minecraft.world.level.block.TrapDoorBlock(BlockSetType.OAK, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> GILDWOOD_WOOD = BLOCKS.register("gildwood_wood", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> GLACIAL_ICE = BLOCKS.register("glacial_ice", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> GLASSY_OBSIDIAN = BLOCKS.register("glassy_obsidian", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
-    public static final DeferredBlock<ZGPlantBlock> GLOWKELP = BLOCKS.registerBlock("glowkelp", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGKelpBlock> GLOWKELP = BLOCKS.registerBlock("glowkelp", ZGKelpBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGKelpPlantBlock> GLOWKELP_PLANT = BLOCKS.registerBlock("glowkelp_plant", ZGKelpPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
     public static final DeferredBlock<Block> HOARWOOD_BUTTON = BLOCKS.register("hoarwood_button", () -> new net.minecraft.world.level.block.ButtonBlock(BlockSetType.OAK, 30, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
     public static final DeferredBlock<ZGDoorBlock> HOARWOOD_DOOR = BLOCKS.registerBlock("hoarwood_door", ZGDoorBlock::new, props(MapColor.WOOD, SoundType.WOOD, 2.5F, 7.0F));
     public static final DeferredBlock<Block> HOARWOOD_FENCE = BLOCKS.register("hoarwood_fence", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -409,7 +410,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> HOARWOOD_LOG = BLOCKS.register("hoarwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> HOARWOOD_PLANKS = BLOCKS.register("hoarwood_planks", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> HOARWOOD_PRESSURE_PLATE = BLOCKS.register("hoarwood_pressure_plate", () -> new net.minecraft.world.level.block.PressurePlateBlock(BlockSetType.OAK, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
-    public static final DeferredBlock<ZGSaplingBlock> HOARWOOD_SAPLING = BLOCKS.registerBlock("hoarwood_sapling", p -> new ZGSaplingBlock(TreeGrower.OAK, p), props(MapColor.PLANT, SoundType.GRASS, 0.0F, 0.0F));
+    public static final DeferredBlock<ZGSaplingBlock> HOARWOOD_SAPLING = BLOCKS.registerBlock("hoarwood_sapling", p -> new ZGSaplingBlock(ZGTreeGrowers.HOARWOOD, p), props(MapColor.PLANT, SoundType.GRASS, 0.0F, 0.0F));
     public static final DeferredBlock<Block> HOARWOOD_SLAB = BLOCKS.register("hoarwood_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> HOARWOOD_STAIRS = BLOCKS.register("hoarwood_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> HOARWOOD_TRAPDOOR = BLOCKS.register("hoarwood_trapdoor", () -> new net.minecraft.world.level.block.TrapDoorBlock(BlockSetType.OAK, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
@@ -453,9 +454,9 @@ public final class BlockInit {
     public static final DeferredBlock<Block> MOONSTEEL_GATE_FRAME = BLOCKS.register("moonsteel_gate_frame", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> MOONSTEEL_ORE = BLOCKS.register("moonsteel_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> NEBULITE_BLOCK = BLOCKS.register("nebulite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> NEBULITE_ORE = BLOCKS.register("nebulite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> NEBULITE_ORE = BLOCKS.register("nebulite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 7)));
     public static final DeferredBlock<Block> NOVA_PEARL_BLOCK = BLOCKS.register("nova_pearl_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> NOVA_PEARL_ORE = BLOCKS.register("nova_pearl_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> NOVA_PEARL_ORE = BLOCKS.register("nova_pearl_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 12)));
     public static final DeferredBlock<Block> NULLIFITE_BLOCK = BLOCKS.register("nullifite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> NULLIFITE_GATE_FRAME = BLOCKS.register("nullifite_gate_frame", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> OLYMPIUM_BLOCK = BLOCKS.register("olympium_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -464,7 +465,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> OLYMPIUM_PLATING_SLAB = BLOCKS.register("olympium_plating_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> OLYMPIUM_PLATING_STAIRS = BLOCKS.register("olympium_plating_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> OLYMPIUM_PLATING_WALL = BLOCKS.register("olympium_plating_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<ZGOrientedBlock> ORE_REFINERY = BLOCKS.registerBlock("ore_refinery", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
+    public static final DeferredBlock<OreRefineryBlock> ORE_REFINERY = BLOCKS.registerBlock("ore_refinery", OreRefineryBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<Block> OXIDE_CRUST = BLOCKS.register("oxide_crust", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> OXIDE_CRUST_SLAB = BLOCKS.register("oxide_crust_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> OXIDE_CRUST_STAIRS = BLOCKS.register("oxide_crust_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -674,9 +675,9 @@ public final class BlockInit {
     public static final DeferredBlock<Block> PRISMSTONE_STAIRS = BLOCKS.register("prismstone_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> PRISMSTONE_WALL = BLOCKS.register("prismstone_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> PULSAR_DUST_BLOCK = BLOCKS.register("pulsar_dust_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> PULSAR_DUST_ORE = BLOCKS.register("pulsar_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> PULSAR_DUST_ORE = BLOCKS.register("pulsar_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 9)));
     public static final DeferredBlock<Block> PULSAR_LAMP = BLOCKS.register("pulsar_lamp", () -> new Block(props(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST, 1.0F, 6.0F).lightLevel(s -> 15)));
-    public static final DeferredBlock<ZGPlantBlock> PYREVINE = BLOCKS.registerBlock("pyrevine", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
+    public static final DeferredBlock<ZGVineBlock> PYREVINE = BLOCKS.registerBlock("pyrevine", ZGVineBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
     public static final DeferredBlock<Block> PYRIUM_BLOCK = BLOCKS.register("pyrium_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> PYRIUM_ORE = BLOCKS.register("pyrium_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> RADIANT_BRICK_SLAB = BLOCKS.register("radiant_brick_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -706,10 +707,10 @@ public final class BlockInit {
     public static final DeferredBlock<Block> REGOLITH_BLOCK = BLOCKS.register("regolith_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> REGOLITH_ORE = BLOCKS.register("regolith_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> REMNANT_SHARD_BLOCK = BLOCKS.register("remnant_shard_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> REMNANT_SHARD_ORE = BLOCKS.register("remnant_shard_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> REMNANT_SHARD_ORE = BLOCKS.register("remnant_shard_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 11)));
     public static final DeferredBlock<Block> RIFT_GLASS = BLOCKS.register("rift_glass", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
     public static final DeferredBlock<Block> RIFT_OPAL_BLOCK = BLOCKS.register("rift_opal_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> RIFT_OPAL_ORE = BLOCKS.register("rift_opal_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> RIFT_OPAL_ORE = BLOCKS.register("rift_opal_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 11)));
     public static final DeferredBlock<Block> RIMEGLASS_BLOCK = BLOCKS.register("rimeglass_block", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
     public static final DeferredBlock<Block> RIMEGLASS_ORE = BLOCKS.register("rimeglass_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> RUINSTONE = BLOCKS.register("ruinstone", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -756,7 +757,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> SHARDWOOD_LOG = BLOCKS.register("shardwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> SHARDWOOD_PLANKS = BLOCKS.register("shardwood_planks", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SHARDWOOD_PRESSURE_PLATE = BLOCKS.register("shardwood_pressure_plate", () -> new net.minecraft.world.level.block.PressurePlateBlock(BlockSetType.OAK, props(MapColor.WOOD, SoundType.WOOD, 0.5F, 0.5F).noCollission()));
-    public static final DeferredBlock<ZGSaplingBlock> SHARDWOOD_SAPLING = BLOCKS.registerBlock("shardwood_sapling", p -> new ZGSaplingBlock(TreeGrower.OAK, p), props(MapColor.PLANT, SoundType.GRASS, 0.0F, 0.0F));
+    public static final DeferredBlock<ZGSaplingBlock> SHARDWOOD_SAPLING = BLOCKS.registerBlock("shardwood_sapling", p -> new ZGSaplingBlock(ZGTreeGrowers.SHARDWOOD, p), props(MapColor.PLANT, SoundType.GRASS, 0.0F, 0.0F));
     public static final DeferredBlock<Block> SHARDWOOD_SLAB = BLOCKS.register("shardwood_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SHARDWOOD_STAIRS = BLOCKS.register("shardwood_stairs", () -> new net.minecraft.world.level.block.StairBlock(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(), props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SHARDWOOD_TRAPDOOR = BLOCKS.register("shardwood_trapdoor", () -> new net.minecraft.world.level.block.TrapDoorBlock(BlockSetType.OAK, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
@@ -863,11 +864,11 @@ public final class BlockInit {
     public static final DeferredBlock<Block> SOLVANITE_GATE_FRAME = BLOCKS.register("solvanite_gate_frame", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SOLVANITE_ORE = BLOCKS.register("solvanite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> SPECTRAL_DUST_BLOCK = BLOCKS.register("spectral_dust_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> SPECTRAL_DUST_ORE = BLOCKS.register("spectral_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> SPECTRAL_DUST_ORE = BLOCKS.register("spectral_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 7)));
     public static final DeferredBlock<Block> SPECTRAL_LANTERN = BLOCKS.register("spectral_lantern", () -> new Block(props(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST, 1.0F, 6.0F).lightLevel(s -> 15)));
     public static final DeferredBlock<ZGPlantBlock> STARBLOOM = BLOCKS.registerBlock("starbloom", ZGPlantBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 0.0F));
     public static final DeferredBlock<Block> STARLITE_BLOCK = BLOCKS.register("starlite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> STARLITE_ORE = BLOCKS.register("starlite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> STARLITE_ORE = BLOCKS.register("starlite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 9)));
     public static final DeferredBlock<Block> STRIPPED_CHARWOOD_LOG = BLOCKS.register("stripped_charwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> STRIPPED_CHARWOOD_WOOD = BLOCKS.register("stripped_charwood_wood", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> STRIPPED_GILDWOOD_LOG = BLOCKS.register("stripped_gildwood_log", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
@@ -895,7 +896,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> TIDESAND = BLOCKS.register("tidesand", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> TOXIC_MUD = BLOCKS.register("toxic_mud", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> TREMOR_DUST_BLOCK = BLOCKS.register("tremor_dust_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> TREMOR_DUST_ORE = BLOCKS.register("tremor_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    public static final DeferredBlock<Block> TREMOR_DUST_ORE = BLOCKS.register("tremor_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 7)));
     public static final DeferredBlock<Block> TREMOR_LAMP = BLOCKS.register("tremor_lamp", () -> new Block(props(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST, 1.0F, 6.0F).lightLevel(s -> 15)));
     public static final DeferredBlock<Block> VENT_ROCK = BLOCKS.register("vent_rock", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> WRAITHSTEEL_BLOCK = BLOCKS.register("wraithsteel_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));

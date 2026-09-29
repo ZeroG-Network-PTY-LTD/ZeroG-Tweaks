@@ -1247,4 +1247,5 @@ public final class ItemInit {
     }
 
     private ItemInit() {}
+    public static final DeferredItem<Item> CRYSTAL_SHARD_ITEM = ITEMS.registerSimpleItem("crystal_shard");
 }

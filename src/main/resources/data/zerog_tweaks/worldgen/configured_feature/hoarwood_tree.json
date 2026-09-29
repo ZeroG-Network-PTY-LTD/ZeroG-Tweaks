@@ -1,0 +1,55 @@
+{
+  "type": "minecraft:tree",
+  "config": {
+    "trunk_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 3,
+          "data": {
+            "Name": "zerog_tweaks:hoarwood_log"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "zerog_tweaks:hoarwood_wood"
+          }
+        }
+      ]
+    },
+    "trunk_placer": {
+      "type": "minecraft:straight_trunk_placer",
+      "base_height": 5,
+      "height_rand_a": 2,
+      "height_rand_b": 2
+    },
+    "foliage_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "zerog_tweaks:hoarwood_leaves"
+      }
+    },
+    "foliage_placer": {
+      "type": "minecraft:spruce_foliage_placer",
+      "trunk_height": 1,
+      "radius": 2,
+      "offset": 1
+    },
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "zerog_tweaks:snowpack"
+      }
+    },
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 1,
+      "lower_size": 0,
+      "upper_size": 1
+    },
+    "decorators": [],
+    "ignore_vines": true,
+    "force_dirt": false
+  }
+}
