@@ -140,3 +140,65 @@ if __name__ == '__main__':
     save(lichen(9, (H('#6a2a14'), H('#8a3a1e'), H('#b85a30'))), 'block/rust_lichen.png')
 
     save(thorn(3, (H('#4a2a18'), H('#6a3a20')), H('#ff8a2a')), 'block/emberthorn.png')
+
+# ---------------------------------------------------------------- saplings (oak_sapling-style)
+def sapling(seed, bark, leaf, accent, shape='round'):
+    """Vanilla sapling layout: 1-2px stem rising from the bottom centre with a side twig,
+    a lumpy three-tone leaf crown on top, dark underside, light top-left, plus per-wood accents."""
+    r = random.Random(seed)
+    im = img()
+    bd, bm, bh = bark
+    ld, lm, lh = leaf
+    # stem
+    for y in range(9, 16):
+        put(im, 7, y, bm); put(im, 8, y, bd)
+    put(im, 7, 12, bh)
+    # side twig with a small leaf tuft
+    put(im, 6, 11, bm); put(im, 5, 10, bm); put(im, 4, 9, lm); put(im, 5, 9, lh); put(im, 4, 10, ld)
+    put(im, 9, 13, bm); put(im, 10, 12, lm); put(im, 11, 12, ld); put(im, 10, 11, lh)
+    # crown
+    cells = set()
+    if shape == 'spire':      # shardwood: tall crystalline crown
+        for y in range(1, 10):
+            half = 1 + min(y, 9 - y) // 1 if y < 7 else 3
+            half = {1: 0, 2: 1, 3: 1, 4: 2, 5: 3, 6: 3, 7: 4, 8: 3, 9: 2}[y]
+            for x in range(7 - half, 9 + half): cells.add((x, y))
+    elif shape == 'droop':    # hoarwood: wide, frost-heavy, drooping edges
+        for (cx, cy, rad) in ((7.5, 5, 4.6), (4, 7, 2.2), (11, 7, 2.2)):
+            for y in range(16):
+                for x in range(16):
+                    if (x - cx) ** 2 + (y - cy) ** 2 * 1.4 <= rad * rad: cells.add((x, y))
+    elif shape == 'sparse':   # charwood: burnt, gappy crown
+        for (cx, cy, rad) in ((7.5, 5, 4.2), (5, 3, 2.2), (10, 4, 2.3)):
+            for y in range(16):
+                for x in range(16):
+                    if (x - cx) ** 2 + (y - cy) ** 2 <= rad * rad and r.random() > .18: cells.add((x, y))
+    else:                     # gildwood: round, full crown
+        for (cx, cy, rad) in ((7.5, 5, 4.4), (5, 4, 3.0), (10, 4, 3.0), (7.5, 2.5, 3.0)):
+            for y in range(16):
+                for x in range(16):
+                    if (x - cx) ** 2 + (y - cy) ** 2 <= rad * rad: cells.add((x, y))
+    cells = {(x, y) for x, y in cells if 1 <= x <= 14 and 0 <= y <= 10}
+    for (x, y) in cells:
+        below = (x, y + 1) not in cells
+        above = (x, y - 1) not in cells
+        left = (x - 1, y) not in cells
+        n = r.random()
+        c = ld if below or (x + y) % 5 == 0 and n < .5 else lh if (above or left) and n < .7 else lm
+        put(im, x, y, c)
+    # stem shows through the lower crown
+    for y in range(8, 11):
+        if (7, y) in cells and r.random() < .6: put(im, 7, y, bm)
+    for (x, y) in r.sample(sorted(cells), max(3, len(cells) // 12)):
+        put(im, x, y, accent)
+    return im
+
+if __name__ == '__main__':
+    SAPS = {
+        'charwood':  ('sparse', (H('#0a0808'), H('#302826'), H('#4a3e3a')), (H('#3a1a0a'), H('#6a2a0e'), H('#a04a1a')), H('#ff8a2a')),
+        'gildwood':  ('round',  (H('#5a3a0a'), H('#8a5a10'), H('#d8a030')), (H('#8a3a0a'), H('#c4600e'), H('#f08a14')), H('#ffd060')),
+        'hoarwood':  ('droop',  (H('#4a5a66'), H('#6a7a86'), H('#b0c0ca')), (H('#5a7a8a'), H('#8ab0c0'), H('#b8d8e4')), H('#ffffff')),
+        'shardwood': ('spire',  (H('#1a2a3a'), H('#2a3e52'), H('#4c6682')), (H('#1a4a7a'), H('#2a6aa8'), H('#4a8ad0')), H('#b0f2ff')),
+    }
+    for i, (w, (shape, bark, leaf, acc)) in enumerate(SAPS.items()):
+        save(sapling(40 + i, bark, leaf, acc, shape), f'block/{w}_sapling.png')
