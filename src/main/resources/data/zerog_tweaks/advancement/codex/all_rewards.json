@@ -1,0 +1,113 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:stardust"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.all_rewards.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.all_rewards.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_abyssal_pearl": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:abyssal_pearl"
+          }
+        ]
+      }
+    },
+    "has_star_map_fragment": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:star_map_fragment"
+          }
+        ]
+      }
+    },
+    "has_heatproof_plating": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:heatproof_plating"
+          }
+        ]
+      }
+    },
+    "has_cryo_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:cryo_core"
+          }
+        ]
+      }
+    },
+    "has_neutralizer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:neutralizer"
+          }
+        ]
+      }
+    },
+    "has_refracting_lens": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:refracting_lens"
+          }
+        ]
+      }
+    },
+    "has_stardust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:stardust"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_abyssal_pearl"
+    ],
+    [
+      "has_star_map_fragment"
+    ],
+    [
+      "has_heatproof_plating"
+    ],
+    [
+      "has_cryo_core"
+    ],
+    [
+      "has_neutralizer"
+    ],
+    [
+      "has_refracting_lens"
+    ],
+    [
+      "has_stardust"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/wanderer"
+}

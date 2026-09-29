@@ -1,0 +1,93 @@
+{
+  "type": "zerog_tweaks:planet",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "zerog_tweaks:wasteland_volcanic",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "zerog_tweaks:wasteland_basalt_fields",
+          "parameters": {
+            "temperature": [
+              0.15000000000000002,
+              0.85
+            ],
+            "humidity": [
+              -0.35,
+              0.35
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:wasteland_ash_plains",
+          "parameters": {
+            "temperature": [
+              0.45000000000000007,
+              1.0
+            ],
+            "humidity": [
+              0.15000000000000002,
+              0.85
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:wasteland_lava_lakes",
+          "parameters": {
+            "temperature": [
+              0.6,
+              1.0
+            ],
+            "humidity": [
+              0.55,
+              1.0
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

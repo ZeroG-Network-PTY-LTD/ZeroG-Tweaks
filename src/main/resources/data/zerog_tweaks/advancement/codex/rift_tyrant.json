@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:rift_heart"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.rift_tyrant.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.rift_tyrant.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_rift_heart": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:rift_heart"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_rift_heart"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/skarn"
+}

@@ -1,0 +1,93 @@
+{
+  "type": "zerog_tweaks:planet_hot",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "zerog_tweaks:solvane",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "zerog_tweaks:corona_flats",
+          "parameters": {
+            "temperature": [
+              0.55,
+              1.0
+            ],
+            "humidity": [
+              -0.35,
+              0.35
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:sunspot_plateaus",
+          "parameters": {
+            "temperature": [
+              0.050000000000000044,
+              0.75
+            ],
+            "humidity": [
+              -0.04999999999999999,
+              0.6499999999999999
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:gildwood_oasis",
+          "parameters": {
+            "temperature": [
+              -0.24999999999999997,
+              0.44999999999999996
+            ],
+            "humidity": [
+              0.45000000000000007,
+              1.0
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

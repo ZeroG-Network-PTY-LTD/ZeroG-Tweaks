@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:cerulite"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.cerulite.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.cerulite.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_cerulite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:cerulite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cerulite"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/cerulon"
+}

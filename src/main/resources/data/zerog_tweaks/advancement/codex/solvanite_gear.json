@@ -1,0 +1,44 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:solvanite_chestplate"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.solvanite_gear.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.solvanite_gear.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:solvanite_helmet"
+          },
+          {
+            "items": "zerog_tweaks:solvanite_chestplate"
+          },
+          {
+            "items": "zerog_tweaks:solvanite_leggings"
+          },
+          {
+            "items": "zerog_tweaks:solvanite_boots"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "armor"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/nullifite_gear"
+}

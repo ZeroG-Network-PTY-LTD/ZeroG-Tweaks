@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "size": 8,
+    "discard_chance_on_air_exposure": 0.0,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "zerog_tweaks:skarn_rock"
+        },
+        "state": {
+          "Name": "zerog_tweaks:tremor_dust_ore"
+        }
+      }
+    ]
+  }
+}

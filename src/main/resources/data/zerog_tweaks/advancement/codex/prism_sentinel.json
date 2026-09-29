@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:sentinel_prism"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.prism_sentinel.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.prism_sentinel.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_sentinel_prism": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:sentinel_prism"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_sentinel_prism"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/cerulite"
+}

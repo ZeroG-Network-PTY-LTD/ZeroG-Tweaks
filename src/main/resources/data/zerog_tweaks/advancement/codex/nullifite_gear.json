@@ -1,0 +1,44 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:nullifite_chestplate"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.nullifite_gear.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.nullifite_gear.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:nullifite_helmet"
+          },
+          {
+            "items": "zerog_tweaks:nullifite_chestplate"
+          },
+          {
+            "items": "zerog_tweaks:nullifite_leggings"
+          },
+          {
+            "items": "zerog_tweaks:nullifite_boots"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "armor"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/root"
+}
