@@ -150,7 +150,7 @@ Tick these off in order; each milestone should leave something testable. Ids ref
 
 - [ ] **Seeded galaxy generator:** a custom `ChunkGenerator` (or a biome source + noise-settings swap) reads the world seed and picks each `g{N}_p{M}` slot's wasteland type. Reuse the 7 `wasteland_*` noise settings and biomes. Don't show unused slots on the star chart.
 - [ ] **Catalog names:** display-only, e.g. `ZG-855 d "Vorrhex"`, from a seeded name pool.
-- [ ] **Block tinting:** wire `docs/.../client/ZGBlockColors.java`. It reads the galaxy from `gN_pM` dimension ids.
+- [x] **Block tinting:** `src/.../client/ZGBlockColors.java` is wired (it reads the galaxy from `gN_pM` dimension ids and falls back to Galaxy 2). Any new grayscale block must be added to its map, or it renders grey. See `docs/zero-g-tweaks-bundle/sheets/fixes/README.md` for the texture and model rules.
 
 ### M6–M9 Galaxies 2–5
 
