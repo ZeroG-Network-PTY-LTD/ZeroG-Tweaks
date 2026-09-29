@@ -15,7 +15,6 @@ import net.zerog.tweaks.registry.MenuInit;
 import net.zerog.tweaks.registry.OreRefineryMenu;
 
 /** Ore refinery screen: 176x166, custom background, progress strip. */
-@EventBusSubscriber(modid = ZeroGTweaks.MODID, value = Dist.CLIENT)
 public final class OreRefineryScreen extends AbstractContainerScreen<OreRefineryMenu> {
 
     private static final ResourceLocation BG =
