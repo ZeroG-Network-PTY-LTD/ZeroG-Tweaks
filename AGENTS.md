@@ -27,7 +27,8 @@ This file is for the AI coding agent (or human) turning this repo into a working
 | --- | --- |
 | `src/main/java/net/zerog/tweaks/ZeroGTweaks.java` | Mod entry. Registers blocks, items and the creative tab. |
 | `registry/BlockInit.java` | All 890 blocks (`DeferredRegister.Blocks`), plus flower-pot hookup in common setup. |
-| `registry/ItemInit.java` | All items. The creative tab lists every item in the namespace automatically. |
+| `registry/ItemInit.java` | All items. |
+| `registry/CreativeTabs.java` + `ZGCreativeTabContents.java` | Seven vanilla-style tabs (Building, Natural, Functional, Tools & Utilities, Combat, Food & Drinks, Ingredients) after the vanilla tabs. The contents file is **generated** by `generators/creative_tabs.py`; re-run it after adding items. Unlisted items fall into Ingredients. |
 | `registry/ZG*Block.java` | Block classes: plants, crops, crystals, layers, doors, oriented machines. |
 | `registry/ZGTrees.java` | TreeGrowers. Saplings grow `worldgen/configured_feature/<wood>_tree`. |
 | `item/ZGFoods.java`, `item/ZGFoodItems.java`, `event/ZGInteractions.java` | Food properties and special food items. |
