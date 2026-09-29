@@ -2,6 +2,8 @@
 
 Sep 28, 2026 · @MrWhiteFlamesYT
 
+**Design locked: v1.2 (Sep 29, 2026; adds gear stats and abilities, and the six liquids).** Every section below is final for the first build; changes from here go in as v1.1 revisions.
+
 ## Overview
 
 ZeroG Tweaks is an Allthemodium-style progression mod for NeoForge 1.21.1, space-themed through exploration rather than survival mechanics like oxygen. Players travel between galaxies with a tiered teleporter, and each galaxy supplies the materials for the next tier.
@@ -616,6 +618,46 @@ Every metal also gets a full set (5 tools + 4 armor pieces), sitting between the
 | Astrium | Solvane | Standard | Near endgame | Star Forged: +2 max health |
 | Radiantine | Solvane | Precious | Gold-style | Radiant: +20% damage to undead and Splinter creatures |
 
+**Gear stats and abilities (v1.1, locked)**
+
+Vanilla reference: diamond armor totals 20 points with 2 toughness; netherite adds toughness 3 and 10% knockback resistance. Durability is relative to diamond.
+
+| Set | Tier | Armor (helm/chest/legs/boots) | Toughness | Knockback resist | Durability | Sword damage |
+| --- | --- | --- | --- | --- | --- | --- |
+| Nullifite | T1 | 3/7/5/3 (18) | 1 | 0% | 0.9× | 7 |
+| Olympium | T2 | 3/8/6/3 (20) | 2.5 | 5% | 1.05× | 8 |
+| Cerulite | T3 | 3/8/6/3 (20) | 3 | 10% | 1.1× | 8.5 |
+| Skarnite | T4 | 4/8/7/4 (23) | 3.5 | 10% | 1.25× | 9 |
+| Eidolite | T5 | 4/9/7/4 (24) | 4 | 15% | 1.45× | 10 |
+| Solvanite | T6 | 5/10/8/5 (28) | 5 | 20% | 1.8× | 12 |
+| Ferrox | Metal | 2/6/5/2 (15) | 0 | 0% | 0.7× | 6 |
+| Moonsteel | Metal | 3/6/5/2 (16) | 0.5 | 0% | 0.8× | 6.5 |
+| Cobaltium | Metal | 3/7/5/3 (18) | 1 | 0% | 0.85× | 7 |
+| Cyrrium | Metal | 3/7/6/3 (19) | 1.5 | 0% | 1.0× | 7.5 |
+| Aurelion | Precious | 2/6/5/2 (15) | 1 | 0% | 0.6× | 7 |
+| Ruskite | Metal | 3/8/6/3 (20) | 2 | 0% | 1.0× | 8 |
+| Tectium | Metal | 3/8/6/3 (20) | 3 | 15% | 1.15× | 8.5 (slower swing) |
+| Pyrium | Precious | 3/7/5/3 (18) | 1.5 | 0% | 0.7× | 8 |
+| Salvium | Metal | 3/8/6/3 (20) | 3 | 10% | 1.2× | 9 |
+| Wraithsteel | Metal | 4/8/7/4 (23) | 3.5 | 5% | 1.3× | 9.5 |
+| Palladine | Precious | 3/7/6/3 (19) | 2 | 0% | 0.8× | 9 |
+| Photium | Metal | 4/8/7/4 (23) | 4 | 5% | 1.4× | 10 |
+| Astrium | Metal | 4/9/7/4 (24) | 4.5 | 15% | 1.6× | 11 |
+| Radiantine | Precious | 4/8/6/4 (22) | 3 | 0% | 1.0× | 10.5 |
+
+Precious sets (Aurelion, Pyrium, Palladine, Radiantine) have enchantability 25 and mine and swing faster, like gold.
+
+**Tool and weapon abilities (T3 and up)**
+
+| Set | Pickaxe and shovel | Axe and hoe | Sword |
+| --- | --- | --- | --- |
+| Cerulite | Ore Sense: nearby ores glow through walls while sneaking | None | Crystal Edge: 15% chance per hit to burst into shards (3 damage nearby) |
+| Skarnite | Ember Touch: toggleable auto-smelt | Axe sets targets on fire | Hits ignite; critical hits leave an ember burst |
+| Eidolite | 3×3 mining while sneaking | None | Frostbite: Slowness II and freezing on hit |
+| Solvanite | 3×3 mining with auto-smelt | Axe fells whole trees; hoe tills and harvests 5×5 | Solar Flare: hold 2 s to fire a cone of fire (12 damage, 20 s cooldown) |
+
+Area mining, tree felling and 5×5 farming toggle with a keybind, and every ability use costs extra durability.
+
 ## Machines
 
 A compact, themed set that makes planet materials useful, runs on FE and works alongside Create and Mekanism.
@@ -687,6 +729,35 @@ Each milestone leaves something playable to test, even though everything ships t
 | M12 Balance and compatibility | Create and Mekanism recipes, optional Galacticraft and Ad Astra content, performance testing |
 
 The shared Splinter mobs can live in a small shared library mod that both ZeroG Tweaks and Shattered Skies depend on.
+
+## Liquids
+
+Each world has its own liquid, used in exploration and machines. All six have animated textures (16 frames), a bucket, an underwater fog colour and mixing rules.
+
+| Liquid | Where | In the world | Mixing | Used for |
+| --- | --- | --- | --- | --- |
+| Acid | Toxic wastelands | Poison II; corrodes armor unless you have the Neutralizer; dissolves dropped items after 5 s | Water: Sludgestone. Lava: Toxic Mud | Bog Lurker habitat; Neutralizer crafting |
+| Liquid Starlight | Cerulon crystal caves | Light 12; Slow Falling and Night Vision while swimming | Water: Crystal Sand. Lava: Prismstone | Crystal Growth Chamber input |
+| Magma Slag | Skarn lava fields | Slow, thick lava; sets you on fire; flows 3 blocks | Water: Slag. Liquid Starlight: Rift Glass | Alloy Forge heat; Skarn lava lakes |
+| Cryo Fluid | Eidolon, frozen wastelands | Slowness II and freezing (Freeze Ward blocks it); freezes water it touches | Water: Glacial Ice. Lava: Frostrock | Machine coolant; Frost Warden arena moat |
+| Solar Plasma | Solvane flows | Light 15; burns through Fire Resistance unless you wear Heatproof Plating or Skarnite+ armor | Water: Slag Glass. Cryo Fluid: Sunspot Rock | Fusion Reactor fuel |
+| Null Fluid | Deep Dark pools (Earth), Moon craters | Low gravity: you slowly float upward; Nullifite glows brighter nearby | Lava: Deepslate Nullifite Ore | Teleporter coolant; early Nullifite hint |
+
+## Rendering and technical systems
+
+The pieces that make the art work in game, all included in the package.
+
+| System | How it works |
+| --- | --- |
+| Custom effects | Freeze Ward (freeze immunity; Frostfern Tea, Cryo Chowder) and Surefoot (Slowness immunity; Frost Milk) |
+| Acid fluid | Swimmable, slow, poisons anything inside; animated textures, bucket, green underwater fog |
+| Wasteland tinting | 308 grayscale blocks tinted by wasteland type × galaxy colour, read from the dimension id (e.g. g3\_p2 = Galaxy 3) |
+| Mob models | GeckoLib geo.json, texture, glow mask and idle/walk animations for all 28 mobs; editable in Blockbench |
+| Armor models | GeckoLib armor per set: the worn layers plus real 3D extras (horns, crests, halos, pauldrons, wings, fins, spikes) |
+
+Spawn eggs: all 28 mobs, bosses included, using the vanilla egg template with two colours per mob.
+
+Dependency: GeckoLib 4.x for NeoForge 1.21.1.
 
 ## Open questions and next phase
 
