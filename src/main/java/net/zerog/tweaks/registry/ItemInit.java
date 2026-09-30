@@ -1242,6 +1242,7 @@ public final class ItemInit {
     public static final DeferredItem<Item> YAK_WOOL = ITEMS.registerSimpleItem("yak_wool");
 
     public static void register(IEventBus bus) {
+        ZGSpawnEggs.init();  // spawn eggs register into ITEMS
         ITEMS.register(bus);
     }
 

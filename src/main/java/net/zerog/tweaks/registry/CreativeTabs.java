@@ -18,7 +18,7 @@ import net.zerog.tweaks.ZeroGTweaks;
 
 /**
  * ZeroG creative tabs, split and ordered like the vanilla tabs (Building Blocks, Natural Blocks,
- * Functional Blocks, Tools & Utilities, Combat, Food & Drinks, Ingredients). They sit after the
+ * Functional Blocks, Tools & Utilities, Combat, Food & Drinks, Ingredients, Spawn Eggs). They sit after the
  * vanilla tabs, in that order. Contents come from {@link ZGCreativeTabContents}, which is generated.
  * Any ZeroG item missing from every list is appended to Ingredients, so nothing is ever hidden by accident
  * (except crop blocks, which vanilla also keeps out of the tabs).
@@ -43,6 +43,8 @@ public final class CreativeTabs {
             tab("food_and_drinks", "orbit_burger", ZGCreativeTabContents.FOOD_AND_DRINKS, COMBAT.getId(), false);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> INGREDIENTS =
             tab("ingredients", "nullifite_ingot", ZGCreativeTabContents.INGREDIENTS, FOOD_AND_DRINKS.getId(), true);
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SPAWN_EGGS =
+            tab("spawn_eggs", "mossback_spawn_egg", ZGCreativeTabContents.SPAWN_EGGS, INGREDIENTS.getId(), false);
 
     private static DeferredHolder<CreativeModeTab, CreativeModeTab> tab(String name, String icon, String[] ids, ResourceLocation after, boolean catchAll) {
         return TABS.register(name, () -> CreativeModeTab.builder()

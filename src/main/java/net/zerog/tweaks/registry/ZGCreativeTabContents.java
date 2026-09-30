@@ -338,7 +338,21 @@ public final class ZGCreativeTabContents {
             "solvanite_upgrade_smithing_template"
     };
 
+    /** Spawn Eggs (38 entries) */
+    public static final String[] SPAWN_EGGS = {
+            "amethyst_stalker_spawn_egg", "ash_strider_spawn_egg", "azure_fowl_spawn_egg", "bog_lurker_spawn_egg",
+            "cinder_hound_spawn_egg", "crater_drifter_spawn_egg", "crystal_stag_spawn_egg", "deep_eel_spawn_egg",
+            "dune_burrower_spawn_egg", "dust_grazer_spawn_egg", "dying_star_spawn_egg", "eidolon_captain_spawn_egg",
+            "flare_sprite_spawn_egg", "frost_warden_spawn_egg", "frost_yak_spawn_egg", "gildcrab_spawn_egg",
+            "glimmerfish_spawn_egg", "hollow_sentinel_spawn_egg", "ice_leech_spawn_egg", "meteor_maw_spawn_egg",
+            "moon_hopper_spawn_egg", "mossback_spawn_egg", "prism_sentinel_spawn_egg", "prismling_spawn_egg",
+            "regolith_crawler_spawn_egg", "rift_tyrant_spawn_egg", "rime_stalker_spawn_egg", "rust_beetle_spawn_egg",
+            "sand_skitter_spawn_egg", "scorch_wyrmling_spawn_egg", "shardmother_spawn_egg", "slag_boar_spawn_egg",
+            "slagjaw_spawn_egg", "splinter_mite_spawn_egg", "splinter_wisp_spawn_egg", "stormbitten_wyvern_spawn_egg",
+            "sun_colossus_spawn_egg", "tidewraith_spawn_egg"
+    };
+
     /** Every list above, for the catch-all in CreativeTabs. */
-    public static final String[][] ALL = {BUILDING_BLOCKS, NATURAL_BLOCKS, FUNCTIONAL_BLOCKS, TOOLS_AND_UTILITIES, COMBAT, FOOD_AND_DRINKS, INGREDIENTS};
+    public static final String[][] ALL = {BUILDING_BLOCKS, NATURAL_BLOCKS, FUNCTIONAL_BLOCKS, TOOLS_AND_UTILITIES, COMBAT, FOOD_AND_DRINKS, INGREDIENTS, SPAWN_EGGS};
 
 }
