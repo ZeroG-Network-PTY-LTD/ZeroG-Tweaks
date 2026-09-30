@@ -1,0 +1,257 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.zerog_tweaks.ice_leech.idle": {
+      "loop": true,
+      "animation_length": 2.0,
+      "bones": {
+        "body": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0.4,
+              0
+            ],
+            "1.5": [
+              0,
+              -0.4,
+              0
+            ],
+            "2.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.ice_leech.walk": {
+      "loop": true,
+      "animation_length": 0.8,
+      "bones": {
+        "body": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              0.5,
+              0
+            ],
+            "0.6": [
+              0,
+              -0.5,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.ice_leech.attack": {
+      "loop": false,
+      "animation_length": 0.5,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              5,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "mouth": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              0,
+              -0.25,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.ice_leech.slither": {
+      "loop": true,
+      "animation_length": 1.2,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              4,
+              0
+            ],
+            "0.9": [
+              0,
+              -4,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              4,
+              0
+            ],
+            "0.9": [
+              0,
+              -4,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.ice_leech.blink": {
+      "loop": false,
+      "animation_length": 0.24,
+      "bones": {
+        "eye_06": {
+          "scale": {
+            "0": [
+              1,
+              1,
+              1
+            ],
+            "0.08": [
+              1,
+              0.02,
+              1
+            ],
+            "0.14": [
+              1,
+              0.02,
+              1
+            ],
+            "0.24": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "eye_07": {
+          "scale": {
+            "0": [
+              1,
+              1,
+              1
+            ],
+            "0.08": [
+              1,
+              0.02,
+              1
+            ],
+            "0.14": [
+              1,
+              0.02,
+              1
+            ],
+            "0.24": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.ice_leech.look_left": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {}
+    },
+    "animation.zerog_tweaks.ice_leech.look_right": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {}
+    },
+    "animation.zerog_tweaks.ice_leech.mouth_open": {
+      "loop": false,
+      "animation_length": 0.8,
+      "bones": {
+        "mouth": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              -0.3,
+              0
+            ],
+            "0.6": [
+              0,
+              -0.3,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

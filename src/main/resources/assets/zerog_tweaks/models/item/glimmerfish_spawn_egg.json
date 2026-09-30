@@ -1,3 +1,8 @@
 {
-  "parent": "minecraft:item/template_spawn_egg"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/spawn_egg",
+    "layer1": "minecraft:item/spawn_egg_overlay",
+    "layer2": "zerog_tweaks:item/glimmerfish_spawn_egg_accent"
+  }
 }

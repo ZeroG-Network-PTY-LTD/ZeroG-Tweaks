@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "eel_skin",
+  "model_identifier": "zerog_tweaks:eel_skin",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "eel_skin",
+      "type": "cube",
+      "uuid": "96007cd3-2014-53e0-8275-941ad5da67c3",
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            64,
+            0,
+            0,
+            64
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "96007cd3-2014-53e0-8275-941ad5da67c3"
+  ],
+  "textures": [
+    {
+      "name": "eel_skin.png",
+      "id": "0",
+      "namespace": "zerog_tweaks",
+      "folder": "item",
+      "mode": "bitmap",
+      "source": "data:image/png;base64,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",
+      "uuid": "80f52a45-3e0b-53b0-a28d-c85c3dbec647"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        3,
+        1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  }
+}

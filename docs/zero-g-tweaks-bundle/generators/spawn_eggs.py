@@ -1,9 +1,10 @@
 """Spawn eggs for the 28 ZeroG mobs and the 10 Shattered Skies creatures.
 Writes ZGSpawnEggs.java (items), client/ZGItemColors.java (egg colours), item models and lang.
 Eggs resolve their entity type by id at use time, so they work as soon as the entity is registered."""
-import json, re, glob, os
+import json, re, glob, os, subprocess, sys
+from pathlib import Path
 
-REPO = '/home/claude/zerog-tweaks'
+REPO = str(Path(__file__).resolve().parents[3])
 A = f'{REPO}/src/main/resources/assets/zerog_tweaks'
 J = f'{REPO}/src/main/java/net/zerog/tweaks'
 
@@ -75,3 +76,4 @@ public final class ZGSpawnEggs {{
 open(f'{REPO}/docs/zero-g-tweaks-bundle/data/spawn_eggs.csv', 'w').write(
     'egg,name,base,spots,entity_ids\n' + '\n'.join(f'zerog_tweaks:{k}_spawn_egg,{n},#{b:06X},#{s:06X},{" ".join(i)}' for k, n, b, s, i in EGGS) + '\n')
 print(len(EGGS), 'eggs')
+subprocess.run([sys.executable, str(Path(__file__).with_name('build_spawn_egg_accents.py'))], check=True)
