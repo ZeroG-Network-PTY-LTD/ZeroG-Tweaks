@@ -1,0 +1,858 @@
+{
+ "id": "stormbitten_wyvern",
+ "name": "Stormbitten Wyvern",
+ "role": "Splinterborn boss \u00b7 Ring 3 Stormfront, Stormfront Siege Apex \u00b7 flyer \u00b7 Lightning, Line AoE (storm breath), Void Pull (wing gust)",
+ "hitbox_blocks": [
+  8.0,
+  3.0,
+  5.0
+ ],
+ "notes": [
+  "Facing north (-Z). Origin at feet centre, shown perched with wings half spread. 1 grid square = 1 texture pixel = 1/16 block. Hitbox 8 x 3 x 5 blocks (wingspan x height x length); horns, snout and tail reach past it.",
+  "A two-legged wyvern with weathered copper-green scales (bare copper showing where the patina wore off), copper-gold belly plates, torn wing membranes, copper lightning-rod horns that spark, and the splinter glowing in its throat.",
+  "Bones (23): root > body > neck > neck2 > head > jaw, horns; neck2 > splinter; body > wing_l > wing_l_outer > wing_l_tip (same on the right); body > leg_l > shin_l > foot_l (same on the right); body > tail > tail2 > tail3. Paint the membrane holes as transparent pixels.",
+  "Animations: spawn (dives out of the storm clouds and lands), idle (perched, wings half folded, horns spark), walk, run, fly, glide, attack (bite and tail-blade swipe), hurt, death (falls, wings crumple, the splinter drops from the throat), ability_lightning (rears up, horns flash), ability_line_aoe (storm breath in a straight line from the throat), ability_void_pull (huge wing beat that blows players toward the edge)."
+ ],
+ "palette": {
+  "scale": "#4f8f7a",
+  "scale_dark": "#3a6b5c",
+  "belly": "#c9a46a",
+  "copper": "#b8733f",
+  "patina": "#58c9ad",
+  "membrane": "#2f5a5a",
+  "claw": "#e8e0d0",
+  "spark": "#9ff4ff",
+  "glow": "#e6d4ff",
+  "splinter": "#c9a8ff",
+  "splinter_dim": "#9b7ee0"
+ },
+ "unshaded": [
+  "spark"
+ ],
+ "boxes": [
+  {
+   "name": "torso",
+   "bone": "body",
+   "from": [
+    -9,
+    20,
+    -14
+   ],
+   "to": [
+    9,
+    36,
+    14
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "chest",
+   "bone": "body",
+   "from": [
+    -8,
+    18,
+    -18
+   ],
+   "to": [
+    8,
+    34,
+    -8
+   ],
+   "color": "belly",
+   "texture": "scales"
+  },
+  {
+   "name": "neck",
+   "bone": "neck",
+   "from": [
+    -5,
+    30,
+    -24
+   ],
+   "to": [
+    5,
+    40,
+    -14
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "neck 2",
+   "bone": "neck2",
+   "from": [
+    -4,
+    36,
+    -32
+   ],
+   "to": [
+    4,
+    46,
+    -22
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "head",
+   "bone": "head",
+   "from": [
+    -6,
+    40,
+    -44
+   ],
+   "to": [
+    6,
+    48,
+    -30
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "snout",
+   "bone": "head",
+   "from": [
+    -4,
+    40,
+    -48
+   ],
+   "to": [
+    4,
+    45,
+    -44
+   ],
+   "color": "scale_dark",
+   "texture": "scales"
+  },
+  {
+   "name": "jaw",
+   "bone": "jaw",
+   "from": [
+    -5,
+    37,
+    -46
+   ],
+   "to": [
+    5,
+    40,
+    -32
+   ],
+   "color": "scale_dark",
+   "texture": "scales"
+  },
+  {
+   "name": "eye L",
+   "bone": "head",
+   "from": [
+    -5,
+    45,
+    -44.3
+   ],
+   "to": [
+    -3,
+    47,
+    -44
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye R",
+   "bone": "head",
+   "from": [
+    3,
+    45,
+    -44.3
+   ],
+   "to": [
+    5,
+    47,
+    -44
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye side",
+   "bone": "head",
+   "from": [
+    -6.3,
+    44,
+    -42
+   ],
+   "to": [
+    -6,
+    46,
+    -39
+   ],
+   "color": "glow",
+   "decal": "left"
+  },
+  {
+   "name": "horn L",
+   "bone": "horns",
+   "from": [
+    -5,
+    48,
+    -34
+   ],
+   "to": [
+    -3,
+    56,
+    -32
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "horn R",
+   "bone": "horns",
+   "from": [
+    3,
+    48,
+    -34
+   ],
+   "to": [
+    5,
+    56,
+    -32
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "horn spark L",
+   "bone": "horns",
+   "from": [
+    -5.5,
+    56,
+    -34.5
+   ],
+   "to": [
+    -2.5,
+    58,
+    -31.5
+   ],
+   "color": "spark"
+  },
+  {
+   "name": "horn spark R",
+   "bone": "horns",
+   "from": [
+    2.5,
+    56,
+    -34.5
+   ],
+   "to": [
+    5.5,
+    58,
+    -31.5
+   ],
+   "color": "spark"
+  },
+  {
+   "name": "splinter",
+   "bone": "splinter",
+   "from": [
+    -2.5,
+    32,
+    -30
+   ],
+   "to": [
+    2.5,
+    37,
+    -24
+   ],
+   "color": "splinter"
+  },
+  {
+   "name": "splinter glow",
+   "bone": "splinter",
+   "from": [
+    -1.5,
+    31,
+    -29
+   ],
+   "to": [
+    1.5,
+    32,
+    -25
+   ],
+   "color": "glow"
+  },
+  {
+   "name": "dorsal 1",
+   "bone": "body",
+   "from": [
+    -1,
+    36,
+    -10
+   ],
+   "to": [
+    1,
+    40,
+    -6
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "dorsal 2",
+   "bone": "body",
+   "from": [
+    -1,
+    36,
+    -2
+   ],
+   "to": [
+    1,
+    40,
+    2
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "dorsal 3",
+   "bone": "body",
+   "from": [
+    -1,
+    36,
+    6
+   ],
+   "to": [
+    1,
+    40,
+    10
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "dorsal tail",
+   "bone": "tail",
+   "from": [
+    -1,
+    32,
+    18
+   ],
+   "to": [
+    1,
+    35,
+    22
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "thigh L",
+   "bone": "leg_l",
+   "from": [
+    -10,
+    12,
+    -4
+   ],
+   "to": [
+    -4,
+    26,
+    6
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "shin L",
+   "bone": "shin_l",
+   "from": [
+    -9,
+    4,
+    2
+   ],
+   "to": [
+    -5,
+    14,
+    8
+   ],
+   "color": "scale_dark",
+   "texture": "scales"
+  },
+  {
+   "name": "foot L",
+   "bone": "foot_l",
+   "from": [
+    -10,
+    0,
+    -6
+   ],
+   "to": [
+    -4,
+    4,
+    8
+   ],
+   "color": "scale_dark",
+   "texture": "scales"
+  },
+  {
+   "name": "talons L",
+   "bone": "foot_l",
+   "from": [
+    -10,
+    0,
+    -8
+   ],
+   "to": [
+    -4,
+    2,
+    -6
+   ],
+   "color": "claw"
+  },
+  {
+   "name": "wing arm L",
+   "bone": "wing_l",
+   "from": [
+    -30,
+    34,
+    -12
+   ],
+   "to": [
+    -9,
+    37,
+    -8
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "wing arm outer L",
+   "bone": "wing_l_outer",
+   "from": [
+    -56,
+    36,
+    -10
+   ],
+   "to": [
+    -30,
+    39,
+    -6
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "wing finger L",
+   "bone": "wing_l_tip",
+   "from": [
+    -64,
+    37,
+    -9
+   ],
+   "to": [
+    -56,
+    39,
+    -7
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "membrane L",
+   "bone": "wing_l",
+   "from": [
+    -30,
+    34.5,
+    -8
+   ],
+   "to": [
+    -9,
+    35.5,
+    10
+   ],
+   "color": "membrane",
+   "texture": "membrane"
+  },
+  {
+   "name": "membrane outer L",
+   "bone": "wing_l_outer",
+   "from": [
+    -44,
+    36.5,
+    -6
+   ],
+   "to": [
+    -30,
+    37.5,
+    6
+   ],
+   "color": "membrane",
+   "texture": "membrane"
+  },
+  {
+   "name": "membrane torn L",
+   "bone": "wing_l_outer",
+   "from": [
+    -56,
+    36.5,
+    -6
+   ],
+   "to": [
+    -44,
+    37.5,
+    1
+   ],
+   "color": "membrane",
+   "texture": "membrane"
+  },
+  {
+   "name": "membrane tip L",
+   "bone": "wing_l_tip",
+   "from": [
+    -62,
+    37.2,
+    -7
+   ],
+   "to": [
+    -56,
+    38.2,
+    -2
+   ],
+   "color": "membrane",
+   "texture": "membrane"
+  },
+  {
+   "name": "thigh R",
+   "bone": "leg_r",
+   "from": [
+    4,
+    12,
+    -4
+   ],
+   "to": [
+    10,
+    26,
+    6
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "shin R",
+   "bone": "shin_r",
+   "from": [
+    5,
+    4,
+    2
+   ],
+   "to": [
+    9,
+    14,
+    8
+   ],
+   "color": "scale_dark",
+   "texture": "scales"
+  },
+  {
+   "name": "foot R",
+   "bone": "foot_r",
+   "from": [
+    4,
+    0,
+    -6
+   ],
+   "to": [
+    10,
+    4,
+    8
+   ],
+   "color": "scale_dark",
+   "texture": "scales"
+  },
+  {
+   "name": "talons R",
+   "bone": "foot_r",
+   "from": [
+    4,
+    0,
+    -8
+   ],
+   "to": [
+    10,
+    2,
+    -6
+   ],
+   "color": "claw"
+  },
+  {
+   "name": "wing arm R",
+   "bone": "wing_r",
+   "from": [
+    9,
+    34,
+    -12
+   ],
+   "to": [
+    30,
+    37,
+    -8
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "wing arm outer R",
+   "bone": "wing_r_outer",
+   "from": [
+    30,
+    36,
+    -10
+   ],
+   "to": [
+    56,
+    39,
+    -6
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "wing finger R",
+   "bone": "wing_r_tip",
+   "from": [
+    56,
+    37,
+    -9
+   ],
+   "to": [
+    64,
+    39,
+    -7
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "membrane R",
+   "bone": "wing_r",
+   "from": [
+    9,
+    34.5,
+    -8
+   ],
+   "to": [
+    30,
+    35.5,
+    10
+   ],
+   "color": "membrane",
+   "texture": "membrane"
+  },
+  {
+   "name": "membrane outer R",
+   "bone": "wing_r_outer",
+   "from": [
+    30,
+    36.5,
+    -6
+   ],
+   "to": [
+    44,
+    37.5,
+    6
+   ],
+   "color": "membrane",
+   "texture": "membrane"
+  },
+  {
+   "name": "membrane torn R",
+   "bone": "wing_r_outer",
+   "from": [
+    44,
+    36.5,
+    -6
+   ],
+   "to": [
+    56,
+    37.5,
+    1
+   ],
+   "color": "membrane",
+   "texture": "membrane"
+  },
+  {
+   "name": "membrane tip R",
+   "bone": "wing_r_tip",
+   "from": [
+    56,
+    37.2,
+    -7
+   ],
+   "to": [
+    62,
+    38.2,
+    -2
+   ],
+   "color": "membrane",
+   "texture": "membrane"
+  },
+  {
+   "name": "tail",
+   "bone": "tail",
+   "from": [
+    -4,
+    24,
+    14
+   ],
+   "to": [
+    4,
+    32,
+    30
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "tail 2",
+   "bone": "tail2",
+   "from": [
+    -3,
+    22,
+    30
+   ],
+   "to": [
+    3,
+    28,
+    44
+   ],
+   "color": "scale",
+   "texture": "scales"
+  },
+  {
+   "name": "tail 3",
+   "bone": "tail3",
+   "from": [
+    -2,
+    20,
+    44
+   ],
+   "to": [
+    2,
+    25,
+    56
+   ],
+   "color": "scale_dark",
+   "texture": "scales"
+  },
+  {
+   "name": "tail blade",
+   "bone": "tail3",
+   "from": [
+    -4,
+    19,
+    56
+   ],
+   "to": [
+    4,
+    26,
+    62
+   ],
+   "color": "copper",
+   "texture": "copper"
+  }
+ ],
+ "callouts": {
+  "front": [
+   [
+    "horn spark R",
+    "Lightning-rod horns that spark"
+   ],
+   [
+    "eye L",
+    "Glowing eyes"
+   ],
+   [
+    "splinter",
+    "Splinter glowing in the throat"
+   ],
+   [
+    "membrane outer L",
+    "Torn wing membranes"
+   ],
+   [
+    "wing finger R",
+    "Copper wing claws"
+   ],
+   [
+    "talons L",
+    "Talons"
+   ]
+  ],
+  "left": [
+   [
+    "horn L",
+    "Copper horns"
+   ],
+   [
+    "splinter",
+    "Throat splinter (storm breath comes from here)"
+   ],
+   [
+    "dorsal 2",
+    "Copper dorsal spines"
+   ],
+   [
+    "tail blade",
+    "Copper tail blade"
+   ],
+   [
+    "chest",
+    "Copper-gold belly plates"
+   ],
+   [
+    "foot L",
+    "Two legs, digitigrade"
+   ]
+  ],
+  "top": [
+   [
+    "membrane torn R",
+    "Torn membrane (holes are transparent)"
+   ],
+   [
+    "wing arm outer L",
+    "Wing arms"
+   ],
+   [
+    "head",
+    "Head"
+   ],
+   [
+    "dorsal 1",
+    "Dorsal spines"
+   ],
+   [
+    "tail blade",
+    "Tail blade"
+   ]
+  ],
+  "bottom": [
+   [
+    "chest",
+    "Belly plates"
+   ],
+   [
+    "membrane L",
+    "Wing underside"
+   ],
+   [
+    "foot R",
+    "Feet"
+   ],
+   [
+    "tail 3",
+    "Tail"
+   ]
+  ]
+ }
+}

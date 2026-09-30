@@ -1,0 +1,919 @@
+{
+ "id": "shardmother",
+ "name": "Shardmother",
+ "role": "Splinterborn boss \u00b7 Apex Splinter Lures, later realm splinter rooms \u00b7 Call Adds, Shield Phase, Splinter Volley",
+ "hitbox_blocks": [
+  4.0,
+  2.0,
+  4.0
+ ],
+ "notes": [
+  "Facing north (-Z). Origin at feet centre. 1 grid square = 1 texture pixel = 1/16 block. Hitbox 4 x 2 x 4 blocks around the body; the six legs, pincers and the splinter reach past it.",
+  "A crab-spider broodmother: glossy crystal-crusted chitin, two big pincers with crystal tips, six jointed legs, a cluster of six glowing eyes, and glowing egg sacs of splinter light on her sides and rear. The splinter rises from the middle of her back among amethyst-like crystals.",
+  "Bones (23): root > body > head > arm_l > claw_l, arm_r > claw_r; body > abdomen > splinter, sacs, crystals; body > leg_l1..3 > leg_l1..3_lower (same on the right).",
+  "Animations: spawn (crawls up over the island edge), idle (sacs pulse, pincers click), walk (spider gait), attack (pincer snap), hurt, death (legs curl in, sacs burst into light, the splinter drops), ability_call_adds (sacs split, Splinter Mites pour out), ability_shield_phase (loop: tucks legs, crystals flare, Splinter Wisps orbit), ability_splinter_volley (rears up, back crystals fire)."
+ ],
+ "palette": {
+  "shell": "#3b3150",
+  "shell_hi": "#4f4468",
+  "leg": "#2f2742",
+  "crystal": "#9a5fd0",
+  "egg": "#d9b8ff",
+  "glow": "#e6d4ff",
+  "splinter": "#c9a8ff",
+  "splinter_dim": "#9b7ee0"
+ },
+ "unshaded": [
+  "egg"
+ ],
+ "boxes": [
+  {
+   "name": "body",
+   "bone": "body",
+   "from": [
+    -14,
+    10,
+    -22
+   ],
+   "to": [
+    14,
+    22,
+    -2
+   ],
+   "color": "shell",
+   "texture": "chitin"
+  },
+  {
+   "name": "carapace",
+   "bone": "body",
+   "from": [
+    -15,
+    22,
+    -21
+   ],
+   "to": [
+    15,
+    24,
+    -3
+   ],
+   "color": "shell_hi",
+   "texture": "chitin"
+  },
+  {
+   "name": "abdomen",
+   "bone": "abdomen",
+   "from": [
+    -18,
+    8,
+    -4
+   ],
+   "to": [
+    18,
+    26,
+    26
+   ],
+   "color": "shell",
+   "texture": "chitin"
+  },
+  {
+   "name": "abdomen shell",
+   "bone": "abdomen",
+   "from": [
+    -16,
+    26,
+    -2
+   ],
+   "to": [
+    16,
+    28,
+    22
+   ],
+   "color": "shell_hi",
+   "texture": "chitin"
+  },
+  {
+   "name": "crystal 1",
+   "bone": "crystals",
+   "from": [
+    -10,
+    28,
+    2
+   ],
+   "to": [
+    -6,
+    34,
+    6
+   ],
+   "color": "crystal",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "crystal 2",
+   "bone": "crystals",
+   "from": [
+    4,
+    28,
+    12
+   ],
+   "to": [
+    8,
+    36,
+    16
+   ],
+   "color": "crystal",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "crystal 3",
+   "bone": "crystals",
+   "from": [
+    -4,
+    28,
+    15
+   ],
+   "to": [
+    0,
+    32,
+    19
+   ],
+   "color": "crystal",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "crystal 4",
+   "bone": "crystals",
+   "from": [
+    9,
+    26,
+    -1
+   ],
+   "to": [
+    12,
+    31,
+    2
+   ],
+   "color": "crystal",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "splinter",
+   "bone": "splinter",
+   "from": [
+    -3,
+    28,
+    4
+   ],
+   "to": [
+    3,
+    40,
+    10
+   ],
+   "color": "splinter"
+  },
+  {
+   "name": "splinter tip",
+   "bone": "splinter",
+   "from": [
+    -1.5,
+    40,
+    5.5
+   ],
+   "to": [
+    1.5,
+    43,
+    8.5
+   ],
+   "color": "glow"
+  },
+  {
+   "name": "egg sac L",
+   "bone": "sacs",
+   "from": [
+    -20,
+    12,
+    6
+   ],
+   "to": [
+    -17,
+    20,
+    14
+   ],
+   "color": "egg",
+   "texture": "egg"
+  },
+  {
+   "name": "egg sac L2",
+   "bone": "sacs",
+   "from": [
+    -19.5,
+    14,
+    15
+   ],
+   "to": [
+    -17,
+    19,
+    20
+   ],
+   "color": "egg",
+   "texture": "egg"
+  },
+  {
+   "name": "egg sac R",
+   "bone": "sacs",
+   "from": [
+    17,
+    14,
+    2
+   ],
+   "to": [
+    20,
+    20,
+    10
+   ],
+   "color": "egg",
+   "texture": "egg"
+  },
+  {
+   "name": "egg sac rear",
+   "bone": "sacs",
+   "from": [
+    -6,
+    12,
+    26
+   ],
+   "to": [
+    6,
+    20,
+    29
+   ],
+   "color": "egg",
+   "texture": "egg"
+  },
+  {
+   "name": "head",
+   "bone": "head",
+   "from": [
+    -8,
+    12,
+    -26
+   ],
+   "to": [
+    8,
+    20,
+    -22
+   ],
+   "color": "shell_hi",
+   "texture": "chitin"
+  },
+  {
+   "name": "eye 1",
+   "bone": "head",
+   "from": [
+    -6,
+    17,
+    -26.3
+   ],
+   "to": [
+    -4,
+    19,
+    -26
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye 2",
+   "bone": "head",
+   "from": [
+    -3,
+    18,
+    -26.3
+   ],
+   "to": [
+    -1,
+    20,
+    -26
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye 3",
+   "bone": "head",
+   "from": [
+    1,
+    18,
+    -26.3
+   ],
+   "to": [
+    3,
+    20,
+    -26
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye 4",
+   "bone": "head",
+   "from": [
+    4,
+    17,
+    -26.3
+   ],
+   "to": [
+    6,
+    19,
+    -26
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye 5",
+   "bone": "head",
+   "from": [
+    -5,
+    14,
+    -26.3
+   ],
+   "to": [
+    -3,
+    16,
+    -26
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye 6",
+   "bone": "head",
+   "from": [
+    3,
+    14,
+    -26.3
+   ],
+   "to": [
+    5,
+    16,
+    -26
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye side",
+   "bone": "head",
+   "from": [
+    -8.3,
+    16,
+    -25
+   ],
+   "to": [
+    -8,
+    18,
+    -23
+   ],
+   "color": "glow",
+   "decal": "left"
+  },
+  {
+   "name": "arm L",
+   "bone": "arm_l",
+   "from": [
+    -18,
+    10,
+    -30
+   ],
+   "to": [
+    -12,
+    16,
+    -20
+   ],
+   "color": "shell",
+   "texture": "chitin"
+  },
+  {
+   "name": "claw L",
+   "bone": "claw_l",
+   "from": [
+    -22,
+    8,
+    -38
+   ],
+   "to": [
+    -12,
+    16,
+    -30
+   ],
+   "color": "shell_hi",
+   "texture": "chitin"
+  },
+  {
+   "name": "pincer top L",
+   "bone": "claw_l",
+   "from": [
+    -21,
+    16,
+    -42
+   ],
+   "to": [
+    -13,
+    19,
+    -32
+   ],
+   "color": "shell_hi",
+   "texture": "chitin"
+  },
+  {
+   "name": "pincer low L",
+   "bone": "claw_l",
+   "from": [
+    -21,
+    6,
+    -42
+   ],
+   "to": [
+    -13,
+    8,
+    -34
+   ],
+   "color": "shell",
+   "texture": "chitin"
+  },
+  {
+   "name": "pincer tip L",
+   "bone": "claw_l",
+   "from": [
+    -21,
+    16,
+    -44
+   ],
+   "to": [
+    -13,
+    18,
+    -42
+   ],
+   "color": "crystal",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "leg L1 upper",
+   "bone": "leg_l1",
+   "from": [
+    -30,
+    20,
+    -16
+   ],
+   "to": [
+    -14,
+    24,
+    -12
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg L1 knee",
+   "bone": "leg_l1",
+   "from": [
+    -34,
+    16,
+    -16
+   ],
+   "to": [
+    -30,
+    29,
+    -12
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg L1 lower",
+   "bone": "leg_l1_lower",
+   "from": [
+    -36,
+    0,
+    -15.5
+   ],
+   "to": [
+    -32,
+    16,
+    -12.5
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg L2 upper",
+   "bone": "leg_l2",
+   "from": [
+    -30,
+    20,
+    -6
+   ],
+   "to": [
+    -14,
+    24,
+    -2
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg L2 knee",
+   "bone": "leg_l2",
+   "from": [
+    -34,
+    16,
+    -6
+   ],
+   "to": [
+    -30,
+    29,
+    -2
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg L2 lower",
+   "bone": "leg_l2_lower",
+   "from": [
+    -36,
+    0,
+    -5.5
+   ],
+   "to": [
+    -32,
+    16,
+    -2.5
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg L3 upper",
+   "bone": "leg_l3",
+   "from": [
+    -30,
+    20,
+    6
+   ],
+   "to": [
+    -14,
+    24,
+    10
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg L3 knee",
+   "bone": "leg_l3",
+   "from": [
+    -34,
+    16,
+    6
+   ],
+   "to": [
+    -30,
+    29,
+    10
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg L3 lower",
+   "bone": "leg_l3_lower",
+   "from": [
+    -36,
+    0,
+    6.5
+   ],
+   "to": [
+    -32,
+    16,
+    9.5
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "arm R",
+   "bone": "arm_r",
+   "from": [
+    12,
+    10,
+    -30
+   ],
+   "to": [
+    18,
+    16,
+    -20
+   ],
+   "color": "shell",
+   "texture": "chitin"
+  },
+  {
+   "name": "claw R",
+   "bone": "claw_r",
+   "from": [
+    12,
+    8,
+    -38
+   ],
+   "to": [
+    22,
+    16,
+    -30
+   ],
+   "color": "shell_hi",
+   "texture": "chitin"
+  },
+  {
+   "name": "pincer top R",
+   "bone": "claw_r",
+   "from": [
+    13,
+    16,
+    -42
+   ],
+   "to": [
+    21,
+    19,
+    -32
+   ],
+   "color": "shell_hi",
+   "texture": "chitin"
+  },
+  {
+   "name": "pincer low R",
+   "bone": "claw_r",
+   "from": [
+    13,
+    6,
+    -42
+   ],
+   "to": [
+    21,
+    8,
+    -34
+   ],
+   "color": "shell",
+   "texture": "chitin"
+  },
+  {
+   "name": "pincer tip R",
+   "bone": "claw_r",
+   "from": [
+    13,
+    16,
+    -44
+   ],
+   "to": [
+    21,
+    18,
+    -42
+   ],
+   "color": "crystal",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "leg R1 upper",
+   "bone": "leg_r1",
+   "from": [
+    14,
+    20,
+    -16
+   ],
+   "to": [
+    30,
+    24,
+    -12
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg R1 knee",
+   "bone": "leg_r1",
+   "from": [
+    30,
+    16,
+    -16
+   ],
+   "to": [
+    34,
+    29,
+    -12
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg R1 lower",
+   "bone": "leg_r1_lower",
+   "from": [
+    32,
+    0,
+    -15.5
+   ],
+   "to": [
+    36,
+    16,
+    -12.5
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg R2 upper",
+   "bone": "leg_r2",
+   "from": [
+    14,
+    20,
+    -6
+   ],
+   "to": [
+    30,
+    24,
+    -2
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg R2 knee",
+   "bone": "leg_r2",
+   "from": [
+    30,
+    16,
+    -6
+   ],
+   "to": [
+    34,
+    29,
+    -2
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg R2 lower",
+   "bone": "leg_r2_lower",
+   "from": [
+    32,
+    0,
+    -5.5
+   ],
+   "to": [
+    36,
+    16,
+    -2.5
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg R3 upper",
+   "bone": "leg_r3",
+   "from": [
+    14,
+    20,
+    6
+   ],
+   "to": [
+    30,
+    24,
+    10
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg R3 knee",
+   "bone": "leg_r3",
+   "from": [
+    30,
+    16,
+    6
+   ],
+   "to": [
+    34,
+    29,
+    10
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  },
+  {
+   "name": "leg R3 lower",
+   "bone": "leg_r3_lower",
+   "from": [
+    32,
+    0,
+    6.5
+   ],
+   "to": [
+    36,
+    16,
+    9.5
+   ],
+   "color": "leg",
+   "texture": "chitin"
+  }
+ ],
+ "callouts": {
+  "front": [
+   [
+    "splinter",
+    "Splinter rises from her back"
+   ],
+   [
+    "eye 2",
+    "Six glowing eyes"
+   ],
+   [
+    "pincer tip R",
+    "Crystal-tipped pincers"
+   ],
+   [
+    "leg L1 knee",
+    "Six jointed legs"
+   ],
+   [
+    "egg sac R",
+    "Glowing egg sacs"
+   ]
+  ],
+  "left": [
+   [
+    "splinter",
+    "Splinter"
+   ],
+   [
+    "crystal 2",
+    "Crystal crust on the back"
+   ],
+   [
+    "egg sac L",
+    "Egg sacs (split to release Mites)"
+   ],
+   [
+    "pincer top L",
+    "Pincer"
+   ],
+   [
+    "leg L2 lower",
+    "Leg"
+   ],
+   [
+    "egg sac rear",
+    "Rear egg sac"
+   ]
+  ],
+  "top": [
+   [
+    "splinter",
+    "Splinter"
+   ],
+   [
+    "crystal 1",
+    "Crystals"
+   ],
+   [
+    "carapace",
+    "Carapace"
+   ],
+   [
+    "claw R",
+    "Claws"
+   ],
+   [
+    "leg R3 upper",
+    "Legs"
+   ]
+  ],
+  "bottom": [
+   [
+    "body",
+    "Underside"
+   ],
+   [
+    "leg L1 lower",
+    "Feet"
+   ],
+   [
+    "egg sac rear",
+    "Egg sac"
+   ],
+   [
+    "pincer low R",
+    "Lower pincer"
+   ]
+  ]
+ }
+}
