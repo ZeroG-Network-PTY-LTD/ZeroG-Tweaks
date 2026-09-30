@@ -18,7 +18,7 @@ import net.minecraft.world.level.material.PushReaction;
  */
 public class ZGSaplingBlock extends SaplingBlock {
     public ZGSaplingBlock(TreeGrower grower, BlockBehaviour.Properties props) {
-        super(grower, props.sound(SoundType.GRASS).noOcclusion().pushReaction(PushReaction.DESTROY));
+        super(grower, props.sound(SoundType.GRASS).noCollission().instabreak().randomTicks().noOcclusion().pushReaction(PushReaction.DESTROY));
     }
 
     @Override
