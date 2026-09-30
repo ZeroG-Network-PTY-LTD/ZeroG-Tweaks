@@ -88,11 +88,11 @@ def motif(name, x, y, fw, fh, gx, gy):
         if edge: return 5
     elif name == 'crater':      # rings
         d = math.hypot(x - cx, y - cy)
-        if fw >= 8 and abs(d - 3.2) < 0.5: return 2
+        if fw >= 8 and abs(d - 2.6) < 0.45 and y > 1: return 2
         if fw < 8 and y % 6 == 3 and abs(x - cx) < 1: return 3
         if edge: return 5
     elif name == 'olympus':     # mountain chevrons
-        if (y + abs(x - cx) * 1.0) % 5 < 1: return 2 if y < fh / 2 else 4
+        if abs((y - 1) - abs(x - cx)) < .6 and y < fh * .6: return 2    # one chevron peak
         if edge: return 6
     elif name == 'geode':       # nested diamonds
         m = abs(x - cx) + abs(y - cy)
@@ -103,18 +103,17 @@ def motif(name, x, y, fw, fh, gx, gy):
         if (gx + gy) % 9 == 0 and y % 4 != 3: return 2
         if edge: return 5
     elif name == 'hull':        # hull ribs and rivets
-        if x in (0, fw - 1) and y % 2 == 0: return 3
         if y in (0, fh - 1): return 5
-        if x % 3 == 1 and y % 4 == 2: return 1
+        if x in (1, fw - 2) and y % 3 == 1: return 1           # two rivet columns
     elif name == 'corona':      # rays from the top centre
         ang = math.degrees(math.atan2(y + 1, x - cx))
-        if round(ang) % 30 < 8 and y > 0: return 1 if y < 4 else 3
+        if round(ang) % 45 < 6 and 0 < y < 6: return 1 if y < 3 else 3
     elif name == 'surge':       # waves
         if y == int(cy + 1.4 * math.sin((gx) / 1.6)): return 2
         if edge: return 5
     elif name == 'prism':       # stacked triangles
-        if (fh - 1 - y) % 4 == 0 and abs(x - cx) <= (fh - 1 - y) % 8: return 2
-        if (fh - 1 - y) % 4 == 2 and abs(x - cx) < 1: return 0
+        if fh - 1 - y < 4 and abs(x - cx) <= (fh - 1 - y) and abs(abs(x - cx) - (fh - 1 - y)) < .6: return 2
+        if fh - 1 - y == 5 and abs(x - cx) < 1: return 0
     elif name == 'meteor':      # a streak with a burning head
         t = x - y
         if t == 0 and y < fh - 2: return 3 if y % 2 else 5
@@ -135,14 +134,27 @@ PATTERNS = {  # id: (display, theme colour for the template icon, chest, duplica
 }
 
 def draw_layer(name, parts):
+    """Keep trims light, like vanilla: the full motif only on the big front/back faces (head, torso);
+    side faces and the narrow arm/leg faces just get a hem line and one accent, and the helmet top stays bare."""
     im = Image.new('RGBA', (64, 32), (0, 0, 0, 0)); p = im.load()
     for rects, rows in parts:
         for face, (fx, fy, fw, fh) in rects.items():
+            if face == 'top': continue
+            big = face in ('front', 'back') and fw >= 8
             for y in range(fh):
-                if rows and not (rows[0] <= fy + y <= rows[1]): continue
+                gy = fy + y
+                if rows and not (rows[0] <= gy <= rows[1]): continue
+                last = gy == (rows[1] if rows else fy + fh - 1)
                 for x in range(fw):
-                    k = motif(name, x, y, fw, fh, fx + x, fy + y)
-                    if k is not None: p[fx + x, fy + y] = KEY[k] + (255,)
+                    if big:
+                        k = motif(name, x, y, fw, fh, fx + x, gy)
+                    elif last:
+                        k = 5                                            # hem along the bottom edge
+                    elif face in ('front', 'back') and y == fh // 2 and x in (fw // 2 - 1, fw // 2):
+                        k = 2                                            # a single accent on arms and legs
+                    else:
+                        k = None
+                    if k is not None: p[fx + x, gy] = KEY[k] + (255,)
     return im
 
 for pid in PATTERNS:
