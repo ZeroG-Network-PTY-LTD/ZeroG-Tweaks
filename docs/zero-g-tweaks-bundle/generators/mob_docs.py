@@ -121,6 +121,7 @@ for k in MOBS:
     d, s = DESIGN[k], S[k]
     st = dict(d['stats'])
     w, h, l = hitbox(d['info'])
+    if s.get('hitbox_override'): w, h = s['hitbox_override']; l = None
     dr = drops(k); drop_rows += dr
     have = anim_names(k)
     need = [a.split(' ')[0] for a in s['animations']]
@@ -140,6 +141,8 @@ for k in MOBS:
                                                              if a not in ('Health', 'Damage', 'Speed', 'Behavior', 'Spawns', 'Drops', 'Breeding', 'Phases', 'Arena')],
         goals_in_priority_order=s['goals'], states=s['states'], transitions=s['transitions'], animations_required=[f'animation.{k}.{a}' for a in need],
         animations_existing=[f'animation.{k}.{a}' for a in have], mechanics=s['mechanics'], boss=s['boss'],
+        eye_style=s['eye_style'], eye_style_rule=__import__('mob_specs').EYE_STYLES[s['eye_style']], eye_style_source=s['eye_source'],
+        scale_rule=s.get('scale_rule'),
         vanilla_base=s['vanilla']['base'], vanilla_also=s['vanilla'].get('also', []), vanilla_rig=s['vanilla']['rig'],
         animation_references={f'animation.{k}.{a}': ref for a, ref in s['vanilla']['anims'].items()},
         loot_table=f'zerog_tweaks:entities/{k}', drops=[{x: y for x, y in r.items() if x != 'mob'} for r in dr],
@@ -158,7 +161,7 @@ for k in MOBS:
 
 json.dump({'schema': 'zerog_tweaks.mobs.v1', 'count': len(rows), 'mobs': rows}, open(f'{DATA}/mobs.json', 'w'), indent=2)
 
-FLAT = ['key', 'name', 'galaxy', 'world', 'role', 'mob_category', 'java_base', 'vanilla_base', 'hitbox_width', 'hitbox_height', 'hitbox_length', 'max_health',
+FLAT = ['key', 'name', 'galaxy', 'world', 'role', 'mob_category', 'java_base', 'vanilla_base', 'eye_style', 'scale_rule', 'hitbox_width', 'hitbox_height', 'hitbox_length', 'max_health',
         'attack_damage', 'damage_text', 'movement_speed', 'flying_speed', 'follow_range', 'armor', 'knockback_resistance', 'breeding_item',
         'immunities', 'behavior', 'spawns_text', 'drops_text', 'loot_table', 'sheet']
 with open(f'{DATA}/mobs.csv', 'w', newline='') as f:
@@ -171,6 +174,12 @@ dump('mob_drops.csv', drop_rows, ['mob', 'item', 'item_name', 'min', 'max', 'cha
 dump('mob_spawns.csv', spawns, ['mob', 'category', 'weight', 'min_group', 'max_group', 'biomes', 'source'])
 dump('mob_animations.csv', anim_rows, ['mob', 'animation', 'exists', 'loop'])
 dump('mob_state_transitions.csv', [dict(mob=r['key'], **t) for r in rows for t in r['transitions']], ['mob', 'frm', 'to', 'trigger'])
+import mob_specs as _ms
+_eye = [dict(mob=r['key'], name=r['name'], mod='zerog_tweaks', eye_style=r['eye_style'], source=r['eye_style_source'], scale=r['scale_rule'] or '', notes='') for r in rows]
+for _k, (_e, _src, _n) in _ms.SS_EYES.items():
+    _j = json.load(open(f'{REPO}/docs/shattered-skies/models/{_k}.json'))
+    _eye.append(dict(mob=_k, name=_j['name'], mod='shattered_skies', eye_style=_e, source=_src, scale='', notes=_n))
+dump('mob_eye_styles.csv', _eye, ['mob', 'name', 'mod', 'eye_style', 'source', 'scale', 'notes'])
 dump('mob_vanilla_bases.csv', [dict(mob=r['key'], name=r['name'], vanilla_base=r['vanilla_base'], also=' '.join(r['vanilla_also']), rig=r['vanilla_rig']) for r in rows],
      ['mob', 'name', 'vanilla_base', 'also', 'rig'])
 dump('mob_animation_references.csv', [dict(mob=r['key'], animation=a, copy_from=ref, exists=a in r['animations_existing']) for r in rows for a, ref in r['animation_references'].items()],
@@ -281,7 +290,7 @@ print('mobs', len(rows), 'drops', len(drop_rows), 'spawns', len(spawns), 'anims'
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 wb = Workbook(); wb.remove(wb.active)
-for name in ['mobs', 'mob_vanilla_bases', 'mob_animation_references', 'mob_attributes', 'mob_drops', 'mob_spawns', 'mob_ai_goals', 'mob_state_transitions', 'mob_animations']:
+for name in ['mobs', 'mob_eye_styles', 'mob_vanilla_bases', 'mob_animation_references', 'mob_attributes', 'mob_drops', 'mob_spawns', 'mob_ai_goals', 'mob_state_transitions', 'mob_animations']:
     ws = wb.create_sheet(name)
     for i, row in enumerate(csv.reader(open(f'{DATA}/{name}.csv'))):
         ws.append([float(c) if re.fullmatch(r'-?\d+(\.\d+)?', c) else c for c in row])
