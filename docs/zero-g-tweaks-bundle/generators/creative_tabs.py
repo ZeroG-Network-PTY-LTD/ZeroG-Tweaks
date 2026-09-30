@@ -8,6 +8,8 @@ ii = open(f'{REPO}/src/main/java/net/zerog/tweaks/registry/ItemInit.java').read(
 bi = open(f'{REPO}/src/main/java/net/zerog/tweaks/registry/BlockInit.java').read()
 BLOCKS = set(re.findall(r'BLOCKS\.register\w*\("(\w+)"', bi))
 ITEMS = re.findall(r'ITEMS\.\w+\("(\w+)"', ii)
+EGGS = sorted(k + '_spawn_egg' for k in re.findall(r'egg\("(\w+)", 0x', open(f'{REPO}/src/main/java/net/zerog/tweaks/registry/ZGSpawnEggs.java').read()))
+ITEMS += EGGS
 ITEMSET = set(ITEMS)
 FOODS = [n.lower() for n in re.findall(r'FoodProperties (\w+) =', open(f'{REPO}/src/main/java/net/zerog/tweaks/item/ZGFoods.java').read())]
 
@@ -29,7 +31,7 @@ SHAPES = ['', '_stairs', '_slab', '_wall']
 TOOLS = ['shovel', 'pickaxe', 'axe', 'hoe']
 ARMOR = ['helmet', 'chestplate', 'leggings', 'boots']
 
-TABS = {k: [] for k in ('building_blocks', 'natural_blocks', 'functional_blocks', 'tools_and_utilities', 'combat', 'food_and_drinks', 'ingredients')}
+TABS = {k: [] for k in ('building_blocks', 'natural_blocks', 'functional_blocks', 'tools_and_utilities', 'combat', 'food_and_drinks', 'ingredients', 'spawn_eggs')}
 PLACED = {}
 def add(tab, *ids):
     for i in ids:
@@ -119,15 +121,18 @@ add('ingredients', 'stardust', 'solar_spark', 'crystal_hide', 'cinder_pelt', 'fr
 add('ingredients', 'olympium_upgrade_smithing_template', 'cerulite_upgrade_smithing_template', 'skarnite_upgrade_smithing_template',
     'eidolite_upgrade_smithing_template', 'solvanite_upgrade_smithing_template')
 
+# ================================================================ SPAWN EGGS (vanilla: alphabetical)
+add('spawn_eggs', *EGGS)
+
 missing = [i for i in ITEMS if i not in PLACED]
 if missing:
     print('UNPLACED', len(missing), missing)
 
 # ================================================================ Java
 TITLES = {'building_blocks': 'Building Blocks', 'natural_blocks': 'Natural Blocks', 'functional_blocks': 'Functional Blocks',
-          'tools_and_utilities': 'Tools & Utilities', 'combat': 'Combat', 'food_and_drinks': 'Food & Drinks', 'ingredients': 'Ingredients'}
+          'tools_and_utilities': 'Tools & Utilities', 'combat': 'Combat', 'food_and_drinks': 'Food & Drinks', 'ingredients': 'Ingredients', 'spawn_eggs': 'Spawn Eggs'}
 ICONS = {'building_blocks': 'cerulean_stone_bricks', 'natural_blocks': 'cerulite_ore', 'functional_blocks': 'gate_controller',
-         'tools_and_utilities': 'nullifite_pickaxe', 'combat': 'solvanite_sword', 'food_and_drinks': 'orbit_burger', 'ingredients': 'nullifite_ingot'}
+         'tools_and_utilities': 'nullifite_pickaxe', 'combat': 'solvanite_sword', 'food_and_drinks': 'orbit_burger', 'ingredients': 'nullifite_ingot', 'spawn_eggs': 'mossback_spawn_egg'}
 for t, i in ICONS.items(): assert i in TABS[t], (t, i)
 
 def jarr(ids):
