@@ -1,0 +1,304 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.zerog_tweaks.flare_sprite.idle": {
+      "loop": true,
+      "animation_length": 2.0,
+      "bones": {
+        "body": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0.4,
+              0
+            ],
+            "1.5": [
+              0,
+              -0.4,
+              0
+            ],
+            "2.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "left_wing": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              7
+            ],
+            "1.5": [
+              0,
+              0,
+              -7
+            ],
+            "2.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "right_wing": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              7
+            ],
+            "1.5": [
+              0,
+              0,
+              -7
+            ],
+            "2.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.flare_sprite.walk": {
+      "loop": true,
+      "animation_length": 0.8,
+      "bones": {
+        "body": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              0.5,
+              0
+            ],
+            "0.6": [
+              0,
+              -0.5,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "left_wing": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              0,
+              12
+            ],
+            "0.6": [
+              0,
+              0,
+              -12
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "right_wing": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              0,
+              -12
+            ],
+            "0.6": [
+              0,
+              0,
+              12
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.flare_sprite.attack": {
+      "loop": false,
+      "animation_length": 0.5,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              5,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.flare_sprite.fly": {
+      "loop": true,
+      "animation_length": 1.2,
+      "bones": {
+        "left_wing": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              0,
+              28
+            ],
+            "0.9": [
+              0,
+              0,
+              -28
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "right_wing": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              0,
+              -28
+            ],
+            "0.9": [
+              0,
+              0,
+              28
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "root": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              1.5,
+              0
+            ],
+            "0.9": [
+              0,
+              -1.5,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.flare_sprite.blink": {
+      "loop": false,
+      "animation_length": 0.24,
+      "bones": {
+        "eye_06": {
+          "scale": {
+            "0": [
+              1,
+              1,
+              1
+            ],
+            "0.08": [
+              1,
+              0.02,
+              1
+            ],
+            "0.14": [
+              1,
+              0.02,
+              1
+            ],
+            "0.24": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.flare_sprite.look_left": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {}
+    },
+    "animation.zerog_tweaks.flare_sprite.look_right": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {}
+    }
+  }
+}

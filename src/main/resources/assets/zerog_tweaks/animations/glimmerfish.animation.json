@@ -1,0 +1,425 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.zerog_tweaks.glimmerfish.idle": {
+      "loop": true,
+      "animation_length": 2.0,
+      "bones": {
+        "body": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0.4,
+              0
+            ],
+            "1.5": [
+              0,
+              -0.4,
+              0
+            ],
+            "2.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "tail": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              7,
+              0
+            ],
+            "1.5": [
+              0,
+              -7,
+              0
+            ],
+            "2.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "left_wing": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              7
+            ],
+            "1.5": [
+              0,
+              0,
+              -7
+            ],
+            "2.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "right_wing": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              7
+            ],
+            "1.5": [
+              0,
+              0,
+              -7
+            ],
+            "2.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.glimmerfish.walk": {
+      "loop": true,
+      "animation_length": 0.8,
+      "bones": {
+        "body": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              0.5,
+              0
+            ],
+            "0.6": [
+              0,
+              -0.5,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "tail": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              9,
+              0
+            ],
+            "0.6": [
+              0,
+              -9,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "left_wing": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              0,
+              12
+            ],
+            "0.6": [
+              0,
+              0,
+              -12
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "right_wing": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              0,
+              -12
+            ],
+            "0.6": [
+              0,
+              0,
+              12
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.glimmerfish.attack": {
+      "loop": false,
+      "animation_length": 0.5,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              5,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "mouth": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              0,
+              -0.25,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.glimmerfish.swim": {
+      "loop": true,
+      "animation_length": 1.2,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              4,
+              0
+            ],
+            "0.9": [
+              0,
+              -4,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "tail": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              14,
+              0
+            ],
+            "0.9": [
+              0,
+              -14,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              4,
+              0
+            ],
+            "0.9": [
+              0,
+              -4,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.glimmerfish.blink": {
+      "loop": false,
+      "animation_length": 0.24,
+      "bones": {
+        "eye_07": {
+          "scale": {
+            "0": [
+              1,
+              1,
+              1
+            ],
+            "0.08": [
+              1,
+              0.02,
+              1
+            ],
+            "0.14": [
+              1,
+              0.02,
+              1
+            ],
+            "0.24": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "eye_08": {
+          "scale": {
+            "0": [
+              1,
+              1,
+              1
+            ],
+            "0.08": [
+              1,
+              0.02,
+              1
+            ],
+            "0.14": [
+              1,
+              0.02,
+              1
+            ],
+            "0.24": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.glimmerfish.look_left": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {}
+    },
+    "animation.zerog_tweaks.glimmerfish.look_right": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {}
+    },
+    "animation.zerog_tweaks.glimmerfish.mouth_open": {
+      "loop": false,
+      "animation_length": 0.8,
+      "bones": {
+        "mouth": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.2": [
+              0,
+              -0.3,
+              0
+            ],
+            "0.6": [
+              0,
+              -0.3,
+              0
+            ],
+            "0.8": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.shatteredskies.amethyst_stalker.aura",
+        "texture_width": 128,
+        "texture_height": 128,
+        "visible_bounds_width": 5.725,
+        "visible_bounds_height": 5.725,
+        "visible_bounds_offset": [
+          -0.015625,
+          1.0,
+          0.03125
+        ]
+      },
+      "bones": [
+        {
+          "name": "aura",
+          "pivot": [
+            -0.25,
+            16.0,
+            0.5
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -0.25,
+                -21.799999999999997,
+                -37.3
+              ],
+              "size": [
+                0.0,
+                75.6,
+                75.6
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -38.05,
+                16.0,
+                -37.3
+              ],
+              "size": [
+                75.6,
+                0.0,
+                75.6
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -38.05,
+                -21.799999999999997,
+                0.5
+              ],
+              "size": [
+                75.6,
+                75.6,
+                0.0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

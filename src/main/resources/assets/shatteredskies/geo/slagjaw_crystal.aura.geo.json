@@ -1,0 +1,133 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.shatteredskies.slagjaw_crystal.aura",
+        "texture_width": 128,
+        "texture_height": 128,
+        "visible_bounds_width": 5.125,
+        "visible_bounds_height": 5.125,
+        "visible_bounds_offset": [
+          0.0,
+          1.71875,
+          -0.4375
+        ]
+      },
+      "bones": [
+        {
+          "name": "aura",
+          "pivot": [
+            0.0,
+            27.5,
+            -7.0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                0.0,
+                -5.5,
+                -40.0
+              ],
+              "size": [
+                0.0,
+                66.0,
+                66.0
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -33.0,
+                27.5,
+                -40.0
+              ],
+              "size": [
+                66.0,
+                0.0,
+                66.0
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -33.0,
+                -5.5,
+                -7.0
+              ],
+              "size": [
+                66.0,
+                66.0,
+                0.0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
