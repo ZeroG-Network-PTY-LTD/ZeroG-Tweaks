@@ -160,3 +160,39 @@ for i, key in enumerate(['manta', 'wraith', 'reef']):
     t, desc, face, r = renders[key]
     cald(40 + (i + 1) * (cw + 20), t, desc, r, face)
 img.save(f'{OUTS}/tidewraith_face_redesign.png'); print(img.size)
+
+# ---- chosen face (A Manta) in each style's palette ----
+def hx(h): return tuple(int(h[i:i + 2], 16) for i in (1, 3, 5))
+def mix(a, b, t): return tuple(int(x + (y - x) * t) for x, y in zip(a, b))
+STYLES = {  # skin, speckle, eye glow, underside, crack
+    'base':    dict(skin=P['.'], spot=P[','], glow=P['g'], pale=P['p'], crack=P['v']),
+    'storm':   dict(skin=hx('#6b7682'), spot=hx('#8a9aa6'), glow=hx('#ffe066'), pale=hx('#e3e8ec'), crack=hx('#c9a8ff')),
+    'abyssal': dict(skin=hx('#14233f'), spot=hx('#1f4f6a'), glow=hx('#6ff0ff'), pale=hx('#26395e'), crack=hx('#b58cff')),
+    'pearl':   dict(skin=hx('#e4dfec'), spot=hx('#ffffff'), glow=hx('#f2a7c8'), pale=hx('#f6f3fa'), crack=hx('#b8e6f2'), dark=.6),
+}
+def style_pal(s):
+    k = (0, 0, 0); f = s.get('dark', 1.0)   # pale styles use softer darks
+    return {'.': s['skin'], ',': s['spot'], 'd': mix(s['skin'], k, .38 * f), 'b': mix(s['skin'], k, .65 * f), 'k': mix(s['skin'], k, .85 * f),
+            'g': s['glow'], 'G': mix(s['glow'], (255, 255, 255), .6), 'h': mix(s['glow'], s['skin'], .6),
+            'r': mix(s['skin'], k, .5 * f), 'p': s['pale'], 'q': mix(s['pale'], k, .22), 'v': s['crack'], 'V': mix(s['crack'], k, .4)}
+rows = FACES['manta'][2]; strip = []
+for name, s in STYLES.items():
+    sp = style_pal(s)
+    im = Image.new('RGBA', (16, 12)); gm = Image.new('RGBA', (16, 12), (0, 0, 0, 0))
+    for y, row in enumerate(rows):
+        for x, ch in enumerate(row):
+            im.putpixel((x, y), sp[ch] + (255,))
+            if ch in GLOW: gm.putpixel((x, y), sp[ch] + (255,))
+    suffix = '' if name == 'base' else '_' + name
+    im.save(f'{OUTT}/tidewraith{suffix}_face.png'); gm.save(f'{OUTT}/tidewraith{suffix}_face_glowmask.png')
+    P_backup = dict(P); P.update(sp); FACE_GLOW = gm.load(); strip.append((name, im, head_render(im))); P.clear(); P.update(P_backup)
+sh = Image.new('RGB', (40 + 4 * 420, 640), BG); d = ImageDraw.Draw(sh)
+d.text((40, 24), 'Tidewraith face · Manta (chosen) in every style', font=F(32, True), fill=INK)
+for i, (name, im, r) in enumerate(strip):
+    x = 40 + i * 420
+    r = r.copy(); r.thumbnail((380, 330), Image.LANCZOS)
+    sh.paste(Image.new('RGB', (380, 330), (190, 206, 214)), (x, 90)); sh.paste(r, (x + (380 - r.width) // 2, 90 + (330 - r.height) // 2), r)
+    sh.paste(im.resize((192, 144), Image.NEAREST), (x, 440))
+    d.text((x + 210, 450), name.capitalize(), font=F(24, True), fill=INK)
+    d.text((x + 210, 486), f"tidewraith{'' if name == 'base' else '_' + name}_face.png", font=F(13), fill=SUB)
+sh.save(f'{OUTS}/tidewraith_face_styles.png'); print(sh.size)

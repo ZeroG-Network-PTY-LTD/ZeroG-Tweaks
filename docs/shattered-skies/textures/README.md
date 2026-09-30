@@ -1,10 +1,12 @@
 # Tidewraith face textures
 
+**Chosen: A Manta.** Use `tidewraith_face.png` (base) and `tidewraith_storm_face.png`, `tidewraith_abyssal_face.png`, `tidewraith_pearl_face.png` for the styles, each with a `_glowmask`. Preview: `../sheets/tidewraith_face_styles.png`. B and C are kept only for reference.
+
 Front-face redesign for the Tidewraith head in the Blockbench build. Preview: `../sheets/tidewraith_face_redesign.png`.
 
 | File | Option |
 | --- | --- |
-| `tidewraith_face_manta.png` (+ `_glowmask`) | **A Manta (recommended):** slanted slit eyes at the outer corners, wide filter mouth with dark gill rakers (no teeth), pale chin, violet splinter crack |
+| `tidewraith_face.png` (+ `_glowmask`) | **A Manta (recommended):** slanted slit eyes at the outer corners, wide filter mouth with dark gill rakers (no teeth), pale chin, violet splinter crack |
 | `tidewraith_face_wraith.png` (+ `_glowmask`) | **B Wraith:** hollow sockets with pin-point pupils, ragged open jaw with a faint glow |
 | `tidewraith_face_reef.png` (+ `_glowmask`) | **C Reef:** round eyes under a coral brow, closed mouth, gill slits on the cheeks |
 
