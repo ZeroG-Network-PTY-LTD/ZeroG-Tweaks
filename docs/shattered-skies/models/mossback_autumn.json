@@ -1,0 +1,153 @@
+{
+ "extends": "mossback",
+ "id": "mossback_autumn",
+ "name": "Mossback \u00b7 Autumn style",
+ "role": "Boss style \u00b7 Ring 1 Verdant islands during harvest events \u00b7 same abilities",
+ "notes": [
+  "Same rig, bones, animations and hitbox as Mossback; only textures and added boxes change.",
+  "A harvest form: a mantle of orange and red fallen leaves, darker brown fur, a small pumpkin in place of the mushroom, and red berries on the beard.",
+  "Good for a scheduled harvest event (the Phase 5 event calendar can switch Verdant spawns to this style for a week).",
+  "Spawns on Verdant islands (Ring 1) during harvest events."
+ ],
+ "palette": {
+  "hide": "#6a4a30",
+  "hide_dark": "#4a3220",
+  "moss": "#c8662a",
+  "moss_hi": "#f2b33a",
+  "shell_dark": "#8a2f1c",
+  "leaf": "#d9822b",
+  "mushroom": "#e07b1f",
+  "berry": "#b3202a"
+ },
+ "remove_boxes": [
+  "mushroom stem",
+  "mushroom cap"
+ ],
+ "add_boxes": [
+  {
+   "name": "pumpkin",
+   "bone": "mantle",
+   "from": [
+    -15,
+    34,
+    2
+   ],
+   "to": [
+    -9,
+    40,
+    8
+   ],
+   "color": "mushroom",
+   "texture": "kelp"
+  },
+  {
+   "name": "pumpkin stem",
+   "bone": "mantle",
+   "from": [
+    -12.5,
+    40,
+    4.5
+   ],
+   "to": [
+    -11.5,
+    42,
+    5.5
+   ],
+   "color": "leaf"
+  },
+  {
+   "name": "berries",
+   "bone": "beard",
+   "from": [
+    -4,
+    4,
+    -31.5
+   ],
+   "to": [
+    4,
+    6,
+    -31
+   ],
+   "color": "berry",
+   "decal": "front"
+  }
+ ],
+ "callouts": {
+  "front": [
+   [
+    "splinter",
+    "Splinter (violet)"
+   ],
+   [
+    "horn curl L",
+    "Horns"
+   ],
+   [
+    "berries",
+    "Red berries in the beard"
+   ],
+   [
+    "moss drape R",
+    "Leaf drapes"
+   ],
+   [
+    "hoof FL",
+    "Hooves"
+   ]
+  ],
+  "left": [
+   [
+    "mantle",
+    "Fallen-leaf mantle"
+   ],
+   [
+    "pumpkin",
+    "Small pumpkin"
+   ],
+   [
+    "fern",
+    "Autumn fern"
+   ],
+   [
+    "body",
+    "Dark brown fur"
+   ],
+   [
+    "tail tuft",
+    "Leafy tail tuft"
+   ]
+  ],
+  "top": [
+   [
+    "pumpkin",
+    "Pumpkin"
+   ],
+   [
+    "fern",
+    "Fern"
+   ],
+   [
+    "splinter",
+    "Splinter"
+   ],
+   [
+    "mantle",
+    "Leaf mantle"
+   ]
+  ],
+  "bottom": [
+   [
+    "belly",
+    "Belly"
+   ],
+   [
+    "hoof BL",
+    "Hooves"
+   ],
+   [
+    "beard",
+    "Leaf beard"
+   ]
+  ]
+ }
+}

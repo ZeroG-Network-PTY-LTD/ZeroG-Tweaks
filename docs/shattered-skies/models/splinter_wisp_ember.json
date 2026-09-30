@@ -1,0 +1,162 @@
+{
+ "extends": "splinter_wisp",
+ "id": "splinter_wisp_ember",
+ "name": "Splinter Wisp \u00b7 Ember variant",
+ "role": "Add mob variant \u00b7 summoned by Ember Shardmothers",
+ "notes": [
+  "Same rig, bones, animations and hitbox as the base Splinter Wisp; only textures and added boxes change.",
+  "Glowing ember chips and a small flame above the top point; the ring is heat haze orange.",
+  "The core stays violet on every variant: it is still a splinter. Only the chips and the ring change colour.",
+  "Summoned by Ember Shardmothers during Shield Phase."
+ ],
+ "palette": {
+  "chip": "#ff7a1f",
+  "ring": "#ffb04a"
+ },
+ "materials": {
+  "chip": "ember"
+ },
+ "unshaded": [
+  "ring",
+  "chip"
+ ],
+ "add_boxes": [
+  {
+   "name": "ring front",
+   "bone": "orbit",
+   "from": [
+    -4,
+    12.5,
+    -4
+   ],
+   "to": [
+    4,
+    13,
+    -3.5
+   ],
+   "color": "ring"
+  },
+  {
+   "name": "ring back",
+   "bone": "orbit",
+   "from": [
+    -4,
+    12.5,
+    3.5
+   ],
+   "to": [
+    4,
+    13,
+    4
+   ],
+   "color": "ring"
+  },
+  {
+   "name": "ring left",
+   "bone": "orbit",
+   "from": [
+    -4,
+    12.5,
+    -3.5
+   ],
+   "to": [
+    -3.5,
+    13,
+    3.5
+   ],
+   "color": "ring"
+  },
+  {
+   "name": "ring right",
+   "bone": "orbit",
+   "from": [
+    3.5,
+    12.5,
+    -3.5
+   ],
+   "to": [
+    4,
+    13,
+    3.5
+   ],
+   "color": "ring"
+  },
+  {
+   "name": "flame",
+   "bone": "core",
+   "from": [
+    -0.5,
+    19,
+    -0.5
+   ],
+   "to": [
+    0.5,
+    21,
+    0.5
+   ],
+   "color": "chip"
+  }
+ ],
+ "callouts": {
+  "front": [
+   [
+    "core top",
+    "Violet core (unchanged)"
+   ],
+   [
+    "ring front",
+    "Coloured ring"
+   ],
+   [
+    "chip 1",
+    "Coloured chips"
+   ],
+   [
+    "heart",
+    "Heart glow"
+   ]
+  ],
+  "left": [
+   [
+    "core",
+    "Violet core"
+   ],
+   [
+    "ring left",
+    "Ring"
+   ],
+   [
+    "chip 3",
+    "Chip"
+   ],
+   [
+    "core bottom",
+    "Floats"
+   ]
+  ],
+  "top": [
+   [
+    "ring back",
+    "Ring around the core"
+   ],
+   [
+    "chip 2",
+    "Chip"
+   ],
+   [
+    "core top",
+    "Top point"
+   ]
+  ],
+  "bottom": [
+   [
+    "core bottom",
+    "Lower point"
+   ],
+   [
+    "ring front",
+    "Ring"
+   ]
+  ]
+ }
+}
