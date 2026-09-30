@@ -10,6 +10,8 @@ BLOCKS = set(re.findall(r'BLOCKS\.register\w*\("(\w+)"', bi))
 ITEMS = re.findall(r'ITEMS\.\w+\("(\w+)"', ii)
 EGGS = sorted(k + '_spawn_egg' for k in re.findall(r'egg\("(\w+)", 0x', open(f'{REPO}/src/main/java/net/zerog/tweaks/registry/ZGSpawnEggs.java').read()))
 ITEMS += EGGS
+TRIMS = [k + '_armor_trim_smithing_template' for k in re.findall(r'template\("(\w+)"\);', open(f'{REPO}/src/main/java/net/zerog/tweaks/registry/ZGTrims.java').read())]
+ITEMS += TRIMS
 ITEMSET = set(ITEMS)
 FOODS = [n.lower() for n in re.findall(r'FoodProperties (\w+) =', open(f'{REPO}/src/main/java/net/zerog/tweaks/item/ZGFoods.java').read())]
 
@@ -120,6 +122,7 @@ add('ingredients', 'stardust', 'solar_spark', 'crystal_hide', 'cinder_pelt', 'fr
     'skitter_carapace', 'venom_gland', 'rift_heart', 'heart_of_solvane')
 add('ingredients', 'olympium_upgrade_smithing_template', 'cerulite_upgrade_smithing_template', 'skarnite_upgrade_smithing_template',
     'eidolite_upgrade_smithing_template', 'solvanite_upgrade_smithing_template')
+add('ingredients', *TRIMS)  # vanilla puts armor trim templates after the upgrade template in Ingredients
 
 # ================================================================ SPAWN EGGS (vanilla: alphabetical)
 add('spawn_eggs', *EGGS)

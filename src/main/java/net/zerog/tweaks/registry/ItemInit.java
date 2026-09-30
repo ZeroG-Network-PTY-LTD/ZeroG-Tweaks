@@ -1243,6 +1243,7 @@ public final class ItemInit {
 
     public static void register(IEventBus bus) {
         ZGSpawnEggs.init();  // spawn eggs register into ITEMS
+        ZGTrims.init();      // armor trim templates register into ITEMS
         ITEMS.register(bus);
     }
 
