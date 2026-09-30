@@ -318,7 +318,7 @@ public final class ZGCreativeTabContents {
             "frostfern_tea", "frost_milk", "shardwood_syrup"
     };
 
-    /** Ingredients (97 entries) */
+    /** Ingredients (107 entries) */
     public static final String[] INGREDIENTS = {
             "raw_nullifite", "nullifite_nugget", "nullifite_ingot", "regolith", "raw_moonsteel", "moonsteel_nugget",
             "moonsteel_ingot", "selenite", "raw_ferrox", "ferrox_nugget", "ferrox_ingot", "raw_olympium", "olympium_nugget",
@@ -335,7 +335,10 @@ public final class ZGCreativeTabContents {
             "scorch_scale", "yak_wool", "leech_gel", "gildcrab_shell", "eel_skin", "burrower_scale", "skitter_carapace",
             "venom_gland", "rift_heart", "heart_of_solvane", "olympium_upgrade_smithing_template",
             "cerulite_upgrade_smithing_template", "skarnite_upgrade_smithing_template", "eidolite_upgrade_smithing_template",
-            "solvanite_upgrade_smithing_template"
+            "solvanite_upgrade_smithing_template", "fracture_armor_trim_smithing_template",
+            "crater_armor_trim_smithing_template", "olympus_armor_trim_smithing_template", "geode_armor_trim_smithing_template",
+            "rift_armor_trim_smithing_template", "hull_armor_trim_smithing_template", "corona_armor_trim_smithing_template",
+            "surge_armor_trim_smithing_template", "prism_armor_trim_smithing_template", "meteor_armor_trim_smithing_template"
     };
 
     /** Spawn Eggs (38 entries) */
