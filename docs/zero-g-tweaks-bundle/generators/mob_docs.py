@@ -140,6 +140,8 @@ for k in MOBS:
                                                              if a not in ('Health', 'Damage', 'Speed', 'Behavior', 'Spawns', 'Drops', 'Breeding', 'Phases', 'Arena')],
         goals_in_priority_order=s['goals'], states=s['states'], transitions=s['transitions'], animations_required=[f'animation.{k}.{a}' for a in need],
         animations_existing=[f'animation.{k}.{a}' for a in have], mechanics=s['mechanics'], boss=s['boss'],
+        vanilla_base=s['vanilla']['base'], vanilla_also=s['vanilla'].get('also', []), vanilla_rig=s['vanilla']['rig'],
+        animation_references={f'animation.{k}.{a}': ref for a, ref in s['vanilla']['anims'].items()},
         loot_table=f'zerog_tweaks:entities/{k}', drops=[{x: y for x, y in r.items() if x != 'mob'} for r in dr],
         spawn_egg={'base': eggs.get(k, ('', ''))[0], 'spots': eggs.get(k, ('', ''))[1], 'item': f'zerog_tweaks:{k}_spawn_egg'},
         files={'geo_model': f'assets/zerog_tweaks/geckolib/models/entity/{k}.geo.json',
@@ -156,7 +158,7 @@ for k in MOBS:
 
 json.dump({'schema': 'zerog_tweaks.mobs.v1', 'count': len(rows), 'mobs': rows}, open(f'{DATA}/mobs.json', 'w'), indent=2)
 
-FLAT = ['key', 'name', 'galaxy', 'world', 'role', 'mob_category', 'java_base', 'hitbox_width', 'hitbox_height', 'hitbox_length', 'max_health',
+FLAT = ['key', 'name', 'galaxy', 'world', 'role', 'mob_category', 'java_base', 'vanilla_base', 'hitbox_width', 'hitbox_height', 'hitbox_length', 'max_health',
         'attack_damage', 'damage_text', 'movement_speed', 'flying_speed', 'follow_range', 'armor', 'knockback_resistance', 'breeding_item',
         'immunities', 'behavior', 'spawns_text', 'drops_text', 'loot_table', 'sheet']
 with open(f'{DATA}/mobs.csv', 'w', newline='') as f:
@@ -169,6 +171,10 @@ dump('mob_drops.csv', drop_rows, ['mob', 'item', 'item_name', 'min', 'max', 'cha
 dump('mob_spawns.csv', spawns, ['mob', 'category', 'weight', 'min_group', 'max_group', 'biomes', 'source'])
 dump('mob_animations.csv', anim_rows, ['mob', 'animation', 'exists', 'loop'])
 dump('mob_state_transitions.csv', [dict(mob=r['key'], **t) for r in rows for t in r['transitions']], ['mob', 'frm', 'to', 'trigger'])
+dump('mob_vanilla_bases.csv', [dict(mob=r['key'], name=r['name'], vanilla_base=r['vanilla_base'], also=' '.join(r['vanilla_also']), rig=r['vanilla_rig']) for r in rows],
+     ['mob', 'name', 'vanilla_base', 'also', 'rig'])
+dump('mob_animation_references.csv', [dict(mob=r['key'], animation=a, copy_from=ref, exists=a in r['animations_existing']) for r in rows for a, ref in r['animation_references'].items()],
+     ['mob', 'animation', 'copy_from', 'exists'])
 dump('mob_ai_goals.csv', [dict(mob=r['key'], priority=i, goal=g) for r in rows for i, g in enumerate(r['goals_in_priority_order'])], ['mob', 'priority', 'goal'])
 attr_rows = [dict(mob=r['key'], **{'minecraft:generic.max_health': r['max_health'], 'minecraft:generic.attack_damage': r['attack_damage'],
               'minecraft:generic.movement_speed': r['movement_speed'], 'minecraft:generic.flying_speed': r['flying_speed'] or '',
@@ -275,7 +281,7 @@ print('mobs', len(rows), 'drops', len(drop_rows), 'spawns', len(spawns), 'anims'
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 wb = Workbook(); wb.remove(wb.active)
-for name in ['mobs', 'mob_attributes', 'mob_drops', 'mob_spawns', 'mob_ai_goals', 'mob_state_transitions', 'mob_animations']:
+for name in ['mobs', 'mob_vanilla_bases', 'mob_animation_references', 'mob_attributes', 'mob_drops', 'mob_spawns', 'mob_ai_goals', 'mob_state_transitions', 'mob_animations']:
     ws = wb.create_sheet(name)
     for i, row in enumerate(csv.reader(open(f'{DATA}/{name}.csv'))):
         ws.append([float(c) if re.fullmatch(r'-?\d+(\.\d+)?', c) else c for c in row])

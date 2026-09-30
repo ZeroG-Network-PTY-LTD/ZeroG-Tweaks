@@ -108,6 +108,19 @@
         "Hit applies Slowness I 60 ticks"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:spider",
+      "vanilla_also": [
+        "minecraft:silverfish"
+      ],
+      "vanilla_rig": "Spider layout: low body, head in front, legs in pairs splayed sideways (we have 3 pairs instead of 4).",
+      "animation_references": {
+        "animation.regolith_crawler.idle": "spider idle (legs still, slight body sway)",
+        "animation.regolith_crawler.walk": "spider walk (alternating leg pairs)",
+        "animation.regolith_crawler.burrow": "silverfish hiding in a block: sink down in 20 ticks",
+        "animation.regolith_crawler.emerge": "reverse of burrow, then spider-style rear-up",
+        "animation.regolith_crawler.lunge": "spider leap (LeapAtTargetGoal arc)",
+        "animation.regolith_crawler.death": "vanilla death tip-over"
+      },
       "loot_table": "zerog_tweaks:entities/regolith_crawler",
       "drops": [
         {
@@ -300,6 +313,19 @@
         "Tame with Rust Lichen; Ferrox saddle (new item) + chest gives 15-slot storage"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:armadillo",
+      "vanilla_also": [
+        "minecraft:llama",
+        "minecraft:goat"
+      ],
+      "vanilla_rig": "Armadillo layout: domed shell over a small body, short legs, head low at the front. Horn on the head bone.",
+      "animation_references": {
+        "animation.rust_beetle.idle": "armadillo idle",
+        "animation.rust_beetle.walk": "armadillo walk",
+        "animation.rust_beetle.ram": "goat ram (head down, charge)",
+        "animation.rust_beetle.hop": "rabbit hop timing, with the shell split open like elytra",
+        "animation.rust_beetle.graze": "sheep eat-grass head dip"
+      },
       "loot_table": "zerog_tweaks:entities/rust_beetle",
       "drops": [
         {
@@ -467,6 +493,17 @@
         "Sheared: antler bones hidden, glowmask off"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:horse",
+      "vanilla_also": [
+        "minecraft:goat"
+      ],
+      "vanilla_rig": "Horse layout: long legs, neck and head raised in front, tail at the back. Antlers sit on the head bone.",
+      "animation_references": {
+        "animation.crystal_stag.idle": "horse idle (tail swish, head bob)",
+        "animation.crystal_stag.walk": "horse walk",
+        "animation.crystal_stag.run": "horse gallop",
+        "animation.crystal_stag.graze": "horse eating (neck down)"
+      },
       "loot_table": "zerog_tweaks:entities/crystal_stag",
       "drops": [
         {
@@ -607,6 +644,17 @@
         "Spawns in geodes and crystal caves (low light)"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:endermite",
+      "vanilla_also": [
+        "minecraft:silverfish"
+      ],
+      "vanilla_rig": "Endermite layout: small body segments close to the ground; crystal spikes ride the body bone.",
+      "animation_references": {
+        "animation.prismling.idle": "endermite idle wiggle",
+        "animation.prismling.walk": "endermite skitter",
+        "animation.prismling.attack": "silverfish lunge bite",
+        "animation.prismling.shatter": "custom: scale to 0 with shard particles"
+      },
       "loot_table": "zerog_tweaks:entities/prismling",
       "drops": [
         {
@@ -749,6 +797,16 @@
         "Ember particle trail while sprinting"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:wolf",
+      "vanilla_also": [],
+      "vanilla_rig": "Wolf layout exactly: body, mane, head with snout and ears, 4 legs, tail.",
+      "animation_references": {
+        "animation.cinder_hound.idle": "wolf idle (tail wag)",
+        "animation.cinder_hound.walk": "wolf walk",
+        "animation.cinder_hound.run": "wolf run",
+        "animation.cinder_hound.lunge": "wolf LeapAtTarget pounce",
+        "animation.cinder_hound.bite": "wolf attack snap"
+      },
       "loot_table": "zerog_tweaks:entities/cinder_hound",
       "drops": [
         {
@@ -904,6 +962,19 @@
         "bar_color": "BLUE",
         "phases": 2
       },
+      "vanilla_base": "minecraft:vindicator",
+      "vanilla_also": [
+        "minecraft:warden",
+        "minecraft:iron_golem"
+      ],
+      "vanilla_rig": "Vindicator (illager) layout: head, body, 2 arms, 2 legs; the glaive is held in the right arm like the vindicator axe. Walk weight from the warden.",
+      "animation_references": {
+        "animation.frost_warden.idle": "vindicator idle, arms crossed or weapon held",
+        "animation.frost_warden.walk": "warden heavy walk",
+        "animation.frost_warden.sweep": "vindicator axe swing, widened into a sweep",
+        "animation.frost_warden.summon": "evoker spell-cast (arms raised)",
+        "animation.frost_warden.death": "vanilla death tip-over"
+      },
       "loot_table": "zerog_tweaks:entities/frost_warden",
       "drops": [
         {
@@ -1056,6 +1127,15 @@
         "Near erupting vent: +50% damage for 100t"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:vex",
+      "vanilla_also": [
+        "minecraft:blaze"
+      ],
+      "vanilla_rig": "Vex layout: small flying humanoid with two wings, no legs used.",
+      "animation_references": {
+        "animation.flare_sprite.fly": "vex flying (wing flicker, hover bob)",
+        "animation.flare_sprite.attack": "blaze fireball charge (glow up, then shoot)"
+      },
       "loot_table": "zerog_tweaks:entities/flare_sprite",
       "drops": [
         {
@@ -1218,6 +1298,19 @@
       "boss": {
         "bar_color": "YELLOW",
         "phases": 1
+      },
+      "vanilla_base": "minecraft:iron_golem",
+      "vanilla_also": [
+        "minecraft:warden"
+      ],
+      "vanilla_rig": "Iron golem layout: big body, small head, long arms, 2 legs.",
+      "animation_references": {
+        "animation.sun_colossus.dormant": "custom: crouched, still",
+        "animation.sun_colossus.wake": "warden emerge (rising out of the ground)",
+        "animation.sun_colossus.walk": "iron golem walk",
+        "animation.sun_colossus.slam": "iron golem attack (both arms swing down)",
+        "animation.sun_colossus.core_open": "custom: chest plates swing open",
+        "animation.sun_colossus.death": "vanilla death tip-over"
       },
       "loot_table": "zerog_tweaks:entities/sun_colossus",
       "drops": [
@@ -1406,6 +1499,19 @@
         "Swallow: player riding mob, invisible, 2 dmg/s for 2 s"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:silverfish",
+      "vanilla_also": [
+        "minecraft:sniffer",
+        "minecraft:warden"
+      ],
+      "vanilla_rig": "Silverfish layout scaled up: a chain of segments with a big head segment.",
+      "animation_references": {
+        "animation.dune_burrower.burrow": "warden dig (sinking)",
+        "animation.dune_burrower.burst": "warden emerge, fast",
+        "animation.dune_burrower.swallow": "custom: head segment opens and closes",
+        "animation.dune_burrower.walk": "silverfish crawl",
+        "animation.dune_burrower.attack": "silverfish lunge"
+      },
       "loot_table": "zerog_tweaks:entities/dune_burrower",
       "drops": [
         {
@@ -1606,6 +1712,14 @@
         "Rideable with saddle; steer with a cinder_cap on a stick is optional"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:strider",
+      "vanilla_also": [],
+      "vanilla_rig": "Strider layout exactly: body block on two long legs, bristles on the body.",
+      "animation_references": {
+        "animation.ash_strider.idle": "strider idle",
+        "animation.ash_strider.walk": "strider walk (also on lava)",
+        "animation.ash_strider.stomp": "strider leg stamp, emphasized"
+      },
       "loot_table": "zerog_tweaks:entities/ash_strider",
       "drops": [
         {
@@ -1765,6 +1879,17 @@
         "Hit adds 100 frozen ticks (setTicksFrozen)"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:ocelot",
+      "vanilla_also": [
+        "minecraft:wolf"
+      ],
+      "vanilla_rig": "Ocelot/cat layout: long body, 4 legs, long tail, head with ears. Spines on the body bone.",
+      "animation_references": {
+        "animation.rime_stalker.idle": "ocelot idle",
+        "animation.rime_stalker.walk": "ocelot sneak-walk (crouched stalk)",
+        "animation.rime_stalker.pounce": "ocelot/cat pounce",
+        "animation.rime_stalker.attack": "wolf bite"
+      },
       "loot_table": "zerog_tweaks:entities/rime_stalker",
       "drops": [
         {
@@ -1937,6 +2062,17 @@
         "Immune to acid damage type"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:axolotl",
+      "vanilla_also": [
+        "minecraft:frog"
+      ],
+      "vanilla_rig": "Axolotl layout scaled up: long flat body, 4 short legs, tail, wide head.",
+      "animation_references": {
+        "animation.bog_lurker.idle": "axolotl idle (lying still)",
+        "animation.bog_lurker.walk": "axolotl walk on land",
+        "animation.bog_lurker.swim": "axolotl swim",
+        "animation.bog_lurker.spit": "llama spit head jerk"
+      },
       "loot_table": "zerog_tweaks:entities/bog_lurker",
       "drops": [
         {
@@ -2100,6 +2236,15 @@
         "No gravity (setNoGravity); bob 2 s cycle in animation only"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:ghast",
+      "vanilla_also": [
+        "minecraft:allay"
+      ],
+      "vanilla_rig": "Ghast layout, small: floating body with hanging tendrils.",
+      "animation_references": {
+        "animation.crater_drifter.float": "ghast idle (tendril sway, bob)",
+        "animation.crater_drifter.attack": "ghast shoot (body flinch forward)"
+      },
       "loot_table": "zerog_tweaks:entities/crater_drifter",
       "drops": [
         {
@@ -2241,6 +2386,19 @@
       "boss": {
         "bar_color": "BLUE",
         "phases": 3
+      },
+      "vanilla_base": "minecraft:blaze",
+      "vanilla_also": [
+        "minecraft:guardian",
+        "minecraft:elder_guardian"
+      ],
+      "vanilla_rig": "Blaze layout: floating core with an orbit bone for the shards (like the blaze rods), no legs.",
+      "animation_references": {
+        "animation.prism_sentinel.idle": "blaze idle (rods orbit), 4 s loop",
+        "animation.prism_sentinel.beam": "guardian laser charge and fire",
+        "animation.prism_sentinel.shard_spin": "blaze rods spinning fast",
+        "animation.prism_sentinel.core_open": "custom: core plates open",
+        "animation.prism_sentinel.death": "custom: shards fall, core cracks"
       },
       "loot_table": "zerog_tweaks:entities/prism_sentinel",
       "drops": [
@@ -2395,6 +2553,20 @@
       "boss": {
         "bar_color": "PURPLE",
         "phases": 3
+      },
+      "vanilla_base": "minecraft:ravager",
+      "vanilla_also": [
+        "minecraft:warden"
+      ],
+      "vanilla_rig": "Ravager layout: huge body, heavy head with jaw, 4 legs. Spines on the body bone.",
+      "animation_references": {
+        "animation.rift_tyrant.idle": "ravager idle",
+        "animation.rift_tyrant.walk": "ravager walk",
+        "animation.rift_tyrant.charge": "ravager charge",
+        "animation.rift_tyrant.claw": "ravager bite, turned into a swipe",
+        "animation.rift_tyrant.roar": "ravager roar",
+        "animation.rift_tyrant.shard_volley": "warden sonic boom wind-up",
+        "animation.rift_tyrant.death": "vanilla death tip-over"
       },
       "loot_table": "zerog_tweaks:entities/rift_tyrant",
       "drops": [
@@ -2574,6 +2746,21 @@
         "bar_color": "WHITE",
         "phases": 3
       },
+      "vanilla_base": "minecraft:vindicator",
+      "vanilla_also": [
+        "minecraft:evoker",
+        "minecraft:vex"
+      ],
+      "vanilla_rig": "Vindicator (illager) layout: the cutlass in the right arm, the lantern in the left. Rendered see-through like a vex.",
+      "animation_references": {
+        "animation.eidolon_captain.idle": "vindicator idle",
+        "animation.eidolon_captain.walk": "vindicator walk",
+        "animation.eidolon_captain.slash": "vindicator axe swing",
+        "animation.eidolon_captain.summon": "evoker summon (arms raised)",
+        "animation.eidolon_captain.lantern": "evoker spell-cast holding the lantern high",
+        "animation.eidolon_captain.yield": "custom: kneels, sword down",
+        "animation.eidolon_captain.death": "custom: fades out"
+      },
       "loot_table": "zerog_tweaks:entities/eidolon_captain",
       "drops": [
         {
@@ -2715,6 +2902,19 @@
       "boss": {
         "bar_color": "YELLOW",
         "phases": 3
+      },
+      "vanilla_base": "minecraft:wither",
+      "vanilla_also": [
+        "minecraft:blaze",
+        "minecraft:ender_dragon"
+      ],
+      "vanilla_rig": "Wither-style floating boss: core body with ray bones orbiting like blaze rods; Vael is a bone on top.",
+      "animation_references": {
+        "animation.dying_star.idle": "wither hover and blaze-rod rotation",
+        "animation.dying_star.flare": "wither charge-up and blast",
+        "animation.dying_star.sweep": "ender dragon breath sweep",
+        "animation.dying_star.collapse": "wither spawn in reverse (shrinks)",
+        "animation.dying_star.death": "ender dragon death beams"
       },
       "loot_table": "zerog_tweaks:entities/dying_star",
       "drops": [
@@ -2859,6 +3059,14 @@
         "No fall damage (causeFallDamage returns false)"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:rabbit",
+      "vanilla_also": [],
+      "vanilla_rig": "Rabbit layout exactly: body, head, long ears, big hind feet.",
+      "animation_references": {
+        "animation.moon_hopper.idle": "rabbit idle (nose twitch)",
+        "animation.moon_hopper.hop": "rabbit jump (scale the height \u00d72 for Moon gravity)",
+        "animation.moon_hopper.graze": "rabbit eating"
+      },
       "loot_table": "zerog_tweaks:entities/moon_hopper",
       "drops": [
         {
@@ -3007,6 +3215,17 @@
         "Mane sway animation driven by dust-storm weather flag"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:cow",
+      "vanilla_also": [
+        "minecraft:goat"
+      ],
+      "vanilla_rig": "Cow layout: body, head with curved horns, 4 legs; the mane is an extra layer on the body.",
+      "animation_references": {
+        "animation.dust_grazer.idle": "cow idle",
+        "animation.dust_grazer.walk": "cow walk",
+        "animation.dust_grazer.run": "cow panic run",
+        "animation.dust_grazer.graze": "sheep eat-grass"
+      },
       "loot_table": "zerog_tweaks:entities/dust_grazer",
       "drops": [
         {
@@ -3148,6 +3367,17 @@
         "Lays blue_egg every 6000-12000 ticks (Chicken eggTime pattern)"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:chicken",
+      "vanilla_also": [
+        "minecraft:parrot"
+      ],
+      "vanilla_rig": "Chicken layout exactly: body, head, beak, wings, two legs. Crest on the head bone.",
+      "animation_references": {
+        "animation.azure_fowl.idle": "chicken idle (head peck)",
+        "animation.azure_fowl.walk": "chicken walk",
+        "animation.azure_fowl.glide": "chicken falling (wings flap slowly, fall slowed)",
+        "animation.azure_fowl.flap": "chicken wing flap"
+      },
       "loot_table": "zerog_tweaks:entities/azure_fowl",
       "drops": [
         {
@@ -3292,6 +3522,15 @@
         "At night: emits light via client dynamic light is not vanilla; approximate with glowmask + particles"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:tropical_fish",
+      "vanilla_also": [
+        "minecraft:salmon"
+      ],
+      "vanilla_rig": "Tropical fish layout: body, tail fin, top and side fins.",
+      "animation_references": {
+        "animation.glimmerfish.swim": "tropical fish tail wave",
+        "animation.glimmerfish.flop": "fish flopping on land"
+      },
       "loot_table": "zerog_tweaks:entities/glimmerfish",
       "drops": [
         {
@@ -3439,6 +3678,15 @@
         "Angers when a player comes within 4 blocks of its baby"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:hoglin",
+      "vanilla_also": [],
+      "vanilla_rig": "Hoglin layout exactly: big head with tusks, body, 4 legs. Our tail is an extra bone.",
+      "animation_references": {
+        "animation.slag_boar.idle": "hoglin idle",
+        "animation.slag_boar.walk": "hoglin walk",
+        "animation.slag_boar.charge": "hoglin head-toss attack while running",
+        "animation.slag_boar.root": "hoglin head down, swinging side to side"
+      },
       "loot_table": "zerog_tweaks:entities/slag_boar",
       "drops": [
         {
@@ -3599,6 +3847,19 @@
         "Glide: slow fall + forward motion when jumping off ledges"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:parrot",
+      "vanilla_also": [
+        "minecraft:phantom",
+        "minecraft:blaze"
+      ],
+      "vanilla_rig": "Parrot layout: small body that walks and glides, two wings, tail; head on a short neck.",
+      "animation_references": {
+        "animation.scorch_wyrmling.idle": "parrot idle",
+        "animation.scorch_wyrmling.walk": "parrot walk",
+        "animation.scorch_wyrmling.glide": "phantom glide (wings out, slow flap)",
+        "animation.scorch_wyrmling.spit": "llama spit head jerk (projectile like a blaze fireball)",
+        "animation.scorch_wyrmling.bite": "parrot peck, scaled up"
+      },
       "loot_table": "zerog_tweaks:entities/scorch_wyrmling",
       "drops": [
         {
@@ -3752,6 +4013,17 @@
         "Glass bottle -> frost_milk (see ZGInteractions)"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:cow",
+      "vanilla_also": [
+        "minecraft:sheep",
+        "minecraft:llama"
+      ],
+      "vanilla_rig": "Cow layout: big body, head with horns, 4 legs. Wool is an extra layer on the body, like the sheep wool layer.",
+      "animation_references": {
+        "animation.frost_yak.idle": "cow idle",
+        "animation.frost_yak.walk": "cow walk",
+        "animation.frost_yak.graze": "sheep eat-grass"
+      },
       "loot_table": "zerog_tweaks:entities/frost_yak",
       "drops": [
         {
@@ -3892,6 +4164,14 @@
         "Detach when rider sprints 20 ticks or leech is hit"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:silverfish",
+      "vanilla_also": [],
+      "vanilla_rig": "Silverfish layout: a chain of body segments, each its own bone.",
+      "animation_references": {
+        "animation.ice_leech.idle": "silverfish idle",
+        "animation.ice_leech.crawl": "silverfish crawl (segment wave)",
+        "animation.ice_leech.latch": "custom: curl around, ride the player like a chicken jockey"
+      },
       "loot_table": "zerog_tweaks:entities/ice_leech",
       "drops": [
         {
@@ -4028,6 +4308,17 @@
         "Immune to corona_crust/ember_crust damage types"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:spider",
+      "vanilla_also": [
+        "minecraft:armadillo"
+      ],
+      "vanilla_rig": "Spider layout turned sideways: body wider than long, legs splayed left and right; pincers are extra front arm bones.",
+      "animation_references": {
+        "animation.gildcrab.idle": "spider idle",
+        "animation.gildcrab.walk_sideways": "spider walk played on the X axis",
+        "animation.gildcrab.pinch": "custom pincer snap",
+        "animation.gildcrab.bask": "armadillo settled pose"
+      },
       "loot_table": "zerog_tweaks:entities/gildcrab",
       "drops": [
         {
@@ -4189,6 +4480,16 @@
         "Out of water: flop and take suffocation damage like fish"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:dolphin",
+      "vanilla_also": [
+        "minecraft:guardian",
+        "minecraft:drowned"
+      ],
+      "vanilla_rig": "Dolphin layout stretched into an eel: head, body segments, tail.",
+      "animation_references": {
+        "animation.deep_eel.swim": "dolphin swim wave, carried down each segment",
+        "animation.deep_eel.bite": "guardian snap, with a pull-down"
+      },
       "loot_table": "zerog_tweaks:entities/deep_eel",
       "drops": [
         {
@@ -4345,6 +4646,17 @@
         "Wake one buried skitter triggers the group within 8 blocks"
       ],
       "boss": null,
+      "vanilla_base": "minecraft:spider",
+      "vanilla_also": [
+        "minecraft:silverfish"
+      ],
+      "vanilla_rig": "Spider layout: body and head low, 6-8 splayed legs; the stinger tail is an extra bone chain arched over the back.",
+      "animation_references": {
+        "animation.sand_skitter.idle": "spider idle",
+        "animation.sand_skitter.walk": "spider walk",
+        "animation.sand_skitter.burst": "silverfish popping out of a block",
+        "animation.sand_skitter.sting": "custom: tail arcs over and forward"
+      },
       "loot_table": "zerog_tweaks:entities/sand_skitter",
       "drops": [
         {
