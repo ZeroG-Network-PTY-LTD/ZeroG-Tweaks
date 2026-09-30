@@ -19,6 +19,8 @@ Edit those sources and re-run the generator; don't hand-edit the outputs.
 | File | Rows | Use it for |
 | --- | --- | --- |
 | `data/mobs.json` | 28 mobs | **Start here.** One object per mob with every field below plus file paths, GeckoLib bone names, required vs existing animations, drops, spawns, goals, states and transitions. Schema tag `zerog_tweaks.mobs.v1`. |
+| `data/mob_vanilla_bases.csv` | 28 | The vanilla mob each one copies for its rig and motion, extra vanilla references, and how our bones line up with the vanilla model parts. |
+| `data/mob_animation_references.csv` | 117 | For every animation we need: the vanilla motion to copy, and whether it exists yet. |
 | `data/mobs.csv` | 28 | Flat summary: role, `MobCategory`, Java base class, hitbox, health, damage, speed, follow range, armor, knockback resistance, breeding item, immunities, design text. |
 | `data/mob_attributes.csv` | 28 | Values for `createAttributes()` (`minecraft:generic.*`). |
 | `data/mob_ai_goals.csv` | one per goal | `registerGoals()` order: `priority` 0 = highest. Names ending in "(custom)" are goals you write. |
@@ -32,6 +34,46 @@ Edit those sources and re-run the generator; don't hand-edit the outputs.
 | `diagrams/boss_progression.png` / `.mmd` | | Boss → gate key → next galaxy, plus templates, trophies, mini-bosses and the Eidolon Captain parley path. |
 | `diagrams/states/<mob>.png` / `.mmd` | 28 | Behavior state machine per mob, with triggers on the edges. |
 | `diagrams/README.md` | | All diagrams as Mermaid blocks (renders on GitHub). |
+
+## Vanilla base for each mob (animate from these)
+
+Each mob copies a vanilla mob's skeleton and movement. To make a mob's animations:
+1. Open the vanilla base in Blockbench: File → New → Minecraft Skin/Entity, or the vanilla entity template.
+2. Match our bone names to its parts.
+3. Copy the timing and angles of the listed vanilla motion.
+
+`mob_animation_references.csv` gives the reference for every single animation, including the custom ones that have no vanilla equivalent.
+
+| Mob | Vanilla base | Also reference | Rig |
+| --- | --- | --- | --- |
+| Regolith Crawler | `minecraft:spider` | `minecraft:silverfish` | Spider layout: low body, head in front, legs in pairs splayed sideways (we have 3 pairs instead of 4). |
+| Rust Beetle | `minecraft:armadillo` | `minecraft:llama`, `minecraft:goat` | Armadillo layout: domed shell over a small body, short legs, head low at the front. Horn on the head bone. |
+| Crystal Stag | `minecraft:horse` | `minecraft:goat` | Horse layout: long legs, neck and head raised in front, tail at the back. Antlers sit on the head bone. |
+| Prismling | `minecraft:endermite` | `minecraft:silverfish` | Endermite layout: small body segments close to the ground; crystal spikes ride the body bone. |
+| Cinder Hound | `minecraft:wolf` | – | Wolf layout exactly: body, mane, head with snout and ears, 4 legs, tail. |
+| Frost Warden | `minecraft:vindicator` | `minecraft:warden`, `minecraft:iron_golem` | Vindicator (illager) layout: head, body, 2 arms, 2 legs; the glaive is held in the right arm like the vindicator axe. Walk weight from the warden. |
+| Flare Sprite | `minecraft:vex` | `minecraft:blaze` | Vex layout: small flying humanoid with two wings, no legs used. |
+| Sun Colossus | `minecraft:iron_golem` | `minecraft:warden` | Iron golem layout: big body, small head, long arms, 2 legs. |
+| Dune Burrower | `minecraft:silverfish` | `minecraft:sniffer`, `minecraft:warden` | Silverfish layout scaled up: a chain of segments with a big head segment. |
+| Ash Strider | `minecraft:strider` | – | Strider layout exactly: body block on two long legs, bristles on the body. |
+| Rime Stalker | `minecraft:ocelot` | `minecraft:wolf` | Ocelot/cat layout: long body, 4 legs, long tail, head with ears. Spines on the body bone. |
+| Bog Lurker | `minecraft:axolotl` | `minecraft:frog` | Axolotl layout scaled up: long flat body, 4 short legs, tail, wide head. |
+| Crater Drifter | `minecraft:ghast` | `minecraft:allay` | Ghast layout, small: floating body with hanging tendrils. |
+| Prism Sentinel | `minecraft:blaze` | `minecraft:guardian`, `minecraft:elder_guardian` | Blaze layout: floating core with an orbit bone for the shards (like the blaze rods), no legs. |
+| Rift Tyrant | `minecraft:ravager` | `minecraft:warden` | Ravager layout: huge body, heavy head with jaw, 4 legs. Spines on the body bone. |
+| Eidolon Captain | `minecraft:vindicator` | `minecraft:evoker`, `minecraft:vex` | Vindicator (illager) layout: the cutlass in the right arm, the lantern in the left. Rendered see-through like a vex. |
+| The Dying Star | `minecraft:wither` | `minecraft:blaze`, `minecraft:ender_dragon` | Wither-style floating boss: core body with ray bones orbiting like blaze rods; Vael is a bone on top. |
+| Moon Hopper | `minecraft:rabbit` | – | Rabbit layout exactly: body, head, long ears, big hind feet. |
+| Dust Grazer | `minecraft:cow` | `minecraft:goat` | Cow layout: body, head with curved horns, 4 legs; the mane is an extra layer on the body. |
+| Azure Fowl | `minecraft:chicken` | `minecraft:parrot` | Chicken layout exactly: body, head, beak, wings, two legs. Crest on the head bone. |
+| Glimmerfish | `minecraft:tropical_fish` | `minecraft:salmon` | Tropical fish layout: body, tail fin, top and side fins. |
+| Slag Boar | `minecraft:hoglin` | – | Hoglin layout exactly: big head with tusks, body, 4 legs. Our tail is an extra bone. |
+| Scorch Wyrmling | `minecraft:parrot` | `minecraft:phantom`, `minecraft:blaze` | Parrot layout: small body that walks and glides, two wings, tail; head on a short neck. |
+| Frost Yak | `minecraft:cow` | `minecraft:sheep`, `minecraft:llama` | Cow layout: big body, head with horns, 4 legs. Wool is an extra layer on the body, like the sheep wool layer. |
+| Ice Leech | `minecraft:silverfish` | – | Silverfish layout: a chain of body segments, each its own bone. |
+| Gildcrab | `minecraft:spider` | `minecraft:armadillo` | Spider layout turned sideways: body wider than long, legs splayed left and right; pincers are extra front arm bones. |
+| Deep Eel | `minecraft:dolphin` | `minecraft:guardian`, `minecraft:drowned` | Dolphin layout stretched into an eel: head, body segments, tail. |
+| Sand Skitter | `minecraft:spider` | `minecraft:silverfish` | Spider layout: body and head low, 6-8 splayed legs; the stinger tail is an extra bone chain arched over the back. |
 
 ## How to turn a row into Java (NeoForge 1.21.1 + GeckoLib 4.x)
 
