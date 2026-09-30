@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
  */
 public class ZGFlowerBlock extends FlowerBlock {
     public ZGFlowerBlock(Holder<MobEffect> stewEffect, float seconds, BlockBehaviour.Properties props) {
-        super(stewEffect, seconds, props);
+        super(stewEffect, seconds, props.noCollission().instabreak());
     }
 
     @Override
