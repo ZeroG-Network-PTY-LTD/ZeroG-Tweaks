@@ -19,6 +19,8 @@ Edit those sources and re-run the generator; don't hand-edit the outputs.
 | File | Rows | Use it for |
 | --- | --- | --- |
 | `data/mobs.json` | 28 mobs | **Start here.** One object per mob with every field below plus file paths, GeckoLib bone names, required vs existing animations, drops, spawns, goals, states and transitions. Schema tag `zerog_tweaks.mobs.v1`. |
+| `data/mob_eye_styles.csv` | 38 | Eye placement for every mob, ours and Shattered Skies (side, front, single Eye-of-Ender eye, or stalks), plus the guardian boss scale. `source=proposed` rows still need the art team's OK. |
+| `diagrams/eye_styles.png` | | The four eye styles as front/side head diagrams, the recoloured Eye-of-Ender eyes, and the boss-scale comparison. |
 | `data/mob_vanilla_bases.csv` | 28 | The vanilla mob each one copies for its rig and motion, extra vanilla references, and how our bones line up with the vanilla model parts. |
 | `data/mob_animation_references.csv` | 117 | For every animation we need: the vanilla motion to copy, and whether it exists yet. |
 | `data/mobs.csv` | 28 | Flat summary: role, `MobCategory`, Java base class, hitbox, health, damage, speed, follow range, armor, knockback resistance, breeding item, immunities, design text. |
@@ -34,6 +36,21 @@ Edit those sources and re-run the generator; don't hand-edit the outputs.
 | `diagrams/boss_progression.png` / `.mmd` | | Boss → gate key → next galaxy, plus templates, trophies, mini-bosses and the Eidolon Captain parley path. |
 | `diagrams/states/<mob>.png` / `.mmd` | 28 | Behavior state machine per mob, with triggers on the edges. |
 | `diagrams/README.md` | | All diagrams as Mermaid blocks (renders on GitHub). |
+
+## Eye styles and boss scale
+
+Every mob uses one of four eye placements. See `diagrams/eye_styles.png` and `data/mob_eye_styles.csv`.
+
+| Style | Rule |
+| --- | --- |
+| Side-set | Prey and grazer look (cow, horse, fish). One eye on each side of the head, set back from the snout. |
+| Front-facing | Predator and humanoid look (wolf, spider, illagers). Both eyes on the front face. |
+| Single Eye-of-Ender eye | One central eye styled on the vanilla Eye of Ender: round orb, ringed iris, dark slit pupil, one highlight. Recoloured to each mob's palette and put on the glowmask. |
+| Stalks | Two eyes on short stalks above the head. Each stalk is its own bone and swivels in idle. |
+
+Two more rules:
+- **Guardian boss scale:** the four guardian bosses (Prism Sentinel, Rift Tyrant, Eidolon Captain, The Dying Star) are built at **6× player size**: 3.6 blocks wide and 10.8 tall. Their hitbox in `mobs.json` already reflects this. Mini-bosses and the Shattered Skies bosses keep their own sizes.
+- **Tidewraith (Shattered Skies):** built on the vanilla Phantom model, with the same rig and flight animations, retextured with pixel scales and manta-ray gill slits.
 
 ## Vanilla base for each mob (animate from these)
 

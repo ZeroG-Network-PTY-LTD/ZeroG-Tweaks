@@ -108,6 +108,10 @@
         "Hit applies Slowness I 60 ticks"
       ],
       "boss": null,
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:spider",
       "vanilla_also": [
         "minecraft:silverfish"
@@ -313,6 +317,10 @@
         "Tame with Rust Lichen; Ferrox saddle (new item) + chest gives 15-slot storage"
       ],
       "boss": null,
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:armadillo",
       "vanilla_also": [
         "minecraft:llama",
@@ -493,6 +501,10 @@
         "Sheared: antler bones hidden, glowmask off"
       ],
       "boss": null,
+      "eye_style": "side",
+      "eye_style_rule": "One eye on each side of the head, set back from the snout; read from the side view, not the front.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:horse",
       "vanilla_also": [
         "minecraft:goat"
@@ -644,6 +656,10 @@
         "Spawns in geodes and crystal caves (low light)"
       ],
       "boss": null,
+      "eye_style": "ender_eye",
+      "eye_style_rule": "A single central eye modelled on the vanilla Eye of Ender: round orb, ringed iris, dark vertical slit pupil, one highlight pixel. Recoloured per mob, emissive.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:endermite",
       "vanilla_also": [
         "minecraft:silverfish"
@@ -797,6 +813,10 @@
         "Ember particle trail while sprinting"
       ],
       "boss": null,
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "proposed",
+      "scale_rule": null,
       "vanilla_base": "minecraft:wolf",
       "vanilla_also": [],
       "vanilla_rig": "Wolf layout exactly: body, mane, head with snout and ears, 4 legs, tail.",
@@ -962,6 +982,10 @@
         "bar_color": "BLUE",
         "phases": 2
       },
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:vindicator",
       "vanilla_also": [
         "minecraft:warden",
@@ -1127,6 +1151,10 @@
         "Near erupting vent: +50% damage for 100t"
       ],
       "boss": null,
+      "eye_style": "ender_eye",
+      "eye_style_rule": "A single central eye modelled on the vanilla Eye of Ender: round orb, ringed iris, dark vertical slit pupil, one highlight pixel. Recoloured per mob, emissive.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:vex",
       "vanilla_also": [
         "minecraft:blaze"
@@ -1299,6 +1327,10 @@
         "bar_color": "YELLOW",
         "phases": 1
       },
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "proposed",
+      "scale_rule": null,
       "vanilla_base": "minecraft:iron_golem",
       "vanilla_also": [
         "minecraft:warden"
@@ -1499,6 +1531,10 @@
         "Swallow: player riding mob, invisible, 2 dmg/s for 2 s"
       ],
       "boss": null,
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:silverfish",
       "vanilla_also": [
         "minecraft:sniffer",
@@ -1712,6 +1748,10 @@
         "Rideable with saddle; steer with a cinder_cap on a stick is optional"
       ],
       "boss": null,
+      "eye_style": "ender_eye",
+      "eye_style_rule": "A single central eye modelled on the vanilla Eye of Ender: round orb, ringed iris, dark vertical slit pupil, one highlight pixel. Recoloured per mob, emissive.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:strider",
       "vanilla_also": [],
       "vanilla_rig": "Strider layout exactly: body block on two long legs, bristles on the body.",
@@ -1879,6 +1919,10 @@
         "Hit adds 100 frozen ticks (setTicksFrozen)"
       ],
       "boss": null,
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:ocelot",
       "vanilla_also": [
         "minecraft:wolf"
@@ -2062,6 +2106,10 @@
         "Immune to acid damage type"
       ],
       "boss": null,
+      "eye_style": "stalk",
+      "eye_style_rule": "Two eyes on short stalks rising above the head; each stalk is its own bone and swivels in idle.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:axolotl",
       "vanilla_also": [
         "minecraft:frog"
@@ -2236,6 +2284,10 @@
         "No gravity (setNoGravity); bob 2 s cycle in animation only"
       ],
       "boss": null,
+      "eye_style": "ender_eye",
+      "eye_style_rule": "A single central eye modelled on the vanilla Eye of Ender: round orb, ringed iris, dark vertical slit pupil, one highlight pixel. Recoloured per mob, emissive.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:ghast",
       "vanilla_also": [
         "minecraft:allay"
@@ -2305,8 +2357,8 @@
       ],
       "mob_category": "MONSTER",
       "java_base": "Monster + ServerBossEvent (cyan) ; no natural spawn",
-      "hitbox_width": 2.0,
-      "hitbox_height": 2.4,
+      "hitbox_width": 3.5999999999999996,
+      "hitbox_height": 10.8,
       "hitbox_length": null,
       "max_health": 300,
       "attack_damage": 10,
@@ -2387,6 +2439,10 @@
         "bar_color": "BLUE",
         "phases": 3
       },
+      "eye_style": "ender_eye",
+      "eye_style_rule": "A single central eye modelled on the vanilla Eye of Ender: round orb, ringed iris, dark vertical slit pupil, one highlight pixel. Recoloured per mob, emissive.",
+      "eye_style_source": "proposed",
+      "scale_rule": "6x player size: 3.6 wide, 10.8 tall",
       "vanilla_base": "minecraft:blaze",
       "vanilla_also": [
         "minecraft:guardian",
@@ -2476,9 +2532,9 @@
       ],
       "mob_category": "MONSTER",
       "java_base": "Monster + ServerBossEvent (purple) ; no natural spawn",
-      "hitbox_width": 2.4,
-      "hitbox_height": 2.4,
-      "hitbox_length": 3.2,
+      "hitbox_width": 3.5999999999999996,
+      "hitbox_height": 10.8,
+      "hitbox_length": null,
       "max_health": 450,
       "attack_damage": 16,
       "damage_text": "Claw 16; rift pull drags you toward the rift",
@@ -2554,6 +2610,10 @@
         "bar_color": "PURPLE",
         "phases": 3
       },
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "team",
+      "scale_rule": "6x player size: 3.6 wide, 10.8 tall",
       "vanilla_base": "minecraft:ravager",
       "vanilla_also": [
         "minecraft:warden"
@@ -2646,8 +2706,8 @@
       ],
       "mob_category": "MONSTER",
       "java_base": "Monster + ServerBossEvent (white) ; no natural spawn",
-      "hitbox_width": 0.9,
-      "hitbox_height": 2.6,
+      "hitbox_width": 3.5999999999999996,
+      "hitbox_height": 10.8,
       "hitbox_length": null,
       "max_health": 400,
       "attack_damage": 13,
@@ -2746,6 +2806,10 @@
         "bar_color": "WHITE",
         "phases": 3
       },
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "proposed",
+      "scale_rule": "6x player size: 3.6 wide, 10.8 tall",
       "vanilla_base": "minecraft:vindicator",
       "vanilla_also": [
         "minecraft:evoker",
@@ -2827,8 +2891,8 @@
       ],
       "mob_category": "MONSTER",
       "java_base": "FlyingMob + ServerBossEvent (yellow->white) ; no natural spawn",
-      "hitbox_width": 3.6,
-      "hitbox_height": 3.6,
+      "hitbox_width": 3.5999999999999996,
+      "hitbox_height": 10.8,
       "hitbox_length": null,
       "max_health": 900,
       "attack_damage": 20,
@@ -2903,6 +2967,10 @@
         "bar_color": "YELLOW",
         "phases": 3
       },
+      "eye_style": "ender_eye",
+      "eye_style_rule": "A single central eye modelled on the vanilla Eye of Ender: round orb, ringed iris, dark vertical slit pupil, one highlight pixel. Recoloured per mob, emissive.",
+      "eye_style_source": "team",
+      "scale_rule": "6x player size: 3.6 wide, 10.8 tall",
       "vanilla_base": "minecraft:wither",
       "vanilla_also": [
         "minecraft:blaze",
@@ -3059,6 +3127,10 @@
         "No fall damage (causeFallDamage returns false)"
       ],
       "boss": null,
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:rabbit",
       "vanilla_also": [],
       "vanilla_rig": "Rabbit layout exactly: body, head, long ears, big hind feet.",
@@ -3215,6 +3287,10 @@
         "Mane sway animation driven by dust-storm weather flag"
       ],
       "boss": null,
+      "eye_style": "side",
+      "eye_style_rule": "One eye on each side of the head, set back from the snout; read from the side view, not the front.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:cow",
       "vanilla_also": [
         "minecraft:goat"
@@ -3367,6 +3443,10 @@
         "Lays blue_egg every 6000-12000 ticks (Chicken eggTime pattern)"
       ],
       "boss": null,
+      "eye_style": "side",
+      "eye_style_rule": "One eye on each side of the head, set back from the snout; read from the side view, not the front.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:chicken",
       "vanilla_also": [
         "minecraft:parrot"
@@ -3522,6 +3602,10 @@
         "At night: emits light via client dynamic light is not vanilla; approximate with glowmask + particles"
       ],
       "boss": null,
+      "eye_style": "side",
+      "eye_style_rule": "One eye on each side of the head, set back from the snout; read from the side view, not the front.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:tropical_fish",
       "vanilla_also": [
         "minecraft:salmon"
@@ -3678,6 +3762,10 @@
         "Angers when a player comes within 4 blocks of its baby"
       ],
       "boss": null,
+      "eye_style": "side",
+      "eye_style_rule": "One eye on each side of the head, set back from the snout; read from the side view, not the front.",
+      "eye_style_source": "proposed",
+      "scale_rule": null,
       "vanilla_base": "minecraft:hoglin",
       "vanilla_also": [],
       "vanilla_rig": "Hoglin layout exactly: big head with tusks, body, 4 legs. Our tail is an extra bone.",
@@ -3847,6 +3935,10 @@
         "Glide: slow fall + forward motion when jumping off ledges"
       ],
       "boss": null,
+      "eye_style": "side",
+      "eye_style_rule": "One eye on each side of the head, set back from the snout; read from the side view, not the front.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:parrot",
       "vanilla_also": [
         "minecraft:phantom",
@@ -4013,6 +4105,10 @@
         "Glass bottle -> frost_milk (see ZGInteractions)"
       ],
       "boss": null,
+      "eye_style": "side",
+      "eye_style_rule": "One eye on each side of the head, set back from the snout; read from the side view, not the front.",
+      "eye_style_source": "proposed",
+      "scale_rule": null,
       "vanilla_base": "minecraft:cow",
       "vanilla_also": [
         "minecraft:sheep",
@@ -4164,6 +4260,10 @@
         "Detach when rider sprints 20 ticks or leech is hit"
       ],
       "boss": null,
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "proposed",
+      "scale_rule": null,
       "vanilla_base": "minecraft:silverfish",
       "vanilla_also": [],
       "vanilla_rig": "Silverfish layout: a chain of body segments, each its own bone.",
@@ -4308,6 +4408,10 @@
         "Immune to corona_crust/ember_crust damage types"
       ],
       "boss": null,
+      "eye_style": "stalk",
+      "eye_style_rule": "Two eyes on short stalks rising above the head; each stalk is its own bone and swivels in idle.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:spider",
       "vanilla_also": [
         "minecraft:armadillo"
@@ -4480,6 +4584,10 @@
         "Out of water: flop and take suffocation damage like fish"
       ],
       "boss": null,
+      "eye_style": "side",
+      "eye_style_rule": "One eye on each side of the head, set back from the snout; read from the side view, not the front.",
+      "eye_style_source": "proposed",
+      "scale_rule": null,
       "vanilla_base": "minecraft:dolphin",
       "vanilla_also": [
         "minecraft:guardian",
@@ -4646,6 +4754,10 @@
         "Wake one buried skitter triggers the group within 8 blocks"
       ],
       "boss": null,
+      "eye_style": "front",
+      "eye_style_rule": "Both eyes on the front face, level and close together; read from the front view.",
+      "eye_style_source": "team",
+      "scale_rule": null,
       "vanilla_base": "minecraft:spider",
       "vanilla_also": [
         "minecraft:silverfish"

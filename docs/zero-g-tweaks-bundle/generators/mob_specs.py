@@ -363,3 +363,49 @@ for _k, _v in VANILLA.items():
     need = [a.split(' ')[0] for a in S[_k]['animations']]
     assert set(_v['anims']) == set(need), (_k, set(_v['anims']) ^ set(need))
     S[_k]['vanilla'] = _v
+
+# ------------------------------------------------------------------ eye styles + boss scale (art direction)
+# side      : prey/grazer eyes, one on each side of the head (like vanilla cow, horse, fish); never both visible from straight ahead
+# front     : predator/humanoid eyes, both on the front face (like wolf, spider, illagers)
+# ender_eye : one central eye drawn in the style of the vanilla Eye of Ender (round orb, ringed iris, dark slit pupil,
+#             one highlight pixel), recoloured to the mob's palette and placed on the glowmask
+# stalk     : eyes raised on short stalks above the head (crab/snail style), each stalk its own bone so it can swivel
+EYE_STYLES = {
+    'side': 'One eye on each side of the head, set back from the snout; read from the side view, not the front.',
+    'front': 'Both eyes on the front face, level and close together; read from the front view.',
+    'ender_eye': 'A single central eye modelled on the vanilla Eye of Ender: round orb, ringed iris, dark vertical slit pupil, one highlight pixel. Recoloured per mob, emissive.',
+    'stalk': 'Two eyes on short stalks rising above the head; each stalk is its own bone and swivels in idle.',
+}
+# source: 'team' = decided by the art team, 'proposed' = filled in to match the vanilla base, confirm before modelling
+EYES = {
+    'crystal_stag': ('side', 'team'), 'azure_fowl': ('side', 'team'), 'glimmerfish': ('side', 'team'),
+    'scorch_wyrmling': ('side', 'team'), 'dust_grazer': ('side', 'team'),
+    'regolith_crawler': ('front', 'team'), 'rift_tyrant': ('front', 'team'), 'rust_beetle': ('front', 'team'),
+    'sand_skitter': ('front', 'team'), 'rime_stalker': ('front', 'team'), 'frost_warden': ('front', 'team'),
+    'dune_burrower': ('front', 'team'), 'moon_hopper': ('front', 'team'),
+    'prismling': ('ender_eye', 'team'), 'flare_sprite': ('ender_eye', 'team'), 'dying_star': ('ender_eye', 'team'),
+    'crater_drifter': ('ender_eye', 'team'), 'ash_strider': ('ender_eye', 'team'),
+    'bog_lurker': ('stalk', 'team'), 'gildcrab': ('stalk', 'team'),
+    # not covered by the team list yet
+    'cinder_hound': ('front', 'proposed'), 'eidolon_captain': ('front', 'proposed'), 'sun_colossus': ('front', 'proposed'),
+    'ice_leech': ('front', 'proposed'), 'slag_boar': ('side', 'proposed'), 'frost_yak': ('side', 'proposed'),
+    'deep_eel': ('side', 'proposed'), 'prism_sentinel': ('ender_eye', 'proposed'),
+}
+# Shattered Skies creatures (their models live in docs/shattered-skies/models; listed here so one table covers every mob)
+SS_EYES = {
+    'mossback': ('side', 'team', ''), 'amethyst_stalker': ('side', 'team', ''), 'meteor_maw': ('side', 'team', ''),
+    'tidewraith': ('side', 'team', 'Build it on the vanilla Phantom model: same rig and flight animations, retextured with pixel scales and manta-ray gill slits on the underside.'),
+    'hollow_sentinel': ('front', 'team', ''), 'stormbitten_wyvern': ('front', 'team', ''),
+    'splinter_mite': ('ender_eye', 'team', 'Listed as "Splinter": applied to both Splinter adds.'),
+    'splinter_wisp': ('ender_eye', 'team', 'Listed as "Splinter": applied to both Splinter adds.'),
+    'shardmother': ('stalk', 'team', ''), 'slagjaw': ('front', 'proposed', ''),
+}
+# Guardian bosses are built at six times the player's size (player 0.6 x 1.8 -> 3.6 wide, 10.8 tall)
+BOSS_SCALE = 6.0
+PLAYER = (0.6, 1.8)
+assert set(EYES) == set(S), set(EYES) ^ set(S)
+for _k, (_e, _src) in EYES.items():
+    S[_k]['eye_style'] = _e; S[_k]['eye_source'] = _src
+    if S[_k]['role'] in ('boss', 'final_boss'):
+        S[_k]['scale_rule'] = f'{BOSS_SCALE:g}x player size: {PLAYER[0]*BOSS_SCALE:g} wide, {PLAYER[1]*BOSS_SCALE:g} tall'
+        S[_k]['hitbox_override'] = (PLAYER[0] * BOSS_SCALE, PLAYER[1] * BOSS_SCALE)
