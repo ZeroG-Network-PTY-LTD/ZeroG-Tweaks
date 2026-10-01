@@ -7,12 +7,10 @@ Implements `moonsteel_3d_design_sheet.png` (armor and tools in 3D) and
 | --- | --- |
 | `moonsteel_chunky_shell.bbmodel` | Blockbench project of the GeckoLib armor: vanilla boxes + shell cubes on the armor bones |
 | `moonsteel.geo.json`, `moonsteel.png`, `moonsteel_glowmask.png` | The exact files shipped on `1.21.x` (`geckolib/models/item/armor/`, `textures/item/armor/`) |
-| `moonsteel_{sword,pickaxe,axe,shovel,hoe}_3d.bbmodel` | 3D held-tool models for all 5 Moonsteel tools |
 | `chunky_shell_front.png`, `chunky_shell_back.png` | Blockbench renders of the armor |
 | `trim_preview_crater_solvanite_*.png` | Crater pattern in Solvanite on the shell, drawn the way `ZGGeoArmorRenderer` draws trims in game |
-| `tools_3d_lineup.png`, `tool_*_3d.png` | Blockbench renders of all 5 3D tools |
+| `moonsteel_item_reference_sheet.webp` | Tool reference: the five tools are the original 16x16 sprites with `minecraft:item/handheld` (1 px thick). This replaces the 3D-tool part of the design sheet. |
 | `gen_armor.py` | Generates the geo model, texture and glowmask (edit cubes/palette here, then re-run) |
-| `gen_tools.py` | Generates the 3D tool models from the 16x16 sprites |
 
 Shell cubes per piece: helmet (inflate 1.0) + crown ridge, crest, brow rim; chestplate (1.01) +
 raised breastplate, glowing core gem, back plate, faulds, two stacked pauldrons and cuffs per arm;
@@ -21,4 +19,4 @@ leggings (0.5) + belt and knee plates; boots (1.0, ankle height) + flared cuff.
 Trims: the trim draws on a vanilla-shaped box just above the base plates (inflate 1.05 / 0.55);
 shell cubes sit on top of it. Moonsteel trim on Moonsteel armor uses the darker Moonsteel palette.
 
-Regenerate: `python gen_armor.py OUT_DIR` and `python gen_tools.py <1.21.x>/src/main/resources/assets/zerog_tweaks`.
+Regenerate the armor: `python gen_armor.py OUT_DIR`.
