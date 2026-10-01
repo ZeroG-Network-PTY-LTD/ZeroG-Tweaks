@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "photium_ore",
+  "model_identifier": "zerog_tweaks:photium_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "photium_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "4a746589-2d84-588f-b660-1b22029cdf81"
+    },
+    {
+      "name": "photium_ore_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.01,
+        -0.01,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        16.01,
+        16.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "76a0a66a-4ca2-547b-8f5a-41b547867afc"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "photium_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "85167b6d-bc49-58fb-826e-328c5fde077c",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "4a746589-2d84-588f-b660-1b22029cdf81",
+        "76a0a66a-4ca2-547b-8f5a-41b547867afc"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "photium_ore.png",
+      "name": "photium_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "f326f116-a793-5dfe-b4c1-cc8ce60b5a96",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACjElEQVR4nO1bsUoDQRDdyCEhSAgSgoQkHFbBLxAVuVL8BLFIo19gJZaWfoE2Fn6DWAbBTxC0CUfKFCGKhJBCLWwyb3GH4SID7rxusnM3j8nM7szuXuloq/7lFpBP5ouiS2urRM66VSL3X96p/jrVR+TjeXDc02f4cOMcnxURm38Ic4A2AW0kXI7geD6ahceZHJfmbF6pURn5uUnYHsMn+ggwB2gT0EaSNspBhf7gg/7QbAT1Uwc5zswxnr1ZhchPj1dEfptuEPnw4Jjam05E9qOPAHOANgFtlM73mrQXgHUT1+Fl5yTOMV6tD/avby6J3GqnhexHHwHmAG0C2mDrgJyW/u75lf7QatNxzNHTkwuqMJ4QkesFssZn+H2ArDyl7+tUf9H8QfQRYA7QJqANrw5ASHsBBObksoH8ss010fPRR4A5QJuANhLpA9J+G3sL1Mc6BPccufchvDkLgHVH9BFgDtAmoA12DsB11Vt3u+Fa29tf4GQ4N0D70j1GDtFHgDlAm4A2xHVAb7tOZO+skNlfQGDOY6/Rh7JAWodwfKKPAHOANgFtJOx5PuzLuyEVMybl2V6h4LlDPhhRezVZnRB9BJgDtAlow9sTLHo+L90DxHX6dkj/E+lZIGcf7UUfAeYAbQLa8HoBzKHd/TMiY07eP9wRmctJfg+w4kLA93P2ex16toiIPgLMAdoEtOHNAV7/PEQNCi7nsa7gegns9/E+AL4f7SOwrsDno48Ac4A2AW2w9wO4e4OYs399r5DrHaT2oo8Ac4A2AW0k3F1dLwcdXUdzaL+x9uZ6CYT07A/nDLSHQH7RR4A5QJuANko7zSqpA6Tf5iK4HMbeoOg9Qum3yPa9AMAcoE1AG9/RO+/dhzQUagAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "photium_ore_emissive.png",
+      "name": "photium_ore_emissive.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "ff861572-bceb-5fe4-ad30-2350ef284225",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAsUlEQVR4nO3aMQ6CQBAFUPQEFhYexWN7DA9joQ0ttmJDNhv4yrzXEUL2M9nJhl2GAQCo6pAOsGQab9Pn9Wu8zO6fzteudzj2PLwHCpAOkNbcP2v3ZKvn4z7L0zp++RmgAOkAad392tuDaeVngAKkAwAAAABs7ef277Y+dyi/I6QA6QBpi/20t7PAb+VngAKkA6T9/dmg/wM6KUA6AEDS6mv21t8SreOVXwUUIB0AACDlDUZLODKV5ymYAAAAAElFTkSuQmCC"
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+ "id": "slagjaw",
+ "name": "Slagjaw",
+ "role": "Splinterborn boss \u00b7 Ring 1\u20132 Quarry islands \u00b7 Leap Slam, Call Adds",
+ "hitbox_blocks": [
+  2.5,
+  3.0,
+  2.0
+ ],
+ "notes": [
+  "Facing north (-Z). Origin at feet centre. 1 grid square = 1 texture pixel = 1/16 block. Hitbox 2.5 x 3 x 2 blocks; the long arms and fists reach past its sides.",
+  "Bones (16): root > body > chest, cage, splinter, back; body > head > jaw, brow; body > arm_l > forearm_l > fist_l (same on the right); body > leg_l, leg_r.",
+  "Animations: spawn (unfolds from a rock pile), idle (jaw grinds), walk (knuckle-walk: fists plant, body swings), run, attack (overhead double-fist smash), hurt, death (crumbles; the splinter drops out of the cage), ability_leap_slam (crouch, jump, land fists-first), ability_call_adds (beats chest, Mites crawl out of cracks).",
+  "Each ore tooth uses a different ore colour (iron, gold, redstone, diamond); the splinter is caged behind copper bars in an open chest cavity."
+ ],
+ "palette": {
+  "stone": "#8a8683",
+  "stone_dark": "#5a5653",
+  "copper": "#b8733f",
+  "patina": "#4fa58f",
+  "cavity": "#1f1726",
+  "iron": "#dcb89c",
+  "gold": "#f2c94c",
+  "redstone": "#c7322b",
+  "diamond": "#5fe0d6",
+  "glow": "#e6d4ff",
+  "splinter": "#c9a8ff",
+  "splinter_dim": "#9b7ee0"
+ },
+ "boxes": [
+  {
+   "name": "foot L",
+   "bone": "leg_l",
+   "from": [
+    -13,
+    0,
+    -3
+   ],
+   "to": [
+    -3,
+    3,
+    9
+   ],
+   "color": "stone_dark",
+   "texture": "cobble"
+  },
+  {
+   "name": "leg L",
+   "bone": "leg_l",
+   "from": [
+    -12,
+    3,
+    -2
+   ],
+   "to": [
+    -4,
+    14,
+    8
+   ],
+   "color": "stone",
+   "texture": "cobble"
+  },
+  {
+   "name": "foot R",
+   "bone": "leg_r",
+   "from": [
+    3,
+    0,
+    -3
+   ],
+   "to": [
+    13,
+    3,
+    9
+   ],
+   "color": "stone_dark",
+   "texture": "cobble"
+  },
+  {
+   "name": "leg R",
+   "bone": "leg_r",
+   "from": [
+    4,
+    3,
+    -2
+   ],
+   "to": [
+    12,
+    14,
+    8
+   ],
+   "color": "stone",
+   "texture": "cobble"
+  },
+  {
+   "name": "pelvis",
+   "bone": "body",
+   "from": [
+    -12,
+    12,
+    -4
+   ],
+   "to": [
+    12,
+    18,
+    10
+   ],
+   "color": "stone_dark",
+   "texture": "cobble"
+  },
+  {
+   "name": "torso",
+   "bone": "body",
+   "from": [
+    -15,
+    16,
+    -10
+   ],
+   "to": [
+    15,
+    36,
+    12
+   ],
+   "color": "stone",
+   "texture": "cobble"
+  },
+  {
+   "name": "shoulders",
+   "bone": "body",
+   "from": [
+    -17,
+    34,
+    -14
+   ],
+   "to": [
+    17,
+    46,
+    8
+   ],
+   "color": "stone",
+   "texture": "cobble"
+  },
+  {
+   "name": "back slab",
+   "bone": "back",
+   "from": [
+    -14,
+    46,
+    -8
+   ],
+   "to": [
+    14,
+    48,
+    6
+   ],
+   "color": "stone_dark",
+   "texture": "cobble"
+  },
+  {
+   "name": "copper vent L",
+   "bone": "back",
+   "from": [
+    -10,
+    46,
+    0
+   ],
+   "to": [
+    -6,
+    52,
+    4
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "copper vent R",
+   "bone": "back",
+   "from": [
+    6,
+    46,
+    0
+   ],
+   "to": [
+    10,
+    52,
+    4
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "shoulder shard",
+   "bone": "splinter",
+   "from": [
+    11,
+    46,
+    -7
+   ],
+   "to": [
+    14,
+    51,
+    -4
+   ],
+   "color": "splinter_dim"
+  },
+  {
+   "name": "cavity",
+   "bone": "chest",
+   "from": [
+    -8,
+    17,
+    -10.4
+   ],
+   "to": [
+    8,
+    28,
+    -10
+   ],
+   "color": "cavity",
+   "decal": "front"
+  },
+  {
+   "name": "splinter",
+   "bone": "splinter",
+   "from": [
+    -4,
+    18,
+    -13
+   ],
+   "to": [
+    4,
+    27,
+    -9
+   ],
+   "color": "splinter"
+  },
+  {
+   "name": "splinter core",
+   "bone": "splinter",
+   "from": [
+    -2,
+    21,
+    -13.3
+   ],
+   "to": [
+    2,
+    25,
+    -13
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "cage bar L",
+   "bone": "cage",
+   "from": [
+    -6,
+    17,
+    -14
+   ],
+   "to": [
+    -5,
+    28,
+    -13
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "cage bar R",
+   "bone": "cage",
+   "from": [
+    5,
+    17,
+    -14
+   ],
+   "to": [
+    6,
+    28,
+    -13
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "cage band",
+   "bone": "cage",
+   "from": [
+    -9,
+    26,
+    -14
+   ],
+   "to": [
+    9,
+    28,
+    -12
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "head",
+   "bone": "head",
+   "from": [
+    -8,
+    34,
+    -22
+   ],
+   "to": [
+    8,
+    44,
+    -12
+   ],
+   "color": "stone",
+   "texture": "cobble"
+  },
+  {
+   "name": "brow",
+   "bone": "brow",
+   "from": [
+    -9,
+    42,
+    -23
+   ],
+   "to": [
+    9,
+    45,
+    -18
+   ],
+   "color": "stone_dark",
+   "texture": "cobble"
+  },
+  {
+   "name": "eye L",
+   "bone": "head",
+   "from": [
+    -6,
+    40,
+    -22.3
+   ],
+   "to": [
+    -3,
+    42,
+    -22
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye R",
+   "bone": "head",
+   "from": [
+    3,
+    40,
+    -22.3
+   ],
+   "to": [
+    6,
+    42,
+    -22
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye L side",
+   "bone": "head",
+   "from": [
+    -8.3,
+    40,
+    -20
+   ],
+   "to": [
+    -8,
+    42,
+    -17
+   ],
+   "color": "glow",
+   "decal": "left"
+  },
+  {
+   "name": "jaw",
+   "bone": "jaw",
+   "from": [
+    -11,
+    28,
+    -26
+   ],
+   "to": [
+    11,
+    36,
+    -12
+   ],
+   "color": "stone_dark",
+   "texture": "cobble"
+  },
+  {
+   "name": "tooth iron",
+   "bone": "jaw",
+   "from": [
+    -10,
+    36,
+    -26
+   ],
+   "to": [
+    -7,
+    40,
+    -23
+   ],
+   "color": "iron",
+   "texture": "ore"
+  },
+  {
+   "name": "tooth gold",
+   "bone": "jaw",
+   "from": [
+    -5,
+    36,
+    -26
+   ],
+   "to": [
+    -2,
+    39,
+    -23
+   ],
+   "color": "gold",
+   "texture": "ore"
+  },
+  {
+   "name": "tooth redstone",
+   "bone": "jaw",
+   "from": [
+    2,
+    36,
+    -26
+   ],
+   "to": [
+    5,
+    39,
+    -23
+   ],
+   "color": "redstone",
+   "texture": "ore"
+  },
+  {
+   "name": "tooth diamond",
+   "bone": "jaw",
+   "from": [
+    7,
+    36,
+    -26
+   ],
+   "to": [
+    10,
+    40,
+    -23
+   ],
+   "color": "diamond",
+   "texture": "ore"
+  },
+  {
+   "name": "shoulder L",
+   "bone": "arm_l",
+   "from": [
+    -25,
+    32,
+    -12
+   ],
+   "to": [
+    -17,
+    44,
+    0
+   ],
+   "color": "stone",
+   "texture": "cobble"
+  },
+  {
+   "name": "upper arm L",
+   "bone": "arm_l",
+   "from": [
+    -24,
+    18,
+    -10
+   ],
+   "to": [
+    -18,
+    32,
+    -2
+   ],
+   "color": "stone_dark",
+   "texture": "cobble"
+  },
+  {
+   "name": "forearm L",
+   "bone": "forearm_l",
+   "from": [
+    -25,
+    5,
+    -14
+   ],
+   "to": [
+    -16,
+    20,
+    -2
+   ],
+   "color": "stone",
+   "texture": "cobble"
+  },
+  {
+   "name": "bracer L",
+   "bone": "forearm_l",
+   "from": [
+    -25.5,
+    12,
+    -14.5
+   ],
+   "to": [
+    -15.5,
+    15,
+    -1.5
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "fist L",
+   "bone": "fist_l",
+   "from": [
+    -26,
+    0,
+    -16
+   ],
+   "to": [
+    -15,
+    6,
+    -4
+   ],
+   "color": "stone_dark",
+   "texture": "cobble"
+  },
+  {
+   "name": "shoulder R",
+   "bone": "arm_r",
+   "from": [
+    17,
+    32,
+    -12
+   ],
+   "to": [
+    25,
+    44,
+    0
+   ],
+   "color": "stone",
+   "texture": "cobble"
+  },
+  {
+   "name": "upper arm R",
+   "bone": "arm_r",
+   "from": [
+    18,
+    18,
+    -10
+   ],
+   "to": [
+    24,
+    32,
+    -2
+   ],
+   "color": "stone_dark",
+   "texture": "cobble"
+  },
+  {
+   "name": "forearm R",
+   "bone": "forearm_r",
+   "from": [
+    16,
+    5,
+    -14
+   ],
+   "to": [
+    25,
+    20,
+    -2
+   ],
+   "color": "stone",
+   "texture": "cobble"
+  },
+  {
+   "name": "bracer R",
+   "bone": "forearm_r",
+   "from": [
+    15.5,
+    12,
+    -14.5
+   ],
+   "to": [
+    25.5,
+    15,
+    -1.5
+   ],
+   "color": "copper",
+   "texture": "copper"
+  },
+  {
+   "name": "fist R",
+   "bone": "fist_r",
+   "from": [
+    15,
+    0,
+    -16
+   ],
+   "to": [
+    26,
+    6,
+    -4
+   ],
+   "color": "stone_dark",
+   "texture": "cobble"
+  }
+ ],
+ "callouts": {
+  "front": [
+   [
+    "eye R",
+    "Glowing eyes under a heavy brow"
+   ],
+   [
+    "tooth iron",
+    "Ore teeth: iron, gold, redstone, diamond"
+   ],
+   [
+    "jaw",
+    "Huge underbite jaw"
+   ],
+   [
+    "splinter core",
+    "Splinter caged in the open chest"
+   ],
+   [
+    "bracer L",
+    "Copper bracers"
+   ],
+   [
+    "fist L",
+    "Knuckle-walking fists"
+   ]
+  ],
+  "left": [
+   [
+    "copper vent L",
+    "Copper vents on the back"
+   ],
+   [
+    "shoulders",
+    "Hunched cobblestone shoulders"
+   ],
+   [
+    "jaw",
+    "Jaw juts past the head"
+   ],
+   [
+    "eye L side",
+    "Side eye"
+   ],
+   [
+    "forearm L",
+    "Thick forearm"
+   ],
+   [
+    "fist L",
+    "Fist on the ground"
+   ]
+  ],
+  "top": [
+   [
+    "back slab",
+    "Stone slab back plate"
+   ],
+   [
+    "copper vent R",
+    "Copper vents"
+   ],
+   [
+    "shoulder shard",
+    "Splinter shard in a shoulder crack"
+   ],
+   [
+    "tooth diamond",
+    "Ore teeth"
+   ],
+   [
+    "fist R",
+    "Fists"
+   ]
+  ],
+  "bottom": [
+   [
+    "fist L",
+    "Fist knuckles"
+   ],
+   [
+    "foot R",
+    "Feet"
+   ],
+   [
+    "jaw",
+    "Jaw underside"
+   ]
+  ]
+ }
+}

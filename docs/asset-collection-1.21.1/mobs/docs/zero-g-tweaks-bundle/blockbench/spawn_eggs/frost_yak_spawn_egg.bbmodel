@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "frost_yak_spawn_egg_preview",
+  "model_identifier": "zerog_tweaks:frost_yak_spawn_egg",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "frost_yak_spawn_egg",
+      "type": "cube",
+      "uuid": "6799ebaa-3d31-55d6-84fe-7cbc38a91788",
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            64,
+            0,
+            0,
+            64
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "6799ebaa-3d31-55d6-84fe-7cbc38a91788"
+  ],
+  "textures": [
+    {
+      "name": "frost_yak_spawn_egg.png",
+      "id": "0",
+      "namespace": "zerog_tweaks",
+      "folder": "item",
+      "mode": "bitmap",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACh0lEQVR4nO2aTU8TURSGC51+APGLPSZoLP4IWKChOxaGBQsWErChKCBhgQv/ABoJAaEaGhL+AQvAIAtjTERxZ40aDKQJkBB1AbQCttN23BneA8zkMqWH5J5n9/Z25r49OffMvafj8QiCIAiCoCtlpZ6wpa3dOqzTqV0YX5ydKamn8lJOdh6RAHAb4MYo9g1rrocsu/GG22HQ6VQK9IWLl+D6Tx+XYHxj7UdRa4T2GSAB4DbAjev1RNd8sLIKJyjDKSrIeHffAOjfv36CnnoxBjqXzYLeTK66+g3aZ4AEgNsAN0XfB5Al7zEMH2jLwm2CPxAAfflKNehgRSXoq6E60JvJ1dPY/I/2GSAB4DbAjXINoOf5+sYmGJ+eegl66dU70E2tzaDz+Txoy4M1ou1up5MluEC1n6B9BkgAuA1w43ofYPjwOd878Ag0XfMdkSjoLNnbP382BDrz9wB05P7DU/k8Ce0zQALAbYAbxxpAn/u0p+c18BZjw09wAlIjTNMEnTnANe4PBHGc1ABKw60w/UhpX6B9BkgAuA1w41gDlj+8B51IfAbdP/gYtM/vBx3t6Qe9v7dnO9+9aA/oP+nUCd88nhypMU5onwESAG4D3CifBehzmZ7nu3uxz58zca8fj2Gfv7PrgaoFYHJ8BHRt7TWl67XPAAkAtwFulP9Xc+oJlnu9oCdGnoKm/ws4nffjsVFbP2YmA3prPSk9QRUkANwGuHHdE9zd2QbtJTXAac1bhYLSfHnFvb4T2meABIDbADeu3xEKN9+xfy/waM/OFnqzNwtzoFe+fwOt+tynaJ8BEgBuA9yc+bv5tEZ8/ZKwdXAjdBP029fzZ+pR+wyQAHAbEARB4OQfrX6oxLWFT8sAAAAASUVORK5CYII=",
+      "uuid": "4f3028a7-d170-5e24-a1c1-f5eb88baafdd"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        3,
+        1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "preview_note": "Baked colour preview only; runtime uses vanilla layers with registry tints and an original layer2 accent."
+}

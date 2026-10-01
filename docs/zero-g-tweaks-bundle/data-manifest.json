@@ -1,0 +1,222 @@
+{
+  "planets": {
+    "moon": {
+      "dimension": "zerog_tweaks:moon",
+      "gravity": 0.5,
+      "base_stone": "lunar_stone",
+      "biomes": [
+        "lunar_highlands",
+        "lunar_mare",
+        "shadowed_craters"
+      ],
+      "ores": [
+        "zerog_tweaks:ore_regolith",
+        "zerog_tweaks:ore_moonsteel",
+        "zerog_tweaks:ore_selenite"
+      ]
+    },
+    "mars": {
+      "dimension": "zerog_tweaks:mars",
+      "gravity": 0.7,
+      "base_stone": "martian_stone",
+      "biomes": [
+        "rust_plains",
+        "oxide_badlands",
+        "polar_caps"
+      ],
+      "ores": [
+        "zerog_tweaks:ore_ferrox",
+        "zerog_tweaks:ore_olympium",
+        "zerog_tweaks:ore_aresite"
+      ]
+    },
+    "cerulon": {
+      "dimension": "zerog_tweaks:cerulon",
+      "gravity": 0.9,
+      "base_stone": "cerulean_stone",
+      "biomes": [
+        "azure_plains",
+        "crystal_shores",
+        "shardwood_grove"
+      ],
+      "ores": [
+        "zerog_tweaks:ore_nebulite",
+        "zerog_tweaks:ore_cobaltium",
+        "zerog_tweaks:ore_cyrrium",
+        "zerog_tweaks:ore_aurelion",
+        "zerog_tweaks:ore_pulsar_dust",
+        "zerog_tweaks:ore_starlite",
+        "zerog_tweaks:ore_cerulite",
+        "zerog_tweaks:ore_lumenite"
+      ]
+    },
+    "skarn": {
+      "dimension": "zerog_tweaks:skarn",
+      "gravity": 1.2,
+      "base_stone": "skarn_rock",
+      "biomes": [
+        "ember_fields",
+        "marble_contact_zone",
+        "charwood_barrens"
+      ],
+      "ores": [
+        "zerog_tweaks:ore_emberite",
+        "zerog_tweaks:ore_ruskite",
+        "zerog_tweaks:ore_tectium",
+        "zerog_tweaks:ore_pyrium",
+        "zerog_tweaks:ore_tremor_dust",
+        "zerog_tweaks:ore_rift_opal",
+        "zerog_tweaks:ore_skarnite",
+        "zerog_tweaks:ore_cinnabrite"
+      ]
+    },
+    "eidolon": {
+      "dimension": "zerog_tweaks:eidolon",
+      "gravity": 0.8,
+      "base_stone": "permafrost",
+      "biomes": [
+        "frozen_graveyard",
+        "phantom_ice_sheets",
+        "hoarwood_taiga"
+      ],
+      "ores": [
+        "zerog_tweaks:ore_cryocite",
+        "zerog_tweaks:ore_salvium",
+        "zerog_tweaks:ore_wraithsteel",
+        "zerog_tweaks:ore_palladine",
+        "zerog_tweaks:ore_spectral_dust",
+        "zerog_tweaks:ore_remnant_shard",
+        "zerog_tweaks:ore_eidolite",
+        "zerog_tweaks:ore_rimeglass"
+      ]
+    },
+    "solvane": {
+      "dimension": "zerog_tweaks:solvane",
+      "gravity": 1.3,
+      "base_stone": "solar_stone",
+      "biomes": [
+        "corona_flats",
+        "sunspot_plateaus",
+        "gildwood_oasis"
+      ],
+      "ores": [
+        "zerog_tweaks:ore_coronite",
+        "zerog_tweaks:ore_photium",
+        "zerog_tweaks:ore_astrium",
+        "zerog_tweaks:ore_radiantine",
+        "zerog_tweaks:ore_fusion_dust",
+        "zerog_tweaks:ore_nova_pearl",
+        "zerog_tweaks:ore_solvanite",
+        "zerog_tweaks:ore_dawnstone"
+      ]
+    }
+  },
+  "wasteland_types": {
+    "ocean": {
+      "noise_settings": "zerog_tweaks:wasteland_ocean",
+      "biomes": [
+        "wasteland_deep_trenches",
+        "wasteland_kelp_jungles",
+        "wasteland_island_chains"
+      ]
+    },
+    "desert": {
+      "noise_settings": "zerog_tweaks:wasteland_desert",
+      "biomes": [
+        "wasteland_dune_seas",
+        "wasteland_mesa_canyons",
+        "wasteland_salt_flats"
+      ]
+    },
+    "volcanic": {
+      "noise_settings": "zerog_tweaks:wasteland_volcanic",
+      "biomes": [
+        "wasteland_basalt_fields",
+        "wasteland_ash_plains",
+        "wasteland_lava_lakes"
+      ]
+    },
+    "frozen": {
+      "noise_settings": "zerog_tweaks:wasteland_frozen",
+      "biomes": [
+        "wasteland_glaciers",
+        "wasteland_ice_spike_forest",
+        "wasteland_frozen_canyons"
+      ]
+    },
+    "toxic": {
+      "noise_settings": "zerog_tweaks:wasteland_toxic",
+      "biomes": [
+        "wasteland_acid_swamps",
+        "wasteland_mud_flats",
+        "wasteland_moss_bogs"
+      ]
+    },
+    "crystal": {
+      "noise_settings": "zerog_tweaks:wasteland_crystal",
+      "biomes": [
+        "wasteland_prism_fields",
+        "wasteland_crystal_caverns"
+      ]
+    },
+    "barren": {
+      "noise_settings": "zerog_tweaks:wasteland_barren",
+      "biomes": [
+        "wasteland_cratered_plains",
+        "wasteland_dust_badlands",
+        "wasteland_canyon_scars"
+      ]
+    }
+  },
+  "galaxy_slots_default_type": {
+    "g2_p1": "ocean",
+    "g2_p2": "desert",
+    "g2_p3": "volcanic",
+    "g2_p4": "frozen",
+    "g2_p5": "toxic",
+    "g2_p6": "crystal",
+    "g2_moons": "barren",
+    "g3_p1": "frozen",
+    "g3_p2": "toxic",
+    "g3_p3": "crystal",
+    "g3_p4": "barren",
+    "g3_p5": "ocean",
+    "g3_p6": "desert",
+    "g3_moons": "barren",
+    "g4_p1": "barren",
+    "g4_p2": "ocean",
+    "g4_p3": "desert",
+    "g4_p4": "volcanic",
+    "g4_p5": "frozen",
+    "g4_p6": "toxic",
+    "g4_moons": "barren",
+    "g5_p1": "volcanic",
+    "g5_p2": "frozen",
+    "g5_p3": "toxic",
+    "g5_p4": "crystal",
+    "g5_p5": "barren",
+    "g5_p6": "ocean",
+    "g5_moons": "barren"
+  },
+  "structure_loot_tables": [
+    "zerog_tweaks:chests/buried_observatory",
+    "zerog_tweaks:chests/collapsed_forge",
+    "zerog_tweaks:chests/derelict_wreck",
+    "zerog_tweaks:chests/frozen_outpost",
+    "zerog_tweaks:chests/impact_site",
+    "zerog_tweaks:chests/mars_crash_site",
+    "zerog_tweaks:chests/prism_spire",
+    "zerog_tweaks:chests/solar_shrine",
+    "zerog_tweaks:chests/sunken_lab",
+    "zerog_tweaks:chests/sunken_relay"
+  ],
+  "damage_types": [
+    "zerog_tweaks:ember_crust",
+    "zerog_tweaks:corona_crust",
+    "zerog_tweaks:flare_vent",
+    "zerog_tweaks:vent_rock",
+    "zerog_tweaks:acid",
+    "zerog_tweaks:polar_frost",
+    "zerog_tweaks:void_rift"
+  ]
+}

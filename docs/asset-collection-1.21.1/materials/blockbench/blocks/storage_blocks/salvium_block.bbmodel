@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "salvium_block",
+  "model_identifier": "zerog_tweaks:salvium_block",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "salvium_block",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "74571149-611a-5f77-aeeb-e0e67b226bcc"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "salvium_block",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "ad04d109-0b8f-5101-a05e-722b6846f38d",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "74571149-611a-5f77-aeeb-e0e67b226bcc"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "salvium_block.png",
+      "name": "salvium_block.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "a30ffade-5e90-5629-8c48-ae66cbb97733",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABZUlEQVR4nO2bMW7CQBBFQ5TkNCQFCk0OgJCSA6VIEeUiUCEhUeYMNEEgEQrOQpPUOysxWnnth5n/ukWW5/vrzwBee7A7HP9uAnNLC6CRAbQAmjv7wc9mW7XA+HmUrGez+dnjh49PVevZ6/n8eE/W4RMgA2gBNNkMsLycvpP1+uHt7PFeD9bG1rtff6UHOHrDJ0AG0AJo3Blw6T2f1XP0WsInQAbQAmjcGWC5uJ5vSPgEyABaAI07A66t5y3hEyADaAE02QzougctXdcLnwAZQAugyWaAd9++bQ6/+07rhU+ADKAF0MgAWgCNDKAF0GS/A9ren/e+50vrl/53WS0XyTp8AmQALYCmeF/A0vd7huETIANoATTaG6x6th4iA2gBNNobbPXsPUAG0AJo3L3B0mdvm9K050ufbQ6fABlAC6Dx3xlquedrY3vezjRL+ATIAFoAzcC+O/w6nVBaEMInQAbQAmj+Aa2kYSpMI69hAAAAAElFTkSuQmCC"
+    }
+  ]
+}

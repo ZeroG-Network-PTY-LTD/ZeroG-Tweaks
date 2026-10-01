@@ -1,0 +1,12 @@
+stateDiagram-v2
+  direction LR
+  state "guarding" as s0
+  state "phase1" as s1
+  state "phase2 (<50% hp)" as s2
+  state "dead" as s3
+  [*] --> s0
+  s0 --> s1 : player enters wreck (16 blocks)
+  s1 --> s2 : health < 50% - summon 2 rime_stalker + ice ring
+  s2 --> s3 : health 0
+  s1 --> s0 : no players 600t (heal)
+  s3 --> [*]

@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "regolith_block",
+  "model_identifier": "zerog_tweaks:regolith_block",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "regolith_block",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "84984213-f6a8-53aa-8d1f-3af46607c9f2"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "regolith_block",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "8e9f9f75-08df-5885-bac2-c885d06aa39c",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "84984213-f6a8-53aa-8d1f-3af46607c9f2"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "regolith_block.png",
+      "name": "regolith_block.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "3def1af4-9092-5a07-ac13-19b66b7b6557",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAB8klEQVR4nO2aP2oCURDGY8hBUi6yB0ktwSN4gtQW1iF4DgnWIVha5AAilrmJqd/vwX4MG/iKmV838Fw/hvm383ZxPv/cHxLz6BbgphzgFuDmKfqDw+Gzsbfbt8Y+Hr8a+3K5NPY4jpPPj54nq9XLpJ79/qOx00dAOcAtwE1XA4bhubGZQ8z53e499IfM0dvtt7GXy6Gxr9fb5PN4PqonfQSUA9wC3HQ1gDlJWBPYp9nH584JqiawZqm54XT6buz0EVAOcAtwE34XUDlLmzWFc4DKcb57rNevs/SR9BFQDnALcNPVAOYcYQ6qWZ1wDmANUFCfqkGK9BFQDnALcNPVAJXjtKM5zPPRPq/gHKBIHwHlALcAN3InSFRNINEdX7QmqPP8v9oHgHKAW4CbrgaovXp0Z0eb+wDy33OCmlPSR0A5wC3ATVcDojmu3s8JawzPR/cLqu9XDRCUA9wC3Mh7AeaU2ruzzzPneVeo7iL5f0pPdE5IHwHlALcANwv1rXD0niA6F0T3BXOp7wRBOcAtwE03BzAH2beJ6vNq9ieqr6vvGNXzSPoIKAe4BbjpagD7srrPZ07zvJoT+O6g9gPq3iJK+ggoB7gFuJFzgNqpRWd55jjnBNX31XlF3Q2CcoBbgJtuH7DZbFxaLKSPgHKAW4CbP8v336VRdVE3AAAAAElFTkSuQmCC"
+    }
+  ]
+}

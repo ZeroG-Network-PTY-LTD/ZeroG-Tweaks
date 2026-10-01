@@ -1,0 +1,305 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "radiantine_nugget",
+  "model_identifier": "zerog_tweaks:radiantine_nugget",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "radiantine_nugget",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.99
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "2a2bf09d-f23a-56d9-bf92-f63c39ee0d71"
+    },
+    {
+      "name": "radiantine_nugget_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.98
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "0088079a-b601-537b-9f31-313580224af8"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "radiantine_nugget",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "b61f9983-fc76-5d00-a3bc-e335a792df94",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "2a2bf09d-f23a-56d9-bf92-f63c39ee0d71",
+        "0088079a-b601-537b-9f31-313580224af8"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "radiantine_nugget.png",
+      "name": "radiantine_nugget.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "b56e560e-a2dc-5642-bb03-5ff255bc704e",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABMUlEQVR4nO3ZMQ4BURCA4SUO4AwOoBShUapV4gQqR1A4gkocQEhErdyGiGqjFokb7A2o30h2vLy1E3n/101YbzJ5M293JQkAAAAAAAAAAIhFreoFe63kFXL9+VFuzvUyf+wfUQDrBKz9fAbInj/dtsUX3FdO+MwyJ54scicOnQnR7wAKYJ2AtYbvBb7n+EfPix6XZM9frrnPct6i3wEUwDoBa+oMUM9x5dzut8eFv7+ZN53Yt+e1maTdJ0S/AyiAdQLW1PvojxlwGDify56XZE8vj98l9i1tJvVHqRPLmRD9DqAA1glY834W2K1TJ+52mk7se45r57Q6g/bToPWj3wEUwDoBa97v06p+ry/Xmw2Lvy/vM3gWUFAA6wSsVf7fYKjQ538p+h1AAawTAAAAsPIGrDJQhgxUHQMAAAAASUVORK5CYII="
+    },
+    {
+      "path": "radiantine_nugget_emissive.png",
+      "name": "radiantine_nugget_emissive.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "f2e62491-436f-5dae-b137-a4958db1ebd8",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAc0lEQVR4nO3UMQ6AIAwFUHD2gB7RA7rj7qAhxhbDeytDf5p+SgEAAAAAAABmUKMHtmNvd+913UIzLZHDRmQB2QGyfd63a+ejO/5k+guwgOwA2br7OHqne01/ARaQHSDbr/tbyvs/afoLsIDsAAAAAAAAkU4PehAdXl871wAAAABJRU5ErkJggg=="
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

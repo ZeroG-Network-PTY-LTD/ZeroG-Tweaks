@@ -1,0 +1,649 @@
+{
+ "id": "amethyst_stalker",
+ "name": "Amethyst Stalker",
+ "role": "Splinterborn boss \u00b7 Ring 3 Crystal islands \u00b7 Blink, Splinter Volley, Frenzy",
+ "hitbox_blocks": [
+  1.2,
+  1.5,
+  3.0
+ ],
+ "notes": [
+  "Facing north (-Z). Origin at feet centre. 1 grid square = 1 texture pixel = 1/16 block. Hitbox 1.2 x 1.5 x 3 blocks; the crystal ridge, ears and tail reach past it.",
+  "A low-slung panther with dark violet fur, amethyst plates on the shoulders and haunches, and a ridge of crystals down the spine. The tallest ridge crystal is the splinter; the eyes are lit by it.",
+  "Bones (16): root > body > chest, ridge, splinter, tail > tail_tip; chest > neck > head > jaw, ear_l, ear_r; body > leg_fl, leg_fr, leg_bl, leg_br.",
+  "Animations: spawn (steps out of a crystal cluster), idle (tail flick), walk (stalking, head low), run (bounding), attack (paw swipe and bite), hurt, death (crystals shatter off, the splinter drops), ability_blink (crouch, vanish in a crystal flash, reappear), ability_splinter_volley (arches back, ridge crystals fire), ability_frenzy (loop: ridge glows, faster gait)."
+ ],
+ "palette": {
+  "fur": "#3b3052",
+  "fur_dark": "#2a2239",
+  "belly": "#56486e",
+  "amethyst": "#9a5fd0",
+  "bone": "#e8e0d0",
+  "claw": "#cfc3e6",
+  "glow": "#e6d4ff",
+  "splinter": "#c9a8ff",
+  "splinter_dim": "#9b7ee0"
+ },
+ "boxes": [
+  {
+   "name": "paw FL",
+   "bone": "leg_fl",
+   "from": [
+    -8.5,
+    0,
+    -18
+   ],
+   "to": [
+    -2.5,
+    2,
+    -11
+   ],
+   "color": "fur_dark",
+   "texture": "fur"
+  },
+  {
+   "name": "leg FL",
+   "bone": "leg_fl",
+   "from": [
+    -8,
+    2,
+    -16
+   ],
+   "to": [
+    -3,
+    12,
+    -11
+   ],
+   "color": "fur",
+   "texture": "fur"
+  },
+  {
+   "name": "paw FR",
+   "bone": "leg_fr",
+   "from": [
+    2.5,
+    0,
+    -18
+   ],
+   "to": [
+    8.5,
+    2,
+    -11
+   ],
+   "color": "fur_dark",
+   "texture": "fur"
+  },
+  {
+   "name": "leg FR",
+   "bone": "leg_fr",
+   "from": [
+    3,
+    2,
+    -16
+   ],
+   "to": [
+    8,
+    12,
+    -11
+   ],
+   "color": "fur",
+   "texture": "fur"
+  },
+  {
+   "name": "claw FL",
+   "bone": "leg_fl",
+   "from": [
+    -8,
+    0,
+    -19
+   ],
+   "to": [
+    -3,
+    1,
+    -18
+   ],
+   "color": "claw"
+  },
+  {
+   "name": "claw FR",
+   "bone": "leg_fr",
+   "from": [
+    3,
+    0,
+    -19
+   ],
+   "to": [
+    8,
+    1,
+    -18
+   ],
+   "color": "claw"
+  },
+  {
+   "name": "paw BL",
+   "bone": "leg_bl",
+   "from": [
+    -8.5,
+    0,
+    11
+   ],
+   "to": [
+    -2.5,
+    2,
+    18
+   ],
+   "color": "fur_dark",
+   "texture": "fur"
+  },
+  {
+   "name": "leg BL",
+   "bone": "leg_bl",
+   "from": [
+    -8,
+    2,
+    13
+   ],
+   "to": [
+    -3,
+    10,
+    17
+   ],
+   "color": "fur",
+   "texture": "fur"
+  },
+  {
+   "name": "haunch L",
+   "bone": "leg_bl",
+   "from": [
+    -9,
+    8,
+    8
+   ],
+   "to": [
+    -2,
+    19,
+    19
+   ],
+   "color": "fur",
+   "texture": "fur"
+  },
+  {
+   "name": "paw BR",
+   "bone": "leg_br",
+   "from": [
+    2.5,
+    0,
+    11
+   ],
+   "to": [
+    8.5,
+    2,
+    18
+   ],
+   "color": "fur_dark",
+   "texture": "fur"
+  },
+  {
+   "name": "leg BR",
+   "bone": "leg_br",
+   "from": [
+    3,
+    2,
+    13
+   ],
+   "to": [
+    8,
+    10,
+    17
+   ],
+   "color": "fur",
+   "texture": "fur"
+  },
+  {
+   "name": "haunch R",
+   "bone": "leg_br",
+   "from": [
+    2,
+    8,
+    8
+   ],
+   "to": [
+    9,
+    19,
+    19
+   ],
+   "color": "fur",
+   "texture": "fur"
+  },
+  {
+   "name": "belly",
+   "bone": "body",
+   "from": [
+    -6,
+    9,
+    -12
+   ],
+   "to": [
+    6,
+    11,
+    12
+   ],
+   "color": "belly",
+   "texture": "fur"
+  },
+  {
+   "name": "body",
+   "bone": "body",
+   "from": [
+    -7,
+    11,
+    -12
+   ],
+   "to": [
+    7,
+    21,
+    16
+   ],
+   "color": "fur",
+   "texture": "fur"
+  },
+  {
+   "name": "chest",
+   "bone": "chest",
+   "from": [
+    -7.5,
+    8,
+    -17
+   ],
+   "to": [
+    7.5,
+    21,
+    -8
+   ],
+   "color": "fur",
+   "texture": "fur"
+  },
+  {
+   "name": "shoulder plate",
+   "bone": "chest",
+   "from": [
+    -8,
+    17,
+    -16
+   ],
+   "to": [
+    8,
+    22,
+    -9
+   ],
+   "color": "amethyst",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "haunch plate L",
+   "bone": "leg_bl",
+   "from": [
+    -9.5,
+    14,
+    10
+   ],
+   "to": [
+    -8.5,
+    19,
+    17
+   ],
+   "color": "amethyst",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "head",
+   "bone": "head",
+   "from": [
+    -6,
+    14,
+    -27
+   ],
+   "to": [
+    6,
+    24,
+    -17
+   ],
+   "color": "fur",
+   "texture": "fur"
+  },
+  {
+   "name": "muzzle",
+   "bone": "jaw",
+   "from": [
+    -3.5,
+    14,
+    -31
+   ],
+   "to": [
+    3.5,
+    19,
+    -27
+   ],
+   "color": "fur_dark",
+   "texture": "fur"
+  },
+  {
+   "name": "fang L",
+   "bone": "jaw",
+   "from": [
+    -3,
+    12,
+    -31
+   ],
+   "to": [
+    -2,
+    14,
+    -30
+   ],
+   "color": "bone"
+  },
+  {
+   "name": "fang R",
+   "bone": "jaw",
+   "from": [
+    2,
+    12,
+    -31
+   ],
+   "to": [
+    3,
+    14,
+    -30
+   ],
+   "color": "bone"
+  },
+  {
+   "name": "eye L",
+   "bone": "head",
+   "from": [
+    -5,
+    20,
+    -27.3
+   ],
+   "to": [
+    -2,
+    22,
+    -27
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye R",
+   "bone": "head",
+   "from": [
+    2,
+    20,
+    -27.3
+   ],
+   "to": [
+    5,
+    22,
+    -27
+   ],
+   "color": "glow",
+   "decal": "front"
+  },
+  {
+   "name": "eye side",
+   "bone": "head",
+   "from": [
+    -6.3,
+    20,
+    -26
+   ],
+   "to": [
+    -6,
+    22,
+    -23
+   ],
+   "color": "glow",
+   "decal": "left"
+  },
+  {
+   "name": "ear L",
+   "bone": "ear_l",
+   "from": [
+    -6,
+    24,
+    -22
+   ],
+   "to": [
+    -3,
+    29,
+    -19
+   ],
+   "color": "amethyst",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "ear R",
+   "bone": "ear_r",
+   "from": [
+    3,
+    24,
+    -22
+   ],
+   "to": [
+    6,
+    29,
+    -19
+   ],
+   "color": "amethyst",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "ridge 1",
+   "bone": "ridge",
+   "from": [
+    -1.5,
+    21,
+    -12
+   ],
+   "to": [
+    1.5,
+    25,
+    -9
+   ],
+   "color": "amethyst",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "splinter",
+   "bone": "splinter",
+   "from": [
+    -2,
+    21,
+    -6
+   ],
+   "to": [
+    2,
+    30,
+    -2
+   ],
+   "color": "splinter"
+  },
+  {
+   "name": "splinter tip",
+   "bone": "splinter",
+   "from": [
+    -1,
+    30,
+    -5
+   ],
+   "to": [
+    1,
+    32,
+    -3
+   ],
+   "color": "glow"
+  },
+  {
+   "name": "ridge 3",
+   "bone": "ridge",
+   "from": [
+    -1.5,
+    21,
+    0
+   ],
+   "to": [
+    1.5,
+    27,
+    3
+   ],
+   "color": "amethyst",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "ridge 4",
+   "bone": "ridge",
+   "from": [
+    -1.5,
+    21,
+    6
+   ],
+   "to": [
+    1.5,
+    25,
+    9
+   ],
+   "color": "amethyst",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "ridge 5",
+   "bone": "ridge",
+   "from": [
+    -1,
+    21,
+    12
+   ],
+   "to": [
+    1,
+    23,
+    15
+   ],
+   "color": "amethyst",
+   "texture": "splinter_dim"
+  },
+  {
+   "name": "tail",
+   "bone": "tail",
+   "from": [
+    -1.5,
+    16,
+    16
+   ],
+   "to": [
+    1.5,
+    19,
+    29
+   ],
+   "color": "fur",
+   "texture": "fur"
+  },
+  {
+   "name": "tail crystal",
+   "bone": "tail_tip",
+   "from": [
+    -2,
+    16,
+    28
+   ],
+   "to": [
+    2,
+    23,
+    32
+   ],
+   "color": "amethyst",
+   "texture": "splinter_dim"
+  }
+ ],
+ "callouts": {
+  "front": [
+   [
+    "ear R",
+    "Crystal ears"
+   ],
+   [
+    "eye R",
+    "Eyes lit by the splinter"
+   ],
+   [
+    "shoulder plate",
+    "Amethyst shoulder plates"
+   ],
+   [
+    "fang L",
+    "Fangs"
+   ],
+   [
+    "claw FL",
+    "Crystal-pale claws"
+   ]
+  ],
+  "left": [
+   [
+    "splinter",
+    "The splinter: tallest ridge crystal"
+   ],
+   [
+    "ridge 3",
+    "Crystal ridge down the spine (fires in Volley)"
+   ],
+   [
+    "ear L",
+    "Crystal ear"
+   ],
+   [
+    "tail crystal",
+    "Crystal tail tip"
+   ],
+   [
+    "haunch plate L",
+    "Haunch plate"
+   ],
+   [
+    "paw FL",
+    "Low stalking stance"
+   ]
+  ],
+  "top": [
+   [
+    "splinter",
+    "Splinter"
+   ],
+   [
+    "ridge 4",
+    "Ridge crystals"
+   ],
+   [
+    "ear L",
+    "Ears"
+   ],
+   [
+    "tail crystal",
+    "Tail tip"
+   ]
+  ],
+  "bottom": [
+   [
+    "belly",
+    "Lighter belly fur"
+   ],
+   [
+    "paw BR",
+    "Paws"
+   ],
+   [
+    "muzzle",
+    "Muzzle"
+   ]
+  ]
+ }
+}

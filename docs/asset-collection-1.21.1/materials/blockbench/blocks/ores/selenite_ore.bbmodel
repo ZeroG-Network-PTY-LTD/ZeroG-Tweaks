@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "selenite_ore",
+  "model_identifier": "zerog_tweaks:selenite_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "selenite_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "6aff3692-a70e-58f8-9e70-6cf54e7d3c64"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "selenite_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "52ac3880-a39c-5a21-a025-c3fe4ef94eb3",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "6aff3692-a70e-58f8-9e70-6cf54e7d3c64"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "selenite_ore.png",
+      "name": "selenite_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "0e44591d-0319-5f00-bbc2-8e3a26ee34ae",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACeUlEQVR4nO2bsUqkQQzHXdnqOhv5WFB8AUW28g085ArBQmGLAxGrLSwELSwtPLjSSo4FBeEsBAtZvDew+ljcN7BYF5/ATuv8BiaETwzc5N/Fb2YSQv7ZZDK2BoOr9xkDptNp9ntVVUKu61rI3W7XdJ52flXN47xX03mzptX/IcIB3gZ4o80/fDYnCWtOuP/3mD3vx/pa1h6C9hUfAeEAbwO80SYnCXL0z+Vddv3ez83sfu13m5wfXN8K+Vv7Tcg7272sfoL6io+AcIC3Ad5osRdgTqjHz0K2cvLkaF/I5CBzwmj0JGTmhLPf50JeWpjL6mdOYJ1RfASEA7wN8EabnNjY+C7kenwh5NeXFyGTg+To8WFfyGntLnPA6upKVuZ5BM/XUHwEhAO8DfBGq98/EHVAp9PJbtD6c6K7vChk5hjrHR7BHGa9Myw+AsIB3gZ4I+kFCOscoOl+rTfgei0HpPriTlAgHOBtgDfUucBkMhEy6wSuZ+2u/Q5bZ3vWuYW2vvgICAd4G+CN5D5A47wV5DT1NZ0FatDqjOIjIBzgbYA3kjqAnNc4md67S85zzqCd33QWqNUV7C2Kj4BwgLcB3mgNhw/iPuD0l5wDNOWk9v5AywlNZ4FaDio+AsIB3gZ4I6kDOM/f7W0JmZz8e3MtZPubHVt/z/M1/VrvUHwEhAO8DfBGkgOs0DivvSskR7mf7wH4nfoJ1hXcX3wEhAO8DfBGMhvU3vuzVyCHv7q/Z46x6is+AsIB3gZ4I6kDeGdG8M0PQQ5rvYQVzAnMQdRHcH3xERAO8DbAG0kO4GyQ//PD7wQ5aq3tCes7QnKc7xWI4iMgHOBtgDc+AO8PFCXGzBvrAAAAAElFTkSuQmCC"
+    }
+  ]
+}

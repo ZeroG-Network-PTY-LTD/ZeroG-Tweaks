@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ruskite_block",
+  "model_identifier": "zerog_tweaks:ruskite_block",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "ruskite_block",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "eb837932-0583-5e88-adfe-076cf38104b7"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "ruskite_block",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "1d528214-e9a1-5fe0-85a9-59707427b7bb",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "eb837932-0583-5e88-adfe-076cf38104b7"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "ruskite_block.png",
+      "name": "ruskite_block.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "2f75064f-51a4-5c0e-81d4-07730a63e51d",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABZ0lEQVR4nO2bMW4CQQxFScQJ0qRLGVGkQKLmJimQkgPlAnT0UXIEqBFNioiSAqXiCqQej4Q1mt15LP6vG7Ra//2yDYx37v4+FudRYO5pATQygBZAM7Yf7Lc/nQZ4nr0k6+/P9cXrJ08Pncazz/P+la7DZ4AMoAXQZD3AMn97Tdab5eri9V4Ndo2N9zidFsUPnwEygBZA4/aAa695G680fvgMkAG0ABq3B1iureZrCZ8BMoAWQOP2gFureUv4DJABtACarAe0rkFL63jhM0AG0AJosh7g7dv3ze/h1DRe+AyQAbQAGhlAC6CRAbQAmux3QN/zee97vjR+8X+X3TFZhs8AGUALoCmeC1iGvmcYPgNkAC2ARrPBTu82QGQALYBGs8Fe7z4AZAAtgMadDZa+e1tL7f1L320OnwEygBZA454Zaj2vr8XWvO1pI50ZSpEBtACarAfYc3XNMfv21TjPEz4DZAAtgOYfkHBsOeJqpG0AAAAASUVORK5CYII="
+    }
+  ]
+}

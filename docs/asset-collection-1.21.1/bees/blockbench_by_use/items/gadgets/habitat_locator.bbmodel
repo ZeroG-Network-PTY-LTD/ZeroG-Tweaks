@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "habitat_locator",
+  "model_identifier": "aeroapiary:habitat_locator",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "habitat_locator",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "6e778cc1-1881-57bf-bfa5-7f8384a26dd9"
+    },
+    {
+      "name": "habitat_locator_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "cadd23d5-79f8-5f12-a1f9-f9153b26bb83"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "habitat_locator",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "b2b1ce68-5546-5d32-8111-1b696162b6e1",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "6e778cc1-1881-57bf-bfa5-7f8384a26dd9",
+        "cadd23d5-79f8-5f12-a1f9-f9153b26bb83"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "habitat_locator_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "1b858fd9-a35c-5d92-8e0c-8f0b330ae87b",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABrUlEQVR4nO2aP0sDQRDFLyLWFn4Bm6DhQC2Eq9LYqAh2Ka2srMQyrSipxMoPINikE/zX2FilVBD/5DNYWFuo9YywyzAXn3Her5vbu+XxmJnbvdtGMWZsPHW/UuMXrcOGZb4Jn5zxhwagBaCZRAuwsnT2KeL9g56p5jXhM4AGoAWgoQFoAWhoAFoAmtrXAYPT9eRa3cvla73zhc8AGoAWgMa1ji6KfM3fDYYivh++i3ixOZ2cv101k+PV1hX3Ah5oAFoAGnP96JrXNb5z9OyUJHlbXRBxv/UhYt0jrD0hfAbQALQANNl6yb3ny855fWqKnzU/c/OQvP+xv5kcz/WE8BlAA9AC0Ji/B+j3ftnxCbDWfE5Pbu+gCZ8BNAAtAI25B+j9vJW5clldmRLRi3E+radd2Z4PnwE0AC0AjbkH5L7h5Zjd7on4enfFNZ9XT/gMoAFoAWhGfkZo7fhWxN6ar5vwGUAD0ALQmHtAbr/92zVv3f9rwmcADUALQPPn/w1qTvbmRcx/g05oAFoAGp4R8jz8H6ABaAFo3D1AM+qzwt6a14TPABqAFkAIIUi+AezhXpiZsUX2AAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "",
+      "name": "habitat_locator_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "ebeabe5e-648d-5384-b028-e245f19d5b0d",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAsUlEQVR4nO3ZQQrCQAwF0CoKLrz/SbsQXOhWuimlmf5K3jtA+IQkHXSaAAAAAIBOLtUF59f7U1nv+biXZ/x1HVn8H2hAOkDa7v0avfNr9ffeiPYToAHpAGm3dICtO1+t/QRoQDpA2uE3YPTbfqv2E6AB6QBp8XfA0d/9pfYToAHpAGnDb0D6rb+m/QRoQDpAWvkNOPvOL7WfAA1IB0g7/X+DS9W/J7SfAA1IBwAAAEj4Are+IEhT+v0lAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1",
+  "visual_reference": "Forestry/Binnie's portable analysis, database and serum item language"
+}

@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:block/snow_height8",
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        8,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#texture",
+          "tintindex": 0,
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#texture",
+          "tintindex": 0
+        },
+        "north": {
+          "texture": "#texture",
+          "tintindex": 0,
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#texture",
+          "tintindex": 0,
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#texture",
+          "tintindex": 0,
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#texture",
+          "tintindex": 0,
+          "cullface": "east"
+        }
+      }
+    }
+  ]
+}

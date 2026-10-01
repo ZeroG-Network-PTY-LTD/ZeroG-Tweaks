@@ -1,0 +1,220 @@
+{
+  "concept": "docs/zero-g-tweaks-bundle/blockbench/references/codex-clipboard-3c2846ca-efea-4721-9c8c-b0880468c70a.png",
+  "concept_sha256": "0aa8ae45c6193c5185d526c515d10544ca1a162e0f8d46e4198c4791d70c180c",
+  "texture_reference": "docs/zero-g-tweaks-bundle/blockbench/references/codex-clipboard-c7bb1678-125d-4884-9a48-77477d25d546.png",
+  "texture_sha256": "6d89c56994ab9a98d9795dae71de672c5e94e90b92af0b9f0d4345ae6e222d9f",
+  "prompt": "Retain Tidewraith concept body, face, palettes and 32px atlas. Latest user repair: coherent mouth/teeth motion, downward-curled wing tips with delayed Phantom-inspired outer/tip articulation; keep the base flap gentle.",
+  "negative_prompt": "No flat slab torso, no rectangular mouth, no straight horns, no rigid stub tentacles, no painted black fake cavity.",
+  "proportion_authority": "Latest user: it should look exactly like the concept; previous table no longer constrains geometry.",
+  "texture_resolution": [
+    32,
+    32
+  ],
+  "scale_factor": 0.1,
+  "provider": null,
+  "paid_calls": 0,
+  "body_envelope_units": [
+    32,
+    20,
+    38
+  ],
+  "body_repair": "Closed occupied volume; recess terminates at z=-10. Hidden interior runs filled, cheeks retained.",
+  "flight": {
+    "period_seconds": 2.417,
+    "base_wing_degrees": 6,
+    "relative_outer_degrees": 3.0,
+    "relative_tip_degrees": 4.0,
+    "outer_phase_radians": 0.4,
+    "tip_phase_radians": 0.8,
+    "curve": "Down-curled geometry; 32-interval cosine, mirrored inner/outer/tip chain"
+  },
+  "mouth": {
+    "duration_seconds": 1.6,
+    "maximum_scale": [
+      1.025,
+      1.14,
+      1
+    ],
+    "motion": "Shared rim/throat/tooth deformation. Head-mounted fixed collar; no independent tooth-row rotation.",
+    "tooth_plane_z": -12.72,
+    "gum_surface_z": -12.7
+  },
+  "vanilla_reference": {
+    "version": "1.21.1",
+    "source": "Local NeoForm sourcesAndCompiledWithNeoForge cache, net/minecraft/client/model/PhantomModel.java",
+    "observed": "Nested base/tip bones, mirrored cosine rotation, 7.448451 degrees per tick; vanilla amplitude is 16 degrees. Delayed three-joint Tidewraith articulation is a custom adaptation."
+  },
+  "teeth": "30 two-sided alpha-cutout planes, jaw-attached under shared mouth control; lower tips use vertically mirrored UV.",
+  "guides": [
+    "https://blockbench.net/wiki/guides/minecraft-style-guide/",
+    "https://blockbench.net/wiki/guides/blockbench-overview-tips/"
+  ],
+  "license": "User-supplied reference; no additional rights asserted.",
+  "validation": [
+    {
+      "file": "tidewraith_concept.bbmodel",
+      "cubes": 4090,
+      "planes": 38,
+      "bones": 43,
+      "animations": 5,
+      "texture": [
+        32,
+        32
+      ],
+      "sha256": "58cc5897e519ae5aa23e53cc53d692f77845f9ed237801cbb64aac094308bf5e",
+      "eye_visible_pixels": {
+        "eye_0_left": 80,
+        "eye_0_right": 80,
+        "eye_1_left": 50,
+        "eye_1_right": 50,
+        "eye_2_left": 88,
+        "eye_2_right": 88,
+        "eye_3_left": 80,
+        "eye_3_right": 80
+      },
+      "bilateral_parts": "PASS",
+      "articulated_tentacles": 4,
+      "segments_per_tentacle": 5,
+      "reference_appearance_approved": false
+    },
+    {
+      "file": "tidewraith_concept_abyssal.bbmodel",
+      "cubes": 4090,
+      "planes": 38,
+      "bones": 43,
+      "animations": 5,
+      "texture": [
+        32,
+        32
+      ],
+      "sha256": "0d3b3ae9ddd750c2b8b1f3c73ba77d42dadfd6a2ab4ebdcb5c64c3417c881294",
+      "eye_visible_pixels": {
+        "eye_0_left": 80,
+        "eye_0_right": 80,
+        "eye_1_left": 50,
+        "eye_1_right": 50,
+        "eye_2_left": 88,
+        "eye_2_right": 88,
+        "eye_3_left": 80,
+        "eye_3_right": 80
+      },
+      "bilateral_parts": "PASS",
+      "articulated_tentacles": 4,
+      "segments_per_tentacle": 5,
+      "reference_appearance_approved": false
+    },
+    {
+      "file": "tidewraith_concept_pearl.bbmodel",
+      "cubes": 4090,
+      "planes": 38,
+      "bones": 43,
+      "animations": 5,
+      "texture": [
+        32,
+        32
+      ],
+      "sha256": "363144976ca0765534f2f2e0bcef9a002669866e87828936e3ac1e464363f2cb",
+      "eye_visible_pixels": {
+        "eye_0_left": 80,
+        "eye_0_right": 80,
+        "eye_1_left": 50,
+        "eye_1_right": 50,
+        "eye_2_left": 88,
+        "eye_2_right": 88,
+        "eye_3_left": 80,
+        "eye_3_right": 80
+      },
+      "bilateral_parts": "PASS",
+      "articulated_tentacles": 4,
+      "segments_per_tentacle": 5,
+      "reference_appearance_approved": false
+    },
+    {
+      "file": "tidewraith_concept_storm.bbmodel",
+      "cubes": 4090,
+      "planes": 38,
+      "bones": 43,
+      "animations": 5,
+      "texture": [
+        32,
+        32
+      ],
+      "sha256": "c889352f9993e69b86291e31ef3734fc5f307944edc27968700adeef1cb41e63",
+      "eye_visible_pixels": {
+        "eye_0_left": 80,
+        "eye_0_right": 80,
+        "eye_1_left": 50,
+        "eye_1_right": 50,
+        "eye_2_left": 88,
+        "eye_2_right": 88,
+        "eye_3_left": 80,
+        "eye_3_right": 80
+      },
+      "bilateral_parts": "PASS",
+      "articulated_tentacles": 4,
+      "segments_per_tentacle": 5,
+      "reference_appearance_approved": false
+    }
+  ],
+  "native_import_verified": false,
+  "runtime_verified": false,
+  "human_visual_approval": false,
+  "files": {
+    "README.md": "87bae97fc4e89e64d7225d1e095872e8b5f842f087b9b02ebe9b7e4733e48dc4",
+    "previews/fly.gif": "b830b91f2f79da95c9301aefbf20a8f4984e890584fd8d6f2ee08d546ea7efd0",
+    "previews/mouth_open.gif": "1ef790c27d78d57ccea78fdddbece5e4e4b55558b42de80409675e6f54ac0ec1",
+    "previews/tidewraith_concept_abyssal_atlas.png": "f1bb102837c136cc7a2be7281baaa4eb74c060e7b8c96060f6e81ab32809d43c",
+    "previews/tidewraith_concept_abyssal_bottom.png": "32e2afadeae3fab4eaa8c409f92c4a75640363f5b4e7a32448487baf8f7544c8",
+    "previews/tidewraith_concept_abyssal_front.png": "334701763d43d0d05ce84aeff2caf1142d0dbf1e5acc65b3f23b9e43a04b2950",
+    "previews/tidewraith_concept_abyssal_hero.png": "667b7fdfd65539d9e738ef159ca77c02389f9ed55ecaf95339b2fef919ca07d5",
+    "previews/tidewraith_concept_abyssal_left.png": "eee872cf8c9c930ba528bd7771db1bd4529c4fe8efe588e1d91cbffcd886d0df",
+    "previews/tidewraith_concept_abyssal_right.png": "feb307c8c12c67337fd10c073f3c577ba55faefb695fd445214f14cc2fc35d1a",
+    "previews/tidewraith_concept_abyssal_threequarter.png": "e7ae29fa3cae1fb52f494a6f8d4d1654a6a6aad684e5db79e0fa344adf97122b",
+    "previews/tidewraith_concept_abyssal_top.png": "1ab8a9a1ee349faacbd0d0e8f95dd7baac105ec6b86d7f3d187e4f8d631ae77e",
+    "previews/tidewraith_concept_atlas.png": "7b35f382177cb88b7b8eb22410b2331f6aa19e2e674fcf8c9ecd6d753bb0a861",
+    "previews/tidewraith_concept_bottom.png": "46367a038e892e3f30d7670c15e2f28deec2b400a8943d2b0dc470430ae2ec5d",
+    "previews/tidewraith_concept_front.png": "1157090fec7ed1fc5737006b861fc9091d075cbc38251ee5b04d0a4ffc39556e",
+    "previews/tidewraith_concept_hero.png": "adabedd124cd94d9f8de790768d9a928ffa58b4b3b6008a3146a519a4acb02a9",
+    "previews/tidewraith_concept_left.png": "32161984e63b73ae0f14ea2baca35d5ea22e98ebdbc816b97be82ee2933d25c2",
+    "previews/tidewraith_concept_pearl_atlas.png": "a31f63182d79a8257e0d9fcdba5d396bbd0d5cf7c423713cc4492927bf7bdb58",
+    "previews/tidewraith_concept_pearl_bottom.png": "7d338f50ce5d281840a28fed6b7a3bc72ac7bdd71b23a93eb76def718a6cc29f",
+    "previews/tidewraith_concept_pearl_front.png": "49f8e290211c9af8b63cb14734f8bb152b8e39ae9021f9d9f447f524c0eef634",
+    "previews/tidewraith_concept_pearl_hero.png": "566e5552a60154a752e345e9aa7555d3d13b4fc44caf9485e9fa6708295a7e9f",
+    "previews/tidewraith_concept_pearl_left.png": "3b78a610205905eeb8de162fd6e515c74354f710f155a47ea76e862bef6c4516",
+    "previews/tidewraith_concept_pearl_right.png": "a9f8fd0ff5794f41f0310e10c13e764ae115c127a38a3489db46a39081193497",
+    "previews/tidewraith_concept_pearl_threequarter.png": "be28ff6c89f32c3708d1ef1c1794c13deaa30138ca56c4c5986f3bb621bdbc8f",
+    "previews/tidewraith_concept_pearl_top.png": "c306dc9deca8bf7c59f200bc4a310d45f7e32b4cfb3cd743003122857ce2d365",
+    "previews/tidewraith_concept_right.png": "0b9dc374254bb4ddcd4d0405c9eb94eb85e6683f2b4c0ec7c2d39c7132e06a01",
+    "previews/tidewraith_concept_storm_atlas.png": "cb3d9cb4ac92e832c18343ec737b248ccdef0724ffa870a6f66fc95a9e2cd587",
+    "previews/tidewraith_concept_storm_bottom.png": "34dcfd0ac43447274ce12fcd29b2f8a602cb13479ef548acc2e9d1d1e6d96a84",
+    "previews/tidewraith_concept_storm_front.png": "7550ce4c3146f60829a764e9f107cd539439f91838323f880930e3d1b3d9e71b",
+    "previews/tidewraith_concept_storm_hero.png": "56267457794795e0de16cf1bceb57b40eb408f68828a22dabfbd6412d466a6c5",
+    "previews/tidewraith_concept_storm_left.png": "020f17b53ddc3391908557cd20354b702c42654dd4b9da0024a1961c6dcda93d",
+    "previews/tidewraith_concept_storm_right.png": "8279eb9102055d1d4829a5a4c42e3d89c0fba8881987f53442f25c069e7513a5",
+    "previews/tidewraith_concept_storm_threequarter.png": "a8b68fc39f0c226d56783e6c97b7a2e64aad93772cc0106e49fa7c2946cc9b30",
+    "previews/tidewraith_concept_storm_top.png": "f8594e84a8b1e1ced6afb49c163e3dd995cd06726ae8184b4fd5f67c70d41648",
+    "previews/tidewraith_concept_threequarter.png": "22fff161cfaf8cb6f8c29cafcf65b2a735d7755e80438f3f07f7a94f61cdea8a",
+    "previews/tidewraith_concept_top.png": "4479255aaa0f9d3aa918468483918c3130428fc8a56ecc9bd31641b89f2e4956",
+    "review.html": "0ad5742190fb904316db6f3ee0703fb5bdf35e11d43eff782e8cff976d63c5f6",
+    "tidewraith_concept.animation.json": "2ef47db88396cbc169d75da9378fd84fa8e4fdcde8554fbf62eba75e219bd13e",
+    "tidewraith_concept.bbmodel": "58cc5897e519ae5aa23e53cc53d692f77845f9ed237801cbb64aac094308bf5e",
+    "tidewraith_concept.geo.json": "21a0fd6111ba28b3f9955a074c64c3c9021946eeb1684ebcdf8303c54c603620",
+    "tidewraith_concept.png": "cc659b8fe0afcb0e08b249f8b908ce261307bef63f5128e14f4124ce3f8fd321",
+    "tidewraith_concept_abyssal.bbmodel": "0d3b3ae9ddd750c2b8b1f3c73ba77d42dadfd6a2ab4ebdcb5c64c3417c881294",
+    "tidewraith_concept_abyssal.png": "28d6d1891dd67ec1f16bba377f4478ecb313c81ceb8ab37986b4b8aeb956c48d",
+    "tidewraith_concept_abyssal_glowmask.png": "62a9fa5e79a2478951ad70ceaea24d822651ad743563558000cdf76b156cf19d",
+    "tidewraith_concept_abyssal_scaled.bbmodel": "9989032f877921f994fc3c25f1614e16a6eb0a72545ab81648dd01fcd8077cf1",
+    "tidewraith_concept_glowmask.png": "7f2aabf27693eebee01455a556f0c2dadec14d9b97b964e2dbcb62bedac0c1d1",
+    "tidewraith_concept_pearl.bbmodel": "363144976ca0765534f2f2e0bcef9a002669866e87828936e3ac1e464363f2cb",
+    "tidewraith_concept_pearl.png": "58040b9034bf2393921fa27f3b1b9f2814be7f79edacd9c3ef9b743063e2d572",
+    "tidewraith_concept_pearl_glowmask.png": "f5fc9c360f31a9931bd56c158833549f57ad681b92973664ff5c5bb018856ab3",
+    "tidewraith_concept_pearl_scaled.bbmodel": "e269b7d00bc9e1876c42147a0871d71b20b59895d5467c03a8026d62970c5c9d",
+    "tidewraith_concept_scaled.animation.json": "9ecad134fa65a593737b45eee6513796eb0be38efeb219d962a517cfc9992fab",
+    "tidewraith_concept_scaled.bbmodel": "fd3d722fecb8fad2eadc0e5e3ba29693d9a4993728c3ef12c54b1b5f4cef1c72",
+    "tidewraith_concept_scaled.geo.json": "9a4fffa043468382e972af402cbac4c7192e4ac21fdfed162980ed079da35ae9",
+    "tidewraith_concept_storm.bbmodel": "c889352f9993e69b86291e31ef3734fc5f307944edc27968700adeef1cb41e63",
+    "tidewraith_concept_storm.png": "2cd36a9f600b2873ae42d81b03e9f635cf458ceea7d01aed057ded79fee49fb7",
+    "tidewraith_concept_storm_glowmask.png": "b59abb8c8c2d531a6563452f64e41c0e95d3892837e9d30849d2a351777bf43c",
+    "tidewraith_concept_storm_scaled.bbmodel": "b11e5ce1b55a6fa5c8db9aa866d2d1440c42d0178a5318ac897703bc882dffe1"
+  }
+}

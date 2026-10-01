@@ -1,0 +1,24 @@
+{
+ "extends": "shardmother",
+ "id": "shardmother_tidal",
+ "name": "Shardmother · Tidal style",
+ "role": "Boss style · Drowned Reach splinter rooms · same abilities",
+ "notes": [
+  "Same rig, bones, animations and hitbox as the Shardmother; only textures and added boxes change.",
+  "A sea crab-mother: teal prismarine shell, pink coral growths instead of crystals, sea-green egg sacs, and barnacles on the claws.",
+  "Her adds are Reef Mites. The splinter and eyes stay violet.",
+  "Spawns in Drowned Reach splinter rooms and from Apex Splinter Lures on Coral Drift shards."
+ ],
+ "palette": {"shell": "#3f7f7a", "shell_hi": "#58a39b", "leg": "#2f5f5a", "prism_hi": "#9fe0d0", "crystal": "#e27a8c", "coral_hi": "#ffc2b0", "egg": "#9ff0d4", "barnacle": "#e0d8c4"},
+ "materials": {"shell": "prismarine", "shell_hi": "prismarine", "leg": "prismarine", "crystal": "coral"},
+ "add_boxes": [
+  {"name": "barnacle L", "bone": "claw_l", "from": [-20, 16, -36], "to": [-17, 17, -33], "color": "barnacle"},
+  {"name": "barnacle R", "bone": "claw_r", "from": [15, 16, -35], "to": [18, 17, -32], "color": "barnacle"}
+ ],
+ "callouts": {
+  "front": [["splinter", "Splinter (violet)"], ["eye 2", "Eyes"], ["pincer tip R", "Coral pincer tips"], ["leg L1 knee", "Prismarine legs"], ["egg sac R", "Sea-green egg sacs"]],
+  "left": [["crystal 2", "Coral growths"], ["egg sac L", "Egg sacs"], ["pincer top L", "Pincer"], ["abdomen", "Prismarine shell"], ["egg sac rear", "Rear sac"]],
+  "top": [["crystal 1", "Coral"], ["barnacle R", "Barnacles"], ["carapace", "Carapace"], ["leg R3 upper", "Legs"]],
+  "bottom": [["body", "Underside"], ["leg L1 lower", "Feet"], ["egg sac rear", "Egg sac"]]
+ }
+}

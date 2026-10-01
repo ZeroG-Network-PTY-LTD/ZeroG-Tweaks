@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "spectral_dust_ore",
+  "model_identifier": "zerog_tweaks:spectral_dust_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "spectral_dust_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "e6416eb0-dfa9-599d-8750-b9f058ff9002"
+    },
+    {
+      "name": "spectral_dust_ore_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.01,
+        -0.01,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        16.01,
+        16.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "790cc208-e737-515d-bb56-f42bd45280c1"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "spectral_dust_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "4aa13711-5a0e-5292-a15a-e1ecdd136681",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "e6416eb0-dfa9-599d-8750-b9f058ff9002",
+        "790cc208-e737-515d-bb56-f42bd45280c1"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "spectral_dust_ore.png",
+      "name": "spectral_dust_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "357382c0-008c-5253-82b5-b17127dd4920",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACa0lEQVR4nO2aP0sDQRDFjVzrB9AEGws7CxXjH7DTKpVIsBJrEUGwiaVFbARBJK0SEES0ECxEe1FBCzsLBSXRD+AHiIWN8w7vuRh54M6vm+xe9jHMzN3Obq5a2211fKHReOvIolDozh7PZ4/35nsyxxkvzVdjN5pWL1sf6fyVmn+AO0AtQE2ufnLW4tO+B3MQYTnJcnhxZTnz+drWtrFZjcEaEn0EuAPUAtQkV9d35ofyTMnYmDMsJ9dWK8ZmOc5y/v3xwdiVp2c7f2ra2FgTGNFHgDtALUBNwiaE5mQVcvL08MjYWFPwvY01pKuv39gD61VjL12cW71kfST6CHAHqAWoSUaLg0EPTOwfG3tybNjYmKOl8qyxWU4iOB//7x7mz88tGPvy5tbY4yNDxo4+AtwBagFqctgTREL35wj7DgjtJ7D5CPY4seZFHwHuALUANakaENpXDyW0jx/a48P/x/e+9wQBd4BagJoktG/PYDn31zUGYTUi+ghwB6gFqEn1BPGcgMHuC+B7HPfnSHVzI3M8tO+PYA2KPgLcAWoBahL2nq8f7GWOYx+f9eDQxh5fu88C2V4i+ghwB6gFqEl9B2DOh54FspzEb3PsGf72LBBrEq6HRB8B7gC1ADUJ9s3xbK3dOZm6i1z8qdRPduD/cX1Wk7wfALgD1ALUpL4D2P4ewZzEnGNnibgeex5rCuY8wp6PPgLcAWoBaug9QZaTbDx0L4E5GtoDDF0v+ghwB6gFqEnYex+/nVlO4jjbSyChZ5Wsn8D0RR8B7gC1ADX0niDC7u2x+wH4ncDuDrOzxNA7Rn5HCHAHqAWo+QB0hArdtgZX6AAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "spectral_dust_ore_emissive.png",
+      "name": "spectral_dust_ore_emissive.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "3567e169-98ab-5400-bfcb-f31d42f618ca",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAArUlEQVR4nO3aQQ6CMBAFUPQkJl5Sb+AlNXqSuhU3pGngK/PejhDSz6SThpZpAgCqOqQDLGmttc/r6+M1u387n4be4Tjy8B4oQDpAWnf/rN2TvS735yxP7/jlZ4ACpAOkDffraA+mlZ8BCpAOAAAAALC1n9u/2/rcofyOkAKkA6Qt9tPezgK/lZ8BCpAOkPb3Z4P+DxikAOkAAEmrr9lbf0v0jld+FVCAdAAAgJQ3u5Y+Mup0yhIAAAAASUVORK5CYII="
+    }
+  ]
+}

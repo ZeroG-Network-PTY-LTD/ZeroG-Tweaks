@@ -1,0 +1,7 @@
+stateDiagram-v2
+  direction LR
+  state "drifting" as s0
+  state "swarming" as s1
+  [*] --> s0
+  s0 --> s1 : this or nearby drifter hurt
+  s1 --> s0 : anger timer ends

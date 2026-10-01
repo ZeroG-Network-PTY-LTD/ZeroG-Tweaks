@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "comet_comb",
+  "model_identifier": "aeroapiary:comet_comb",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "comet_comb",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "0df7b5fb-7f41-51ab-abc0-f9ee51ac0050"
+    },
+    {
+      "name": "comet_comb_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "2c1e450f-9eeb-5046-b646-bea8478c084e"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "comet_comb",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "f34f41da-c6d3-5338-a3d4-38f4cf8ac861",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "0df7b5fb-7f41-51ab-abc0-f9ee51ac0050",
+        "2c1e450f-9eeb-5046-b646-bea8478c084e"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "comet_comb.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "ff4a6071-bd34-577f-9c09-7ea6648be930",
+      "source": "data:image/png;base64,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"
+    },
+    {
+      "path": "",
+      "name": "comet_comb.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "da63f8d9-bb54-5123-8b64-29e68343cc76",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEQUlEQVR4nO1azWvUQBR/+9W6llVYoZR6EFq14EFQqIpiQXoRVMSD0oMVtIhHr4qIaK14EQTBUqstvYhe/QukVqmtH3cVVGpr7W7GamY23WyTeKjN5s0uE+Mmu6uZ32le38tk9vX93ryZFwAJCYkwIxL0C669tiynnNOw3uTsndYKy8DIweZA1xgPcvJVFKLlxwAAholdYIEF1UTU3eT/RuARQHIEybFYWmivMiLU+w1XB1yZxBzOL2N9zOX5xcWvSL59OCLk9P5z/fb7ng1dDjxH/VEEiDjMJ7F/DTIH+D0hz+F697CrA/IFHPa39ok53DP0AuWMWMwtS2B0dB13jq30pg6hfdMaLBf04phoBO52bxCutyp1gBdQiiMoDQC6INM0RHGM8TnKDfUeoYGj7iNAYVkkp5r8rSNcHRCLAJgCFp34mLM5zxiBtW/xgiNcyjg1+sq2p5SAQVVbxyiBn+/eIvuWls3IKQ/O7RVyuvPMBXv+6ZGbrnVE6CkQegdUnANYhbU74zg/zpW/W7uOB3o8dHVAPA5g/Y4TlRHoHZlGC0pwnF9aWkJyY2Mjkg3DQGONfLHl54NXSzjbvK0Dmt0W6YDXuqPudoFy0KPBBYHMAW4GRKvu+bzaKHGA8/xPNAL57xTpE4kEkguFAtanMAdHe3YI9+JdfReF8d24BiAaXZlCpQR6H75E9nR+xh4zlUBuflY0XQnKRoDXevpfRoh+annU/S7A3ynyYCrWT5TZSkUocYBhAqzu1GuTabhzQHye7hmbwBzOe3k9QOexPufYWr+xHel/KJjTzrMFpQQWZz7Z8tT9G57vEGseASr3H1wP7YHu+zxkDvB7Qv4879Ve0RQkBx2iJfPH1gGYgrg48jljx2eOEvj55JWtYyqBfPYbsneezwEAEg24jph9OY7k1tYtiBZjPZ1CXu85e6kivoSeAqF3gGeK5TjO8vvw5L3rFbWzOo/1VbU9XOIATQdYMlcu11VGSjjW/t4C+vtHU0ogqyzYuhdD/RX38lKtbZCCtj+2XzYqa87VvA4oBz1SvY6jzAH8HzLqPJInhwdQWG8/1BsoR5Vc1t3IR3jm7IU3xfsChWUgonCtLK6XZ3LuSjZg2dHKg6y6AOpssRBijIDxba4oUwLa3Aw44bxjfD3q3gfg8Vc5QIfiS6la2svLm8VLEgN/XwHxKPZA3uC+uKgyZA4I+gV8r84ycQQkkuuEz/N9g6n7A75+NlORA1JNaRjuFffqjg4/RRzQkkmkf3Ryt/D5naeLZ4k3f8FxN4SeAtIBtV5AreE5B2gGgOb8EIdD9/s5m7MaJWBOLSC9ZXmro4zlYLfJ0EdA6B3gex2g8fcFlK8DcPu81vC8r56ftiytsPLRP2UEPjweRHqd7xXGsY91HeePCPeZWwPXe3RmjGmfiyAASQHpAM85ILOIW1V+1+YSEhISEhISEtXCLzTAla56tvWUAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1"
+}

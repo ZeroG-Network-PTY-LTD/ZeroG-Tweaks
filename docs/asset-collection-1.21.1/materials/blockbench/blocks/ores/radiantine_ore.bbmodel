@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "radiantine_ore",
+  "model_identifier": "zerog_tweaks:radiantine_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "radiantine_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "ffd0eeb0-10c2-5054-b57a-3aac819e5c93"
+    },
+    {
+      "name": "radiantine_ore_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.01,
+        -0.01,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        16.01,
+        16.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "628940df-ac6b-5209-acd1-fb87e091d6b2"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "radiantine_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "fabb0d59-22b5-5e4a-8a42-fddd2022ba46",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "ffd0eeb0-10c2-5054-b57a-3aac819e5c93",
+        "628940df-ac6b-5209-acd1-fb87e091d6b2"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "radiantine_ore.png",
+      "name": "radiantine_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "9e69b967-9678-5875-afb3-0efa488209c2",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACcklEQVR4nO1bsUoDQRC9yCEpRM4QLNJ4xCZYpRRiEX8h5VV+h4VFPsNKG0u/4RrBUjsbw9mkkCBBLIJNbJ23MI/lAlPsvG64ze3LMG93ZmevczsbbrN/aD43mYZ68SPssthXx5c98vy4K2ycv/n6Vd/HnrP376nsEoA7wJqANfJYzSGaNYwv4jTI5m82K2kv5fzTwUDnR96ffAS4A6wJWCNnA1AzWfdbH78+FHb9po8Pfg+af3rfygGvl8KczGphszUB17TkI8AdYE3AGjlqfDqSGr57WQg7WpOjobDZvowanpx2hP1wU0g+j1N1/mwj/w8i+QhwB1gTsEbOcn3Ex/2RsE/GY2GjRqu5XEPKbl99P1sTqjkUA1mtjkfgeUbyEeAOsCZgjc71xUCeCUbmBQxM8/S8AWsRAPILfu/nATrcAdYErNGpzvpbbUBsnhCrWdaH2HVfAJF8BLgDrAlYIzgTDPb9Z3lGd3Uu93XUcKwGGWL7EgyeBwDcAdYErJGzXBqBa0LQC2SaZfcPlljvS8TWFixPSD4C3AHWBKxB7wewXmDZi+vPI1DzsX2Hsmh33pB8BLgDrAlYI6gF2vbnr8Z6LxCB+3rbXmCz0PMazFuSjwB3gDUBawT3A3atSbYmBLm7XgoE72fzs9oh+QhwB1gTsEZwP4Cd6yOY5lkvEfv5qNlqvlKfB3eCAJjX4HzJR4A7wJqANYLeIJ6zT4cHwsb6nWk+ur4HjbM1qm3tknwEuAOsCVgj+nsBltvH3vUN5oM1iK1JZabPh/A8AOAOsCZgjeCeIPs2mO3L2GvEb4Zw347d9xFt7yMkHwHuAGsC1vgDvvYbTpMXaU8AAAAASUVORK5CYII="
+    },
+    {
+      "path": "radiantine_ore_emissive.png",
+      "name": "radiantine_ore_emissive.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "ed75bec7-3978-5139-8a8c-035d95bd3e29",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAf0lEQVR4nO3ZMQ6AIBAEQPH/f8bW2BgTYNWb6Wx0s+EShG0DAKpq6QB3eu/9/NxaG5p5H/myL1JAOkDa43maPZOrlV8BCkgHAAAAAABY6XVn+qvvHcqfCisgHSDtdr7+dhd4VX4FKCAdAAAgZfq+fvW/xNPvld8JKiAdAAAg5QDKHBgkXDR3ggAAAABJRU5ErkJggg=="
+    }
+  ]
+}

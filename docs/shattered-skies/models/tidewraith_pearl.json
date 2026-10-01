@@ -1,0 +1,150 @@
+{
+  "extends": "tidewraith",
+  "id": "tidewraith_pearl",
+  "name": "Tidewraith \u00b7 Pearl style",
+  "role": "Boss style \u00b7 Ring 2 Coral Drift (rare) \u00b7 same abilities",
+  "notes": [
+    "Same rig, bones, animations and hitbox as the Tidewraith; only textures and added boxes change.",
+    "A rare pale form: pearl-white skin, soft pink coral, pale blue wing plates, and a row of pearls along the back.",
+    "Pearls are small boxes on the body bone. Worth a special drop or title in config, since players will hunt it.",
+    "Spawns rarely on Coral Drift islands (Ring 2) instead of the base look.",
+    "Face (chosen design A 'Manta'): paint docs/shattered-skies/textures/tidewraith_pearl_face.png (16x12, + _glowmask) on the head's front face. Slanted slit eyes at the outer corners, wide filter mouth with dark gill rakers (no teeth), pale chin, violet splinter crack on the brow."
+  ],
+  "palette": {
+    "skin": "#e4dfec",
+    "skin_dark": "#c9c2d6",
+    "belly": "#f6f3fa",
+    "spot": "#ffffff",
+    "coral": "#f2a7c8",
+    "coral_hi": "#ffe0ee",
+    "prism": "#b8e6f2",
+    "prism_hi": "#ffffff",
+    "kelp": "#8fb89a",
+    "pearl": "#fbf7ff"
+  },
+  "add_boxes": [
+    {
+      "name": "pearl 1",
+      "bone": "body",
+      "from": [
+        -1,
+        21.5,
+        -5.5
+      ],
+      "to": [
+        1,
+        23.5,
+        -3.5
+      ],
+      "color": "pearl"
+    },
+    {
+      "name": "pearl 2",
+      "bone": "body",
+      "from": [
+        -1,
+        21.5,
+        0
+      ],
+      "to": [
+        1,
+        23.5,
+        2
+      ],
+      "color": "pearl"
+    },
+    {
+      "name": "pearl 3",
+      "bone": "body",
+      "from": [
+        -1,
+        21.5,
+        4.5
+      ],
+      "to": [
+        1,
+        23,
+        6
+      ],
+      "color": "pearl"
+    }
+  ],
+  "callouts": {
+    "front": [
+      [
+        "splinter",
+        "Splinter gem (violet) stands out"
+      ],
+      [
+        "fin R",
+        "Pink coral fins"
+      ],
+      [
+        "wing R outer",
+        "Pearl-white wings"
+      ],
+      [
+        "eye L",
+        "Eyes"
+      ],
+      [
+        "tendril 2",
+        "Pale tendrils"
+      ]
+    ],
+    "left": [
+      [
+        "pearl 2",
+        "Pearls along the back"
+      ],
+      [
+        "coral growth",
+        "Pink coral"
+      ],
+      [
+        "fin L",
+        "Head fin"
+      ],
+      [
+        "tail barb",
+        "Tail barb"
+      ],
+      [
+        "belly",
+        "White belly"
+      ]
+    ],
+    "top": [
+      [
+        "pearl 1",
+        "Pearls"
+      ],
+      [
+        "coral plates",
+        "Pink coral plates"
+      ],
+      [
+        "prism plate L",
+        "Pale blue wing plates"
+      ],
+      [
+        "tail barb",
+        "Tail barb"
+      ]
+    ],
+    "bottom": [
+      [
+        "belly",
+        "White belly"
+      ],
+      [
+        "tendril 3",
+        "Tendrils"
+      ],
+      [
+        "mouth",
+        "Mouth"
+      ]
+    ]
+  }
+}

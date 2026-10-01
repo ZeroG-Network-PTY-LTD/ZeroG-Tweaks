@@ -1,0 +1,12 @@
+stateDiagram-v2
+  direction LR
+  state "roaming" as s0
+  state "circling" as s1
+  state "lunging" as s2
+  state "attacking" as s3
+  [*] --> s0
+  s0 --> s1 : target found
+  s1 --> s2 : 3+ pack members circling
+  s2 --> s3 : lands next to target
+  s3 --> s1 : target retreats
+  s3 --> s0 : target lost
