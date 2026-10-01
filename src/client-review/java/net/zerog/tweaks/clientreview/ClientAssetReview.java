@@ -4,7 +4,10 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.util.GsonHelper;
+import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
@@ -97,7 +100,7 @@ public final class ClientAssetReview {
      * reaches builtin/generated is rebuilt from layer0..4 and silently bakes to nothing), and the GeckoLib
      * armor model and its glowmask must load.
      */
-    private static void reviewMoonsteel(Minecraft client) {
+    private static void reviewMoonsteel(Minecraft client) throws java.io.IOException {
         var random = RandomSource.create(42);
         var missing = MissingTextureAtlasSprite.getLocation();
         int quads = 0;
@@ -120,6 +123,49 @@ public final class ClientAssetReview {
                 "Moonsteel armor glowmask failed");
         LogUtils.getLogger().info("ZEROG_MOONSTEEL_REVIEW_PASS: 5 tool models baked ({} quads, no missing sprites), "
                 + "GeckoLib armor model, texture and glowmask loaded.", quads);
+        reviewTrims(client);
+    }
+
+    /**
+     * Armor trims: every worn-trim sprite the armor_trims atlas declares (every pattern x every palette, vanilla and
+     * ZeroG, incl. the darker same-material palettes) must be stitched, and every Moonsteel trimmed inventory icon must
+     * point at a stitched sprite. A paletted sprite that fails to generate falls back to the missing texture.
+     */
+    private static void reviewTrims(Minecraft client) throws java.io.IOException {
+        var resources = client.getResourceManager();
+        var missing = MissingTextureAtlasSprite.getLocation();
+        var armorAtlas = client.getModelManager().getAtlas(Sheets.ARMOR_TRIMS_SHEET);
+        int worn = 0;
+        for (var resource : resources.getResourceStack(ResourceLocation.withDefaultNamespace("atlases/armor_trims.json"))) {
+            try (var reader = resource.openAsReader()) {
+                for (var source : GsonHelper.parse(reader).getAsJsonArray("sources")) {
+                    var json = source.getAsJsonObject();
+                    if (!json.get("type").getAsString().endsWith("paletted_permutations")) continue;
+                    for (var texture : json.getAsJsonArray("textures")) {
+                        for (var permutation : json.getAsJsonObject("permutations").keySet()) {
+                            var sprite = ResourceLocation.parse(texture.getAsString() + "_" + permutation);
+                            require(!armorAtlas.getSprite(sprite).contents().name().equals(missing), "Worn trim sprite missing: " + sprite);
+                            worn++;
+                        }
+                    }
+                }
+            }
+        }
+        var blockAtlas = client.getModelManager().getAtlas(InventoryMenu.BLOCK_ATLAS);
+        int icons = 0;
+        for (var entry : resources.listResources("models/item", path -> path.getNamespace().equals("zerog_tweaks")
+                && path.getPath().startsWith("models/item/moonsteel_") && path.getPath().endsWith("_trim.json")).entrySet()) {
+            try (var reader = entry.getValue().openAsReader()) {
+                var layer1 = GsonHelper.parse(reader).getAsJsonObject("textures").get("layer1").getAsString();
+                var sprite = ResourceLocation.parse(layer1);
+                require(!blockAtlas.getSprite(sprite).contents().name().equals(missing),
+                        "Trim icon sprite missing: " + sprite + " (" + entry.getKey() + ")");
+                icons++;
+            }
+        }
+        require(icons == 120, "Expected 120 Moonsteel trimmed icons (4 pieces x 30 materials), found " + icons);
+        LogUtils.getLogger().info("ZEROG_TRIM_REVIEW_PASS: {} worn trim sprites stitched (every pattern x palette), "
+                + "{} Moonsteel trimmed icons resolve.", worn, icons);
     }
 
     private ClientAssetReview() {}
