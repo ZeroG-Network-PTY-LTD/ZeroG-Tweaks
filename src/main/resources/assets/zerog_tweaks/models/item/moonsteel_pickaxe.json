@@ -1,14 +1,6 @@
 {
-  "loader": "neoforge:separate_transforms",
-  "base": {
-    "parent": "zerog_tweaks:item/moonsteel_pickaxe_3d"
-  },
-  "perspectives": {
-    "gui": {
-      "parent": "minecraft:item/handheld",
-      "textures": {
-        "layer0": "zerog_tweaks:item/moonsteel_pickaxe"
-      }
-    }
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "zerog_tweaks:item/moonsteel_pickaxe"
   }
 }
