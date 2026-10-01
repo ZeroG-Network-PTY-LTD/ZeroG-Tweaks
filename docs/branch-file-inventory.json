@@ -1,7 +1,119 @@
 {
-  "source_snapshot": "Approved local guide integrated on upstream 1800c4192f6c818f699ced19dbcc699d2359b4f9; newer upstream code/art preserved",
+  "source_snapshot": "Approved guide on 1.21.x commit 4673ad80ae097502830af8bd9084da0a3e443789; upstream code/art/policy files preserved",
   "verified_collection_entries": 1381,
   "relocated_java": [
+    {
+      "original": "docs/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/client/TidewraithModel.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/client/TidewraithModel.java"
+    },
+    {
+      "original": "docs/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/client/TidewraithRenderer.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/client/TidewraithRenderer.java"
+    },
+    {
+      "original": "docs/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/entity/Tidewraith.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/entity/Tidewraith.java"
+    },
+    {
+      "original": "docs/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/entity/TidewraithBoss.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/entity/TidewraithBoss.java"
+    },
+    {
+      "original": "docs/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/registry/TidewraithItems.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/registry/TidewraithItems.java"
+    },
+    {
+      "original": "docs/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/gametest/java/net/zerog/tweaks/gametest/TidewraithGameTests.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/gametest/java/net/zerog/tweaks/gametest/TidewraithGameTests.java"
+    },
+    {
+      "original": "docs/zero-g-tweaks-bundle/java/ZGFoodItems.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/zero-g-tweaks-bundle/java/ZGFoodItems.java"
+    },
+    {
+      "original": "docs/zero-g-tweaks-bundle/java/ZGFoods.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/zero-g-tweaks-bundle/java/ZGFoods.java"
+    },
+    {
+      "original": "docs/zero-g-tweaks-bundle/java/ZGInteractions.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/zero-g-tweaks-bundle/java/ZGInteractions.java"
+    },
+    {
+      "original": "docs/zero-g-tweaks-bundle/java/client/ZGBlockColors.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/zero-g-tweaks-bundle/java/client/ZGBlockColors.java"
+    },
+    {
+      "original": "docs/zero-g-tweaks-bundle/java/client/ZGClientExtensions.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/zero-g-tweaks-bundle/java/client/ZGClientExtensions.java"
+    },
+    {
+      "original": "docs/zero-g-tweaks-bundle/java/client/ZGGeoEntities.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/zero-g-tweaks-bundle/java/client/ZGGeoEntities.java"
+    },
+    {
+      "original": "docs/zero-g-tweaks-bundle/java/effect/ZGEffects.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/zero-g-tweaks-bundle/java/effect/ZGEffects.java"
+    },
+    {
+      "original": "docs/zero-g-tweaks-bundle/java/fluid/ZGFluids.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/zero-g-tweaks-bundle/java/fluid/ZGFluids.java"
+    },
+    {
+      "original": "docs/zero-g-tweaks-bundle/java/item/ZGGeoArmorItem.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/zero-g-tweaks-bundle/java/item/ZGGeoArmorItem.java"
+    },
+    {
+      "original": "docs/zero-g-tweaks-bundle/java/item/ZGSpawnEggs.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/zero-g-tweaks-bundle/java/item/ZGSpawnEggs.java"
+    },
+    {
+      "original": "docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/client/TidewraithModel.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/client/TidewraithModel.java"
+    },
+    {
+      "original": "docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/client/TidewraithRenderer.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/client/TidewraithRenderer.java"
+    },
+    {
+      "original": "docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/entity/Tidewraith.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/entity/Tidewraith.java"
+    },
+    {
+      "original": "docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/entity/TidewraithBoss.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/entity/TidewraithBoss.java"
+    },
+    {
+      "original": "docs/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/registry/TidewraithItems.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/tidewraith-approved/runtime-draft/src/main/java/net/zerog/tweaks/registry/TidewraithItems.java"
+    },
+    {
+      "original": "docs/tidewraith-approved/runtime-draft/src/gametest/java/net/zerog/tweaks/gametest/TidewraithGameTests.java",
+      "branch": "1.21.x",
+      "path": "tools/design-code-archive/tidewraith-approved/runtime-draft/src/gametest/java/net/zerog/tweaks/gametest/TidewraithGameTests.java"
+    }
+  ],
+  "relocated_catalog_entries": [
     {
       "original": "docs/asset-collection-1.21.1/approved-tidewraith/docs/tidewraith-approved/runtime-draft/src/gametest/java/net/zerog/tweaks/gametest/TidewraithGameTests.java",
       "branch": "1.21.x",
@@ -37,7 +149,7 @@
   "checked_document_links": 45,
   "jar": {
     "path": "docs/jars/zerog-tweaks-1.21.1-1.0.0-multiblock-dev.jar",
-    "sha256": "2c0c3129da370e2c960673e0933df8829ffcc4bc8d1d50635be575260b1a6357",
+    "sha256": "ed04d196683fbd3dc600ba0c14a6dcff19f7d4fccba30c8a31727b33093b9cb6",
     "development_candidate": true,
     "installed_into_curseforge": false
   },
@@ -46,6 +158,7 @@
       ".gitignore",
       "AGENTS.md",
       "build.gradle",
+      "CLAUDE.md",
       "gradle.properties",
       "gradlew",
       "gradlew.bat",
@@ -11642,6 +11755,8 @@
     ],
     "Design": [
       ".gitignore",
+      "AGENTS.md",
+      "CLAUDE.md",
       "DESIGN_NOTES.md",
       "README.md",
       "docs/current-collection-guide-1.21.1.md",
@@ -22256,7 +22371,10 @@
       "docs/asset-collection-1.21.1/approved-tidewraith/docs/shattered-skies/tidewraith-concept/previews/tidewraith_concept_top.png"
     ],
     "Docs": [
+      "AGENTS.md",
+      "CLAUDE.md",
       "README.md",
+      "docs/branch-file-inventory.json",
       "docs/branch-publication.md",
       "docs/current-collection-guide-1.21.1.md",
       "docs/HELP.md",
@@ -22278,6 +22396,7 @@
       "docs/images/gallery_teleporter.png",
       "docs/images/generate_images.py",
       "docs/images/logo.png",
+      "docs/jars/README.md",
       "docs/jars/SHA256SUMS.txt",
       "docs/jars/zerog-binnie-expansion-1.21.1-1.0.0.jar",
       "docs/jars/zerog-tweaks-1.21.1-1.0.0-multiblock-dev.jar",

@@ -5,12 +5,12 @@ Minecraft 1.21.1, NeoForge 21.1.252, GeckoLib 4.9.3, Java 21.
 
 ## Latest branch-separated publication
 
-Fresh normal build passed on integrated `1.21.x`: `20261001_171918_build.log`
-(00:19 Asia/Bangkok, 2026-10-02). No Minecraft client was launched for this
+Fresh post-rebase normal build passed on `1.21.x`: `20261001_173530_build.log`
+(00:35 Asia/Bangkok, 2026-10-02). No Minecraft client was launched for this
 publication. The jar contains the multiblock guide and no opt-in test classes.
 Its development-candidate SHA-256 is:
 
-    2c0c3129da370e2c960673e0933df8829ffcc4bc8d1d50635be575260b1a6357
+    ed04d196683fbd3dc600ba0c14a6dcff19f7d4fccba30c8a31727b33093b9cb6
 
 All 1,381 original design roster entries are hash-verified across the branches;
 six archived Java drafts now belong to code/tools rather than Design/docs.

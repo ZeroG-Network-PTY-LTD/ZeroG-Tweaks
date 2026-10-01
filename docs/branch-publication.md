@@ -12,9 +12,12 @@ Minecraft launch, CurseForge deployment or world change is part of publication.
 | `Design` | docs/asset-collection-1.21.1/, docs/zero-g-tweaks-bundle/ except archived Java, generators/export_tidewraith_models.py, generators/generate_multiblock_guides.py, DESIGN_NOTES.md |
 | `Docs` | README.md, illustrated collection guide, runtime review, verification, multiblock guide, import receipt, this record, docs/HELP.md, docs/images/, docs/jars/ and SHA256SUMS.txt |
 
-`1.21.x` continues remote code at `1800c4192f6c818f699ced19dbcc699d2359b4f9`;
-Design continues `7d3c610237d9304b6be2980774347f58262de347`;
-Docs continues `7b73ba449f283ff18b6cc6e81e439ab63840daef`.
+`1.21.x` continues remote code at `864a1141e110bff43ae6dabba88eef3f3955e6ef`;
+Design continues `c5f99c1fbf627df9ad6202448124045119d67750`;
+Docs continues `61c41de5694cfb69d5b6cd0e63881d5dc7accfe2`.
+These include the branch-policy files added during the final pull. Code commit:
+`4673ad80ae097502830af8bd9084da0a3e443789`; Design commit:
+`95ead215c80f8a2eadf70367d4781bc97c9b6849`.
 All newer upstream mob, machine and art work is retained. This update overlays
 the approved multiblock guide/test changes and documentation, plus a one-call
 1.21.1 compatibility fix to the existing fern hitbox offset; no rollback
