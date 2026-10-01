@@ -18,6 +18,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zerog.tweaks.ZeroGTweaks;
 import net.zerog.tweaks.item.ZGFoods;
 import net.zerog.tweaks.item.ZGArmorItem;
+import net.zerog.tweaks.item.ZGGeoArmorItem;
 
 public final class ItemInit {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ZeroGTweaks.MODID);
@@ -1269,9 +1270,17 @@ public final class ItemInit {
         });
     }
 
+    /** Sets whose armor renders a GeckoLib chunky-shell model instead of the vanilla layers. */
+    private static final java.util.Set<String> GEO_ARMOR_SETS = java.util.Set.of("moonsteel");
+
     private static DeferredItem<Item> registerArmor(String id, ZGArmorMaterials.Profile profile, ArmorItem.Type type) {
-        return ITEMS.<Item>register(id, () -> new ZGArmorItem(id.substring(0, id.lastIndexOf('_')), profile.material(), type,
-                new Item.Properties().durability(type.getDurability(profile.durabilityFactor()))));
+        String set = id.substring(0, id.lastIndexOf('_'));
+        return ITEMS.<Item>register(id, () -> {
+            Item.Properties props = new Item.Properties().durability(type.getDurability(profile.durabilityFactor()));
+            return GEO_ARMOR_SETS.contains(set)
+                    ? new ZGGeoArmorItem(set, profile.material(), type, props)
+                    : new ZGArmorItem(set, profile.material(), type, props);
+        });
     }
 
     public static void register(IEventBus bus) {

@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 
 /** Only advertises abilities actually implemented in this local gameplay pass. */
-public final class ZGArmorItem extends ArmorItem {
+public class ZGArmorItem extends ArmorItem {
     private static final Set<String> IMPLEMENTED = Set.of("nullifite", "moonsteel", "ruskite",
             "skarnite", "eidolite", "cobaltium", "ferrox", "astrium");
     private final String materialName;
