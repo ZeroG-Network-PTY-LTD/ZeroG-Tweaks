@@ -32,7 +32,7 @@ def lines_for(k):
     arm = s['Armor (helm/chest/legs/boots)']; per = [int(x) for x in arm.split(' ')[0].split('/')]
     mult = float(s['Durability'].rstrip('×'))
     out.append(('Tier', s['Tier'] + (' set (main progression)' if s['Tier'].startswith('T') else ' set')))
-    out.append(('Armor', f"helmet {per[0]} · chestplate {per[1]} · leggings {per[2]} · boots {per[3]}  =  {sum(per)} points  (diamond = 20)"))
+    out.append(('Armor', f"helmet {per[0]} · chestplate {per[1]} · leggings {per[2]} · boots {per[3]}  =  {sum(per)} points  (netherite = 20)"))
     out.append(('Toughness', f"{s['Toughness']}  (diamond 2, netherite 3)"))
     out.append(('Knockback resist', s['Knockback resist'] + ('  (netherite 10%)' if s['Knockback resist'] != '0%' else '')))
     out.append(('Durability', f"{s['Durability']} diamond  →  tools ≈ {round(DIA_TOOL * mult)} uses; armor ≈ "
@@ -69,7 +69,7 @@ def band(width, k, scale=1.0):
     d.rounded_rectangle((28, 8, width - 28, hgt - 10), 12, fill=CARD, outline=LINE, width=2)
     d.text((48, 22), 'Exact stats', font=F(fs(18), True), fill=INK)
     d.text((48 + d.textlength('Exact stats', font=F(fs(18), True)) + 14, 26),
-           'from the design doc (Gear stats and abilities, locked). Durability use counts are worked out from vanilla diamond.', font=F(fs(12)), fill=SUB)
+           'from the design doc (v1.3: every set above netherite). Replaces any older strength wording above. Durability use counts are worked out from vanilla diamond.', font=F(fs(12)), fill=SUB)
     y = int(60 * scale)
     for lab, val in rows:
         d.text((48, y), lab, font=F(fs(13), True), fill=INK)

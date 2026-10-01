@@ -4,6 +4,8 @@ Sep 28, 2026 · @MrWhiteFlamesYT
 
 **Design locked: v1.2 (Sep 29, 2026; adds gear stats and abilities, and the six liquids).** Every section below is final for the first build; changes from here go in as v1.1 revisions.
 
+**v1.3 (Oct 1, 2026):** mining ladder (Nullifite needs netherite; each ore needs the pickaxe before it) and gear stats rebalanced so every set is above netherite.
+
 ## Overview
 
 ZeroG Tweaks is an Allthemodium-style progression mod for NeoForge 1.21.1, space-themed through exploration rather than survival mechanics like oxygen. Players travel between galaxies with a tiered teleporter, and each galaxy supplies the materials for the next tier.
@@ -575,12 +577,12 @@ Each armor and tool set also protects against the next world's hazards. Every se
 
 | Set | Made from | Strength | Set bonus |
 | --- | --- | --- | --- |
-| Nullifite | Nullifite ingots | Around diamond | Null Step: no fall damage |
-| Olympium | Olympium + Moonsteel | Between diamond and netherite | Dust Shield: immune to storm and dust effects |
-| Cerulite | Cerulite + Cyrrium | Around netherite | Crystal Sight: night vision; nearby ores glow faintly |
-| Skarnite | Skarnite + Tectium | Above netherite | Ember Walk: fire immunity; safe on Ember Crust and lava |
-| Eidolite | Eidolite + Wraithsteel | High | Phantom Veil: freeze immunity; invisible while sneaking |
-| Solvanite | Solvanite + Astrium | Endgame | Starborne: creative flight; immune to every planet hazard |
+| Nullifite | Nullifite ingots | Level 5: just above netherite | Null Step: no fall damage |
+| Olympium | Olympium + Moonsteel | Level 8: well above netherite | Dust Shield: immune to storm and dust effects |
+| Cerulite | Cerulite + Cyrrium | Level 11: well above netherite | Crystal Sight: night vision; nearby ores glow faintly |
+| Skarnite | Skarnite + Tectium | Level 14: far above netherite | Ember Walk: fire immunity; safe on Ember Crust and lava |
+| Eidolite | Eidolite + Wraithsteel | Level 17: far above netherite | Phantom Veil: freeze immunity; invisible while sneaking |
+| Solvanite | Solvanite + Astrium | Level 20: endgame | Starborne: creative flight; immune to every planet hazard |
 
 **Progression rules**
 
@@ -660,51 +662,52 @@ Code: each set's `SimpleTier` uses `zerog_tweaks:incorrect_for_<set>_tool`; ores
 
 **Metal gear sets**
 
-Every metal also gets a full set (5 tools + 4 armor pieces), sitting between the main gem sets. Common metals are cheap and sturdy, standard metals are the solid workhorse, and precious metals play like gold: fast and highly enchantable, but fragile. Strengths are starting points for playtesting.
+Every metal also gets a full set (5 tools + 4 armor pieces), sitting between the main gem sets. Common metals are cheap and sturdy, standard metals are the solid workhorse, and precious metals play like gold: fast and highly enchantable, but fragile. Every set is above netherite; exact numbers are in the stats table below and are starting points for playtesting.
 
 | Set | World | Metal role | Strength | Full-set perk |
 | --- | --- | --- | --- | --- |
-| Ferrox | Sol (Mars) | Common | Iron+ | Sturdy: +1 armor toughness |
-| Moonsteel | Sol (Moon) | Standard | Between iron and diamond | Lunar Stride: 50% less fall damage |
-| Cobaltium | Cerulon | Common | Around diamond, lower durability | Quick Hands: +10% mining speed |
-| Cyrrium | Cerulon | Standard | Around diamond | Tempered: +20% durability |
-| Aurelion | Cerulon | Precious | Gold-style | Silver Tongue: better alien trader prices |
-| Ruskite | Skarn | Common | Diamond+ | Heat Scale: 25% less fire damage |
-| Tectium | Skarn | Standard | Around netherite | Anchored: knockback resistance |
-| Pyrium | Skarn | Precious | Gold-style | Kindled: tools auto-smelt ores 20% of the time |
-| Salvium | Eidolon | Common | Around netherite | Scrapper: extra Salvium from wreck blocks |
-| Wraithsteel | Eidolon | Standard | Above netherite | Chill Guard: slowness immunity |
-| Palladine | Eidolon | Precious | Gold-style | Lucky: +1 Fortune and Looting |
-| Photium | Solvane | Common | High | Glow: lights the area around the player |
-| Astrium | Solvane | Standard | Near endgame | Star Forged: +2 max health |
-| Radiantine | Solvane | Precious | Gold-style | Radiant: +20% damage to undead and Splinter creatures |
+| Ferrox | Sol (Mars) | Common | Level 6: just above netherite | Sturdy: +1 armor toughness |
+| Moonsteel | Sol (Moon) | Standard | Level 7: well above netherite | Lunar Stride: 50% less fall damage |
+| Cobaltium | Cerulon | Common | Level 9: well above netherite | Quick Hands: +10% mining speed |
+| Cyrrium | Cerulon | Standard | Level 10: well above netherite | Tempered: +20% durability |
+| Aurelion | Cerulon | Precious | Level 9: well above netherite; gold-style | Silver Tongue: better alien trader prices |
+| Ruskite | Skarn | Common | Level 12: far above netherite | Heat Scale: 25% less fire damage |
+| Tectium | Skarn | Standard | Level 13: far above netherite | Anchored: knockback resistance |
+| Pyrium | Skarn | Precious | Level 12: far above netherite; gold-style | Kindled: tools auto-smelt ores 20% of the time |
+| Salvium | Eidolon | Common | Level 15: far above netherite | Scrapper: extra Salvium from wreck blocks |
+| Wraithsteel | Eidolon | Standard | Level 16: far above netherite | Chill Guard: slowness immunity |
+| Palladine | Eidolon | Precious | Level 15: far above netherite; gold-style | Lucky: +1 Fortune and Looting |
+| Photium | Solvane | Common | Level 18: near endgame | Glow: lights the area around the player |
+| Astrium | Solvane | Standard | Level 19: near endgame | Star Forged: +2 max health |
+| Radiantine | Solvane | Precious | Level 18: near endgame; gold-style | Radiant: +20% damage to undead and Splinter creatures |
 
-**Gear stats and abilities (v1.1, locked)**
+**Gear stats and abilities (v1.3, locked)**
 
-Vanilla reference: diamond armor totals 20 points with 2 toughness; netherite adds toughness 3 and 10% knockback resistance. Durability is relative to diamond.
+Every set is above netherite and gets stronger with its mining-ladder level. Netherite reference: armor 3/8/6/3 (20), toughness 3, 10% knockback resistance, 1.3× diamond durability, sword damage 8. Armor stays at or under 30 points because Minecraft caps armor at 30; higher sets grow mostly in toughness. Durability is relative to diamond. Gold-style sets (Aurelion, Pyrium, Palladine, Radiantine) trade armor, toughness and durability for speed and enchantability.
 
-| Set | Tier | Armor (helm/chest/legs/boots) | Toughness | Knockback resist | Durability | Sword damage |
-| --- | --- | --- | --- | --- | --- | --- |
-| Nullifite | T1 | 3/7/5/3 (18) | 1 | 0% | 0.9× | 7 |
-| Olympium | T2 | 3/8/6/3 (20) | 2.5 | 5% | 1.05× | 8 |
-| Cerulite | T3 | 3/8/6/3 (20) | 3 | 10% | 1.1× | 8.5 |
-| Skarnite | T4 | 4/8/7/4 (23) | 3.5 | 10% | 1.25× | 9 |
-| Eidolite | T5 | 4/9/7/4 (24) | 4 | 15% | 1.45× | 10 |
-| Solvanite | T6 | 5/10/8/5 (28) | 5 | 20% | 1.8× | 12 |
-| Ferrox | Metal | 2/6/5/2 (15) | 0 | 0% | 0.7× | 6 |
-| Moonsteel | Metal | 3/6/5/2 (16) | 0.5 | 0% | 0.8× | 6.5 |
-| Cobaltium | Metal | 3/7/5/3 (18) | 1 | 0% | 0.85× | 7 |
-| Cyrrium | Metal | 3/7/6/3 (19) | 1.5 | 0% | 1.0× | 7.5 |
-| Aurelion | Precious | 2/6/5/2 (15) | 1 | 0% | 0.6× | 7 |
-| Ruskite | Metal | 3/8/6/3 (20) | 2 | 0% | 1.0× | 8 |
-| Tectium | Metal | 3/8/6/3 (20) | 3 | 15% | 1.15× | 8.5 (slower swing) |
-| Pyrium | Precious | 3/7/5/3 (18) | 1.5 | 0% | 0.7× | 8 |
-| Salvium | Metal | 3/8/6/3 (20) | 3 | 10% | 1.2× | 9 |
-| Wraithsteel | Metal | 4/8/7/4 (23) | 3.5 | 5% | 1.3× | 9.5 |
-| Palladine | Precious | 3/7/6/3 (19) | 2 | 0% | 0.8× | 9 |
-| Photium | Metal | 4/8/7/4 (23) | 4 | 5% | 1.4× | 10 |
-| Astrium | Metal | 4/9/7/4 (24) | 4.5 | 15% | 1.6× | 11 |
-| Radiantine | Precious | 4/8/6/4 (22) | 3 | 0% | 1.0× | 10.5 |
+| Set | Tier | Level | Armor (helm/chest/legs/boots) | Toughness | Knockback resist | Durability | Sword damage |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| *Netherite (vanilla)* | | 4 | 3/8/6/3 (20) | 3 | 10% | 1.3× | 8 |
+| Nullifite | T1 | 5 | 4/8/6/3 (21) | 3.5 | 11% | 1.4× | 8.5 |
+| Olympium | T2 | 8 | 4/8/6/4 (22) | 5 | 14% | 1.7× | 10 |
+| Cerulite | T3 | 11 | 4/9/7/4 (24) | 6.5 | 17% | 2× | 11.5 |
+| Skarnite | T4 | 14 | 5/9/7/4 (25) | 8 | 20% | 2.3× | 13 |
+| Eidolite | T5 | 17 | 5/10/7/5 (27) | 9.5 | 23% | 2.6× | 14.5 |
+| Solvanite | T6 | 20 | 6/10/8/6 (30) | 11 | 26% | 2.9× | 16 |
+| Ferrox | Metal | 6 | 4/8/6/3 (21) | 4 | 12% | 1.5× | 9 |
+| Moonsteel | Metal | 7 | 4/8/6/4 (22) | 4.5 | 13% | 1.6× | 9.5 |
+| Cobaltium | Metal | 9 | 4/9/6/4 (23) | 5.5 | 15% | 1.8× | 10.5 |
+| Cyrrium | Metal | 10 | 4/9/6/4 (23) | 6 | 16% | 1.9× | 11 |
+| Aurelion | Precious | 9 | 4/8/6/4 (22) | 4.5 | 10% | 1.35× | 10.5 (faster swing) |
+| Ruskite | Metal | 12 | 4/9/7/4 (24) | 7 | 18% | 2.1× | 12 |
+| Tectium | Metal | 13 | 5/9/7/4 (25) | 7.5 | 19% | 2.2× | 12.5 (slower swing) |
+| Pyrium | Precious | 12 | 4/9/6/4 (23) | 6 | 10% | 1.6× | 12 (faster swing) |
+| Salvium | Metal | 15 | 5/9/7/5 (26) | 8.5 | 21% | 2.4× | 13.5 |
+| Wraithsteel | Metal | 16 | 5/9/7/5 (26) | 9 | 22% | 2.5× | 14 |
+| Palladine | Precious | 15 | 5/9/7/4 (25) | 7.5 | 10% | 1.8× | 13.5 (faster swing) |
+| Photium | Metal | 18 | 5/10/7/5 (27) | 10 | 24% | 2.7× | 15 |
+| Astrium | Metal | 19 | 5/10/8/5 (28) | 10.5 | 25% | 2.8× | 15.5 |
+| Radiantine | Precious | 18 | 5/9/7/5 (26) | 9 | 10% | 2.05× | 15 (faster swing) |
 
 Precious sets (Aurelion, Pyrium, Palladine, Radiantine) have enchantability 25 and mine and swing faster, like gold.
 
