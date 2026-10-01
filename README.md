@@ -12,11 +12,35 @@ beekeeping industry that runs on top of it.
 | Jar | `zerog-tweaks-1.21.1-1.0.0.jar` | `zerog-binnie-expansion-1.21.1-1.0.0.jar` |
 | Version / size | 1.0.0 · 2,884,809 bytes | 1.0.0 · 3,905,219 bytes |
 | Content | 878 blockstates · 340 items · 28 entities | 85 blocks · 65 items (closed id set) |
-| Requires | NeoForge only — **zero** required deps | Productive Bees **+** GeckoLib 4.9, loads AFTER both |
+| Requires | NeoForge; the prepared Tidewraith runtime draft additionally needs GeckoLib 4.9.3 | Productive Bees **+** GeckoLib 4.9, loads AFTER both |
 | Creative tab | `zerog_tweaks` | `itemGroup.aeroapiary` |
 | Source | `src/` (this repo) | `Desktop/ZeroG_Mods/zero-g-Orbital-Bee's` (sibling project) |
 
 **Baseline:** Minecraft **1.21.1** · NeoForge **21.1.252** · Java **21** (Temurin)
+
+## Approved Tidewraith pair — new branch
+
+This data-only commit preserves the two approved designs and their intended
+ZeroG Tweaks IDs without changing the other branches.
+[Approved-model gallery and test instructions](docs/tidewraith-approved/README.md)
+· [HTML review](docs/tidewraith-approved/review.html)
+· [Backup of both completed design stacks](docs/tidewraith-approved/approved-models-backup.zip).
+
+- `zerog_tweaks:tidewraith`: the approved two-eye Abyssal face, repaired head
+  join, original Phantom-inspired wings, body and tendrils. **Not a boss**.
+- `zerog_tweaks:tidewraith_boss`: the approved eight-eye, voxel-built manta
+  mouth model. **Boss**, retaining its authored 80-unit / 5-block wingspan,
+  with Standard, Abyssal, Pearl and Storm palette variants. No x6 scale.
+
+Prepared runtime source, registry/dependency patch and opt-in tests are saved
+under [runtime-draft](docs/tidewraith-approved/runtime-draft/README.md), not wired
+into this commit's `src/`. That local draft compiled and passed three Minecraft
+server tests. Runtime asset admission and client appearance checks remain
+pending; see the verification ledger. This commit does not ship a playable
+Tidewraith jar or replace existing release jars.
+No natural spawning or campaign special-ability mechanics are enabled by this
+update. The old source snapshots are retained for provenance, not selected as
+the runtime assets.
 
 ---
 
@@ -46,7 +70,7 @@ ties the ZeroG planet network together.
 - **17 machine/functional blocks** — gate frames/controller/energy ports/lens housing/pad plate, alloy forge, combustion generator, fusion reactor + lamp, ore refinery, salvage station, crystal growth chamber, solar array, landing platform, cryo pod, spectral lantern.
 - **65 food/util items** — 30+ dishes, planet materials, 5 smithing templates, galaxy gate keys, Heart of Solvane, Ration Pack, Neutralizer.
 - **9+ gear sets** — astrium, cerulite, cyrrium, moonsteel, olympium, nullifite, radiante, salvium, skarnite, solvanite… full 9-piece kits (pick/shovel/axe/hoe/sword + 4 armor pieces).
-- **5 mobs** — Crystal Stag, Amethyst Stalker, Prismling, Rust Beetle, Dune Burrower — **loot/interaction data only for now; no live entity classes yet**. `ZGInteractions.java` documents planned shearing (Crystal Stag antlers, Frost Yak wool) and bottle-filling.
+- **Five prior live entity classes** — Crystal Stag, Frost Yak, Prismling, Rust Beetle and Dune Burrower. Their renderer polish remains separate work. The approved Tidewraith designs and runtime draft above are additional data, not two newly shipped entities; the original 28-mob design roster is not a claim that all 28 are implemented.
 
 Gallery: [machines & gates](docs/images/gallery_machines.png) · [teleporter blocks](docs/images/gallery_teleporter.png) · [gear](docs/images/gallery_gear.png) · [armor](docs/images/gallery_armor.png) · [food & items](docs/images/gallery_food.png) · [mob sheets](docs/images/gallery_mobs.png)
 

@@ -2,7 +2,8 @@
 import json, math
 import numpy as np
 from PIL import ImageDraw
-from build_mob_models import ROOT
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[3]
 from review_mob_assets import render
 
 def translate(v):
@@ -26,7 +27,7 @@ def sample(keys,t,default):
             return vec(first)*(1-weight)+vec(last)*weight
     return vec(keys[-1])
 
-def make(path,action):
+def make(path,action,view='threequarter',frame_count=24):
     model=json.loads(path.read_text());clip=next(a for a in model['animations'] if a['name'].endswith('.'+action))
     bones={};members={}
     def walk(nodes,parent=None):
@@ -35,8 +36,8 @@ def make(path,action):
             else:bones[n['uuid']]={**n,'parent':parent};walk(n['children'],n['uuid'])
     walk(model['outliner'])
     frames=[]
-    for frame in range(24):
-        t=frame/24*clip['length'];matrices={}
+    for frame in range(frame_count):
+        t=frame/frame_count*clip['length'];matrices={}
         def matrix(key):
             if key is None:return np.eye(4)
             if key in matrices:return matrices[key]
@@ -47,16 +48,16 @@ def make(path,action):
             pivot=np.array(b['origin']);m=matrix(b['parent'])@translate(pivot+pos)@rotation(rot)@s@translate(-pivot)
             assert np.isfinite(m).all();matrices[key]=m;return m
         def vertex(cube,p):return (matrix(members[cube['uuid']])@np.array([*p,1]))[:3].tolist()
-        image=render(model,vertex_transform=vertex).convert('RGB')
+        image=render(model,vertex_transform=vertex,view=view).convert('RGB')
         ImageDraw.Draw(image).text((12,12),path.stem.replace('_',' ').title()+' — '+action,fill='white')
         frames.append(image)
     output=ROOT/'docs/zero-g-tweaks-bundle/blockbench/previews'/f'{path.stem}_{action}.gif'
-    frames[0].save(output,save_all=True,append_images=frames[1:],duration=round(clip['length']*1000/24),loop=0)
+    frames[0].save(output,save_all=True,append_images=frames[1:],duration=round(clip['length']*1000/frame_count),loop=0)
     print(output.name)
 
 def main():
     zg=ROOT/'docs/zero-g-tweaks-bundle/blockbench/mobs'
     for key,action in [('dune_burrower','walk'),('moon_hopper','hop'),('frost_warden','blink')]:make(zg/(key+'.bbmodel'),action)
-    make(ROOT/'docs/shattered-skies/blockbench/tidewraith.bbmodel','fly')
+    make(ROOT/'docs/shattered-skies/blockbench/tidewraith.bbmodel','fly',view='hero')
 
 if __name__=='__main__':main()

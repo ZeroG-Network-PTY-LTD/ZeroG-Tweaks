@@ -32,7 +32,9 @@ def project(p: list[float], view='threequarter') -> tuple[float, float, float]:
     if view=='front':return (x,-y,-z)
     if view=='right':return (z,-y,x)
     if view=='left':return (-z,-y,-x)
-    a,e = math.radians(35), math.radians(22)
+    if view=='top':return (x,z,y)
+    if view=='bottom':return (x,-z,-y)
+    a,e = math.radians(35), math.radians(-18 if view=='hero' else 22)
     return (math.cos(a)*x + math.sin(a)*z,
             math.sin(e)*math.sin(a)*x - math.cos(e)*y - math.sin(e)*math.cos(a)*z,
             math.sin(a)*math.cos(e)*x + math.sin(e)*y - math.cos(a)*math.cos(e)*z)
@@ -166,7 +168,12 @@ def check(path: Path) -> dict:
             u0,v0,u1,v1=face["uv"]
             assert 0<=min(u0,u1)<max(u0,u1)<=tex.width, path
             assert 0<=min(v0,v1)<max(v0,v1)<=tex.height, path
-            region=tex.crop((min(u0,u1),min(v0,v1),max(u0,u1),max(v0,v1)))
+            # Bedrock per-face UV rectangles may occupy a fraction of one
+            # texel. Pillow rounds crop edges, which can incorrectly produce
+            # an empty crop for a valid small shared island. Check the actual
+            # texel footprint used by nearest-neighbour rendering instead.
+            region=tex.crop((math.floor(min(u0,u1)),math.floor(min(v0,v1)),
+                             math.ceil(max(u0,u1)),math.ceil(max(v0,v1))))
             assert region.getbbox(), f"{path}: empty UV face"
     for anim in model.get("animations",[]):
         for bone_id, animator in anim["animators"].items():
