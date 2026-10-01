@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "beetle_grub",
+  "model_identifier": "zerog_tweaks:beetle_grub",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "beetle_grub",
+      "type": "cube",
+      "uuid": "c2655eaa-5e67-54cd-9362-97b8101f1093",
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            64,
+            0,
+            0,
+            64
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "c2655eaa-5e67-54cd-9362-97b8101f1093"
+  ],
+  "textures": [
+    {
+      "name": "beetle_grub.png",
+      "id": "0",
+      "namespace": "zerog_tweaks",
+      "folder": "item",
+      "mode": "bitmap",
+      "source": "data:image/png;base64,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",
+      "uuid": "9f828c2a-8685-56d3-9ba4-d43172a3ef66"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        3,
+        1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  }
+}

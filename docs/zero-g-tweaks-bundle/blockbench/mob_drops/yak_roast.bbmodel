@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "yak_roast",
+  "model_identifier": "zerog_tweaks:yak_roast",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "yak_roast",
+      "type": "cube",
+      "uuid": "b82f3eb3-f85a-5452-a3f4-e112356c8f61",
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            64,
+            0,
+            0,
+            64
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "b82f3eb3-f85a-5452-a3f4-e112356c8f61"
+  ],
+  "textures": [
+    {
+      "name": "yak_roast.png",
+      "id": "0",
+      "namespace": "zerog_tweaks",
+      "folder": "item",
+      "mode": "bitmap",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAIFklEQVR4nO2Yy48cVxXGf67q6q5qT/d0/BhNMpMQWzaKbQUDjngsWCGWFisEEkgs2ICEhNiQ/AdBEQgJFAgSUVbsWRIIQggBQrIYe9omkufdE4dxcHfb0zPuqu77YHFvVVd1t6dmNGaBqE8alabvueeee853HlVQoECBAgUK/N/ixFE3XJiv6/+GIU8Lqzu7R7rTkYQvzNf1q9ev4pUcuvsRQmq8koOQCs+1z5JjfncdhlLR3O4gpOYTL5zKlS2XzDOtt9ky+z978eyBsg/3IzzX4Z0/3T2SE5yjOABAaY1SGqWh4rkopc1Tm9+UsjJac2P9AVrDJ188nSs7Te+dD7oouz9PNtZ7VJSOuqGzF1kGDCi7DkOViqjr0FMmSn/dvI+Qmk+fO01nLzpQtieHCSOGUlN2HZY2H+CVHF56rkF/IA6UHSpFNJQIqZ6+A8ZzvuK5CKnwPUNfpTTKyUZm+V4breGV82dyZeP/03qXNtsoDZcXn0FIdaBsoteyatzmvHQ40AEX5uv6B9evIqQiEhIhNbv9QZJ3Smt8z2UolX1qllsdPNfh8mJjRHXNVNkRlUcXWG51UNZ5ebJpva5zgnLJ4XMX5xBSc2WxgZCaX/9lVR/khNwaEB+Q5JtO1QFrkLb5vNzqUPFcLi82qJQOlo0jqbROZJdbHZSCKwuNXNlpepe3OmgFn784l9ibh9wU6CY5H+G5o4IjpEqeSmtrvObZ0wHtvSjJ9bnZYEI2Nl47qchvtal4Li89N5vsVVrT3gsZxp1DaebqwVQbbrXalF2Xj52dobsf0d0f4Ln5NT5XIq6yidenUHFl5xFKa145f8ZW9/FqPZKNI+mn9C63bM4vNJ4se4De5VYH3zJvpFcfqivkMiBW5JdchkoleawUKMfQ1is5PH/6JLv9AT/77a+ACnLlLm5Q4Y1XX7c1JFXMkoIGqzuPkoKZ1rvbNxE0+soM767gBRXeeO2HeK5hpFKwfK9jnWcLptVbKbkIld8VDlUDMjmXik7i+YWGyVcNIAGJkBKkzER7NAOkCp6CSwuNbNTTfV1LQBl9QmZsWL3/CKXh2vkzY8VxxJLjM0AZo/oDkXFCs9VBK82lFxoINcrF/TsbhOGAvy2tUA3KmWod7614Lje3OknOm8inU2U06PRubxBGA+5u/IswGiRrzbjbLDQyeoXUKXtz739IBljaxrm4urOL0ppLcatLTWlCmIFkthYgpcK37XJ0MWjaghkbH+v1S+6EE6SUVqdECOPof2yagpmcn9gwae/xGTDWd+Ocv7TQsPO48bjrnEAoxds/+gVCjWb2x5HI9POYttPmhNh409cdPNfh7R+/NXp/UJq/r36EkJpPvXg6o3eiy1idx2ZAHJWK55jIaT2q1mO0jXt0ZTySKdrGOV9J6U3386l6LUP++UEXPd4tptqgk1rydBigNM1WF6U1186dQdhuMG28jd8V4qjFRfDmVidJm9F4ayp+kr9T9HbsTHFry+T8pYWGZcOTbUin5LEZoLS2s7keVetUvvmei07l8URUFMZ5yjgvT3aa3uZ2N3v+EWw4tgOSgrPQyLaxJ9DW91IU1Jrm9ljaHCA7TW9cMK+dO5MrO03v8RmgzMeM0YGjCS3zbj9lUmu2ulOcN112ml4TecYif1gb4P17D3MdkFsDPv7sLO1eaGbrkkPN9zLGt3tRkpOe61ByPJSG25a287MB7V6IV3Iz7wa+rdrtXrZm1ALPRr5LpeQyN+vTHwh2++brz9xskIl2ey9KdQnFXN3of//eQ8qlp/AuEHsznuZiek0fXMzfmp0TYtpOvEekZCemRKWzOZ+KaHx2ng3N7S6+53Bhvn48Bpy7cpXXf/NHIKL3703CMOKd177N0EauPxjyy/feBwQ7mzepBgHf+vJ1yiWH+ZmAR/0BP//dElCh8+Ey1arPT77zDRP5vYihVLz57m0gYv/BBmEU8b2vfoVyyeH8XI3d/oC33rsB+Nzfukm1GvDT734Tr+Sw3d7Hcx3efHcJKPNwp0kYRnz/61+jXHJYPFVjeIgvRIf4JiiBqpnG7CyuU16PZeq1GYQUVDyXl1M1w+xXSCnM/lSPNpOaAISd9Mz6y8+fSuk/CUhm67VkPfu2JwEQwtigtOYzF84eug3m1oDBbotyELCx0SKo+sm7frsXIpSGsEUURqxvbhOGIYunTtLuhfQHkl05BLWLDj9ifWObIPCTnG/vhSZve9uUqj7rGy2qQWD274W0eya3GWwzCCPWN1qEYcTjgUBIzeNIIKSi320RBIHZX7X7exEPetHTqQFSSBAmQjKOQGpCk0JSqc8gxCjCmT4szd56bQYpJf7Y5CekADGa98fbmBbmXCHt+ljeB7UaUkjq1obx7nJsBgT1GWQYUa/NEEYRzbDBxp1bgKkRQgpce4F6fYabj2cz66QvICQ39uqZdb9WQ4WRfekRLI/rF5LAXq5em2FpXL8UCCnMGUJyZ/AMG0u3EvuP9VEUyERHCJFReu4KWgppomQvOL4uhMRPGDK5P75A7OCJ/VLgpWwYX1cpB8ux9cMg1wFra6b6r9rnONqdh4Thfdqd7tT11bVNgqrP6tom1Wowsb6+tkUYhqysbSYOSKNj9T9p/8raJtUgMOcEft51JpBbA0Qqv+r1mcl1KUcUtBEYX4/pGTMkq19Qr9WQVm7a+caGWsKgNNLpNW1/HnKp8qUvfiFTSX7/hz+f+F9aL1CgQIECBQoUKFCgQIECBQoUKFCgQIECBQoUKFCgAAD/AaSnGK6EIt/NAAAAAElFTkSuQmCC",
+      "uuid": "aa8a9de5-8512-55f9-baab-604e8ad73252"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        3,
+        1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  }
+}

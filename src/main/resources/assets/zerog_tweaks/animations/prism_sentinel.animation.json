@@ -1,0 +1,150 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.zerog_tweaks.prism_sentinel.idle": {
+      "loop": true,
+      "animation_length": 2.0,
+      "bones": {
+        "body": {
+          "position": {
+            "0": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "0.5": [
+              0.0,
+              1.8189473684210526,
+              0.0
+            ],
+            "1.5": [
+              0.0,
+              -1.8189473684210526,
+              0.0
+            ],
+            "2.0": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.prism_sentinel.walk": {
+      "loop": true,
+      "animation_length": 0.8,
+      "bones": {
+        "body": {
+          "position": {
+            "0": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "0.2": [
+              0.0,
+              2.2736842105263158,
+              0.0
+            ],
+            "0.6": [
+              0.0,
+              -2.2736842105263158,
+              0.0
+            ],
+            "0.8": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.prism_sentinel.attack": {
+      "loop": false,
+      "animation_length": 0.5,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.25": [
+              5,
+              0,
+              0
+            ],
+            "0.5": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.prism_sentinel.orbit": {
+      "loop": true,
+      "animation_length": 4.0,
+      "bones": {
+        "orbit": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "4.0": [
+              0,
+              360,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.prism_sentinel.blink": {
+      "loop": false,
+      "animation_length": 0.24,
+      "bones": {
+        "eye_10": {
+          "scale": {
+            "0": [
+              1,
+              1,
+              1
+            ],
+            "0.08": [
+              1,
+              0.02,
+              1
+            ],
+            "0.14": [
+              1,
+              0.02,
+              1
+            ],
+            "0.24": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    "animation.zerog_tweaks.prism_sentinel.look_left": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {}
+    },
+    "animation.zerog_tweaks.prism_sentinel.look_right": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {}
+    }
+  }
+}

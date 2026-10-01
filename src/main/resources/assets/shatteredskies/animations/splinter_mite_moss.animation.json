@@ -1,0 +1,451 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.shatteredskies.splinter_mite_moss.spawn": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {
+        "root": {
+          "position": {
+            "0": [
+              0,
+              -5,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.shatteredskies.splinter_mite_moss.idle": {
+      "loop": true,
+      "animation_length": 4.0,
+      "bones": {
+        "body": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              0,
+              0.45,
+              0
+            ],
+            "3.0": [
+              0,
+              -0.45,
+              0
+            ],
+            "4.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "head": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "1.0": [
+              2,
+              0,
+              0
+            ],
+            "3.0": [
+              -2,
+              0,
+              0
+            ],
+            "4.0": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.shatteredskies.splinter_mite_moss.walk": {
+      "loop": true,
+      "animation_length": 0.9,
+      "bones": {
+        "body": {
+          "position": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.225": [
+              0,
+              0.5,
+              0
+            ],
+            "0.675": [
+              0,
+              -0.5,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg_r1": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.225": [
+              -20.0,
+              0,
+              0
+            ],
+            "0.675": [
+              20.0,
+              0,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg_r2": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.225": [
+              20.0,
+              0,
+              0
+            ],
+            "0.675": [
+              -20.0,
+              0,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg_r3": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.225": [
+              -20.0,
+              0,
+              0
+            ],
+            "0.675": [
+              20.0,
+              0,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg_l1": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.225": [
+              20.0,
+              0,
+              0
+            ],
+            "0.675": [
+              -20.0,
+              0,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg_l2": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.225": [
+              -20.0,
+              0,
+              0
+            ],
+            "0.675": [
+              20.0,
+              0,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "leg_l3": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.225": [
+              20.0,
+              0,
+              0
+            ],
+            "0.675": [
+              -20.0,
+              0,
+              0
+            ],
+            "0.9": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.shatteredskies.splinter_mite_moss.attack": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {
+        "head": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.6": [
+              -12,
+              0,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "mandible_r": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.6": [
+              0,
+              20,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "mandible_l": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.6": [
+              0,
+              -20,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.shatteredskies.splinter_mite_moss.hurt": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {
+        "root": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.6": [
+              0,
+              0,
+              5
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.shatteredskies.splinter_mite_moss.death": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {
+        "root": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              80
+            ]
+          }
+        }
+      }
+    },
+    "animation.shatteredskies.splinter_mite_moss.blink": {
+      "loop": false,
+      "animation_length": 0.24,
+      "bones": {
+        "eye_20": {
+          "scale": {
+            "0": [
+              1,
+              1,
+              1
+            ],
+            "0.08": [
+              1,
+              0.02,
+              1
+            ],
+            "0.14": [
+              1,
+              0.02,
+              1
+            ],
+            "0.24": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    },
+    "animation.shatteredskies.splinter_mite_moss.look_left": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {
+        "head": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              8,
+              0
+            ],
+            "0.9": [
+              0,
+              8,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "animation.shatteredskies.splinter_mite_moss.look_right": {
+      "loop": false,
+      "animation_length": 1.2,
+      "bones": {
+        "head": {
+          "rotation": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "0.3": [
+              0,
+              -8,
+              0
+            ],
+            "0.9": [
+              0,
+              -8,
+              0
+            ],
+            "1.2": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    }
+  }
+}

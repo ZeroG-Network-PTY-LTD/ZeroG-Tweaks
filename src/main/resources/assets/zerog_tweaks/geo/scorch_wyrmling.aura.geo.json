@@ -1,0 +1,133 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.zerog_tweaks.scorch_wyrmling.aura",
+        "texture_width": 128,
+        "texture_height": 128,
+        "visible_bounds_width": 3.0625,
+        "visible_bounds_height": 3.0625,
+        "visible_bounds_offset": [
+          0.0,
+          0.375,
+          0.140625
+        ]
+      },
+      "bones": [
+        {
+          "name": "aura",
+          "pivot": [
+            0.0,
+            6.0,
+            2.25
+          ],
+          "cubes": [
+            {
+              "origin": [
+                0.0,
+                -10.5,
+                -14.25
+              ],
+              "size": [
+                0.0,
+                33.0,
+                33.0
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -16.5,
+                6.0,
+                -14.25
+              ],
+              "size": [
+                33.0,
+                0.0,
+                33.0
+              ],
+              "uv": {
+                "up": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                }
+              }
+            },
+            {
+              "origin": [
+                -16.5,
+                -10.5,
+                2.25
+              ],
+              "size": [
+                33.0,
+                33.0,
+                0.0
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0,
+                    0
+                  ],
+                  "uv_size": [
+                    128,
+                    128
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
