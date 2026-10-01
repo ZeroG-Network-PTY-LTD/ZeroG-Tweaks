@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "frame_cosmic_vigor",
+  "model_identifier": "aeroapiary:frame_cosmic_vigor",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "frame_cosmic_vigor",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "f57f104d-5c6e-5d95-9625-1d2b7005b895"
+    },
+    {
+      "name": "frame_cosmic_vigor_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "0a76ae84-fa84-5fb6-9739-4b1f02ed9152"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "frame_cosmic_vigor",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "b58de159-7497-5a79-9767-57e1841a9348",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "f57f104d-5c6e-5d95-9625-1d2b7005b895",
+        "0a76ae84-fa84-5fb6-9739-4b1f02ed9152"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "frame_cosmic_vigor_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "cb052e9f-79c8-50bb-ad68-12781876c497",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADaklEQVR4nO2b2UtUcRTH586+vUVgOQZmERGIEUQRPfQQbYpK/0BIGIFZpmT7Yg+SjelYYct7UBCZNYIEQQ9BRbaBQ9CCMzAqPQYzzj699v0O3MtAdKLf7/v2udzlcDi/8zvn3HsNG2lVzeoyH/uflFj8bvzOdilD/hVpB0gbIC2D13zzwjc44eZfNefPq4v4yYoGYOUjQDtA2gBpOfkAr/mH06+By2UsE5xOvIXdjj4tFArADofD9PxsNgvs9XqBc7kccLFYBA4EAsAz507azKR8BGgHSBsgrYocwOI1ujjmB/b7kYde4c4b2j0E/OP5WdPnpVIpYMOA0t3WvxWz1MRKvP5g209gq8ZG+QjQDpA2QFqWOYD38WtvjwE3tEaA3W43cDzaC8x1BIvv176AOYBzzNr268BcZ7icLtPnKR8B2gHSBkir6jqAa+25p8eBeQ3Wt4wAf53oBna5cI0mpvqAO+NR4OFazCF8v6V9F4C5V2ApHwHaAdIGSMsyB3g8HuBSqQTMa+zElhvAHeNrgJueYQ7h/j6fzwOvr9sDzHVCaxJzgtu9BOx0Yk5iKR8B2gHSBkjLMgfwjI5zAPfnkyH06ZXaXabX920eAw6/wX2d75+bx5wR+YB1w8Uszhv4eSzlI0A7QNoAaVnmAJ77dzeFgUdmeoB77bhP76Tzua64vwxzzJntt4EHXx4GXrcfc0JdzVVgw8CZIPcmLOUjQDtA2gBpWeYAnsuPvjPv/3mGeCt2GrirEd8TBINB4AN364HvdQ4Dt82jfZMhfHcYCJj3/yzlI0A7QNoAaVnmAO73uV/nmV/40RFgnilG3uN7AscnzCGNjzHn8LtF7k32zuH1mUwG2Oo9hPIRoB0gbYC0qs4B3L9PUa/AvcPRjbiPc39+5zP278t3XAZOTvcDj9IaP7VtHJh7Da5LWMpHgHaAtAHSqroX4DUWe3AIuGcT1gX87o/nBzxfyCVx5ufYMAjMvQV/rzCQO2+rRspHgHaAtAHSqvhfIE7/C0RffATmfZWZ93n+jjCdTgPzPIB7Db4fM9f6Pp8PePAS1hmJ2Cyw8hGgHSBtgLQq6oAO4i8DuK/a7VgXcA6o+CaH6ggHzQe4XS+VaY3Tmudeg3NAiTjf0owP0DkApR0gbYC0DD6g/x1WTNoB0gZI6xcC6BCXP44aygAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "",
+      "name": "frame_cosmic_vigor_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "c2231022-725c-5fdf-ba6c-b76f65326167",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACn0lEQVR4nO2aS09TQRTHuX23t5/AuPCBgo/oR3DlhqLWGNdQeUpq9JtoGpugxrAHCViRxKUbjWElJD4gEFbGNQm177Ll/28yk4mhRzPnt/t35s49PZlzZubMHRhQFMVnAv5hrtvtHtfl/tlyIhRJl4MA/nOkj7b8k6gDpA2QpicHdCkHLH/4wu2gY7EY6EgEfdpqtUBHo1Fj/3q9DjqVSoFuNBqg2+026DAMQeduXO/5j/B+U6MPqAOkDZAmZuvAMfq7lAGdyaAeXzxnjLm/5fW9HUhCq6ewfTJ/4DSe9zNAHSBtgDTWHMDr+Nza1RONcebFne8Q8xPLF+D9o8VtaOd9hg3vZ4A6QNoAaZz3Af1menUY9AxloLXnF+GXsdxnPKxY8H4GqAOkDZDGmgOSyaTTgLxXf/BmENoDqsnZsPWfv/0N3pdI/HEZXmeAOkDaAGmsOYBrdMyruz8hBiun0acTjjE8W7kM/Rfu70I71wRn3l6C/ouzn3Qf4II6QNoAaaw5gOv+fD6fWhmCGOR9wM2RTdC8r+DnOeYLS+eh/dajHWOMO24zdAaoA6QNkMaaAzimeN1luIZYXL8G/Xndzz/ZAz3+9Cw8X6C35X+hjjzGnBGGhybzevB+BqgDpA2QxpoD+P7dhi1H8F6fCZ6Zx+ezycg+3gPUajXzAIT3M0AdIG2ANM45gNfx9TMJaK+UBo3rfqfTgf6ud43cn88OrjVM72eAOkDaAGmczwIcY5USntfLuS2IyXg8Dv35fv9l/oex5sf3/Q/fXYHnuV6wMr2hNUEX1AHSBkhj/Vb4/cev0M7nfda8zvN3hNVqFXQ2mwXdbDaN47Hmb5fT6TRo/VbYgjpA2gBpeuKjQEG14Fpo/8/wfgaoA6QNUBRFkeQIlFzGMfMKcGIAAAAASUVORK5CYII="
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1",
+  "visual_reference": "Extra Bees/Forestry frame language: thin top rail, side supports, single readable center material"
+}

@@ -15,7 +15,7 @@ logoBlur=false
 [[dependencies.zerog_tweaks]]
 modId="neoforge"
 type="required"
-versionRange="[21.1.0,)"
+versionRange="[21.1.150,)"
 ordering="NONE"
 side="BOTH"
 
@@ -23,4 +23,11 @@ side="BOTH"
 modId="minecraft"
 type="required"
 versionRange="[1.21.1]"
+side="BOTH"
+
+[[dependencies.zerog_tweaks]]
+modId="geckolib"
+type="required"
+versionRange="[4.9.3,5)"
+ordering="AFTER"
 side="BOTH"

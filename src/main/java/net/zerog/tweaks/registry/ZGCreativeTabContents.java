@@ -352,7 +352,7 @@ public final class ZGCreativeTabContents {
             "regolith_crawler_spawn_egg", "rift_tyrant_spawn_egg", "rime_stalker_spawn_egg", "rust_beetle_spawn_egg",
             "sand_skitter_spawn_egg", "scorch_wyrmling_spawn_egg", "shardmother_spawn_egg", "slag_boar_spawn_egg",
             "slagjaw_spawn_egg", "splinter_mite_spawn_egg", "splinter_wisp_spawn_egg", "stormbitten_wyvern_spawn_egg",
-            "sun_colossus_spawn_egg", "tidewraith_spawn_egg"
+            "sun_colossus_spawn_egg", "tidewraith_spawn_egg", "tidewraith_boss_spawn_egg"
     };
 
     /** Every list above, for the catch-all in CreativeTabs. */

@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "coronite_ore",
+  "model_identifier": "zerog_tweaks:coronite_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "coronite_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "d08625ec-922e-5a74-87d8-efaf460f9564"
+    },
+    {
+      "name": "coronite_ore_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.01,
+        -0.01,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        16.01,
+        16.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "1d102ab9-9a56-554f-84a1-b81e38f8588a"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "coronite_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "4d82d80b-b11e-59d4-949f-c7206dcf43d9",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "d08625ec-922e-5a74-87d8-efaf460f9564",
+        "1d102ab9-9a56-554f-84a1-b81e38f8588a"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "coronite_ore.png",
+      "name": "coronite_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "a15c83e9-07be-52c0-b119-b72022c9db68",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACd0lEQVR4nO2bPUsDQRCGL3qooIQQUCTVYRXQQiyDRUrBxl+R2toqvY21v8LSMo2WYiNYyZViEU5REFG0dZ6FHZZTpth5u83e3Q7DvLPzlc7J/uC7+IV6/vF7WYyH3SKG2f1LdL9u8L2tNfn+w2v0/aq3FN/vK/sbK/I8yLsQfTsDuAKsBbBGSc4T9dO7XCvPE+Q8QY6T0xc3j/HvD6skeYjsLcAVYC2ANTpaHMB7vGni9/bR3qZ8H9/T7m1y/u7tS6yfT9fFejSdi/XxQSXPhw8jsrcAV4C1ANYo+QM5eltLjumclBzerfpRARir8/nt1UWxPh9Lka+n8vnRtBZrzSdkbwGuAGsBrBH4AA1Xh8tivTOW9QJydDKTPqQoJGfpAwj6hOB7WDMO0eoV2VuAK8BaAGsEuQDBWJ5xgQY1DkDcwRqhVi/Q4DVBBa4AawGsEcQBWs1P43TwPdQTyOmgXpDI+dQaJZG9BbgCrAWwhloP0MB7NugjNGkcTe31EZpPYK8zewtwBVgLYI2SsTd7eVosTWj3OpHaC2S+nwqvCQKuAGsBrFFq/fuzyzq6X/XbcTK9FyifZ90/FdlbgCvAWgBrBLlAW05q8wGMxRkHtO0F9npxn0afl70FuAKsBbBGMCdIDqdzMj4foM3saOBMUHi+3Of5zH2ytwBXgLUA1uiMBl3RG+Q9ybgg7P9/ijV9iJbfa7E8cxFyum2vMnsLcAVYC2ANdT6AIKc1Tv73rG/b2eLsLcAVYC2ANf58PoD5uJZLBOcn5gpa7kLQx2RvAa4AawGsUbbttxPBDFAhfcJkJvNx+ozk/yWixpjaO8zeAlwB1gJY4wdbuvMjTr1wtgAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "coronite_ore_emissive.png",
+      "name": "coronite_ore_emissive.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "6c1a63e5-01ca-56d8-9f58-433b9cedc212",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA90lEQVR4nO3asQ0CMQyF4QtClIgCtmAECmoGYghuH2oKRmAMCqCkCS25xoqi5EXn/+siOGws+0QuDAMAAPAqqBOwxBjj//o97pLXN+dn0XdYlFw8BxRAnYBa9vzUnknL/bRK4u+P66L47juAAqgTUMueV2sGH7dPsj5cv13/1nDfARRAnQAAAAAAAEBr3T2va33u4P6JEAVQJ6BmztPczgKn3HcABVAnoLa03hBCSGZsOpOvyzZZ174nTD+/NL77DqAA6gTUiv8f0Pv5v8V9B1AAdQJq1ee39V4iN577DqAA6gTUzL1AKWsvUTuexX0HUAB1AgCg9AMNlkrr0rB7XwAAAABJRU5ErkJggg=="
+    }
+  ]
+}

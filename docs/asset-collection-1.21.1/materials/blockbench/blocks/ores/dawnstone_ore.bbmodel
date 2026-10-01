@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "dawnstone_ore",
+  "model_identifier": "zerog_tweaks:dawnstone_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "dawnstone_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "89ba41c9-1280-5d82-90e2-453c9d961f94"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "dawnstone_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "4f232ec0-2747-5d6e-821b-a015bd30b4af",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "89ba41c9-1280-5d82-90e2-453c9d961f94"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "dawnstone_ore.png",
+      "name": "dawnstone_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "1898d2a1-d956-5132-9695-59ec21eed5d5",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACgUlEQVR4nO2bv0tcQRDH74WHGAhyHGJxFh5XhRyIpUiKK0MqsbTyT0gZUlmmjK1/REgVUl6pnQQCVmIKLSzkEMGQJtbzWdgvyxYD2fl2c/ve7veGmX3zY7c7fLP+b1CAyWglO359/zf7/OLq0Y4P7fj89Zp9/vLBzr+088+nr7J8CK7/oujt/xChAG8C3ujpc8T13R8jTzZWjUwfVaDP0ieJi2V+nHzIV6F5CwgFeBPwRs8flA99ObvNju9PR0amjybAHsD5f9082efPT4w4O/ho5OEAcQX2nKPddSM3bwGhAG8C3uiVz3+7ujdyqU/uD+yeQKi4YLb50sjfj99ZPl8/Z9dXcULzFhAK8Cbgje70YJqtB/C7TB/c2p4b+ffPhZHfH/8wMuME1g8UVG6wM7R7iqpfNG8BoQBvAt7oPr0dF9UEGRco1Po8oXyacYSqGTZvAaEAbwLeSOoBCsqnlY+W9hWS9wtrkopf8xYQCvAm4I2ePsLeG3t30scr+wYKqleo+JJf8xYQCvAm4I0kDmDszD2iNNamD3I+9iZV34H5PtdXfYioCQKhAG8C3ujVd1Ll/0kcIWJ5frdre4GTEXITcZ6B/Jq3gFCANwFvJDXB2l6gqsurc4Ks+6s+RNKLnOZ7kUTzFhAK8CbgjaQeQB+u7s/jO02fLwXnV+vz/xDNW0AowJuAN5JcgLhY5idQ5/RULvFhd2zkyZ19n+cLkj0K6xOMK/h+8xYQCvAm4I2Od4bUnRz6NH24Nr8vjeVrc5fmLSAU4E3AG9XnA9irK80lFFR/X61HRBwAhAK8CXij2xuvmTiA+TrjAqL07i6/2+qOT+29QCLuDgOhAG8C3ngGmnD+OIP8EW0AAAAASUVORK5CYII="
+    }
+  ]
+}

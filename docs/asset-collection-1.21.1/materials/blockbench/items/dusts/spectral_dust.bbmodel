@@ -1,0 +1,305 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "spectral_dust",
+  "model_identifier": "zerog_tweaks:spectral_dust",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "spectral_dust",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.99
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "794f30a1-a279-523d-be1b-86b544976b44"
+    },
+    {
+      "name": "spectral_dust_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.98
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "c9161e6b-b2ef-5074-a1be-d7504a7e8184"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "spectral_dust",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "60d27470-9b66-5a4d-bfa5-9c0cc742e20d",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "794f30a1-a279-523d-be1b-86b544976b44",
+        "c9161e6b-b2ef-5074-a1be-d7504a7e8184"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "spectral_dust.png",
+      "name": "spectral_dust.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "3b907bf7-a292-5c1c-85ef-1943039df1dd",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABiklEQVR4nO2aMU8CQRCFT+J1VLQaCwtrChsaCgOWUMofsDHxD1j4Kwy/AUt7YkFMaCiICYUUFkZaK7srsHUGc5PNLve8zPu6YXfDy8vMu+VClhFCPHNgbVgWxfZ33c5z80yVxOprpJVTP2gAWgAa+DyjM8Z9B9AAtAA00fOGnuFY3HcADUALQFOrec2y9JnjvgNoAFoAmsozoHl6ti1b/35f87dAldAAtAA0e583PfMvbyuxPvnYiPqhfynqfWeC+w6gAWgBaJLPV+jMa2bzhahf7+9EnToT3HcADUALQBM9T6EzPzo5Kl3XGaBJnQnuO4AGoAWgOQw9EPucv3l8EnW3cx70/a3uhf5I6AnNBPcdQAPQAtCYGZD6bj++GoraygTrXhCbCe47gAagBaDZyYDUM6+JPW8RmgnuO4AGoAWgMe8Bg+tbUR/3eqX7P6fT0v16xq39oeuhuO8AGoAWgGbnnqzvAX88V2vF1+xZ1LwHKGgAWgAa8/2Z9Z+e/w7fBxjQALQAQghB8gN5HYsXgSKaxAAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "spectral_dust_emissive.png",
+      "name": "spectral_dust_emissive.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "29a96305-ddd1-59d7-bd0e-0608e5f07fa4",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAwklEQVR4nO3aQQrCMBRF0Sh0P93/KtxPBzqVToL8mJvw7pkJLTw+/6WKbU1Sskfvgtd1vb8/n8fRvWemar7n2Dj7cQB0ABreZ/qMid8AB0AHoJX7Rne4Kn4DHAAdgLZVX1sbf+bEb4ADoANIEmn694DVfjvEPwUcAB2A9vf+rdb5u/gNcAB0ANrwPvY6v9qZEL8BDoAOQPN/AToAzQHQAWg/97Xa+dXOjPgNcAB0ANr27wlWxW+AA6ADSJIkSZIkzfYB7I40R81iPzgAAAAASUVORK5CYII="
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

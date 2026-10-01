@@ -17,6 +17,7 @@ group = mod_group_id
 
 repositories {
     mavenCentral()
+    maven { url = 'https://api.modrinth.com/maven' }
     flatDir {
         dir 'libs'
     }
@@ -30,6 +31,19 @@ java {
     toolchain.languageVersion = JavaLanguageVersion.of(21)
 }
 
+// Local opt-in tests; never package test classes in a normal release jar.
+if (providers.gradleProperty('zeroGTests').isPresent()) {
+    sourceSets.main.java.srcDir 'src/gametest/java'
+    sourceSets.main.resources.srcDir 'src/gametest/resources'
+}
+if (providers.gradleProperty('tidewraithTests').isPresent()) {
+    sourceSets.main.java.srcDir 'src/tidewraith-gametest/java'
+    sourceSets.main.resources.srcDir 'src/tidewraith-gametest/resources'
+}
+if (providers.gradleProperty('clientReview').isPresent()) {
+    sourceSets.main.java.srcDir 'src/client-review/java'
+}
+
 neoForge {
     version = project.neo_version
 
@@ -39,9 +53,18 @@ neoForge {
     }
 
     runs {
+        zeroGTests {
+            type = 'gameTestServer'
+            gameDirectory = file('run-local-zerog-tests')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'zerog_tweaks'
+        }
         client {
             client()
             gameDirectory = file('run')
+        }
+        assetReview {
+            client()
+            gameDirectory = file('run-local-asset-review')
         }
         server {
             server()
@@ -64,6 +87,7 @@ neoForge {
 }
 
 dependencies {
+    implementation 'maven.modrinth:geckolib:Grwn5rUB' // NeoForge 1.21.1, GeckoLib 4.9.3
 }
 
 tasks.named('jar', Jar).configure {

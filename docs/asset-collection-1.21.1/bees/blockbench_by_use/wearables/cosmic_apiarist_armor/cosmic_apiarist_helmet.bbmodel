@@ -1,0 +1,434 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "geckolib_model",
+    "box_uv": false
+  },
+  "name": "cosmic_apiarist_helmet",
+  "model_identifier": "aeroapiary:cosmic_apiarist_helmet",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "helmet_shell",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -4.5,
+        23.5,
+        -4.5
+      ],
+      "to": [
+        4.5,
+        32.5,
+        4.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "f5124461-2f66-5b69-a8ad-27ca3a3c6398"
+    },
+    {
+      "name": "visor",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -3.5,
+        26,
+        -4.75
+      ],
+      "to": [
+        3.5,
+        30,
+        -4.45
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            0,
+            48,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            48,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            32,
+            0,
+            48,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            48,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            32,
+            0,
+            48,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            32,
+            0,
+            48,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "bb0beaf7-0e18-525c-9234-3ef05898a8f6"
+    },
+    {
+      "name": "helmet_crown",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -2,
+        32,
+        -2
+      ],
+      "to": [
+        2,
+        34,
+        2
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            48,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            48,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            48,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            48,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            48,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            48,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "2388ffe0-9876-5c2a-b391-0889a6089329"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "armorHead",
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "color": 0,
+      "uuid": "182f0812-9c5b-5d9d-9da8-4b3fc91249aa",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "f5124461-2f66-5b69-a8ad-27ca3a3c6398",
+        "bb0beaf7-0e18-525c-9234-3ef05898a8f6",
+        "2388ffe0-9876-5c2a-b391-0889a6089329"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "cosmic_apiarist_armor.png",
+      "folder": "armor",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "2c8299dd-c688-5f88-ba9a-efe987334d7b",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACKUlEQVR4nO1aTUvDQBCdSmQvC6G4ECF7y2U9e+lf0Kvg1ZPgH/Lon/DXFKG39lAISCGHBA/1kMTaGjE7Txjt7oOFTdk3Mzxmt/l4E3d5vSUA+uwcoZN9foL4tw8NxD+B2EeAKEA/0VqT1podCOardvDzK9KMAEld112Atvj+2iMAxK/rdg9rpfaux/P7/GrveiySflKWpRfxEDB/gx1mZblh8bzOAGMMGWNYiX6FnyoyKX+fGJOSMeneb8EfgsnPS3Y4xm0SfAdEAaQLkEbi+785EADio/lRfvAdEAWQLkAaUQDpAqQxKIC1lqy17KAwP0vJZunPC7/Nn5G12ai1wXfA4LPAcrmEgsL8Ne/Rdpd/PXpt8B0QBZAuQBpJVVVYBIXx0fxVFZ8FILAEcM6Rc46dFOYXObkiB/IX5FxBRLED/N4J9pjP51BSmL9YgfkXH/PgOyAKIF2ANCbr7RbyB8wuZlABVzd3EP/x/gXiB98BUYB+orvBhbS/gLRuhyeS/k66p/reWaP+ApTfdOtVx2/Y/gAv2ldIfzhtmHw/f0A3uJD2FyhjSB3wgz8E/fwBYLK/uE2C74AogHQB0kjqNyyA9Pf96A8AEQWQLkAaUQDpAqQx7A84bQcX0v6C1FpKR/KD74BhfwB4byDtL9h48IPvgCiAdAHSgP0B/50ffAfw/AFTTW7Kf4Ut7S/InaO84wffATx/wCu276T9BatP/OA7IAogXYA03gEw6sRih/B6GAAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "",
+      "name": "cosmic_apiarist_armor.png",
+      "folder": "armor",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "b78a6290-5e03-50b6-86a6-4181c9419759",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABoUlEQVR4nO2aQWuDQBCFx2LZy8ISWPCQvXnZn9NTf0N/spfc7EEQSsCDpYfkYBQES3XX9KkzHyxo8MWXx+xkNyYhMG/t7Rajf//4jrr/S5T6AEgAaAM9WnUjWK8V6YA3SMNvuQ5t281hrdTofL6+7fRajc7nAg+gp77GNbO6vgbpNjMF5mCNImvC54m1hqw1o9d2FcAz2MwUmMMzpgn7CpAA0AbQwHvA0u/ttfXsK0ACQBtAIwGgDaDZZAAuM+Qy8/eFv+ldRs5ls67dZAD/CXwdMEVZhW1tB31Zzb6WfQVIAGgDaOA9oGmaSL3sBaLYZQA+P5PPz+F6n5P3ORHtNIA1gfeAEIrLZ5y+uAzH7CtAAkAbQJNUt7jn81mSJGuZQcC+AiSA/kA/BjfSfiXdf/i4lfX+GBZCNdIFkEU9wD7GkWDfBBftBY44TdhXgASANoAmbX/QFrCwrwAJAG0AjQSANoBmMgD32g0OsK+Ayb1AyWhtwL4CJAC0ATRp7PP5vcO+AoIC8CdN/nSMH9HZV0DQ/wOKr+P0DfYVIAGgDaC5A95/SRblHiggAAAAAElFTkSuQmCC"
+    }
+  ],
+  "geckolib_format_version": 2,
+  "geckolib_modid": "aeroapiary",
+  "geckolib_model_type": "Armor",
+  "animations": [
+    {
+      "uuid": "66a23820-b409-5bd6-9e2f-467131f0d22f",
+      "name": "animation.aeroapiary.cosmic_apiarist_helmet.aura",
+      "loop": "loop",
+      "override": false,
+      "length": 1.5,
+      "snapping": 20,
+      "selected": false,
+      "anim_time_update": "",
+      "blend_weight": "",
+      "start_delay": "",
+      "loop_delay": "",
+      "animators": {
+        "182f0812-9c5b-5d9d-9da8-4b3fc91249aa": {
+          "name": "armor_head",
+          "type": "bone",
+          "keyframes": [
+            {
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                }
+              ],
+              "uuid": "f80cf5e9-5640-5f41-8f57-e2f8ae5bb3b3",
+              "time": 0,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": 1.015,
+                  "y": 1.015,
+                  "z": 1.015
+                }
+              ],
+              "uuid": "cabd4cc3-a11f-5c44-9a9d-f4831211e03d",
+              "time": 0.75,
+              "color": -1,
+              "interpolation": "linear"
+            },
+            {
+              "channel": "scale",
+              "data_points": [
+                {
+                  "x": 1,
+                  "y": 1,
+                  "z": 1
+                }
+              ],
+              "uuid": "c93e3f79-8658-58ae-9536-f88b672a0038",
+              "time": 1.5,
+              "color": -1,
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "geo_name": "cosmic_apiarist_helmet",
+  "vanilla_humanoid_base": true,
+  "bone_binding": {
+    "armorHead": "armorHead"
+  },
+  "authoring_note": "GeckoLib armor bones and vanilla humanoid pivots corrected for Minecraft Java 1.21.1"
+}

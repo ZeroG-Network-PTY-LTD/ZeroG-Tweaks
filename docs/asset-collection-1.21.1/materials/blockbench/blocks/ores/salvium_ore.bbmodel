@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "salvium_ore",
+  "model_identifier": "zerog_tweaks:salvium_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "salvium_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "6198dd82-c1ae-56de-98f3-edfacd83d5fb"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "salvium_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "db8966af-9df0-55ae-b1f5-5fb01c371039",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "6198dd82-c1ae-56de-98f3-edfacd83d5fb"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "salvium_ore.png",
+      "name": "salvium_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "f6d26fb2-3485-5fb8-a108-f9e9311dd522",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACfElEQVR4nO1bu0oDURDNyuI/aEK+ILFQUBHrVBYpAoEUliLoBwQRjSAhH6AiaYQUAUUkgoVYWUhQUQs7W0n0M7TNnIU9DCsMeOd0w969dzLMmb3zSNQ+OfvJTaCQn5kUc6Pxdy4NK4sLQv4cf6Wux/3wPC20++H6qUyn/wO4AawVsEZ0//IuYsDw+VUsQE49Pr3J5wXCuVF6DFlempfrgaNH7f3U97d3DlTno77Be4AbwFoBa8TIeYZB7zT1eee4m0WfBOfv9laFPJxeE3Jrtynk6vqm6rzgPcANYK2ANWK2oLm1IWTGSVzPYkIxP5u6vgL71epFIbcOO1KGmMDuCcF7gBvAWgFrJGIAu7t3PyQHS2X5vFZvCBljQn9wI2SsH2AugDEB97s87wuZcR5zm+A9wA1grYA11PUA5CADclJbQ0SwGqUWwXuAG8BaAWvQGMBqagzaOj3rS7DnLMZ4XwDgBrBWwBqJXCDBoXw6h7Qx4q97g/g+47znAgA3gLUC1oiRM1ijQzDOs+80vo8y6ztgboHnMf0RwXuAG8BaAWvELL9m+T/W7HB+AIHzANq+g7buz/QJ3gPcANYKWCPqXd+KekBWTmLd/+JKytqZIOwzlMpzqed7X0AJN4C1AtZI1AOy9ucbVRkjtPcEBuQ8mw/AmIQI3gPcANYKWIPOCDEg51g/H4EcZbkCrseYg2AxKXgPcANYK2CNRD0A78qMc3j31uYSuB/O+uL+bJ5AO8cYvAe4AawVsAa9ByDn2JyfNpdAaOcPUJ9K4l7wICSMKcF7gBvAWgFrRPjfYTZjw3pv7DuN32H87rNeI57P/vOEvwfXB+8BbgBrBazxC5BUH7fxrMVuAAAAAElFTkSuQmCC"
+    }
+  ]
+}

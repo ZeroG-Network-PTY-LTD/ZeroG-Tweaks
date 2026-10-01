@@ -1,0 +1,29 @@
+{
+ "extends": "slagjaw",
+ "id": "slagjaw_overgrown",
+ "name": "Slagjaw · Overgrown style",
+ "role": "Boss style · Ring 1 Verdant and Ruins islands · same abilities as Slagjaw",
+ "notes": [
+  "Same rig, bones, animations and hitbox as Slagjaw; only textures and added boxes change.",
+  "Mossy cobblestone, heavy green patina on the copper, vines hanging from the shoulders and jaw, flowers growing on the head.",
+  "Vines hang from the shoulder and jaw bones, so they swing with the knuckle-walk for free.",
+  "Spawns on Verdant islands and Ruins instead of the base look; its adds are Moss Mites."
+ ],
+ "palette": {"moss": "#4e7a3a", "moss_hi": "#9ccf5a", "patina": "#3fa58a", "vine": "#3f6b30", "flower": "#e8c33a", "flower_b": "#d85a8c"},
+ "materials": {"stone": "mossy_cobble", "stone_dark": "mossy_cobble", "vine": "vine"},
+ "add_boxes": [
+  {"name": "vine L", "bone": "arm_l", "from": [-24, 22, -12.5], "to": [-22, 34, -12], "color": "vine"},
+  {"name": "vine R", "bone": "arm_r", "from": [21, 26, -12.5], "to": [23, 34, -12], "color": "vine"},
+  {"name": "jaw vine", "bone": "jaw", "from": [-4, 22, -26.5], "to": [-2, 28, -26], "color": "vine"},
+  {"name": "jaw vine 2", "bone": "jaw", "from": [6, 24, -26.5], "to": [8, 28, -26], "color": "vine"},
+  {"name": "flower", "bone": "head", "from": [-6, 45, -20], "to": [-4, 47, -18], "color": "flower"},
+  {"name": "flower 2", "bone": "head", "from": [3, 45, -17], "to": [5, 47, -15], "color": "flower_b"},
+  {"name": "grass tuft", "bone": "back", "from": [-2, 48, -4], "to": [3, 50, 2], "color": "moss", "texture": "moss"}
+ ],
+ "callouts": {
+  "front": [["eye R", "Glowing eyes"], ["flower", "Flowers on the head"], ["jaw vine", "Vines hang from the jaw"], ["splinter core", "Caged splinter"], ["vine R", "Vines on the shoulders"], ["fist L", "Mossy fists"]],
+  "left": [["grass tuft", "Grass tuft on the back"], ["shoulders", "Mossy cobblestone"], ["jaw", "Jaw"], ["bracer L", "Green patina copper"], ["fist L", "Fist"]],
+  "top": [["grass tuft", "Grass tuft"], ["flower 2", "Flowers"], ["copper vent R", "Patina vents"], ["fist R", "Fists"]],
+  "bottom": [["fist L", "Fist knuckles"], ["foot R", "Feet"], ["jaw", "Jaw underside"]]
+ }
+}

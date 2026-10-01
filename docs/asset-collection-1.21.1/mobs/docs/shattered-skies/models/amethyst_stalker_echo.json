@@ -1,0 +1,27 @@
+{
+ "extends": "amethyst_stalker",
+ "id": "amethyst_stalker_echo",
+ "name": "Amethyst Stalker · Echo style",
+ "role": "Boss style · Ring 3 Crystal islands with echo shard nodes · same abilities",
+ "notes": [
+  "Same rig, bones, animations and hitbox as the Amethyst Stalker; only textures and added boxes change.",
+  "Deep teal-black fur with sculk-like speckles; the crystals are echo shards (dark teal with bright cyan edges); two sensor tendrils rise from the head.",
+  "The splinter and the eyes stay violet. The tendrils twitch toward noise in idle, a nod to the Hollow.",
+  "Spawns on Crystal islands that have echo shard nodes."
+ ],
+ "palette": {"fur": "#12292d", "fur_dark": "#0b1a1d", "belly": "#1c3a3f", "amethyst": "#1f6f78", "splinter_dim": "#35c2c9", "claw": "#9fe8e8"},
+ "remove_boxes": [],
+ "add_boxes": [
+  {"name": "tendril L", "bone": "head", "from": [-4, 24, -19], "to": [-3, 31, -18], "color": "amethyst"},
+  {"name": "tendril R", "bone": "head", "from": [3, 24, -19], "to": [4, 30, -18], "color": "amethyst"},
+  {"name": "tendril tip L", "bone": "head", "from": [-4.5, 31, -19.5], "to": [-2.5, 32, -17.5], "color": "splinter_dim"},
+  {"name": "tendril tip R", "bone": "head", "from": [2.5, 30, -19.5], "to": [4.5, 31, -17.5], "color": "splinter_dim"}
+ ],
+ "unshaded": ["splinter_dim"],
+ "callouts": {
+  "front": [["tendril tip R", "Sensor tendrils"], ["eye R", "Violet splinter eyes"], ["shoulder plate", "Echo shard plates"], ["fang L", "Fangs"], ["claw FL", "Pale teal claws"]],
+  "left": [["splinter", "Splinter (violet)"], ["ridge 3", "Echo shard ridge"], ["tendril L", "Tendril"], ["tail crystal", "Echo shard tail tip"], ["body", "Teal-black fur"]],
+  "top": [["splinter", "Splinter"], ["tendril tip L", "Tendrils"], ["ridge 4", "Ridge"], ["tail crystal", "Tail tip"]],
+  "bottom": [["belly", "Belly"], ["paw BR", "Paws"], ["muzzle", "Muzzle"]]
+ }
+}

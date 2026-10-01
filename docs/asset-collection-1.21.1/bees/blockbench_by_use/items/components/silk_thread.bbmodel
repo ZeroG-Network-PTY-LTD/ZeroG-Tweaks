@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "silk_thread",
+  "model_identifier": "aeroapiary:silk_thread",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "silk_thread",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "7e9662ef-7831-580a-b4ff-638c1a4eea9a"
+    },
+    {
+      "name": "silk_thread_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "9d97f140-a5b3-512a-98c5-0616b5b821ac"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "silk_thread",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "613f2f61-685f-52a6-bb46-9bc29dfcb412",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "7e9662ef-7831-580a-b4ff-638c1a4eea9a",
+        "9d97f140-a5b3-512a-98c5-0616b5b821ac"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "silk_thread.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "9ef08f8b-5b43-559d-a422-f53ed9f44c24",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEM0lEQVR4nO1bzWsTURCffGyaSPGjiOJFGlqEFsQgQXopFLx4EcE/QahHwX9A/wr/A3vwphePXjwKIqi0jds26Vdqsvvy0c1Hs18eGnd3pu2m27ebLez+Tm94k/fmTWbmzcxLAGLEiBFlJHgXWLi/aDppTVd5lzw3NndFYG2J6wxpPwRptJk1HqcC/EAybAHCRuQV4Nl/ivMLyOe/rTzBDIZGdqBbpAhtYlIfYDqZIez2+vvlGjx789OiLxITLhQDnD4PAGAe2UIPBvgACaKAjIAPZJgGorudDqJzOawgVcXrU1m8IvIuwH0LyLsyogfqCAtIj7CALrUAHdHUAnjBrYCOqQKTFQAAYLICYhWbZDKJjcw0sUmn01gEyr9XbyN6q6pYY9bsAe8RIu8CkVeAZ/vZ3BURLZYOfBPmPDg2exu8twB3LVCcXzCdQog769aYVRm0m3iLbC6LaHpt6pod9NbWRNgo/7Lo0h8RPn38YNHNQwbtTjP8WuAEHIFbkvA3lM2OUICOo74s833DoxD5GBB5BQTjAsN0f+rOFNy4PeXKStIChNJqGcTtnM2byJ3NfEEEowAHOod9RBsGzvyoAjSNFFMBI3aBoDeo13AUv2wW4LsCzAGAMeyKyTUGDcm9RUYVoqo2vyQxOKjatYDMcF3gByLvArECwhYgbHDHAFXTQHUErkQGIDXsedzKT8HNu+55gBtKq2Uo712zaCGju3BfDIHfAnK9iehUijZFMWjDJGjELhD0BjQPuGwW4L8CdADTkQcoLXwgw8DlryAIiHb2BCWJgZCx59MZzOsHIu8CsQLCFiBscPcEH9wrop5gpbqB5g2Oq1tc34akgIuj2Zlpa1yrVGDp8fMzP1+pitDtK65nDPwWaMi4gKEvRfRWoMWRRG6R2Zlp0Hp2Z7h5GL8NcmHseYBnC6jjz9cqFR+lC0oBwzyA1Rg0JPfHzH4PH9jZFpdkBt9/fLNo1mDwcnkZ8e//3Tpz7WGMsBKR02JC4BYwDjhjAsWoGBHHgLAF4AVvTPBfAYYB2uDYJK9en4DCw1k0nUie3+jW17ZgZ3/SopOpk/Gk8GjJdQ1njDgtJoz9Fsjm8OMGvRWcTVG/4JY3xDHA7wWpT0p1/I1OeLSAoF+HPStgLl9ABf7713kAyFv0l3cvEH+rh3N5mujoOqYFAYuUB4zPb4vWWBTr8GolhCBI/YixzhmcwcDP/eIY4PeCrNFF9GgXwC0zQXDvGYpi3XW+pbjXDnSeWwGGaYIxbGQy1oWvpRqap8UODXr0MZT2CGmT9Pd+yxqzVh+cvz1uKexErr+49NT877JNhcFAPULzkXeByCvAswtUquR3gsQnj83ShncXwDR9JqAuQX2aokzkpeDuCc7lCyZvW8oLdMdfck7zaa+IvAtEXgHcLnAlOznWxzz6rzReF4gRI0a08Q/Ppf7+gQTSMAAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "",
+      "name": "silk_thread.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "3c536ffe-659b-5189-be52-d98d877ab1ba",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAJ0lEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAIB3A0BAAAGP8slRAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1"
+}

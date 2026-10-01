@@ -1,0 +1,305 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "pulsar_dust",
+  "model_identifier": "zerog_tweaks:pulsar_dust",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "pulsar_dust",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.99
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "577b089f-e6bd-5237-8b17-8eb922366d6a"
+    },
+    {
+      "name": "pulsar_dust_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.98
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "42013cf5-47b4-5ab3-8f5c-e93a11a64f18"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "pulsar_dust",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "be3575c6-2d54-562e-9cf8-d0695f91aad1",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "577b089f-e6bd-5237-8b17-8eb922366d6a",
+        "42013cf5-47b4-5ab3-8f5c-e93a11a64f18"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "pulsar_dust.png",
+      "name": "pulsar_dust.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "e28b9047-afe0-5940-a783-347c3f299e6c",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABhElEQVR4nO2aQUoDQRBFe4JbcZFdwDM4aCA3kNxAXCsMniBnEE/gxm0IgayDNwiojBdwI7hzIR5g3KYqMkXTnfkZ6r9dpbvJ51O/pjMkBEKIZwprw/qrabbr6agwz3RJqr5BXjn9gwagBaCB5xk9Y9x3AA1AC0CTnDd0hlNx3wE0AC0ATa/yGkL+meO+A2gAWgCazmfA8elF07b++/nK3wJdQgPQAtDsPW8688vNi1if13L/qhqLet8zwX0H0AC0ADTZ8xWbeU29eRf1x9ONqHPPBPcdQAPQAtAk5yk289dlaF3XM0CTeya47wAagBaA5ij2QOpzfvYoM15OzqK+/+T8Sn8k9MTOBPcdQAPQAtCYMyD33f6+kpm3ZoJ1L0idCe47gAagBaDZmQG5M69JPW8ROxPcdwANQAtAY94Dbu8eRD0sL1v3f9fPrft1xq39seuxuO8AGoAWgGbnnqzvAf88V3vFz9tC1LwHKGgAWgAa8/2Z9Z+eQ4fvAwxoAFoAIYQg+QPfWoNHqsKmXwAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "pulsar_dust_emissive.png",
+      "name": "pulsar_dust_emissive.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "dbc3c81e-7792-578f-a793-b3f279d408b0",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAwklEQVR4nO3awQ3CMBBEUYcyUhElUxFthGvExUJr/G3NfzekRBqtdhwQaU1SsqN3wet9XffPz/Po3jNTNd9jbJz9OAA6AA3vM33GxG+AA6AD0Mp9oztcFb8BDoAOQNuqr62NP3PiN8AB0AEkiTT9e8Bqvx3inwIOgA5A+3v/Vuv8t/gNcAB0ANrwPvY6v9qZEL8BDoAOQPN/AToAzQHQAWg/97Xa+dXOjPgNcAB0ANr27wlWxW+AA6ADSJIkSZIkzfYByz40R+V4NUYAAAAASUVORK5CYII="
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

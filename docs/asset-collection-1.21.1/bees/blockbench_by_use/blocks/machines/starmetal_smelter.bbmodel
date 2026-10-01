@@ -1,0 +1,444 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "other_starmetal_smelter",
+  "model_identifier": "aeroapiary:other_starmetal_smelter",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "starmetal_smelter",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 2
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 3
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 4
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 5
+        }
+      },
+      "type": "cube",
+      "uuid": "55a7c6b9-557f-5ec8-8c3f-debcc92f37b9"
+    },
+    {
+      "name": "starmetal_smelter_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.015,
+        -0.015,
+        -0.015
+      ],
+      "to": [
+        16.015,
+        16.015,
+        16.015
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 6
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 7
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 8
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 9
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 10
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 11
+        }
+      },
+      "type": "cube",
+      "uuid": "2c166b6c-1533-529d-9503-1ecc1c963f86"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "starmetal_smelter",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "56b614f4-c6a0-5c59-a7c9-6fad6e2e9d67",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "55a7c6b9-557f-5ec8-8c3f-debcc92f37b9",
+        "2c166b6c-1533-529d-9503-1ecc1c963f86"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/starmetal_smelter_front.png",
+      "name": "starmetal_smelter_front.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "a374fedf-8561-5253-b0b0-182de7536492",
+      "source": "data:image/png;base64,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"
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/starmetal_smelter_back.png",
+      "name": "starmetal_smelter_back.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "0ed27a6e-79bc-5641-8f4d-724be804ee0b",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAFj0lEQVR4nO1bv28cRRR+uzO368jEBKVKQQUIgkUAG4MQLSkQFFQpkBACQorwF1BQpKGmo0DChCY1YAgIS9RUUKVI7hQdMpax7L3duwTf7s7sUti3O+9bx6M9Y9aR90mW/HZ2Zt68ez++eTPrLL16MSeDkjQ1WXIch/Fep8P4OEkY35GS8TrLGJ/nbDrKct6ulWK8hPmw3RWCj6c14wXIY7b/9WeXJBFRFAXFw9SigA4IlIACJE54jBVAROTSCacTrwCJD6599jnjk4S7hO97jFcpN0nuEEQaTA4J2wWYNLoUuhy6KJLpgr27XfruxlflXFJWFUBEtB08OCZ4HigAfJK/fbwUsB+1LmB7IRgEjLdZgIIf5LhbgEyVYotwXZdcd9cwgkFAN65/wTpcfOsShWGpFBQQF4AKsgmMLoc0kW2/+cMwoFu//8ban55/qUjzwyhgaVQr1bpAq4CmBWiaZJZnDI4Od8Y0Go+JiOhePKY33n6Hdbj26SfF/2ubWxQMQtaOQQdjBEJhjBG+5/P3ib/vEI8hZky53evSuXOPF3y/36XNv9cLPonHTL4sz+xZwAx4E4pVOYiJGYiaVcCD5D2IWheo22Ftc4vx24PDWQDu7rxDWkBdko7jsEG01gU40VqzvBuGAV396EM+ACwQ87hNITaggrgi3otPE0IFzD+/WLiBUorNJ4QkpQ0coFsc0CrgxCtAZlqzMpGUsvAbKSXz6dnZ07T87ZcFv7a5RaPRfTYgBrlU8ZiAPp3GfHODWB99HNOmSXd6Xfp19ZdiDiEEK5m5QlBHliU2KTr1swDRwTigSQVMQ60L1O1gwwFHbQGIGw5LMssylosRB5gURQFdef899sz3OXAZ7+wcOCGWqXFBHSi4IE6wAZ8LLy4VOEAIQUkcF21pErMfKKe8dYFWAU0L0DRJF3KluTdwHIelndnZOfrmh68Lvr++QYMgZAOij+LRFbbHMcf2vj/DeDzKwriE9YDVmz8WfBLHrH3u0bMUxGWMch13Ohzwz7iM3IgDmlTANNS6QN0O/fUNxiMOqGsBCViAZ7EA5Omw9YA4iSlJylyp0pTUHv5XacqOw6MwoKuXP+ADwPE1AiEbbyNUWIr3EQA3zF9YKHCAKwRlWRnDhlFAWpfATOm0dYFWAU0L0DRVgqAQgu2nTR8889hZur68XPD99Q0aDu/xASybISn4lI578G+goMZoxquJjBO60+vS6k83y7mTmO0lHjl9hgZjXr/4z3FAkwqYhloXqNvBhgPQAlSlHlDPAvQRW4D0ZIfVyZRxXwDLT1EY0MdXLrNnuWW/bsv7acoX5EF9AesB6BI43+LLrxU4wPd81j6KAram9n4AtTGgVUDlbBDPBXaMGp/nn6KVlZWC368egNtbG2EQw+3uzAzfHI3hbNC8tHW716WfV74v343HvAaY56zo6rpHUA9oUgHTUOsCdTvYcADu721kswAfLACPx3E7XJekeQ5AVMUB2gAyu+cC77IBEAcgoYCYx7FgglQpiFjme+6FJX6P0ahXiE6H3KQ0esd1Wxc48QqwxgDza5KHgfr9bq33JVFGu38Tyvf+dv/v3fqDdXj9zUuMrwQtwPKI1TGN4WGo7bI0xgDz8nS/363I++T5BRru/YiZ1qymqJJkOhxgBpnjpIBpqI0BdTugj1UswLNYQFzTAoTFAtLDWYBUB3wv4LouPXPhFdYhHPALEpin78OCcIFIdev+eJ8AFfLUs4uMj8Jt3t+QV2fabgHDhywL1JW3jQH4oHeX+zhqFE2u8iUm3vGp6QIKv0S1uEClJAfz2UpyzhPnF/KRsUj8NBYHqPispUaHaQzrjLaaYkVgy/w2Mtc3ioLWBU68ApxTs3PMxv93F4Cvx/F7gIrAlZuj9VxASr6+fwGDpnVHCaRdsAAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/starmetal_smelter_left.png",
+      "name": "starmetal_smelter_left.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "2",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "6bc02977-5350-58e5-a3e8-b63b65940f4c",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAFnElEQVR4nO1bv4/cRBR+tsfei3KBi64AIdGBEIcS8lMpQkGDRHFIVCkoAAmSICpqCiQq2ogCKAhSaBCiiFBQAoryB1BBARJJfIQD6YrVnXe9FzjbM2NT3J097/PdTrybaC9Zv2qfZ+fXt++9+d48r/PSy68VZIiU0lTJcRym+77P9CzLmC6EYHqe50wvCjYdEXFdScXnC/yh7Z7wmK6V5uvxxa7t//wdkiAiiuOofDhNABARuTTlMvUACHzw8ScXmC4z7hJBJ2C6UtwkXXAZrbnJoSg0WTBpdKk05S6HLopiuuDtP0O6/M1X1di+qANARLQW7R4TguA+AwDtwrMAkI0OwE7SuoDtC1EvYvqjZgFCKcU24bouue6mYUS9iL699AXr8OriGer1K1BwgR5sAAGyLRhjDorrcaM15+/3I/rtl59Z+3MLJ8pjPo4jdowqqVoXaAGY9AImLWKTilZ0NEtTytK0/Lz4+husw0cfflB+XulGtH53g7XnmgcdpKJIhZHadmY6Q7+PMcTU/7gd0lNPPl3qd/4KqdtdKfUsTSgvqvXlRW4/BcyAty3SCNyra7wdoy4GyRoAECQ7ndEB2G29w6R1gaYdVrocYZM1Eo1vAQFYAGH2aLGApiIcx2GDKKVLcqK0LjkB0eY5+9759/kAsEGkzjZAbEQFeUWaJkxHAA69eJz6W26gtGLzCSHoPwNwrVse0AIw9QAIrTS7JvJ9Qf6W3/hCMJ/ev/8AXbz8aamvdCNKUh7EMMhhTECfziC/N2MOEZHjch9H3mDKzTCkG9evl3N4nsfmcz2PXekJ4Tc/BYiG84DGAGQWACDI4akxrrQu0LQD8oDVaLgFqD1uASLPc3YWIw8wpd+P6N13zrFnSF2ThOcGtQmBB9SIEFy4IE+wEZ8jR0+WdNjzPEq38hqizdzG/IGKomhdoAVg0guYtAhPeKy8ZOYGjuMwH52dfYy+vvh5qa90I+r11tmA6KNYusL2ZINz+5l9M0zHUhZesprj3QxD+vHq1VJP05S1Pz43T2vdKka5rnsfeACcAjUAPAsACQAwAwDoewdgFGldoGkH233Aw2YBIklTdlYqKUvyoqRk3HmTB5xlA2C5HImQTbcJbhCJE/KGQ4ePMR4gdRXDBnFEUlXETCnZukALwKQXMGmpBUFPeCyfNn3w4MF5uvTlZ6W+U12glg5DrQ9zAaz1oWD/gRGvtte4LbeWQrpx7VqpJzJlucTsgTnqJf/y9QydfbdFjXEfUAPAtQAA/deHADCKtC7QtIONBzxoC7ibcQtwx7QAEfg+O8ulrN4XwFy934/o3Nnz7JktX7ed+wlsCO8XcHzba3wnTp0u6wJB0GHtgzgibdYFVFsXaAGYegBqtUHfF2WgEkLQxkZ1znc6++iH778r9Z3uA2JIbmyCxxgmOzMdnhwlUBs0c4FbSyH9dOVKqadpAjGoIMcIus6DuA8YTBCAUaR1gaYdbDxgPW1mAXiO52ABHbAALI/7Y1qAUFozs0MekBr5cxxH9OZbb/MFW+r7aKK2UhkKuoRtvsNHT5Y8gIhqtUBlxADXdVsXmHoArDHA/DfJwyDLy2Gj74u8yNm7c1lRULZ1dkoqKPz9V9bhlcUzTEcfRS5vuwTFZAhjgu2dIvOOcHk5rK33meeP0WDrR9RakzS+L2U2Gg8wg8xeAmAUaWNA0w7oY2gBQTDcAvAcr1mAyy3As1iAlONZgNBKsRzZ/L+A67q0cPgU69DrrTIdAcAN2S48mt774x0FAvLswnGmx/01vt68Wq/W+tE7BQYN19vGAHywdIf7OCKKJrfXXADns13JOS8cOV2YmxSWWl/tpSXLHR0GMW3ZgK3Yie1mre9exBfV/tbjqHWBqQfAmZt/gtm4EA1dAEzQoYYuUDR0ARhf6WYuIDy+v/8BKZ1xuxexdcsAAAAASUVORK5CYII="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/starmetal_smelter_right.png",
+      "name": "starmetal_smelter_right.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "3",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "d6446ff9-20ac-509c-b899-f58d33e23f94",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAFmUlEQVR4nO1bPWwcRRR+uzN758gxJKQCiY4fhUQWJCEgQUkRiRRUKSgggIOEqKkRKajpoEgiUiEqlFhKhExBSwUFQsLZIxgLozjx3t5d7NvZ27mlsL0771t7hz07Ohvvkyzd27nZefP5fW/evJlzXn39XEqGxIOBqZLrOEz3PI/pKo55u5RMHw6HTE9TNhwR6IMkYXoDxsN2KQTTE61L7dFG++JfPkkiok4nyAcAABwLADEAIHcIQAITxPGwXQAAGgBAe7DdpQMuBx4AiQ8++/wLpg9iTolGs8F0dEmkjE64y6EgZ5HT0uMmKsUphzEKRRsU9P/w6btvruXvlrIIABHRSrB9TGg0KgKgywHAduQ0chhjDo6HgjEIpaaA7QtBO2D6/80DZJIkbBKu65LrrjtG0A7o2+tfsQ7nzl+gdpiDggbiBGwAoSDlUDZt22r8MAzo159/Yu3PnziTLfPdTsDsSZKkpkANwLgNGLdISlOWjqpIkVJq/bNSdP6tt1mHy59+kn1eWg6o3e6ydgw6uI5jKpwMeIxoTjRLv48xxNR/v+PTU08+nel3//Tpn+W/M72v+qTTPOjqVNtXATPgbcrACNwPAt5eAEBaAIAg2WyODsB29pZJTYGqHZaWOcIre8wDqop0HIe9JNE6S0601mzdDcOAZj64xF8AE8R13AaILVHBvGJN9ZmOAJycPk3hBg2UHrDxhJTUNwDXdR5Qx4AaAKkNzhOt19A2eSOlZJyenJyi67NfZvrSckAPVzknMWhhPUFIzuluXzEdc33kOAZNU+ZbPv04N5fFDSEECTcfT7iCldik51VfBYggD1jhq0ABAAiKGNR60e4BMIrUFKjawZYHVPYANV4PkHo4ZGsx5gGmhGFAF999jz3DxGU1WisfUHDME43nALzggnmCLfGZfunlLA8QriAV5wDHsWL/oDRNawrUAIzbgHGLlEKwwOQaewPHcShK8iA2cXiKbly7kumL9+5TOwjZC5GjGPSwjt+PIqYfmphgOp4bYFwyx5tv+TR361amq1ix9seOHKP2cp63uK47Wh4QGYkArgI2ALA9AgAmAACccBkAo0hNgaodFu/dZ/pKe397gOzHEUVxbsRqHNPaxuFDfxCz3DkMA/po5n32Ak/y42tMhGy6TXCC8YAfjGDecGL6VJ4HCEFDA7BeJyBd1wO41ACM24BxSyEICiMvEEIwDh49eoy+vsrzgF73Ietv2wxhTRA3PyjYHw9HzSB7p+XTD7dv533jmO0lJqeOUBitcntKR99GyvKAcQIwitQUqNrBlgc8ag8Y7LIHSM/z2Fqf6CTbo+NePQwD+vjSDHs2TMv367Z1HyeE9QWsB9iu8Z05+1qWBzQbTdbeg/sBdR5AdQyoASicDUohs7qdFJL6/Xz/3Gweops3b2T6VvUABUVOm9iuuuLmCDdP5qWt+ZZP38/O5t9VEa8BUsqC7iOpB4wTgFGkpkDVDrY8IN5lD2iCByjwAG+HHlA4G8Q8wNw/dzoBfXjxHfYC2/k+uqjtoAQFAbGNN/1ifi5AxK/bS+mRNmKA47o1BQ48ANYYYP6aZD/IwoJf6fuFe4KUbvxtfG799gvr8MabF5heCFqQy9uKoLgZsl2Wxhhgbo8XFvyCvc8cP0XdjX/iUGu290gG8Wh5gBlk9hIAo0gdA6p2QI5ZPYDAA1RFD4DjdNx+79QDSn8v4LouHZ9+hXVotx8wHQFYhQnZCh6Fuj9MCPMIDRckkBLPvnCa6Z1wZVt7tf4Pd4X32yrQrWhvHQPwQesu5zgiii43xLO6HVIAS2SY69sogOPZSnLOcyfPpr3O1rnzVi8oGGyp0eEyhpec0op3gAgvTVl+Y4Qijfn1ukFNgQMPgHP48SeYj0s47sZfdxdcMCmngIB1XOu9QwEion8B6YZzcsqRmhgAAAAASUVORK5CYII="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/starmetal_smelter_top.png",
+      "name": "starmetal_smelter_top.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "4",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "ee0572cf-89fd-5baa-b4ff-eed229335ede",
+      "source": "data:image/png;base64,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"
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/starmetal_smelter_bottom.png",
+      "name": "starmetal_smelter_bottom.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "5",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "f5bba621-9c2a-599f-b7d0-2adc407ff213",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEbklEQVR4nO1bS4vUQBCu7vTsuu76FkERREQEL15FQfGk+Bu8efbneRAEL4L/QQbHVQTxMTtx1cn008OumdQXp5v4IGq6QJjadCeVsr96R5y/dCVQBxJCML6QkvHWOb4+8NsXSjHeWct4YziPz2vJI/n14PnzlCpW7n3zakyKiGi3nEYfEhNIggIcKIA6KsDajgqA6wGfV6xWABGRjF4dAA1eAaqQkh3je/cfsAV4pNfW1hiPR85aw3jv+HUBKvfeR9cjxGTBj7zAGxLKs4TUZDKmZ08eLZ8VPHFA7tPOztIm/LICwCghpFsK8AkFyJ9XwI8oQyC1YDbjHuJ/OwHKec+E8N6R93vHfjab0tPHD9mGqzduU9lQiky4IYFxguEKkuCm8IW10YwfFfz/rLm/LKf0+sVzdv3EqTMUo8FDICugbwH6JiVCYOGqELI2LEJIun7zDtvw/sM7xgfMDSDURSOHNgExj6FzDPNERFovbcTGxhaTd3t7TLufSrbeNmyKNbq7F/jbqau8g4fA4BWgfAjMd1tr6mDGWtOKXDC9RN5o7reRRhBIeawfwPMwFNdmEb2/Mb7xW2NcxOQtZJFPQFZA3wL0TSqADZCN+oCUsuXHEZMY+yuIA1K5gHWcb9kcSHZGahSVx/klv3XoCC2qquZ3yylb77zLJyAroG8B+iYlhGC+17tQFyW8D4RF6QCOFfsCTQwSEenqK+MxlkdMe7h/C+OW85h7qMa7lOWUvFvasM2to6Srec0LIfIJyAroW4C+qRUHBPIUwh5uQvC00BXbgBiuFnOKEcb+BEVP43jREv2+BCtkwcYEiCsKuZRv771WF1mlkPkEZAX0LUDfpKzWrE4m9v99/702gkYI3ABzAazhLTTP39FvI8YxjsDcINUub+733pEDG6Mb8lhr8gnICuhbgL5JKVVEx0gMNDsR82gjkBDzuB/jimDiIzbY7ByNeC6B67HZ2nzXnAtQhkBWQKs1hn0BrOkRDjRg/g4YbfUGwY8byPdx3sBjzRFsRqxmeXDzMFVf5yvXhxDyCcgK6FuAvkkZZ8m61YNEATCGfhzze/TD2P/HvgDaGIEzQ4n5gsWC5xrJmSUc9aWBU1ZA3wL0TUoEQaKRkyul6v6eUqqFqQr6/63sHP14Ig5AG9OaF0iN4wM1e5NlOa3rm/Xz0EZF7zYAGrwCklNiJUxdrW9s/jFhfgeVHb5+ISJSQvDaeTWvqNrvqVdVRa8nfPb22q27TCnoh1vD1IDxVk0wMROUshkH1tfr3+VsSm9ejtn1Q0eOM95AjXLwEBi8ApI2AOnVNj9iOgEBTI8RAiJRFseSmYNQWkF7vSsp6xzDnRrxOODYydNsw+eSz95iamA1FxAxjfVH7+OYxw8i9AJ6lRAnnLtwmfEf37+N3r/zCfjb6VNHL5BtAP5hMhn/aN0/Q/gV7IGNreh6cfbcxRA7NohhxBzG+kip9Riro9Fs5e+JT2Exl8D1zevV/EuGwOAVIMReLLySWiWw/4y+AQawUIihrz3NAAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/starmetal_smelter_front.png",
+      "name": "starmetal_smelter_front.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "6",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "7a1985b8-15c7-58dd-8da3-e832cea5e08b",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABMklEQVR4nO3YwWrCQBCA4UT6AlZaL7Z30RZE7+2D+Jp9i5ZC1YO9FQqBiNmDkkMrpKewLZRshtlVZP/vJOxkyIaZSdwkAQAAABCjVJtg/lFV9W9T5snTsJ9K1kPnc7nQXFz7Sg+q9dD5mnS8ZTpT6gowZa5aD50PAAAAAP6jPg94Xn1W7qgwZqOB+v7VTvkAfIj+PCD6B6DuoUVhz+juLlNnvteNjZ9c+Y+X8nIm+C2cAtKNhNh4LfoWiF7w9+hLbnt4eu0uZelM0fIyA1zabPw36UzRYAbEznuPSd/bb1sbf987/ndBkBkgvbHQ3xFNmAGxU5fS+972ZGaK5OGm15hzaWz8uOsu5fXub/7H2+b8Un7+C0jjhT0vzS8R/QxQV0BmClF8m7LX5AcAAAAAAHD5AXuzed3Zx1q1AAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/starmetal_smelter_back.png",
+      "name": "starmetal_smelter_back.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "7",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "2b608ec8-1257-5f52-b59a-b50c7ff91a2c",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABEElEQVR4nO3YzWrCQBSG4S+lt+Ciu0p14ba2urXUy664F3sHShFE4g9CkUpbSseFiE4WlRO1E5L3WWWYOZOT2cxHJAAAAABFFFkLpu/O7Z7Hs4Xq1dKfe3T6Q3c4ds4bqv1Y8eq7r2/+evnro0TLUbQft+5vzd+T6gC+fn4lSfPl8ugBZN1V6AZCu7YWjGeLS/QBAEGcnANWqw9vPnnPP9XL3juSueD54S7oNUoOCN1AaOQAAIVmvsLigxwwmsRq1m5Me7z0Bl4OaDf8/wHH5s8t1QGsP78lbXOA9QCyhhxgLRhN4kv0AQBB/HsOyBrzLSBJuxyQB+QAawE5AECekAPSFJEDcoQcAAAAAAAACmcDwk1zgMw0NDsAAAAASUVORK5CYII="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/starmetal_smelter_left.png",
+      "name": "starmetal_smelter_left.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "8",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "0f56c83e-99b4-5231-bbb3-52a4fda52db5",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABTklEQVR4nO3ZMU/CQBjG8WvvDHV2cHFAFx0cFOOgk/GDG7+AfgTixAChJGKktD3qhPCWWHOl0kr/v6lvrtc7COGeuyoFAAAAoI081w7vn1m2vB4MQzX9mIn2hV2I2hwYUWer7koppdIkFXUn6BTe73nej/XV+bHz5zG/37Ipsavr28sT50GbxK97AnVz/gUMhuFfzAMAarF1Dojmch3Pr9tJkohaay3qeB6L2vflwuT5cor53LDuvne6+xxQJnw0CTnAtQM5AMA+2ToHTCZT+cDcfl0bXdgezSJRB4eBqG1qZW1lvf68u+vu7nNAmUGbhBzg2oEcAGCfVP5eYOM8IJbnAcbI/11fFy9E+f5l9vxFeC9Q9wTqRg4A0GqVnwdUvT1+fn0TweKhJ5//9NL/bn+8OXMeu9QXsMwBo3GoLrpH5ID/jBwAAAAAAABa5wt8dITBGWO7AQAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/starmetal_smelter_right.png",
+      "name": "starmetal_smelter_right.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "9",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "f1ff6c4c-f1ab-5572-9159-1376848af417",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABUUlEQVR4nO3aS0vDQBSG4UkaqXvBleAdBEFQI+JKtL9bxLXoLxBdFAppMIVYtZibG0s4EROmNUxC3meVw8yk01A434QqBQAAAKCLLN0F4UeWza9H40BNJqEYT9NU1M6KI+osX66UUiqOYlH3V/ul8y3L+rN2Dze0v49TPeW3KMmvL463tT+0SWzTGzBN+xcwGgd17AMAjFg6B0zfP8V4sW9HX5Goe05P1OdHm2IPN/dP4gbFvn/t7v5r213oAcxzgP8aqIOtNXJAm5EDAHSadgvzwrzRDz1fufvrpfe4fXgWfd0u9PXLE3mcvnt8EfPjJBHzB2d7ZnOAF2bZ7CcI+EFQ+QCajhygu2Do+XXsAwCMWDoHvIVTMV58H1A8vxfP+7Zd3oiuTndqbbPkANMbMI0cAKDTan8f0HQL/T9gFiXVk1qCHKC7gBwAAAAAAADa7hvMrIREufENOgAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/starmetal_smelter_top.png",
+      "name": "starmetal_smelter_top.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "10",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "c4cea042-01ac-5dd7-83ca-8862130fda85",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAqUlEQVR4nO3XuwrCUAwA0Pr6AYu7o///UR1a7ODgIlInEYutCDYZ7jlTyy0khCaXVBUAAAAAAFCKVXTAy3UYps6atq9Oxzo0p21ksKfbPSPqZ+vsBLIVX4DF+23c899+/93m9RwxE0JmwC89Hz0fim8BBchOIJsCZCeQbfFboGn7t/dDvZ/9vjv3s+f/lrILTF113Tl+Fyi+BYovQPg2OJ4JAAAAAAAAUR4Q9CeKFSyTnQAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/starmetal_smelter_bottom.png",
+      "name": "starmetal_smelter_bottom.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "11",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "3a9f73d3-7dea-550f-baa8-51704eb25064",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAJ0lEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAIB3A0BAAAGP8slRAAAAAElFTkSuQmCC"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "solvanite_block",
+  "model_identifier": "zerog_tweaks:solvanite_block",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "solvanite_block",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "cb46d669-c4ee-50a3-bdbe-e219822b01ce"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "solvanite_block",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "bc4eeb36-9502-5fec-b96e-f59343a5c2ac",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "cb46d669-c4ee-50a3-bdbe-e219822b01ce"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "solvanite_block.png",
+      "name": "solvanite_block.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "946a4225-079b-5643-a955-492c97a4c1ba",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABIUlEQVR4nO2asQ3CQAxFCWIS2hRZigFulIgJGAOxBRIDICpGoAt1LkVk+cgT9n/dFTl/fX1biHM3PS/TLjF7WgCNDKAF0BzcN4yj7/tSNq3fnx+zc/oEyABaAI19Bjh7/n59z85D2bZ+TfoEyABaAM36DGjc82Z+XD99AmQALYBmOQOC93xN+gTIAFoAjfv/AGvP3V6f2XmAZ076BMgAWgCNeQZ4e95L6/rpEyADaAE0qzMgWs/XpE+ADKAF0HTN9wOsv+29b4PG+nobrJABtAAafj8Arp8+ATKAFkCj/YCmt/0hMoAWQKP9ANftAZABtAAa7Qe4qgVABtACaLQf4Po6ADKAFkCj/QCPmAjIAFoAzeJtsD+eKC0I6RMgA2gBNF/YRG41lflHxgAAAABJRU5ErkJggg=="
+    }
+  ]
+}

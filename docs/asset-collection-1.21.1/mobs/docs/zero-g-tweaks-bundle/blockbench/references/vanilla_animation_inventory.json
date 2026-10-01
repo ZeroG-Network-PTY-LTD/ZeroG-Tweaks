@@ -1,0 +1,1156 @@
+{
+  "minecraft": "1.21.1",
+  "client_version": {
+    "id": "1.21.1",
+    "name": "1.21.1",
+    "world_version": 3955,
+    "series_id": "main",
+    "protocol_version": 767,
+    "pack_version": {
+      "resource": 34,
+      "data": 48
+    },
+    "build_time": "2024-08-08T12:21:55+00:00",
+    "java_component": "java-runtime-delta",
+    "java_version": 21,
+    "stable": true,
+    "use_editor": false
+  },
+  "source_archive": "/mnt/c/Users/jakem/Desktop/ZeroG_Mods/ZeroG_Tweaks/build/moddev/artifacts/neoforge-21.1.252-sources.jar",
+  "source_archive_sha256": "c93a82a2e34a1e51820ecf655dc6923987cb4bcf2653f096c218be6f8f92eb1c",
+  "mobs": [
+    {
+      "id": "minecraft:allay",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/AllayModel.java",
+      "sha256": "4b086952056ec9425a833e56241fb86ddb0306ae65dba200691e9324b946585a",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "HierarchicalModel"
+      ]
+    },
+    {
+      "id": "minecraft:armadillo",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/ArmadilloModel.java",
+      "sha256": "3f8382f7445b6a5579d500b4cb603d6ab6999fbca9115e3c8541dc6aced38548",
+      "animation_methods": [
+        "animate",
+        "animateWalk",
+        "setupAnim"
+      ],
+      "animation_definitions": [
+        "ArmadilloAnimation"
+      ],
+      "inherits": [
+        "AgeableHierarchicalModel"
+      ]
+    },
+    {
+      "id": "minecraft:axolotl",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/AxolotlModel.java",
+      "sha256": "6e304296c9372f6f3fc3a7beca09592e7f9c561e2f2533fa74434c4eb55a7e57",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Axolotl"
+      ]
+    },
+    {
+      "id": "minecraft:bat",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/BatModel.java",
+      "sha256": "0b97c8138dd102429ebd50a1642c6c29b2fd46d2375410cb8346b540654d3a76",
+      "animation_methods": [
+        "animate",
+        "setupAnim"
+      ],
+      "animation_definitions": [
+        "BatAnimation"
+      ],
+      "inherits": [
+        "HierarchicalModel"
+      ]
+    },
+    {
+      "id": "minecraft:camel",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/CamelModel.java",
+      "sha256": "3c1e307ad73be4479087469776aafa8b6a4af6f3233c443d135b7dc1fe7f8142",
+      "animation_methods": [
+        "animate",
+        "animateWalk",
+        "setupAnim"
+      ],
+      "animation_definitions": [
+        "CamelAnimation"
+      ],
+      "inherits": [
+        "Camel"
+      ]
+    },
+    {
+      "id": "minecraft:cat",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/CatModel.java",
+      "sha256": "cefc03b6ef53ef8a12d5fb2e17f22411b8dc48f62eb5675a9bbdf581e0354922",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Cat"
+      ]
+    },
+    {
+      "id": "minecraft:chicken",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/ChickenModel.java",
+      "sha256": "ad9d72375af14ce48604b1842a30db8f211430ccbb0fd7e52e50bb711c44e48b",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:cod",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/CodModel.java",
+      "sha256": "3c9db521fa00c718dd94940fa95f730a0a74cf640bd743cfa8878875a375287e",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:cow",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/CowModel.java",
+      "sha256": "9ea33553fddbaa84b90e421afc06eac92051d3f2b2da7111214b5264b7f14749",
+      "animation_methods": [],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:donkey",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/ChestedHorseModel.java",
+      "sha256": "2a04dcd6a67aa6610e3019c3b961bad5838318e505fd2a1ebeaeada4d5814a53",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractChestedHorse"
+      ]
+    },
+    {
+      "id": "minecraft:fox",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/FoxModel.java",
+      "sha256": "0c112dc21d1960f4d37561151f9c199a768f0aa213d50b5a853037bcb6e1fcb4",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Fox"
+      ]
+    },
+    {
+      "id": "minecraft:frog",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/FrogModel.java",
+      "sha256": "780d87fefa4cd18985c25d99e20c001afbfca78f7b8fc09a7f9b5096c1d74a2a",
+      "animation_methods": [
+        "animate",
+        "animateWalk",
+        "setupAnim"
+      ],
+      "animation_definitions": [
+        "FrogAnimation"
+      ],
+      "inherits": [
+        "Frog"
+      ]
+    },
+    {
+      "id": "minecraft:glow_squid",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/SquidModel.java",
+      "sha256": "13f4512360c036d5d627149c497690bdb65df23d7deebf7bef4571d1d22513b2",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:horse",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/HorseModel.java",
+      "sha256": "d6c4b7c29c469224f0f8579a1c73233c9e5cb29524bb5ac7912b319d02793d8d",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractHorse"
+      ]
+    },
+    {
+      "id": "minecraft:mooshroom",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/CowModel.java",
+      "sha256": "9ea33553fddbaa84b90e421afc06eac92051d3f2b2da7111214b5264b7f14749",
+      "animation_methods": [],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:mule",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/ChestedHorseModel.java",
+      "sha256": "2a04dcd6a67aa6610e3019c3b961bad5838318e505fd2a1ebeaeada4d5814a53",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractChestedHorse"
+      ]
+    },
+    {
+      "id": "minecraft:ocelot",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/OcelotModel.java",
+      "sha256": "b6416895e08e2960ba2a6393b1fda424d9707b827b51b20369dbd4e459c1d55f",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:parrot",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/ParrotModel.java",
+      "sha256": "5c6daed35c86d1d81a84a3b1e4b6a46d96d89dbb05653ee00a94125912cc6808",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "HierarchicalModel"
+      ]
+    },
+    {
+      "id": "minecraft:pig",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/PigModel.java",
+      "sha256": "df6186dcd45fcca87ff13891c993befd4a757a2a8d584d654373c17542ec24b3",
+      "animation_methods": [],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:pufferfish",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/PufferfishBigModel.java",
+      "sha256": "b1a882e37c40a070745ee878a429eb0f9a68cfea3ad84dce663dff72de5873d2",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:rabbit",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/RabbitModel.java",
+      "sha256": "ceea1988d72c70041047d1df68d0c50623c266ce811398d735fc9a4a3044bbfe",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Rabbit"
+      ]
+    },
+    {
+      "id": "minecraft:salmon",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/SalmonModel.java",
+      "sha256": "f8ffdea309b704e7b039525cce1067af237353d52f62f3dde3467c5b06a62a67",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:sheep",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/SheepModel.java",
+      "sha256": "162dc1c070fbec618465df058d523a0a0ad7184939c104c9fc554fdb6bec5d96",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Sheep"
+      ]
+    },
+    {
+      "id": "minecraft:skeleton_horse",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/HorseModel.java",
+      "sha256": "d6c4b7c29c469224f0f8579a1c73233c9e5cb29524bb5ac7912b319d02793d8d",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractHorse"
+      ]
+    },
+    {
+      "id": "minecraft:sniffer",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/SnifferModel.java",
+      "sha256": "ea611d32c44c5d238024f69c78e74950a4422158c2755121bb00de7e20ebea93",
+      "animation_methods": [
+        "animate",
+        "animateWalk",
+        "applyStatic",
+        "setupAnim"
+      ],
+      "animation_definitions": [
+        "SnifferAnimation"
+      ],
+      "inherits": [
+        "Sniffer"
+      ]
+    },
+    {
+      "id": "minecraft:snow_golem",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/SnowGolemModel.java",
+      "sha256": "44fdb65afe7d18e5e16869ce8ab620262c69e14ac6383118ade4ad427f8f73a8",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:squid",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/SquidModel.java",
+      "sha256": "13f4512360c036d5d627149c497690bdb65df23d7deebf7bef4571d1d22513b2",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:strider",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/StriderModel.java",
+      "sha256": "2bb60564bd436e0e2133349bfba4096a6388651101cc11b8d471fed1ae6037e8",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Strider"
+      ]
+    },
+    {
+      "id": "minecraft:tadpole",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/TadpoleModel.java",
+      "sha256": "ef258301edd5130848b60703f45f6998467bfd9d56da775abff6724e54d30f92",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Tadpole"
+      ]
+    },
+    {
+      "id": "minecraft:tropical_fish",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/TropicalFishModelA.java",
+      "sha256": "1c32d2744be69c7077fa0c50fea101ddcae67f3e6378a3b15e9e6dd3fea2821c",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:turtle",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/TurtleModel.java",
+      "sha256": "04461be8384c22fbce6b6beef22f87634b791dc5c092015b31a14c020ecc845c",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Turtle"
+      ]
+    },
+    {
+      "id": "minecraft:villager",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/VillagerModel.java",
+      "sha256": "47039bbe053db46045b2d268703ac80853e7b498638c3658ded313c51937afd9",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:wandering_trader",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/VillagerModel.java",
+      "sha256": "47039bbe053db46045b2d268703ac80853e7b498638c3658ded313c51937afd9",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:zombie_horse",
+      "category": "Passive",
+      "source": "net/minecraft/client/model/HorseModel.java",
+      "sha256": "d6c4b7c29c469224f0f8579a1c73233c9e5cb29524bb5ac7912b319d02793d8d",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractHorse"
+      ]
+    },
+    {
+      "id": "minecraft:bee",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/BeeModel.java",
+      "sha256": "5e42f4e1cb28249807c5f00b8b610191f6671067bb86bfbcfc06b620103bfa76",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Bee"
+      ]
+    },
+    {
+      "id": "minecraft:cave_spider",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/SpiderModel.java",
+      "sha256": "a333f8d235ba0113e00e98b0c81b11d58ebd11ca5884e6c6cd6fb31fafbd1952",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:dolphin",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/DolphinModel.java",
+      "sha256": "e68659e0f66c2bb4d9ed68d580f95f94ae059f2d2b73fd3ef957afff1f999ef2",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:enderman",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/EndermanModel.java",
+      "sha256": "f25afd9086f78a840a134c241c749a5d40578a1ab86e7cd5ed69b684deb641ce",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "LivingEntity"
+      ]
+    },
+    {
+      "id": "minecraft:goat",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/GoatModel.java",
+      "sha256": "44c87b0386f631488d42c7d8283a112168c9571e25ede5aa344748be22da0913",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Goat"
+      ]
+    },
+    {
+      "id": "minecraft:iron_golem",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/IronGolemModel.java",
+      "sha256": "05a06eccdc0ff15a6f2fa02c088148b2fb3e271dc70e4e82ae06fcb1d436bcfb",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "IronGolem"
+      ]
+    },
+    {
+      "id": "minecraft:llama",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/LlamaModel.java",
+      "sha256": "70fe9fe6dd8c429f91f53aefa7c6410e635feb314342b898e7df6f95da237acc",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractChestedHorse"
+      ]
+    },
+    {
+      "id": "minecraft:panda",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/PandaModel.java",
+      "sha256": "dfb2642f6842d36bed88f77e9f147925919585f853ef03b6a5a011598769904c",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Panda"
+      ]
+    },
+    {
+      "id": "minecraft:piglin",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/PiglinModel.java",
+      "sha256": "10dbe0741395161adc9af3c3957dca49abb2710444340cab8fb04f06995af549",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Mob"
+      ]
+    },
+    {
+      "id": "minecraft:polar_bear",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/PolarBearModel.java",
+      "sha256": "825ea77838a0a160665dc19669a89c624fbf6fb33dfe6029529dae52399a22b6",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "PolarBear"
+      ]
+    },
+    {
+      "id": "minecraft:spider",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/SpiderModel.java",
+      "sha256": "a333f8d235ba0113e00e98b0c81b11d58ebd11ca5884e6c6cd6fb31fafbd1952",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:trader_llama",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/LlamaModel.java",
+      "sha256": "70fe9fe6dd8c429f91f53aefa7c6410e635feb314342b898e7df6f95da237acc",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractChestedHorse"
+      ]
+    },
+    {
+      "id": "minecraft:wolf",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/WolfModel.java",
+      "sha256": "be065bde53c46023ada95a49b6e41fa819e10f047d46edf5d3a8f99dbfa48260",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Wolf"
+      ]
+    },
+    {
+      "id": "minecraft:zombified_piglin",
+      "category": "Neutral",
+      "source": "net/minecraft/client/model/PiglinModel.java",
+      "sha256": "10dbe0741395161adc9af3c3957dca49abb2710444340cab8fb04f06995af549",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Mob"
+      ]
+    },
+    {
+      "id": "minecraft:blaze",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/BlazeModel.java",
+      "sha256": "de9347098be45b6e6ec3c5fbceda7f6a3042a1fd6fbbd07b50d0b17f45657a81",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:bogged",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/BoggedModel.java",
+      "sha256": "f7904d63d8c6ca156f6ad31a3443209238ab33141f908d71a78048e9dab7afc1",
+      "animation_methods": [
+        "prepareMobModel"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "SkeletonModel"
+      ]
+    },
+    {
+      "id": "minecraft:breeze",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/BreezeModel.java",
+      "sha256": "095b89f3c659da6ae4660d5f6ef62a77ae9107bd1a7650945a14668caeebeccc",
+      "animation_methods": [
+        "animate",
+        "setupAnim"
+      ],
+      "animation_definitions": [
+        "BreezeAnimation"
+      ],
+      "inherits": [
+        "Breeze"
+      ]
+    },
+    {
+      "id": "minecraft:creeper",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/CreeperModel.java",
+      "sha256": "43f7bf567b3132e7236e3dcde21a2333ae929a613435b3279940f3760cc164a9",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:drowned",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/DrownedModel.java",
+      "sha256": "7a89d870056126a40b79ad2cce48ac544816e9cb548ec5b41b43718c1c90a9e2",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Zombie"
+      ]
+    },
+    {
+      "id": "minecraft:elder_guardian",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/GuardianModel.java",
+      "sha256": "78803bb5b7bc5e3b5138986dcc9cfa7008e8645b8c61c55f62956119fde615ae",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "HierarchicalModel"
+      ]
+    },
+    {
+      "id": "minecraft:endermite",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/EndermiteModel.java",
+      "sha256": "6a71bcda119874d8a647642b0904f9b08110680c59eac03f658788e45ec20ab9",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:evoker",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/IllagerModel.java",
+      "sha256": "6c2635d60289757e0c5ef429421322a50f23c072ba96df4bd665942a8d4d3d5a",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractIllager"
+      ]
+    },
+    {
+      "id": "minecraft:ghast",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/GhastModel.java",
+      "sha256": "3b78bf1a7fb0a16183ecf43b5523ebd4744751f90c6cc039b4557f889c9a52d1",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:giant",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/GiantZombieModel.java",
+      "sha256": "a3c9067238e25336ffd93545b09e275f635824ebd75fc1e1be7231de5647b8f8",
+      "animation_methods": [],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractZombieModel"
+      ]
+    },
+    {
+      "id": "minecraft:guardian",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/GuardianModel.java",
+      "sha256": "78803bb5b7bc5e3b5138986dcc9cfa7008e8645b8c61c55f62956119fde615ae",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "HierarchicalModel"
+      ]
+    },
+    {
+      "id": "minecraft:hoglin",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/HoglinModel.java",
+      "sha256": "eb717a5c7d76d3bd06cb0838fa313e2dd7a1577263ff861dd5f2e7f93d8026bb",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Mob"
+      ]
+    },
+    {
+      "id": "minecraft:husk",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/ZombieModel.java",
+      "sha256": "4c19675c68b55330e7799e1b5b4338fb4558a9610a900f6c17f754e9b83118df",
+      "animation_methods": [],
+      "animation_definitions": [],
+      "inherits": [
+        "Zombie"
+      ]
+    },
+    {
+      "id": "minecraft:illusioner",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/IllagerModel.java",
+      "sha256": "6c2635d60289757e0c5ef429421322a50f23c072ba96df4bd665942a8d4d3d5a",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractIllager"
+      ]
+    },
+    {
+      "id": "minecraft:magma_cube",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/LavaSlimeModel.java",
+      "sha256": "a41d233861c9e93b930a5868ff09c4d9ff173d5242920e7d486d90d88cb063c0",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Slime"
+      ]
+    },
+    {
+      "id": "minecraft:phantom",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/PhantomModel.java",
+      "sha256": "822875a46f5e4bbe7ac04955d98b4d70b088dcb68e8086edcd30ba8dd37df5d9",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Phantom"
+      ]
+    },
+    {
+      "id": "minecraft:piglin_brute",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/PiglinModel.java",
+      "sha256": "10dbe0741395161adc9af3c3957dca49abb2710444340cab8fb04f06995af549",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Mob"
+      ]
+    },
+    {
+      "id": "minecraft:pillager",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/IllagerModel.java",
+      "sha256": "6c2635d60289757e0c5ef429421322a50f23c072ba96df4bd665942a8d4d3d5a",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractIllager"
+      ]
+    },
+    {
+      "id": "minecraft:ravager",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/RavagerModel.java",
+      "sha256": "5f71b74e68f382ad3f2b0fb23f44da0c996818761d0ffde83972e727695d304e",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "HierarchicalModel"
+      ]
+    },
+    {
+      "id": "minecraft:shulker",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/ShulkerModel.java",
+      "sha256": "dd8780016b152014563d858be728092fe3904c8f07ee6d180e9814e686b261ca",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Shulker"
+      ]
+    },
+    {
+      "id": "minecraft:silverfish",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/SilverfishModel.java",
+      "sha256": "053823c0eb30ac1a93dd49d6f8ce6cf419e8d5649dfa7e8c768f8ded8fec1b09",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:skeleton",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/SkeletonModel.java",
+      "sha256": "ab6f5216bf30a41295e7cd88efcc8df13bc084301747e164bb1bee66d3640835",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Mob"
+      ]
+    },
+    {
+      "id": "minecraft:slime",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/SlimeModel.java",
+      "sha256": "d9f0a80e36b24ff8ab9e5addf047d658277dcbd86ce93c4449ac423df337f42c",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:stray",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/SkeletonModel.java",
+      "sha256": "ab6f5216bf30a41295e7cd88efcc8df13bc084301747e164bb1bee66d3640835",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Mob"
+      ]
+    },
+    {
+      "id": "minecraft:vex",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/VexModel.java",
+      "sha256": "6086184fb4da5ddc5a908cb797a3e8d9bf7cbaf01c9490fdc67bc0aae7b35b43",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "HierarchicalModel"
+      ]
+    },
+    {
+      "id": "minecraft:vindicator",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/IllagerModel.java",
+      "sha256": "6c2635d60289757e0c5ef429421322a50f23c072ba96df4bd665942a8d4d3d5a",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "AbstractIllager"
+      ]
+    },
+    {
+      "id": "minecraft:warden",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/WardenModel.java",
+      "sha256": "8f069edb5ca089109e5dd475d4e28df0d2cf2cc514198eb9c3488a674d517fc2",
+      "animation_methods": [
+        "animate",
+        "animateWalk",
+        "setupAnim"
+      ],
+      "animation_definitions": [
+        "WardenAnimation"
+      ],
+      "inherits": [
+        "Warden"
+      ]
+    },
+    {
+      "id": "minecraft:witch",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/WitchModel.java",
+      "sha256": "1ba71eb208869e9aa1f5c6a70bfbdcdafe0deb1f5e202bc6c7f7f9e019dde5fb",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "minecraft:wither_skeleton",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/SkeletonModel.java",
+      "sha256": "ab6f5216bf30a41295e7cd88efcc8df13bc084301747e164bb1bee66d3640835",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Mob"
+      ]
+    },
+    {
+      "id": "minecraft:zoglin",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/HoglinModel.java",
+      "sha256": "eb717a5c7d76d3bd06cb0838fa313e2dd7a1577263ff861dd5f2e7f93d8026bb",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Mob"
+      ]
+    },
+    {
+      "id": "minecraft:zombie",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/ZombieModel.java",
+      "sha256": "4c19675c68b55330e7799e1b5b4338fb4558a9610a900f6c17f754e9b83118df",
+      "animation_methods": [],
+      "animation_definitions": [],
+      "inherits": [
+        "Zombie"
+      ]
+    },
+    {
+      "id": "minecraft:zombie_villager",
+      "category": "Hostile",
+      "source": "net/minecraft/client/model/ZombieVillagerModel.java",
+      "sha256": "aae4acbcfa6b6b48ae8d7bb2ea96b9378b1408020aaaf38d332964f3dc40865c",
+      "animation_methods": [
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "Zombie"
+      ]
+    },
+    {
+      "id": "minecraft:ender_dragon",
+      "category": "Boss",
+      "source": "net/minecraft/client/renderer/entity/EnderDragonRenderer.java",
+      "sha256": "b439e398fcc21581c19da25977802e15bad6fd6d01c1f92e8a9ef19a2780fb98",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "EntityRenderer"
+      ]
+    },
+    {
+      "id": "minecraft:wither",
+      "category": "Boss",
+      "source": "net/minecraft/client/model/WitherBossModel.java",
+      "sha256": "a08d4b149f1e33109a975fc4802b2ee87cc7b7324714df45acf18f3d16e68b9b",
+      "animation_methods": [
+        "prepareMobModel",
+        "setupAnim"
+      ],
+      "animation_definitions": [],
+      "inherits": [
+        "WitherBoss"
+      ]
+    }
+  ],
+  "definition_files": [
+    {
+      "source": "net/minecraft/client/animation/definitions/ArmadilloAnimation.java",
+      "sha256": "ba17ad733abc2b7ae9355a245ccd666343a8d9b6bf9884eed425b789085bd1f2"
+    },
+    {
+      "source": "net/minecraft/client/animation/definitions/BatAnimation.java",
+      "sha256": "3c2dd78c0cee6de695892292595939c6651d9c0a4e9a99614407ce3bda8519da"
+    },
+    {
+      "source": "net/minecraft/client/animation/definitions/BreezeAnimation.java",
+      "sha256": "79ca7513a8b9926acfc0dd85cb02f73ba6e9445600d6e87be9b2d9f9a6886888"
+    },
+    {
+      "source": "net/minecraft/client/animation/definitions/CamelAnimation.java",
+      "sha256": "ee15637f81f3a25017662c065bceed41ac489ef512d10105f30fa5ce582cbddd"
+    },
+    {
+      "source": "net/minecraft/client/animation/definitions/FrogAnimation.java",
+      "sha256": "1a05c33aaf99bf8548405a9fd9d8651ad9df086f49dee0cd22425e85b53c7cbe"
+    },
+    {
+      "source": "net/minecraft/client/animation/definitions/SnifferAnimation.java",
+      "sha256": "c71d91f97596b14db527cd368d19840ec4016a6d54c10f368517f76e6c3c03da"
+    },
+    {
+      "source": "net/minecraft/client/animation/definitions/WardenAnimation.java",
+      "sha256": "11ba051ce051006fe55d8d4af20876d7591034ecd4d2bc2fa0bf5cbcd751515c"
+    }
+  ],
+  "scope": "Static code inventory; no vanilla mob models or source code redistributed; no client test."
+}

@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "spectral_dust_block",
+  "model_identifier": "zerog_tweaks:spectral_dust_block",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "spectral_dust_block",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "cb02bc58-6693-52c7-9d97-f87ad9a716ec"
+    },
+    {
+      "name": "spectral_dust_block_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.01,
+        -0.01,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        16.01,
+        16.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "8d0c46b0-8a2b-5131-b6f3-b4f4b7d11a4e"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "spectral_dust_block",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "6641dae5-c7b4-56c4-98fe-a42999a476db",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "cb02bc58-6693-52c7-9d97-f87ad9a716ec",
+        "8d0c46b0-8a2b-5131-b6f3-b4f4b7d11a4e"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "spectral_dust_block.png",
+      "name": "spectral_dust_block.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "9d404277-7bd3-5916-87bc-b695da527194",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACH0lEQVR4nO2bIUtEQRSFXfFfKFaD1SKIaTVqdLFbBPsiaLHYXSz2h0bNi+EVi8kuiGj1L2ieb+AdLhsOOPe02Xk7c7jce+a8mXmj6fvH71LDWHYTcCMD4Cbgxgp/6F9eB/+wu71VtLur68Hnjy+mg+N/zeeh5zm/6p+srxbtnY3Not18BmQA3ATcGCkfENUE9XwUt0eHg/33n9+h8WZ7+0W7+QzIALgJuFH5AII1eHByVrR78f/oul35CqEBUV9BNJ8BGQA3ATcqDaB35jq7Nh4PDsganIga5nwd+jk/nyfIT72rNJ8BGQA3ATcqDTh9eAwNwJonWMNct9W7A2uePoSgBrD90z8X7eYzIAPgJuBGpQHRPTrVr8D5WLPUpEX3GN8wf/MZkAFwE3Cj0oCnu5uizXVXee2oJnA+1jz3I+grqv0K4UuI5jMgA+Am4EalAarmlfcn1J4ia5YaojRB8VUa1HwGZADcBNyQ5wLKqxP0BROs88pnEKx59W6gfEm+CwAZADcBNyoNUDW+KOjlqQnsV+f/at8/fYBABsBNwA25J6g0oTr/Rz/XbY7fB8cnlA9QaD4DMgBuAm6EfUBVw+hXNdsF9xPUOq68f3VX+PK8aDefARkANwE35H5AVdOixqPnAGpPT/GhBkXvHzSfARkANwE3pAZEz/vV3WB1B4k+Q2mGugucGiCQAXATcKP6Zojf1Px3NJ8BGQA3ATf+AIhB5+99G1yHAAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "spectral_dust_block_emissive.png",
+      "name": "spectral_dust_block_emissive.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "e09ec861-3ea5-59d9-a97e-e9579d316046",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA50lEQVR4nO3aSw7CMAxF0YLoftj/KthPB2UKZhBFqXODfM8MCcHDcr5l2yRVdqMDZHsdx/n5+rnvX7/5PjfOeiwAHYC2/BwQx3AUx3Sv8h1gAegAtEfrDa119N+V7wALQAeg/Yznq8d86/N6v+/qfOU7wALQAWjLr+nZ+5DyHWAB6ACSREo/C7SMnhVG85ZfBSwAHYCWfhaYfb/Qq3wHWAA6AG36HBDNvgOMyneABaAD0PB9AP3ssXwHWAA6gCSRln82OMr/CjdYADoAbfocQO/9o/IdYAHoALTl9wHeCSazAHQASSK9AT/wVFgfDN/+AAAAAElFTkSuQmCC"
+    }
+  ]
+}

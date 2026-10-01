@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cosmic_jelly",
+  "model_identifier": "aeroapiary:cosmic_jelly",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "cosmic_jelly",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "d6f4541f-0050-554d-a90b-732b355f0f26"
+    },
+    {
+      "name": "cosmic_jelly_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "20ab19f8-a440-5fd0-a29e-775bba4838db"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "cosmic_jelly",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "0e7cba1a-7ce5-57e2-ac63-d77bc21a0719",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "d6f4541f-0050-554d-a90b-732b355f0f26",
+        "20ab19f8-a440-5fd0-a29e-775bba4838db"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "cosmic_jelly.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "4491e987-b864-55ee-9480-e5b30007a2aa",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEmElEQVR4nO1az4scRRR+0zOT2Qn4KwcPHpScRE85eNBjQJJATvHkQUguHgT1on+AEcVDhGAuQm7iWYMsQQkEISKLqDmZgLDZOOvOrDPOVPe0nf493R5Cqvt7vZnanp6dXuj+YKHeVnVV9Zv6vveqqolq1KhRo0aNGjVq1KhRRTQOeoBXXn41XvTZrZ1NEub4QOfYOsjOH0E3xSqGWQha2RMoG5V3QGF+qTh+4/UNsMMQ6ztraEezpNzXBV347SzUB6kO7vc3yXxgFHqHpWiAiuNBkJS5A7Qm2mkH7NV3wDsoiMpTYCVRII2Rhb9oh/2gfAUcNHLzh3P+5hnk+JMfRvhAL7HF0KTbXx+B6qFrg91ut8F+7flnwE4zYEcX9N7vp6W9iCYstAIyvAxYgyA1h6A4y/w5GlI0x6g1oOwJqLCj4y+85CCg1gAl5y+gau32MK61mIvbnaQ8HAq68w1y3vd9bM80wXVdsE+++Kws93VBb/+cTxP2tQJycV6BGX92CUjPJ68m1BpQ9gSKoq8XiwIZB3DOXzuFnP+lj+1PDJoUppZgFGEe4NioEc1WohGuF2U4zjWAc77b7YK96+Ar/Hjunizv6ILev31avs9emrDnClBy/hDDZ3NVaUKtAUU7+GeEHj721NNz248LclYFvtdQIeOAIAxhy+nYuKzM0IT21jrm9iff0SDUpSk81gVtXccDgHOXLsqyGAj66YvLUN9oYIi1LAvsOE4ka2wL2rJvSVt3BLxLOMtmUYcjCpQoMrUGLLvD4RA56HrRY1oeDigdEMcP/x6Bx23O0bvf4vM8LwgCDxu88FlSfmKUyQN4/76DPF5L5QXNxhGyLUfatuuQCpWnQOUdUHoUEMNRqeMrHaA1ibQUjQMWsmYzzPV5rs7bv3nlc1kWA0Hrb12E+vNXP5Ll0faEbl3+EurTcZ8INSaKIopSp6rRPk5Yy1kBirgfOt7c+mWi1oBVDygG83P10fYkV39je8nnARydDpGWWic8D/A8XK6mjrm61sQzwu8//hTs81c/keXR9oRuXroC9XGE/Xc6yaHi2BYUxrq0J44gLXXXpvF7tz1QehQgWi3nOWoN4P+4398EO3vm1qVlIi/nOSYOzk930Z4qzgeU59kvHT8RG/8lnWy80SPHe5iPjx4IuicwN+8ePcoGwCEcB+8CNQ0X4doaOjiK2V4itVcY24Lu6D9IW3cFbUy/kvbUEmS71tx3rDwFKu+A3FGgJzB3HzMOdgmPsTMUYNfhWoNRINo/BYiynM+L3A74taeTSA06iVA0I4Pv/zHtbbHLQr7/53uLJssjDH8X7H+9v2TZ9AURpilKVJ4ClXeAkgK9XVzimwbahKfiK4fp54v7HLm/EeJ5wQfHb0hNEK4gJxpAe85hfsbH6znG9t+yPPUEmV5yOWkGgvTWH9I2LEF+4OV6p8pToPIOyJ8HqDSBwfCQk5wCqi3rlD1vBmgbOTnPUfhbYa4J7z63nmiCJ+hP5zto32qiz2cxO2NkX0Gl7/PMQJDRvivtRTjPUXkKVN4BhU+EMpowRZvHaSUFZo+nAFFxznP8DxSqPYW515YqAAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "",
+      "name": "cosmic_jelly.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "6b5010b2-3bf8-5e4e-a23e-2998fd875657",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAD8UlEQVR4nO1azWsTQRR/u0mbpPhVhR486NFL8abgRfEieNRePAj15FFE/AOsWjy0WOxF6KXQSxWxoEVUpJd69KRQ7aEtJk1TGnZnk5ruRz52PZRu9r2UbMfdZCs7PyjMy5vsbB/v95v3ZgIgICAgICAgICAgICAgICAQN0idXoDdcxyvXa9jfyqNbbvRHG9oDAZnTnX0HZOdfPgearXmmAZATmDbG4BuQO7ucocPXckAL4oVhuwUyYhuZ0BgfpUfYI4fe2jjBU4n0Bpfhv6g+Vumjub39PQg+9KZfmR7KZTXGFyeDaYRoWSAl+O7H4SrW9U2GhIUQgOifgE/5DWsGWFnAHeutnD+DlatzSze15IkxAPXJXfN5VnVWXqLOV+tVpFNNcE0TWRfPTfgjjc0Bhen+TThnzKg05znRcv7cEBoQNQvEBQbRCN44Zu76/cx539tYv+115JUmG/OsW1cBzTqWCMSyaZGKBqD3OcjyL+zs4O/38Dfz2QyyE4SkRnsb/rzGoMrr9prwoEyIAjHuo0q57sKDQj6gB8zqqN4eHjy+Im285WAnPUD7TX84BsAQ8dptV3fRv7KfC+yb77BtX/+XcPVB0VjsPYBHwDcGBtxx6zA4OuLCeSXJEzhSqWCbMcjUYrOYE1fdG3N8A/G4dgFIhQZoQFhP3B5VkXbZqc5HxS+AXCc3b890NqccvTnHP4+rQtqNQtPOPusOT5abOkF6POrBu6G0p66ICH1gl4xXFs3DfBD7CkQ+wBEvguwrWKk6/sGQE4AyB4a18iW5Ver0/m3JsfdMSswmL89gvzDU4/ccTGnwuLES+R3cGuCNMa2bbA9p6r2AU5Yo8kAn32/blht/WFCaEC3F2SF9nVBMadyPU/Rg9UZvgFIpQBkT57QOsCycLpua7hWlxP4jPDj41FkD089dcfFnAoLY5PI79j4+alUyh0rOoO6o7m2ajCQPXdtMr132weR7wIA3eU8hdAAvwmtZ26Zfef9K3g5T6GSllcz+TSB+zz7913HMazdery4w2CV4do809dHFsBLGAa+C5RlnITpNA6w7ZBewtMrKDqDJe2Ta2smg7nVJ1z/U+wpEPsAcO8CWYZrd4VwMAP46qqFAuQ6XJYIBeyDUwCAn/MU3AH4ltWAeRZV7RXkt0u0/8dlLz3Hp/0/7S0SpI4oVfHFxPs8H+cpYk+B2AeAmwIrJZzy0Lv/vP8Fge+1xy8sO3uawEwGhl1AfsphesZH/RSKvu6OyxaDhc3nod7Fx54CsQ9A4G6wRRMIShbepykF/FrWstXZe4XQf9syev57UxMsBtPZoWh/P+OD2FMg9gEI/URopdxeEw4b/gKUjpgIceYPfgAAAABJRU5ErkJggg=="
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1"
+}

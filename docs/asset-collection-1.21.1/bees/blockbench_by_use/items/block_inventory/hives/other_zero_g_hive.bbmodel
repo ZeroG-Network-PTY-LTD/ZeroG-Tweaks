@@ -1,0 +1,551 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "other_zero_g_hive",
+  "model_identifier": "aeroapiary:other_zero_g_hive",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "zero_g_hive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 2
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 3
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 4
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 5
+        }
+      },
+      "type": "cube",
+      "uuid": "08bcc36c-98c0-53c2-97b9-2380505e50b2"
+    },
+    {
+      "name": "zero_g_hive_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.015,
+        -0.015,
+        -0.015
+      ],
+      "to": [
+        16.015,
+        16.015,
+        16.015
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 6
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 7
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 8
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 9
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 10
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 11
+        }
+      },
+      "type": "cube",
+      "uuid": "062ee0ba-ebe5-5d10-b250-8568e32e2cbb"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "zero_g_hive",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "08755711-c7a3-56a7-8185-94103cbf2651",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "08bcc36c-98c0-53c2-97b9-2380505e50b2",
+        "062ee0ba-ebe5-5d10-b250-8568e32e2cbb"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/zero_g_hive_front.png",
+      "name": "zero_g_hive_front.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "c5e40616-a68c-5322-9995-0a92a13bd458",
+      "source": "data:image/png;base64,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"
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/zero_g_hive_back.png",
+      "name": "zero_g_hive_back.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "5a32183f-d2ce-5388-8fc2-3d5bd239ff4f",
+      "source": "data:image/png;base64,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"
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/zero_g_hive_left.png",
+      "name": "zero_g_hive_left.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "2",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "ed723305-3f3b-5735-a21c-f82f674c8388",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAFmUlEQVR4nO1bTYgcRRR+/TM9Y9YfoqBrUEEIekhCiOBBNAc9iOQQT4InRVzwJh4ELyII4kEIeBA9enJP3iSXXMSbCBIPTlw2HcaoYTezuzXTM7Mz3V3VVR52trve67U6k5nZ3jj9nepR3VWvX7+/ev3aeuH8BQUalEIkOI6DaMuyEC2lRHSSJIj2PA/RcRwDBt6Prm87NpggE2mcF1xgfhoZP3/f9MEFAAgClrFz1ARgFwhATiiAEPNjXn0BsPACcB3HQWr+yWeX0AVUZWu1GqI553RBRA9HYREDiBbEhBxiArWai+gik9Sf7foNH1a//TqllVKAVxtjh2U+YVoBjEKzAKiPoT6E+oCae/cCOAiVCRRdwDoM0f83DcgJwLKsdFHWYeCvrWEGPCyAojBUr9cRLQQOS0UCoDR9YAp9vttl0OsGKa2H+30svAlUAiibgbLhCsFBiMyRRWEI0dhxRWGYc0K/Pn36UBmcFGfXf0vHggsYjYYpHY6GyGlzzisNWHgBFOYBRQgH+dByL8FVSqEjsJ4HWJZljPPhgEH7q8/nzqQOmQjj/EMrH0Cnu/dSpJLoOF7zPOBRpvS2bVcmUAmgbAbKRqETdFzzYYLipy+XED3c3UX02eeXES1llrv7zS4IXCGDXtDN5teH8OHqAxPxo58lJDlXAMwgChwEth2l4+GQ1gAB2FZ2QtQFQO8FAOj18Glz1qhMoGwGWNtcL5g3cgLQ8wKlVO48XwQuJHCR5Q4XVt5Kx5utbWBbVwFgz6+wdgibt0fo/sFggOjX3ziTjv1mB2B127i/SJLU7pMkQfUG23FQzvOfNcFZI96d7i2zrVHxRXeJygfMe4PNlllli+A3OzPi5GDkBCClAjm2E6lUrugptZqeFCKXmw/6fRgMstB39ccraP61i8+kKn3iqQacPHU8nfObHWj9icPgtT9upWO2wwHgfuMDObad1jBs20Y1yESIcnyACfO07ztB5QPKZqD0PCCMIoiizO4sC2A/ObUg/7m8CLZmgwAAL76Mc//NW1md/qA84OJ7b2fXtrZh+cGbKe03GcB3t437J1KmNQwpJSQqy0kSJSGOs2flcXQ4GqDn/neSWOl5w7x9ROUD5r2Bfy1A9ONPmDWA5g2sPV8NcOueh+pmtCYYFnzcpKA1xjZxcqfOPZaq9cOP5vOAX65czq23D7bDQSTmdxYnAuJxbsJlvn7oaB9XHdc9AlGgygPKRfkaUHYeQG2W1gOK2tQoji0tQTjK5ErzgIDF6RmdtUP4/ee/0HyDhMlXXn0yHe851P5E/Oj827YNXGv54Tw+mnmA6f5Zo/IBs17QX8Mq6je7iK7XcWrNGA5VjTp+JzSPmDVcPe4D7OXPei7tupPJ6N1vaOwt+nhqPt/D92abv7y1k443gm344eMvUjPzvDr0tR4hzjnYeo3QdsqPArNABOZGLRMqH1A2A9NiI5iu5ljYH7Ab4lQ1rmk9NjUOIpnvpysKavMrJ59F82++8z50x/0BcRwhH+a6LvpO4Dj3qA+YxuYpKh9QNgOTYlqbp7DOPHde9bQe2o8+vZQ2SHe6DFrX140LLC+fQDT9jkB/maH1BVpzpKkynd+3730sLeF+gSDoaGMGWxubaJ61/0nH/YBNrwGUoXkLoGj/omZqisoHFF1wUIu5jjBsIFpvuwUAqNWwBkSRWQM8bzINoPtNqgE5Aej/EDmOA+HuEM3T/v2B6iGa1g+oSRQxSPsSGw0sYLoeFRDdX6f7PQaJzPhPZFKZwMILIGcCN1o+onvEB1ATKFLB+47hMEXXo1AKm0AcTWcCgue71HRYp8+9pExMWWRB+o8PtVlFf1oi9YREmHt96XrUZ1BakP4Eer/r4P2RTwhYZQILLwDr+CPLxkB76CZAfIAFk5kA9SEONQELP8+/Opn8H18yAn8AAAAASUVORK5CYII="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/zero_g_hive_right.png",
+      "name": "zero_g_hive_right.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "3",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "0f8e7e71-937f-5115-be88-02533ecb90ae",
+      "source": "data:image/png;base64,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"
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/zero_g_hive_top.png",
+      "name": "zero_g_hive_top.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "4",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "ac480cf2-e42d-5925-b7e4-b8a2a8fc1b96",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAFBUlEQVR4nO1bS4/cRBAut9uex4bDZg/APRI3/gAHJKSIR0JAQiggxJk/woUjEkdu3OCXcEARCAhRNocEKYSV1mPPsjO2+8Uhiqfr84y9g7NYil0n17S7u/ypvq7q6p7g+o1PHTWINZbpWhumT6Yxby810wMRcD3gOjk+Xql4f2v5/ChhGDa2198X1fOjh8ckiYiyNNnZAQ2oAZADAGo/AJzl4yl9yQAIwXSx473ByOABkKrUpDy3/fKrr9kLNZd1fMkoy5LpSnF9Op02GoD90aVxfqUU0wW4NL7vt99/cEzffftNpWutn64BKKfJZk14kQDYJiMF2l5IFjxCvGgeIKNYUhRtcFBKVZMki4Tu3f2ddYijiOkawxYAFEmOMYa5GQCEH6gND5MoaE/p9U/ThLJFWulZljCAwzAcKTAC0LcBfYssi4LKsqh+0FqR1qp6ns9nrIMqOUcnkwnTcVGLYs5RA5zG9ydTPp7Li8Z2XPSkt54V5YyyxcIfjaw3vzVm9IDBA9CaB7TJAnaSClw6Bpct1jnT0YXx/RIogO1XD48ubuwWkWEoaltEX4oGDi7ShH6982MnA/YVA3nE+x99RgsvWfMTNVWWbDvtrGXtzrmRAiMAfRvQt0hrHcvf4zimOI6rZwm5/Gq1rp4n8YzeufExaw8l38xgTRHzgtX5iultJTTc3Pz1+PHO8e0WzqP+3KMA7uawphfB5mW16gZAVxkp0HWAdE8PkOAB644eMJ9dubixW0RKyAOKoqCiKKpnLID4++80Tejeb3dYO8bpyxbMA/z6BNpOxAEUQowUGAHo24C+RRalYnU0KWUV+6WUVEKR09//H149oreuf8DaMQ+IJ/zo7OHnX+w0Js1P6fXvf2C/4VGbgaO5RUPR1jnHOB8IwdaInecC+0gtD0AAYg4AEZEKd5/H4gdh0RUBwALJvjJSoOsAtTygxQOW+ele47V5wMuvvHohO3eJ1EqR9tYAY0xVtzPG1D7A51iaJnR89+f9Zrz94X82dptcu/Yao6G/Rk0mEyqLTT1jNj2g9dmmRhgEIwVGAAYPgPT3/0T1NSCHIqbw7tjM51fo3Vu3WTvu9/EcAQUXNX98IiJnecgUsFk6OXnCdH89W52fs83UMksuvx6A+3087ETpCkBXGSnQdQCM2/+3BxwcvHQhO3eJtNayooUQosqfhRC1VNNPTNI0oT9++amTAcZ0qx+8d+sTRkPfPmstK9CILVfqBk+BEYC+DehbpM95Il47d87V8gA/zh8eHtHbcC6AnMa63AzuG+DZI55D4H0CLLIuzzLGc7//dDqlf5ZnlR4EAbtzpI15/nlAGwB5AQAU3QDYVm/YRwZPgcEDUMsDcA1wjrtckTdfcMBEqH7dHgocLfcAawcrQJEc7PHnx7mI+L3FSMrRA0YA+jagb5HGaBa6jNbV+Z7RunYPsC0stV1mxv6zGQ+LyFvkPLY3XZZ++uzbZynPN/cb8nw9esDgAWjNBHG/30YB1NFFsR0p1ubi2I6ZJlKmTWQQBIw3URRVsTSKIjp58jfr0HblBQ1CwGoHJWnWbGAt7q8a23F+316tdW2NGDwFBg9AjTD3HxwzfZnxNaDtzk/NBYECEVBgW7rKxgcXL4AC4R4U2CbBG2/edJn3kZjblxDX8T9AyHG8JNWW6z/7b8IzwQ/G/xO05QW4JjX97W+ZJSMFBg+A/PMR5/yQKEBE9C+ZdANWVdmd2AAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures/block/other/zero_g_hive_bottom.png",
+      "name": "zero_g_hive_bottom.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "5",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "609c91b6-dbaf-5374-97a7-78e680cd34d6",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEG0lEQVR4nO1bS2/UMBAeP3Zp2ZZWICQOnBAXjvwjbpz5b9w48jcqtVIRUAmlm91228QvDpSs53OJtSrCEvF3mzixxyPP0xPx+s3bQBF8YCQFoJWUjHbe0xgEzifE6DjCWsffl/z74MNO4zG+fTkhTUS0apvtBxkBSBCAzwiAcIMggGQc4BwIAL5H/nLjCDk6OgFMXgDah8COybv3H9gLIfAjLgSXWd/3jEYVycF7fsSlVIy21jBaKb3T/LFKnJ6e0OdPH6MxSffOdnkZ24T/RwD3oapA7oXlsmH0/3YCtBSCvWStGRZdLhv68f2CMwxuBd2gUnwD6Ia05hvo+o7RkjjDOB+uJ0Dg8XqrtqGbzYa/H+1VCFFVoAqgNAOloY0xZM3W0HjvBz3z3pMEHTSgswqMosRYH3UYQlsNRg3HjbPjO3DcJsQ2xHtP1nAj7SKj6qypJ6AKoDQDpaGVlCx4EVFcIIRI0tEZ6Cz6YWN44DKfzxmdxA16PLDBeoHz3CaMpeeBUhuGmPwJqAIozUBpaBf5faJfsfTveDqEkC2BGfCzcz1jtAWbgLkEgZ8PBCUuyA2SZAtqfjpKppRUiQ2LaeddPQFVAKUZKA0toB4gpRqKElKqpKCA+TmWG7DAYSy3EUpibsC/d/gggyQO6bc2Z29/QVerNV9fcRsx+RNQBVCagdLQ3vE4oO/6odDZ932iw7mrKi3HY2+0ITlYiBPm80eMxjgkri+0bZOU9eO9+uDrCagCKM1AaWhBnijSE2fNUDdz1iSxeIBcAC+fDeb7YBOwxof3AAiM/XF9RBxHeO+SuCS2CcFXG1AFMHkBJAU5qQTJuz4bKUXiZ7HGhnV8bIFBv+9wvhmvGaKOe6j7Y0tN0iIDY7VFJoMqgNIMlIa21rH4Xik16K1SivSM1/iwBpd4ZdA568fvArvuln+eiTPwrnGsIUNKyRoq1m3D9hpCqCegCqA0A6WhgwisFu+cJ3fne53zSV0/51cTP406nblnwP6COdggvHvUYBO6btu/sLd/QNfrq4FeHB5T393w9ZINTAxVAKUZKI0kF8D+ANTpROd6rMll+vpgvVxjJTZi5hDnHqu2ybbPT/4EVAGUZqA0tCSul85Zcnd1O+dsokPoh2eYKwAUfG8trwli7zCOI3I9PzG/R8fP6GJzPtDrtmF9gkT1BFQBZJvv25b/L4AlsFybG7qdxeLJ6Pw4voLx46fPd+Ivh6RHyBg3/KtnraPbG56vow6hjcAfKvBurrvlvcbIMI7jehdfzxltIE5Q+s9xyP7isOYCiMkLIFHgs7MTRq9Bxx4vDh+0IM63ODh60HwPhXjx8lWImcr9ZITI1QeSewHs20O/nLl3wHEHcQPyn8QNEb+b63VVgckLQFBaef67C+z4N/e/xk9jcEJdVTHXAgAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/zero_g_hive_front.png",
+      "name": "zero_g_hive_front.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "6",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "adaf1ba2-e734-5fd4-80a7-59dbd4a0f552",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACq0lEQVR4nO2aMW/TQBSAX4OhKlJLJTpRARJSVQEDAgYYUAfKUnViyAYLQrCzszIy9Tew8BMYAIkdkGpEkYUUo0Iah3MsN/E5SWOGiDu/BDUxvsul9fumd3rn+N3Lu/eeTwdAEARBEARBEEQRmcn6wLWXrxMdhqji87NypjWVdBlyVCi8A6y8P8CbTIUdxsjlAN5ksPP8aeY8Mk0UfguQA0wbYJrcSXAQ+9Uq6hOCho/012+dQ+NeIv8Dxw6gFcdIH/NI6r+14PFWpDTnKHcAAACry0UEQXtY73Ehpx3QfxbPj+OOYuswtAVMG8Bq8ehJGlHugCAMIQhlGG8+eSRkz2XQYB+hdGIWAABYjcPuz330fJL00Hjz/hUhO7YPsLWj1N6JRMABH84DWWBeNHrSf0I5QPcLPDfft4Jj+6Mn5SCzA3pdWZZ6neESZVknwbJkK7D94S3S315bEmXwzFkLNm6sCp2z7YP7I0Dz92qyZA6WSBVMQRXQt7/HgXKAaQNYKsRNoNwBPGoB5zI3rN3DvX+0X4K5udMA0F98xW0g/fqDspA9l8GCZYuxY+O5KphIBKR7/7+LP4x035B+VgeUA3S/YDBsly8eHgGDfYPuHKG/EarjXuHqzVlR+haXTsGFlWWhc2wfPr17gw20pInHsw/Q2OePA+UA0wYcuz5gfmEROm15yHF34xLS71Y8IbMah+oezhFx3EXjO+vnhdz/MPql0NoJRUCjnm+f03mARpRHgPM1ROPvX3Bdbzbxnh86BW7j8dSdB4yi/KI6cG5fzfmLeh1Q+C1ADjBtgGky54Ck2/2nfFQpfASQA0wbQBAEYZLc920euslE7w5H81L2qg68v7ySaw1KPoZaPBw9SRGtGbV3hgpfBnNHgPe7osKOsYkO9N4aIwiiWPwByin2ZrGIPdUAAAAASUVORK5CYII="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/zero_g_hive_back.png",
+      "name": "zero_g_hive_back.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "7",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "bbe4041b-ff0d-53fb-b0fc-299736fa3a1e",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACmUlEQVR4nO2az2vUUBDHp1kxWwsKYsVfW0RELAULvS70IAiCgogHEXrQXlXwUDx78tSjIHgo/Tt60FOh9KAoYrsa3BoQ10373GSTbdPEPg+yL/uy69bXvPhMM5/TDC8/JsPM5Ju3C4AgCIIgCIIgSB4ZED3hwuwcTSMQWXycmRZ6Ji2tQLJC7hNwIOkFfJfIiEMZiRLguwS+PJkRniP/E7lvAUyA6gBUk3gIxlmaLXE6oeV53Pr4xHHO36HRCDFWHQh/8iPFaTaYfe2pK33eSE8AAADZ2GZ2qxV0r6/7zO5MAAAAIduc7zRDydHxYAuoDqCzGlQgPQFBQCEIozFw6/4Us6uVOpCNtwADBQAAIJYPte98AlzP5fwbN0eZ/fqiTScefZY6B/5JBdjE2/2gPpD1LUmRdIMzIO0bVCv1ROcbK7akSHojnICdMOxpt3G9Jrhe9Op78/IVt371+jkg1u+SPlUqwvnRI2zNWLGhavIz4UPlG7Onnm9mQweIkGZ//w04A1QHQKx9pgM0TQNNiwqrPDnMrde+Oswmlg+1Op+A2w953XBiyGT+u7EGvfTgU/Z0QKfa0/WDux7fqRvaAzMtcAakfQNj1eH8k6f7V0BcN6RdAdITQCkFSqNvgbrFf96OjRfZq+/osN6lA5YXFrqu1+bOs4zsB4iAOkAx6itgv+mAQ4NDsDUY9X158hi3bv8IoFCI9gPex4Zesahz/uUrJWYvjti0/NjMug7Q+xz5p/NxPyA1pFeAYfC7P3EdEBeC917EP3E3OW/xzOFUf46XnoDpuUbsgRqJrifS8/NrJr17dgT/HyBC7hOgXAckZX7NTDQjhBNAw6CnrYK99Hyc3LdA7hOQuRmQtOcRBEEQBEEQBEEAAH4BOQjuwLHpd3AAAAAASUVORK5CYII="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/zero_g_hive_left.png",
+      "name": "zero_g_hive_left.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "8",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "1cb9fe32-e33f-5434-9ff7-0a97c7e48d38",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACkUlEQVR4nO2av2/TQBTHvzhUqaiEBBK0IGBCXSpADExMMCDEUCYkygACIRiY+QNYYYWOMCCVv4ClCytiqahwQZWlAFKlxA6XXxfHJJbNUPWcu1gNrs91W7/P9E537/z8cvfum0sAgiAIgiAIgiCKyKGkDhdffQizCEQXq88XEr2TkVUg+4XCJ+Bw2gk8znTEkRupEuBxhvUXzxLXkb1E4bcAJSDvAPImdRFU+fp+VtIJbrcr9V+6MiO1gyAqIZbZhK+ojHarGfWvu3iy6GqtOdoTAACs/lfYrtsf7Xc8YQ8nQPUFgHZ7oDk6GdoCeQfAbG/8oAzRnoCBH2DgB6J96/F9YVcrdTBnBUAJwObLV2s9yZ9zLrVv37kgbMtsAIum1nh3ZQX0u+k+Zeb0xg/aIVQDsn5AtVJP5W+ZDU2RxJM4AYHvx9pb8E4HnEdH38qnZan/5vysWNKnz03i/Nwx0WeZDVR+ysfg2vcNYbM/+o/E/E+BDPf3/0A1IO8ADpwOMAwDhhEtrKvXZO1f3WgJO04HzD99EI2t1DFz9JdoWyYD3qxqjXdXVsCw9i+Xy2PHD+uGrGsE1YCsH2CttaT2qTPbrwBVNzA72xWgPQFhGCIMoy/1tlLk5i5Pi2V9/OSoDviy/HFkvi1IB2QA1YC8AzhwOuDI1BS8XjStqgNarI9SKboP+Pb5t9Q/qRyT12+cFfZmQW1rjXdP6oDt/HVDNUD3hNaPjtw2m1K7XJbvve++lq+53z40pAGqjtCN9gQsvLSVe3s7kf+jd1zx5/EDY1iqOeG96RP0/4AkFD4BueuAtCzVnFR/2UmcgP5EpMcHE9n+bDWOnex5lcJvgcInYN/VgLR7niAIgiAIgiAIAgD+AfrO9B2Dqf83AAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/zero_g_hive_right.png",
+      "name": "zero_g_hive_right.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "9",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "6eea7665-90da-51bb-ba1b-69dd674e898f",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACoUlEQVR4nO2aQWsTURDHpxtLlogIQqWt6cl6iC0UD+Kh0EsRehB6UAoeogdPgoIXL56lH0AQBA+C/RS99F4RpGCT0qyIsdaaTdfs8prspqnrofTtzjY0Xfe9rpudHwTmZfa9zJu8mfw3CQBBEARBEARBEGlkIOyEycX3roxARPH5xYNQe1JkBZIUUp+Ac1EXsJkhIo7YiJQAmxmgLT4L3Uf+J1JfApSAuAOIm8hNMMjHd9eQTmju7SH/1M1hND6oO9zWyiZ0/uD1LMvi9txLS3i/EZ4AAADDt6lms33cr9vcPth1sM/A11vWvuDoMFQCcQdg6E7viyQiPAFtvQVt3zGef7TA7WqlBruba3xs6A7s1Gw0nzHcM+bvFri9VjDdqadfhPaBMzkBrNGMNN/fM0RDPUD2C1QrtUjztZIpKJLuhE6AM+h9LLUHj39EMcaAMe/5TysryD935yo/0qNjKowXLnKfVjbh6zfcFEsbP7l9/3UzGTogDEZdXn2fBuoBcQfQdzpAUQZAUbxSnZ4ZQv6dH56276YD7j0pcrtaqcHw+e98vD752514vJk8HeC/N8hmsz2v9+sGQ29JiekI6gGyX0ArW2g8kj/5BAR1g0wVCCAhAa57+DiiVse3txM3VL6pS0NZGL/u0wElEz4sLwfW8xZbeMX6UAdIfod7QT0g7gD6Tgfkcjmwba/up2cuI79p7EMmkwGAw82vb/xCflVV0Xj2dp7bq2Ome+t5NYk6wKvz0+iAk+aLhnqA6AU1DX+lpZXx/XzwABTftAJHGiu/1SsXpP4cLzwBD982AhtqRFovTM0vbW27xfwo/T8gDKlPQOw6ICpLW9uRekToBLidTlc7Dv6l5oOkvgRSn4DE9YCoNU8QBEEQBEEQBAEA8Bcn3O1FmlOBAAAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/zero_g_hive_top.png",
+      "name": "zero_g_hive_top.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "10",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "eb58c983-4994-5289-b92f-56cd1b4af6d7",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAXUlEQVR4nO3SKw6AMBAE0PI5AmfgVByTE+GbVDZBFIWs3Yq+Z1fMZLIpAQAAAAAAADNYogOvp7XerdSc7vMI7bRHhv3erbtBuHV0gdHCP6DUHB0JAAAAAAAAAEzuA8JDC95F4aWsAAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "../../../assets/aeroapiary/textures_emissive/block/other/zero_g_hive_bottom.png",
+      "name": "zero_g_hive_bottom.png",
+      "folder": "other",
+      "namespace": "aeroapiary",
+      "id": "11",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "5f672cd6-a391-54b8-a8c1-4667f9511788",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAJ0lEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAIB3A0BAAAGP8slRAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "block_inventory_source": "blockbench_by_use/blocks/hives/zero_g_hive.bbmodel",
+  "minecraft_target": "Java 1.21.1",
+  "inventory_form": true
+}

@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "oblivion_frame",
+  "model_identifier": "aeroapiary:oblivion_frame",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "oblivion_frame",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "42981bc5-8da0-5d86-81ae-f6b5fdf4c52f"
+    },
+    {
+      "name": "oblivion_frame_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "40cd0973-e2df-5ca0-9d9e-212719da0daf"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "oblivion_frame",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "fe1e05ce-9b68-5a5b-96e3-cdfec98bca8f",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "42981bc5-8da0-5d86-81ae-f6b5fdf4c52f",
+        "40cd0973-e2df-5ca0-9d9e-212719da0daf"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "oblivion_frame_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "0b2112d0-2f07-5840-a128-c7c7a6136a8d",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADdklEQVR4nO2bu24UMRSGx/aMZ3YJud8KCLcnoGDFRfRINBFQ0NAhUQDKs0QEiZcARdBQIQQCBA9ABwogwYZAWO2G7GQ89tBQ5D9FzCDgSIz/7lt71mfP+pw5tmdEVFOT+45Vu1mJEto3tt6Jut9ZR1OjCzB+Eklo7/bXao0v/V3+bwUHcBvALW+8nDt+FWJOF+gzC61RpHQMXBQ5sFMZGaEAihW2lpUGFhJzjo4csNnB8R++vrPnb2z8DAgO4DaAW7GvgxIJ8Ms3D4CtxKAVGn1aWWyPBSaNosIQFQ5jWliSI2LS3yJPzhyI6qjxMyA4gNsAbnlzgMXbeGRS9JkWk8BKWuDt4Sfg9sg8sCsxx3zPN4Cnswm0R2FOMdUXYDmMaqnxMyA4gNsAbnlzQExcpMglGkM+6tku8Fi2AOxIHdDfxv5z++eA8woN2Bli/zQli4cU1wo+NX4GBAdwG8Atbw5wZDWthAFeNx+Ax+PDwJXaAV7p4FqC6saLReCiIDGvZ7C9HADnBckJHjV+BgQHcBvArV+oAzAJFHkKPJaOA2ck5pdP7h3zVCunVoGXnl0AduQvkxYLkVZMChOPGj8DggO4DeCWvw4gMSY17tklGnPE8on7f8CsXd935h7wlcdngVtkf8BJPEfwqfEzIDiA2wBueXNAFWHtn5CzwM0h7uH9bY3IWeDcfQauynr/aeNnQHAAtwHc8uYA6XDfPhdYF0ykuD6/+WoR+FZn9fcs+6lrTy4BK4EHFVmMP8EorFN8avwMCA7gNoBb3hwgMqwDpMBLYofcH3wEvv78IvDt03f3HG/p6Xn8oNUG7A03gUeiFjDdg/Sp8TMgOIDbAG759wNISDmDz+wMLMZ82p4iI+B9+fKjDvB0gmeBVYJ1R6+3BjxHni8wtges83AuUEvBAdwGcMubA0qy/o8lngu0I4x5l6BPB/114InkELDJ8Dx/8A3X9/OjJEdUOL4hdYgJe4L1FBzAbQC3/M8Ka7yvWonr8X5Ezg228HrdwuvzEnNCvI3nCu021va56wGXOfZ39JUHRR5s9KjxMyA4gNsAbvn3BA3W8gdbR4FLh4VCmWL/NMUYLQ0uLkSG93VhMGcU5H0BlWLOUeQhJmtCHVBLwQHcBnCr9nu+s6NHIOgt+Yqv/bf/9t1hcgzQ3Xof3h2uo+AAbgO49QN1UuKNxLjaQgAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "",
+      "name": "oblivion_frame_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "78f2b778-0aa6-5e57-8af0-d7f1548ec029",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAiklEQVR4nO3YwQ2DMBAEQJNKUg+vlJoX9aQT6CB+BN868swXiVutfJagNQAAAABgJVv1wPf+Ob89fx3P0kyPymEzUkA6QNrwfevtfM/oO2H5E6CAdIC02/fr153vuftOWP4EKCAdIE0B6QBpCkgHSPMtMPLl/0AB6QBp/glWDpuRAtIBAAAAAAAqXUwNFCwFvJ8cAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1",
+  "visual_reference": "Extra Bees/Forestry frame language: thin top rail, side supports, single readable center material"
+}

@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "photium_block",
+  "model_identifier": "zerog_tweaks:photium_block",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "photium_block",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "10c1f145-dea3-520c-9d35-5c39722e7cea"
+    },
+    {
+      "name": "photium_block_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.01,
+        -0.01,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        16.01,
+        16.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "fa74445a-8a12-5c42-b192-5e26e83260d2"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "photium_block",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "f3a6754c-e346-5c29-ade6-da829738a04a",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "10c1f145-dea3-520c-9d35-5c39722e7cea",
+        "fa74445a-8a12-5c42-b192-5e26e83260d2"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "photium_block.png",
+      "name": "photium_block.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "67b6ebe3-ffd2-5954-bd81-19eb7fc8955b",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABXElEQVR4nO2bsQ7BUBSGEZNFYjKQGD2AWLyAeAYPavQKBolRwmASFjFh7rlJr6a3/dT5v61y0/P7859De9v2+3V7txzToQXQyABaAE3XfnC/HpIW6A+mmeP9bpO7fjSeJK1nv89quc4cu0+ADKAF0AQzwNLvXTLH98cwf32kB1Nj67WeW7MiX6/7BMgAWgBNdAb8es+H9fL1WtwnQAbQAmiiM8Dyez1fDvcJkAG0AJr4tcCf9bzFfQJkAC2AJpgBdfegpe567hMgA2gBNMEMiN23r5rz6VhrPfcJkAG0ABoZQAugkQG0AJrgf0DV+/Ox3/mi9cteu7hPgAygBdAU3hewNP2eofsEyABaAI32BpOerYHIAFoAjfYGKz17A5ABtACa6N5g0Wdvy1K254s+2+w+ATKAFkDzxTtD1fZ8amzPBzPN4D4BMoAWQNO27w4v5jNKC4L7BMgAWgDNB6uTYeeL2m+PAAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "photium_block_emissive.png",
+      "name": "photium_block_emissive.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "56a3258b-97c6-5ba8-b52a-2c4b1bfa8987",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABTklEQVR4nO2bMQ6CQBBFwVjZQIyFR/AIHt/SI3gEC2OgMVZizWzCulnggfNfh9kwn5+ZCeysZfdpusIxG1oAjQygBdBs7Q/t8zZqgGp/6l2Xm7ocWt88rlk9ycazz1Mfzr347jNABtACaIIeYKl29951+zoOr4/U4NjYeMX7YlYM63WfATKAFkAT7QFLr/kw3rBei/sMkAG0AJpoD7Asr+bzcJ8BMoAWQBP/Fvizmre4zwAZQAugCXrA3DVomTue+wyQAbQAmtLOBmP79v+G+wyQAbQAGhlAC6CRAbQAmuA9IPddPHU+b0k9H5D67aLzAQYZQAugSZ4LWNa+Z+g+A2QALYBGs8FR77ZCZAAtgEazwUnvvgJkAC2AJjobTD17m0v2fkTi2Wb3GSADaAE0P/xnaNqaHxtb80FPM7jPABlAC6DR+QBaAI0MoAXQfAH+nWhhXsYuagAAAABJRU5ErkJggg=="
+    }
+  ]
+}

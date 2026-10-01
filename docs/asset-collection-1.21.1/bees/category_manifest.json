@@ -1,0 +1,103 @@
+{
+  "target": {
+    "minecraft": "Java 1.21.1",
+    "loader": "NeoForge",
+    "resource_pack_format": 34,
+    "java": 21
+  },
+  "counts": {
+    "blocks": 85,
+    "items": 65,
+    "multiblocks": 8,
+    "armor": 8,
+    "bee_entities": 0,
+    "modeled_frames": 19,
+    "standard_tools": 8,
+    "genetics_gadgets": 6,
+    "blockbench_item_projects": 150,
+    "standalone_item_projects": 65,
+    "block_inventory_item_projects": 85,
+    "registered_item_models": 150,
+    "missing_item_projects": 0
+  },
+  "added": {
+    "frames": [
+      "untreated_frame",
+      "impregnated_frame",
+      "proven_frame",
+      "honeyed_frame",
+      "soul_frame",
+      "chocolate_frame",
+      "healing_frame",
+      "cryo_frame",
+      "restraint_frame",
+      "oblivion_frame",
+      "aero_frame",
+      "starlit_frame"
+    ],
+    "tools": [
+      "apiarist_wrench",
+      "alveary_blueprint",
+      "basic_scoop",
+      "sturdy_scoop",
+      "aeronautic_scoop",
+      "copper_grafter",
+      "diamond_grafter",
+      "bee_smoker"
+    ],
+    "gadgets": [
+      "portable_beealyzer",
+      "habitat_locator",
+      "serum_vial",
+      "trait_serum",
+      "honey_drop",
+      "genetic_splicer"
+    ],
+    "materials": [
+      "stardust",
+      "confinement_coil"
+    ],
+    "armor": [
+      "apiarist_helmet",
+      "apiarist_chestplate",
+      "apiarist_leggings",
+      "apiarist_boots"
+    ],
+    "controllers": [
+      "apiary_controller"
+    ],
+    "machine_aliases": {
+      "gravitational_centrifuge": "centrifuge",
+      "frame_component_assembler": "frame_assembler",
+      "frame_infusion_altar": "infusion_altar"
+    },
+    "multiblocks": [
+      "cosmic_alveary"
+    ]
+  },
+  "catalog_mappings": {
+    "cosmic_alveary": "tier5_atm_star_alveary exact assembly",
+    "nebula_refractory_apiary": "tier6_nebula_refractory",
+    "quantum_queen_chamber": "tier7_quantum_queen_chamber"
+  },
+  "excluded": {
+    "bee_entities": "deferred by user"
+  },
+  "source_of_truth": [
+    "ZeroG_Oribital_Bee's.zip sheets 06-09",
+    "zerog_bees_design_pack.zip classic sheets 01-12",
+    "Beee's reference PNGs"
+  ],
+  "item_project_coverage": {
+    "status": "complete",
+    "manifest": "all_items_blockbench_manifest_1_21_1.json",
+    "display_contexts": [
+      "thirdperson_righthand",
+      "thirdperson_lefthand",
+      "firstperson_righthand",
+      "firstperson_lefthand",
+      "gui",
+      "ground"
+    ]
+  }
+}

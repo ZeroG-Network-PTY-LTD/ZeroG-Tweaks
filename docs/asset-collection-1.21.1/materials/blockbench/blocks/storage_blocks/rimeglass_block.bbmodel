@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "rimeglass_block",
+  "model_identifier": "zerog_tweaks:rimeglass_block",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "rimeglass_block",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "63306316-e50b-5910-b72f-5d3b59599a8d"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "rimeglass_block",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "d66bcb99-199f-5211-9342-aa9205cb832f",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "63306316-e50b-5910-b72f-5d3b59599a8d"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "rimeglass_block.png",
+      "name": "rimeglass_block.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "b764aea9-207d-5bbb-af61-648e5747e84d",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABK0lEQVR4nO2aMQoCMRBFXfEGtluLhcgWWnkB8QAeWUQsLCw8gK2dpbDWyRZLmJiHmf+6FJv5fP4MaKZ5f/p+4pgpLYBGBtACaGbWC27Pl+n7rp0XrX887IOz+wTIAFoATfIMsPb89f4Izl27K1o/xn0CZAAtgGZ0BuTu+VR+Xd99AmQALYBmMANq7/kY9wmQAbQAGvP/Aak9dzmdg/NmtSxaP8Z9AmQALYAmeQZYe95K7vruEyADaAE0ozOgtp6PcZ8AGUALoGly7wek/p63vg2m1tfbYIQMoAXQ4PsBdH33CZABtAAa7Qdkve0PkQG0ABrtB5hurwAZQAug0X6AqVoFyABaAI32A0xfV4AMoAXQaD/AIqYGZAAtgGbwNrhYbyktCO4TIANoATRfnNiFCY6lxKoAAAAASUVORK5CYII="
+    }
+  ]
+}

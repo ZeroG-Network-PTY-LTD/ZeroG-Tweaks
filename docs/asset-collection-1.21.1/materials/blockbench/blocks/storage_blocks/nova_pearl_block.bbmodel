@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "nova_pearl_block",
+  "model_identifier": "zerog_tweaks:nova_pearl_block",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "nova_pearl_block",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "37b8f3ad-130b-5ee1-8feb-da5e41f1f334"
+    },
+    {
+      "name": "nova_pearl_block_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.01,
+        -0.01,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        16.01,
+        16.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "676ebf4e-c2fc-54be-b04b-3a961a722ae5"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "nova_pearl_block",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "b2b22ca6-de47-50f2-94da-7e660f524701",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "37b8f3ad-130b-5ee1-8feb-da5e41f1f334",
+        "676ebf4e-c2fc-54be-b04b-3a961a722ae5"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "nova_pearl_block.png",
+      "name": "nova_pearl_block.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "24f2450d-a336-509b-96c5-593d26a1a2ca",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABKElEQVR4nO2aIQ7CQBBFKeEOXIBgQPQMGNCcgwNWV6JWcwMcGlN0t6KZzLYv7PznVnTn5+fPJLDTDJ/vsAnMlhZAIwNoATQ77wXv7uX6fn87rlr/8riPzuETIANoATTmGeDt+dSn0flqnAHe+jnhEyADaAE0szOgdM9bWbp++ATIAFoAzWQG1N7zOeETIANoATTu/wOsPden5+jcdu2q9XPCJ0AG0AJozDPA2/NeStcPnwAZQAugmZ0BtfV8TvgEyABaAE1Tej/A+nve+zZora+3wQwZQAugwfcD6PrhEyADaAE02g8oetsfIgNoATTaD3DdXgEygBZAo/0AV7UKkAG0ABrtB7i+rgAZQAug0X6AQ0sVyABaAM3kbfB0OFNaEMInQAbQAmh+Mc6CnWOtLwQAAAAASUVORK5CYII="
+    },
+    {
+      "path": "nova_pearl_block_emissive.png",
+      "name": "nova_pearl_block_emissive.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "63454013-3e78-5baf-8c30-370a3c6fcd0b",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABGUlEQVR4nO2aMQ7CQAwEOYSo6eAFVDyEJ/BU3sIP6FLThBY5RWTZZHTnnS5FzqvV2opybvP0mXeF2dMCaGQALYDmED3g/XyF3j/fr5vWvzxu7fe5fAJkAC2Axj0Doj1ve9D7HRKtbymfABlAC6BZnQHZPe/l3/XLJ0AG0AJoFjNg9J63lE+ADKAF0IT/B/TW85byCZABtAAa9wyI9lyU7PrlEyADaAE0qzNgtJ63lE+ADKAF0LTs/QDvt330btBbX3eDBhlAC6DB9wPo+uUTIANoATTaD0g9rUNkAC2ARvsBodMHQAbQAmi0HxCqNgAygBZAo/2AUPUBkAG0ABrtB2Qe1iMygBZAs7gbbKcj2uNbUz4BMoAWQPMFRsNUXCU7vPkAAAAASUVORK5CYII="
+    }
+  ]
+}

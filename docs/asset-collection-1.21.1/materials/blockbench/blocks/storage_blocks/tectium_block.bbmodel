@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "tectium_block",
+  "model_identifier": "zerog_tweaks:tectium_block",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "tectium_block",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "08de3d35-6a48-5981-bf2b-e5ad450bedd0"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "tectium_block",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "4bd450d1-6606-5b87-b01e-b047b846b2dd",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "08de3d35-6a48-5981-bf2b-e5ad450bedd0"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "tectium_block.png",
+      "name": "tectium_block.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "ffbe18a8-0124-5401-8f13-59b68b33b2c6",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABa0lEQVR4nO2bMW7CQBBFTchNouQAIOUQOUWqdDlCKo5ARUWFQEKUKdKkSJkIDhCUoyCodyx5tPLaD2f+6xZZnu+vPwN47dH7bnWuAnNDC6CRAbQAmlv7wX5/KFpgOp0k6/Vm23j8w/1d0Xr2euaLZbIOnwAZQAugqc0Ay9vjKVnPvseNx3s9WBpb72n8k9avmvWGT4AMoAXQuDPg2nve1vN63hI+ATKAFkDjzgDLtfV8W8InQAbQAmjcGfDfet4SPgEygBZAU5sBffegpe964RMgA2gBNLUZ4N2375rf41+v9cInQAbQAmhkAC2ARgbQAmhqvwO63p/3vudz6+f+d/n4/ErW4RMgA2gBNNn7Apah3zMMnwAZQAug0d5g0bMNEBlAC6DR3mCnZx8AMoAWQOPuDeY+e9uWtj2f+2xz+ATIAFoAjfvOUNc9Xxrb83amVZXeGUqQAbQAmpF9d/j55ZXSghA+ATKAFkBzAcOXY+16BULeAAAAAElFTkSuQmCC"
+    }
+  ]
+}

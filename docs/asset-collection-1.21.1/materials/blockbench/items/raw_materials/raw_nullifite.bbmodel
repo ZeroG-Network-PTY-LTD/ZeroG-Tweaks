@@ -1,0 +1,305 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "raw_nullifite",
+  "model_identifier": "zerog_tweaks:raw_nullifite",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "raw_nullifite",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.99
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "ff44d559-6320-52b8-9c7e-f905aea85fb6"
+    },
+    {
+      "name": "raw_nullifite_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.98
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "cc5dbe8a-00a2-5603-af14-d2167cbfcda6"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "raw_nullifite",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "c0c7a0aa-8002-5ec1-8c6e-aac1c65ec037",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "ff44d559-6320-52b8-9c7e-f905aea85fb6",
+        "cc5dbe8a-00a2-5603-af14-d2167cbfcda6"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "raw_nullifite.png",
+      "name": "raw_nullifite.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "6ff703df-a8cb-59f0-88ae-b9d14df5c40c",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABfUlEQVR4nO2aMUpDURBFowgWKZSQQsRaF+ACxC2ErEHBTksX4BIEl+MGLFIK6YxYxKBFCiut3438YXh8rvLO6Sb5L/9mmDtv8vIHAwAAAAAAAABoja2+bzDcHX3XrF9/rXrVuN3nh/8HSIBbgJtqf0Uef3p871x/fXNZxC9vz0U8X8w619f2iOYrgAS4BbjZyS5Qz2c9rqjnjw6OU3rmi1mhJ9sTmq8AEuAW4CbsAZHnI49fTR6K+Pb+vIiznlf2hmN9KdUTmq8AEuAW4CbcM7UHnJ1OUzfQfV7RHhBdv/x47Xz/c70sYnpAAAlwC3CzMQdkz/BqZ3mdEy7uTjqvH+8fFnHUE/T7aE9ovgJIgFuAm409Mjv7Z/dt9XBE5PFsT9A5ofkKIAFuAW7CHqCzf+2snvVs7frot0HzFUAC3ALcpM8DfjmDK6j1eBb1uMJ5QAAJcAtwk/5vPXteEPUMJfK0wvMBlZAAtwA3f+45wb6fC1SarwAS4BYAAODkB2Q0hFGflM11AAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "raw_nullifite_emissive.png",
+      "name": "raw_nullifite_emissive.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "9c5ada5b-cef7-5c05-b291-b44482d4766a",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAk0lEQVR4nO3WwQ2DMBAEQEgzaSFFpJyUQTkUkRZSDXnDAwshso5u5guSVyev7WEAAAAAACoZr17g816Wve/3x3h5hj235OI9MIB0gLTT/eu94y3ld4ABpAOkHe7ntvOtjs/T+v/nq68zofwOMIB0AICk+J2cfieUvwUMIB0grdm3o2//f1N+BxhAOgAAAAAAwC99AXTYGCSApo0KAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

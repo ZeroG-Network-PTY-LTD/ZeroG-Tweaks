@@ -1,0 +1,1787 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "bedrock",
+    "box_uv": false
+  },
+  "name": "Skarnite \u2014 green-box vanilla fit / ZeroG texture 06",
+  "model_identifier": "zerog_tweaks:skarnite_armour",
+  "resolution": {
+    "width": 256,
+    "height": 256
+  },
+  "outliner": [
+    {
+      "name": "root",
+      "uuid": "b0aa49b8-699c-5c1f-b441-a2a5eb8a25a3",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        {
+          "name": "head",
+          "uuid": "35ca2ed0-1b46-5966-8818-2f3c20779b36",
+          "origin": [
+            0,
+            24,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "children": [
+            "75eb6834-360e-5e52-8617-84733793e900",
+            "140186c3-61a9-554e-917b-b03908ad0dc7"
+          ],
+          "export": true,
+          "isOpen": true
+        },
+        {
+          "name": "body",
+          "uuid": "487ea09c-82d7-5c81-9a5e-b2e1fc403bb0",
+          "origin": [
+            0,
+            24,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "children": [
+            "86e73e69-15c7-513c-a9a5-370e73d83416",
+            "7b0428f5-c8eb-564a-9881-e3ba27ec3f56",
+            "fc365956-2f3b-5db6-91c5-d449993f4b54"
+          ],
+          "export": true,
+          "isOpen": true
+        },
+        {
+          "name": "right_arm",
+          "uuid": "3f49885b-2be9-5f6a-9d90-175eebaf46f7",
+          "origin": [
+            -5,
+            22,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "children": [
+            "adc9d942-4fc7-5605-bdb3-2d9063713dd7",
+            "ebab6bc5-e5c9-5d9e-8601-e149129213f0"
+          ],
+          "export": true,
+          "isOpen": true
+        },
+        {
+          "name": "left_arm",
+          "uuid": "e2f642f3-b0f2-5947-9648-208578805c1e",
+          "origin": [
+            5,
+            22,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "children": [
+            "6bfecfeb-0ebc-5c3e-900a-fcb67e3530da",
+            "5fb6f131-089c-5f71-925d-484466202910"
+          ],
+          "export": true,
+          "isOpen": true
+        },
+        {
+          "name": "right_leg",
+          "uuid": "fc6271d3-e694-538c-82db-86caaeddba91",
+          "origin": [
+            -1.9,
+            12,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "children": [
+            "068c5563-57e3-5b83-a4a4-338aff008af6",
+            "6554c39a-4d9b-53ed-82b1-9d148ba26dad",
+            "14a7e42a-4135-54d4-ab9c-175dd23fdda6"
+          ],
+          "export": true,
+          "isOpen": true
+        },
+        {
+          "name": "left_leg",
+          "uuid": "44640897-b809-5da3-8144-8e8601fcdfab",
+          "origin": [
+            1.9,
+            12,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "children": [
+            "76a66914-9142-5cbd-929f-1bf46e485e36",
+            "f527b130-406a-5640-abc6-da56a3e45897",
+            "f7c7b12e-b9b3-5f96-a685-c2187ecbd456"
+          ],
+          "export": true,
+          "isOpen": true
+        }
+      ],
+      "export": true,
+      "isOpen": true
+    }
+  ],
+  "elements": [
+    {
+      "name": "PLAYER_REFERENCE_head",
+      "uuid": "75eb6834-360e-5e52-8617-84733793e900",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": false,
+      "from": [
+        -4,
+        24,
+        -4
+      ],
+      "to": [
+        4,
+        32,
+        4
+      ],
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            16,
+            16,
+            32,
+            32
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            48,
+            16,
+            64,
+            32
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            0,
+            16,
+            16,
+            32
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            32,
+            16,
+            48,
+            32
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            16,
+            0,
+            32,
+            16
+          ],
+          "rotation": 0
+        },
+        "down": {
+          "texture": 0,
+          "uv": [
+            32,
+            16,
+            48,
+            0
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "PLAYER_REFERENCE_body",
+      "uuid": "86e73e69-15c7-513c-a9a5-370e73d83416",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": false,
+      "from": [
+        -4,
+        12,
+        -2
+      ],
+      "to": [
+        4,
+        24,
+        2
+      ],
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            40,
+            40,
+            56,
+            64
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            64,
+            40,
+            80,
+            64
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            32,
+            40,
+            40,
+            64
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            56,
+            40,
+            64,
+            64
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            40,
+            32,
+            56,
+            40
+          ],
+          "rotation": 0
+        },
+        "down": {
+          "texture": 0,
+          "uv": [
+            56,
+            40,
+            72,
+            32
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "PLAYER_REFERENCE_right_arm",
+      "uuid": "adc9d942-4fc7-5605-bdb3-2d9063713dd7",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": false,
+      "from": [
+        -8,
+        12,
+        -2
+      ],
+      "to": [
+        -4,
+        24,
+        2
+      ],
+      "origin": [
+        -5,
+        22,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            88,
+            40,
+            96,
+            64
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            104,
+            40,
+            112,
+            64
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            80,
+            40,
+            88,
+            64
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            96,
+            40,
+            104,
+            64
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            88,
+            32,
+            96,
+            40
+          ],
+          "rotation": 0
+        },
+        "down": {
+          "texture": 0,
+          "uv": [
+            96,
+            40,
+            104,
+            32
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "PLAYER_REFERENCE_left_arm",
+      "uuid": "6bfecfeb-0ebc-5c3e-900a-fcb67e3530da",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": false,
+      "from": [
+        4,
+        12,
+        -2
+      ],
+      "to": [
+        8,
+        24,
+        2
+      ],
+      "origin": [
+        5,
+        22,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            72,
+            104,
+            80,
+            128
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            88,
+            104,
+            96,
+            128
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            64,
+            104,
+            72,
+            128
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            80,
+            104,
+            88,
+            128
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            72,
+            96,
+            80,
+            104
+          ],
+          "rotation": 0
+        },
+        "down": {
+          "texture": 0,
+          "uv": [
+            80,
+            104,
+            88,
+            96
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "PLAYER_REFERENCE_right_leg",
+      "uuid": "068c5563-57e3-5b83-a4a4-338aff008af6",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": false,
+      "from": [
+        -3.9,
+        0,
+        -2
+      ],
+      "to": [
+        0.1,
+        12,
+        2
+      ],
+      "origin": [
+        -1.9,
+        12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            8,
+            40,
+            16.0,
+            64
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            24.0,
+            40,
+            32.0,
+            64
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            0,
+            40,
+            8,
+            64
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            16.0,
+            40,
+            24.0,
+            64
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            8,
+            32,
+            16.0,
+            40
+          ],
+          "rotation": 0
+        },
+        "down": {
+          "texture": 0,
+          "uv": [
+            16.0,
+            40,
+            24.0,
+            32
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "PLAYER_REFERENCE_left_leg",
+      "uuid": "76a66914-9142-5cbd-929f-1bf46e485e36",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": false,
+      "from": [
+        -0.1,
+        0,
+        -2
+      ],
+      "to": [
+        3.9,
+        12,
+        2
+      ],
+      "origin": [
+        1.9,
+        12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            40,
+            104,
+            48.0,
+            128
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            56.0,
+            104,
+            64.0,
+            128
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            32,
+            104,
+            40,
+            128
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            48.0,
+            104,
+            56.0,
+            128
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            40,
+            96,
+            48.0,
+            104
+          ],
+          "rotation": 0
+        },
+        "down": {
+          "texture": 0,
+          "uv": [
+            48.0,
+            104,
+            56.0,
+            96
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "skarnite_outer_head",
+      "uuid": "140186c3-61a9-554e-917b-b03908ad0dc7",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "from": [
+        -5,
+        23,
+        -5
+      ],
+      "to": [
+        5,
+        33,
+        5
+      ],
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            16,
+            144,
+            32,
+            160
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            48,
+            144,
+            64,
+            160
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            0,
+            144,
+            16,
+            160
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            32,
+            144,
+            48,
+            160
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            16,
+            128,
+            32,
+            144
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "skarnite_outer_body",
+      "uuid": "7b0428f5-c8eb-564a-9881-e3ba27ec3f56",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "from": [
+        -5,
+        11,
+        -3
+      ],
+      "to": [
+        5,
+        25,
+        3
+      ],
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            40,
+            168,
+            56,
+            192
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            64,
+            168,
+            80,
+            192
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            32,
+            168,
+            40,
+            192
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            56,
+            168,
+            64,
+            192
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "skarnite_outer_right_arm",
+      "uuid": "ebab6bc5-e5c9-5d9e-8601-e149129213f0",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "from": [
+        -9,
+        11,
+        -3
+      ],
+      "to": [
+        -3,
+        25,
+        3
+      ],
+      "origin": [
+        -5,
+        22,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            88,
+            168,
+            96,
+            192
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            104,
+            168,
+            112,
+            192
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            80,
+            168,
+            88,
+            192
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            96,
+            168,
+            104,
+            192
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            88,
+            160,
+            96,
+            168
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "skarnite_outer_left_arm",
+      "uuid": "5fb6f131-089c-5f71-925d-484466202910",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "from": [
+        3,
+        11,
+        -3
+      ],
+      "to": [
+        9,
+        25,
+        3
+      ],
+      "origin": [
+        5,
+        22,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            96,
+            168,
+            88,
+            192
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            112,
+            168,
+            104,
+            192
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            104,
+            168,
+            96,
+            192
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            88,
+            168,
+            80,
+            192
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            96,
+            160,
+            88,
+            168
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "skarnite_inner_body",
+      "uuid": "fc365956-2f3b-5db6-91c5-d449993f4b54",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "from": [
+        -4.5,
+        11.5,
+        -2.5
+      ],
+      "to": [
+        4.5,
+        24.5,
+        2.5
+      ],
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            40,
+            232,
+            56,
+            256
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            64,
+            232,
+            80,
+            256
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            32,
+            232,
+            40,
+            256
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            56,
+            232,
+            64,
+            256
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "skarnite_leggings_right_leg",
+      "uuid": "6554c39a-4d9b-53ed-82b1-9d148ba26dad",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "from": [
+        -4.3,
+        -0.4,
+        -2.4
+      ],
+      "to": [
+        -0.05,
+        12.4,
+        2.4
+      ],
+      "origin": [
+        -1.9,
+        12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            8,
+            232,
+            16.0,
+            256
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            24.0,
+            232,
+            32.0,
+            256
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            0,
+            232,
+            8,
+            256
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            16.0,
+            232,
+            24.0,
+            256
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            8,
+            224,
+            16.0,
+            232
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "skarnite_boots_right_leg",
+      "uuid": "14a7e42a-4135-54d4-ab9c-175dd23fdda6",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "from": [
+        -4.8,
+        -0.9,
+        -2.9
+      ],
+      "to": [
+        -0.05,
+        12.9,
+        2.9
+      ],
+      "origin": [
+        -1.9,
+        12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            8,
+            168,
+            16.0,
+            192
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            24.0,
+            168,
+            32.0,
+            192
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            0,
+            168,
+            8,
+            192
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            16.0,
+            168,
+            24.0,
+            192
+          ],
+          "rotation": 0
+        },
+        "down": {
+          "texture": 0,
+          "uv": [
+            16.0,
+            168,
+            24.0,
+            160
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "skarnite_leggings_left_leg",
+      "uuid": "f527b130-406a-5640-abc6-da56a3e45897",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "from": [
+        0.05,
+        -0.4,
+        -2.4
+      ],
+      "to": [
+        4.3,
+        12.4,
+        2.4
+      ],
+      "origin": [
+        1.9,
+        12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            16.0,
+            232,
+            8,
+            256
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            32.0,
+            232,
+            24.0,
+            256
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            24.0,
+            232,
+            16.0,
+            256
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            8,
+            232,
+            0,
+            256
+          ],
+          "rotation": 0
+        },
+        "up": {
+          "texture": 0,
+          "uv": [
+            16.0,
+            224,
+            8,
+            232
+          ],
+          "rotation": 0
+        }
+      }
+    },
+    {
+      "name": "skarnite_boots_left_leg",
+      "uuid": "f7c7b12e-b9b3-5f96-a685-c2187ecbd456",
+      "type": "cube",
+      "box_uv": false,
+      "autouv": 0,
+      "export": true,
+      "from": [
+        0.05,
+        -0.9,
+        -2.9
+      ],
+      "to": [
+        4.8,
+        12.9,
+        2.9
+      ],
+      "origin": [
+        1.9,
+        12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "texture": 0,
+          "uv": [
+            16.0,
+            168,
+            8,
+            192
+          ],
+          "rotation": 0
+        },
+        "south": {
+          "texture": 0,
+          "uv": [
+            32.0,
+            168,
+            24.0,
+            192
+          ],
+          "rotation": 0
+        },
+        "west": {
+          "texture": 0,
+          "uv": [
+            24.0,
+            168,
+            16.0,
+            192
+          ],
+          "rotation": 0
+        },
+        "east": {
+          "texture": 0,
+          "uv": [
+            8,
+            168,
+            0,
+            192
+          ],
+          "rotation": 0
+        },
+        "down": {
+          "texture": 0,
+          "uv": [
+            24.0,
+            168,
+            16.0,
+            160
+          ],
+          "rotation": 0
+        }
+      }
+    }
+  ],
+  "textures": [
+    {
+      "name": "skarnite_atlas_256.png",
+      "id": "0",
+      "uuid": "407edb06-1107-50c0-8ca2-723b057a7abf",
+      "source": "data:image/png;base64,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",
+      "path": "",
+      "internal": true,
+      "saved": true,
+      "visible": true,
+      "render_mode": "default",
+      "render_sides": "double",
+      "width": 256,
+      "height": 256,
+      "uv_width": 256,
+      "uv_height": 256
+    }
+  ],
+  "design_notes": {
+    "revision": "06 replaces orange-box geometry in active collection",
+    "geometry": "User-approved vanilla-style green-box armour. No old visor cage, floating chest core, bracer stacks or pauldron blocks.",
+    "player_reference": "Own procedural skin, not copied Steve art",
+    "style_reference": "User supplied twenty-material lineup: palette, clustered metal shading, surface inlays and glow colours",
+    "fit": "Vanilla six joints, zero neutral arm spread; outer 1.0, inner .5, boots .9, leggings .4",
+    "medial_leg_clearance": "Hidden leg-shell walls trimmed to +/-0.05; outer silhouette preserved",
+    "openings": "Transparent mouth/eye opening; forearms and hands exposed",
+    "runtime": "Design study only; not equipped or tested in a Minecraft client",
+    "effects": "No detached halo cubes. Dedicated glow mask for future renderer; Solvanite aura remains future work."
+  },
+  "animations": [
+    {
+      "name": "animation.skarnite.walk_fit_check",
+      "uuid": "ddf1f9d7-bdd2-54a5-83fa-e1075ecd3625",
+      "loop": "loop",
+      "length": 1.2,
+      "animators": {
+        "3f49885b-2be9-5f6a-9d90-175eebaf46f7": {
+          "name": "right_arm",
+          "type": "bone",
+          "keyframes": [
+            {
+              "uuid": "7b070bd7-8d94-540f-a648-d6a3c4793d13",
+              "channel": "rotation",
+              "time": 0,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "-25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "4d52e60d-09f0-51a0-8b35-b4be36dea575",
+              "channel": "rotation",
+              "time": 0.3,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "67051a99-3105-54ee-b696-51156a23235c",
+              "channel": "rotation",
+              "time": 0.6,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "33e7cadd-e583-5440-8605-1c2723d9688e",
+              "channel": "rotation",
+              "time": 0.9,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "ae269bc4-36a1-504c-9811-6d81458ede18",
+              "channel": "rotation",
+              "time": 1.2,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "-25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            }
+          ]
+        },
+        "e2f642f3-b0f2-5947-9648-208578805c1e": {
+          "name": "left_arm",
+          "type": "bone",
+          "keyframes": [
+            {
+              "uuid": "5dcad41b-0718-57af-a1ca-89f917596fb2",
+              "channel": "rotation",
+              "time": 0,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "1ffeae57-6d9a-54b0-9485-167de44fddb9",
+              "channel": "rotation",
+              "time": 0.3,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "54902663-14ac-5f94-932c-d4cab5c72be1",
+              "channel": "rotation",
+              "time": 0.6,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "-25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "d8200624-677b-54fc-832e-b3a7bf322418",
+              "channel": "rotation",
+              "time": 0.9,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "1854d196-4a6a-5c35-8895-c405a140fc76",
+              "channel": "rotation",
+              "time": 1.2,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            }
+          ]
+        },
+        "fc6271d3-e694-538c-82db-86caaeddba91": {
+          "name": "right_leg",
+          "type": "bone",
+          "keyframes": [
+            {
+              "uuid": "29f44365-b2bf-5a87-921b-b66ce4dbfde8",
+              "channel": "rotation",
+              "time": 0,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "58bc5e20-21c9-550a-9f15-accac53da981",
+              "channel": "rotation",
+              "time": 0.3,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "9869eccb-2a5e-52ed-b29d-35487af1415b",
+              "channel": "rotation",
+              "time": 0.6,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "-25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "9232431f-c25a-5b2d-bf92-fe2fc74fa308",
+              "channel": "rotation",
+              "time": 0.9,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "327d20ea-a55b-5e5c-9263-a6c043d431d2",
+              "channel": "rotation",
+              "time": 1.2,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            }
+          ]
+        },
+        "44640897-b809-5da3-8144-8e8601fcdfab": {
+          "name": "left_leg",
+          "type": "bone",
+          "keyframes": [
+            {
+              "uuid": "56792cca-367b-5680-8e7f-6324f919e949",
+              "channel": "rotation",
+              "time": 0,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "-25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "7f1b6cc8-08bb-5c9b-94ae-edeff51cb664",
+              "channel": "rotation",
+              "time": 0.3,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "d966db98-7bbc-5c69-a9b8-eb3229da1c6f",
+              "channel": "rotation",
+              "time": 0.6,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "b83eb31e-6626-5abf-9e07-2e8a90408ede",
+              "channel": "rotation",
+              "time": 0.9,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "ff75ae34-6f66-57e2-b748-8b483e08b9e8",
+              "channel": "rotation",
+              "time": 1.2,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "-25",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "animation.skarnite.head_fit_check",
+      "uuid": "9f71e6e2-2f6c-59f4-b6dc-455f2b789ca3",
+      "loop": "loop",
+      "length": 3,
+      "animators": {
+        "35ca2ed0-1b46-5966-8818-2f3c20779b36": {
+          "name": "head",
+          "type": "bone",
+          "keyframes": [
+            {
+              "uuid": "5a41304c-2a99-5bc8-a568-7234d6e5477a",
+              "channel": "rotation",
+              "time": 0,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "fb8e9600-06e4-50ec-aa50-25f55374c80d",
+              "channel": "rotation",
+              "time": 1,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "-35",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "a89819f7-2fc4-5c3d-ace5-5b558c0117c9",
+              "channel": "rotation",
+              "time": 2,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "35",
+                  "z": "0"
+                }
+              ]
+            },
+            {
+              "uuid": "aec78ac9-3eff-53fe-b5de-6d0b9eba6e9d",
+              "channel": "rotation",
+              "time": 3,
+              "interpolation": "linear",
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "0"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
