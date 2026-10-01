@@ -1,0 +1,202 @@
+{
+  "format": "zerog.project-specific-blockbench-import.v1",
+  "project": "/mnt/c/users/jakem/documents/codex/2026-09-29/blo/zerog-1.21.1-asset-update-05",
+  "source_collection": "/mnt/c/users/jakem/documents/codex/2026-09-29/blo/outputs/ZeroG_Full_Collection_1_21_1_06",
+  "canonical_glb_admission": false,
+  "accepted_exceptions": [
+    "noncanonical Minecraft Blockbench/GeckoLib format",
+    "unverified concept-reference artwork licence"
+  ],
+  "approval": "Human replied continue to import/test request, then yes restore and continue",
+  "sources": {
+    "approved-tidewraith/docs/shattered-skies/abyssal-face-repair/tidewraith_abyssal_concept_face.bbmodel": {
+      "bytes": 1621391,
+      "sha256": "1783c3962e7da29af0e5654ff5bf5de7c2e7cbc9dbcf3f16642e968a18df2207"
+    },
+    "approved-tidewraith/docs/shattered-skies/tidewraith-concept/tidewraith_concept.bbmodel": {
+      "bytes": 8080281,
+      "sha256": "03756de8e357b0122a5fdc7fc6ab1be2b087710a99c9fd11417bf9c7afd04630"
+    },
+    "approved-tidewraith/docs/shattered-skies/abyssal-face-repair/tidewraith_abyssal_concept_face.png": {
+      "bytes": 118559,
+      "sha256": "171e344087a5255f3a9ca2f3e37c114f24c9f6778a74586b4d538e81a2b806a7"
+    },
+    "approved-tidewraith/docs/shattered-skies/abyssal-face-repair/tidewraith_abyssal_concept_face_glowmask.png": {
+      "bytes": 65579,
+      "sha256": "0f4da527482778553a836ed3409018c1c47f05041d5743077b6f2ab16ac5f511"
+    },
+    "approved-tidewraith/docs/shattered-skies/tidewraith-concept/tidewraith_concept.png": {
+      "bytes": 620,
+      "sha256": "cc659b8fe0afcb0e08b249f8b908ce261307bef63f5128e14f4124ce3f8fd321"
+    },
+    "approved-tidewraith/docs/shattered-skies/tidewraith-concept/tidewraith_concept_glowmask.png": {
+      "bytes": 175,
+      "sha256": "7f2aabf27693eebee01455a556f0c2dadec14d9b97b964e2dbcb62bedac0c1d1"
+    },
+    "approved-tidewraith/docs/shattered-skies/tidewraith-concept/tidewraith_concept_abyssal.png": {
+      "bytes": 619,
+      "sha256": "28d6d1891dd67ec1f16bba377f4478ecb313c81ceb8ab37986b4b8aeb956c48d"
+    },
+    "approved-tidewraith/docs/shattered-skies/tidewraith-concept/tidewraith_concept_abyssal_glowmask.png": {
+      "bytes": 175,
+      "sha256": "62a9fa5e79a2478951ad70ceaea24d822651ad743563558000cdf76b156cf19d"
+    },
+    "approved-tidewraith/docs/shattered-skies/tidewraith-concept/tidewraith_concept_pearl.png": {
+      "bytes": 610,
+      "sha256": "58040b9034bf2393921fa27f3b1b9f2814be7f79edacd9c3ef9b743063e2d572"
+    },
+    "approved-tidewraith/docs/shattered-skies/tidewraith-concept/tidewraith_concept_pearl_glowmask.png": {
+      "bytes": 175,
+      "sha256": "f5fc9c360f31a9931bd56c158833549f57ad681b92973664ff5c5bb018856ab3"
+    },
+    "approved-tidewraith/docs/shattered-skies/tidewraith-concept/tidewraith_concept_storm.png": {
+      "bytes": 597,
+      "sha256": "2cd36a9f600b2873ae42d81b03e9f635cf458ceea7d01aed057ded79fee49fb7"
+    },
+    "approved-tidewraith/docs/shattered-skies/tidewraith-concept/tidewraith_concept_storm_glowmask.png": {
+      "bytes": 175,
+      "sha256": "b59abb8c8c2d531a6563452f64e41c0e95d3892837e9d30849d2a351777bf43c"
+    }
+  },
+  "models": {
+    "tidewraith": {
+      "cubes": 265,
+      "bones": 64,
+      "texture": {
+        "width": 4096,
+        "height": 4096
+      },
+      "animations": [
+        "animation.zerog_tweaks.tidewraith.spawn",
+        "animation.zerog_tweaks.tidewraith.idle",
+        "animation.zerog_tweaks.tidewraith.attack",
+        "animation.zerog_tweaks.tidewraith.hurt",
+        "animation.zerog_tweaks.tidewraith.death",
+        "animation.zerog_tweaks.tidewraith.ability_void_pull",
+        "animation.zerog_tweaks.tidewraith.ability_splinter_volley",
+        "animation.zerog_tweaks.tidewraith.ability_telegraph_aoe",
+        "animation.zerog_tweaks.tidewraith.fly",
+        "animation.zerog_tweaks.tidewraith.glide",
+        "animation.zerog_tweaks.tidewraith.blink",
+        "animation.zerog_tweaks.tidewraith.look_left",
+        "animation.zerog_tweaks.tidewraith.look_right",
+        "animation.zerog_tweaks.tidewraith.mouth_open"
+      ]
+    },
+    "tidewraith_boss": {
+      "cubes": 4090,
+      "bones": 43,
+      "texture": {
+        "width": 32,
+        "height": 32
+      },
+      "animations": [
+        "animation.zerog_tweaks.tidewraith_boss.idle",
+        "animation.zerog_tweaks.tidewraith_boss.fly",
+        "animation.zerog_tweaks.tidewraith_boss.glide",
+        "animation.zerog_tweaks.tidewraith_boss.blink",
+        "animation.zerog_tweaks.tidewraith_boss.mouth_open"
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/geo/tidewraith.geo.json",
+      "bytes": 98652,
+      "sha256": "da4da9f19df920ba0d2ebdfc9aa3b600a85f30999349df9f9edd60dca62440ba"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/animations/tidewraith.animation.json",
+      "bytes": 83305,
+      "sha256": "78e3afe64fea062e8ea13d9caad86fc08060d3d4cef727716db2cb7663580aa9"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/geo/tidewraith_boss.geo.json",
+      "bytes": 1789724,
+      "sha256": "91780c3b64f84bf049849d89ba6d25b61935de0a202f748b840a8b47be2f9759"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/animations/tidewraith_boss.animation.json",
+      "bytes": 112787,
+      "sha256": "77e6e381d0f0b891a831532416d802b1fa06e3b60cb3039883ca52aada0af90f"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith.png",
+      "bytes": 118559,
+      "sha256": "171e344087a5255f3a9ca2f3e37c114f24c9f6778a74586b4d538e81a2b806a7"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_glowmask.png",
+      "bytes": 65579,
+      "sha256": "0f4da527482778553a836ed3409018c1c47f05041d5743077b6f2ab16ac5f511"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith.png.mcmeta",
+      "bytes": 41,
+      "sha256": "03966d266f2e897c5a9ca03bb1b65ab24e1b657dd76bbc0145cd504724603e95"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss.png",
+      "bytes": 620,
+      "sha256": "cc659b8fe0afcb0e08b249f8b908ce261307bef63f5128e14f4124ce3f8fd321"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss_glowmask.png",
+      "bytes": 175,
+      "sha256": "7f2aabf27693eebee01455a556f0c2dadec14d9b97b964e2dbcb62bedac0c1d1"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss.png.mcmeta",
+      "bytes": 41,
+      "sha256": "03966d266f2e897c5a9ca03bb1b65ab24e1b657dd76bbc0145cd504724603e95"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss_abyssal.png",
+      "bytes": 619,
+      "sha256": "28d6d1891dd67ec1f16bba377f4478ecb313c81ceb8ab37986b4b8aeb956c48d"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss_abyssal_glowmask.png",
+      "bytes": 175,
+      "sha256": "62a9fa5e79a2478951ad70ceaea24d822651ad743563558000cdf76b156cf19d"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss_abyssal.png.mcmeta",
+      "bytes": 41,
+      "sha256": "03966d266f2e897c5a9ca03bb1b65ab24e1b657dd76bbc0145cd504724603e95"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss_pearl.png",
+      "bytes": 610,
+      "sha256": "58040b9034bf2393921fa27f3b1b9f2814be7f79edacd9c3ef9b743063e2d572"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss_pearl_glowmask.png",
+      "bytes": 175,
+      "sha256": "f5fc9c360f31a9931bd56c158833549f57ad681b92973664ff5c5bb018856ab3"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss_pearl.png.mcmeta",
+      "bytes": 41,
+      "sha256": "03966d266f2e897c5a9ca03bb1b65ab24e1b657dd76bbc0145cd504724603e95"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss_storm.png",
+      "bytes": 597,
+      "sha256": "2cd36a9f600b2873ae42d81b03e9f635cf458ceea7d01aed057ded79fee49fb7"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss_storm_glowmask.png",
+      "bytes": 175,
+      "sha256": "b59abb8c8c2d531a6563452f64e41c0e95d3892837e9d30849d2a351777bf43c"
+    },
+    {
+      "path": "src/main/resources/assets/zerog_tweaks/textures/entity/tidewraith_boss_storm.png.mcmeta",
+      "bytes": 41,
+      "sha256": "03966d266f2e897c5a9ca03bb1b65ab24e1b657dd76bbc0145cd504724603e95"
+    }
+  ],
+  "imported": true,
+  "runtime_tested": false,
+  "gpu_render_verified": false
+}
