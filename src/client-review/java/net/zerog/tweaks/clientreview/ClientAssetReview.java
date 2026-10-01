@@ -4,7 +4,10 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -79,6 +82,7 @@ public final class ClientAssetReview {
             }
             LogUtils.getLogger().info("ZEROG_CLIENT_ASSET_REVIEW_PASS: 2 baked models, required flight/eye/mouth clips, "
                     + "5 base textures and 5 emissive uploads. No in-world visual approval implied.");
+            reviewMoonsteel(client);
             var guide=new MultiblockGuideScreen();
             client.setScreen(guide);
             guide.reviewPose(0,MultiblockGuides.layouts().getFirst().maxY(),true);
@@ -88,5 +92,35 @@ public final class ClientAssetReview {
             client.stop();
         }
     }
+    /**
+     * Moonsteel: every 3D tool must bake to real geometry with real sprites (a cube model whose parent chain
+     * reaches builtin/generated is rebuilt from layer0..4 and silently bakes to nothing), and the GeckoLib
+     * armor model and its glowmask must load.
+     */
+    private static void reviewMoonsteel(Minecraft client) {
+        var random = RandomSource.create(42);
+        var missing = MissingTextureAtlasSprite.getLocation();
+        int quads = 0;
+        for (String tool : new String[]{"sword", "pickaxe", "axe", "shovel", "hoe"}) {
+            var item = BuiltInRegistries.ITEM.get(id("moonsteel_" + tool));
+            var model = client.getItemRenderer().getModel(new ItemStack(item), null, null, 0);
+            var toolQuads = model.getQuads(null, null, random);
+            require(!toolQuads.isEmpty(), "Moonsteel " + tool + " baked to no geometry (invisible item)");
+            for (var quad : toolQuads) {
+                require(!quad.getSprite().contents().name().equals(missing), "Moonsteel " + tool + " uses the missing texture");
+            }
+            quads += toolQuads.size();
+        }
+        var armor = GeckoLibCache.getBakedModels().get(id("geo/item/armor/moonsteel.geo.json"));
+        require(armor != null && !armor.topLevelBones().isEmpty(), "Moonsteel armor GeckoLib model not baked");
+        var textures = client.getTextureManager();
+        var armorTexture = id("textures/item/armor/moonsteel.png");
+        require(textures.getTexture(armorTexture) != MissingTextureAtlasSprite.getTexture(), "Moonsteel armor texture failed");
+        require(textures.getTexture(AutoGlowingTexture.getEmissiveResource(armorTexture)) != MissingTextureAtlasSprite.getTexture(),
+                "Moonsteel armor glowmask failed");
+        LogUtils.getLogger().info("ZEROG_MOONSTEEL_REVIEW_PASS: 5 tool models baked ({} quads, no missing sprites), "
+                + "GeckoLib armor model, texture and glowmask loaded.", quads);
+    }
+
     private ClientAssetReview() {}
 }
