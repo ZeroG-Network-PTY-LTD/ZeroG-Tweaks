@@ -7,10 +7,10 @@ Implements `moonsteel_3d_design_sheet.png` (armor and tools in 3D) and
 | --- | --- |
 | `moonsteel_chunky_shell.bbmodel` | Blockbench project of the GeckoLib armor: vanilla boxes + shell cubes on the armor bones |
 | `moonsteel.geo.json`, `moonsteel.png`, `moonsteel_glowmask.png` | The exact files shipped on `1.21.x` (`geckolib/models/item/armor/`, `textures/item/armor/`) |
-| `moonsteel_sword_3d.bbmodel`, `moonsteel_pickaxe_3d.bbmodel` | 3D held-tool models (axe, shovel, hoe follow the same rules) |
+| `moonsteel_{sword,pickaxe,axe,shovel,hoe}_3d.bbmodel` | 3D held-tool models for all 5 Moonsteel tools |
 | `chunky_shell_front.png`, `chunky_shell_back.png` | Blockbench renders of the armor |
 | `trim_preview_crater_solvanite_*.png` | Crater pattern in Solvanite on the shell, drawn the way `ZGGeoArmorRenderer` draws trims in game |
-| `tool_sword_3d.png`, `tool_pickaxe_3d.png` | Blockbench renders of the 3D tools |
+| `tools_3d_lineup.png`, `tool_*_3d.png` | Blockbench renders of all 5 3D tools |
 | `gen_armor.py` | Generates the geo model, texture and glowmask (edit cubes/palette here, then re-run) |
 | `gen_tools.py` | Generates the 3D tool models from the 16x16 sprites |
 
