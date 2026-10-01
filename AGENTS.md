@@ -1,6 +1,6 @@
 # AGENTS.md: build guide for ZeroG Tweaks
 
-This file is for the AI coding agent (or human) turning this repo into a working mod. Read it top to bottom before writing code. The **design doc** is the source of truth for gameplay: `docs/zero-g-tweaks-bundle/ZeroG_Tweaks_Design_Doc.md`. This file tells you what already exists, what data expects from Java, and what is left to build.
+This file is for the AI coding agent (or human) turning this repo into a working mod. Read it top to bottom before writing code. The **design doc** is the source of truth for gameplay: `docs/zero-g-tweaks-bundle/ZeroG_Tweaks_Design_Doc.md`. (The `docs/` design bundle lives on the `Design` branch; player docs, images and release jars on the `Docs` branch.) This file tells you what already exists, what data expects from Java, and what is left to build.
 
 ## Ground rules
 

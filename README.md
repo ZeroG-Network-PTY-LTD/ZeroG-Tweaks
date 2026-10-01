@@ -1,4 +1,4 @@
-<p align="center"><img src="docs/images/logo.png" alt="ZeroG Tweaks + Bees" width="720"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Docs/docs/images/logo.png" alt="ZeroG Tweaks + Bees" width="720"></p>
 
 # ZeroG Tweaks + ZeroG Bees
 
@@ -18,13 +18,13 @@ beekeeping industry that runs on top of it.
 
 **Baseline:** Minecraft **1.21.1** · NeoForge **21.1.252** · Java **21** (Temurin)
 
-## Approved Tidewraith pair — new branch
+## Approved Tidewraith pair
 
-This data-only commit preserves the two approved designs and their intended
-ZeroG Tweaks IDs without changing the other branches.
-[Approved-model gallery and test instructions](docs/tidewraith-approved/README.md)
-· [HTML review](docs/tidewraith-approved/review.html)
-· [Backup of both completed design stacks](docs/tidewraith-approved/approved-models-backup.zip).
+The two approved designs and their ZeroG Tweaks IDs. Design files live on the
+`Design` branch.
+[Approved-model gallery and test instructions](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/tidewraith-approved/README.md)
+· [HTML review](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/tidewraith-approved/review.html)
+· [Backup of both completed design stacks](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/tidewraith-approved/approved-models-backup.zip).
 
 - `zerog_tweaks:tidewraith`: the approved two-eye Abyssal face, repaired head
   join, original Phantom-inspired wings, body and tendrils. **Not a boss**.
@@ -32,12 +32,8 @@ ZeroG Tweaks IDs without changing the other branches.
   mouth model. **Boss**, retaining its authored 80-unit / 5-block wingspan,
   with Standard, Abyssal, Pearl and Storm palette variants. No x6 scale.
 
-Prepared runtime source, registry/dependency patch and opt-in tests are saved
-under [runtime-draft](docs/tidewraith-approved/runtime-draft/README.md), not wired
-into this commit's `src/`. That local draft compiled and passed three Minecraft
-server tests. Runtime asset admission and client appearance checks remain
-pending; see the verification ledger. This commit does not ship a playable
-Tidewraith jar or replace existing release jars.
+The runtime (entities, renderer, spawn eggs, game tests) is wired into `src/` on
+`1.21.x`. Client appearance checks remain pending; see the verification ledger.
 No natural spawning or campaign special-ability mechanics are enabled by this
 update. The old source snapshots are retained for provenance, not selected as
 the runtime assets.
@@ -48,9 +44,9 @@ the runtime assets.
 
 | Doc | What's in it |
 | --- | --- |
-| [docs/HELP.md](docs/HELP.md) | **Player + admin help** — install, every machine, troubleshooting |
-| [docs/zero-g-tweaks-bundle/](docs/zero-g-tweaks-bundle/) | Preserved authority asset/design bundle (design doc, sheets, generators) |
-| [docs/jars/SHA256SUMS.txt](docs/jars/SHA256SUMS.txt) | Release-jar SHA256 hashes — verify before deploying |
+| [docs/HELP.md](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/HELP.md) | **Player + admin help** — install, every machine, troubleshooting |
+| [docs/zero-g-tweaks-bundle/](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design/docs/zero-g-tweaks-bundle) | Preserved authority asset/design bundle (design doc, sheets, generators) |
+| [docs/jars/SHA256SUMS.txt](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/jars/SHA256SUMS.txt) | Release-jar SHA256 hashes — verify before deploying |
 
 ---
 
@@ -60,7 +56,7 @@ An Allthemodium-style progression mod: shattered-void Nullifite, a tiered galaxy
 teleporter, planet ores, space woods, machines, and the food/economy layer that
 ties the ZeroG planet network together.
 
-<p align="center"><img src="docs/images/diagram_galaxy_progression.png" alt="Galaxy progression" width="820"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Docs/docs/images/diagram_galaxy_progression.png" alt="Galaxy progression" width="820"></p>
 
 **Content families**
 
@@ -72,7 +68,7 @@ ties the ZeroG planet network together.
 - **9+ gear sets** — astrium, cerulite, cyrrium, moonsteel, olympium, nullifite, radiante, salvium, skarnite, solvanite… full 9-piece kits (pick/shovel/axe/hoe/sword + 4 armor pieces).
 - **Five prior live entity classes** — Crystal Stag, Frost Yak, Prismling, Rust Beetle and Dune Burrower. Their renderer polish remains separate work. The approved Tidewraith designs and runtime draft above are additional data, not two newly shipped entities; the original 28-mob design roster is not a claim that all 28 are implemented.
 
-Gallery: [machines & gates](docs/images/gallery_machines.png) · [teleporter blocks](docs/images/gallery_teleporter.png) · [gear](docs/images/gallery_gear.png) · [armor](docs/images/gallery_armor.png) · [food & items](docs/images/gallery_food.png) · [mob sheets](docs/images/gallery_mobs.png)
+Gallery: [machines & gates](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/images/gallery_machines.png) · [teleporter blocks](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/images/gallery_teleporter.png) · [gear](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/images/gallery_gear.png) · [armor](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/images/gallery_armor.png) · [food & items](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/images/gallery_food.png) · [mob sheets](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/images/gallery_mobs.png)
 
 ---
 
@@ -82,7 +78,7 @@ Zero-G beekeeping as a **required addon for Productive Bees** (`1.21.1-13.14.x`)
 the Forestry-style Orbital Alveary, seven machines, tiers 1–7, and a full
 space-comb/frames/genetics item set.
 
-<p align="center"><img src="docs/images/diagram_5x5_alveary.png" alt="Orbital Alveary structure" width="820"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Docs/docs/images/diagram_5x5_alveary.png" alt="Orbital Alveary structure" width="820"></p>
 
 **The Orbital Alveary** — a formed 125-cell multiblock (5×5×5). Every structure
 cell must be an `aeroapiary` block of the alveary's own tier (`tierN_*`), the
@@ -118,16 +114,16 @@ scoops, smoker, wrench, beealyzer/beealyzer portable, habitat locator,
 grafters, serums, royal jelly (+ solidified), honey drop, astro honey,
 cosmic jelly, alveary blueprint, confinement coil, advanced circuit.
 
-<p align="center"><img src="docs/images/bees_machines.png" alt="ZeroG Bees machines" width="780"></p>
-<p align="center"><img src="docs/images/bees_items.png" alt="ZeroG Bees items" width="780"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Docs/docs/images/bees_machines.png" alt="ZeroG Bees machines" width="780"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Docs/docs/images/bees_items.png" alt="ZeroG Bees items" width="780"></p>
 
-<p align="center"><img src="docs/images/diagram_product_flow.png" alt="Product flow" width="820"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Docs/docs/images/diagram_product_flow.png" alt="Product flow" width="820"></p>
 
 ---
 
 ## The two jars
 
-Release jars are **committed in this repo** under [`docs/jars/`](docs/jars/) so an install never depends on a build machine.
+Release jars are **committed in this repo** under [`docs/jars/`](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Docs/docs/jars) so an install never depends on a build machine.
 
 | File | In `docs/jars/` | Also lives at |
 | --- | --- | --- |
@@ -144,16 +140,16 @@ Verify before deploying:
 Deploy law: copy into the instance mods folder
 (`C:\Users\jakem\curseforge\minecraft\Instances\ZeroG\mods\`) and sha-verify the copy.
 
-<p align="center"><img src="docs/images/diagram_pack_layout.png" alt="Pack layout" width="820"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Docs/docs/images/diagram_pack_layout.png" alt="Pack layout" width="820"></p>
 
 ---
 
 ## Players: quick start
 
 1. Install CurseForge → instance **ZeroG** (Minecraft 1.21.1, NeoForge 21.1.252).
-2. Drop both jars from [`docs/jars/`](docs/jars/) into `mods/` **plus** the pack's `geckolib-neoforge-1.21.1-4.9.3.jar` (ZeroG Bees hard-requires it).
+2. Drop both jars from [`docs/jars/`](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Docs/docs/jars) into `mods/` **plus** the pack's `geckolib-neoforge-1.21.1-4.9.3.jar` (ZeroG Bees hard-requires it).
 3. Verify hashes (`sha256sum -c docs/jars/SHA256SUMS.txt`), launch.
-4. Both mods show their own creative tab; full guide in [docs/HELP.md](docs/HELP.md).
+4. Both mods show their own creative tab; full guide in [docs/HELP.md](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/HELP.md).
 
 ---
 
@@ -179,64 +175,60 @@ Output: `build/libs/zerog-tweaks-1.21.1-1.0.0.jar` → copy into the instance mo
     ├── src/main/resources/                  assets + data + neoforge.mods.toml
     │   ├── assets/zerog_tweaks/             878 blockstates, models, textures, lang
     │   └── data/zerog_tweaks/               loot tables, recipes, tags
-    ├── docs/HELP.md                         player + admin help guide
-    ├── docs/images/                         README diagrams, gallery, logo
-    ├── docs/jars/                           committed release jars + SHA256SUMS.txt
-    ├── docs/zero-g-tweaks-bundle/           preserved authority bundle
-    │   ├── resources/                       original asset/data bundle
-    │   ├── sheets/                          art reference sheets (mobs, gear, blocks, armor, food)
-    │   ├── generators/                      the Python scripts that generated all art/JSON
-    │   └── ZeroG_Tweaks_Design_Doc.md       full design document (galaxies, teleporter, planets)
+    ├── tools/                           helper scripts (model export)
+    │   (docs, images and release jars live on the Docs branch; design work on the Design branch)
     ├── build.gradle / gradlew(.bat)         Gradle wiring (wrapper 8.x)
     └── .gitignore
 
 ## Illustrated collection and current implementation
 
-Start with the [illustrated armour, Bees, materials and mobs guide](docs/current-collection-guide-1.21.1.md).
+Start with the [illustrated armour, Bees, materials and mobs guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/current-collection-guide-1.21.1.md).
 It groups the designs by use, lists every armour family and apiary tier, and
 distinguishes working Java features from asset-only studies and future updates.
 The older hashed collection README is preserved as a historical design snapshot;
-the illustrated guide and [runtime review](docs/local-runtime-review-1.21.1.md)
+the illustrated guide and [runtime review](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/local-runtime-review-1.21.1.md)
 describe the newer implementation.
 
-![Vanilla-fitting twenty-material armour collection](docs/asset-collection-1.21.1/armour/lineup.png)
+![Vanilla-fitting twenty-material armour collection](https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Design/docs/asset-collection-1.21.1/armour/lineup.png)
 
-![Bees frame, analyzer and genetic item studies](docs/collection-gallery-1.21.1/bees-frames-and-genetics.png)
+![Bees frame, analyzer and genetic item studies](https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Design/docs/collection-gallery-1.21.1/bees-frames-and-genetics.png)
 
-![Approved non-boss Tidewraith, repaired face](docs/asset-collection-1.21.1/approved-tidewraith/docs/shattered-skies/abyssal-face-repair/updated_threequarter.png)
+![Approved non-boss Tidewraith, repaired face](https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Design/docs/asset-collection-1.21.1/approved-tidewraith/docs/shattered-skies/abyssal-face-repair/updated_threequarter.png)
 
 Images are design sheets/software previews, not in-world screenshots. Eleven
 isolated server tests and the client model/animation/texture upload check pass.
 The complete mod, HD worn-armour mapping and Bees gameplay are not finished.
 
-See [verification and reproducible test commands](docs/verification-1.21.1.md)
+See [verification and reproducible test commands](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/verification-1.21.1.md)
 for the exact test scope, normal build hash and remaining checks.
 
 ## Complete Blockbench design collection — Minecraft 1.21.1
 
-The [collection guide](docs/asset-collection-1.21.1/README.md) continues the design documentation from [`codex/tidewraith-approved-mobs`](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/codex/tidewraith-approved-mobs). The collection remains a **design snapshot**, not proof of in-game rendering. A separate gameplay pass converts 80 armour pieces and 100 material tools into real equipment and adds the approved spawnable Tidewraith pair. Eleven isolated server tests pass, including actual spawn-egg use. See the [runtime review](docs/local-runtime-review-1.21.1.md) for completed code, tests and remaining review limits. This branch is a development update; no new release has been installed.
+The [collection guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/asset-collection-1.21.1/README.md) continues the design documentation from [`codex/tidewraith-approved-mobs`](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/codex/tidewraith-approved-mobs). The collection remains a **design snapshot**, not proof of in-game rendering. A separate gameplay pass converts 80 armour pieces and 100 material tools into real equipment and adds the approved spawnable Tidewraith pair. Eleven isolated server tests pass, including actual spawn-egg use. See the [runtime review](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/local-runtime-review-1.21.1.md) for completed code, tests and remaining review limits. This branch is a development update; no new release has been installed.
 
 The full scene contains **609 model presentations** across 12 categories, including block-inventory duplicates and palette/style variants—not 609 distinct registered items or mobs. It includes 38 spawn-egg studies and 65 mob-drop models, with separate category showcases for lighter review.
 
-- [Open the full Blockbench showcase](docs/asset-collection-1.21.1/showcases/ZeroG_Full_Collection_1_21_1.bbmodel): categorized armour, apiary blocks/items, multiblocks, materials, mobs, drops and spawn-egg studies. Individual projects retain their animation clips.
-- [Browse the HTML collection](docs/asset-collection-1.21.1/review.html) locally, or read the [hashed inventory](docs/asset-collection-1.21.1/catalog.json).
+- [Open the full Blockbench showcase](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/asset-collection-1.21.1/showcases/ZeroG_Full_Collection_1_21_1.bbmodel): categorized armour, apiary blocks/items, multiblocks, materials, mobs, drops and spawn-egg studies. Individual projects retain their animation clips.
+- [Browse the HTML collection](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/asset-collection-1.21.1/review.html) locally, or read the [hashed inventory](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/asset-collection-1.21.1/catalog.json).
 - **20 green-box vanilla-fitting armour sets**, using the material colours and surface styles from the supplied lineup. The rejected orange-box visor cages, bulky stacked plates and floating chest details are excluded from this collection. Faces, forearms and hands remain visible. Eight sets include animated-PNG studies and separate glow masks; equipment renderer support remains future work.
 - **ZeroG Bees designs:** 85 block models, 65 standalone items plus block-inventory views, 19 frame designs, 8 multiblock assemblies and Apiarist/Cosmic wearable studies. Includes machines, genetics tools, serums, jelly, controllers, casing/tier structures and held-tool projects. Accepted bee entity models are still pending; rejected earlier bees are not restored.
 - **Materials:** 39 families, 94 ore/storage blocks and 71 inventory models covering ingots, raw materials, nuggets, dusts, gems, crystals and fuels. The material pack preserves the original pixel art enlarged with nearest-neighbour sampling; it is not newly painted HD detail.
 - **Mobs, eggs and drops:** immutable committed creature/style studies, coordinated egg models, drop items, reference sheets and aura studies. The approved repaired-face Tidewraith is the non-boss; the manta-mouth design is the boss and retains its authored size. Historical Tidewraith files are archived but omitted from the active showcase. The local runtime now includes both approved models, flight/eye/mouth clips, five unchanged texture palettes with glow masks, and working eggs. Natural spawning, campaign boss phases and approved drops remain unfinished.
 
-![Twenty green-box vanilla-fitting material armour sets](docs/asset-collection-1.21.1/armour/lineup.png)
+![Twenty green-box vanilla-fitting material armour sets](https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Design/docs/asset-collection-1.21.1/armour/lineup.png)
 
 ### Future collection updates
 
-Accepted vanilla-based space bees and Productive Bees integration; live mob registrations, AI, eggs, drops and boss mechanics; block GUI/menu bindings and frame/bee/comb/genetic slots; production exports; controller/hatchery/multiblock tests; Java armour rendering, animation and emissive support; then tested client builds and release packaging. These are planned features, not completed by this documentation update. See the [collection guide](docs/asset-collection-1.21.1/README.md) for detailed descriptions, provenance and limits.
+Accepted vanilla-based space bees and Productive Bees integration; live mob registrations, AI, eggs, drops and boss mechanics; block GUI/menu bindings and frame/bee/comb/genetic slots; production exports; controller/hatchery/multiblock tests; Java armour rendering, animation and emissive support; then tested client builds and release packaging. These are planned features, not completed by this documentation update. See the [collection guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/asset-collection-1.21.1/README.md) for detailed descriptions, provenance and limits.
 
 ## Branches
 
 | Branch | Contents |
 | --- | --- |
-| `1.21.1-update` | **Active line.** Full NeoForge source, Gradle wiring, crystal-cluster + crop + plant-light fixes, help/docs + images + release jars. Recommended. |
-| `main` | Placeholder line. |
+| `Released` | **Major released code.** Default branch. Each release is merged in from its version dev branch (`1.21.x`, and later `26.1.x`, `26.2.x`, …). |
+| `1.21.x` | **Dev branch for Minecraft 1.21.x.** Full NeoForge source, Gradle build, game tests. |
+| [`Design`](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design) | All design work: Blockbench models, asset collections, art sheets, generators, Tidewraith studies. |
+| [`Docs`](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Docs) | Wiki and documentation: README, HELP guide, images/diagrams, release jars + `SHA256SUMS.txt`. |
 
 ## Roadmap — known open items
 

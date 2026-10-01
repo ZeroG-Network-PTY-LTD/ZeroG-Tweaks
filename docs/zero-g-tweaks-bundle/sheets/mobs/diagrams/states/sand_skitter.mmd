@@ -1,9 +1,0 @@
-stateDiagram-v2
-  direction LR
-  state "buried" as s0
-  state "bursting" as s1
-  state "attacking" as s2
-  [*] --> s0
-  s0 --> s1 : player within 4 or group member bursts
-  s1 --> s2 : out of sand
-  s2 --> s0 : target lost 200t (re-bury)
