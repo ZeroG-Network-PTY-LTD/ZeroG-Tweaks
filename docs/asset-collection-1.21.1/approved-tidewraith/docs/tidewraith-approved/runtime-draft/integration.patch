@@ -1,0 +1,95 @@
+diff --git a/build.gradle b/build.gradle
+index 3d2895db..69a8a583 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -19,0 +20 @@ repositories {
++    maven { url = 'https://api.modrinth.com/maven' }
+@@ -32,0 +34,6 @@ java {
++// Optional in-world tests are never included in a normal release build.
++if (providers.gradleProperty('tidewraithTests').isPresent()) {
++    sourceSets.main.java.srcDir 'src/gametest/java'
++    sourceSets.main.resources.srcDir 'src/gametest/resources'
++}
++
+@@ -41,0 +49,5 @@ neoForge {
++        tidewraithTests {
++            type = 'gameTestServer'
++            gameDirectory = file('run-tidewraith-tests')
++            systemProperty 'neoforge.enabledGameTestNamespaces', 'zerog_tweaks'
++        }
+@@ -66,0 +79 @@ dependencies {
++    implementation 'maven.modrinth:geckolib:Grwn5rUB' // NeoForge 1.21.1, GeckoLib 4.9.3
+@@ -82 +95 @@ tasks.withType(JavaCompile).configureEach {
+-}
+\ No newline at end of file
++}
+diff --git a/src/main/java/net/zerog/tweaks/registry/EntityInit.java b/src/main/java/net/zerog/tweaks/registry/EntityInit.java
+index 330f4948..65686c76 100644
+--- a/src/main/java/net/zerog/tweaks/registry/EntityInit.java
++++ b/src/main/java/net/zerog/tweaks/registry/EntityInit.java
+@@ -15,0 +16,2 @@ import net.zerog.tweaks.entity.RustBeetle;
++import net.zerog.tweaks.entity.Tidewraith;
++import net.zerog.tweaks.entity.TidewraithBoss;
+@@ -37,0 +40,7 @@ public final class EntityInit {
++    public static final DeferredHolder<EntityType<?>, EntityType<Tidewraith>> TIDEWRAITH =
++            ENTITIES.register("tidewraith", () -> EntityType.Builder.<Tidewraith>of(Tidewraith::new, MobCategory.MONSTER)
++                    .sized(1.6f, 1.8f).clientTrackingRange(12).build("tidewraith"));
++    public static final DeferredHolder<EntityType<?>, EntityType<TidewraithBoss>> TIDEWRAITH_BOSS =
++            ENTITIES.register("tidewraith_boss", () -> EntityType.Builder.<TidewraithBoss>of(TidewraithBoss::new, MobCategory.MONSTER)
++                    .sized(2.4f, 2.125f).clientTrackingRange(16).build("tidewraith_boss"));
++
+@@ -43 +52 @@ public final class EntityInit {
+-}
+\ No newline at end of file
++}
+diff --git a/src/main/java/net/zerog/tweaks/registry/EntityInitHooks.java b/src/main/java/net/zerog/tweaks/registry/EntityInitHooks.java
+index c60ff5d8..099a431a 100644
+--- a/src/main/java/net/zerog/tweaks/registry/EntityInitHooks.java
++++ b/src/main/java/net/zerog/tweaks/registry/EntityInitHooks.java
+@@ -34,0 +35,2 @@ public final class EntityInitHooks {
++        event.registerEntityRenderer(EntityInit.TIDEWRAITH.get(), net.zerog.tweaks.client.TidewraithRenderer::new);
++        event.registerEntityRenderer(EntityInit.TIDEWRAITH_BOSS.get(), net.zerog.tweaks.client.TidewraithRenderer::new);
+@@ -36 +38 @@ public final class EntityInitHooks {
+-}
+\ No newline at end of file
++}
+diff --git a/src/main/java/net/zerog/tweaks/registry/ModContentHooks.java b/src/main/java/net/zerog/tweaks/registry/ModContentHooks.java
+index 76b3046b..2d2fcb77 100644
+--- a/src/main/java/net/zerog/tweaks/registry/ModContentHooks.java
++++ b/src/main/java/net/zerog/tweaks/registry/ModContentHooks.java
+@@ -22,0 +23,2 @@ public final class ModContentHooks {
++            event.put(EntityInit.TIDEWRAITH.get(), net.zerog.tweaks.entity.Tidewraith.createAttributes().build());
++            event.put(EntityInit.TIDEWRAITH_BOSS.get(), net.zerog.tweaks.entity.TidewraithBoss.createAttributes().build());
+@@ -25 +27 @@ public final class ModContentHooks {
+-}
+\ No newline at end of file
++}
+diff --git a/src/main/java/net/zerog/tweaks/registry/ModInit.java b/src/main/java/net/zerog/tweaks/registry/ModInit.java
+index b828eaa5..670771c6 100644
+--- a/src/main/java/net/zerog/tweaks/registry/ModInit.java
++++ b/src/main/java/net/zerog/tweaks/registry/ModInit.java
+@@ -11,0 +12 @@ public final class ModInit {
++        TidewraithItems.register(modBus);
+@@ -20 +21 @@ public final class ModInit {
+-}
+\ No newline at end of file
++}
+diff --git a/src/main/resources/META-INF/neoforge.mods.toml b/src/main/resources/META-INF/neoforge.mods.toml
+index 7a3178fe..395dc692 100644
+--- a/src/main/resources/META-INF/neoforge.mods.toml
++++ b/src/main/resources/META-INF/neoforge.mods.toml
+@@ -18 +18 @@ type="required"
+-versionRange="[21.1.0,)"
++versionRange="[21.1.150,)"
+@@ -21,0 +22,7 @@ side="BOTH"
++[[dependencies.zerog_tweaks]]
++modId="geckolib"
++type="required"
++versionRange="[4.9.3,5)"
++ordering="AFTER"
++side="BOTH"
++
+@@ -26 +33 @@ versionRange="[1.21.1]"
+-side="BOTH"
+\ No newline at end of file
++side="BOTH"

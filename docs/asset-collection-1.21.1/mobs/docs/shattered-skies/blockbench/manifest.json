@@ -1,0 +1,852 @@
+{
+  "minecraft": "1.21.1",
+  "models": [
+    {
+      "model": "amethyst_stalker",
+      "boxes": 37,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 25,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_amethyst_stalker.png",
+      "current_reference": "previews/amethyst_stalker.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "amethyst_stalker",
+      "source": "docs/shattered-skies/models/amethyst_stalker.json"
+    },
+    {
+      "model": "amethyst_stalker_barded",
+      "boxes": 42,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 25,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_amethyst_stalker_barded.png",
+      "current_reference": "previews/amethyst_stalker_barded.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "amethyst_stalker",
+      "source": "docs/shattered-skies/models/amethyst_stalker_barded.json"
+    },
+    {
+      "model": "amethyst_stalker_diamond",
+      "boxes": 39,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 25,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_amethyst_stalker_diamond.png",
+      "current_reference": "previews/amethyst_stalker_diamond.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "amethyst_stalker",
+      "source": "docs/shattered-skies/models/amethyst_stalker_diamond.json"
+    },
+    {
+      "model": "amethyst_stalker_echo",
+      "boxes": 41,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 25,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_amethyst_stalker_echo.png",
+      "current_reference": "previews/amethyst_stalker_echo.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "amethyst_stalker",
+      "source": "docs/shattered-skies/models/amethyst_stalker_echo.json"
+    },
+    {
+      "model": "hollow_sentinel",
+      "boxes": 40,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 3,
+      "texels_per_unit": 8,
+      "bones": 21,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_hollow_sentinel.png",
+      "current_reference": "previews/hollow_sentinel.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "hollow_sentinel",
+      "source": "docs/shattered-skies/models/hollow_sentinel.json"
+    },
+    {
+      "model": "hollow_sentinel_drowned",
+      "boxes": 45,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 3,
+      "texels_per_unit": 8,
+      "bones": 21,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_hollow_sentinel_drowned.png",
+      "current_reference": "previews/hollow_sentinel_drowned.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "hollow_sentinel",
+      "source": "docs/shattered-skies/models/hollow_sentinel_drowned.json"
+    },
+    {
+      "model": "hollow_sentinel_gilded",
+      "boxes": 48,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 3,
+      "texels_per_unit": 8,
+      "bones": 21,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_hollow_sentinel_gilded.png",
+      "current_reference": "previews/hollow_sentinel_gilded.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "hollow_sentinel",
+      "source": "docs/shattered-skies/models/hollow_sentinel_gilded.json"
+    },
+    {
+      "model": "hollow_sentinel_stormbound",
+      "boxes": 42,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 3,
+      "texels_per_unit": 8,
+      "bones": 21,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_hollow_sentinel_stormbound.png",
+      "current_reference": "previews/hollow_sentinel_stormbound.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "hollow_sentinel",
+      "source": "docs/shattered-skies/models/hollow_sentinel_stormbound.json"
+    },
+    {
+      "model": "meteor_maw",
+      "boxes": 38,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 20,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_meteor_maw.png",
+      "current_reference": "previews/meteor_maw.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "meteor_maw",
+      "source": "docs/shattered-skies/models/meteor_maw.json"
+    },
+    {
+      "model": "meteor_maw_comet",
+      "boxes": 42,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 20,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_meteor_maw_comet.png",
+      "current_reference": "previews/meteor_maw_comet.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "meteor_maw",
+      "source": "docs/shattered-skies/models/meteor_maw_comet.json"
+    },
+    {
+      "model": "meteor_maw_ironfall",
+      "boxes": 38,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 20,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_meteor_maw_ironfall.png",
+      "current_reference": "previews/meteor_maw_ironfall.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "meteor_maw",
+      "source": "docs/shattered-skies/models/meteor_maw_ironfall.json"
+    },
+    {
+      "model": "meteor_maw_voidstone",
+      "boxes": 40,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 20,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_meteor_maw_voidstone.png",
+      "current_reference": "previews/meteor_maw_voidstone.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "meteor_maw",
+      "source": "docs/shattered-skies/models/meteor_maw_voidstone.json"
+    },
+    {
+      "model": "mossback",
+      "boxes": 44,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 23,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_mossback.png",
+      "current_reference": "previews/mossback.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "mossback",
+      "source": "docs/shattered-skies/models/mossback.json"
+    },
+    {
+      "model": "mossback_autumn",
+      "boxes": 45,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 23,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_mossback_autumn.png",
+      "current_reference": "previews/mossback_autumn.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "mossback",
+      "source": "docs/shattered-skies/models/mossback_autumn.json"
+    },
+    {
+      "model": "mossback_blossom",
+      "boxes": 46,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 23,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_mossback_blossom.png",
+      "current_reference": "previews/mossback_blossom.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "mossback",
+      "source": "docs/shattered-skies/models/mossback_blossom.json"
+    },
+    {
+      "model": "mossback_ruinback",
+      "boxes": 46,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 23,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_mossback_ruinback.png",
+      "current_reference": "previews/mossback_ruinback.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "mossback",
+      "source": "docs/shattered-skies/models/mossback_ruinback.json"
+    },
+    {
+      "model": "shardmother",
+      "boxes": 49,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 28,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_shardmother.png",
+      "current_reference": "previews/shardmother.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "shardmother",
+      "source": "docs/shattered-skies/models/shardmother.json"
+    },
+    {
+      "model": "shardmother_ember",
+      "boxes": 49,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 28,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_shardmother_ember.png",
+      "current_reference": "previews/shardmother_ember.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "shardmother",
+      "source": "docs/shattered-skies/models/shardmother_ember.json"
+    },
+    {
+      "model": "shardmother_hollow",
+      "boxes": 53,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 28,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_shardmother_hollow.png",
+      "current_reference": "previews/shardmother_hollow.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "shardmother",
+      "source": "docs/shattered-skies/models/shardmother_hollow.json"
+    },
+    {
+      "model": "shardmother_tidal",
+      "boxes": 51,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 28,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_shardmother_tidal.png",
+      "current_reference": "previews/shardmother_tidal.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "shardmother",
+      "source": "docs/shattered-skies/models/shardmother_tidal.json"
+    },
+    {
+      "model": "slagjaw",
+      "boxes": 38,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 22,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_slagjaw.png",
+      "current_reference": "previews/slagjaw.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "slagjaw",
+      "source": "docs/shattered-skies/models/slagjaw.json"
+    },
+    {
+      "model": "slagjaw_crystal",
+      "boxes": 41,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 22,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_slagjaw_crystal.png",
+      "current_reference": "previews/slagjaw_crystal.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "slagjaw",
+      "source": "docs/shattered-skies/models/slagjaw_crystal.json"
+    },
+    {
+      "model": "slagjaw_deepslate",
+      "boxes": 40,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 22,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_slagjaw_deepslate.png",
+      "current_reference": "previews/slagjaw_deepslate.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "slagjaw",
+      "source": "docs/shattered-skies/models/slagjaw_deepslate.json"
+    },
+    {
+      "model": "slagjaw_overgrown",
+      "boxes": 45,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 2,
+      "texels_per_unit": 8,
+      "bones": 22,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_slagjaw_overgrown.png",
+      "current_reference": "previews/slagjaw_overgrown.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "slagjaw",
+      "source": "docs/shattered-skies/models/slagjaw_overgrown.json"
+    },
+    {
+      "model": "splinter_mite",
+      "boxes": 18,
+      "eye_controls": 1,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 1,
+      "texels_per_unit": 8,
+      "bones": 13,
+      "atlas": 512,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_splinter_mite.png",
+      "current_reference": "previews/splinter_mite.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "splinter_mite",
+      "source": "docs/shattered-skies/models/splinter_mite.json"
+    },
+    {
+      "model": "splinter_mite_cinder",
+      "boxes": 20,
+      "eye_controls": 1,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 1,
+      "texels_per_unit": 8,
+      "bones": 13,
+      "atlas": 512,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_splinter_mite_cinder.png",
+      "current_reference": "previews/splinter_mite_cinder.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "splinter_mite",
+      "source": "docs/shattered-skies/models/splinter_mite_cinder.json"
+    },
+    {
+      "model": "splinter_mite_moss",
+      "boxes": 21,
+      "eye_controls": 1,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 1,
+      "texels_per_unit": 8,
+      "bones": 13,
+      "atlas": 512,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_splinter_mite_moss.png",
+      "current_reference": "previews/splinter_mite_moss.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "splinter_mite",
+      "source": "docs/shattered-skies/models/splinter_mite_moss.json"
+    },
+    {
+      "model": "splinter_mite_reef",
+      "boxes": 20,
+      "eye_controls": 1,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 1,
+      "texels_per_unit": 8,
+      "bones": 13,
+      "atlas": 512,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_splinter_mite_reef.png",
+      "current_reference": "previews/splinter_mite_reef.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "splinter_mite",
+      "source": "docs/shattered-skies/models/splinter_mite_reef.json"
+    },
+    {
+      "model": "splinter_wisp",
+      "boxes": 9,
+      "eye_controls": 1,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 1,
+      "texels_per_unit": 8.0,
+      "bones": 7,
+      "atlas": 512,
+      "scale": {
+        "rule": "authored size retained"
+      },
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_splinter_wisp.png",
+      "current_reference": "previews/splinter_wisp.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "splinter_wisp",
+      "source": "docs/shattered-skies/models/splinter_wisp.json"
+    },
+    {
+      "model": "splinter_wisp_ember",
+      "boxes": 14,
+      "eye_controls": 1,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 1,
+      "texels_per_unit": 8.0,
+      "bones": 7,
+      "atlas": 512,
+      "scale": {
+        "rule": "authored size retained"
+      },
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_splinter_wisp_ember.png",
+      "current_reference": "previews/splinter_wisp_ember.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "splinter_wisp",
+      "source": "docs/shattered-skies/models/splinter_wisp_ember.json"
+    },
+    {
+      "model": "splinter_wisp_hollow",
+      "boxes": 13,
+      "eye_controls": 1,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 1,
+      "texels_per_unit": 8.0,
+      "bones": 7,
+      "atlas": 512,
+      "scale": {
+        "rule": "authored size retained"
+      },
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_splinter_wisp_hollow.png",
+      "current_reference": "previews/splinter_wisp_hollow.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "splinter_wisp",
+      "source": "docs/shattered-skies/models/splinter_wisp_hollow.json"
+    },
+    {
+      "model": "splinter_wisp_storm",
+      "boxes": 13,
+      "eye_controls": 1,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 1,
+      "texels_per_unit": 8.0,
+      "bones": 7,
+      "atlas": 512,
+      "scale": {
+        "rule": "authored size retained"
+      },
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_splinter_wisp_storm.png",
+      "current_reference": "previews/splinter_wisp_storm.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "splinter_wisp",
+      "source": "docs/shattered-skies/models/splinter_wisp_storm.json"
+    },
+    {
+      "model": "splinter_wisp_tide",
+      "boxes": 13,
+      "eye_controls": 1,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 1,
+      "texels_per_unit": 8.0,
+      "bones": 7,
+      "atlas": 512,
+      "scale": {
+        "rule": "authored size retained"
+      },
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_splinter_wisp_tide.png",
+      "current_reference": "previews/splinter_wisp_tide.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "splinter_wisp",
+      "source": "docs/shattered-skies/models/splinter_wisp_tide.json"
+    },
+    {
+      "model": "stormbitten_wyvern",
+      "boxes": 45,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 10,
+      "texels_per_unit": 8,
+      "bones": 24,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_stormbitten_wyvern.png",
+      "current_reference": "previews/stormbitten_wyvern.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "stormbitten_wyvern",
+      "source": "docs/shattered-skies/models/stormbitten_wyvern.json"
+    },
+    {
+      "model": "stormbitten_wyvern_galeborn",
+      "boxes": 47,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 10,
+      "texels_per_unit": 8,
+      "bones": 24,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_stormbitten_wyvern_galeborn.png",
+      "current_reference": "previews/stormbitten_wyvern_galeborn.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "stormbitten_wyvern",
+      "source": "docs/shattered-skies/models/stormbitten_wyvern_galeborn.json"
+    },
+    {
+      "model": "stormbitten_wyvern_stormcrown",
+      "boxes": 49,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 10,
+      "texels_per_unit": 8,
+      "bones": 24,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_stormbitten_wyvern_stormcrown.png",
+      "current_reference": "previews/stormbitten_wyvern_stormcrown.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "stormbitten_wyvern",
+      "source": "docs/shattered-skies/models/stormbitten_wyvern_stormcrown.json"
+    },
+    {
+      "model": "stormbitten_wyvern_thunderhead",
+      "boxes": 45,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 10,
+      "texels_per_unit": 8,
+      "bones": 24,
+      "atlas": 2048,
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_stormbitten_wyvern_thunderhead.png",
+      "current_reference": "previews/stormbitten_wyvern_thunderhead.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "stormbitten_wyvern",
+      "source": "docs/shattered-skies/models/stormbitten_wyvern_thunderhead.json"
+    },
+    {
+      "model": "tidewraith",
+      "boxes": 20,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 12,
+      "texels_per_unit": 8.0,
+      "bones": 11,
+      "atlas": 1024,
+      "scale": {
+        "rule": "authored size retained"
+      },
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_tidewraith.png",
+      "current_reference": "previews/tidewraith.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "tidewraith",
+      "source": "docs/shattered-skies/models/tidewraith.json"
+    },
+    {
+      "model": "tidewraith_abyssal",
+      "boxes": 20,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 12,
+      "texels_per_unit": 8.0,
+      "bones": 11,
+      "atlas": 1024,
+      "scale": {
+        "rule": "authored size retained"
+      },
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_tidewraith_abyssal.png",
+      "current_reference": "previews/tidewraith_abyssal.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "tidewraith",
+      "source": "docs/shattered-skies/models/tidewraith_abyssal.json"
+    },
+    {
+      "model": "tidewraith_pearl",
+      "boxes": 20,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 12,
+      "texels_per_unit": 8.0,
+      "bones": 11,
+      "atlas": 1024,
+      "scale": {
+        "rule": "authored size retained"
+      },
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_tidewraith_pearl.png",
+      "current_reference": "previews/tidewraith_pearl.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "tidewraith",
+      "source": "docs/shattered-skies/models/tidewraith_pearl.json"
+    },
+    {
+      "model": "tidewraith_storm",
+      "boxes": 20,
+      "eye_controls": 2,
+      "eye_animation": [
+        "blink",
+        "look_left",
+        "look_right"
+      ],
+      "planes": 12,
+      "texels_per_unit": 8.0,
+      "bones": 11,
+      "atlas": 1024,
+      "scale": {
+        "rule": "authored size retained"
+      },
+      "emissive": true,
+      "source_sheet": "sheets/mobs/*_tidewraith_storm.png",
+      "current_reference": "previews/tidewraith_storm.png",
+      "design_override": "HD facial and rig refinement",
+      "base_rig": "tidewraith",
+      "source": "docs/shattered-skies/models/tidewraith_storm.json"
+    }
+  ]
+}

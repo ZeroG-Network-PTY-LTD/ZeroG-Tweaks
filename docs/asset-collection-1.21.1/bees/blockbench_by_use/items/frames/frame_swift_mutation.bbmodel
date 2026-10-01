@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "frame_swift_mutation",
+  "model_identifier": "aeroapiary:frame_swift_mutation",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "frame_swift_mutation",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "1ad70189-594c-57a8-84ec-881f53af78f4"
+    },
+    {
+      "name": "frame_swift_mutation_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "9c29b219-8616-5b5c-9c76-bd3f0844cb4b"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "frame_swift_mutation",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "ff81ef76-b82d-5bbc-bf89-75f7333db18b",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "1ad70189-594c-57a8-84ec-881f53af78f4",
+        "9c29b219-8616-5b5c-9c76-bd3f0844cb4b"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "frame_swift_mutation_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "1142b717-8686-5963-9db0-0b325cc61ec8",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAD+0lEQVR4nO2bTUhUURTH35t58+HMOOguKEEJKlDDsKCwCBNzRHBRqz6IaNumiCiRklIKyk20CSKhRKJFbSJkcDSsJCQGsQ8spCYrS4kZYibn03m29f8fmrc8i3fP7jfvvfvOnLnn3HPOvaNrJFtrG9bW8+rqKlx3udzAuWwWWNd14IqKCuBMJoPjuV3A+Vwe2Ofz4fU8Xmf9+P1ujwf4Y+wt3ODQbC7KANIKSIu+rW47+Pxs+BDcsLiUBE6n08CVlZXATqcTOJnE54vFIrDDgb/B2hqoowWDQeBcLgfMPs/jPRwZBR56huPbfgYoA0grIC1GOvMXPnDXVAHPPQ0Ds8/Px+PAHlp3mdnHOabwur9IMcM0zbLjFwoF4EQigZykGKTZXJQBpBWQFiPgQ5/OLqDPeL1e4Ee3jgGHQgeAG3dvAiaX1WZeLwBzTEgSj41N0ng4YM+VU8BfEm3A1dXVwA4dY5btZ4AygLQC0mLwB78TWN9z7s7194495X0+OhUDbm6po/HxgQ/Rn8BcW5zrPQ58vW8I+PBp1I/1Z7H9DFAGkFZAWoyiiT7CPmcYJWECpL8XfbCzE9dhlwt7ftcu4/2cB/D7rPTh8a36ESX9A83mogwgrYC0lDj4ysoKMNfrbjftC1CPjn26cRfmCfXNJ4Fnp78BN7fU/l9bTdPIhbWzPUeB3/+4Dez3+1E/Dfsftp8BygDSCkiLYTgxDHD9b9W37+4OAXOtMDgwXPb5C30ngKNTX8veHw4/B+7oaAUObkGfLxSWgLmfYPsZoAwgrYC0GLzOs49wrs3XG3ZuBOYYYJp7gScmXgEPDowAW9XvJfv/lJekUingQCAAbDjxfIHtZ4AygLQC0mJ4aN3nvTWuvzkvYJ+dm8F1l33+zMUjwFy/c4zhPKKrqx2Yzwz5aW/RNDH35+9n+xmgDCCtgLQYearn2Ue4p8Yx4MbV+zggxYzW1hZgrv8jkRfAHBPOX8Jagd9/s/8BcKgGYwLXEtxQsP0MUAaQVkBaSnqCnFvzOb329v3ATXQegFP56NQXYM7led3n8wacB3CMaGvbB+z14r4Dn01W+wIkygDSCkiLwef52SetzuZOT34G5p7i+PhLYN7fj0TQp/l+fh/nKXze4NMyrvuZAvYzVD+ARBlAWgFp0es3N4HTjA4fhBvmZ94Ac88vS/8Z4rPEfJ1jDO/d8fhWzLUHX7/zZB74XawK2PYzQBlAWgFpMbindu/uY7zBwsd4Xc7nvwPz+X+uz618mnN/1pfzBN7H2FCFz8fobLTtZ4AygLQC0qLzB/zf4eX4r7IDWPX1nRb7CA56XqMYUeTx6H7+AtQBLHnfn1Rc/Xd4vSgDSCsgLf8A72WETM405kwAAAAASUVORK5CYII="
+    },
+    {
+      "path": "",
+      "name": "frame_swift_mutation_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "29632959-1d2d-57f4-83ac-2e4886c0be5d",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACOklEQVR4nO2aTUtbQRSG803+Q7tQumyFii6UVCSGYERwXWnpolsRCkXaIlX8wELrqtBtQaU/QowWbUNxEcSFuGq1Lkr/Qm5yk259X2Qug4sDnffZPdyZyclh5sxMclMpIYQQQgghRIikfTvM3d/qXfdabQKePxy5C97tYv+TH7/Be72e0/f2Dmk8HPDNynPwvsdpr++U8Wn8P6IEWAdgTc63Q6fTAR8cda/5ZuMCfKjUDx7H2OGs+Qc8m82Cv1x8Cv5u+bM74ASCnwFKgHUA1njXAGZtEdfg1FQFPJ/Pg28sYXve93M5DIlrAD/n8X0JfgYoAdYBWON9F5gf2IFF22q14DnXgMHRPnA+y58eX4EPlbA9wyf9KIrB7z3J6S7ggxJgHYA13ucA3rdnZmrgfFfYXN9x9n+1/Ay82bh0tt/d/Qo+OVl2B5xA8DNACbAOwBrvGsD7+IPhO+BcA7rdR+AHB9/BN9e/gMcx7utMmg4ChULB2T6J4GeAEmAdgDXeNSCTwZzxmj0/+QvOa/7F61lwvu9zjeFzxPR0FTyKooSI3QQ/A5QA6wCsuXUNeL+6hQPSb3blcgmc7//1+hE414SFt3hX4M//sLadELGb4GeAEmAdgDXeNaBaHQfn9wH4KN9s/ALnszzv+/y+AZ8DuEZUKmPgn85uCNpB8DNACbAOwBrvGsBr+PjwJ3ixWATf3/8Gzv/v1+u4prk9f1673Qbn9w1SH28I2kHwM0AJsA5ACCGEEEIIISz4B8nHmZYGu4JLAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1",
+  "visual_reference": "Extra Bees/Forestry frame language: thin top rail, side supports, single readable center material"
+}

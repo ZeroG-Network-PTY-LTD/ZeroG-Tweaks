@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "olympium_ingot",
+  "model_identifier": "zerog_tweaks:olympium_ingot",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "olympium_ingot",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.99
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "d76c1568-24d9-58cf-832e-d3177215f481"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "olympium_ingot",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "5034208c-ca6f-53ff-9377-73c5c124dce4",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "d76c1568-24d9-58cf-832e-d3177215f481"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "olympium_ingot.png",
+      "name": "olympium_ingot.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "4b8a8573-e14c-565a-90c7-1cff0562e8c8",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABGklEQVR4nO3ZMWoCQRTG8Y14gwgWQkSLgB4gt/QGFtslV7CXFNqkUrBQEkgRiGeI9byFeQyzk0+Y/68bVpzn4327w9o0AAAAAAAAAGryUHqD6ejxr/QeMZ+/1+hvHPxXIfeKBqgLUMu+B3gZ36xXuVtEfbzvgvXxdA7W7XYfrO09ofoJoAHqAtSG3gdyM24z2jeb+VTVTwANUBeg1rkH2MzbjNtMl8645WX+8P2T9H3VTwANUBeg5p4DXtu36PXF87y3Ypom/bmemnmr+gmgAeoC1DrvA+w54GX2FFxfTsaFS4rzMr+7fAVr3gk6aIC6ADX3HGDlPnf7lpp5q/oJoAHqAtTcvKj/2/OkZt6qfgJogLoAAAAAAFC4AZBUQ/KkXz0FAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

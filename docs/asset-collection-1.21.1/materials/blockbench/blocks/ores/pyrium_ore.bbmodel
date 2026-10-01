@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "pyrium_ore",
+  "model_identifier": "zerog_tweaks:pyrium_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "pyrium_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "68180b28-e4e3-5919-9ac2-f05d0562a567"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "pyrium_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "76c74216-eac8-56eb-8199-4329c7e4656f",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "68180b28-e4e3-5919-9ac2-f05d0562a567"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "pyrium_ore.png",
+      "name": "pyrium_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "5a8c4343-0cae-5514-9ba4-82eb6fe0c16b",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACdUlEQVR4nO2bz0oDQQzGd0sVpBYr1Fr/QRXpQVQKXuuzCB68+yTevfkIvkMfQFAUBEWwlFqFVuoiKFSvzVeYj1Alh8nvls7uJIQkO5ts0821lZ9kjGKhMC4mC8X5RMP78EPIwywTMu6vXUfweoTdnwuuRoA7wNoAa/Is5zGnEbxeWzPWq8vB9dHgieiX96O9rEZEHwHuAGsDrMnjc5LlMOZkfyDXFzd2g/thjt49yP2qs3L9+rEl7788FnLz9EbI3S+pb7VSTkJEHwHuAGsDrEnxXQApfL8KmefkvZCxJiBYA4qFuaD+86OSkHcaFZV+rEHRR4A7wNoAa9L9+nawBuBzn+Xg7VVPyCcXAyHnSjUhs34AswfB/fEc0u6+yOuDu0WAO8DaAGsmzgGsP9B/lmdvBp7NEXzuM7Q9Ra8BBHeAtQHW0HcBbc/wv/v4bD9mH65HHwHuAGsDrMnjD9rZHLufod0f5wiY46wmoRx9BLgDrA2wZqIGaJn2XDDMPoWMcwGk3Q3bgzWI1bToI8AdYG2ANbQGYF9+NJByO1sSMpv3s/21c4dsRurv9N6C+rD/EH0EuAOsDbAmPTxoiH4A9vy0Ocn6/vjc/+tZINYEBGtU9BHgDrA2wJo8nt0xh/a2mkLGnGyd1YWMOZnAfpjzeFbHcwaC+zP9/n0AwR1gbYA1ablUgtmg7rnM5v/aeT6eG1C/dn8EZ5XRR4A7wNoAa9SzQcw5lpPTvksgrEao9QW1RYA7wNoAa2hPcKLvn9RU6+xdgsG+Aer0ZH8B9SH4bhB9BLgDrA2wRn0O0H7bi316nP1h/2Ha/w5r//cYfQS4A6wNsOYXdpEWPANyLcgAAAAASUVORK5CYII="
+    }
+  ]
+}

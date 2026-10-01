@@ -1,0 +1,23 @@
+{
+ "extends": "mossback",
+ "id": "mossback_blossom",
+ "name": "Mossback · Blossom style",
+ "role": "Boss style · Ring 1 Verdant islands (rare) · same abilities",
+ "notes": [
+  "Same rig, bones, animations and hitbox as Mossback; only textures and added boxes change.",
+  "A spring form: pale cream fur, a mantle of pink cherry blossom, pale horns, and petal clusters instead of the mushroom. Petals can fall as particles when it charges.",
+  "The splinter stays violet and reads well against the pink.",
+  "Spawns rarely on Verdant islands (Ring 1) instead of the base look; worth a special title in config."
+ ],
+ "palette": {"hide": "#cdb8a0", "hide_dark": "#a8927a", "moss": "#e89ab8", "moss_hi": "#ffe0ec", "shell_dark": "#b86e8c", "horn": "#efe6d4", "leaf": "#f4b6cc", "mushroom": "#ffd0e0"},
+ "add_boxes": [
+  {"name": "blossom 1", "bone": "mantle", "from": [12, 34, -12], "to": [16, 37, -8], "color": "mushroom"},
+  {"name": "blossom 2", "bone": "mantle", "from": [-16, 34, -6], "to": [-12, 36, -2], "color": "mushroom"}
+ ],
+ "callouts": {
+  "front": [["splinter", "Splinter (violet)"], ["horn curl L", "Pale horns"], ["eye R front", "Glowing eyes"], ["moss drape R", "Blossom drapes"], ["hoof FL", "Hooves"]],
+  "left": [["mantle", "Cherry-blossom mantle"], ["fern", "Pink leaves"], ["horn curl L", "Pale horn"], ["body", "Cream fur"], ["tail tuft", "Blossom tail tuft"]],
+  "top": [["blossom 1", "Petal clusters"], ["mushroom cap", "Blossom cluster"], ["splinter", "Splinter"], ["mantle", "Mantle"]],
+  "bottom": [["belly", "Belly"], ["hoof BL", "Hooves"], ["beard", "Blossom beard"]]
+ }
+}

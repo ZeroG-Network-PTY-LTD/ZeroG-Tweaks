@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "meteor_comb",
+  "model_identifier": "aeroapiary:meteor_comb",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "meteor_comb",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "fd0168cb-ddd0-5746-a812-520367fe3d41"
+    },
+    {
+      "name": "meteor_comb_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "f70ed28a-cadb-5193-8910-77e454ad7e54"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "meteor_comb",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "240c2520-1cf1-530b-8c71-d0ca2f45e284",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "fd0168cb-ddd0-5746-a812-520367fe3d41",
+        "f70ed28a-cadb-5193-8910-77e454ad7e54"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "meteor_comb.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "469c3a29-2e2a-5d8b-8edc-8ac062f6547b",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAFBUlEQVR4nO1bS3PjRBBuS7KsmCRkE/aZBWc3cKGKG4e9cIOqTW0VC7VshYItOAEFd/4EVw5UAX+MqrFkex1nd2NL8kvxQ5Y4IU23Y8myHg5lfadpz9Pt6a97esYFSBmPPvrEDaq3Z9OFdWqTgd5rFxJfFAcpzcH/g9HTF9YFKSALCGud/Rpg4xUQal9hNkxBt3RBwFZ2784hkqXiYitU6wxEbolpcMJSHBBkwxRUAft7t/BYXTyWJAUvIcrcq2DjTSATLxAFdIekjTl7ojZvOw6qlyQRybY9Q/Ld23eR3Om2kXzy6VOvzFQGQ6vnyYapg1r/B7UXyCa9sbtPl7wQy3DGlTuAt7ud7b2lJwRY7hfUjdV/5aQ5IeeArCdkKst6ykDMKcCeTZEru33rDtrWnz955pVZlYHDta3WGFy0X6HxZFnGE7gz0E39ynrXdWGXmNzR/WO84IC4AQCgVle98t7uAbxrH3mcpp0x6A1NxAkr7QBd978A/2XSQNS4Ya5/CGfkHBC1A6vGs+FqHfeXi/KClqshqpcIVYBSkqHE2anZ7aD6ym9/eWX5nMHw159RfaGA3bBp4v4u4DjD6Bm43sVHkceffemVmcbA4uOIrg4Dq4/XLysQhES8QL+fbfQWJ46gyDkgageDsL5wnq1fZ1qy84UqYOa64HB2aBoXqL71y3dIpn4/9LhL3ZxQRHLlvYdI6bzNAwAoim/jykgBQYiWLth4E9h4BVy7fEAYqMkoo2A3Fwbp4w8fIUdbqRxDBfz4u9HUUAfql3kbBACwLi+R/NXJc6/MNAay5G+6ao2B2cd+n6LZauL5AecfOp3XuEMhGgdIADh6qsDxHNPHBe+30z47REXOAWlPkLTfjgozJEqdUwB/ngYAOHmMY+/ylu/nqxoDw8Q5P4fmEMUCMimeM0qlEhzs38TtSRxgWRaSZQXXD60Brhe5c0tfnzv/Uyy1A5ANJxiHXwfkHBDWIK4NqzXcn7rNdUOa2jZMbdv74N7hfWSzO9tbaNs/+P1Pr6y0GDRffI0GHI1xHPDybIhk2ybX4cRv7+3gvP/ps++9MlMZyDIXR2gM2p03V36xZbGSF1jn+T9pDso5IKxBlXBAsZXx+T/le4Q5BYzHExhPJgAAYHZ1sEbYzzZefIPkyxH205IQrFNZKgXWb229heRyWUbb3nV8znDdAkynE9Te4eIIe2ZDGDbeBDZeAZJ2hm1Ma1yvuzvKQdPpbEHL1SDRWPnB4fsufzwWAb8HeHj0AUpKlCdlVC8QWqE5wZsH+MmM6+D8wqv2OZJrjSqSrUvMSW6kF0zzyDwjRDM6VAFZI+cA+gHlBBqaXnd0BzHvBsM44fUbfP//9MmpV2YqA0n0OUOtM2iT9wLjyRjJ3z7/we+vMejofnujq8NwiO/6hALmJEn0N3F3oIM1GkRKCibCAXygsko+cZ05hpwD4g4QN1aPm2+IavMUoQqYTHG+4Mbb74DZ42NzB237yh9/e2XxnIHx049oPHqvIAou6s/nFF3HgZmDAx+B45hVbJ4ilThgkHG+IA5yDog7gEre/CgR3wvQ/hPiJtNGZAXwb4bMng6tiwaqr51+ETwAuTfQGvhtsD0N+QuNGFwdFRtvAhuvgFATqBOb1l6uN18Q1+9ThCqA+lkBRJe/cKT5glAIwe3l4uKcYRJ+f245SQ72f8TGKyDydior22tN4SRtAjly5Nhs/Av+7T0Sisb+0AAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "",
+      "name": "meteor_comb.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "3ab7b939-2e89-57e9-81ca-2d19177afa5a",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAq0lEQVR4nO3aIQ7CMAAF0EI4EAaLwXASLOFWBMdRMKjqNTMgNg8KQubGmo2G91TNfipm/k9DAAAAAP7NbGjA/tI+XueUYjhtl4Mzx7TIEdI0txwxk5hPfYGpDf4DUoo57gEAADCq3t39ED/6fxXDcV1W/+/6qg2W3P+77AF9P0iV/g8AAJQve5ffXe/vvaBOMZw3q5/eC7K8D+hqC9oL7AG5A2vvBQAAgAI8AWkQJZ64xtKiAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1"
+}

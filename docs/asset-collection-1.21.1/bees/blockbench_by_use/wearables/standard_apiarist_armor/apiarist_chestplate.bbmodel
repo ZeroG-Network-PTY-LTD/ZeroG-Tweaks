@@ -1,0 +1,789 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "geckolib_model",
+    "box_uv": false
+  },
+  "name": "apiarist_chestplate",
+  "model_identifier": "aeroapiary:apiarist_chestplate",
+  "resolution": {
+    "width": 128,
+    "height": 128
+  },
+  "elements": [
+    {
+      "name": "vanilla_chest_shell",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -4.5,
+        11.5,
+        -2.5
+      ],
+      "to": [
+        4.5,
+        24.5,
+        2.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "9a63d4e6-779f-5eda-8a55-a4916e8b7e13"
+    },
+    {
+      "name": "vanilla_left_arm",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -8,
+        11.5,
+        -2.5
+      ],
+      "to": [
+        -4,
+        24.5,
+        2.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        -5,
+        22,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "dbd354a1-7144-5f19-8466-5da3b4b676a5"
+    },
+    {
+      "name": "vanilla_right_arm",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        4,
+        11.5,
+        -2.5
+      ],
+      "to": [
+        8,
+        24.5,
+        2.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        5,
+        22,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "7bd9d6e0-d416-5054-9d80-fce2062c8f67"
+    },
+    {
+      "name": "honey_zip",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.5,
+        12,
+        -2.8
+      ],
+      "to": [
+        0.5,
+        24,
+        -2.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "9b1a7c81-7b16-5699-bfc9-8c4901556e99"
+    },
+    {
+      "name": "comb_chest_badge",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -2,
+        17,
+        -2.85
+      ],
+      "to": [
+        2,
+        21,
+        -2.5
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            64,
+            0,
+            96,
+            32
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "3a88bf93-b0d3-594f-90e2-ff6caf61b7ad"
+    },
+    {
+      "name": "left_cuff",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -8.1,
+        11.25,
+        -2.7
+      ],
+      "to": [
+        -3.9,
+        13.5,
+        2.7
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        -5,
+        22,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "d732ff72-bfe7-50ef-96d9-6609224d6aa6"
+    },
+    {
+      "name": "right_cuff",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        3.9,
+        11.25,
+        -2.7
+      ],
+      "to": [
+        8.1,
+        13.5,
+        2.7
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        5,
+        22,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            0,
+            64,
+            32
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "ccd9ea76-1e52-54df-8d7d-476f0f8686b2"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "armorBody",
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "color": 0,
+      "uuid": "62aadd46-e9a3-5acc-9368-1cc2697089bc",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "9a63d4e6-779f-5eda-8a55-a4916e8b7e13",
+        "9b1a7c81-7b16-5699-bfc9-8c4901556e99",
+        "3a88bf93-b0d3-594f-90e2-ff6caf61b7ad"
+      ]
+    },
+    {
+      "name": "armorLeftArm",
+      "origin": [
+        -5,
+        22,
+        0
+      ],
+      "color": 0,
+      "uuid": "f37ce2c7-97bc-59cd-a6b7-a0cee6da895c",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "dbd354a1-7144-5f19-8466-5da3b4b676a5",
+        "d732ff72-bfe7-50ef-96d9-6609224d6aa6"
+      ]
+    },
+    {
+      "name": "armorRightArm",
+      "origin": [
+        5,
+        22,
+        0
+      ],
+      "color": 0,
+      "uuid": "f56087fa-dc59-567f-9300-05f230b00301",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "7bd9d6e0-d416-5054-9d80-fce2062c8f67",
+        "ccd9ea76-1e52-54df-8d7d-476f0f8686b2"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "apiarist_armor_hd.png",
+      "folder": "armor",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "64b69f71-367c-508c-a7d6-4e57af01536e",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAADh0lEQVR4nO3bMW/TQBTAcYPaDEhJnSnN0laKlHwAtnaCqRsDnwAWRna+AWO/QLvDxEQnmGBjJ5YitSxu1CFpogxtBxiKrcvVz7Hju7OT/H8SUvLs+Nm5u3dXOzwJf3/+65Xo9OSszPTeh3fPSs3/+mOt1PxPS82O0m1FLyaTidPEjUZj7n3Z+e8d59+uyPVTATbc1uJd3Gg0GoPJZNJxHddt1+zPyfd3d9ZzZBV3gNlslukD3W43fh0EwdKJtRI8+B8bhGEYN1K73X4U73a73nQ6zby/FNengOj6/VrNG49G4nn7yvWPl7h+v9n0ZrOZ5wv5FzH9/T+qAKYSSNTjT6fTuW1hGHaStquNqe+fN56WPxI18jINnEXciRLyu/7+jU8BS1zAICkYjfKs8WiUq+cQBMFc3IWiFeLm5iZ+3Wq1cm/PcvydnZ34fe4OYLJXnp6cxY2jjlq1kZNKeVq8Xq8v3D8Pv9mcD1xfy9uE7WlTStkedQAbZSfp+O12Ww131O3RtmVKfL1eT91fyD9HH7l5GlCvAEmdZBwEnp+S3zb1OzY+BWTtQOroV0klO2tcaWCnpT9SdN0wHA4NnUk2VbgPYGyBlyeOB6XcB/j66dzK6F8UNyFx3tdUec7XOa8AauO/ff8m1wKvSNyk8Wgk/ls1pU0BauOrKP1uxVPA7e2t9WTfvnyXSnMcV8/j4ODASDwLdX/9s4vepx0r6+ddfP9JnK0B1MZ/+eqFOjrj+MXFRRxXG7NIfNU898fGj/lr7IvbnE8BWuPHpEYzFUcyJxVAKv3SvQB1NBeJr6K00WqD9QoglX6t8Te+9JfF2RpAKv2ecCOoyqW/tbvrKpV1VjuAVPql+CqU/uHVleuUVjlZBEqjX7oXUOXRv26sVYB1HP0uqM/7bSn0e4AspIWfGtdGf6UXfus05+usrgGk0m/7XoBJ6zbn64x3gLyl3xN+ErZppT+ilmcXjD8LODo+7Pw4/zk4Oj7sqMeU4t7Dn4GDfr8/N5r7/X6n1+tljheV9izAtLV/FnB0fJjYOFLcE+4FSI1suvF1e/v7Ng9fKZX5jyFV8efysuxTcCruAL1er8zzKD3/3oZefxV+EwgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGDVP6ZARLKIgfYFAAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "",
+      "name": "apiarist_armor_hd.png",
+      "folder": "armor",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "74fe26a4-ab23-5dca-ae63-d5acbd53f1cb",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAABWklEQVR4nO3ZsU7CUBQGYGp0cSCsXRzp6nP4IsZXcPdtfCKewpQwNA461SBCBEt7Lp7vm0ra3L/J+XMvhGoW7OXp4SMy//nxNjJ+Vt2/VpH5V5HhxLuOfoFe27aT5s3n82+f3yfOv9nJj2IHSE4BkivmCNhsNkc9t1wuv65Xq9Wf83aPgGPzF1v5bwPyF4UcAcUUoHeuAR+z/nq9/nH/XAM+ZHv92Z78qRVXgKHGLtBvxi7QuV1cASKGuu0ShnqK4gow9oD79eu63nt/7AH36y8O5E+tuAIMZYc4jZ+BySlAcgqQnAIkV8yXwK7rUudHsQMkpwDJKUByCpCcAiSnAMkpQHIKkJwCJKcAySlAcv4LKCQ/ih0gOQVIrpgjoGma0Py74PwodgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODf+wRaZknXc5dqSQAAAABJRU5ErkJggg=="
+    }
+  ],
+  "geckolib_format_version": 2,
+  "geckolib_modid": "aeroapiary",
+  "geckolib_model_type": "Armor",
+  "geo_name": "apiarist_chestplate",
+  "vanilla_humanoid_base": true,
+  "bone_binding": {
+    "armorBody": "armorBody",
+    "armorLeftArm": "armorLeftArm",
+    "armorRightArm": "armorRightArm"
+  },
+  "authoring_note": "GeckoLib armor bones and vanilla humanoid pivots corrected for Minecraft Java 1.21.1"
+}

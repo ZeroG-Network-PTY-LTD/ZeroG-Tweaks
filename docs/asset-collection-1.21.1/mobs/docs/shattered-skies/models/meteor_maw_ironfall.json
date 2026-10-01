@@ -1,0 +1,20 @@
+{
+ "extends": "meteor_maw",
+ "id": "meteor_maw_ironfall",
+ "name": "Meteor Maw · Ironfall style",
+ "role": "Boss style · Meteor Fall (iron meteors) · same abilities",
+ "notes": [
+  "Same rig, bones, animations and hitbox as Meteor Maw; only textures and added boxes change.",
+  "A nickel-iron meteor: pitted grey metal with rust, white-hot cracks instead of orange, steel teeth, and jagged iron shards instead of rock spikes.",
+  "Drops more iron and metal materials in config; the splinter core stays violet.",
+  "Spawns when a Meteor Fall event rolls an iron meteor."
+ ],
+ "palette": {"shell": "#5f6166", "shell_hi": "#74767c", "brass": "#9a9ca3", "rust": "#8a4f2e", "barnacle": "#b8bcc4", "ember": "#ffd08a", "maw": "#ffb04a", "tooth": "#c7ccd4"},
+ "materials": {"shell": "rusted", "shell_hi": "rusted"},
+ "callouts": {
+  "front": [["eye 2", "White-hot eyes"], ["fang 1", "Steel fangs"], ["core glow", "Splinter core (violet)"], ["maw", "White-hot maw"], ["knuckles L", "Hot knuckles"]],
+  "left": [["spike 3", "Iron shards"], ["shoulders", "Pitted, rusty nickel-iron"], ["brow", "Brow"], ["jaw", "Jaw"], ["fist L", "Iron fists"]],
+  "top": [["crater", "Hot crater"], ["spike 1", "Iron shards"], ["jaw", "Jaw"], ["fist R", "Fists"]],
+  "bottom": [["foot R", "Feet"], ["fist L", "Fists"], ["jaw", "Jaw underside"]]
+ }
+}

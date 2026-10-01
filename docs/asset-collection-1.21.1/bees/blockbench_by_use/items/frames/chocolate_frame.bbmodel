@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "chocolate_frame",
+  "model_identifier": "aeroapiary:chocolate_frame",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "chocolate_frame",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "1f07205c-a2b1-5b06-a369-cf19ffff3c49"
+    },
+    {
+      "name": "chocolate_frame_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "60d9990a-ddb1-50be-8ac1-435e68ec8424"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "chocolate_frame",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "0b33a0f6-b723-5187-b0d2-d39a716955ba",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "1f07205c-a2b1-5b06-a369-cf19ffff3c49",
+        "60d9990a-ddb1-50be-8ac1-435e68ec8424"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "chocolate_frame_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "cd719454-06b2-549e-a568-38fb01f9bb85",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADtUlEQVR4nO1by04UQRSt6scM4Guc4SUw4ExAjGJcEhJjokuIv+A3uPQD3LL1A4hrN0ZcoHGhIRJN1BgSMyLPEYQZXipKv6rccu6CshOSG9N1doduqs7crntv3VvdUqTEjf6iPsqVK+H67NI2/uGEMVZuh/ldoeD667WdVPM7J6Dpv4Y1ALcAbhj95f6da+BzPrkeBHBZyBwZUidkQhzBi/D+WOJ4ro6Q5/GZBQLH9+M88AfPPhz7GzO/AqwBuAVwwzPd4BAPevF+Bbj20OcE2RckCfpwTqPNo8QFnncC4LHE+x28XcQxxpRyB9FjQOZXgDUAtwBuGGOAEJiXPRd97uZIJ3AV4pCrWzvAL5bPAo8U5vGlHeTDxRzwkMSk2U+bwKVoEWmQ+RVgDcAtgBvGGOCKGHgYY153AqzHV/d2gff3nQOuSW1Qb+D4w8U2IgDH/1Y/IAoxKHgpH2nmV4A1ALcAbhhjgESXF46PeXlx+zfwarEAXB/i3v7zAcaAajeON3FrBPjko1fAh3oxzy/vo76Y1BImZH4FWANwC+CGuRbw0OeUwtqgj/j8+MTV48ebngcaqEPgD6fQ56+UTwOXpH8QhriPyP1LeXMEmV8B1gDcArhhdpgkBOqTGOB6uFGYnJoDPtSFed710YfrZG8/UC4BDxXuMxa3/qA+LBWEVqjXhMyvAGsAbgHcMMaAQ4lOpvPIV3YxBlQ70Melh3m61vwFvNJ9CrhP+g+1DYw5lS7s+9c3sUfpRrYnmArWANwCuGHuCWpyGEfO93tK6HN5D/NwrYn1/2ChCDwhtcD47evIyeyPn78FHvtY/0v6AoMBmV8B1gDcArhhjAGavIOTKMzTrQp98Osa7hPu3R0F/nT6HfCFBub5xy8/Am8Lcbz1Bs6XjzBG6Yg0MQ3I/AqwBuAWwA3zO0Ik7/sRxoQv5FxgoITn/09msAdY28N6vtJ+Brgk/YeFJt4/2IP7iMXGD+BBzvYEU8EagFsAN8z7AIV5Vfm497/UiT4cRpjXa5s/gVdL53EC0mNcXsf7L18oAE806UnSnyCxtjAh8yvAGoBbADeMMUC5aCMdYy0wM/8deER8VJKXjVdJ3vY1jucoPEfY2N8ATmNATHqWKiyINMj8CrAG4BbADWMM8BKsBaq9+B5fELTiPzi4b/A0+ihWEkK0EAlJHmsBJyDvCpNzCU2+F3BiezaYCtYA3AK4kfo739FKCRKxJN8TvFlK9+1uWoz147fDijzCueWm/XY4DawBuAVw4y8TpBMuzeaOZQAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "",
+      "name": "chocolate_frame_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "8fef8955-a5d5-5cbc-b1e1-9143d6e7adcb",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAJ0lEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAIB3A0BAAAGP8slRAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1",
+  "visual_reference": "Extra Bees/Forestry frame language: thin top rail, side supports, single readable center material"
+}

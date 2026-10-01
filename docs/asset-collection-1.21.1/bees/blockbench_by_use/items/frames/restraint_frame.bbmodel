@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "restraint_frame",
+  "model_identifier": "aeroapiary:restraint_frame",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "restraint_frame",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "6429509d-7cf8-52f0-b501-d9e34ec031ec"
+    },
+    {
+      "name": "restraint_frame_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "b2682bb2-b0eb-5955-8519-8b76d198961f"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "restraint_frame",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "cfaf8ee1-b258-5fe0-8bb1-f7c9e5256942",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "6429509d-7cf8-52f0-b501-d9e34ec031ec",
+        "b2682bb2-b0eb-5955-8519-8b76d198961f"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "restraint_frame_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "8901e945-882b-5c8d-82ea-7e389cb9a42e",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADdklEQVR4nO1by2oUQRTt6uruGbcKQjCgiDERRBMlUZPoIuDOlYJuXPkAH7jKH/gFgsaAEkEQBV+M4gfERzIZcZNVFEfHRGVAXJvprq4ut567qKIRuUjX2Z2uruozd+6juqpaBCVx6PCk+ZOLXEP7YrMpyo5ZBhPk+XmG7a3Wm1LPD/9e0v8NbwBuAdxwxsvsnTmM+V6KA8QRcLg5CIJIYY4IZIL9dQFchciTKAaeBT0cP8fnBzH2P3f2gvU3Vt4DvAG4BXAjct1QI3X+9v17wMMMo14leH8i0MYZiVmhFY4nsV0XOF7dYA5Ja6h3ZM9QUAaV9wBvAG4B3HDmAC3wliLHOjt/9yTwzudl4HGGk/X+oTEcX2KZ7n5cAJ6HdeDbdu0DPnXqMfBI47zBhcp7gDcAtwBuOHOAKnDuHUvMAasrb4FfudEF3rh5AvixS0+Az17eDPzizA/gz28dx/5nngIvyOuMCMv9p5X3AG8AbgHccOaAekTmARp5ZugKAHmAyK3tKrFL0NreXtQwJ6VknuJC5T3AG4BbADecOSDNMYapxQb2HyFXHgLrtFvW8bcMjpIrz4B1Py1Z+4tAAq9LPw8oBW8AbgHccOaAMCLL6rgkFxhj31qIHTY2Rc3aLtft/YXBHJXH5bYmK+8B3gDcArjhzAFCY51VPbTZ2sq8tX//jjFypQHsZ9te5zftHSZXvgCLFOoLU1y/cKHyHuANwC2AG84cYMj7dRLiXp12hJww9kcIoaztIYlxipScBwjLLQd4D/AG4BbADWcOkBHGoI7RZtt3T5EeD4C1P7yyjr9x5wFypQHsW/udtX9syPkDYc8ZFJX3AG8AbgHccM8DSExJsheXhvZ1/0DUrc1xYn9/jxwhLQ3OI/QG508CVN4DvAG4BXDDfUZI4mS/IOf+vr5/Cfz6dB/wvoER4I0ZPOOzutwEfm26H/jWQVxPeDGH/Y+efgQ8SsnZZAcq7wHeANwCuOEumgrrtM4wJ5y/+h24rNOzwWvABSnsscI6XhiyBpl08P4evvBLgecCi5ILApX3AG8AbgHccOaAgnwFNDyKdbhG3hV+GTwbHBuMUVVgTqmRs8h5uA6cbj1Khf9ZGKE+0bPvNVJU3gO8AbgFcKP0d77jk+MQdIXCurvUWvq33w4fnMCgj5EuvF703w6XgTcAtwBu/AbwDdxNDaW6IgAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "",
+      "name": "restraint_frame_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "cb490493-806c-5d09-ad23-eb4e97f9724a",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAJ0lEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAIB3A0BAAAGP8slRAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1",
+  "visual_reference": "Extra Bees/Forestry frame language: thin top rail, side supports, single readable center material"
+}

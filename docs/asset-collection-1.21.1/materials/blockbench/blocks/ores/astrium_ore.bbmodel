@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "astrium_ore",
+  "model_identifier": "zerog_tweaks:astrium_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "astrium_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "b6f9064e-82a7-5ced-bf8f-93c4207c5cd0"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "astrium_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "cdaaa805-5387-5097-9eb9-62acdba4641b",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "b6f9064e-82a7-5ced-bf8f-93c4207c5cd0"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "astrium_ore.png",
+      "name": "astrium_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "e9e32b64-3116-5149-ab09-529b0b623733",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACiklEQVR4nO1bIUtEQRB+J4/DICKHHKJFTIfpMIu8YDIZxfSSGI2ixWg0ihguHlj8AYbD7A+4JFcsF0TEIBfUYJpvcT+Wh3xh52tze2/3Y5iZnZndbZ1tr34XEUxeZ1Z+m/3xz1+sL7Xj4x0y3p038mj8Hv0e+eH46Pkjut5cdDQDuALUBNQo8Qf0qaq3+K8EJtPPqDyaLtgPplasezAfxgSISRgjsrcAV4CagBol+gwCfXIwju/jFztWp/g97vMInP/lYd/Id097Rj45PTJy1Y3nBbh+9hbgClATUKN1uLkcrQVwH071yfX2q5UTawWMCfXBsZH7/a3o+lXX1gKeBwBcAWoCapSsPsfc+/x2xcj9vh1HHx0Mr41cdUg/AfbpuoA8BOYrhlYM85B4/yB7C3AFqAmo0cKeIOsBTmadpAXqHnxPengM7HuMIViLILK3AFeAmoAaQU8w6LtDDGC5dSpSfRrBfJ71O7K3AFeAmoAaJTuL+29gjAliENnHU+evNmx/I3sLcAWoCahRMh9jZ2vB/8m+HOzzpAeIwNqC3R8I+Pu5gIUrQE1AjSAPwNyZn89DvU9ycebzqecOeD8AwWJW9hbgClATUCPIA5qeBWK/gAHPDtd2741cH9hziKvLm+j6GJMYsrcAV4CagBrBHSG8Y9PUJ9mdIazPB+M4YZyfrc9iUvYW4ApQE1AjOBtEsDs6wfk/+FxQSwBw38ba5OLxq9H8bL3sLcAVoCagRuP7AehTze/6xs8e8Q0Q8kldL3sLcAWoCagRvhki7wJZvY25P6slUhH0+QsbE3C9orAy8sveAlwBagJq0FoA992mb4MxT8B9P7gvAOvhO0b2JsnvCRK4AtQE1PgBwy8RVQH3BHsAAAAASUVORK5CYII="
+    }
+  ]
+}

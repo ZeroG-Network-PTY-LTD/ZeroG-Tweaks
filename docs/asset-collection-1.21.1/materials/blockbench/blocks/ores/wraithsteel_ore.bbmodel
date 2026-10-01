@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "wraithsteel_ore",
+  "model_identifier": "zerog_tweaks:wraithsteel_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "wraithsteel_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "fb593740-950a-57d3-b34a-075fc7e7aad1"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "wraithsteel_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "01e836f3-527a-55ca-be1b-711f22332fc8",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "fb593740-950a-57d3-b34a-075fc7e7aad1"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "wraithsteel_ore.png",
+      "name": "wraithsteel_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "197b8aea-34dd-59d6-8296-0472dd7c7a2b",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACc0lEQVR4nO2bMUpDQRBAjeQSmiDkAiIRongGEREJFimsLQTFxoASFGIjChZpFUkhYhFTpbQSDZrCI4TElB4hduK+LzssXxlw53WTv39nGGb+zs5uMlvV+njiG/n81EQI+Zw7fiY37ciP3Vfv+0uleUfuD98deTAceceHwvknU832DzAHaBugTZY/DAajn8Z9sbhQdGTmPHOMSDlPGqcnrozn9fML7/vk6bnnyNFHgDlA2wBtMg8vb2PfAOZodWfbO+HKxqYjs65g3UA4/3Gv68iFvmtPZXXVkbf29r36WFdEHwHmAG0DtMlc33e834C0OSmt08xJwjpgt3bkyMW52VT6o48Ac4C2Adok9gISH+2OIxeQg8xRfkO4TkuwrjirHXrHh84ffQSYA7QN0EasA7hOc12WkGpzSR+R3pdg/yL6CDAHaBugTVbKOfYI0+73E/MH6g+dX+pZRh8B5gBtA7TJimdzzEHkfNqzOunsr59z7WFfv7y2HKTP6gBgDtA2QJvgfgDX4dDzfI7nfJXyulc/6xDOJ91PoL7oI8AcoG2ANsn7Acjh9s2VVw7twZG05w68ryDdNyDRR4A5QNsAbRI9wbQ52by98yqU6oa/Pgsk0UeAOUDbAG0SdQBzqFosOTJzstlqObJ0Z0e6hyiR+OYE6re9ADAHaBugTeJcILTHJ+WcdJbI8YlvEOoSPqd+Qv3sJ0QfAeYAbQO0Ee8HEOYka3/29NLeK5R6fMzxUH3RR4A5QNsAbcRzAeYgc545yXX2QNhLSEg9PtYR1CeNjz4CzAHaBmiTqTcuvXXAb9/rk+4OS//xCX1O7D9DwBygbYA2nzpDEMoMGuT0AAAAAElFTkSuQmCC"
+    }
+  ]
+}

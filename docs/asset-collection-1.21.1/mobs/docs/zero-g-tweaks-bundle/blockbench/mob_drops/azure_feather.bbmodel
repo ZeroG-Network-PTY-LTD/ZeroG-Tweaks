@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "azure_feather",
+  "model_identifier": "zerog_tweaks:azure_feather",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "azure_feather",
+      "type": "cube",
+      "uuid": "d5c644cf-2015-5638-a068-6557dc59c314",
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            64,
+            0,
+            0,
+            64
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "d5c644cf-2015-5638-a068-6557dc59c314"
+  ],
+  "textures": [
+    {
+      "name": "azure_feather.png",
+      "id": "0",
+      "namespace": "zerog_tweaks",
+      "folder": "item",
+      "mode": "bitmap",
+      "source": "data:image/png;base64,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",
+      "uuid": "14fab4b2-af77-513a-91cc-0efba304ba50"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        3,
+        1
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  }
+}

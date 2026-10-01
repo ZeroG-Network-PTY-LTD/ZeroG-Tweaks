@@ -1,12 +1,19 @@
 package net.zerog.tweaks.registry;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-/** Thin 'layers' overlay blocks (ashfall / crater_dust / snowpack): state-safe decorative cube. */
-public class ZGLayersBlock extends Block {
+/** Eight-layer deposits matching the authored blockstates, shapes and loot tables. */
+public class ZGLayersBlock extends SnowLayerBlock {
+    private static final MapCodec<SnowLayerBlock> CODEC = simpleCodec(ZGLayersBlock::new);
     public ZGLayersBlock(Properties props) { super(props); }
-    @Override public boolean canSurvive(BlockState state, net.minecraft.world.level.LevelReader level, BlockPos pos) { return true; }
+    @Override public MapCodec<SnowLayerBlock> codec() { return CODEC; }
+
+    // Share vanilla stacking/support, not vanilla snow's light-driven melting.
+    // Ash and crater dust must not disappear next to lamps.
+    @Override protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {}
 }

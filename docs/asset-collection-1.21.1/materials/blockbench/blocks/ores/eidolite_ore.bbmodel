@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "eidolite_ore",
+  "model_identifier": "zerog_tweaks:eidolite_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "eidolite_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "0590a3c4-1528-575a-9319-62e152f53e19"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "eidolite_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "46537ee3-9f53-5e82-a2df-b1743a540371",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "0590a3c4-1528-575a-9319-62e152f53e19"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "eidolite_ore.png",
+      "name": "eidolite_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "098315da-1abd-5583-a7b8-b63bcd0445d7",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACe0lEQVR4nO2aL0uEQRDGPTnwC1j0DsFoVVARg+kwGAyiX+C6JjUYLomatAiCIAiWQ+QEw2EyiYoaLGIQQe68z2DSvL8X9mExDLjztHnf/TMM88zuzGzp9LL90xdBp9sL5GplKDa8b6QyHP3/2f2Kjud/tb/aT+3fnzT7H8INYK2ANcpqQKfTi/4nJxXHCY4nGnu70f/X582k9YjsPcANYK2ANcp398/Bh2p1KCorTjbWN6L/ea4X5mP974/XQF55ew/k2vxCIDMmEH4PANwA1gpYo0yOE6mcbICTxwf7gTwzORHdj+MHRscCeXBzK5AX21eBzJigYlL2HuAGsFbAGjIXICpHZ4E8OzcdyORofXUtkMlJld8zJnC91k6on+I898veA9wA1gpYo3Tz+BLUBFU+TQ4qkMPMBXgvSK0JKqj52XuAG8BaAWuU2BdQ+TqhOKnWS+W06iOwvjE9NR7VJ3sPcANYK2CNQi5ATqpzm0ity6f2/m4fnqLrsb7B+ZSz9wA3gLUC1ihtH55E3wcQqlfIc5dQ57jKNVj3lzFB3DOy9wA3gLUC1pA1QdULVPk+wRhAzqf2AlWNUSF7D3ADWCtgjUIMSO0F1kUvkOC5z3M9tRfIXmRqTMjeA9wA1gpYo0yO/LU/z5ig3vGl1g9aWF/FBHVPyd4D3ADWClijcA9IfX9PTpLztaXl6Hye2+o9AMeT8wTnc/3sPcANYK2ANQo1QXV3JqcU51UuwRiicgme46m5C/fL3gPcANYKWKOQC6heneIoz2mVSxBqf/Yl1H6E3wMAN4C1AtaQb4TIOfb+UnMH3hNUvq7eCzQvwnpAam8yew9wA1grYI1fbVYaS2F02xYAAAAASUVORK5CYII="
+    }
+  ]
+}

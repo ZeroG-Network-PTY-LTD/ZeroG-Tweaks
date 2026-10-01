@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "solidified_royal_jelly",
+  "model_identifier": "aeroapiary:solidified_royal_jelly",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "solidified_royal_jelly",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "25267178-6970-52b4-93f9-02c900a67b85"
+    },
+    {
+      "name": "solidified_royal_jelly_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "ae124955-3d3d-5785-acc6-2d2e4dd52a2c"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "solidified_royal_jelly",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "5d9920f4-89d7-54bb-9e0d-c09e8517dee1",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "25267178-6970-52b4-93f9-02c900a67b85",
+        "ae124955-3d3d-5785-acc6-2d2e4dd52a2c"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "solidified_royal_jelly.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "a9d6e0b6-4f70-5419-ae1e-21f4dadf7ce6",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABoklEQVR4nO3Zvy9DURQH8EeI5G0YaSxdzcTCVPEXSHRoI7EYOqBhEVGLxI+hq4Q2UYl/gNTQsEiNNTSGdhA6GLA9TDVouX1Um7xz3iHn+1n6bn+cd3p6z73Ne5YFAAAAAACgUAd1wPDEUJU6pilzfkuacydlsP8IBZBOQBpZPz1lx1h7361v8pIkd/UzAAWQTkCa+gKQ/xFaOs3PUMc0bU+NHlHGUz8DujiDx0IjK+Y48DA/3M7n4oVImCej70gKkHt+uTbHJ/nCJkVct7viTWJ6J5Woj48Xo0GvMdEC3CcIFENf076/vR9sa3A1Uz+O32+wtoP6GcBagOTZFctaQIm9BRo8ln5/PRj7eOytjUtJ1nQsi7EA62+ztT4eIImz1rPPshZgDZBOQBr7GuCUK5Y9Hm187iL143tt1y7plCs8SRn8XQRbcLLLvp9TfQugANIJSEMBpBOQpr4AvmyDzfb9v0D9DEABpBOQpr4AJDdGzKvC6YNDmyJmM6/V7s9jiqvC5HeGIrt7LS77eJNemPP8pU3qWwAFkE4AAAAAAABAwjuWCUsr5LHlNgAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "",
+      "name": "solidified_royal_jelly.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "fa782364-3406-5ca4-95c7-1b9635eedca2",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA6ElEQVR4nO3VLQ7CQBCG4V2CKorg0FUknAGF5whYDJZ7YLAcAUtQnIEE1crikNQWAYFCSlgzs03mfUx/su1OvszuOgcAAAAAAAAAAKzwmpNVl0UVMs4PN2p1dbQmaivzAYi3WnWavtt+kIZ9dM1et358EK3RfAeYD6CrOluttRuly8e1/3zO1qLlOCcYwG03CjryQv/Tm51F9gLzS8B8AOJ7QJkXLpnMP98dt41jk69TsswLmaJqdDfBP8r9Sn1O80uAAGIXEBsBxC4gNvMBqByDv879NjDfAQQQu4DYzAcAAAAAAABgzh0g/yH6MnDb8wAAAABJRU5ErkJggg=="
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1"
+}

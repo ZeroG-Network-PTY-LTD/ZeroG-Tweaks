@@ -1,0 +1,23 @@
+{
+ "extends": "stormbitten_wyvern",
+ "id": "stormbitten_wyvern_galeborn",
+ "name": "Stormbitten Wyvern · Galeborn style",
+ "role": "Boss style · Ring 3 high cloud islands in clear weather · Void Pull is stronger, Lightning weaker",
+ "notes": [
+  "Same rig, bones, animations and hitbox as the Stormbitten Wyvern; only textures and added boxes change.",
+  "A wind wyvern: pale sky-blue scales, white belly, silver horns and spines, pale blue membranes, and two long cloth-like wind streamers trailing from the horns.",
+  "Config shifts its ability weights toward Void Pull (wing gust) and away from Lightning. The splinter stays violet.",
+  "Spawns on Ring 3 islands in clear weather."
+ ],
+ "palette": {"scale": "#b9d3e3", "scale_dark": "#98b8cc", "belly": "#eef3f7", "copper": "#d6dde4", "patina": "#ffffff", "membrane": "#8fb8d3", "spark": "#ffffff", "streamer": "#e8f4ff"},
+ "add_boxes": [
+  {"name": "streamer L", "bone": "horns", "from": [-4.5, 55, -32], "to": [-3.5, 56, -18], "color": "streamer"},
+  {"name": "streamer R", "bone": "horns", "from": [3.5, 55, -32], "to": [4.5, 56, -20], "color": "streamer"}
+ ],
+ "callouts": {
+  "front": [["horn spark R", "Silver horns"], ["eye L", "Eyes"], ["splinter", "Throat splinter (violet)"], ["membrane outer L", "Pale blue membranes"], ["talons L", "Talons"]],
+  "left": [["streamer L", "Wind streamers from the horns"], ["splinter", "Throat splinter"], ["dorsal 2", "Silver spines"], ["tail blade", "Tail blade"], ["torso", "Sky-blue scales"]],
+  "top": [["streamer R", "Streamers"], ["membrane torn R", "Membrane"], ["head", "Head"], ["tail blade", "Tail blade"]],
+  "bottom": [["chest", "White belly"], ["membrane L", "Wing underside"], ["foot R", "Feet"]]
+ }
+}

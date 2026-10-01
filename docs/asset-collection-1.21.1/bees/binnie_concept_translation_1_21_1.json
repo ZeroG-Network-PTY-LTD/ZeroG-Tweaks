@@ -1,0 +1,21 @@
+{
+  "principle": "Preserve Bees/Extra Bees gameplay concepts and visual readability while rebuilding implementation and assets for Minecraft Java 1.21.1.",
+  "target": {
+    "minecraft": "1.21.1",
+    "loader": "NeoForge",
+    "resource_pack_format": 34,
+    "java": 21
+  },
+  "concept_mapping": {
+    "Forestry and Extra Bees frames": "19 ZeroG frame items; classic thin-frame silhouettes plus space-tier materials",
+    "Scoop and apiary hand tools": "nine vanilla-handheld tools with exact 16x diagram silhouettes and Blockbench player grip previews",
+    "Apiarist Database and analysis tools": "Portable Beealyzer and Habitat Locator gadget family; flat readable device sprites",
+    "Genetics serums and analysis": "Serum Vial, Trait Serum, Genetic Splicer and Geno Station",
+    "Extra Bees combs, drops and products": "space combs, pollen, honey, royal/cosmic jelly and material outputs",
+    "Alveary upgrade components": "tiered functional blocks and seven ZeroG multiblock apiary assemblies",
+    "Scented/apiarist protection gear": "standard and cosmic Apiarist armor on canonical 1.21.1 humanoid bones",
+    "Bee species": "deferred to the agreed later pass using vanilla Bedrock bee proportions, eyes and wings with ZeroG textures/effects"
+  },
+  "compatibility_rule": "Old 1.12 Java code is reference material only; registries, renderers, item models, data assets and animations must use the 1.21.1 project conventions.",
+  "reference_revision": "49d3d5e7f6a8ea4f9c6e989fa9df2a5ad1dbf3c9"
+}

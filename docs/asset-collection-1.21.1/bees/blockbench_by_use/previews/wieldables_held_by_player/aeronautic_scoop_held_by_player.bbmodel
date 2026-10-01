@@ -1,0 +1,976 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "geckolib_model",
+    "box_uv": false
+  },
+  "name": "aeronautic_scoop_held_by_player",
+  "model_identifier": "aeroapiary:aeronautic_scoop_held_by_player",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "player_head",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -4,
+        24,
+        -4
+      ],
+      "to": [
+        4,
+        32,
+        4
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "755242da-c58d-5957-b9d0-fd8124a42bdb"
+    },
+    {
+      "name": "visor",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -3.2,
+        26,
+        -4.15
+      ],
+      "to": [
+        3.2,
+        29,
+        -3.95
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            32,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            32,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            16,
+            0,
+            32,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            16,
+            0,
+            32,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            32,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            16,
+            0,
+            32,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "cf3a6b4d-42a4-5a45-bed5-60f312006575"
+    },
+    {
+      "name": "player_body",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -4,
+        12,
+        -2
+      ],
+      "to": [
+        4,
+        24,
+        2
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "8e2582f5-3ed2-5775-b059-5e6be0c7bbe5"
+    },
+    {
+      "name": "player_left_arm",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -8,
+        12,
+        -2
+      ],
+      "to": [
+        -4,
+        24,
+        2
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        -5,
+        22,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "3991d639-477f-54f8-bf30-a63d5e3df2c0"
+    },
+    {
+      "name": "player_right_arm",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        4,
+        12,
+        -2
+      ],
+      "to": [
+        8,
+        24,
+        2
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        5,
+        22,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            0,
+            48,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "6ca87f9f-f1bc-539a-ae48-2947bec47350"
+    },
+    {
+      "name": "player_left_leg",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -4,
+        0,
+        -2
+      ],
+      "to": [
+        0,
+        12,
+        2
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        -1.9,
+        12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "74ec2b2b-d1e1-5264-a0ea-c8146739dd6a"
+    },
+    {
+      "name": "player_right_leg",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        -2
+      ],
+      "to": [
+        4,
+        12,
+        2
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        1.9,
+        12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            48,
+            0,
+            64,
+            16
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "e35b9a0a-6a10-57b1-9071-3f62faf13108"
+    },
+    {
+      "name": "aeronautic_scoop_held",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        4,
+        11.25,
+        -2.6
+      ],
+      "to": [
+        14.5,
+        21.75,
+        -2.56
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        5.5,
+        12,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "d7f42c33-6137-5447-a61c-3c664c5ddb11"
+    },
+    {
+      "name": "aeronautic_scoop_held_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        3.99,
+        11.24,
+        -2.63
+      ],
+      "to": [
+        14.51,
+        21.76,
+        -2.61
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        5.5,
+        12,
+        -2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        -5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 2
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 2
+        }
+      },
+      "type": "cube",
+      "uuid": "1e21321d-5012-5b6e-88c5-5a7e0a8ee09e"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "head",
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "color": 0,
+      "uuid": "c62091bb-cc31-5dd1-a3e8-f205e922aa61",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "755242da-c58d-5957-b9d0-fd8124a42bdb",
+        "cf3a6b4d-42a4-5a45-bed5-60f312006575"
+      ]
+    },
+    {
+      "name": "body",
+      "origin": [
+        0,
+        24,
+        0
+      ],
+      "color": 0,
+      "uuid": "ba6551d2-a001-5081-ba4c-6433e4bd4bfd",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "8e2582f5-3ed2-5775-b059-5e6be0c7bbe5"
+      ]
+    },
+    {
+      "name": "left_arm",
+      "origin": [
+        -5,
+        22,
+        0
+      ],
+      "color": 0,
+      "uuid": "13e43aac-fc3b-5e33-bb60-d345d7efbb11",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "3991d639-477f-54f8-bf30-a63d5e3df2c0"
+      ],
+      "rotation": [
+        8,
+        0,
+        6
+      ]
+    },
+    {
+      "name": "right_arm",
+      "origin": [
+        5,
+        22,
+        0
+      ],
+      "color": 0,
+      "uuid": "7bf90b9b-370c-5f73-9eab-328323f1cbcd",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "6ca87f9f-f1bc-539a-ae48-2947bec47350",
+        "d7f42c33-6137-5447-a61c-3c664c5ddb11",
+        "1e21321d-5012-5b6e-88c5-5a7e0a8ee09e"
+      ],
+      "rotation": [
+        -32,
+        0,
+        -8
+      ]
+    },
+    {
+      "name": "left_leg",
+      "origin": [
+        -1.9,
+        12,
+        0
+      ],
+      "color": 0,
+      "uuid": "e8047dd1-aea6-517f-8354-6d73fce08500",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "74ec2b2b-d1e1-5264-a0ea-c8146739dd6a"
+      ]
+    },
+    {
+      "name": "right_leg",
+      "origin": [
+        1.9,
+        12,
+        0
+      ],
+      "color": 0,
+      "uuid": "399cd00e-a285-5977-998b-a09ea2feb88c",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "e35b9a0a-6a10-57b1-9071-3f62faf13108"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "wieldable_preview_player.png",
+      "folder": "model",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "2ff215e2-716b-52a4-8f04-0b9534f10c2f",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAApUlEQVR4nO3WoQoCQRQF0FE2alhBBLUYBJvYbSajfqhGk80fsIgiNosI/oImw8Zhwoh7TpoXLgyXgXmNwWj2DgmKdislHvplmZS/XU5J+WZS+g8U38N4Mo0KXs/HytzbbqLyj9W6Ms8Xy6j8Yb+rzJ3uMCr/et5DCF6AAmpfQMMvUHMKyH2B3BSQ+wK51b6A2q/C9oCkNAAAAAAAAAAAAAAAwA/6AAoJJRV7xeZeAAAAAElFTkSuQmCC"
+    },
+    {
+      "path": "",
+      "name": "aeronautic_scoop_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "a2b375bd-bb86-56a1-81cb-151d96d4bb6e",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABlklEQVR4nO2asU4CURBFHwZ7Cws/gEbCJ2hiTeJfEIqNnYmxtiImthSGipIvsDbG8AFUhIJYWVhQQ6Gtcwsmm923V5l7us1A9nIzd97bt6QkhIhMiy0A2SxG3/vqz+OJuR4WA3N90rsv9ZuOynz4EJEBbAFs6DPAy/zi9NZcX5wdG834fZwRd+PV3t8YvgNkAFsAm8ZnAGYW1+23z52pY+bL1ntfT+b+eL/wHSAD2ALYtHPfwFvn68481h+LjqmjnvAdIAPYAthknwGIt7fPPROGRdIM+I0MYAtgk/1ZANdhfD7PnXmsvz+cG33hO0AGsAWwyT4DvGeB3OcBmHl8jxC+A2QAWwCbxs8EcV+A1L1P8M4gw3eADGALYJP9PGA+7ZsMvs6Xpo7rckqTSuu8l3kkfAfIALYANrXvAy5HLyaD1x83pu69r9d/hBpGBrAFsKk8A6pmnk34DpABbAFsSudzfdU1mZ91t6b+1zOPhO8AGcAWwMbNq/c8/98yj4TvABnAFsDGPRM8tMwj4TtABrAFCCEEkx8o+ramOBZb2wAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "",
+      "name": "aeronautic_scoop_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "2",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "ca300ed6-d423-5c6a-aad1-5ad3b9265a7f",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAqUlEQVR4nO3ZQQrCMBQE0Cp4Bw/j8T2Md3ChW8kmSNNM9L+3K4EyDMkntNsGAFR1SgfouT+er8/n2/UyNPN55Mt+kQLSAdKWmwG9M793vVV+ByggHSAtPgNmn/lW+R2ggHSAtOkz4Ogz7x7wJQWkA6T9/T2gt15+ByggHSAtPgNa7gGTKSAdIG25GdDyPeBgCkgHSFt+BrRG/yssvwMUkA4AAAAAAAAwyxvQAlQ5CfwdXwAAAABJRU5ErkJggg=="
+    }
+  ],
+  "geckolib_format_version": 2,
+  "geckolib_modid": "aeroapiary",
+  "geckolib_model_type": "Entity",
+  "preview_only": true,
+  "player_proportions": "vanilla 8x8x8 head, 8x12x4 torso, 4x12x4 limbs",
+  "held_context": "right hand; Minecraft handheld transform; grip aligned at wrist",
+  "design_source": "07_tools.png"
+}

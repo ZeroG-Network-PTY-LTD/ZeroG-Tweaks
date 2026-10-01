@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "soul_frame",
+  "model_identifier": "aeroapiary:soul_frame",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "soul_frame",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.99
+      ],
+      "to": [
+        16,
+        16,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "8dc9caca-e073-5cce-a59a-1240f79e03c3"
+    },
+    {
+      "name": "soul_frame_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        7.98
+      ],
+      "to": [
+        16,
+        16,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "b7db70db-cbb1-51ed-858f-d2efc02c59df"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "soul_frame",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "111fae9e-b21e-5943-afe5-0877fc7c8476",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "8dc9caca-e073-5cce-a59a-1240f79e03c3",
+        "b7db70db-cbb1-51ed-858f-d2efc02c59df"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "soul_frame_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "c240c132-c00c-5051-a6f7-e20ba9a213d9",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADoUlEQVR4nO1by2oUQRStfs10EEzIaxIzkzYjgiFBFFRciCiIAf9ADPod/oJfoYuQXVYiCoLoVjQhKC4y6jjjdJJ5GNyYST+q3XruoisFykW6zu6karpObte9favqliU0cT6Yzv7k0sP2D42upftMHSwtzMH4jptC+/bOntb49l/Q9F/DGIBbADeU/vLwwQr4nGc70J54EniWYlBw0hh45MDjhEiQ+iV8J1K4+PwIJcdlHF9ESB89fpr7PxZ+BhgDcAvghqvsYKMLbbzeBG65JAbEGCPsFH3etvG7LTPsL0iISIlCh3SX5B0uVaeFDgo/A4wBuAVwQxkDMhIDpIv89NQc8Ng6BN7ePwA+P3EKBZA84nv7B/C56jhw5xDHb/W7wEsjekuRws8AYwBuAdxQxgD6nfWP0Ge9DHP9L61fwIPqDD4wwWS90/8JvDJTQYExjhcOdoFnJFFII8wzVCj8DDAG4BbADWUMsC2Suwv0yc+7+B2uzWMuXll7lvv8Sm6rEO+vXwAeBFPAw7AHPHH13mnhZ4AxALcAbqjXApLsyQlckNfnx4CPPXkBfPvGFeCzs5jbl8jzP/XRp6++2QLeW10BbhE9jmPWAlowBuAWwA1lDBAu5u42+UU29HN/Xp09CXx8/Xlu/8V7K7nt35oYI+wRsicpzFpAC8YA3AK4od4PiErAE3LWtxPuAw9WbwOvrL8EvnnzMvB6bRT46Br2f3ftEvCFGq4emgNci6SyLHRQ+BlgDMAtgBvqGJBhHuCV8Px/YWIS+FGWn4tffPX2uNqEEEJU62PAM4voOcL+IxY5XFSg8DPAGIBbADfU+wEWrrelRB+nNT9hOABO9/x6d+8An1rHPcM+abcl5iGNEM8aT7g4/iE5t1Ch8DPAGIBbADeUMcAhe3a2xPV2h6zPg9oEcOrzYRdjROn+LeCxxJjTGWD/c1WMKo3+HnDPJ0VEChR+BhgDcAvghrpOkCTbiYs/qU/i+b/MsD6g3cWan3oNzw7TBGPK7gH6dDCD5wgx+c67pLAwHZo8QAvGANwCuHGMOkHs4kboc+29FvCYnhsk+IdWE2t8LFJjREuH2yHWEAmJ/WkMKFtkg0CBws8AYwBuAdxQnw2S3Hyxjrl45OMeISkpEhap28s8HNIn9wcSB7/j8ZDcNyjj/oBP9iylIBcZFSj8DDAG4BbADe17vstnKuCUtIbo49fOP707vHwWx6e1xFvNnrk7rANjAG4B3PgNxXcBe780IQIAAAAASUVORK5CYII="
+    },
+    {
+      "path": "",
+      "name": "soul_frame_inventory.png",
+      "folder": "item",
+      "namespace": "aeroapiary",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "double",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "5aff7801-0007-593a-8a1a-c7321f209087",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAnElEQVR4nO3XsRHCQAwEQGCogojKKI7KiGgDciUO7NfBaDe3/0YjWe/TCQAAAACY5Lz6gMfr/dnz/PN+W5rxsvLl/0AB0gHSDp+vOvN7Z/jo91XjO0AB0gHSrt0Hbt0LVu/9anwHKEA6QFr7v8DWjK/e+9X4DlCAdIC0n7sHdBvfAQqQDpDW/g2oe71771fjO0AB0gEAAAAAADp9AUtoIDQz8j1AAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "two_sided_inventory_sprite": true,
+  "minecraft_target": "Java 1.21.1",
+  "visual_reference": "Extra Bees/Forestry frame language: thin top rail, side supports, single readable center material"
+}

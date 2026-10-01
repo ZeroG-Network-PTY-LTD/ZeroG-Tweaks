@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "rimeglass_ore",
+  "model_identifier": "zerog_tweaks:rimeglass_ore",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "rimeglass_ore",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "6963be14-f12a-5a2c-8a09-3bc26933ecee"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "rimeglass_ore",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "7ed86597-f1ae-51b2-b748-29e8c997c9a8",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "6963be14-f12a-5a2c-8a09-3bc26933ecee"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "rimeglass_ore.png",
+      "name": "rimeglass_ore.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "df830fb1-5fdd-5864-b003-8893789a4854",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACVUlEQVR4nO2avUpDQRCFjdyX0ARrQSv/8QlELEKKFBYWtqawChEsRSWVgloqpLBIIQgqKW0i/heCD6AkWvkMWs+5sMOwgQPufN3kbu4Ow5zd2Z1b2D05+x0KUCqOCLvX/w4NV8db36e9Hxkrjgr7s/8VnG/YNPs/xAPAdoBNhj9oGhv0mqCNb2xtB8fv7+0En2sknwEeALYDbDLUnLaPWjWJmu/1oC4ohTXff38SdvfjR9jV5SVh12obpvmSzwAPANsBNgXtLHB0dCzsWE1qaHVAvXkg7JnJcdP8+P7kM8ADwHaATYb7pMbhdVfYqEHUaLO+KWytTkDK5UrwfYimeaxzks8ADwDbATYZ1saomYX5KWE3FA0iWh2AaxDaOD/asXeOyWeAB4DtAJvcfYCmGWttj1j7ANb/a8+9DgA8AGwH2GTWe3rE2otDqpWV4PP2xVXwuVbHIHePL8JOPgM8AGwH2OTqAMS6b2u1ucbq2nrwOd4PxJJ8BngA2A6wyX0fgBrGvgAS259HzVv7DtY7Ru8LAB4AtgNsCrfPb6I3GKtJa38ewTUntheI+BoAeADYDrDJ8PyO+2pxYlbYqMn2TUfYg14TEHy/Nr9WpySfAR4AtgNscmcBK6i589apsLXzPY4vgWaxF4njcX4EvzHCNSH5DPAAsB1gkzsLaPf6WKtrmo89S2jf+MTOl3wGeADYDrDJnQXuH16Df0DNY68NNaydJZDFuWlho3/WswuC/iWfAR4AtgNsCq3LjqgDcN9HTaLmEW081hHavq/h3wlG4gFgO8DmDzT6GRJ7uzfJAAAAAElFTkSuQmCC"
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cinnabrite",
+  "model_identifier": "zerog_tweaks:cinnabrite",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "cinnabrite",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.99
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "cdb93770-646d-57b9-b0b5-e76fcc7d259c"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "cinnabrite",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "ee6a6cae-4512-5fd8-a7e2-850e4c97f4bc",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "cdb93770-646d-57b9-b0b5-e76fcc7d259c"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "cinnabrite.png",
+      "name": "cinnabrite.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "54b52d3d-7096-56a2-b02c-f600d5b4b23c",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABOklEQVR4nO2bPYoCQRCFXVEw9Q5GrvcwMzBWMNpzCRrvKZY9gU5kaiKioYKBG3cJMyzd5cdQ78uK+enHo+rRw8x0OkKIyHx4LzDuD54511ePu6vGrufN24AMoAXQFJ8vO/P7zbr2/Ov2O6mr3SGpv45VerxwJoTvABlAC6DJnqfcmbfYDLCUzoTwHSADaAE0Pe8FmmaeJnwHyABaAI17BgwX86T+byb8Xs4l5bwQvgNkAC2ARvsAWgCNDKAF0LhnQBNNz//ehO8AGUALoMEzYDwZJfW7MyF8B8gAWgANngHaB8DIAFoAjQygBdDIAFoADb4PsHi/B7CE7wAZQAugKZ4Bn8tVUv9MZ0lN7/0t4TtABtACaLIzwH6nl/t/gGV9O9Wul0v4DpABtAAa/TPkefM2IANoAUIIQfIHEyBFX1zouuQAAAAASUVORK5CYII="
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

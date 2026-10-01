@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "pulsar_dust_block",
+  "model_identifier": "zerog_tweaks:pulsar_dust_block",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "pulsar_dust_block",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "to": [
+        16.0,
+        16.0,
+        16.0
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "12aa7cec-c3c2-521a-ad03-990e29fd4443"
+    },
+    {
+      "name": "pulsar_dust_block_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        -0.01,
+        -0.01,
+        -0.01
+      ],
+      "to": [
+        16.01,
+        16.01,
+        16.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "671eb15a-7183-5b94-b51e-cb4a1cd972cf"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "pulsar_dust_block",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "19a7b4fe-1833-5579-bbb8-c81f2c45cf9e",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "12aa7cec-c3c2-521a-ad03-990e29fd4443",
+        "671eb15a-7183-5b94-b51e-cb4a1cd972cf"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "pulsar_dust_block.png",
+      "name": "pulsar_dust_block.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "e7a8adbb-3eab-56fc-abb7-fcd1240327ec",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACC0lEQVR4nO2bMUpDQRCGE/EGHsQUQg4geAMLKwuF4AHEM4gHkICkFRtLCyEHSCPPC+QGFp4g1vMtvJ/hFT+483Xry27+DDuzM7PP+fXH4TDrmCO3ADdlALcAN8f8w3b9FMYni4tJX/C4Og3j1yE+H3bfYfwzfI5+P9d7WOfm7zc3Ydz9DigDuAW4mas8gDHh5fk+jOmDZLGMPpuNMZzPmEEYA8jv11sYd78DygBuAW6aPICcr6LP396N+3Djg/Bhda4zT1C088djDul+B5QB3ALcNHnA1SJ+QJ3zhDGAMYTQR/l5de4T5g38PZfLszDufgeUAdwC3DR5QPYcJjznlY9P7TeoWmHYjc/vfgeUAdwC3DR5QLZHp+pvhVqP/YdsjOLvqZ4gKAO4BbiR/QDVA8zm+sqnMWz6D5xPVL+CdL8DygBuAW7S9wL0+ayPq/VVXqCeU1/1AwRlALcANzIGKFTtQKbWEtn+AfsF76uKAYEygFuAm6YWUPcC9KmmJ4f11Ds9U31a3Ruo593vgDKAW4CbJgaoelrl/rPZuM+T7HuB1KdgbbDfxOfd74AygFuAm/S9gOoHEPo0z3Gizm0VE1ReUfcCoAzgFuBG3gson8rm8vRxVVu0MWb8vUPC9SoPAGUAtwA36XuBrM9P7fll638VQ+r/BUAZwC3ATRMD2Df/73S/A8oAbgFu/gBlzOcX5pUZ0QAAAABJRU5ErkJggg=="
+    },
+    {
+      "path": "pulsar_dust_block_emissive.png",
+      "name": "pulsar_dust_block_emissive.png",
+      "folder": "block",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "cbf5772f-208d-53d7-8145-46a028a5dc62",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA0klEQVR4nO3aQQ7CMAxE0ZZjcCKOzIm4RrtFYREqx/pW/d+ORekwikkV2DZJne3ZN3h/juP79eu5h+65+v0ekYvvwALoALTL87N6BmntV4AF0AFo+PxGv1Oi17dfARZAB6D9zMvd9vnZ52m/AiyADiBJpPJ7fPZzSftdwALoALTpPFU71x+vH3kecJEF0AFoy58Dqp0neB4wYQF0AEkipf8uUO25YNR+F7AAOgAtPI/ZM+6ZYDILoAPQSu3J//C/wotZAB2AZgF0AJoF0AEkSZIoJ+06SE83JQ4NAAAAAElFTkSuQmCC"
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "coronite",
+  "model_identifier": "zerog_tweaks:coronite",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "coronite",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 0,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.99
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.01
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 0
+        }
+      },
+      "type": "cube",
+      "uuid": "368d9591-7292-58c8-a8d1-7fd667923e35"
+    },
+    {
+      "name": "coronite_emissive",
+      "box_uv": false,
+      "rescale": false,
+      "locked": false,
+      "light_emission": 15,
+      "render_order": "default",
+      "allow_mirror_modeling": true,
+      "from": [
+        0.0,
+        0.0,
+        7.98
+      ],
+      "to": [
+        16.0,
+        16.0,
+        8.02
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "rotation": 0,
+          "texture": 1
+        }
+      },
+      "type": "cube",
+      "uuid": "7019cb8d-e9c0-5381-8219-2299da9ea306"
+    }
+  ],
+  "outliner": [
+    {
+      "name": "coronite",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "color": 0,
+      "uuid": "91cdeb25-d1a0-53f4-b375-ebc9451a6513",
+      "export": true,
+      "isOpen": true,
+      "locked": false,
+      "visibility": true,
+      "autouv": 0,
+      "children": [
+        "368d9591-7292-58c8-a8d1-7fd667923e35",
+        "7019cb8d-e9c0-5381-8219-2299da9ea306"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "path": "coronite.png",
+      "name": "coronite.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "0",
+      "particle": false,
+      "render_mode": "default",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "19938201-9b76-5bd1-86cd-2d81258d88c1",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABfElEQVR4nO2avUoDURSEYwwINoKkTy++gb2FWvgUeYk0Nr6PhbGwSqNPENLbp9FCEPJXn1nIcLiXTOTO191lf4bDmbmH3e31jDHGGGOMMS1ycugHXp33tyXXL343VTX3a97sP+ICqAWoqZ4BzOOfT5dhfXH7ENbf769hPZ/9hPV4ttr7/GxGNN8BLoBagJriDEDPo8cZ6HHkZvoX1h/3Z2H9No+Z8LKM17NMaL4DXAC1ADXpDMh6PutxhHmewTKh+Q5wAdQC1AzYCbU93/EweJxlAsNzQBIXQC1ADc0ABnoePTwZnabuV7rvPw7hwDJmmOcAwAVQC1DTyYDS9/bo4eev9d7zWUbcXUeJLBM8ByRxAdQC1HT8wWZ/3Pez+zR6unRuYPh9AMEFUAtQQzOgM1sD6GkkmxEIzhEsIzwHJHEB1ALU0O8C2Uw4NFnPI813gAugFqCm+NtglmyGoMeR0v8Gm+8AF0AtQM3R/ytc+99gpPkOcAHUAowxRskOdc2DEdFfyxsAAAAASUVORK5CYII="
+    },
+    {
+      "path": "coronite_emissive.png",
+      "name": "coronite_emissive.png",
+      "folder": "item",
+      "namespace": "zerog_tweaks",
+      "id": "1",
+      "particle": false,
+      "render_mode": "emissive",
+      "render_sides": "auto",
+      "frame_time": 1,
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "a203c29a-c104-5710-b0e2-ff0466184495",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAArklEQVR4nO3ZsQ2EQAxEUZaKriRKoyQ68qXgZAN29yP5v+yiG41sg8S2SZIkSZKkahodIK4j7r/b71yaaV/5Z19kAXQAGn4DeiLieSNaG5q5/ARYAB2Aht+AvOPZ6J3Pyk+ABdABaPgNyGY/97PyE2ABdADa8P1avcNvlZ8AC6AD0KbvJ/2u31N+AiyADkDDn9H0e0P5CbAAOgANvwE9fheYzALoAJIkSZIkSav9AXdlIDnf2ftnAAAAAElFTkSuQmCC"
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        -90,
+        35
+      ],
+      "translation": [
+        0,
+        1.25,
+        -3.5
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        0.68,
+        0.68,
+        0.68
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}
