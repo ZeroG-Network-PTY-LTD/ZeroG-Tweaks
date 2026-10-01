@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:aresite"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.aresite_core.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.aresite_core.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_aresite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:aresite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_aresite"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/mars"
+}

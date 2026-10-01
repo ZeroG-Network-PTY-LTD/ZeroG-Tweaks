@@ -1,0 +1,173 @@
+{
+  "extends": "tidewraith",
+  "id": "tidewraith_abyssal",
+  "name": "Tidewraith \u00b7 Abyssal style",
+  "role": "Boss style \u00b7 Drowned Reach splinter rooms and Coral Drift at night \u00b7 same abilities",
+  "notes": [
+    "Same rig, bones, animations and hitbox as the Tidewraith; only textures and added boxes change.",
+    "A deep-sea form: navy-black skin covered in glowing cyan spots, deep violet coral, and a glowing lure on a stalk over the head like an anglerfish.",
+    "Two extra long tendrils hang from the belly (add bones tendril_5 and tendril_6, or parent them to tendril_2 and tendril_3).",
+    "Spawns in Drowned Reach splinter rooms, and on Coral Drift islands at night; its adds are Reef Mites.",
+    "Face (chosen design A 'Manta'): paint docs/shattered-skies/textures/tidewraith_abyssal_face.png (16x12, + _glowmask) on the head's front face. Slanted slit eyes at the outer corners, wide filter mouth with dark gill rakers (no teeth), pale chin, violet splinter crack on the brow."
+  ],
+  "palette": {
+    "skin": "#14233f",
+    "skin_dark": "#0c162b",
+    "belly": "#26395e",
+    "lume": "#6ff0ff",
+    "coral": "#5a3f9a",
+    "coral_hi": "#b58cff",
+    "prism": "#1f4f6a",
+    "prism_hi": "#6ff0ff",
+    "kelp": "#243f3a"
+  },
+  "materials": {
+    "skin": "lume_skin",
+    "skin_dark": "lume_skin"
+  },
+  "unshaded": [
+    "lume"
+  ],
+  "add_boxes": [
+    {
+      "name": "lure stalk",
+      "bone": "head",
+      "from": [
+        -0.5,
+        18.5,
+        -21.5
+      ],
+      "to": [
+        0.5,
+        26,
+        -20.5
+      ],
+      "color": "skin_dark"
+    },
+    {
+      "name": "lure",
+      "bone": "head",
+      "from": [
+        -1.5,
+        26,
+        -23
+      ],
+      "to": [
+        1.5,
+        29,
+        -20
+      ],
+      "color": "lume"
+    },
+    {
+      "name": "long tendril A",
+      "bone": "tendril_2",
+      "from": [
+        -4,
+        -2,
+        2
+      ],
+      "to": [
+        -3,
+        13,
+        3
+      ],
+      "color": "kelp",
+      "texture": "kelp"
+    },
+    {
+      "name": "long tendril B",
+      "bone": "tendril_3",
+      "from": [
+        5,
+        0,
+        -1
+      ],
+      "to": [
+        6,
+        13,
+        0
+      ],
+      "color": "kelp",
+      "texture": "kelp"
+    }
+  ],
+  "callouts": {
+    "front": [
+      [
+        "lure",
+        "Glowing lure on a stalk"
+      ],
+      [
+        "splinter",
+        "Splinter gem (violet)"
+      ],
+      [
+        "wing R outer",
+        "Spotted wings"
+      ],
+      [
+        "eye L",
+        "Eyes"
+      ],
+      [
+        "long tendril A",
+        "Longer tendrils"
+      ]
+    ],
+    "left": [
+      [
+        "lure",
+        "Lure"
+      ],
+      [
+        "coral growth",
+        "Deep violet coral"
+      ],
+      [
+        "body",
+        "Glowing cyan spots"
+      ],
+      [
+        "tail barb",
+        "Tail barb"
+      ],
+      [
+        "long tendril A",
+        "Long tendrils"
+      ]
+    ],
+    "top": [
+      [
+        "lure",
+        "Lure"
+      ],
+      [
+        "coral plates",
+        "Coral plates"
+      ],
+      [
+        "wing L outer",
+        "Bioluminescent spots"
+      ],
+      [
+        "tail barb",
+        "Tail barb"
+      ]
+    ],
+    "bottom": [
+      [
+        "belly",
+        "Dark belly"
+      ],
+      [
+        "long tendril B",
+        "Tendrils"
+      ],
+      [
+        "mouth",
+        "Mouth"
+      ]
+    ]
+  }
+}

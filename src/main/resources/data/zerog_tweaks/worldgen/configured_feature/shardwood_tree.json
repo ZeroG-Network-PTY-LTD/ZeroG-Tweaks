@@ -1,34 +1,42 @@
 {
   "type": "minecraft:tree",
   "config": {
-    "trunk_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "zerog_tweaks:shardwood_log"
-      }
-    },
     "trunk_placer": {
       "type": "minecraft:straight_trunk_placer",
       "base_height": 5,
-      "height_rand_a": 1,
-      "height_rand_b": 1
+      "height_rand_a": 2,
+      "height_rand_b": 0
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "zerog_tweaks:shardwood_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    },
+    "foliage_placer": {
+      "type": "minecraft:blob_foliage_placer",
+      "radius": 2,
+      "offset": 0,
+      "height": 3
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "zerog_tweaks:shardwood_leaves"
+        "Name": "zerog_tweaks:shardwood_leaves",
+        "Properties": {
+          "distance": "7",
+          "persistent": "false",
+          "waterlogged": "false"
+        }
       }
-    },
-    "foliage_placer": {
-      "type": "minecraft:spruce_foliage_placer",
-      "trunk_height": 1,
-      "radius": 2,
-      "offset": 1
     },
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "zerog_tweaks:snowpack"
+        "Name": "zerog_tweaks:crystal_sand"
       }
     },
     "minimum_size": {

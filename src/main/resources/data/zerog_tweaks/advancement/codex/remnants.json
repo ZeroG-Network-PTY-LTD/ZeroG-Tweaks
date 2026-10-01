@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:remnant_shard"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.remnants.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.remnants.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_remnant_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:remnant_shard"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_remnant_shard"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/eidolon"
+}

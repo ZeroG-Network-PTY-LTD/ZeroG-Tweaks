@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:star_map_fragment"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.wanderer.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.wanderer.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_star_map_fragment": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:star_map_fragment"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_star_map_fragment"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/cerulon"
+}

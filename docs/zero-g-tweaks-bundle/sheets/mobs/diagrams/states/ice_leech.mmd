@@ -1,0 +1,10 @@
+stateDiagram-v2
+  direction LR
+  state "hidden" as s0
+  state "crawling" as s1
+  state "latched" as s2
+  [*] --> s0
+  s0 --> s1 : player steps within 2 blocks
+  s1 --> s2 : touches target - ride
+  s2 --> s1 : player sprints 20t / leech hit
+  s1 --> s0 : no target 200t

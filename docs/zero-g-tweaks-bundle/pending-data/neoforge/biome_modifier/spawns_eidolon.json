@@ -1,0 +1,22 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "zerog_tweaks:frozen_graveyard",
+    "zerog_tweaks:phantom_ice_sheets",
+    "zerog_tweaks:hoarwood_taiga"
+  ],
+  "spawners": [
+    {
+      "type": "zerog_tweaks:frost_yak",
+      "weight": 10,
+      "minCount": 2,
+      "maxCount": 4
+    },
+    {
+      "type": "zerog_tweaks:ice_leech",
+      "weight": 40,
+      "minCount": 1,
+      "maxCount": 3
+    }
+  ]
+}

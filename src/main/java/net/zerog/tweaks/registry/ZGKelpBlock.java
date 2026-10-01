@@ -1,45 +1,47 @@
 package net.zerog.tweaks.registry;
 
+import com.mojang.serialization.MapCodec;
 import javax.annotation.Nullable;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.LiquidBlockContainer;
+import net.minecraft.world.level.block.NetherVines;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
- * ZeroG kelp (Glowkelp): kelp semantics — underwater column that grows
- * upward from a solid floor while the head's AGE < 25, body plants stack
- * beneath, head bonemeal-able, pops off when the water/support leaves.
+ * Glowkelp (head) — ZeroG counterpart of vanilla {@code kelp}.
+ * Always waterlogged, grows upward through water sources (14% per random
+ * tick), must be placed in a full water source, cannot sit on magma.
  */
-public class ZGKelpBlock extends GrowingPlantHeadBlock {
-    public static final int MAX_AGE_25 = 25;
-    private static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 16.0, 15.0);
+public class ZGKelpBlock extends GrowingPlantHeadBlock implements LiquidBlockContainer {
+    public static final MapCodec<ZGKelpBlock> CODEC = simpleCodec(ZGKelpBlock::new);
+    protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 16.0);
 
     public ZGKelpBlock(BlockBehaviour.Properties props) {
-        super(props.sound(SoundType.WET_GRASS).noOcclusion().pushReaction(PushReaction.DESTROY),
-                Direction.UP, SHAPE, true, 0.14);
+        super(props, Direction.UP, SHAPE, true, 0.14);
     }
 
     @Override
-    public com.mojang.serialization.MapCodec<ZGKelpBlock> codec() {
-        return simpleCodec(ZGKelpBlock::new);
+    public MapCodec<ZGKelpBlock> codec() {
+        return CODEC;
     }
 
     @Override
     protected boolean canGrowInto(BlockState state) {
-        // vanilla kelp: only water counts (this keeps the art's water behavior)
         return state.is(Blocks.WATER);
     }
 
@@ -49,12 +51,34 @@ public class ZGKelpBlock extends GrowingPlantHeadBlock {
     }
 
     @Override
-    protected int getBlocksToGrowWhenBonemealed(RandomSource random) {
-        return 1;
+    protected boolean canAttachTo(BlockState state) {
+        return !state.is(Blocks.MAGMA_BLOCK);
     }
 
     @Override
-    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-        return new ItemStack(BlockInit.GLOWKELP.get().asItem());
+    public boolean canPlaceLiquid(@Nullable Player player, BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
+        return false;
+    }
+
+    @Override
+    public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluidState) {
+        return false;
+    }
+
+    @Override
+    protected int getBlocksToGrowWhenBonemealed(RandomSource random) {
+        return NetherVines.getBlocksToGrowWhenBonemealed(random);
+    }
+
+    @Nullable
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        FluidState fluid = ctx.getLevel().getFluidState(ctx.getClickedPos());
+        return fluid.is(FluidTags.WATER) && fluid.getAmount() == 8 ? super.getStateForPlacement(ctx) : null;
+    }
+
+    @Override
+    protected FluidState getFluidState(BlockState state) {
+        return Fluids.WATER.getSource(false);
     }
 }

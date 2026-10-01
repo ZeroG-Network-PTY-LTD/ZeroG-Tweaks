@@ -1,0 +1,11 @@
+stateDiagram-v2
+  direction LR
+  state "grazing" as s0
+  state "wandering" as s1
+  state "stampeding" as s2
+  [*] --> s0
+  s0 --> s1 : random
+  s1 --> s0 : finds grass-like block
+  s0 --> s2 : any herd member within 12 hurt
+  s1 --> s2 : herd member hurt
+  s2 --> s1 : panic ends (100t)

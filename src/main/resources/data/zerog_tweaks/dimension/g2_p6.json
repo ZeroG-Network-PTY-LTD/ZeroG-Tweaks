@@ -1,0 +1,66 @@
+{
+  "type": "zerog_tweaks:planet",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "zerog_tweaks:wasteland_crystal",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "zerog_tweaks:wasteland_prism_fields",
+          "parameters": {
+            "temperature": [
+              -0.14999999999999997,
+              0.55
+            ],
+            "humidity": [
+              -0.14999999999999997,
+              0.55
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:wasteland_crystal_caverns",
+          "parameters": {
+            "temperature": [
+              0.15000000000000002,
+              0.85
+            ],
+            "humidity": [
+              0.35,
+              1.0
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

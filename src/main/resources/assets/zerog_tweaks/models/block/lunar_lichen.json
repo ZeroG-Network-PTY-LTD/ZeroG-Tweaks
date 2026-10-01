@@ -1,7 +1,43 @@
 {
-  "parent": "minecraft:block/cross",
+  "ambientocclusion": false,
+  "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "zerog_tweaks:block/lunar_lichen"
+    "particle": "zerog_tweaks:block/lunar_lichen",
+    "lichen": "zerog_tweaks:block/lunar_lichen"
   },
-  "render_type": "minecraft:cutout"
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0.1
+      ],
+      "to": [
+        16,
+        16,
+        0.1
+      ],
+      "shade": false,
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#lichen"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#lichen"
+        }
+      }
+    }
+  ]
 }

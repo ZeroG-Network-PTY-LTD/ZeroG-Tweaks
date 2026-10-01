@@ -1,0 +1,27 @@
+{
+ "extends": "shardmother",
+ "id": "shardmother_hollow",
+ "name": "Shardmother · Hollow style",
+ "role": "Boss style · Hollow Vault splinter rooms · same abilities",
+ "notes": [
+  "Same rig, bones, animations and hitbox as the Shardmother; only textures and added boxes change.",
+  "A sculk-grown mother from the silent vault: near-black shell with glowing teal spots, echo-shard crystals, pale ghostly egg sacs, and two sensor tendrils on her head.",
+  "She makes no sound until she wakes; in the Hollow Vault her idle is silent and the tendrils twitch toward noise.",
+  "Spawns in Hollow Vault splinter rooms."
+ ],
+ "palette": {"shell": "#161d24", "shell_hi": "#1f2a33", "leg": "#12181e", "lume": "#3fd6d0", "crystal": "#1f6f78", "splinter_dim": "#35c2c9", "egg": "#c8f4f2"},
+ "materials": {"shell": "lume_skin", "shell_hi": "lume_skin", "leg": "lume_skin"},
+ "unshaded": ["egg", "lume"],
+ "add_boxes": [
+  {"name": "tendril L", "bone": "head", "from": [-5, 20, -24], "to": [-4, 28, -23], "color": "crystal"},
+  {"name": "tendril R", "bone": "head", "from": [4, 20, -24], "to": [5, 27, -23], "color": "crystal"},
+  {"name": "tendril tip L", "bone": "head", "from": [-5.5, 28, -24.5], "to": [-3.5, 29, -22.5], "color": "lume"},
+  {"name": "tendril tip R", "bone": "head", "from": [3.5, 27, -24.5], "to": [5.5, 28, -22.5], "color": "lume"}
+ ],
+ "callouts": {
+  "front": [["tendril tip R", "Sensor tendrils"], ["splinter", "Splinter (violet)"], ["eye 2", "Eyes"], ["pincer tip R", "Echo-shard tips"], ["egg sac R", "Ghostly egg sacs"]],
+  "left": [["tendril L", "Tendril"], ["crystal 2", "Echo-shard crystals"], ["egg sac L", "Egg sacs"], ["abdomen", "Sculk-spotted shell"], ["egg sac rear", "Rear sac"]],
+  "top": [["crystal 1", "Echo shards"], ["tendril tip L", "Tendrils"], ["carapace", "Carapace"], ["leg R3 upper", "Legs"]],
+  "bottom": [["body", "Underside"], ["leg L1 lower", "Feet"], ["egg sac rear", "Egg sac"]]
+ }
+}

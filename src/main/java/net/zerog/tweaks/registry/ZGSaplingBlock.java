@@ -18,11 +18,13 @@ import net.minecraft.world.level.material.PushReaction;
  */
 public class ZGSaplingBlock extends SaplingBlock {
     public ZGSaplingBlock(TreeGrower grower, BlockBehaviour.Properties props) {
-        super(grower, props.sound(SoundType.GRASS).noOcclusion().pushReaction(PushReaction.DESTROY));
+        super(grower, props.sound(SoundType.GRASS).noCollission().instabreak().randomTicks().noOcclusion().pushReaction(PushReaction.DESTROY));
     }
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return true; // grow on planet stone/regolith/sand, not just dirt
+        // any solid-topped planet surface (stone/regolith/sand) plus vanilla dirt/farmland;
+        // air/non-sturdy tops are rejected so plants pop off like vanilla instead of floating
+        return ZGPlantSupport.canSupport(state, level, pos);
     }
 }

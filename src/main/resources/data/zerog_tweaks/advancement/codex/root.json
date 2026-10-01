@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:raw_nullifite"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.root.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.root.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/deepslate_tiles.png"
+  },
+  "criteria": {
+    "has_raw_nullifite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:raw_nullifite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_nullifite"
+    ]
+  ]
+}

@@ -677,7 +677,6 @@ public final class ItemInit {
     public static final DeferredItem<BlockItem> PULSAR_DUST_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("pulsar_dust_block", BlockInit.PULSAR_DUST_BLOCK);
     public static final DeferredItem<BlockItem> PULSAR_DUST_ORE_ITEM = ITEMS.registerSimpleBlockItem("pulsar_dust_ore", BlockInit.PULSAR_DUST_ORE);
     public static final DeferredItem<BlockItem> PULSAR_LAMP_ITEM = ITEMS.registerSimpleBlockItem("pulsar_lamp", BlockInit.PULSAR_LAMP);
-    public static final DeferredItem<BlockItem> PYREVINE_ITEM = ITEMS.registerSimpleBlockItem("pyrevine", BlockInit.PYREVINE);
     public static final DeferredItem<BlockItem> PYRIUM_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("pyrium_block", BlockInit.PYRIUM_BLOCK);
     public static final DeferredItem<BlockItem> PYRIUM_ORE_ITEM = ITEMS.registerSimpleBlockItem("pyrium_ore", BlockInit.PYRIUM_ORE);
     public static final DeferredItem<BlockItem> RADIANT_BRICK_SLAB_ITEM = ITEMS.registerSimpleBlockItem("radiant_brick_slab", BlockInit.RADIANT_BRICK_SLAB);
@@ -1100,7 +1099,7 @@ public final class ItemInit {
     public static final DeferredItem<Item> PHOTIUM_SHOVEL = ITEMS.registerSimpleItem("photium_shovel");
     public static final DeferredItem<Item> PHOTIUM_SWORD = ITEMS.registerSimpleItem("photium_sword");
     public static final DeferredItem<Item> PULSAR_DUST = ITEMS.registerSimpleItem("pulsar_dust");
-    public static final DeferredItem<Item> PYREFRUIT = ITEMS.registerSimpleItem("pyrefruit");
+    public static final DeferredItem<Item> PYREFRUIT = ITEMS.registerItem("pyrefruit", p -> new net.minecraft.world.item.ItemNameBlockItem(BlockInit.PYREVINE.get(), p.food(ZGFoods.PYREFRUIT)));  // plants Pyrevine like glow berries
     public static final DeferredItem<Item> PYRIUM_AXE = ITEMS.registerSimpleItem("pyrium_axe");
     public static final DeferredItem<Item> PYRIUM_BOOTS = ITEMS.registerSimpleItem("pyrium_boots");
     public static final DeferredItem<Item> PYRIUM_CHESTPLATE = ITEMS.registerSimpleItem("pyrium_chestplate");
@@ -1243,6 +1242,8 @@ public final class ItemInit {
     public static final DeferredItem<Item> YAK_WOOL = ITEMS.registerSimpleItem("yak_wool");
 
     public static void register(IEventBus bus) {
+        ZGSpawnEggs.init();  // spawn eggs register into ITEMS
+        ZGTrims.init();      // armor trim templates register into ITEMS
         ITEMS.register(bus);
     }
 

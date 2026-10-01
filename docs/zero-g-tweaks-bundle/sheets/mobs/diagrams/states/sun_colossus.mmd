@@ -1,0 +1,15 @@
+stateDiagram-v2
+  direction LR
+  state "dormant" as s0
+  state "awake" as s1
+  state "slamming" as s2
+  state "core_open" as s3
+  state "dead" as s4
+  [*] --> s0
+  s0 --> s1 : player on plateau
+  s1 --> s2 : target in 6 blocks
+  s2 --> s3 : slam done
+  s3 --> s1 : 60t window closes
+  s1 --> s4 : health 0
+  s3 --> s4 : health 0
+  s4 --> [*]

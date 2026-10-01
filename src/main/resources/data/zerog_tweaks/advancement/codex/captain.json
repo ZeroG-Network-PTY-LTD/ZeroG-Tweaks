@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "zerog_tweaks:captains_lantern"
+    },
+    "title": {
+      "translate": "advancements.zerog_tweaks.captain.title"
+    },
+    "description": {
+      "translate": "advancements.zerog_tweaks.captain.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_galaxy_5_gate_key": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:galaxy_5_gate_key"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_galaxy_5_gate_key"
+    ]
+  ],
+  "parent": "zerog_tweaks:codex/remnants"
+}
