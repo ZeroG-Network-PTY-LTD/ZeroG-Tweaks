@@ -584,9 +584,70 @@ Each armor and tool set also protects against the next world's hazards. Every se
 
 **Progression rules**
 
-- Mining gates: each planet's rare ore needs the previous tier's pickaxe, via tool-tier tags.
+- Mining gates: see the Mining ladder below. Nullifite needs netherite; each later ore needs the pickaxe before it.
 - Upgrade path: each set is made at the smithing table from the previous one with a tier template; enchantments carry over.
 - Hazard gates: Skarn's burning ground needs fire protection; Solvane's heat needs Skarnite gear or Heatproof Plating.
+
+
+
+**Mining ladder (v1.3, locked)**
+
+Allthemodium-style: every ZeroG pickaxe out-mines netherite, and every ZeroG ore needs at least a netherite pickaxe. Nullifite, the first ZeroG ore, needs netherite; after that, each world's first metal needs the best pickaxe from the world before, and inside a world the order is common metal, then standard metal, then the rare gem. Precious (gold-style) picks share their world's common level but mine faster. Fuels and energy dusts only need an iron pickaxe, so power is never blocked.
+
+| Level | Pickaxe | World | Opens these ores | Mining speed | Lore |
+| --- | --- | --- | --- | --- | --- |
+| 4 | Netherite (vanilla) | Overworld | Nullifite | 9 | The entry ticket to space. |
+| 5 | Nullifite | Sol (Overworld) | Ferrox | 9.5 | Void-glass edge: the first pick that can bite into off-world rock. |
+| 6 | Ferrox | Mars | Moonsteel | 10 | Rust-hardened iron oxide; tough enough for lunar metal. |
+| 7 | Moonsteel | Moon | Selenite, Olympium | 10.5 | Forged in low gravity, so its edge holds against crystal and Olympus basalt. |
+| 8 | Olympium | Mars | Aresite, Cobaltium | 11 | Heavy Olympus metal alloyed with Moonsteel; opens the T2 gate materials. |
+| 9 | Cobaltium / Aurelion | Cerulon | Aurelion, Starlite, Lumenite, Cyrrium | 11.5, 15.5 (gold-style) | Cerulon's workhorse metals. Aurelion is gold-style: same level, faster, fragile. |
+| 10 | Cyrrium | Cerulon | Cerulite | 12 | Tempered casing steel; cuts the Cerulite geodes. |
+| 11 | Cerulite | Cerulon | Ruskite | 12.5 | Crystal edge (T3). The only pick that survives Skarn heat. |
+| 12 | Ruskite / Pyrium | Skarn | Pyrium, Rift Opal, Cinnabrite, Tectium | 13, 17 (gold-style) | Heat-scaled metals. Pyrium is gold-style: same level, faster, fragile. |
+| 13 | Tectium | Skarn | Skarnite | 13.5 | Plate metal heavy enough to crack Skarnite seams. |
+| 14 | Skarnite | Skarn | Salvium | 14 | Ember gem edge (T4); stays sharp in Eidolon's cold. |
+| 15 | Salvium / Palladine | Eidolon | Palladine, Remnant Shard, Rimeglass, Wraithsteel | 14.5, 18.5 (gold-style) | Salvaged wreck steel. Palladine is gold-style: same level, faster, fragile. |
+| 16 | Wraithsteel | Eidolon | Eidolite | 15 | Ghost-pale steel that reaches Eidolite through permafrost. |
+| 17 | Eidolite | Eidolon | Photium | 15.5 | Phantom gem edge (T5); does not melt near a dying star. |
+| 18 | Photium / Radiantine | Solvane | Radiantine, Nova Pearl, Dawnstone, Astrium | 16, 20 (gold-style) | Light metals of the fading sun. Radiantine is gold-style: same level, faster, fragile. |
+| 19 | Astrium | Solvane | Solvanite | 16.5 | Star-forged steel; the last step before the heart of Solvane. |
+| 20 | Solvanite | Solvane | everything | 17 | Endgame (T6). Mines everything in the mod. |
+
+| Ore | Needs | Why |
+| --- | --- | --- |
+| Deepslate Nullifite Ore | Netherite pickaxe or better | Deep Overworld void veins; diamond shatters on them, so netherite is the minimum. |
+| Ferrox Ore | Nullifite pickaxe or better | First Mars metal; needs the Nullifite pick you came with. |
+| Moonsteel Ore | Ferrox pickaxe or better | Lunar steel is harder than Martian rust; mine it with Ferrox. |
+| Selenite Ore | Moonsteel pickaxe or better | Pale lens crystal splinters under anything weaker than Moonsteel. |
+| Olympium Ore | Moonsteel pickaxe or better | Olympus basalt needs a low-gravity Moonsteel edge. |
+| Aresite Ore | Olympium pickaxe or better | The red T2 core grows inside Olympium veins; mine it with Olympium. |
+| Cobaltium Ore | Olympium pickaxe or better | First Cerulon metal; needs the Olympium pick from Sol. |
+| Aurelion Ore | Cobaltium pickaxe or better | Soft precious metal in hard blue stone; Cobaltium or better. |
+| Starlite Ore | Cobaltium pickaxe or better | Lore gem; Cobaltium or better. |
+| Lumenite Ore | Cobaltium pickaxe or better | Trade gem; Cobaltium or better. |
+| Cyrrium Ore | Cobaltium pickaxe or better | Casing steel; Cobaltium or better. |
+| Cerulite Ore | Cyrrium pickaxe or better | Crystal geodes need a tempered Cyrrium pick. |
+| Ruskite Ore | Cerulite pickaxe or better | First Skarn metal; only Cerulite survives the heat. |
+| Pyrium Ore | Ruskite pickaxe or better | Fire-gold; Ruskite or better. |
+| Rift Opal Ore | Ruskite pickaxe or better | Lore gem; Ruskite or better. |
+| Cinnabrite Ore | Ruskite pickaxe or better | Trade gem; Ruskite or better. |
+| Tectium Ore | Ruskite pickaxe or better | Heavy plate metal; Ruskite or better. |
+| Skarnite Ore | Tectium pickaxe or better | Ember seams crack only under Tectium. |
+| Salvium Ore | Skarnite pickaxe or better | First Eidolon metal (wreck scrap); needs the Skarnite pick. |
+| Palladine Ore | Salvium pickaxe or better | White precious metal; Salvium or better. |
+| Remnant Shard Ore | Salvium pickaxe or better | Lore gem; Salvium or better. |
+| Rimeglass Ore | Salvium pickaxe or better | Trade gem; Salvium or better. |
+| Wraithsteel Ore | Salvium pickaxe or better | Ghost steel; Salvium or better. |
+| Eidolite Ore | Wraithsteel pickaxe or better | Phantom gem deep in permafrost; Wraithsteel only. |
+| Photium Ore | Eidolite pickaxe or better | First Solvane metal; needs the Eidolite pick. |
+| Radiantine Ore | Photium pickaxe or better | Light-gold; Photium or better. |
+| Nova Pearl Ore | Photium pickaxe or better | Lore gem; Photium or better. |
+| Dawnstone Ore | Photium pickaxe or better | Trade gem; Photium or better. |
+| Astrium Ore | Photium pickaxe or better | Star-forged steel; Photium or better. |
+| Solvanite Ore | Astrium pickaxe or better | Dying-star gem; Astrium only. |
+
+Code: each set's `SimpleTier` uses `zerog_tweaks:incorrect_for_<set>_tool`; ores are in `zerog_tweaks:needs_<pick>_tool`, and the vanilla `incorrect_for_*_tool` tags lock wood to netherite out of everything above them. The tags are generated in `pending-data/mining-tags/` (copy `data/` onto `src/main/resources/data/`).
 
 **Armor upgrades** (smithing table, stored as data components). One slot per piece for Nullifite to Cerulite; two from Skarnite onward.
 

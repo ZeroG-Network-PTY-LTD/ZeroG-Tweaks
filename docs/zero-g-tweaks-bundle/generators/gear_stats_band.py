@@ -1,6 +1,7 @@
 """Append an 'Exact stats' band to gear sheets, read straight from the design doc's
 'Gear stats and abilities' table (single source of truth). Usage: python3 gear_stats_band.py <bundle_dir>"""
 import re, sys, os, glob
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from PIL import Image, ImageDraw, ImageFont
 
 B = sys.argv[1]
@@ -42,10 +43,13 @@ def lines_for(k):
     elif k in MAIN: out.append(('Set bonus', MAIN[k][3]))
     if k in ABIL:
         a = ABIL[k]; out.append(('Abilities', f"Pick/shovel: {a[1]} · Axe/hoe: {a[2]} · Sword: {a[3]}"))
-    if s['Tier'].startswith('T'):
-        out.append(('Mining level', "Mines the next planet's rare ore (needs_<tier>_tool tags)."))
-    else:
-        out.append(('Mining level', 'Not set in the design doc for metal sets yet. Decide it before the SimpleTier is coded.'))
+    import mining_ladder as ML
+    L = ML.SET_LEVEL[k]; can = [o.replace('_ore', '').replace('deepslate_', '').replace('_', ' ').title() for o, (r, _) in ML.ORES.items() if r == L]
+    ore = 'deepslate_nullifite_ore' if k == 'nullifite' else f'{k}_ore'
+    need = ML.pick_name(ML.ORES[ore][0]).capitalize()
+    lore = [l for lv, ss, w, l in ML.LEVELS if lv == L][0]
+    out.append(('Mining level', f"Level {L} of 20 (netherite = 4), speed {ML.mining_speed(k):g}. "
+                + f"Its own ore needs a {need} pickaxe. " + (f"Opens: {', '.join(can)}. " if can else 'Mines everything. ') + lore))
     return out
 
 def wrap(d, text, font, width):
