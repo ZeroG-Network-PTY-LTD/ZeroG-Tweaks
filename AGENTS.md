@@ -38,9 +38,9 @@ Rules:
 - **Platform:** Minecraft 1.21.1, NeoForge 21.1.x (ModDevGradle), Java 21, Parchment mappings. Mod id `zerog_tweaks`, package `net.zerog.tweaks`.
 - **All logic is Java.** Don't use KubeJS or CraftTweaker.
 - **Branches:**
-  - `1.21.1-update` is the active line.
+  - `1.21.x` is the active code line.
   - `Released` is for releases.
-  - `design/v1.2-assets` receives every design/data update. Push new work there and let the owner merge.
+  - `Design` owns art/generators; `Docs` owns documentation/jars. Never merge their histories into code.
 - **Never rename or remove an existing registry id** (block, item, feature, biome, dimension, loot table). Save data, recipes and tags depend on them. Add new ids instead.
 - **Match vanilla behaviour first.** When a ZeroG thing has a vanilla counterpart, copy the counterpart:
   - Pyrevine = cave vines.
@@ -218,4 +218,12 @@ Tick these off in order; each milestone should leave something testable. Ids ref
 2. `./gradlew runClient` gives a new world with no datapack errors in `logs/latest.log`.
 3. `/execute in zerog_tweaks:<planet> run tp @s 0 150 0` for each changed dimension; the terrain, ores (`/locate` is not available for features, so dig) and plants look right.
 4. JEI or the recipe book shows new recipes; loot tables drop what they should.
-5. Push to `design/v1.2-assets`, describe what changed, and note any id additions.
+5. Push each change to its owning branch; describe changes and id additions.
+
+## Intended testing instance
+
+CurseForge Java/NeoForge: `C:\Users\jakem\curseforge\minecraft\Instances\ZeroG`.
+Never launch Bedrock. Publishing alone does not authorise game launches, installed
+jar replacement or world changes. Isolated test evidence is not modpack approval.
+Archived Java drafts are in tools/design-code-archive/, not compiled or under the
+root docs/ directory. Generator implementations live on Design.

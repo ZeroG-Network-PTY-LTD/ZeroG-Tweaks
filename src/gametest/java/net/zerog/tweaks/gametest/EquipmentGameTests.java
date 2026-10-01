@@ -37,6 +37,7 @@ import net.zerog.tweaks.ZeroGTweaks;
 import net.zerog.tweaks.registry.ZGArmorMaterials;
 import net.zerog.tweaks.registry.ZGToolTiers;
 import net.zerog.tweaks.item.ZGArmorSetBonuses;
+import net.zerog.tweaks.guide.MultiblockGuides;
 
 /** Registry-backed tests, compiled separately; running them needs human launch approval. */
 @GameTestHolder(ZeroGTweaks.MODID)
@@ -44,6 +45,30 @@ import net.zerog.tweaks.item.ZGArmorSetBonuses;
 public final class EquipmentGameTests {
     private static final ArmorItem.Type[] TYPES = {ArmorItem.Type.HELMET,
             ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS, ArmorItem.Type.BOOTS};
+
+    @GameTest(template = "equipment_empty", timeoutTicks = 40)
+    public static void multiblock_guides_preserve_origin_and_unique_authored_cells(GameTestHelper helper) {
+        helper.assertTrue(MultiblockGuides.layouts().size()==8, "Missing apiary reference layout");
+        int total=0;
+        for(var layout:MultiblockGuides.layouts()) {
+            var positions=new java.util.HashSet<String>();
+            int controllers=0;
+            for(var cell:layout.cells()) {
+                helper.assertTrue(cell.x()>=0 && cell.y()>=0 && cell.z()>=0, "Reference origin not normalized");
+                helper.assertTrue(positions.add(cell.x()+","+cell.y()+","+cell.z()), "Overlapping authored cells");
+                if(cell.part().equals("controller")) controllers++;
+                total++;
+            }
+            helper.assertTrue(layout.cells().stream().anyMatch(c -> c.y()==0), "Base Y=0 absent");
+            helper.assertTrue(controllers==1, "Guide must show exactly one controller");
+            helper.assertTrue(layout.externalModules().equals(java.util.List.of("genetics","cryo")),
+                    "External-module design decision lost");
+            helper.assertTrue(!layout.quantities().containsKey("genetics") && !layout.quantities().containsKey("cryo"),
+                    "External modules incorrectly inserted into the shell");
+        }
+        helper.assertTrue(total==944, "Authored cell roster changed");
+        helper.succeed();
+    }
 
     @GameTest(template = "equipment_empty", timeoutTicks = 40)
     public static void wooden_fences_use_boolean_connection_states(GameTestHelper helper) {

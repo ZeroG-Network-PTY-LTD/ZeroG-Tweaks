@@ -18,6 +18,7 @@ public class ZGFernBlock extends ZGPlantBlock {
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {
-        return SHAPE.move(state.getOffset(level, pos));
+        var offset = state.getOffset(level, pos);
+        return SHAPE.move(offset.x, offset.y, offset.z);
     }
 }
