@@ -8,7 +8,10 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.component.DataComponents;
+import javax.annotation.Nullable;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.armortrim.ArmorTrim;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -48,28 +51,35 @@ public class ZGGeoArmorRenderer extends GeoArmorRenderer<ZGGeoArmorItem> {
         if (buffer instanceof SpriteCoordinateExpander) {
             return; // vanilla trim pass: the trim was already drawn below
         }
+        // GeckoLib clears currentStack/currentSlot/baseModel/bufferSource at the end of its render, so read them first
+        var stack = this.currentStack;
+        var slot = this.currentSlot;
+        var base = this.baseModel;
+        var buffers = this.bufferSource;
         super.renderToBuffer(poseStack, buffer, packedLight, packedOverlay, colour);
-        renderEquippedTrim(poseStack, packedLight);
+        renderEquippedTrim(poseStack, packedLight, stack, slot, base, buffers);
     }
 
     /** Same lookup as HumanoidArmorLayer#renderTrim, using the stack/slot/buffers GeckoLib handed us. */
-    private void renderEquippedTrim(PoseStack poseStack, int packedLight) {
-        if (this.currentStack == null || this.bufferSource == null || this.baseModel == null || this.currentSlot == null) return;
-        ArmorTrim trim = this.currentStack.get(DataComponents.TRIM);
-        if (trim == null || !(this.currentStack.getItem() instanceof ArmorItem armor)) return;
-        boolean leggings = this.currentSlot == EquipmentSlot.LEGS;
+    private static void renderEquippedTrim(PoseStack poseStack, int packedLight, @Nullable ItemStack stack,
+            @Nullable EquipmentSlot slot, @Nullable HumanoidModel<?> base, @Nullable MultiBufferSource buffers) {
+        if (stack == null || slot == null || base == null || buffers == null) return;
+        ArmorTrim trim = stack.get(DataComponents.TRIM);
+        if (trim == null || !(stack.getItem() instanceof ArmorItem armor)) return;
+        boolean leggings = slot == EquipmentSlot.LEGS;
         TextureAtlasSprite sprite = Minecraft.getInstance().getModelManager().getAtlas(Sheets.ARMOR_TRIMS_SHEET)
                 .getSprite(leggings ? trim.innerTexture(armor.getMaterial()) : trim.outerTexture(armor.getMaterial()));
-        VertexConsumer trimBuffer = sprite.wrap(this.bufferSource.getBuffer(Sheets.armorTrimsSheet(trim.pattern().value().decal())));
-        renderTrim(poseStack, trimBuffer, packedLight, OverlayTexture.NO_OVERLAY, -1);
+        VertexConsumer trimBuffer = sprite.wrap(buffers.getBuffer(Sheets.armorTrimsSheet(trim.pattern().value().decal())));
+        renderTrim(poseStack, trimBuffer, packedLight, OverlayTexture.NO_OVERLAY, -1, slot, base);
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    private void renderTrim(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int colour) {
-        HumanoidModel<LivingEntity> model = this.currentSlot == EquipmentSlot.LEGS ? innerTrimModel() : outerTrimModel();
-        ((HumanoidModel) this.baseModel).copyPropertiesTo(model);
+    private static void renderTrim(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int colour,
+            EquipmentSlot slot, HumanoidModel<?> base) {
+        HumanoidModel<LivingEntity> model = slot == EquipmentSlot.LEGS ? innerTrimModel() : outerTrimModel();
+        ((HumanoidModel) base).copyPropertiesTo(model);
         model.setAllVisible(false);
-        switch (this.currentSlot) {
+        switch (slot) {
             case HEAD -> model.head.visible = true;
             case CHEST -> {
                 model.body.visible = true;
