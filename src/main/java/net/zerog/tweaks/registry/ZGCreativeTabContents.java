@@ -333,9 +333,7 @@ public final class ZGCreativeTabContents {
             "fusion_dust", "nova_pearl", "solvanite", "dawnstone", "stardust", "solar_spark", "crystal_hide", "cinder_pelt",
             "frost_pelt", "hopper_fluff", "grazer_hide", "azure_feather", "blue_egg", "glimmer_scale", "boar_tusk",
             "scorch_scale", "yak_wool", "leech_gel", "gildcrab_shell", "eel_skin", "burrower_scale", "skitter_carapace",
-            "venom_gland", "rift_heart", "heart_of_solvane", "olympium_upgrade_smithing_template",
-            "cerulite_upgrade_smithing_template", "skarnite_upgrade_smithing_template", "eidolite_upgrade_smithing_template",
-            "solvanite_upgrade_smithing_template", "fracture_armor_trim_smithing_template",
+            "venom_gland", "rift_heart", "heart_of_solvane", "ferrox_upgrade_smithing_template", "moonsteel_upgrade_smithing_template", "olympium_upgrade_smithing_template", "cobaltium_upgrade_smithing_template", "aurelion_upgrade_smithing_template", "cyrrium_upgrade_smithing_template", "cerulite_upgrade_smithing_template", "ruskite_upgrade_smithing_template", "pyrium_upgrade_smithing_template", "tectium_upgrade_smithing_template", "skarnite_upgrade_smithing_template", "salvium_upgrade_smithing_template", "palladine_upgrade_smithing_template", "wraithsteel_upgrade_smithing_template", "eidolite_upgrade_smithing_template", "photium_upgrade_smithing_template", "radiantine_upgrade_smithing_template", "astrium_upgrade_smithing_template", "solvanite_upgrade_smithing_template", "fracture_armor_trim_smithing_template",
             "crater_armor_trim_smithing_template", "olympus_armor_trim_smithing_template", "geode_armor_trim_smithing_template",
             "rift_armor_trim_smithing_template", "hull_armor_trim_smithing_template", "corona_armor_trim_smithing_template",
             "surge_armor_trim_smithing_template", "prism_armor_trim_smithing_template", "meteor_armor_trim_smithing_template"

@@ -955,7 +955,6 @@ public final class ItemInit {
     public static final DeferredItem<Item> CERULITE_PICKAXE = registerTool("cerulite_pickaxe", "cerulite", ToolKind.PICKAXE);
     public static final DeferredItem<Item> CERULITE_SHOVEL = registerTool("cerulite_shovel", "cerulite", ToolKind.SHOVEL);
     public static final DeferredItem<Item> CERULITE_SWORD = registerTool("cerulite_sword", "cerulite", ToolKind.SWORD);
-    public static final DeferredItem<Item> CERULITE_UPGRADE_SMITHING_TEMPLATE = ITEMS.registerSimpleItem("cerulite_upgrade_smithing_template");
     public static final DeferredItem<Item> CINDER_CAP_STEW = ITEMS.registerSimpleItem("cinder_cap_stew");
     public static final DeferredItem<Item> CINDER_PELT = ITEMS.registerSimpleItem("cinder_pelt");
     public static final DeferredItem<Item> CINNABRITE = ITEMS.registerSimpleItem("cinnabrite");
@@ -1008,7 +1007,6 @@ public final class ItemInit {
     public static final DeferredItem<Item> EIDOLITE_PICKAXE = registerTool("eidolite_pickaxe", "eidolite", ToolKind.PICKAXE);
     public static final DeferredItem<Item> EIDOLITE_SHOVEL = registerTool("eidolite_shovel", "eidolite", ToolKind.SHOVEL);
     public static final DeferredItem<Item> EIDOLITE_SWORD = registerTool("eidolite_sword", "eidolite", ToolKind.SWORD);
-    public static final DeferredItem<Item> EIDOLITE_UPGRADE_SMITHING_TEMPLATE = ITEMS.registerSimpleItem("eidolite_upgrade_smithing_template");
     public static final DeferredItem<Item> EMBER_CHILI = ITEMS.registerSimpleItem("ember_chili");
     public static final DeferredItem<Item> EMBERITE = ITEMS.registerSimpleItem("emberite");
     public static final DeferredItem<Item> FERROX_AXE = registerTool("ferrox_axe", "ferrox", ToolKind.AXE);
@@ -1083,7 +1081,6 @@ public final class ItemInit {
     public static final DeferredItem<Item> OLYMPIUM_PICKAXE = registerTool("olympium_pickaxe", "olympium", ToolKind.PICKAXE);
     public static final DeferredItem<Item> OLYMPIUM_SHOVEL = registerTool("olympium_shovel", "olympium", ToolKind.SHOVEL);
     public static final DeferredItem<Item> OLYMPIUM_SWORD = registerTool("olympium_sword", "olympium", ToolKind.SWORD);
-    public static final DeferredItem<Item> OLYMPIUM_UPGRADE_SMITHING_TEMPLATE = ITEMS.registerSimpleItem("olympium_upgrade_smithing_template");
     public static final DeferredItem<Item> ORBIT_BURGER = ITEMS.registerSimpleItem("orbit_burger");
     public static final DeferredItem<Item> PALLADINE_AXE = registerTool("palladine_axe", "palladine", ToolKind.AXE);
     public static final DeferredItem<Item> PALLADINE_BOOTS = registerArmor("palladine_boots", ZGArmorMaterials.PALLADINE, ArmorItem.Type.BOOTS);
@@ -1197,7 +1194,6 @@ public final class ItemInit {
     public static final DeferredItem<Item> SKARNITE_PICKAXE = registerTool("skarnite_pickaxe", "skarnite", ToolKind.PICKAXE);
     public static final DeferredItem<Item> SKARNITE_SHOVEL = registerTool("skarnite_shovel", "skarnite", ToolKind.SHOVEL);
     public static final DeferredItem<Item> SKARNITE_SWORD = registerTool("skarnite_sword", "skarnite", ToolKind.SWORD);
-    public static final DeferredItem<Item> SKARNITE_UPGRADE_SMITHING_TEMPLATE = ITEMS.registerSimpleItem("skarnite_upgrade_smithing_template");
     public static final DeferredItem<Item> SKITTER_CARAPACE = ITEMS.registerSimpleItem("skitter_carapace");
     public static final DeferredItem<Item> SKITTER_LEG = ITEMS.registerSimpleItem("skitter_leg");
     public static final DeferredItem<Item> SKYBERRIES = ITEMS.registerSimpleItem("skyberries");
@@ -1214,7 +1210,6 @@ public final class ItemInit {
     public static final DeferredItem<Item> SOLVANITE_PICKAXE = registerTool("solvanite_pickaxe", "solvanite", ToolKind.PICKAXE);
     public static final DeferredItem<Item> SOLVANITE_SHOVEL = registerTool("solvanite_shovel", "solvanite", ToolKind.SHOVEL);
     public static final DeferredItem<Item> SOLVANITE_SWORD = registerTool("solvanite_sword", "solvanite", ToolKind.SWORD);
-    public static final DeferredItem<Item> SOLVANITE_UPGRADE_SMITHING_TEMPLATE = ITEMS.registerSimpleItem("solvanite_upgrade_smithing_template");
     public static final DeferredItem<Item> SPECTRAL_DUST = ITEMS.registerSimpleItem("spectral_dust");
     public static final DeferredItem<Item> STAG_VENISON = ITEMS.registerSimpleItem("stag_venison");
     public static final DeferredItem<Item> STAR_MAP_FRAGMENT = ITEMS.registerSimpleItem("star_map_fragment");
@@ -1286,6 +1281,7 @@ public final class ItemInit {
     public static void register(IEventBus bus) {
         ZGSpawnEggs.init();  // spawn eggs register into ITEMS
         ZGTrims.init();      // armor trim templates register into ITEMS
+        ZGUpgradeTemplates.init(); // netherite-style upgrade templates register into ITEMS
         ITEMS.register(bus);
     }
 
