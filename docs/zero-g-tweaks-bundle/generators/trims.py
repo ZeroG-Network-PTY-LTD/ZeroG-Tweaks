@@ -120,6 +120,8 @@ def motif(name, x, y, fw, fh, gx, gy):
         if (x, y) in ((fw - 2, fh - 3), (fw - 3, fh - 2), (fw - 2, fh - 2)): return 0
     return None
 
+# copy recipe: 7 x the pattern's main item + template + the stone of the world where the template is found
+DUP = {'fracture': ('nullifite_ingot', 'sunbaked_stone'), 'crater': ('moonsteel_ingot', 'craterstone'), 'olympus': ('olympium_ingot', 'martian_stone'), 'geode': ('cerulite', 'prismstone'), 'rift': ('rift_opal', 'scoria'), 'hull': ('salvium_ingot', 'permafrost'), 'corona': ('coronite', 'solar_stone'), 'surge': ('brine_crystal', 'abyssal_stone'), 'prism': ('prism_cluster', 'prismstone'), 'meteor': ('meteorite_fragment', 'craterstone')}
 PATTERNS = {  # id: (display, theme colour for the template icon, chest, duplication block)
     'fracture': ('Fracture', (180, 140, 255), 'buried_observatory', 'minecraft:cobbled_deepslate'),
     'crater': ('Crater', (200, 200, 208), 'impact_site', 'lunar_stone'),
@@ -191,7 +193,7 @@ for pid, (disp, col, chest, block) in PATTERNS.items():
         'template': {'item': f'{NS}:{item}'}, 'base': {'tag': 'minecraft:trimmable_armor'}, 'addition': {'tag': 'minecraft:trim_materials'}})
     blk = block if ':' in block else f'{NS}:{block}'
     w(f'{D}/recipe/{pid}_armor_trim_smithing_template_duplication.json', {'type': 'minecraft:crafting_shaped', 'category': 'misc',
-        'pattern': ['#S#', '#C#', '###'], 'key': {'#': {'item': 'minecraft:diamond'}, 'S': {'item': f'{NS}:{item}'}, 'C': {'item': blk}},
+        'pattern': ['#S#', '#C#', '###'], 'key': {'#': {'item': f'{NS}:{DUP[pid][0]}'}, 'S': {'item': f'{NS}:{item}'}, 'C': {'item': f'{NS}:{DUP[pid][1]}'}},
         'result': {'id': f'{NS}:{item}', 'count': 2}})
     # loot: ~1 in 6 chests of the matching structure, like vanilla trim templates
     lp = f'{D}/loot_table/chests/{chest}.json'; lt = json.load(open(lp))
