@@ -587,7 +587,7 @@ Each armor and tool set also protects against the next world's hazards. Every se
 **Progression rules**
 
 - Mining gates: see the Mining ladder below. Nullifite needs netherite; each later ore needs the pickaxe before it.
-- Upgrade path: each set is made at the smithing table from the previous one with a tier template; enchantments carry over.
+- Upgrade path (v1.3): like netherite, every set after Nullifite is made at the smithing table from the previous set on the mining ladder: template + previous piece + the new set's ingot or gem; enchantments and trims carry over. Nullifite is crafted from ingots, like diamond. The chain is Nullifite → Ferrox → Moonsteel → Olympium → Cobaltium → Cyrrium → Cerulite → Ruskite → Tectium → Skarnite → Salvium → Wraithsteel → Eidolite → Photium → Astrium → Solvanite; the precious sets branch off their world's entry set (Aurelion from Olympium, Pyrium from Cerulite, Palladine from Skarnite, Radiantine from Eidolite). Templates are found in their tier's structure (Mars Crash Site, Prism Spire, Collapsed Forge, Derelict Wreck, Solar Shrine) and copied with 7 of the base set's material + the template + that place's stone. See pending-data/upgrade-templates and sheets/gear/upgrade_chain.png.
 - Hazard gates: Skarn's burning ground needs fire protection; Solvane's heat needs Skarnite gear or Heatproof Plating.
 
 
