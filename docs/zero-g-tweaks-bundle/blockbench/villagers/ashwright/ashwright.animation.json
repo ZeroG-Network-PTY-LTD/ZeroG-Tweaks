@@ -1,0 +1,174 @@
+{
+ "format_version": "1.8.0",
+ "animations": {
+  "animation.ashwright.idle": {
+   "loop": true,
+   "animation_length": 4.0,
+   "bones": {
+    "body": {
+     "position": {
+      "0.0": [
+       0,
+       0,
+       0
+      ],
+      "2.0": [
+       0,
+       -0.25,
+       0
+      ],
+      "4.0": [
+       0,
+       0,
+       0
+      ]
+     }
+    },
+    "head": {
+     "rotation": {
+      "0.0": [
+       0,
+       0,
+       0
+      ],
+      "2.0": [
+       -2,
+       0,
+       0
+      ],
+      "4.0": [
+       0,
+       0,
+       0
+      ]
+     }
+    }
+   }
+  },
+  "animation.ashwright.walk": {
+   "loop": true,
+   "animation_length": 1.0,
+   "bones": {
+    "right_leg": {
+     "rotation": {
+      "0.0": [
+       30,
+       0,
+       0
+      ],
+      "0.5": [
+       -30,
+       0,
+       0
+      ],
+      "1.0": [
+       30,
+       0,
+       0
+      ]
+     }
+    },
+    "left_leg": {
+     "rotation": {
+      "0.0": [
+       -30,
+       0,
+       0
+      ],
+      "0.5": [
+       30,
+       0,
+       0
+      ],
+      "1.0": [
+       -30,
+       0,
+       0
+      ]
+     }
+    }
+   }
+  },
+  "animation.ashwright.no": {
+   "loop": true,
+   "animation_length": 0.7,
+   "bones": {
+    "head": {
+     "rotation": {
+      "0.0": [
+       23,
+       0,
+       0
+      ],
+      "0.175": [
+       23,
+       0,
+       17
+      ],
+      "0.35": [
+       23,
+       0,
+       0
+      ],
+      "0.525": [
+       23,
+       0,
+       -17
+      ],
+      "0.7": [
+       23,
+       0,
+       0
+      ]
+     }
+    }
+   }
+  },
+  "animation.ashwright.work": {
+   "loop": false,
+   "animation_length": 1.5,
+   "bones": {
+    "arms": {
+     "rotation": {
+      "0.0": [
+       0,
+       0,
+       0
+      ],
+      "0.2": [
+       15,
+       0,
+       0
+      ],
+      "0.4": [
+       0,
+       0,
+       0
+      ],
+      "0.6": [
+       15,
+       0,
+       0
+      ],
+      "0.8": [
+       0,
+       0,
+       0
+      ],
+      "1.0": [
+       15,
+       0,
+       0
+      ],
+      "1.2": [
+       0,
+       0,
+       0
+      ]
+     }
+    }
+   }
+  }
+ },
+ "geckolib_format_version": 2
+}
