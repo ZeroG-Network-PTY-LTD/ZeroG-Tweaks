@@ -10,7 +10,6 @@ import software.bernie.geckolib.model.GeoModel;
 public final class PrismSentinelModel extends GeoModel<PrismSentinel> {
     private static final ResourceLocation MODEL = rl("geo/prism_sentinel.geo.json");
     private static final ResourceLocation ANIMATIONS = rl("animations/prism_sentinel.animation.json");
-    private static final ResourceLocation TEXTURE = rl("textures/entity/prism_sentinel.png");
 
     static ResourceLocation rl(String path) {
         return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID, path);
@@ -21,7 +20,13 @@ public final class PrismSentinelModel extends GeoModel<PrismSentinel> {
     @Override
     public ResourceLocation getAnimationResource(PrismSentinel mob) { return ANIMATIONS; }
     @Override
-    public ResourceLocation getTextureResource(PrismSentinel mob) { return TEXTURE; }
+    public ResourceLocation getTextureResource(PrismSentinel mob) { return texture(mob.getVariant()); }
+
+    /** Cerulean uses the base texture; the others prism_sentinel_<id>.png (+ _glowmask, found by AutoGlowingGeoLayer). */
+    static ResourceLocation texture(PrismSentinel.Variant variant) {
+        return rl(variant == PrismSentinel.Variant.CERULEAN ? "textures/entity/prism_sentinel.png"
+                : "textures/entity/prism_sentinel_" + variant.id + ".png");
+    }
 
     @Override
     public void setCustomAnimations(PrismSentinel mob, long instanceId, AnimationState<PrismSentinel> state) {

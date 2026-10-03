@@ -29,6 +29,11 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -69,8 +74,51 @@ import software.bernie.geckolib.util.GeckoLibUtil;
  * the core cracks open in windows; hits while it is open deal double. Beams stop on any solid block, so the arena's
  * refractor pylons (#zerog_tweaks:beam_blocking) are cover. Tied to its prism by an anchor; it stays on the fight
  * floor ({@link #LEASH} blocks) and reports its death back so the arena can open. Arena sizes: {@link PrismArena}.
+ *
+ * Variants ({@link Variant}) are rolled when it spawns: Cerulean 60%, Aurelion 20%, Nebulite 15% (same model, recoloured)
+ * and the rare Radiant 5%, which has 1.5x health, damage and armor. /summon with {Variant:n} picks one.
  */
 public class PrismSentinel extends Monster implements GeoEntity {
+    /** Spawn styles. Weights add up to 100 (percent). */
+    public enum Variant {
+        CERULEAN("cerulean", 60, BossEvent.BossBarColor.BLUE, 0xFFFFFF),
+        AURELION("aurelion", 20, BossEvent.BossBarColor.YELLOW, 0xFFD25A),
+        NEBULITE("nebulite", 15, BossEvent.BossBarColor.PURPLE, 0xA088FF),
+        RADIANT("radiant", 5, BossEvent.BossBarColor.WHITE, 0xFFF2B8);
+
+        public final String id;
+        public final int weight;
+        public final BossEvent.BossBarColor barColor;
+        public final int auraTint;
+
+        Variant(String id, int weight, BossEvent.BossBarColor barColor, int auraTint) {
+            this.id = id;
+            this.weight = weight;
+            this.barColor = barColor;
+            this.auraTint = auraTint;
+        }
+
+        public boolean isRare() { return this == RADIANT; }
+
+        public static Variant byId(int i) {
+            Variant[] all = values();
+            return all[Mth.clamp(i, 0, all.length - 1)];
+        }
+
+        /** Weighted pick: roll in [0, 100). */
+        public static Variant forRoll(int roll) {
+            for (Variant v : values()) {
+                if (roll < v.weight) return v;
+                roll -= v.weight;
+            }
+            return CERULEAN;
+        }
+    }
+
+    /** The Radiant's 1.5x: +50% of base max health, attack damage and armor. */
+    private static final ResourceLocation RADIANT_BOOST = ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID, "radiant_sentinel");
+    public static final double RADIANT_MULTIPLIER = 1.5;
+
     public static final TagKey<Block> BEAM_BLOCKING =
             TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID, "beam_blocking"));
     public static final int INTRO_TICKS = 40;
@@ -87,6 +135,8 @@ public class PrismSentinel extends Monster implements GeoEntity {
             SynchedEntityData.defineId(PrismSentinel.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Boolean> CORE_OPEN =
             SynchedEntityData.defineId(PrismSentinel.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> VARIANT =
+            SynchedEntityData.defineId(PrismSentinel.class, EntityDataSerializers.INT);
 
     private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
     private final ServerBossEvent bossBar = new ServerBossEvent(getDisplayName(),
@@ -114,6 +164,44 @@ public class PrismSentinel extends Monster implements GeoEntity {
     // ---- state -------------------------------------------------------------------------------------------------------
 
     public int getPhase() { return entityData.get(PHASE); }
+    public Variant getVariant() { return Variant.byId(entityData.get(VARIANT)); }
+
+    /** Sets the style and applies or removes the Radiant's 1.5x boost. heal: start at the (new) full health. */
+    public void setVariant(Variant variant, boolean heal) {
+        entityData.set(VARIANT, variant.ordinal());
+        for (var attribute : java.util.List.of(Attributes.MAX_HEALTH, Attributes.ATTACK_DAMAGE, Attributes.ARMOR)) {
+            var instance = getAttribute(attribute);
+            if (instance == null) continue;
+            if (variant.isRare()) {
+                instance.addOrReplacePermanentModifier(new AttributeModifier(RADIANT_BOOST, RADIANT_MULTIPLIER - 1,
+                        AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            } else {
+                instance.removeModifier(RADIANT_BOOST);
+            }
+        }
+        bossBar.setColor(variant.barColor);
+        if (heal) setHealth(getMaxHealth());
+    }
+
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type,
+                                        @Nullable SpawnGroupData data) {
+        setVariant(Variant.forRoll(level.getRandom().nextInt(100)), true);
+        return super.finalizeSpawn(level, difficulty, type, data);
+    }
+
+    /** "Radiant Prism Sentinel" etc.; the plain Cerulean keeps the base name. Shown on the boss bar. */
+    @Override
+    protected Component getTypeName() {
+        Variant v = getVariant();
+        return v == Variant.CERULEAN ? super.getTypeName()
+                : Component.translatable("entity.zerog_tweaks.prism_sentinel." + v.id);
+    }
+
+    /** Beam and shard damage follow the attack attribute, so the Radiant hits 1.5x harder too. */
+    private float scaled(float base) {
+        return (float) (base * getAttributeValue(Attributes.ATTACK_DAMAGE) / 10.0);
+    }
     public boolean isCoreOpen() { return entityData.get(CORE_OPEN); }
     public boolean isRematch() { return rematch; }
     @Nullable public BlockPos getAnchor() { return anchor; }
@@ -144,6 +232,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
         super.defineSynchedData(builder);
         builder.define(PHASE, 0);
         builder.define(CORE_OPEN, false);
+        builder.define(VARIANT, 0);
     }
 
     @Override
@@ -152,6 +241,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
         if (anchor != null) tag.put("Anchor", NbtUtils.writeBlockPos(anchor));
         tag.putBoolean("Rematch", rematch);   // the loot table skips the gate key on {Rematch:1b}
         tag.putInt("Phase", getPhase());
+        tag.putInt("Variant", getVariant().ordinal());
     }
 
     @Override
@@ -160,6 +250,8 @@ public class PrismSentinel extends Monster implements GeoEntity {
         anchor = NbtUtils.readBlockPos(tag, "Anchor").orElse(null);
         rematch = tag.getBoolean("Rematch");
         entityData.set(PHASE, tag.getInt("Phase"));
+        // /summon ... {Variant:3} has no saved Health yet: start that Sentinel at its boosted full health
+        setVariant(Variant.byId(tag.getInt("Variant")), !tag.contains("Health"));
     }
 
     // ---- movement and AI ---------------------------------------------------------------------------------------------
@@ -190,6 +282,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
         int phase = getPhase();
         if (phase == 0) {
             setDeltaMovement(Vec3.ZERO);                          // forming: light gathers into the body
+            if (tickCount == 1 && getVariant().isRare()) say(Component.translatable("chat.zerog_tweaks.prism_sentinel.radiant"));
             if (tickCount % 3 == 0) {
                 ((ServerLevel) level()).sendParticles(BEAM_DUST, getX(), getY() + 5, getZ(), 6, 1.6, 4.5, 1.6, 0);
             }
@@ -235,7 +328,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
             level.sendParticles(SHARD_DUST, shard.x, shard.y, shard.z, 2, 0.25, 0.4, 0.25, 0);
             for (Player p : level.getEntitiesOfClass(Player.class, new AABB(shard, shard).inflate(1.3, 1.6, 1.3))) {
                 if (p.isSpectator() || p.isCreative() || shardHitCooldown.containsKey(p.getUUID())) continue;
-                if (p.hurt(damageSources().mobAttack(this), SHARD_DAMAGE)) {
+                if (p.hurt(damageSources().mobAttack(this), scaled(SHARD_DAMAGE))) {
                     shardHitCooldown.put(p.getUUID(), 20);
                     level.playSound(null, p.blockPosition(), SoundEvents.AMETHYST_CLUSTER_BREAK, SoundSource.HOSTILE, 1.5F, 1.2F);
                 }
@@ -461,7 +554,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
             playSound(SoundEvents.BEACON_POWER_SELECT, 3F, 1.6F);
             triggerAnim("attack", "attack");
             if (hit.getType() == HitResult.Type.MISS) {
-                target.hurt(damageSources().mobAttack(PrismSentinel.this), BEAM_DAMAGE);
+                target.hurt(damageSources().mobAttack(PrismSentinel.this), scaled(BEAM_DAMAGE));
             } else if (level.getBlockState(hit.getBlockPos()).is(BEAM_BLOCKING)) {
                 level.sendParticles(ParticleTypes.END_ROD, end.x, end.y, end.z, 14, 0.3, 0.3, 0.3, 0.15);
                 level.playSound(null, hit.getBlockPos(), SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.HOSTILE, 2F, 1.5F);

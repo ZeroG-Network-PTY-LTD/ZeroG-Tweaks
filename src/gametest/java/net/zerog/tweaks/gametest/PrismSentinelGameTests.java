@@ -148,6 +148,50 @@ public final class PrismSentinelGameTests {
                 s -> prism.getBlockPos().equals(s.getAnchor()));
     }
 
+    @GameTest(template = "equipment_empty", timeoutTicks = 20)
+    public static void variant_weights_are_60_20_15_5(GameTestHelper helper) {
+        int[] hits = new int[PrismSentinel.Variant.values().length];
+        for (int roll = 0; roll < 100; roll++) hits[PrismSentinel.Variant.forRoll(roll).ordinal()]++;
+        helper.assertTrue(hits[0] == 60 && hits[1] == 20 && hits[2] == 15 && hits[3] == 5,
+                "Variant weights should be 60/20/15/5, got " + java.util.Arrays.toString(hits));
+        helper.assertTrue(PrismSentinel.Variant.RADIANT.isRare() && !PrismSentinel.Variant.CERULEAN.isRare(), "Only Radiant is rare");
+        helper.succeed();
+    }
+
+    @GameTest(template = "equipment_empty", timeoutTicks = 20)
+    public static void radiant_is_one_and_a_half_times_stronger(GameTestHelper helper) {
+        var boss = EntityInit.PRISM_SENTINEL.get().create(helper.getLevel());
+        boss.setVariant(PrismSentinel.Variant.RADIANT, true);
+        helper.assertTrue(boss.getMaxHealth() == 450 && boss.getHealth() == 450, "Radiant health should be 450, is " + boss.getMaxHealth());
+        helper.assertTrue(boss.getAttributeValue(Attributes.ATTACK_DAMAGE) == 15, "Radiant damage should be 15");
+        helper.assertTrue(boss.getAttributeValue(Attributes.ARMOR) == 22.5, "Radiant armor should be 22.5");
+        boss.setVariant(PrismSentinel.Variant.RADIANT, true);   // re-applying must not stack
+        helper.assertTrue(boss.getMaxHealth() == 450, "The Radiant boost stacked");
+        boss.setVariant(PrismSentinel.Variant.NEBULITE, true);
+        helper.assertTrue(boss.getMaxHealth() == 300 && boss.getAttributeValue(Attributes.ARMOR) == 15,
+                "A common variant should have the base stats");
+        helper.succeed();
+    }
+
+    @GameTest(template = "equipment_empty", timeoutTicks = 20)
+    public static void summon_with_variant_tag_starts_at_full_boosted_health(GameTestHelper helper) {
+        var boss = EntityInit.PRISM_SENTINEL.get().create(helper.getLevel());
+        CompoundTag tag = new CompoundTag();
+        tag.putInt("Variant", PrismSentinel.Variant.RADIANT.ordinal());
+        boss.readAdditionalSaveData(tag);   // what /summon zerog_tweaks:prism_sentinel ~ ~ ~ {Variant:3} does
+        helper.assertTrue(boss.getVariant() == PrismSentinel.Variant.RADIANT, "Variant tag ignored");
+        helper.assertTrue(boss.getHealth() == 450, "Summoned Radiant should start at 450, is " + boss.getHealth());
+        // a saved (hurt) Radiant keeps its health on reload
+        boss.setHealth(200);
+        CompoundTag saved = new CompoundTag();
+        boss.saveWithoutId(saved);
+        var reloaded = EntityInit.PRISM_SENTINEL.get().create(helper.getLevel());
+        reloaded.load(saved);
+        helper.assertTrue(reloaded.getVariant() == PrismSentinel.Variant.RADIANT && reloaded.getHealth() == 200,
+                "Reload should keep variant and health, got " + reloaded.getVariant() + " " + reloaded.getHealth());
+        helper.succeed();
+    }
+
     private static boolean dropped(GameTestHelper helper, Item item, int from, int to) {
         var box = new AABB(helper.absolutePos(new BlockPos(from, 0, from)).getCenter(),
                 helper.absolutePos(new BlockPos(to, 6, to)).getCenter()).inflate(1);

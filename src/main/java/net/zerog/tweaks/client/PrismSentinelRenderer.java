@@ -45,7 +45,8 @@ public final class PrismSentinelRenderer extends GeoEntityRenderer<PrismSentinel
             if (aura == null) return;
             float t = mob.tickCount + partialTick;
             boolean flare = mob.getPhase() == 3 && mob.isCoreOpen();
-            float scale = (flare ? 1.12F : 1F) + 0.05F * Mth.sin(t * 0.16F);   // the 4 s aura pulse
+            var variant = mob.getVariant();
+            float scale = (flare ? 1.12F : 1F) * (variant.isRare() ? 1.15F : 1F) + 0.05F * Mth.sin(t * 0.16F);   // the 4 s aura pulse
             int alpha = flare ? 230 : 150 + (int) (40 * Mth.sin(t * 0.16F));
             RenderType type = RenderType.entityTranslucentEmissive(TEXTURE);
             poseStack.pushPose();
@@ -53,7 +54,8 @@ public final class PrismSentinelRenderer extends GeoEntityRenderer<PrismSentinel
             poseStack.scale(scale, scale, scale);
             poseStack.translate(0, -CENTRE_Y, 0);
             getRenderer().reRender(aura, poseStack, buffers, mob, type, buffers.getBuffer(type), partialTick,
-                    LightTexture.FULL_BRIGHT, overlay, FastColor.ARGB32.color(alpha, 255, 255, 255));
+                    LightTexture.FULL_BRIGHT, overlay, FastColor.ARGB32.color(alpha, variant.auraTint >> 16 & 255,
+                            variant.auraTint >> 8 & 255, variant.auraTint & 255));
             poseStack.popPose();
         }
     }
