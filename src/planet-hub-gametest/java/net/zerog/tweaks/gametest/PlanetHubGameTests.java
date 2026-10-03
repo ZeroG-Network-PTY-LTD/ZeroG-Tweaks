@@ -22,8 +22,11 @@ public final class PlanetHubGameTests {
     public static void all_34_planets_generate_and_gates_travel_both_ways(GameTestHelper helper) {
         var server=helper.getLevel().getServer();
         helper.assertTrue(PlanetTestHub.isHub(server),"Hub preset did not load");
-        helper.startSequence().thenWaitUntil(()->helper.assertTrue(GateLedger.get(server).prepared==34,"Waiting for all destination chunks"))
+        var failure=new java.util.concurrent.atomic.AtomicReference<RuntimeException>();
+        helper.startSequence().thenWaitUntil(()->helper.assertTrue(GateLedger.get(server).prepared==34
+                && GateLedger.get(server).inspectionPrepared==34,"Waiting for destinations and nearby inspection villages"))
             .thenExecute(()-> {
+                try {
                 var ledger=GateLedger.get(server);
                 helper.assertTrue(ledger.gates.size()==68,"Expected 34 hub gates and 34 return gates");
                 var report=new com.google.gson.JsonObject();
@@ -34,6 +37,7 @@ public final class PlanetHubGameTests {
                 var terrainFingerprints=new java.util.HashSet<String>();
                 boolean cleanShowcase=Boolean.getBoolean("zerog.cleanShowcase");
                 report.addProperty("demonstration_colonies",!cleanShowcase);
+                report.addProperty("nearby_inspection_villages",true);
                 try {
                     int index=0;
                     for(String name:ZGDimensionTerrain.dimensions()) {
@@ -53,6 +57,17 @@ public final class PlanetHubGameTests {
                         click(player,PlanetGate.controller(arrival.centre));
                         helper.assertTrue(player.serverLevel()==server.overworld(),"Return gateway failed "+id);
                         var entry=new com.google.gson.JsonObject();entry.addProperty("dimension",id);
+                        var sites=ledger.inspectionVillages.get(id);
+                        helper.assertTrue(sites!=null && sites.size()>=1 && sites.size()<=2,"Expected 1–2 safe nearby villages "+id);
+                        entry.add("inspection_village_positions",new com.google.gson.Gson().toJsonTree(sites.stream().map(net.minecraft.core.BlockPos::toShortString).toList()));
+                        for(var site:sites) {
+                            for(int cx=(site.getX()-20)>>4;cx<=(site.getX()+20)>>4;cx++)
+                                for(int cz=(site.getZ()-20)>>4;cz<=(site.getZ()+20)>>4;cz++)world.getChunk(cx,cz);
+                            var anchor=(net.zerog.tweaks.worldgen.SettlementAnchorBlockEntity)world.getBlockEntity(site);
+                            helper.assertTrue(anchor!=null,"Missing inspection anchor "+id);anchor.populate(world);
+                            helper.assertTrue(anchor.residentsCreated()==6 && anchor.speciesResidentsCreated()==2,"Expected six vanilla plus two planetary villagers "+id);
+                            helper.assertTrue(site.distSqr(new net.minecraft.core.BlockPos(0,site.getY(),0))<=385*385,"Village not near gate "+id);
+                        }
                         // Native noise generator, not colour/block-ID fingerprints.
                         var heights=new java.util.ArrayList<Integer>();
                         for(int sx=-3;sx<=3;sx++) for(int sz=-3;sz<=3;sz++) {
@@ -84,7 +99,7 @@ public final class PlanetHubGameTests {
                         helper.assertTrue(anchor.residentsCreated()==6,"Settlement has no inhabitants "+id);
                         long count=world.getEntitiesOfClass(net.minecraft.world.entity.npc.Villager.class,
                                 new net.minecraft.world.phys.AABB(Vec3.atLowerCornerOf(outpost.offset(-20,0,-20)),Vec3.atLowerCornerOf(outpost.offset(20,8,20)))).size();
-                        helper.assertTrue(count==6,"Expected six real villagers, found "+count+" in "+id);
+                        helper.assertTrue(count==8,"Expected six vanilla plus two planetary villagers, found "+count+" in "+id);
                         anchor.populate(world);helper.assertTrue(anchor.residentsCreated()==6,"Resident duplication "+id);
                         entry.addProperty("settlement_residents",count);
                         entry.addProperty("settlement_position",outpost.toShortString());
@@ -176,9 +191,10 @@ public final class PlanetHubGameTests {
                                 new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(report));
                     } catch(java.io.IOException ex) {throw new IllegalStateException("Cannot save hub evidence",ex);}
                 } finally {server.getPlayerList().remove(player);}
+                } catch(RuntimeException ex){failure.set(ex);}
             // Do not stop the test server in the same tick as cross-dimension
             // portal tickets and neighbouring generation tasks were created.
-            }).thenIdle(400).thenSucceed();
+            }).thenIdle(400).thenExecute(()->{if(failure.get()!=null)throw failure.get();}).thenSucceed();
     }
     private static void click(net.minecraft.server.level.ServerPlayer player,net.minecraft.core.BlockPos controller) {
         var hit=new BlockHitResult(Vec3.atCenterOf(controller),Direction.NORTH,controller,false);

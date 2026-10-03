@@ -18,6 +18,10 @@ public final class GateLedger extends SavedData {
     public final Map<String,Gate> gates=new LinkedHashMap<>();
     public boolean hubBuilt;
     public int prepared;
+    // Absent in older saves: never retrofit preview settlements automatically.
+    public boolean inspectionEnabled;
+    public int inspectionPrepared;
+    public final Map<String,java.util.List<BlockPos>> inspectionVillages=new LinkedHashMap<>();
     public static final class Gate {
         public final String dimension,target;public final BlockPos centre;public final boolean testPower;
         public int energy;
@@ -32,6 +36,11 @@ public final class GateLedger extends SavedData {
     public void add(Gate gate) {gates.put(key(gate.dimension,gate.centre),gate);setDirty();}
     public static GateLedger load(CompoundTag tag,HolderLookup.Provider registries) {
         var ledger=new GateLedger();ledger.hubBuilt=tag.getBoolean("hubBuilt");ledger.prepared=tag.getInt("prepared");
+        ledger.inspectionEnabled=tag.getBoolean("inspectionEnabled");ledger.inspectionPrepared=tag.getInt("inspectionPrepared");
+        for(var value:tag.getList("inspectionVillages",Tag.TAG_COMPOUND)) {
+            var data=(CompoundTag)value;
+            ledger.inspectionVillages.computeIfAbsent(data.getString("dimension"),k->new java.util.ArrayList<>()).add(BlockPos.of(data.getLong("centre")));
+        }
         for(var value:tag.getList("gates",Tag.TAG_COMPOUND)) {
             var data=(CompoundTag)value;
             var gate=new Gate(data.getString("dimension"),BlockPos.of(data.getLong("centre")),data.getString("target"),data.getBoolean("testPower"));
@@ -41,6 +50,10 @@ public final class GateLedger extends SavedData {
     }
     @Override public CompoundTag save(CompoundTag tag,HolderLookup.Provider registries) {
         tag.putBoolean("hubBuilt",hubBuilt);tag.putInt("prepared",prepared);var list=new ListTag();
+        tag.putBoolean("inspectionEnabled",inspectionEnabled);tag.putInt("inspectionPrepared",inspectionPrepared);
+        var villages=new ListTag();inspectionVillages.forEach((dimension,positions)->positions.forEach(position->{
+            var data=new CompoundTag();data.putString("dimension",dimension);data.putLong("centre",position.asLong());villages.add(data);
+        }));tag.put("inspectionVillages",villages);
         for(var gate:gates.values()) {
             var data=new CompoundTag();data.putString("dimension",gate.dimension);data.putLong("centre",gate.centre.asLong());
             data.putString("target",gate.target);data.putBoolean("testPower",gate.testPower);data.putInt("energy",gate.energy);list.add(data);

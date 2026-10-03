@@ -10,6 +10,7 @@ public final class ModInit {
     public static void register(net.neoforged.bus.api.IEventBus modBus) {
         ZGEcologyFeatures.register(modBus);
         ZGVillagerAttire.register(modBus);
+        ZGPlanetVillagers.init(modBus);
         ZGGasVents.init(modBus);
         ZGGlowbugs.init(modBus);
         ZGPlanetApiary.init(modBus);

@@ -50,14 +50,21 @@ public final class PlanetTestHub {
             label(level,centre,dimensions.get(i),"TEST POWER","Right-click gate","Stand on pad");
         }
         level.setDefaultSpawnPos(new BlockPos(62,65,0),0);
-        ledger.hubBuilt=true;ledger.setDirty();
+        ledger.hubBuilt=true;ledger.inspectionEnabled=true;ledger.setDirty();
     }
     public static void tick(ServerTickEvent.Post event) {
         var server=event.getServer();
         if(!isHub(server)||server.getTickCount()%20!=0)return;
         var ledger=GateLedger.get(server);if(!ledger.hubBuilt)return;
         var ids=ZGDimensionTerrain.dimensions();
-        if(ledger.prepared>=ids.size())return;
+        if(ledger.prepared>=ids.size()) {
+            if(ledger.inspectionEnabled && ledger.inspectionPrepared<ids.size()) {
+                String name=ids.get(ledger.inspectionPrepared);
+                NearbyInspectionVillages.prepare(planet(server,"zerog_tweaks:"+name),ledger);
+                ledger.inspectionPrepared++;ledger.setDirty();
+            }
+            return;
+        }
         String id="zerog_tweaks:"+ids.get(ledger.prepared);
         var level=planet(server,id);if(level==null)throw new IllegalStateException("Missing test-hub dimension "+id);
         prepareLanding(level,hubCentre(ledger.prepared),ledger);
@@ -125,7 +132,22 @@ public final class PlanetTestHub {
         event.getDispatcher().register(Commands.literal("zerog").requires(s->s.hasPermission(2))
             .then(Commands.literal("hub").then(Commands.literal("status").executes(c-> {
                 var ledger=GateLedger.get(c.getSource().getServer());
-                c.getSource().sendSuccess(()->Component.literal("Hub destinations: "+ledger.prepared+"/34; gates: "+ledger.gates.size()),false);return ledger.prepared;
+                c.getSource().sendSuccess(()->Component.literal("Hub destinations: "+ledger.prepared+"/34; gates: "+ledger.gates.size()
+                        +"; inspection planets: "+ledger.inspectionPrepared+"/34"),false);
+                ledger.inspectionVillages.forEach((dimension,positions)->c.getSource().sendSuccess(
+                        ()->Component.literal(dimension+": "+positions.stream().map(BlockPos::toShortString).toList()),false));
+                return ledger.prepared;
+            })))
+            .then(Commands.literal("inspection").then(Commands.argument("village",com.mojang.brigadier.arguments.IntegerArgumentType.integer(1,2)).executes(c->{
+                var player=c.getSource().getPlayerOrException();var server=c.getSource().getServer();
+                var ledger=GateLedger.get(server);
+                if(!isHub(server)||!ledger.inspectionEnabled){c.getSource().sendFailure(Component.literal("Inspection travel is available only in the fresh test hub."));return 0;}
+                var sites=ledger.inspectionVillages.get(player.serverLevel().dimension().location().toString());
+                int index=com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(c,"village")-1;
+                if(sites==null || index>=sites.size()){c.getSource().sendFailure(Component.literal("This planet has no inspection village at that index."));return 0;}
+                var at=sites.get(index);player.serverLevel().getChunkAt(at);
+                player.teleportTo(player.serverLevel(),at.getX()+.5,at.getY()+1,at.getZ()+.5,0,0);
+                return 1;
             })))
             .then(Commands.literal("gate").then(Commands.literal("bind")
                 .then(Commands.argument("destination",StringArgumentType.word())

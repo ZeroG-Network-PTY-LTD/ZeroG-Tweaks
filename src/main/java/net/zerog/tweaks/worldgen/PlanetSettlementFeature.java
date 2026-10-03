@@ -93,7 +93,8 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
             // a sharp rectangular green/brown lawn onto unrelated terrain.
             if(Math.max(Math.abs(x),Math.abs(z))>17) continue;
             var floor=centre.offset(x,0,z);
-            int surfaceY=level.getHeight(Heightmap.Types.WORLD_SURFACE_WG,floor.getX(),floor.getZ())-1;
+            var surfaceMap=level instanceof net.minecraft.server.level.ServerLevel?Heightmap.Types.MOTION_BLOCKING_NO_LEAVES:Heightmap.Types.WORLD_SURFACE_WG;
+            int surfaceY=level.getHeight(surfaceMap,floor.getX(),floor.getZ())-1;
             var nativeSurface=level.getBlockState(new BlockPos(floor.getX(),surfaceY,floor.getZ()));
             if(!nativeSurface.getFluidState().isEmpty() || !nativeSurface.isSolidRender(level,floor))
                 nativeSurface=ZGDimensionTerrain.SOILS.get(dimension).get().defaultBlockState();
@@ -124,6 +125,12 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
             for(int x:new int[]{-2,2}) {
                 level.setBlock(at.offset(x,1,-2),Blocks.WHITE_BED.defaultBlockState().setValue(BedBlock.FACING,Direction.NORTH).setValue(BedBlock.PART,BedPart.FOOT),2);
                 level.setBlock(at.offset(x,1,-3),Blocks.WHITE_BED.defaultBlockState().setValue(BedBlock.FACING,Direction.NORTH).setValue(BedBlock.PART,BedPart.HEAD),2);
+            }
+            // Two additional beds for the planetary residents, alongside the
+            // six vanilla villagers rather than displacing their sleeping slots.
+            if(index<2) {
+                level.setBlock(at.offset(-2,1,1),Blocks.WHITE_BED.defaultBlockState().setValue(BedBlock.FACING,Direction.NORTH).setValue(BedBlock.PART,BedPart.FOOT),2);
+                level.setBlock(at.offset(-2,1,0),Blocks.WHITE_BED.defaultBlockState().setValue(BedBlock.FACING,Direction.NORTH).setValue(BedBlock.PART,BedPart.HEAD),2);
             }
             level.setBlock(at.offset(3,1,0),switch(index++) {
                 case 0 -> Blocks.COMPOSTER.defaultBlockState();

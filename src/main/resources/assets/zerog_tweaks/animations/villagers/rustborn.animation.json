@@ -1,0 +1,149 @@
+{
+ "format_version": "1.8.0",
+ "animations": {
+  "animation.rustborn.idle": {
+   "loop": true,
+   "animation_length": 4.0,
+   "bones": {
+    "body": {
+     "position": {
+      "0.0": [
+       0,
+       0,
+       0
+      ],
+      "2.0": [
+       0,
+       -0.15,
+       0
+      ],
+      "4.0": [
+       0,
+       0,
+       0
+      ]
+     }
+    },
+    "head": {
+     "rotation": {
+      "0.0": [
+       0,
+       0,
+       0
+      ],
+      "2.0": [
+       -2,
+       0,
+       0
+      ],
+      "4.0": [
+       0,
+       0,
+       0
+      ]
+     }
+    }
+   }
+  },
+  "animation.rustborn.walk": {
+   "loop": true,
+   "animation_length": 1.0,
+   "bones": {
+    "right_leg": {
+     "rotation": {
+      "0.0": [
+       40,
+       0,
+       0
+      ],
+      "0.5": [
+       -40,
+       0,
+       0
+      ],
+      "1.0": [
+       40,
+       0,
+       0
+      ]
+     }
+    },
+    "left_leg": {
+     "rotation": {
+      "0.0": [
+       -40,
+       0,
+       0
+      ],
+      "0.5": [
+       40,
+       0,
+       0
+      ],
+      "1.0": [
+       -40,
+       0,
+       0
+      ]
+     }
+    }
+   }
+  },
+  "animation.rustborn.no": {
+   "loop": true,
+   "animation_length": 0.7,
+   "bones": {
+    "head": {
+     "rotation": {
+      "0.0": [
+       23,
+       0,
+       0
+      ],
+      "0.175": [
+       23,
+       0,
+       17
+      ],
+      "0.35": [
+       23,
+       0,
+       0
+      ],
+      "0.525": [
+       23,
+       0,
+       -17
+      ],
+      "0.7": [
+       23,
+       0,
+       0
+      ]
+     }
+    }
+   }
+  },
+  "animation.rustborn.goggles_down": {
+   "loop": "hold_on_last_frame",
+   "animation_length": 0.25,
+   "bones": {
+    "goggles": {
+     "position": {
+      "0.0": [
+       0,
+       0,
+       0
+      ],
+      "0.25": [
+       0,
+       -2,
+       -0.2
+      ]
+     }
+    }
+   }
+  }
+ },
+ "geckolib_format_version": 2
+}

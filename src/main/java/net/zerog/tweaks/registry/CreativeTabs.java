@@ -70,7 +70,9 @@ public final class CreativeTabs {
                 .icon(() -> new ItemStack(item(icon)))
                 .withTabsBefore(after)
                 .displayItems((params, out) -> {
-                    for (String id : ids) {
+                    String[] visibleIds=name.equals("spawn_eggs")?java.util.stream.Stream.concat(java.util.Arrays.stream(ids),
+                            ZGPlanetVillagers.TYPES.keySet().stream().map(id->id+"_spawn_egg")).distinct().sorted().toArray(String[]::new):ids;
+                    for (String id : visibleIds) {
                         Item it = item(id);
                         if (it != Items.AIR && (!(it instanceof net.minecraft.world.item.BucketItem) || it instanceof net.minecraft.world.item.MobBucketItem)) out.accept(it);
                     }
@@ -81,6 +83,7 @@ public final class CreativeTabs {
                         listed.addAll(ZGPlanetMaterials.BLOCK_ITEMS.keySet());
                         ZGPlanetCrops.PLANET_CROPS.values().forEach(id -> { listed.add(id); listed.add(id+"_seeds"); });
                         listed.add("rust_tuber_seeds");
+                        ZGPlanetVillagers.TYPES.keySet().forEach(id->listed.add(id+"_spawn_egg"));
                         ZGAlienAgriculture.HOMES.keySet().forEach(id->{listed.add(id);listed.add(id+"_seeds");listed.add(id+"_slice");});
                         ZGPlanetCaveVariants.FAMILIES.keySet().forEach(id->{listed.add(id+"_cave_berry");listed.add(id+"_pointed_dripstone");listed.add(id+"_dripstone_block");});
                         ZGDimensionTerrain.FLORA.keySet().stream().filter(id -> id.endsWith("_tall_blossom")).forEach(listed::add);
