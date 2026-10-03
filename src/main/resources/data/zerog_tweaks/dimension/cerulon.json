@@ -7,19 +7,73 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "zerog_tweaks:azure_plains",
+          "biome": "zerog_tweaks:glimmer_sea",
           "parameters": {
             "temperature": [
-              -0.14999999999999997,
-              0.55
-            ],
-            "humidity": [
-              0.15000000000000002,
-              0.85
-            ],
-            "continentalness": [
               -1.0,
               1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              -1.2,
+              -0.19
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:glimmer_sea",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              -1.2,
+              -0.19
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 1.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:crystal_shores",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              -0.19,
+              -0.11
             ],
             "erosion": [
               -1.0,
@@ -37,19 +91,208 @@
           "biome": "zerog_tweaks:crystal_shores",
           "parameters": {
             "temperature": [
-              0.25,
-              0.95
+              -1.0,
+              1.0
             ],
             "humidity": [
-              0.45000000000000007,
+              -1.0,
               1.0
             ],
             "continentalness": [
+              -0.19,
+              -0.11
+            ],
+            "erosion": [
               -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 1.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:cerulean_peaks",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              0.03,
               1.0
             ],
             "erosion": [
               -1.0,
+              -0.375
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:cerulean_peaks",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              0.03,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              -0.375
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 1.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:concord_quarries",
+          "parameters": {
+            "temperature": [
+              0.2,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              -0.11,
+              1.0
+            ],
+            "erosion": [
+              -0.375,
+              0.05
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:concord_quarries",
+          "parameters": {
+            "temperature": [
+              0.2,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              -0.11,
+              1.0
+            ],
+            "erosion": [
+              -0.375,
+              0.05
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 1.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:starbloom_meadow",
+          "parameters": {
+            "temperature": [
+              -0.15,
+              0.55
+            ],
+            "humidity": [
+              0.3,
+              1.0
+            ],
+            "continentalness": [
+              -0.11,
+              1.0
+            ],
+            "erosion": [
+              0.05,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:starbloom_meadow",
+          "parameters": {
+            "temperature": [
+              -0.15,
+              0.55
+            ],
+            "humidity": [
+              0.3,
+              1.0
+            ],
+            "continentalness": [
+              -0.11,
+              1.0
+            ],
+            "erosion": [
+              0.05,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 1.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:shardwood_grove",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              0.2
+            ],
+            "humidity": [
+              0.1,
+              1.0
+            ],
+            "continentalness": [
+              -0.11,
+              1.0
+            ],
+            "erosion": [
+              -0.375,
               1.0
             ],
             "weirdness": [
@@ -64,15 +307,96 @@
           "biome": "zerog_tweaks:shardwood_grove",
           "parameters": {
             "temperature": [
-              -0.6499999999999999,
-              0.04999999999999999
+              -1.0,
+              0.2
             ],
             "humidity": [
-              0.45000000000000007,
+              0.1,
               1.0
             ],
             "continentalness": [
+              -0.11,
+              1.0
+            ],
+            "erosion": [
+              -0.375,
+              1.0
+            ],
+            "weirdness": [
               -1.0,
+              1.0
+            ],
+            "depth": 1.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:azure_plains",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              0.3
+            ],
+            "continentalness": [
+              -0.11,
+              1.0
+            ],
+            "erosion": [
+              -0.375,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:azure_plains",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              0.3
+            ],
+            "continentalness": [
+              -0.11,
+              1.0
+            ],
+            "erosion": [
+              -0.375,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 1.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:starlight_caverns",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              0.6,
+              1.0
+            ],
+            "continentalness": [
+              -0.11,
               1.0
             ],
             "erosion": [
@@ -83,7 +407,37 @@
               -1.0,
               1.0
             ],
-            "depth": 0.0,
+            "depth": [
+              0.2,
+              0.9
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "zerog_tweaks:geode_depths",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              -0.11,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              -0.375
+            ],
+            "weirdness": [
+              -1.0,
+              1.0
+            ],
+            "depth": 1.1,
             "offset": 0.0
           }
         }

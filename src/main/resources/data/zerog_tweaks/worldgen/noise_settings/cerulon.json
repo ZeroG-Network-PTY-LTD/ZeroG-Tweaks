@@ -187,13 +187,44 @@
                           "if_true": {
                             "type": "minecraft:biome",
                             "biome_is": [
-                              "zerog_tweaks:crystal_shores"
+                              "zerog_tweaks:crystal_shores",
+                              "zerog_tweaks:glimmer_sea"
                             ]
                           },
                           "then_run": {
                             "type": "minecraft:block",
                             "result_state": {
                               "Name": "zerog_tweaks:crystal_sand"
+                            }
+                          }
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                              "zerog_tweaks:cerulean_peaks"
+                            ]
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "zerog_tweaks:cerulean_stone"
+                            }
+                          }
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                              "zerog_tweaks:concord_quarries"
+                            ]
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "zerog_tweaks:smooth_cerulean_stone"
                             }
                           }
                         },
@@ -225,10 +256,61 @@
                 "secondary_depth_range": 0
               },
               "then_run": {
-                "type": "minecraft:block",
-                "result_state": {
-                  "Name": "zerog_tweaks:crystal_sand"
-                }
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:biome",
+                      "biome_is": [
+                        "zerog_tweaks:crystal_shores",
+                        "zerog_tweaks:glimmer_sea"
+                      ]
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "zerog_tweaks:crystal_sand"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:biome",
+                      "biome_is": [
+                        "zerog_tweaks:cerulean_peaks"
+                      ]
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "zerog_tweaks:cerulean_stone"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:biome",
+                      "biome_is": [
+                        "zerog_tweaks:concord_quarries"
+                      ]
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "zerog_tweaks:cobbled_cerulean_stone"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "zerog_tweaks:cerulean_soil"
+                    }
+                  }
+                ]
               }
             }
           ]

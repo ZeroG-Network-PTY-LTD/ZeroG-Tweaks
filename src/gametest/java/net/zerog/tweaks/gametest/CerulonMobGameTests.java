@@ -96,8 +96,13 @@ public final class CerulonMobGameTests {
                 && spawns(grove, MobCategory.CREATURE, EntityInit.CRYSTAL_STAG.get()), "Grove: fowl and a few stags");
         helper.assertTrue(spawns(shores, MobCategory.CREATURE, EntityInit.AZURE_FOWL.get())
                 && !spawns(shores, MobCategory.CREATURE, EntityInit.CRYSTAL_STAG.get()), "Shores: fowl only, no stags");
-        helper.assertTrue(spawns(shores, MobCategory.WATER_AMBIENT, EntityInit.GLIMMERFISH.get())
-                && spawns(plains, MobCategory.MONSTER, EntityInit.PRISMLING_HOLDER.get()), "Fish and (underground) Prismlings");
+        Biome sea = biomes.getOrThrow(ResourceKey.create(Registries.BIOME, rl("glimmer_sea")));
+        Biome caverns = biomes.getOrThrow(ResourceKey.create(Registries.BIOME, rl("starlight_caverns")));
+        Biome peaks = biomes.getOrThrow(ResourceKey.create(Registries.BIOME, rl("cerulean_peaks")));
+        helper.assertTrue(spawns(sea, MobCategory.WATER_AMBIENT, EntityInit.GLIMMERFISH.get()), "Glimmerfish live in the Glimmer Sea");
+        helper.assertTrue(spawns(caverns, MobCategory.MONSTER, EntityInit.PRISMLING_HOLDER.get())
+                && spawns(peaks, MobCategory.MONSTER, EntityInit.PRISMLING_HOLDER.get()), "Prismlings: caves, and peaks at night");
+        helper.assertFalse(spawns(plains, MobCategory.MONSTER, EntityInit.PRISMLING_HOLDER.get()), "No Prismlings on the plains");
         helper.succeed();
     }
 

@@ -60,6 +60,13 @@ public final class BlockInit {
     public static final DeferredBlock<Block> ASTRIUM_ORE = BLOCKS.register("astrium_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> AURELION_BLOCK = BLOCKS.register("aurelion_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> AURELION_ORE = BLOCKS.register("aurelion_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    /** Liquid Starlight (fluid: ZGFluids). Light 12; swimming in it gives Slow Falling and Night Vision. */
+    public static final DeferredBlock<LiquidStarlightBlock> LIQUID_STARLIGHT = BLOCKS.register("liquid_starlight",
+            () -> new LiquidStarlightBlock(ZGFluids.LIQUID_STARLIGHT.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)
+                    .mapColor(MapColor.COLOR_LIGHT_BLUE).lightLevel(s -> 12)));
+    /** The soil layer under Cerulon's Azure Moss (dirt-like: shovel, plants grow on it). */
+    public static final DeferredBlock<Block> CERULEAN_SOIL = BLOCKS.register("cerulean_soil",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(0.5F).sound(SoundType.GRAVEL)));
     public static final DeferredBlock<Block> AZURE_MOSS = BLOCKS.register("azure_moss", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> BLIGHTMOSS = BLOCKS.register("blightmoss", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<ZGCrystalClusterBlock> BRINE_CRYSTAL = BLOCKS.registerBlock("brine_crystal", ZGCrystalClusterBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F));

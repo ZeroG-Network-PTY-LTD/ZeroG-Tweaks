@@ -50,6 +50,53 @@ public final class CerulonWorldgenGameTests {
         helper.succeed();
     }
 
+    @GameTest(template = "equipment_empty", timeoutTicks = 20)
+    public static void cerulon_has_all_nine_biomes_and_no_cerulite_vein(GameTestHelper helper) {
+        var biomes = helper.getLevel().registryAccess().registryOrThrow(Registries.BIOME);
+        for (String id : java.util.List.of("azure_plains", "shardwood_grove", "crystal_shores", "glimmer_sea", "starbloom_meadow",
+                "cerulean_peaks", "concord_quarries", "starlight_caverns", "geode_depths")) {
+            var biome = biomes.get(ResourceKey.create(Registries.BIOME, rl(id)));
+            helper.assertTrue(biome != null, "Missing biome " + id);
+            helper.assertFalse(has(biome, "ore_cerulite"), id + " still has the Cerulite ore vein (Cerulite comes from geodes)");
+        }
+        var caverns = biomes.getOrThrow(ResourceKey.create(Registries.BIOME, rl("starlight_caverns")));
+        var depths = biomes.getOrThrow(ResourceKey.create(Registries.BIOME, rl("geode_depths")));
+        helper.assertTrue(has(caverns, "lake_liquid_starlight_underground"), "Starlight Caverns need Liquid Starlight pools");
+        helper.assertTrue(has(depths, "cerulite_geode_depths"), "Geode Depths need their dense geodes");
+        helper.assertTrue(BlockInit.CERULITE_CLUSTER.get().defaultBlockState().is(net.minecraft.tags.TagKey.create(Registries.BLOCK,
+                rl("needs_cyrrium_tool"))), "Cerulite clusters should need a Cyrrium pick (the ore used to)");
+        helper.succeed();
+    }
+
+    @GameTest(template = "equipment_empty", timeoutTicks = 40)
+    public static void liquid_starlight_lights_and_lifts(GameTestHelper helper) {
+        var pos = new net.minecraft.core.BlockPos(8, 2, 8);
+        helper.setBlock(pos, BlockInit.LIQUID_STARLIGHT.get());
+        var state = helper.getBlockState(pos);
+        helper.assertTrue(state.getFluidState().is(net.zerog.tweaks.registry.ZGFluids.LIQUID_STARLIGHT.get()), "Not Liquid Starlight");
+        helper.assertTrue(state.getLightEmission(helper.getLevel(), helper.absolutePos(pos)) == 12, "Liquid Starlight should glow at 12");
+        var pig = helper.spawn(net.minecraft.world.entity.EntityType.PIG, 8, 2, 8);
+        helper.runAfterDelay(10, () -> {
+            helper.assertTrue(pig.hasEffect(net.minecraft.world.effect.MobEffects.SLOW_FALLING)
+                    && pig.hasEffect(net.minecraft.world.effect.MobEffects.NIGHT_VISION), "Swimming in it should give Slow Falling + Night Vision");
+            helper.assertTrue(new net.minecraft.world.item.ItemStack(net.zerog.tweaks.registry.ItemInit.LIQUID_STARLIGHT_BUCKET.get())
+                    .getItem() instanceof net.minecraft.world.item.BucketItem, "Liquid Starlight bucket");
+            pig.discard();
+            helper.succeed();
+        });
+    }
+
+    @GameTest(template = "equipment_empty", timeoutTicks = 20)
+    public static void cerulean_soil_grows_plants(GameTestHelper helper) {
+        var soil = BlockInit.CERULEAN_SOIL.get().defaultBlockState();
+        helper.assertTrue(soil.is(net.minecraft.tags.BlockTags.DIRT) && soil.is(net.minecraft.tags.BlockTags.MINEABLE_WITH_SHOVEL),
+                "Cerulean Soil should be dirt (plants grow on it) and shovel-mineable");
+        helper.setBlock(new net.minecraft.core.BlockPos(4, 1, 4), soil);
+        helper.assertTrue(BlockInit.STARBLOOM.get().defaultBlockState().canSurvive(helper.getLevel(),
+                helper.absolutePos(new net.minecraft.core.BlockPos(4, 2, 4))), "Starbloom should grow on Cerulean Soil");
+        helper.succeed();
+    }
+
     private static boolean has(net.minecraft.world.level.biome.Biome biome, String placed) {
         return biome.getGenerationSettings().features().stream().flatMap(set -> set.stream())
                 .anyMatch(f -> f.unwrapKey().map(k -> k.location().equals(rl(placed))).orElse(false));

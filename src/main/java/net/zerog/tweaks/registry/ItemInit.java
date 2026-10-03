@@ -50,6 +50,10 @@ public final class ItemInit {
     public static final DeferredItem<BlockItem> ASTRIUM_ORE_ITEM = ITEMS.registerSimpleBlockItem("astrium_ore", BlockInit.ASTRIUM_ORE);
     public static final DeferredItem<BlockItem> AURELION_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("aurelion_block", BlockInit.AURELION_BLOCK);
     public static final DeferredItem<BlockItem> AURELION_ORE_ITEM = ITEMS.registerSimpleBlockItem("aurelion_ore", BlockInit.AURELION_ORE);
+    public static final DeferredItem<BlockItem> CERULEAN_SOIL_ITEM = ITEMS.registerSimpleBlockItem("cerulean_soil", BlockInit.CERULEAN_SOIL);
+    public static final DeferredItem<net.minecraft.world.item.BucketItem> LIQUID_STARLIGHT_BUCKET = ITEMS.register("liquid_starlight_bucket",
+            () -> new net.minecraft.world.item.BucketItem(ZGFluids.LIQUID_STARLIGHT.get(),
+                    new Item.Properties().craftRemainder(net.minecraft.world.item.Items.BUCKET).stacksTo(1)));
     public static final DeferredItem<BlockItem> AZURE_MOSS_ITEM = ITEMS.registerSimpleBlockItem("azure_moss", BlockInit.AZURE_MOSS);
     public static final DeferredItem<BlockItem> BLIGHTMOSS_ITEM = ITEMS.registerSimpleBlockItem("blightmoss", BlockInit.BLIGHTMOSS);
     public static final DeferredItem<BlockItem> BRINE_CRYSTAL_ITEM = ITEMS.registerSimpleBlockItem("brine_crystal", BlockInit.BRINE_CRYSTAL);

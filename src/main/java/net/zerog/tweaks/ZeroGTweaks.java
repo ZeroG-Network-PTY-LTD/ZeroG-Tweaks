@@ -18,6 +18,7 @@ public final class ZeroGTweaks {
         ZGArmorMaterials.register(modBus);
         TidewraithContent.register(modBus);
         ZGStructures.register(modBus);
+        net.zerog.tweaks.registry.ZGFluids.register(modBus);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::incomingDamage);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::breakSpeed);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::playerTick);

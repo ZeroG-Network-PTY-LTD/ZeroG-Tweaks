@@ -227,11 +227,11 @@ public final class ZGCreativeTabContents {
             "glassy_obsidian"
     };
 
-    /** Natural Blocks (127 entries) */
+    /** Natural Blocks (128 entries) */
     public static final String[] NATURAL_BLOCKS = {
             "lunar_stone", "mare_basalt", "martian_stone", "cerulean_stone", "skarn_rock", "scorched_marble", "permafrost",
             "solar_stone", "abyssal_stone", "sunbaked_stone", "scoria", "frostrock", "sludgestone", "prismstone", "craterstone",
-            "regolith", "crater_ice", "rustsand", "oxide_crust", "polar_frost", "azure_moss", "crystal_sand", "slag",
+            "regolith", "crater_ice", "rustsand", "oxide_crust", "polar_frost", "azure_moss", "cerulean_soil", "crystal_sand", "slag",
             "ember_crust", "frozen_regolith", "phantom_ice", "sunspot_rock", "corona_crust", "flare_vent", "tidesand",
             "dunesand", "salt_crust", "ashfall", "vent_rock", "snowpack", "glacial_ice", "toxic_mud", "blightmoss",
             "shimmer_sand", "crater_dust", "meteorite_fragment", "deepslate_nullifite_ore", "regolith_ore", "moonsteel_ore",
@@ -261,9 +261,9 @@ public final class ZGCreativeTabContents {
             "landing_platform", "crystal_cell", "cryo_pod", "broken_console", "concord_prism", "prism_barrier"
     };
 
-    /** Tools & Utilities (90 entries) */
+    /** Tools & Utilities (91 entries) */
     public static final String[] TOOLS_AND_UTILITIES = {
-            "glimmerfish_bucket",
+            "glimmerfish_bucket", "liquid_starlight_bucket",
             "nullifite_shovel", "nullifite_pickaxe", "nullifite_axe", "nullifite_hoe", "ferrox_shovel", "ferrox_pickaxe",
             "ferrox_axe", "ferrox_hoe", "moonsteel_shovel", "moonsteel_pickaxe", "moonsteel_axe", "moonsteel_hoe",
             "olympium_shovel", "olympium_pickaxe", "olympium_axe", "olympium_hoe", "cobaltium_shovel", "cobaltium_pickaxe",
