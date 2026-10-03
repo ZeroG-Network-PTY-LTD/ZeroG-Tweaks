@@ -15,6 +15,7 @@ public final class ZeroGTweaks {
 
     public ZeroGTweaks(IEventBus modBus, net.neoforged.fml.ModContainer container) {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON, net.zerog.tweaks.registry.ZGEcologyConfig.SPEC);
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT, net.zerog.tweaks.registry.ZGWeatherConfig.SPEC);
         ModInit.register(modBus);
         ZGArmorMaterials.register(modBus);
         TidewraithContent.register(modBus);
@@ -24,5 +25,14 @@ public final class ZeroGTweaks {
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::breakSpeed);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::playerTick);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.DailyPlanetImpacts::tick);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::started);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::tick);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::interact);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::commands);
+        modBus.addListener(net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent.class,event ->
+                event.registerBlock(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,
+                    (level,pos,state,be,side) -> level instanceof net.minecraft.server.level.ServerLevel server ?
+                        net.zerog.tweaks.travel.GateLedger.get(server.getServer()).input(server,pos) : null,
+                    net.zerog.tweaks.registry.BlockInit.GATE_ENERGY_PORT.get()));
     }
 }

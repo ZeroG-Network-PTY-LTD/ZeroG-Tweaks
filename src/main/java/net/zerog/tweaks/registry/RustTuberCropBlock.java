@@ -9,4 +9,5 @@ import net.minecraft.world.level.block.state.BlockState;
 public class RustTuberCropBlock extends ZGCropBlock {
     public RustTuberCropBlock(Properties props) { super(props); }
     @Override public ItemStack produce() { return new ItemStack(ItemInit.RUST_TUBER.get()); }
+    @Override protected net.minecraft.world.level.ItemLike getBaseSeedId() { return ItemInit.RUST_TUBER_SEEDS.get(); }
 }

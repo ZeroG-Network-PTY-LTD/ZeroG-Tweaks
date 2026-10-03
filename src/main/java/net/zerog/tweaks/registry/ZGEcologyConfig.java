@@ -10,7 +10,7 @@ public final class ZGEcologyConfig {
         var builder=new ModConfigSpec.Builder();
         builder.comment("Daily impacts affect natural terrain in loaded ZeroG dimensions, never other dimensions.");
         IMPACTS=builder.define("dailyImpacts",true);
-        RADIUS=builder.comment("Crater radius in blocks; includes excavation. Back up saves before testing.").defineInRange("impactRadius",4,2,6);
+        RADIUS=builder.comment("Crater radius; existing smaller values are clamped to 6 to fit the 10x10x10 remnant. Back up saves.").defineInRange("impactRadius",6,2,6);
         SPEC=builder.build();
     }
     private ZGEcologyConfig(){}

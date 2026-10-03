@@ -1,14 +1,17 @@
 {
   "type": "neoforge:add_spawns",
   "biomes": [
-    "zerog_tweaks:rust_plains",
     "zerog_tweaks:oxide_badlands",
-    "zerog_tweaks:polar_caps"
+    "zerog_tweaks:polar_caps",
+    "zerog_tweaks:rust_plains",
+    "zerog_tweaks:wasteland_dune_seas",
+    "zerog_tweaks:wasteland_mesa_canyons",
+    "zerog_tweaks:wasteland_salt_flats"
   ],
   "spawners": [
     {
       "type": "zerog_tweaks:pulsar_blaze",
-      "weight": 2,
+      "weight": 1,
       "minCount": 1,
       "maxCount": 1
     }

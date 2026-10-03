@@ -140,6 +140,40 @@
           "weight": 5
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zerog_tweaks:raw_lunarium",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zerog_tweaks:eclipse_opal",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zerog_tweaks:moon_millet_seeds",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 10
+        }
+      ]
     }
   ],
   "random_sequence": "zerog_tweaks:chests/buried_observatory"

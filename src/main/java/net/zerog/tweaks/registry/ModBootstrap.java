@@ -24,6 +24,13 @@ public final class ModBootstrap {
     private ModBootstrap() {}
 
     public static void bootstrap() {
+        ZGPlanetCrops.PLANET_CROPS.values().forEach(name -> {
+            var registry=net.minecraft.core.registries.BuiltInRegistries.ITEM;
+            ComposterBlock.COMPOSTABLES.put(registry.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks",name+"_seeds")),.3F);
+            ComposterBlock.COMPOSTABLES.put(registry.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks",name)),.65F);
+        });
+        ComposterBlock.COMPOSTABLES.put(ItemInit.RUST_TUBER_SEEDS.get(),.3F);
+        ZGDimensionTerrain.FLORA.forEach((id,block) -> { if(id.endsWith("_tall_blossom")) ComposterBlock.COMPOSTABLES.put(block.get().asItem(),.65F); });
         // composter parity: leaves 0.3, saplings 0.3 (vanilla values)
         for (var w : new String[] {"charwood", "gildwood", "hoarwood", "shardwood"}) {
             ComposterBlock.COMPOSTABLES.put(

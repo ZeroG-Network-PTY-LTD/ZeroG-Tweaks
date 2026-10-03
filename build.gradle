@@ -43,6 +43,11 @@ if (providers.gradleProperty('tidewraithTests').isPresent()) {
 if (providers.gradleProperty('clientReview').isPresent()) {
     sourceSets.main.java.srcDir 'src/client-review/java'
 }
+if (providers.gradleProperty('planetHubTests').isPresent()) {
+    sourceSets.main.java.srcDir 'src/planet-hub-gametest/java'
+    sourceSets.main.resources.srcDir 'src/planet-hub-gametest/resources'
+    sourceSets.main.resources.srcDir 'src/gametest/resources'
+}
 
 neoForge {
     version = project.neo_version
@@ -56,6 +61,11 @@ neoForge {
         zeroGTests {
             type = 'gameTestServer'
             gameDirectory = file('run-local-zerog-tests')
+            systemProperty 'neoforge.enabledGameTestNamespaces', 'zerog_tweaks'
+        }
+        planetHubTests {
+            type = 'gameTestServer'
+            gameDirectory = file('run-local-planet-hub-20261004')
             systemProperty 'neoforge.enabledGameTestNamespaces', 'zerog_tweaks'
         }
         client {

@@ -39,7 +39,7 @@ public final class DailyPlanetImpacts {
             for(int attempt=0;attempt<6;attempt++) {
                 double angle=level.random.nextDouble()*Math.PI*2;int distance=80+level.random.nextInt(65);
                 int x=player.blockPosition().getX()+(int)(Math.cos(angle)*distance),z=player.blockPosition().getZ()+(int)(Math.sin(angle)*distance);
-                int radius=ZGEcologyConfig.RADIUS.get();
+                int radius=Math.max(6,ZGEcologyConfig.RADIUS.get());
                 if(!level.hasChunkAt(new BlockPos(x-radius-2,64,z-radius-2))||!level.hasChunkAt(new BlockPos(x+radius+2,64,z+radius+2))) continue;
                 var centre=new BlockPos(x,level.getHeight(Heightmap.Types.WORLD_SURFACE,x,z)-1,z);
                 if(level.players().stream().anyMatch(p->p.distanceToSqr(centre.getX(),centre.getY(),centre.getZ())<64*64)) continue;
@@ -53,6 +53,7 @@ public final class DailyPlanetImpacts {
     }
     /** Validate the entire volume before changing anything. Does not explode or drop arbitrary terrain items. */
     public static boolean impact(ServerLevel level,BlockPos centre,int radius,String dim) {
+        radius=Math.max(6,radius); // Preserve the config key, but the ten-block remnant needs a six-block crater.
         if(centre.getY()<level.getMinBuildHeight()+radius+2 || centre.getY()>level.getMaxBuildHeight()-radius-2) return false;
         for(BlockPos pos:BlockPos.betweenClosed(centre.offset(-radius-2,-radius-1,-radius-2),centre.offset(radius+2,radius+3,radius+2))) {
             if(!level.hasChunkAt(pos) || level.getBlockEntity(pos)!=null || !natural(level,pos)) return false;
@@ -65,16 +66,11 @@ public final class DailyPlanetImpacts {
                 var pos=centre.offset(x,y,z); if(!level.getBlockState(pos).isAir()) level.setBlockAndUpdate(pos,Blocks.AIR.defaultBlockState());
             }
         }
-        var core=centre.below(Math.max(1,radius/2));
-        level.setBlockAndUpdate(core,BlockInit.METEORITE_FRAGMENT.get().defaultBlockState());
-        for(int i=0;i<9;i++) {
-            var pos=core.offset(level.random.nextInt(5)-2,0,level.random.nextInt(5)-2);
-            if(pos.distSqr(core)<=5) level.setBlockAndUpdate(pos,BlockInit.METEORITE_FRAGMENT.get().defaultBlockState());
+        // Solid layers must be mined through; rare ores never occur in the exposed shell.
+        var origin=centre.offset(-4,-3,-4);var palette=CometRemnant.palette(dim);
+        for(var cell:CometRemnant.cells()) {
+            level.setBlockAndUpdate(origin.offset(cell.x(),cell.y(),cell.z()),CometRemnant.material(cell,palette,level.random).defaultBlockState());
         }
-        // Small gated ore nodes, never entire storage blocks; normal mining gates/loot remain authoritative.
-        String rare=switch(dim){case "moon"->"moonsteel_ore";case "mars"->"olympium_ore";case "cerulon"->"lumenite_ore";case "skarn"->"cinnabrite_ore";case "eidolon"->"rimeglass_ore";case "solvane"->"dawnstone_ore";default->"selenite_ore";};
-        Block ore=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks",rare));
-        if(ore!=Blocks.AIR) for(int i=0;i<2;i++) level.setBlockAndUpdate(core.offset(i==0?-1:1,0,0),ore.defaultBlockState());
         level.sendParticles(ParticleTypes.EXPLOSION_EMITTER,centre.getX()+.5,centre.getY()+1,centre.getZ()+.5,1,0,0,0,0);
         level.sendParticles(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE,centre.getX()+.5,centre.getY()+1,centre.getZ()+.5,20,2,.5,2,.02);
         level.playSound(null,centre,net.minecraft.sounds.SoundEvents.GENERIC_EXPLODE.value(),net.minecraft.sounds.SoundSource.BLOCKS,3,.7F);
@@ -86,7 +82,7 @@ public final class DailyPlanetImpacts {
         if(state.is(BlockTags.BASE_STONE_OVERWORLD)||state.is(BlockTags.BASE_STONE_NETHER)||state.is(BlockTags.DIRT)||state.is(BlockTags.SAND)||state.is(BlockTags.ICE)) return true;
         var id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(state.getBlock());
         if(!id.getNamespace().equals("zerog_tweaks")) return state.is(Blocks.SHORT_GRASS)||state.is(Blocks.TALL_GRASS)||state.is(Blocks.SNOW);
-        String path=id.getPath();return path.endsWith("_soil")||path.endsWith("_grass_block")||path.endsWith("_short_grass")||path.endsWith("_tall_grass")||path.endsWith("_ore")||path.contains("glow_")
+        String path=id.getPath();return path.endsWith("_soil")||path.endsWith("_grass_block")||path.endsWith("_short_grass")||path.endsWith("_tall_grass")||path.endsWith("_tall_blossom")||path.endsWith("_ore")||path.contains("glow_")
                 ||java.util.Set.of("regolith","rustsand","oxide_crust","lunar_stone","martian_stone","cerulean_stone","skarn_rock","solar_stone","permafrost","polar_frost","prismstone","sludgestone","frostrock","sunspot_rock","crystal_sand","slag","azure_moss","cerulean_soil","shimmer_sand","tidesand","dunesand","blightmoss","toxic_mud").contains(path);
     }
     private DailyPlanetImpacts(){}

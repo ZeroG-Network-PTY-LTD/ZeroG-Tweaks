@@ -26,6 +26,18 @@ for revision in ['dimension-ecology-v1','miniature-planet-bees-v1','planet-blaze
                 u,v,u2,v2=face['uv'];assert 0<=u<=width and 0<=u2<=width and 0<=v<=height and 0<=v2<=height,path.name
                 assert 0<=int(face['texture'])<len(model['textures']),path.name
         count+=1
+# The later planet-art revision intentionally supersedes soil/vegetation art.
+# Validate its source hashes before comparing the effective layered payload.
+refresh=base/'planet-art-refresh-v1'
+if (refresh/'manifest.json').exists():
+    for row in json.loads((refresh/'manifest.json').read_text())['files']:
+        prefix='assets/zerog_tweaks/textures/'
+        if row['path'].startswith(prefix) and row['path'].endswith('.png'):
+            name=row['path'][len(prefix):]
+            if name in latest:
+                data=(refresh/'resource-source'/row['path']).read_bytes()
+                assert hashlib.sha256(data).hexdigest()==row['sha256'],row['path']
+                latest[name]=data
 with ZipFile(a.jar) as jar:
     for name,data in latest.items():
         relative='assets/zerog_tweaks/textures/'+name

@@ -1,0 +1,7 @@
+#define CLOUDS_ENABLED 1 // [0 1]
+#define CLOUD_STEPS 8 // [8 16 24]
+#define CLOUD_HEIGHT 180.0 // [128.0 180.0 240.0]
+#define CLOUD_COVERAGE 0.48 // [0.35 0.48 0.60]
+#define FOG_DENSITY 0.0015 // [0.0 0.0015 0.0030]
+#define BLOOM_STRENGTH 0.06 // [0.0 0.06 0.12]
+#define REDUCED_FLASH 1 // [0 1]

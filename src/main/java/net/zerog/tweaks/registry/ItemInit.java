@@ -947,13 +947,13 @@ public final class ItemInit {
     public static final DeferredItem<Item> AURELION_SHOVEL = registerTool("aurelion_shovel", "aurelion", ToolKind.SHOVEL);
     public static final DeferredItem<Item> AURELION_SWORD = registerTool("aurelion_sword", "aurelion", ToolKind.SWORD);
     public static final DeferredItem<Item> AZURE_FEATHER = ITEMS.registerSimpleItem("azure_feather");
-    public static final DeferredItem<Item> BAKED_TUBER = ITEMS.registerSimpleItem("baked_tuber");
-    public static final DeferredItem<Item> BEETLE_GRUB = ITEMS.registerSimpleItem("beetle_grub");
+    public static final DeferredItem<Item> BAKED_TUBER = ITEMS.registerSimpleItem("baked_tuber", new Item.Properties().food(ZGFoods.BAKED_TUBER));
+    public static final DeferredItem<Item> BEETLE_GRUB = ITEMS.registerSimpleItem("beetle_grub", new Item.Properties().food(ZGFoods.BEETLE_GRUB));
     public static final DeferredItem<Item> BLUE_EGG = ITEMS.registerSimpleItem("blue_egg");
-    public static final DeferredItem<Item> BOAR_CHOP = ITEMS.registerSimpleItem("boar_chop");
+    public static final DeferredItem<Item> BOAR_CHOP = ITEMS.registerSimpleItem("boar_chop", new Item.Properties().food(ZGFoods.BOAR_CHOP));
     public static final DeferredItem<Item> BOAR_TUSK = ITEMS.registerSimpleItem("boar_tusk");
     public static final DeferredItem<Item> BURROWER_SCALE = ITEMS.registerSimpleItem("burrower_scale");
-    public static final DeferredItem<Item> BURROWER_STEAK = ITEMS.registerSimpleItem("burrower_steak");
+    public static final DeferredItem<Item> BURROWER_STEAK = ITEMS.registerSimpleItem("burrower_steak", new Item.Properties().food(ZGFoods.BURROWER_STEAK));
     public static final DeferredItem<Item> CAPACITY_COIL = ITEMS.registerSimpleItem("capacity_coil");
     public static final DeferredItem<Item> CAPTAINS_LANTERN = ITEMS.registerSimpleItem("captains_lantern");
     public static final DeferredItem<Item> CERULITE = ITEMS.registerSimpleItem("cerulite");
@@ -966,7 +966,7 @@ public final class ItemInit {
     public static final DeferredItem<Item> CERULITE_PICKAXE = registerTool("cerulite_pickaxe", "cerulite", ToolKind.PICKAXE);
     public static final DeferredItem<Item> CERULITE_SHOVEL = registerTool("cerulite_shovel", "cerulite", ToolKind.SHOVEL);
     public static final DeferredItem<Item> CERULITE_SWORD = registerTool("cerulite_sword", "cerulite", ToolKind.SWORD);
-    public static final DeferredItem<Item> CINDER_CAP_STEW = ITEMS.registerSimpleItem("cinder_cap_stew");
+    public static final DeferredItem<Item> CINDER_CAP_STEW = ITEMS.registerSimpleItem("cinder_cap_stew", new Item.Properties().stacksTo(1).food(ZGFoods.CINDER_CAP_STEW));
     public static final DeferredItem<Item> CINDER_PELT = ITEMS.registerSimpleItem("cinder_pelt");
     public static final DeferredItem<Item> CINNABRITE = ITEMS.registerSimpleItem("cinnabrite");
     public static final DeferredItem<Item> COBALTIUM_AXE = registerTool("cobaltium_axe", "cobaltium", ToolKind.AXE);
@@ -981,16 +981,16 @@ public final class ItemInit {
     public static final DeferredItem<Item> COBALTIUM_SHOVEL = registerTool("cobaltium_shovel", "cobaltium", ToolKind.SHOVEL);
     public static final DeferredItem<Item> COBALTIUM_SWORD = registerTool("cobaltium_sword", "cobaltium", ToolKind.SWORD);
     public static final DeferredItem<Item> COLOSSUS_CORE = ITEMS.registerSimpleItem("colossus_core");
-    public static final DeferredItem<Item> COOKED_BURROWER_STEAK = ITEMS.registerSimpleItem("cooked_burrower_steak");
-    public static final DeferredItem<Item> COOKED_EEL = ITEMS.registerSimpleItem("cooked_eel");
-    public static final DeferredItem<Item> COOKED_GILDCRAB = ITEMS.registerSimpleItem("cooked_gildcrab");
-    public static final DeferredItem<Item> COOKED_GLIMMERFISH = ITEMS.registerSimpleItem("cooked_glimmerfish");
-    public static final DeferredItem<Item> COOKED_HOPPER = ITEMS.registerSimpleItem("cooked_hopper");
-    public static final DeferredItem<Item> COOKED_VENISON = ITEMS.registerSimpleItem("cooked_venison");
+    public static final DeferredItem<Item> COOKED_BURROWER_STEAK = ITEMS.registerSimpleItem("cooked_burrower_steak", new Item.Properties().food(ZGFoods.COOKED_BURROWER_STEAK));
+    public static final DeferredItem<Item> COOKED_EEL = ITEMS.registerSimpleItem("cooked_eel", new Item.Properties().food(ZGFoods.COOKED_EEL));
+    public static final DeferredItem<Item> COOKED_GILDCRAB = ITEMS.registerSimpleItem("cooked_gildcrab", new Item.Properties().food(ZGFoods.COOKED_GILDCRAB));
+    public static final DeferredItem<Item> COOKED_GLIMMERFISH = ITEMS.registerSimpleItem("cooked_glimmerfish", new Item.Properties().food(ZGFoods.COOKED_GLIMMERFISH));
+    public static final DeferredItem<Item> COOKED_HOPPER = ITEMS.registerSimpleItem("cooked_hopper", new Item.Properties().food(ZGFoods.COOKED_HOPPER));
+    public static final DeferredItem<Item> COOKED_VENISON = ITEMS.registerSimpleItem("cooked_venison", new Item.Properties().food(ZGFoods.COOKED_VENISON));
     public static final DeferredItem<Item> CORONITE = ITEMS.registerSimpleItem("coronite");
-    public static final DeferredItem<Item> CRAWLER_LEG = ITEMS.registerSimpleItem("crawler_leg");
-    public static final DeferredItem<Item> CRISPY_LURKER_LEG = ITEMS.registerSimpleItem("crispy_lurker_leg");
-    public static final DeferredItem<Item> CRYO_CHOWDER = ITEMS.registerSimpleItem("cryo_chowder");
+    public static final DeferredItem<Item> CRAWLER_LEG = ITEMS.registerSimpleItem("crawler_leg", new Item.Properties().food(ZGFoods.CRAWLER_LEG));
+    public static final DeferredItem<Item> CRISPY_LURKER_LEG = ITEMS.registerSimpleItem("crispy_lurker_leg", new Item.Properties().food(ZGFoods.CRISPY_LURKER_LEG));
+    public static final DeferredItem<Item> CRYO_CHOWDER = ITEMS.registerSimpleItem("cryo_chowder", new Item.Properties().stacksTo(1).food(ZGFoods.CRYO_CHOWDER));
     public static final DeferredItem<Item> CRYO_CORE = ITEMS.registerSimpleItem("cryo_core");
     public static final DeferredItem<Item> CRYOCITE = ITEMS.registerSimpleItem("cryocite");
     public static final DeferredItem<Item> CRYSTAL_HIDE = ITEMS.registerSimpleItem("crystal_hide");
@@ -1006,7 +1006,7 @@ public final class ItemInit {
     public static final DeferredItem<Item> CYRRIUM_SHOVEL = registerTool("cyrrium_shovel", "cyrrium", ToolKind.SHOVEL);
     public static final DeferredItem<Item> CYRRIUM_SWORD = registerTool("cyrrium_sword", "cyrrium", ToolKind.SWORD);
     public static final DeferredItem<Item> DAWNSTONE = ITEMS.registerSimpleItem("dawnstone");
-    public static final DeferredItem<Item> EEL_FILLET = ITEMS.registerSimpleItem("eel_fillet");
+    public static final DeferredItem<Item> EEL_FILLET = ITEMS.registerSimpleItem("eel_fillet", new Item.Properties().food(ZGFoods.EEL_FILLET));
     public static final DeferredItem<Item> EEL_SKIN = ITEMS.registerSimpleItem("eel_skin");
     public static final DeferredItem<Item> EIDOLITE = ITEMS.registerSimpleItem("eidolite");
     public static final DeferredItem<Item> EIDOLITE_AXE = registerTool("eidolite_axe", "eidolite", ToolKind.AXE);
@@ -1018,7 +1018,7 @@ public final class ItemInit {
     public static final DeferredItem<Item> EIDOLITE_PICKAXE = registerTool("eidolite_pickaxe", "eidolite", ToolKind.PICKAXE);
     public static final DeferredItem<Item> EIDOLITE_SHOVEL = registerTool("eidolite_shovel", "eidolite", ToolKind.SHOVEL);
     public static final DeferredItem<Item> EIDOLITE_SWORD = registerTool("eidolite_sword", "eidolite", ToolKind.SWORD);
-    public static final DeferredItem<Item> EMBER_CHILI = ITEMS.registerSimpleItem("ember_chili");
+    public static final DeferredItem<Item> EMBER_CHILI = ITEMS.registerSimpleItem("ember_chili", new Item.Properties().stacksTo(1).food(ZGFoods.EMBER_CHILI));
     public static final DeferredItem<Item> EMBERITE = ITEMS.registerSimpleItem("emberite");
     public static final DeferredItem<Item> FERROX_AXE = registerTool("ferrox_axe", "ferrox", ToolKind.AXE);
     public static final DeferredItem<Item> FERROX_BOOTS = registerArmor("ferrox_boots", ZGArmorMaterials.FERROX, ArmorItem.Type.BOOTS);
@@ -1031,35 +1031,35 @@ public final class ItemInit {
     public static final DeferredItem<Item> FERROX_PICKAXE = registerTool("ferrox_pickaxe", "ferrox", ToolKind.PICKAXE);
     public static final DeferredItem<Item> FERROX_SHOVEL = registerTool("ferrox_shovel", "ferrox", ToolKind.SHOVEL);
     public static final DeferredItem<Item> FERROX_SWORD = registerTool("ferrox_sword", "ferrox", ToolKind.SWORD);
-    public static final DeferredItem<Item> FOWL = ITEMS.registerSimpleItem("fowl");
-    public static final DeferredItem<Item> FROST_MILK = ITEMS.registerSimpleItem("frost_milk");
+    public static final DeferredItem<Item> FOWL = ITEMS.registerSimpleItem("fowl", new Item.Properties().food(ZGFoods.FOWL));
+    public static final DeferredItem<Item> FROST_MILK = ITEMS.registerItem("frost_milk", p -> new net.zerog.tweaks.item.ZGDrinkItem(p.stacksTo(16).food(ZGFoods.FROST_MILK)));
     public static final DeferredItem<Item> FROST_PELT = ITEMS.registerSimpleItem("frost_pelt");
-    public static final DeferredItem<Item> FROSTFERN_TEA = ITEMS.registerSimpleItem("frostfern_tea");
+    public static final DeferredItem<Item> FROSTFERN_TEA = ITEMS.registerItem("frostfern_tea", p -> new net.zerog.tweaks.item.ZGDrinkItem(p.stacksTo(16).food(ZGFoods.FROSTFERN_TEA)));
     public static final DeferredItem<Item> FUSION_DUST = ITEMS.registerSimpleItem("fusion_dust");
     public static final DeferredItem<Item> GALAXY_3_GATE_KEY = ITEMS.registerSimpleItem("galaxy_3_gate_key");
     public static final DeferredItem<Item> GALAXY_4_GATE_KEY = ITEMS.registerSimpleItem("galaxy_4_gate_key");
     public static final DeferredItem<Item> GALAXY_5_GATE_KEY = ITEMS.registerSimpleItem("galaxy_5_gate_key");
-    public static final DeferredItem<Item> GILDCRAB_MEAT = ITEMS.registerSimpleItem("gildcrab_meat");
+    public static final DeferredItem<Item> GILDCRAB_MEAT = ITEMS.registerSimpleItem("gildcrab_meat", new Item.Properties().food(ZGFoods.GILDCRAB_MEAT));
     public static final DeferredItem<Item> GILDCRAB_SHELL = ITEMS.registerSimpleItem("gildcrab_shell");
     public static final DeferredItem<Item> GLIMMER_SCALE = ITEMS.registerSimpleItem("glimmer_scale");
-    public static final DeferredItem<Item> GLIMMERFISH = ITEMS.registerSimpleItem("glimmerfish");
+    public static final DeferredItem<Item> GLIMMERFISH = ITEMS.registerSimpleItem("glimmerfish", new Item.Properties().food(ZGFoods.GLIMMERFISH));
     public static final DeferredItem<net.minecraft.world.item.MobBucketItem> GLIMMERFISH_BUCKET = ITEMS.register("glimmerfish_bucket",
             () -> new net.minecraft.world.item.MobBucketItem(EntityInit.GLIMMERFISH.get(), net.minecraft.world.level.material.Fluids.WATER,
                     net.minecraft.sounds.SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1)
                             .component(net.minecraft.core.component.DataComponents.BUCKET_ENTITY_DATA,
                                     net.minecraft.world.item.component.CustomData.EMPTY)));
     public static final DeferredItem<Item> GRAZER_HIDE = ITEMS.registerSimpleItem("grazer_hide");
-    public static final DeferredItem<Item> GRAZER_STEAK = ITEMS.registerSimpleItem("grazer_steak");
-    public static final DeferredItem<Item> GRILLED_SCORCH_TAIL = ITEMS.registerSimpleItem("grilled_scorch_tail");
-    public static final DeferredItem<Item> HEART_OF_SOLVANE = ITEMS.registerSimpleItem("heart_of_solvane");
+    public static final DeferredItem<Item> GRAZER_STEAK = ITEMS.registerSimpleItem("grazer_steak", new Item.Properties().food(ZGFoods.GRAZER_STEAK));
+    public static final DeferredItem<Item> GRILLED_SCORCH_TAIL = ITEMS.registerSimpleItem("grilled_scorch_tail", new Item.Properties().food(ZGFoods.GRILLED_SCORCH_TAIL));
+    public static final DeferredItem<Item> HEART_OF_SOLVANE = ITEMS.registerSimpleItem("heart_of_solvane", stellarGlint());
     public static final DeferredItem<Item> HEATPROOF_PLATING = ITEMS.registerSimpleItem("heatproof_plating");
     public static final DeferredItem<Item> HOPPER_FLUFF = ITEMS.registerSimpleItem("hopper_fluff");
-    public static final DeferredItem<Item> HOPPER_MEAT = ITEMS.registerSimpleItem("hopper_meat");
+    public static final DeferredItem<Item> HOPPER_MEAT = ITEMS.registerSimpleItem("hopper_meat", new Item.Properties().food(ZGFoods.HOPPER_MEAT));
     public static final DeferredItem<Item> LEECH_GEL = ITEMS.registerSimpleItem("leech_gel");
-    public static final DeferredItem<Item> LICHEN_CRISPS = ITEMS.registerSimpleItem("lichen_crisps");
-    public static final DeferredItem<Item> LOW_G_JELLY = ITEMS.registerSimpleItem("low_g_jelly");
+    public static final DeferredItem<Item> LICHEN_CRISPS = ITEMS.registerSimpleItem("lichen_crisps", new Item.Properties().food(ZGFoods.LICHEN_CRISPS));
+    public static final DeferredItem<Item> LOW_G_JELLY = ITEMS.registerSimpleItem("low_g_jelly", new Item.Properties().food(ZGFoods.LOW_G_JELLY));
     public static final DeferredItem<Item> LUMENITE = ITEMS.registerSimpleItem("lumenite");
-    public static final DeferredItem<Item> LURKER_LEG = ITEMS.registerSimpleItem("lurker_leg");
+    public static final DeferredItem<Item> LURKER_LEG = ITEMS.registerSimpleItem("lurker_leg", new Item.Properties().food(ZGFoods.LURKER_LEG));
     public static final DeferredItem<Item> MOONSTEEL_AXE = registerTool("moonsteel_axe", "moonsteel", ToolKind.AXE);
     public static final DeferredItem<Item> MOONSTEEL_BOOTS = registerArmor("moonsteel_boots", ZGArmorMaterials.MOONSTEEL, ArmorItem.Type.BOOTS);
     public static final DeferredItem<Item> MOONSTEEL_CHESTPLATE = registerArmor("moonsteel_chestplate", ZGArmorMaterials.MOONSTEEL, ArmorItem.Type.CHESTPLATE);
@@ -1071,10 +1071,10 @@ public final class ItemInit {
     public static final DeferredItem<Item> MOONSTEEL_PICKAXE = registerTool("moonsteel_pickaxe", "moonsteel", ToolKind.PICKAXE);
     public static final DeferredItem<Item> MOONSTEEL_SHOVEL = registerTool("moonsteel_shovel", "moonsteel", ToolKind.SHOVEL);
     public static final DeferredItem<Item> MOONSTEEL_SWORD = registerTool("moonsteel_sword", "moonsteel", ToolKind.SWORD);
-    public static final DeferredItem<Item> NEBULA_PIE = ITEMS.registerSimpleItem("nebula_pie");
+    public static final DeferredItem<Item> NEBULA_PIE = ITEMS.registerSimpleItem("nebula_pie", new Item.Properties().food(ZGFoods.NEBULA_PIE));
     public static final DeferredItem<Item> NEBULITE = ITEMS.registerSimpleItem("nebulite");
     public static final DeferredItem<Item> NEUTRALIZER = ITEMS.registerSimpleItem("neutralizer");
-    public static final DeferredItem<Item> NOVA_PEARL = ITEMS.registerSimpleItem("nova_pearl");
+    public static final DeferredItem<Item> NOVA_PEARL = ITEMS.registerSimpleItem("nova_pearl", stellarGlint());
     public static final DeferredItem<Item> NULLIFITE_AXE = registerTool("nullifite_axe", "nullifite", ToolKind.AXE);
     public static final DeferredItem<Item> NULLIFITE_BOOTS = registerArmor("nullifite_boots", ZGArmorMaterials.NULLIFITE, ArmorItem.Type.BOOTS);
     public static final DeferredItem<Item> NULLIFITE_CHESTPLATE = registerArmor("nullifite_chestplate", ZGArmorMaterials.NULLIFITE, ArmorItem.Type.CHESTPLATE);
@@ -1097,7 +1097,7 @@ public final class ItemInit {
     public static final DeferredItem<Item> OLYMPIUM_PICKAXE = registerTool("olympium_pickaxe", "olympium", ToolKind.PICKAXE);
     public static final DeferredItem<Item> OLYMPIUM_SHOVEL = registerTool("olympium_shovel", "olympium", ToolKind.SHOVEL);
     public static final DeferredItem<Item> OLYMPIUM_SWORD = registerTool("olympium_sword", "olympium", ToolKind.SWORD);
-    public static final DeferredItem<Item> ORBIT_BURGER = ITEMS.registerSimpleItem("orbit_burger");
+    public static final DeferredItem<Item> ORBIT_BURGER = ITEMS.registerSimpleItem("orbit_burger", new Item.Properties().food(ZGFoods.ORBIT_BURGER));
     public static final DeferredItem<Item> PALLADINE_AXE = registerTool("palladine_axe", "palladine", ToolKind.AXE);
     public static final DeferredItem<Item> PALLADINE_BOOTS = registerArmor("palladine_boots", ZGArmorMaterials.PALLADINE, ArmorItem.Type.BOOTS);
     public static final DeferredItem<Item> PALLADINE_CHESTPLATE = registerArmor("palladine_chestplate", ZGArmorMaterials.PALLADINE, ArmorItem.Type.CHESTPLATE);
@@ -1144,7 +1144,7 @@ public final class ItemInit {
     public static final DeferredItem<Item> RADIANTINE_PICKAXE = registerTool("radiantine_pickaxe", "radiantine", ToolKind.PICKAXE);
     public static final DeferredItem<Item> RADIANTINE_SHOVEL = registerTool("radiantine_shovel", "radiantine", ToolKind.SHOVEL);
     public static final DeferredItem<Item> RADIANTINE_SWORD = registerTool("radiantine_sword", "radiantine", ToolKind.SWORD);
-    public static final DeferredItem<Item> RATION_PACK = ITEMS.registerSimpleItem("ration_pack");
+    public static final DeferredItem<Item> RATION_PACK = ITEMS.registerSimpleItem("ration_pack", new Item.Properties().food(ZGFoods.RATION_PACK));
     public static final DeferredItem<Item> RAW_ASTRIUM = ITEMS.registerSimpleItem("raw_astrium");
     public static final DeferredItem<Item> RAW_AURELION = ITEMS.registerSimpleItem("raw_aurelion");
     public static final DeferredItem<Item> RAW_COBALTIUM = ITEMS.registerSimpleItem("raw_cobaltium");
@@ -1163,13 +1163,13 @@ public final class ItemInit {
     public static final DeferredItem<Item> RAW_WRAITHSTEEL = ITEMS.registerSimpleItem("raw_wraithsteel");
     public static final DeferredItem<Item> REFRACTING_LENS = ITEMS.registerSimpleItem("refracting_lens");
     public static final DeferredItem<Item> REMNANT_SHARD = ITEMS.registerSimpleItem("remnant_shard");
-    public static final DeferredItem<Item> RIFT_HEART = ITEMS.registerSimpleItem("rift_heart");
+    public static final DeferredItem<Item> RIFT_HEART = ITEMS.registerSimpleItem("rift_heart", stellarGlint());
     public static final DeferredItem<Item> RIFT_OPAL = ITEMS.registerSimpleItem("rift_opal");
     public static final DeferredItem<Item> RIMEGLASS = ITEMS.registerSimpleItem("rimeglass");
-    public static final DeferredItem<Item> ROAST_FOWL = ITEMS.registerSimpleItem("roast_fowl");
-    public static final DeferredItem<Item> ROASTED_CRAWLER_LEG = ITEMS.registerSimpleItem("roasted_crawler_leg");
-    public static final DeferredItem<Item> ROASTED_SKITTER_LEG = ITEMS.registerSimpleItem("roasted_skitter_leg");
-    public static final DeferredItem<Item> ROASTED_SOLFLOWER_SEEDS = ITEMS.registerSimpleItem("roasted_solflower_seeds");
+    public static final DeferredItem<Item> ROAST_FOWL = ITEMS.registerSimpleItem("roast_fowl", new Item.Properties().food(ZGFoods.ROAST_FOWL));
+    public static final DeferredItem<Item> ROASTED_CRAWLER_LEG = ITEMS.registerSimpleItem("roasted_crawler_leg", new Item.Properties().food(ZGFoods.ROASTED_CRAWLER_LEG));
+    public static final DeferredItem<Item> ROASTED_SKITTER_LEG = ITEMS.registerSimpleItem("roasted_skitter_leg", new Item.Properties().food(ZGFoods.ROASTED_SKITTER_LEG));
+    public static final DeferredItem<Item> ROASTED_SOLFLOWER_SEEDS = ITEMS.registerSimpleItem("roasted_solflower_seeds", new Item.Properties().food(ZGFoods.ROASTED_SOLFLOWER_SEEDS));
     public static final DeferredItem<Item> RUSKITE_AXE = registerTool("ruskite_axe", "ruskite", ToolKind.AXE);
     public static final DeferredItem<Item> RUSKITE_BOOTS = registerArmor("ruskite_boots", ZGArmorMaterials.RUSKITE, ArmorItem.Type.BOOTS);
     public static final DeferredItem<Item> RUSKITE_CHESTPLATE = registerArmor("ruskite_chestplate", ZGArmorMaterials.RUSKITE, ArmorItem.Type.CHESTPLATE);
@@ -1182,7 +1182,7 @@ public final class ItemInit {
     public static final DeferredItem<Item> RUSKITE_SHOVEL = registerTool("ruskite_shovel", "ruskite", ToolKind.SHOVEL);
     public static final DeferredItem<Item> RUSKITE_SWORD = registerTool("ruskite_sword", "ruskite", ToolKind.SWORD);
     public static final DeferredItem<Item> RUST_SHELL = ITEMS.registerSimpleItem("rust_shell");
-    public static final DeferredItem<Item> RUST_TUBER = ITEMS.registerSimpleItem("rust_tuber");
+    public static final DeferredItem<Item> RUST_TUBER = ITEMS.registerSimpleItem("rust_tuber", new Item.Properties().food(ZGFoods.RUST_TUBER));
     public static final DeferredItem<Item> SALVIUM_AXE = registerTool("salvium_axe", "salvium", ToolKind.AXE);
     public static final DeferredItem<Item> SALVIUM_BOOTS = registerArmor("salvium_boots", ZGArmorMaterials.SALVIUM, ArmorItem.Type.BOOTS);
     public static final DeferredItem<Item> SALVIUM_CHESTPLATE = registerArmor("salvium_chestplate", ZGArmorMaterials.SALVIUM, ArmorItem.Type.CHESTPLATE);
@@ -1195,11 +1195,11 @@ public final class ItemInit {
     public static final DeferredItem<Item> SALVIUM_SHOVEL = registerTool("salvium_shovel", "salvium", ToolKind.SHOVEL);
     public static final DeferredItem<Item> SALVIUM_SWORD = registerTool("salvium_sword", "salvium", ToolKind.SWORD);
     public static final DeferredItem<Item> SCORCH_SCALE = ITEMS.registerSimpleItem("scorch_scale");
-    public static final DeferredItem<Item> SCORCH_TAIL = ITEMS.registerSimpleItem("scorch_tail");
-    public static final DeferredItem<Item> SEARED_GRAZER_STEAK = ITEMS.registerSimpleItem("seared_grazer_steak");
+    public static final DeferredItem<Item> SCORCH_TAIL = ITEMS.registerSimpleItem("scorch_tail", new Item.Properties().food(ZGFoods.SCORCH_TAIL));
+    public static final DeferredItem<Item> SEARED_GRAZER_STEAK = ITEMS.registerSimpleItem("seared_grazer_steak", new Item.Properties().food(ZGFoods.SEARED_GRAZER_STEAK));
     public static final DeferredItem<Item> SELENITE = ITEMS.registerSimpleItem("selenite");
     public static final DeferredItem<Item> SENTINEL_PRISM = ITEMS.registerSimpleItem("sentinel_prism");
-    public static final DeferredItem<Item> SHARDWOOD_SYRUP = ITEMS.registerSimpleItem("shardwood_syrup");
+    public static final DeferredItem<Item> SHARDWOOD_SYRUP = ITEMS.registerItem("shardwood_syrup", p -> new net.zerog.tweaks.item.ZGDrinkItem(p.stacksTo(16).food(ZGFoods.SHARDWOOD_SYRUP)));
     public static final DeferredItem<Item> SKARNITE = ITEMS.registerSimpleItem("skarnite");
     public static final DeferredItem<Item> SKARNITE_AXE = registerTool("skarnite_axe", "skarnite", ToolKind.AXE);
     public static final DeferredItem<Item> SKARNITE_BOOTS = registerArmor("skarnite_boots", ZGArmorMaterials.SKARNITE, ArmorItem.Type.BOOTS);
@@ -1211,11 +1211,12 @@ public final class ItemInit {
     public static final DeferredItem<Item> SKARNITE_SHOVEL = registerTool("skarnite_shovel", "skarnite", ToolKind.SHOVEL);
     public static final DeferredItem<Item> SKARNITE_SWORD = registerTool("skarnite_sword", "skarnite", ToolKind.SWORD);
     public static final DeferredItem<Item> SKITTER_CARAPACE = ITEMS.registerSimpleItem("skitter_carapace");
-    public static final DeferredItem<Item> SKITTER_LEG = ITEMS.registerSimpleItem("skitter_leg");
-    public static final DeferredItem<Item> SKYBERRIES = ITEMS.registerSimpleItem("skyberries");
-    public static final DeferredItem<Item> SMOKED_BOAR_CHOP = ITEMS.registerSimpleItem("smoked_boar_chop");
-    public static final DeferredItem<Item> SOLAR_SPARK = ITEMS.registerSimpleItem("solar_spark");
-    public static final DeferredItem<Item> SOLFLOWER_SEEDS = ITEMS.registerSimpleItem("solflower_seeds");
+    public static final DeferredItem<Item> SKITTER_LEG = ITEMS.registerSimpleItem("skitter_leg", new Item.Properties().food(ZGFoods.SKITTER_LEG));
+    public static final DeferredItem<Item> SKYBERRIES = ITEMS.registerItem("skyberries", p -> new net.minecraft.world.item.ItemNameBlockItem(BlockInit.SKYBERRY_BUSH.get(), p.food(ZGFoods.SKYBERRIES)));
+    public static final DeferredItem<Item> SMOKED_BOAR_CHOP = ITEMS.registerSimpleItem("smoked_boar_chop", new Item.Properties().food(ZGFoods.SMOKED_BOAR_CHOP));
+    public static final DeferredItem<Item> SOLAR_SPARK = ITEMS.registerSimpleItem("solar_spark", stellarGlint());
+    public static final DeferredItem<Item> SOLFLOWER_SEEDS = ITEMS.register("solflower_seeds", () -> new net.minecraft.world.item.ItemNameBlockItem(ZGPlanetCrops.CROPS.get("solflower").get(), new Item.Properties()));
+    public static final DeferredItem<net.minecraft.world.item.ItemNameBlockItem> RUST_TUBER_SEEDS = ITEMS.register("rust_tuber_seeds", () -> new net.minecraft.world.item.ItemNameBlockItem(BlockInit.RUST_TUBER_CROP.get(),new Item.Properties()));
     public static final DeferredItem<Item> SOLVANITE = ITEMS.registerSimpleItem("solvanite");
     public static final DeferredItem<Item> SOLVANITE_AXE = registerTool("solvanite_axe", "solvanite", ToolKind.AXE);
     public static final DeferredItem<Item> SOLVANITE_BOOTS = registerArmor("solvanite_boots", ZGArmorMaterials.SOLVANITE, ArmorItem.Type.BOOTS);
@@ -1227,11 +1228,11 @@ public final class ItemInit {
     public static final DeferredItem<Item> SOLVANITE_SHOVEL = registerTool("solvanite_shovel", "solvanite", ToolKind.SHOVEL);
     public static final DeferredItem<Item> SOLVANITE_SWORD = registerTool("solvanite_sword", "solvanite", ToolKind.SWORD);
     public static final DeferredItem<Item> SPECTRAL_DUST = ITEMS.registerSimpleItem("spectral_dust");
-    public static final DeferredItem<Item> STAG_VENISON = ITEMS.registerSimpleItem("stag_venison");
+    public static final DeferredItem<Item> STAG_VENISON = ITEMS.registerSimpleItem("stag_venison", new Item.Properties().food(ZGFoods.STAG_VENISON));
     public static final DeferredItem<Item> STAR_MAP_FRAGMENT = ITEMS.registerSimpleItem("star_map_fragment");
-    public static final DeferredItem<Item> STARDUST = ITEMS.registerSimpleItem("stardust");
-    public static final DeferredItem<Item> STARFALL_FEAST = ITEMS.registerSimpleItem("starfall_feast");
-    public static final DeferredItem<Item> STARLITE = ITEMS.registerSimpleItem("starlite");
+    public static final DeferredItem<Item> STARDUST = ITEMS.registerSimpleItem("stardust", stellarGlint());
+    public static final DeferredItem<Item> STARFALL_FEAST = ITEMS.registerSimpleItem("starfall_feast", new Item.Properties().stacksTo(1).food(ZGFoods.STARFALL_FEAST));
+    public static final DeferredItem<Item> STARLITE = ITEMS.registerSimpleItem("starlite", stellarGlint());
     public static final DeferredItem<Item> TECTIUM_AXE = registerTool("tectium_axe", "tectium", ToolKind.AXE);
     public static final DeferredItem<Item> TECTIUM_BOOTS = registerArmor("tectium_boots", ZGArmorMaterials.TECTIUM, ArmorItem.Type.BOOTS);
     public static final DeferredItem<Item> TECTIUM_CHESTPLATE = registerArmor("tectium_chestplate", ZGArmorMaterials.TECTIUM, ArmorItem.Type.CHESTPLATE);
@@ -1243,7 +1244,7 @@ public final class ItemInit {
     public static final DeferredItem<Item> TECTIUM_PICKAXE = registerTool("tectium_pickaxe", "tectium", ToolKind.PICKAXE);
     public static final DeferredItem<Item> TECTIUM_SHOVEL = registerTool("tectium_shovel", "tectium", ToolKind.SHOVEL);
     public static final DeferredItem<Item> TECTIUM_SWORD = registerTool("tectium_sword", "tectium", ToolKind.SWORD);
-    public static final DeferredItem<Item> TOASTED_GRUB = ITEMS.registerSimpleItem("toasted_grub");
+    public static final DeferredItem<Item> TOASTED_GRUB = ITEMS.registerSimpleItem("toasted_grub", new Item.Properties().food(ZGFoods.TOASTED_GRUB));
     public static final DeferredItem<Item> TREMOR_DUST = ITEMS.registerSimpleItem("tremor_dust");
     public static final DeferredItem<Item> VENOM_GLAND = ITEMS.registerSimpleItem("venom_gland");
     public static final DeferredItem<Item> WRAITHSTEEL_AXE = registerTool("wraithsteel_axe", "wraithsteel", ToolKind.AXE);
@@ -1257,8 +1258,8 @@ public final class ItemInit {
     public static final DeferredItem<Item> WRAITHSTEEL_PICKAXE = registerTool("wraithsteel_pickaxe", "wraithsteel", ToolKind.PICKAXE);
     public static final DeferredItem<Item> WRAITHSTEEL_SHOVEL = registerTool("wraithsteel_shovel", "wraithsteel", ToolKind.SHOVEL);
     public static final DeferredItem<Item> WRAITHSTEEL_SWORD = registerTool("wraithsteel_sword", "wraithsteel", ToolKind.SWORD);
-    public static final DeferredItem<Item> YAK_MEAT = ITEMS.registerSimpleItem("yak_meat");
-    public static final DeferredItem<Item> YAK_ROAST = ITEMS.registerSimpleItem("yak_roast");
+    public static final DeferredItem<Item> YAK_MEAT = ITEMS.registerSimpleItem("yak_meat", new Item.Properties().food(ZGFoods.YAK_MEAT));
+    public static final DeferredItem<Item> YAK_ROAST = ITEMS.registerSimpleItem("yak_roast", new Item.Properties().food(ZGFoods.YAK_ROAST));
     public static final DeferredItem<Item> YAK_WOOL = ITEMS.registerSimpleItem("yak_wool");
 
     private enum ToolKind { SWORD, PICKAXE, AXE, SHOVEL, HOE }
@@ -1301,6 +1302,11 @@ public final class ItemInit {
         ZGTrims.init();      // armor trim templates register into ITEMS
         ZGUpgradeTemplates.init(); // netherite-style upgrade templates register into ITEMS
         ITEMS.register(bus);
+    }
+
+    /** Cosmetic vanilla glint for six stellar materials; grants no enchantment effects. */
+    private static Item.Properties stellarGlint() {
+        return new Item.Properties().component(net.minecraft.core.component.DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true);
     }
 
     private ItemInit() {}

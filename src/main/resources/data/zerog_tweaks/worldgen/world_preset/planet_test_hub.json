@@ -1,0 +1,3482 @@
+{
+  "dimensions": {
+    "minecraft:overworld": {
+      "type": "minecraft:overworld",
+      "generator": {
+        "type": "minecraft:flat",
+        "settings": {
+          "biome": "zerog_tweaks:planet_test_hub",
+          "lakes": false,
+          "features": false,
+          "structure_overrides": [],
+          "layers": [
+            {
+              "height": 1,
+              "block": "minecraft:bedrock"
+            },
+            {
+              "height": 126,
+              "block": "minecraft:stone"
+            }
+          ]
+        }
+      }
+    },
+    "minecraft:the_nether": {
+      "type": "minecraft:the_nether",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "minecraft:nether",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "preset": "minecraft:nether"
+        }
+      }
+    },
+    "minecraft:the_end": {
+      "type": "minecraft:the_end",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "minecraft:end",
+        "biome_source": {
+          "type": "minecraft:the_end"
+        }
+      }
+    },
+    "zerog_tweaks:cerulon": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:cerulon",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:glimmer_sea",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.2,
+                  -0.19
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:glimmer_sea",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.2,
+                  -0.19
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 1.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:crystal_shores",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  1.0
+                ],
+                "continentalness": [
+                  -0.19,
+                  -0.11
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:crystal_shores",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  1.0
+                ],
+                "continentalness": [
+                  -0.19,
+                  -0.11
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 1.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:cerulean_peaks",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  1.0
+                ],
+                "continentalness": [
+                  0.03,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  -0.375
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:cerulean_peaks",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  1.0
+                ],
+                "continentalness": [
+                  0.03,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  -0.375
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 1.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:concord_quarries",
+              "parameters": {
+                "temperature": [
+                  0.2,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  1.0
+                ],
+                "continentalness": [
+                  -0.11,
+                  1.0
+                ],
+                "erosion": [
+                  -0.375,
+                  0.05
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:concord_quarries",
+              "parameters": {
+                "temperature": [
+                  0.2,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  1.0
+                ],
+                "continentalness": [
+                  -0.11,
+                  1.0
+                ],
+                "erosion": [
+                  -0.375,
+                  0.05
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 1.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:starbloom_meadow",
+              "parameters": {
+                "temperature": [
+                  -0.15,
+                  0.55
+                ],
+                "humidity": [
+                  0.3,
+                  1.0
+                ],
+                "continentalness": [
+                  -0.11,
+                  1.0
+                ],
+                "erosion": [
+                  0.05,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:starbloom_meadow",
+              "parameters": {
+                "temperature": [
+                  -0.15,
+                  0.55
+                ],
+                "humidity": [
+                  0.3,
+                  1.0
+                ],
+                "continentalness": [
+                  -0.11,
+                  1.0
+                ],
+                "erosion": [
+                  0.05,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 1.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:shardwood_grove",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  0.2
+                ],
+                "humidity": [
+                  0.1,
+                  1.0
+                ],
+                "continentalness": [
+                  -0.11,
+                  1.0
+                ],
+                "erosion": [
+                  -0.375,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:shardwood_grove",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  0.2
+                ],
+                "humidity": [
+                  0.1,
+                  1.0
+                ],
+                "continentalness": [
+                  -0.11,
+                  1.0
+                ],
+                "erosion": [
+                  -0.375,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 1.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:azure_plains",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  0.3
+                ],
+                "continentalness": [
+                  -0.11,
+                  1.0
+                ],
+                "erosion": [
+                  -0.375,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:azure_plains",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  0.3
+                ],
+                "continentalness": [
+                  -0.11,
+                  1.0
+                ],
+                "erosion": [
+                  -0.375,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 1.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:starlight_caverns",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  1.0
+                ],
+                "humidity": [
+                  0.6,
+                  1.0
+                ],
+                "continentalness": [
+                  -0.11,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": [
+                  0.2,
+                  0.9
+                ],
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:geode_depths",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  1.0
+                ],
+                "humidity": [
+                  -1.0,
+                  1.0
+                ],
+                "continentalness": [
+                  -0.11,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  -0.375
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 1.1,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:eidolon": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:eidolon",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:frozen_graveyard",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.55
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:phantom_ice_sheets",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.35
+                ],
+                "humidity": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:hoarwood_taiga",
+              "parameters": {
+                "temperature": [
+                  -0.6499999999999999,
+                  0.04999999999999999
+                ],
+                "humidity": [
+                  0.25,
+                  0.95
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g2_moons": {
+      "type": "zerog_tweaks:airless",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_barren",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_cratered_plains",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_dust_badlands",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_canyon_scars",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  0.35,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g2_p1": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_ocean",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_deep_trenches",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_kelp_jungles",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_island_chains",
+              "parameters": {
+                "temperature": [
+                  0.55,
+                  1.0
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g2_p2": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_desert",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_dune_seas",
+              "parameters": {
+                "temperature": [
+                  0.55,
+                  1.0
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_mesa_canyons",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_salt_flats",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  0.25,
+                  0.95
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g2_p3": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_volcanic",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_basalt_fields",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_ash_plains",
+              "parameters": {
+                "temperature": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "humidity": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_lava_lakes",
+              "parameters": {
+                "temperature": [
+                  0.6,
+                  1.0
+                ],
+                "humidity": [
+                  0.55,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g2_p4": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_frozen",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_glaciers",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.55
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_ice_spike_forest",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.35
+                ],
+                "humidity": [
+                  0.25,
+                  0.95
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_frozen_canyons",
+              "parameters": {
+                "temperature": [
+                  -0.85,
+                  -0.15000000000000002
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g2_p5": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_toxic",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_acid_swamps",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  0.55,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_mud_flats",
+              "parameters": {
+                "temperature": [
+                  0.050000000000000044,
+                  0.75
+                ],
+                "humidity": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_moss_bogs",
+              "parameters": {
+                "temperature": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "humidity": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g2_p6": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_crystal",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_prism_fields",
+              "parameters": {
+                "temperature": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_crystal_caverns",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  0.35,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g3_moons": {
+      "type": "zerog_tweaks:airless",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_barren",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_cratered_plains",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_dust_badlands",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_canyon_scars",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  0.35,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g3_p1": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_frozen",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_glaciers",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.55
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_ice_spike_forest",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.35
+                ],
+                "humidity": [
+                  0.25,
+                  0.95
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_frozen_canyons",
+              "parameters": {
+                "temperature": [
+                  -0.85,
+                  -0.15000000000000002
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g3_p2": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_toxic",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_acid_swamps",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  0.55,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_mud_flats",
+              "parameters": {
+                "temperature": [
+                  0.050000000000000044,
+                  0.75
+                ],
+                "humidity": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_moss_bogs",
+              "parameters": {
+                "temperature": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "humidity": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g3_p3": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_crystal",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_prism_fields",
+              "parameters": {
+                "temperature": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_crystal_caverns",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  0.35,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g3_p4": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_barren",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_cratered_plains",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_dust_badlands",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_canyon_scars",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  0.35,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g3_p5": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_ocean",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_deep_trenches",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_kelp_jungles",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_island_chains",
+              "parameters": {
+                "temperature": [
+                  0.55,
+                  1.0
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g3_p6": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_desert",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_dune_seas",
+              "parameters": {
+                "temperature": [
+                  0.55,
+                  1.0
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_mesa_canyons",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_salt_flats",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  0.25,
+                  0.95
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g4_moons": {
+      "type": "zerog_tweaks:airless",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_barren",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_cratered_plains",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_dust_badlands",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_canyon_scars",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  0.35,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g4_p1": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_barren",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_cratered_plains",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_dust_badlands",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_canyon_scars",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  0.35,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g4_p2": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_ocean",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_deep_trenches",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_kelp_jungles",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_island_chains",
+              "parameters": {
+                "temperature": [
+                  0.55,
+                  1.0
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g4_p3": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_desert",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_dune_seas",
+              "parameters": {
+                "temperature": [
+                  0.55,
+                  1.0
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_mesa_canyons",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_salt_flats",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  0.25,
+                  0.95
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g4_p4": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_volcanic",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_basalt_fields",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_ash_plains",
+              "parameters": {
+                "temperature": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "humidity": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_lava_lakes",
+              "parameters": {
+                "temperature": [
+                  0.6,
+                  1.0
+                ],
+                "humidity": [
+                  0.55,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g4_p5": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_frozen",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_glaciers",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.55
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_ice_spike_forest",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.35
+                ],
+                "humidity": [
+                  0.25,
+                  0.95
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_frozen_canyons",
+              "parameters": {
+                "temperature": [
+                  -0.85,
+                  -0.15000000000000002
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g4_p6": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_toxic",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_acid_swamps",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  0.55,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_mud_flats",
+              "parameters": {
+                "temperature": [
+                  0.050000000000000044,
+                  0.75
+                ],
+                "humidity": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_moss_bogs",
+              "parameters": {
+                "temperature": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "humidity": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g5_moons": {
+      "type": "zerog_tweaks:airless",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_barren",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_cratered_plains",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_dust_badlands",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_canyon_scars",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  0.35,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g5_p1": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_volcanic",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_basalt_fields",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_ash_plains",
+              "parameters": {
+                "temperature": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "humidity": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_lava_lakes",
+              "parameters": {
+                "temperature": [
+                  0.6,
+                  1.0
+                ],
+                "humidity": [
+                  0.55,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g5_p2": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_frozen",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_glaciers",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.55
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_ice_spike_forest",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.35
+                ],
+                "humidity": [
+                  0.25,
+                  0.95
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_frozen_canyons",
+              "parameters": {
+                "temperature": [
+                  -0.85,
+                  -0.15000000000000002
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g5_p3": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_toxic",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_acid_swamps",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  0.55,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_mud_flats",
+              "parameters": {
+                "temperature": [
+                  0.050000000000000044,
+                  0.75
+                ],
+                "humidity": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_moss_bogs",
+              "parameters": {
+                "temperature": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "humidity": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g5_p4": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_crystal",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_prism_fields",
+              "parameters": {
+                "temperature": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_crystal_caverns",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  0.35,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g5_p5": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_barren",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_cratered_plains",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_dust_badlands",
+              "parameters": {
+                "temperature": [
+                  0.25,
+                  0.95
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_canyon_scars",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  0.35,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:g5_p6": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:wasteland_ocean",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:wasteland_deep_trenches",
+              "parameters": {
+                "temperature": [
+                  -0.35,
+                  0.35
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_kelp_jungles",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:wasteland_island_chains",
+              "parameters": {
+                "temperature": [
+                  0.55,
+                  1.0
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:mars": {
+      "type": "zerog_tweaks:planet",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:mars",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:rust_plains",
+              "parameters": {
+                "temperature": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:oxide_badlands",
+              "parameters": {
+                "temperature": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "humidity": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:polar_caps",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.55
+                ],
+                "humidity": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:moon": {
+      "type": "zerog_tweaks:airless",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:moon",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:lunar_highlands",
+              "parameters": {
+                "temperature": [
+                  -0.85,
+                  -0.15000000000000002
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:lunar_mare",
+              "parameters": {
+                "temperature": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:shadowed_craters",
+              "parameters": {
+                "temperature": [
+                  -1.0,
+                  -0.55
+                ],
+                "humidity": [
+                  0.15000000000000002,
+                  0.85
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:skarn": {
+      "type": "zerog_tweaks:planet_hot",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:skarn",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:ember_fields",
+              "parameters": {
+                "temperature": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:marble_contact_zone",
+              "parameters": {
+                "temperature": [
+                  -0.14999999999999997,
+                  0.55
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:charwood_barrens",
+              "parameters": {
+                "temperature": [
+                  -0.75,
+                  -0.050000000000000044
+                ],
+                "humidity": [
+                  0.25,
+                  0.95
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "zerog_tweaks:solvane": {
+      "type": "zerog_tweaks:planet_hot",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "zerog_tweaks:solvane",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "zerog_tweaks:corona_flats",
+              "parameters": {
+                "temperature": [
+                  0.55,
+                  1.0
+                ],
+                "humidity": [
+                  -0.35,
+                  0.35
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:sunspot_plateaus",
+              "parameters": {
+                "temperature": [
+                  0.050000000000000044,
+                  0.75
+                ],
+                "humidity": [
+                  -0.04999999999999999,
+                  0.6499999999999999
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            },
+            {
+              "biome": "zerog_tweaks:gildwood_oasis",
+              "parameters": {
+                "temperature": [
+                  -0.24999999999999997,
+                  0.44999999999999996
+                ],
+                "humidity": [
+                  0.45000000000000007,
+                  1.0
+                ],
+                "continentalness": [
+                  -1.0,
+                  1.0
+                ],
+                "erosion": [
+                  -1.0,
+                  1.0
+                ],
+                "weirdness": [
+                  -1.0,
+                  1.0
+                ],
+                "depth": 0.0,
+                "offset": 0.0
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

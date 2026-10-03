@@ -16,6 +16,7 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
     @Override public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
         var level=context.level(); var random=context.random(); var dim=level.getLevel().dimension().location().getPath();
         if (!ZGDimensionTerrain.SOILS.containsKey(dim)) return false;
+        var theme=PlanetEcologyProfile.theme(dim);
         var origin=context.origin(); var soil=ZGDimensionTerrain.SOILS.get(dim).get(); var grass=ZGDimensionTerrain.GRASS.get(dim).get();
         int radius=3+random.nextInt(3); boolean changed=false;
         for (int x=-radius;x<=radius;x++) for (int z=-radius;z<=radius;z++) {
@@ -33,19 +34,28 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
                 var plant=ZGDimensionTerrain.SHORT_GRASS.get(dim).get().defaultBlockState();
                 if (plant.canSurvive(level,pos.above())) level.setBlock(pos.above(),plant,2);
             }
-            if (random.nextInt(40)==0 && ZGDimensionTerrain.FLORA.containsKey(dim+"_glow_flower")) {
-                var plant=ZGDimensionTerrain.FLORA.get(dim+"_glow_flower").get().defaultBlockState();
+            if (random.nextInt(18)==0 && level.isEmptyBlock(pos.above()) && level.isEmptyBlock(pos.above(2))) {
+                var plant=ZGDimensionTerrain.TALL_GRASS.get(dim).get().defaultBlockState();
+                if(plant.canSurvive(level,pos.above())) net.minecraft.world.level.block.DoublePlantBlock.placeAt(level,plant,pos.above(),2);
+            }
+            if (random.nextInt(80)==0 && ZGDimensionTerrain.FLORA.containsKey(theme+"_tall_blossom")
+                    && level.isEmptyBlock(pos.above()) && level.isEmptyBlock(pos.above(2))) {
+                var plant=ZGDimensionTerrain.FLORA.get(theme+"_tall_blossom").get().defaultBlockState();
+                if(plant.canSurvive(level,pos.above())) net.minecraft.world.level.block.DoublePlantBlock.placeAt(level,plant,pos.above(),2);
+            }
+            if (random.nextInt(40)==0 && level.isEmptyBlock(pos.above()) && ZGDimensionTerrain.FLORA.containsKey(theme+"_glow_flower")) {
+                var plant=ZGDimensionTerrain.FLORA.get(theme+"_glow_flower").get().defaultBlockState();
                 if (plant.canSurvive(level,pos.above())) level.setBlock(pos.above(),plant,2);
             }
         }
         if (changed && random.nextInt(3)==0) {
-            String tree=switch(dim) {case "cerulon"->"shardwood";case "skarn"->"charwood";case "eidolon"->"hoarwood";case "solvane"->"gildwood";default->random.nextBoolean()?"oak":"birch";};
-            var key=ResourceLocation.fromNamespaceAndPath(tree.equals("oak")||tree.equals("birch")?"minecraft":"zerog_tweaks",
-                    tree.equals("oak")||tree.equals("birch")?tree:tree+"_tree");
+            String tree=PlanetEcologyProfile.tree(dim);
+            var key=ResourceLocation.fromNamespaceAndPath("zerog_tweaks",tree+"_tree");
             var configured=level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).get(key);
             if(configured!=null) {
                 var pos=level.getHeightmapPos(Heightmap.Types.WORLD_SURFACE_WG,origin);
-                if(level.getBlockState(pos.below()).is(grass)) configured.place(level,context.chunkGenerator(),random,pos);
+                if(level.getBlockState(pos.below()).is(grass) && configured.place(level,context.chunkGenerator(),random,pos))
+                    PlanetCaveEcologyFeature.decorateCanopy(level,random,pos,theme);
             }
         }
         if(changed && random.nextInt(12)==0 && net.zerog.tweaks.registry.ZGGasVents.VENTS.containsKey(dim)) {
@@ -53,7 +63,7 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
             if(level.getBlockState(pos).is(grass)) level.setBlock(pos,net.zerog.tweaks.registry.ZGGasVents.VENTS.get(dim).get().defaultBlockState(),2);
         }
         if(changed && random.nextInt(8)==0) {
-            var variants=net.zerog.tweaks.registry.ZGGlowbugs.HOMES.entrySet().stream().filter(e->e.getValue().equals(dim)).map(java.util.Map.Entry::getKey).toList();
+            var variants=net.zerog.tweaks.registry.ZGGlowbugs.HOMES.entrySet().stream().filter(e->e.getValue().equals(theme)).map(java.util.Map.Entry::getKey).toList();
             if(!variants.isEmpty()) {
                 String variant=variants.get(random.nextInt(variants.size()));
                 var pos=level.getHeightmapPos(Heightmap.Types.WORLD_SURFACE_WG,origin);

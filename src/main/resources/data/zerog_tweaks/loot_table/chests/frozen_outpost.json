@@ -141,6 +141,40 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zerog_tweaks:raw_rime_nickel",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zerog_tweaks:wraith_quartz",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "zerog_tweaks:frost_barley_seeds",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 10
+        }
+      ]
     }
   ],
   "random_sequence": "zerog_tweaks:chests/frozen_outpost"

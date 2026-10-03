@@ -55,6 +55,10 @@ public final class ZGDimensionTerrain {
                     () -> new ColoredFallingBlock(new ColorRGBA(0xFFB2A4B9), BlockBehaviour.Properties.ofFullCopy(Blocks.SAND))));
         }
         for (String planet : List.of("moon", "mars", "cerulon", "skarn", "eidolon", "solvane")) {
+            String blossomId=planet+"_tall_blossom";
+            var blossom=BlockInit.BLOCKS.register(blossomId, () -> new DoublePlantBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.PEONY).lightLevel(s -> 4)));
+            FLORA.put(blossomId,blossom); ITEMS.put(blossomId,blossom);
             for (String kind : List.of("glow_shrub", "glow_flower", "glow_mushroom")) {
                 String id = planet + "_" + kind;
                 var plant = BlockInit.BLOCKS.register(id, () -> new FlowerBlock(MobEffects.NIGHT_VISION, 5F,

@@ -45,6 +45,14 @@ public final class CreativeTabs {
             tab("ingredients", "nullifite_ingot", ZGCreativeTabContents.INGREDIENTS, FOOD_AND_DRINKS.getId(), true);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SPAWN_EGGS =
             tab("spawn_eggs", "mossback_spawn_egg", ZGCreativeTabContents.SPAWN_EGGS, INGREDIENTS.getId(), false);
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> LIQUIDS =
+            tab("liquids", "liquid_starlight_bucket", new String[0], SPAWN_EGGS.getId(), false);
+    public static java.util.List<Item> liquidItems() {
+        return BuiltInRegistries.ITEM.stream().filter(it -> it instanceof net.minecraft.world.item.BucketItem
+                && !(it instanceof net.minecraft.world.item.MobBucketItem)
+                && BuiltInRegistries.ITEM.getKey(it).getNamespace().equals(ZeroGTweaks.MODID))
+                .sorted(java.util.Comparator.comparing(it -> BuiltInRegistries.ITEM.getKey(it).getPath())).toList();
+    }
 
     private static DeferredHolder<CreativeModeTab, CreativeModeTab> tab(String name, String icon, String[] ids, ResourceLocation after, boolean catchAll) {
         return TABS.register(name, () -> CreativeModeTab.builder()
@@ -54,15 +62,32 @@ public final class CreativeTabs {
                 .displayItems((params, out) -> {
                     for (String id : ids) {
                         Item it = item(id);
-                        if (it != Items.AIR) out.accept(it);
+                        if (it != Items.AIR && (!(it instanceof net.minecraft.world.item.BucketItem) || it instanceof net.minecraft.world.item.MobBucketItem)) out.accept(it);
                     }
                     if (catchAll) {
                         Set<String> listed = new HashSet<>(HIDDEN);
+                        ZGPlanetCrops.CROPS.keySet().forEach(id -> listed.add(id+"_crop"));
+                        listed.addAll(ZGPlanetMaterials.BLOCK_ITEMS.keySet());
+                        ZGPlanetCrops.PLANET_CROPS.values().forEach(id -> { listed.add(id); listed.add(id+"_seeds"); });
+                        listed.add("rust_tuber_seeds");
+                        ZGDimensionTerrain.FLORA.keySet().stream().filter(id -> id.endsWith("_tall_blossom")).forEach(listed::add);
                         for (String[] list : ZGCreativeTabContents.ALL) listed.addAll(java.util.Arrays.asList(list));
                         for (Item it : BuiltInRegistries.ITEM) {
                             ResourceLocation key = BuiltInRegistries.ITEM.getKey(it);
-                            if (key.getNamespace().equals(ZeroGTweaks.MODID) && !listed.contains(key.getPath())) out.accept(it);
+                            if (key.getNamespace().equals(ZeroGTweaks.MODID) && !listed.contains(key.getPath()) && (!(it instanceof net.minecraft.world.item.BucketItem) || it instanceof net.minecraft.world.item.MobBucketItem)) out.accept(it);
                         }
+                    }
+                    if (name.equals("liquids")) liquidItems().forEach(out::accept);
+                    if (name.equals("building_blocks") || name.equals("natural_blocks")) {
+                        ZGPlanetMaterials.BLOCK_ITEMS.forEach((id, block) -> {
+                            if (id.endsWith("_ore") == name.equals("natural_blocks")) out.accept(block.get());
+                        });
+                    }
+                    if (name.equals("food_and_drinks")) ZGPlanetCrops.PLANET_CROPS.values().stream().sorted().forEach(id -> out.accept(item(id)));
+                    if (name.equals("natural_blocks")) {
+                        ZGPlanetCrops.PLANET_CROPS.values().stream().sorted().forEach(id -> out.accept(item(id+"_seeds")));
+                        out.accept(ItemInit.RUST_TUBER_SEEDS.get());
+                        ZGDimensionTerrain.FLORA.forEach((id, block) -> { if(id.endsWith("_tall_blossom")) out.accept(block.get()); });
                     }
                 })
                 .build());
