@@ -33,6 +33,8 @@ def to_nbt(v):
         return List[type(items[0])](items) if items else List[Compound]([])
     raise TypeError(v)
 
+def nbt_byte(v): return Byte(v)
+
 def name_of(state): return state.split('[', 1)[0]
 def props_of(state):
     if '[' not in state: return {}
@@ -63,6 +65,10 @@ class Room:
                'SpawnCount': cfg.get('count', 3), 'MaxNearbyEntities': cfg.get('max_nearby', 6),
                'RequiredPlayerRange': cfg.get('player_range', 16), 'SpawnRange': cfg.get('range', 4)}
         self.put(x, y, z, 'minecraft:spawner', nbt); self.notes[(x, y, z)] = label or ('spawner: ' + entity)
+    def dart(self, x, y, z, facing, arrows=16, label=None):
+        self.put(x, y, z, f'minecraft:dispenser[facing={facing},triggered=false]',
+                 {'id': 'minecraft:dispenser', 'Items': [{'Slot': nbt_byte(0), 'id': 'minecraft:arrow', 'count': arrows}]})
+        self.notes[(x, y, z)] = label or f'dart ({arrows} arrows)'
     def chest_minecart(self, x, z, y, table):
         self.entities.append(((x + .5, y + .0625, z + .5), (x, y, z),
                               {'id': 'minecraft:chest_minecart', 'LootTable': Z + 'chests/concord_vault/' + table}))
@@ -250,6 +256,7 @@ def _proc(kind):
             elif kind == 'crafting': c = (140 + n, 104 + n, 64 + n) if (x + y) % 6 else (90, 66, 40)
             elif kind == 'water': c = (40 + n, 90 + n, 190 + n)
             elif kind == 'spawner': c = (40, 46, 58) if (x % 4 == 0 or y % 4 == 0) else (14, 18, 26)
+            elif kind == 'dispenser': c = (96 + n, 98 + n, 104 + n) if not (5 <= x <= 10 and 5 <= y <= 10) else (30, 30, 34) if 6 <= x <= 9 and 6 <= y <= 9 else (60, 60, 66)
             elif kind == 'composter': c = (120 + n, 86 + n, 50 + n) if x in (0, 15) or y in (0, 15) or y % 5 else (70, 52, 32)
             else: c = (200, 0, 200)
             p[x, y] = tuple(int(max(0, min(255, v))) for v in c[:3]) + ((c[3],) if len(c) > 3 else (255,))
@@ -263,7 +270,7 @@ def tex_for(st, face):
     if ns == 'minecraft':
         m = {'barrel': 'barrel_top' if face in ('up', 'down') else 'barrel_side', 'chest': 'chest', 'chain': 'chain', 'rail': 'rail',
              'lectern': 'lectern', 'bookshelf': 'lectern' if face in ('up', 'down') else 'bookshelf', 'crafting_table': 'crafting',
-             'smithing_table': 'crafting', 'cartography_table': 'crafting', 'water': 'water', 'composter': 'composter', 'spawner': 'spawner'}.get(n, 'chest')
+             'smithing_table': 'crafting', 'cartography_table': 'crafting', 'water': 'water', 'composter': 'composter', 'spawner': 'spawner', 'dispenser': 'dispenser'}.get(n, 'chest')
         im = _proc(m)
     else:
         base = n
@@ -397,8 +404,10 @@ def sheet(room, meta, out_png):
     G = {k: glyphs[i] for i, k in enumerate(order)}
     # ---- page
     top, dep = meta.get('cut_top', 8), meta.get('cut_depth', 1)
-    views = [(meta.get('view_a_title', 'Cutaway from the south-west (south and west walls cut away)'), render(room, 38, 34, 30, hide=lambda x, y, z: y >= top or ((z >= 17 - dep or x < dep) and y >= 2), light=light)),
-             (meta.get('view_b_title', 'Cutaway from the north-east (north and east walls cut away)'), render(room, 218, 34, 30, hide=lambda x, y, z: y >= top or ((z < dep or x >= 17 - dep) and y >= 2), light=light))]
+    ha = meta.get('hide_a') or (lambda x, y, z: y >= top or ((z >= 17 - dep or x < dep) and y >= 2))
+    hb = meta.get('hide_b') or (lambda x, y, z: y >= top or ((z < dep or x >= 17 - dep) and y >= 2))
+    views = [(meta.get('view_a_title', 'Cutaway from the south-west (south and west walls cut away)'), render(room, 38, 34, 30, hide=ha, light=light)),
+             (meta.get('view_b_title', 'Cutaway from the north-east (north and east walls cut away)'), render(room, 218, 34, 30, hide=hb, light=light))]
     H = 4200
     img = Image.new('RGB', (W, H), BG); d = ImageDraw.Draw(img)
     d.text((50, 34), meta['title'], font=F(46, True), fill=INK)
