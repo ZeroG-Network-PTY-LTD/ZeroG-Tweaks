@@ -47,6 +47,16 @@ public final class CreativeTabs {
             tab("spawn_eggs", "mossback_spawn_egg", ZGCreativeTabContents.SPAWN_EGGS, INGREDIENTS.getId(), false);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> LIQUIDS =
             tab("liquids", "liquid_starlight_bucket", new String[0], SPAWN_EGGS.getId(), false);
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> HONEY_LIQUIDS =
+            tab("honey_liquids", "flora_bee_honey_bucket", new String[0], LIQUIDS.getId(), false);
+    public static java.util.List<Item> honeyLiquidItems() {
+        return liquidItems().stream().filter(it -> ZGPlanetApiary.FAMILIES.values().stream()
+                .anyMatch(family -> family.bucket.get() == it)).toList();
+    }
+    public static java.util.List<Item> planetaryLiquidItems() {
+        var honeys = new HashSet<>(honeyLiquidItems());
+        return liquidItems().stream().filter(it -> !honeys.contains(it)).toList();
+    }
     public static java.util.List<Item> liquidItems() {
         return BuiltInRegistries.ITEM.stream().filter(it -> it instanceof net.minecraft.world.item.BucketItem
                 && !(it instanceof net.minecraft.world.item.MobBucketItem)
@@ -71,6 +81,8 @@ public final class CreativeTabs {
                         listed.addAll(ZGPlanetMaterials.BLOCK_ITEMS.keySet());
                         ZGPlanetCrops.PLANET_CROPS.values().forEach(id -> { listed.add(id); listed.add(id+"_seeds"); });
                         listed.add("rust_tuber_seeds");
+                        ZGAlienAgriculture.HOMES.keySet().forEach(id->{listed.add(id);listed.add(id+"_seeds");listed.add(id+"_slice");});
+                        ZGPlanetCaveVariants.FAMILIES.keySet().forEach(id->{listed.add(id+"_cave_berry");listed.add(id+"_pointed_dripstone");listed.add(id+"_dripstone_block");});
                         ZGDimensionTerrain.FLORA.keySet().stream().filter(id -> id.endsWith("_tall_blossom")).forEach(listed::add);
                         for (String[] list : ZGCreativeTabContents.ALL) listed.addAll(java.util.Arrays.asList(list));
                         for (Item it : BuiltInRegistries.ITEM) {
@@ -78,7 +90,8 @@ public final class CreativeTabs {
                             if (key.getNamespace().equals(ZeroGTweaks.MODID) && !listed.contains(key.getPath()) && (!(it instanceof net.minecraft.world.item.BucketItem) || it instanceof net.minecraft.world.item.MobBucketItem)) out.accept(it);
                         }
                     }
-                    if (name.equals("liquids")) liquidItems().forEach(out::accept);
+                    if (name.equals("liquids")) planetaryLiquidItems().forEach(out::accept);
+                    if (name.equals("honey_liquids")) honeyLiquidItems().forEach(out::accept);
                     if (name.equals("building_blocks")) {
                         out.accept(item("star_glass_blue"));out.accept(item("star_glass_teal"));
                     }
@@ -88,7 +101,14 @@ public final class CreativeTabs {
                         });
                     }
                     if (name.equals("food_and_drinks")) ZGPlanetCrops.PLANET_CROPS.values().stream().sorted().forEach(id -> out.accept(item(id)));
+                    if(name.equals("food_and_drinks")) {
+                        ZGAlienAgriculture.HOMES.keySet().forEach(id->out.accept(item(ZGAlienAgriculture.GOURDS.containsKey(id)?id+"_slice":id)));
+                        ZGPlanetCaveVariants.FAMILIES.keySet().forEach(id->out.accept(item(id+"_cave_berry")));
+                    }
                     if (name.equals("natural_blocks")) {
+                        ZGAlienAgriculture.HOMES.keySet().forEach(id->out.accept(item(id+"_seeds")));
+                        ZGAlienAgriculture.GOURDS.values().forEach(block->out.accept(block.get()));
+                        ZGPlanetCaveVariants.FAMILIES.forEach((id,family)->{out.accept(family.point().get());out.accept(family.rock().get());});
                         ZGPlanetCrops.PLANET_CROPS.values().stream().sorted().forEach(id -> out.accept(item(id+"_seeds")));
                         out.accept(ItemInit.RUST_TUBER_SEEDS.get());
                         ZGDimensionTerrain.FLORA.forEach((id, block) -> { if(id.endsWith("_tall_blossom")) out.accept(block.get()); });

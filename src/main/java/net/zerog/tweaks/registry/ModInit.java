@@ -16,6 +16,8 @@ public final class ModInit {
         ZGPlanetBlazes.init(modBus);
         ZGPlanetMaterials.register(modBus);
         ZGPlanetCrops.init();
+        ZGAlienAgriculture.init();
+        ZGPlanetCaveVariants.init();
         EntityInit.register(modBus);
         BlockInit.register(modBus);
         ItemInit.register(modBus);

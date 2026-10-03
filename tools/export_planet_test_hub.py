@@ -8,7 +8,7 @@ def main():
     p.add_argument('--destination',type=Path,required=True)
     p.add_argument('--nbt-library',type=Path,required=True)
     p.add_argument('--export',action='store_true')
-    p.add_argument('--label',default='ZeroG Planet Showcase 1.0.6 — Seed 0')
+    p.add_argument('--label',default='ZeroG Planet Showcase 1.0.7 — Seed 0')
     a=p.parse_args();source=a.source.resolve();target=a.destination.resolve()
     assert (source/'level.dat').is_file() and (source/'zerog-hub-report.json').is_file()
     assert target.parent.name=='saves' and not target.exists(), 'Only a NEW save in saves/ is permitted'
@@ -23,7 +23,8 @@ def main():
     assert str(d['WorldGenSettings']['dimensions']['minecraft:overworld']['generator']['settings']['biome'])=='zerog_tweaks:planet_test_hub'
     result={'source':str(source),'destination':str(target),'seed':0,'gates':68,
             'exported':False,'existing_saves_changed':False,
-            'caveat':'Fresh independently seeded terrain; 34 demonstration colonies. Small samples do not certify complete ecology or client graphics.'}
+            'demonstration_colonies':report.get('demonstration_colonies',True),
+            'caveat':'Fresh independently seeded terrain; '+('34 demonstration colonies.' if report.get('demonstration_colonies',True) else 'No demonstration colonies; only rare natural village generation.')+' Small samples do not certify complete ecology or client graphics.'}
     if a.export:
         target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copytree(source,target,ignore=shutil.ignore_patterns('session.lock','playerdata','advancements','stats','level.dat_old'))

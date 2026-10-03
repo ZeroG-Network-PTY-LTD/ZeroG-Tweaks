@@ -138,7 +138,7 @@ def compile_planets(vanilla, mapped_sources):
         theme=(themes[int(name[1])-2][int(name[4])-1] if re.fullmatch(r'g[2-5]_p[1-6]',name)
                else "moon" if name.endswith("_moons") else name)
         habitat_biomes[theme].update(b["biome"] for b in dim["generator"]["biome_source"]["biomes"])
-    for feature, chance, step in (("planet_settlement", 36, "surface_structures"),
+    for feature, chance, step in (("planet_settlement", 1, "surface_structures"),
                                   ("planet_mineshaft", 18, "underground_structures")):
         write(DATA / f"zerog_tweaks/worldgen/configured_feature/{feature}.json",
               {"type": "zerog_tweaks:"+feature, "config": {}})

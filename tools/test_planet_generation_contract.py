@@ -35,5 +35,19 @@ class PlanetGenerationContract(unittest.TestCase):
         source = (ROOT / "src/main/java/net/zerog/tweaks/event/DailyPlanetImpacts.java").read_text()
         self.assertIn("ArrivalProtection.intersects", source)
 
+    def test_rare_settlements_have_region_spacing_and_ground_height(self):
+        source=(ROOT/'src/main/java/net/zerog/tweaks/worldgen/PlanetSettlementFeature.java').read_text()
+        self.assertIn('Math.floorDiv(cx,50)',source)
+        self.assertIn('rx*50+16+site.nextInt(18)',source)
+        self.assertIn('getZ())-1',source)
+        self.assertIn('Math.abs(h-y)>4',source)
+        self.assertNotIn('depth<64',source)
+        self.assertIn('level.setBlock(floor,nativeSurface,2)',source)
+
+    def test_cave_variants_register_before_soil_maps_populate(self):
+        source=(ROOT/'src/main/java/net/zerog/tweaks/registry/ZGPlanetCaveVariants.java').read_text()
+        self.assertIn('for(String id:ZGDimensionTerrain.dimensions())',source)
+        self.assertNotIn('for(String id:ZGDimensionTerrain.SOILS.keySet())',source)
+
 if __name__ == "__main__":
     unittest.main()

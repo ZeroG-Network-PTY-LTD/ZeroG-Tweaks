@@ -32,6 +32,8 @@ public final class PlanetHubGameTests {
                 var planets=new com.google.gson.JsonArray();report.add("planets",planets);
                 var player=helper.makeMockServerPlayerInLevel();
                 var terrainFingerprints=new java.util.HashSet<String>();
+                boolean cleanShowcase=Boolean.getBoolean("zerog.cleanShowcase");
+                report.addProperty("demonstration_colonies",!cleanShowcase);
                 try {
                     int index=0;
                     for(String name:ZGDimensionTerrain.dimensions()) {
@@ -69,6 +71,7 @@ public final class PlanetHubGameTests {
                         net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(protectedBreak);
                         helper.assertTrue(protectedBreak.isCanceled(),"Arrival gate can be broken "+id);
                         helper.assertTrue(!net.zerog.tweaks.event.DailyPlanetImpacts.impact(world,arrival.centre,6,name),"Impact entered arrival region "+id);
+                        if(!cleanShowcase) {
                         // Actual generated schematic, populated through the same server
                         // method as the ticking anchor. GameTest disables natural features.
                         for(int cx=6;cx<=10;cx++) for(int cz=6;cz<=10;cz++)world.getChunk(cx,cz);
@@ -89,6 +92,7 @@ public final class PlanetHubGameTests {
                                 new net.minecraft.world.phys.AABB(Vec3.atLowerCornerOf(outpost.offset(-20,0,-20)),Vec3.atLowerCornerOf(outpost.offset(20,8,20))))
                                 .stream().allMatch(v->net.minecraft.core.registries.BuiltInRegistries.VILLAGER_TYPE.getKey(v.getVillagerData().getType()).getNamespace().equals("zerog_tweaks")),
                                 "Outpost clothing not synchronized via native villager types "+id);
+                        }
                         entry.addProperty("tree_species",net.zerog.tweaks.worldgen.PlanetEcologyProfile.tree(name));
                         entry.addProperty("landing",arrival.centre.toShortString());
                         int ores=0,logs=0,vines=0,mushrooms=0;
@@ -121,6 +125,7 @@ public final class PlanetHubGameTests {
                     var roundtrip=GateLedger.load(ledger.save(new net.minecraft.nbt.CompoundTag(),server.registryAccess()),server.registryAccess());
                     helper.assertTrue(roundtrip.gates.get(GateLedger.key(gate.dimension,gate.centre)).energy==123456,"Gate energy not persisted");
                     ledger.add(gate);
+                    if(!cleanShowcase) {
                     // Actual natural feature placement, not the authored demos above.
                     var mars=PlanetTestHub.planet(server,"zerog_tweaks:mars");
                     int naturalSettlements=0;
@@ -131,7 +136,7 @@ public final class PlanetHubGameTests {
                             naturalSettlements++;naturalAnchors.add(colony);
                         }
                     }
-                    helper.assertTrue(naturalSettlements>0,"Natural worldgen produced no inhabited outposts in 144 Mars chunks");
+                    helper.assertTrue(naturalSettlements<=1,"Rare villages clustered within 144 Mars chunks");
                     for(var colony:naturalAnchors) {
                         var pos=colony.getBlockPos();
                         for(int cx=(pos.getX()-20)>>4;cx<=(pos.getX()+20)>>4;cx++)
@@ -165,12 +170,15 @@ public final class PlanetHubGameTests {
                     helper.assertTrue(core.is(net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(
                             net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","redshift_garnet_ore"))),"Comet rare centre missing");
                     report.addProperty("comet_remnant_fixture",true);
+                    }
                     try {
                         java.nio.file.Files.writeString(server.getWorldPath(net.minecraft.world.level.storage.LevelResource.ROOT).resolve("zerog-hub-report.json"),
                                 new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(report));
                     } catch(java.io.IOException ex) {throw new IllegalStateException("Cannot save hub evidence",ex);}
                 } finally {server.getPlayerList().remove(player);}
-            }).thenSucceed();
+            // Do not stop the test server in the same tick as cross-dimension
+            // portal tickets and neighbouring generation tasks were created.
+            }).thenIdle(400).thenSucceed();
     }
     private static void click(net.minecraft.server.level.ServerPlayer player,net.minecraft.core.BlockPos controller) {
         var hit=new BlockHitResult(Vec3.atCenterOf(controller),Direction.NORTH,controller,false);

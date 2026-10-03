@@ -91,8 +91,9 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
         int length=0;
         while(length<maximum && level.isEmptyBlock(start.below(length))) length++;
         if(length==0) return false;
-        var plant=hot?BlockInit.PYREVINE_PLANT.get():Blocks.CAVE_VINES_PLANT;
-        var head=hot?BlockInit.PYREVINE.get():Blocks.CAVE_VINES;
+        var family=net.zerog.tweaks.registry.ZGPlanetCaveVariants.FAMILIES.get(level.getLevel().dimension().location().getPath());
+        var plant=family!=null?family.body().get():hot?BlockInit.PYREVINE_PLANT.get():Blocks.CAVE_VINES_PLANT;
+        var head=family!=null?family.head().get():hot?BlockInit.PYREVINE.get():Blocks.CAVE_VINES;
         for(int n=0;n<length;n++) {
             var state=(n==length-1?head:plant).defaultBlockState().setValue(CaveVines.BERRIES,random.nextInt(4)==0);
             var pos=start.below(n);
@@ -106,7 +107,8 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
         while(length<maximum&&level.isEmptyBlock(start.relative(direction,length))) length++;
         for(int n=0;n<length;n++) {
             var thickness=n==length-1?DripstoneThickness.TIP:n==length-2?DripstoneThickness.FRUSTUM:n==0?DripstoneThickness.BASE:DripstoneThickness.MIDDLE;
-            var state=Blocks.POINTED_DRIPSTONE.defaultBlockState()
+            var family=net.zerog.tweaks.registry.ZGPlanetCaveVariants.FAMILIES.get(level.getLevel().dimension().location().getPath());
+            var state=(family==null?Blocks.POINTED_DRIPSTONE:family.point().get()).defaultBlockState()
                     .setValue(PointedDripstoneBlock.TIP_DIRECTION,direction).setValue(PointedDripstoneBlock.THICKNESS,thickness);
             var pos=start.relative(direction,n);
             if(!state.canSurvive(level,pos)) return n>0;

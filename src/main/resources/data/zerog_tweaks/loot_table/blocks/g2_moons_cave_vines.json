@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zerog_tweaks:g2_moons_cave_berry",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "zerog_tweaks:g2_moons_cave_vines",
+              "properties": {
+                "berries": "true"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

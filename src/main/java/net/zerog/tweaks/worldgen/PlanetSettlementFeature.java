@@ -34,9 +34,22 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
     @Override public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
         String dimension=context.level().getLevel().dimension().location().getPath();
         if(!ZGDimensionTerrain.SOILS.containsKey(dimension)) return false;
+        // One seed-selected candidate per 50x50 chunk region. Candidate offsets
+        // 16..33 guarantee at least 33 chunks between neighbouring region sites.
+        int cx=context.origin().getX()>>4,cz=context.origin().getZ()>>4;
+        int rx=Math.floorDiv(cx,50),rz=Math.floorDiv(cz,50);
+        var site=net.minecraft.util.RandomSource.create(context.level().getSeed() ^ ((long)rx*341873128712L)
+                ^ ((long)rz*132897987541L) ^ dimension.hashCode());
+        if(cx!=rx*50+16+site.nextInt(18) || cz!=rz*50+16+site.nextInt(18)) return false;
         var origin=context.origin().offset(8,0,8);
-        int y=Math.max(context.level().getHeight(Heightmap.Types.OCEAN_FLOOR_WG,origin.getX(),origin.getZ()),
-                context.level().getHeight(Heightmap.Types.WORLD_SURFACE_WG,origin.getX(),origin.getZ()));
+        int y=context.level().getHeight(Heightmap.Types.WORLD_SURFACE_WG,origin.getX(),origin.getZ())-1;
+        // Land only. A sea-surface height is not the solid grass/soil surface.
+        for(int x:new int[]{-18,0,18}) for(int z:new int[]{-18,0,18}) {
+            int h=context.level().getHeight(Heightmap.Types.WORLD_SURFACE_WG,origin.getX()+x,origin.getZ()+z)-1;
+            var ground=new BlockPos(origin.getX()+x,h,origin.getZ()+z);
+            if(Math.abs(h-y)>4 || !context.level().getFluidState(ground).isEmpty()
+                    || !context.level().getBlockState(ground).isSolidRender(context.level(),ground)) return false;
+        }
         return build(context.level(),new BlockPos(origin.getX(),y,origin.getZ()),dimension,context.random().nextInt(4),context.random());
     }
     public static boolean build(WorldGenLevel level,BlockPos centre,String dimension,int layout,RandomSource random) {
@@ -54,7 +67,20 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
             String block=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos).getBlock()).getPath();
             if(block.equals("landing_platform") || block.contains("gate_") || block.endsWith("_gate_frame")) return false;
         }
-        var hull=BlockInit.HULL_PLATING.get();
+        var hull=switch(PlanetEcologyProfile.theme(dimension)) {
+            case "mars" -> BlockInit.MARTIAN_STONE_BRICKS.get();
+            case "skarn" -> BlockInit.SKARN_ROCK_BRICKS.get();
+            case "solvane" -> BlockInit.SOLAR_STONE_BRICKS.get();
+            case "eidolon" -> BlockInit.FROSTROCK.get();
+            case "moon" -> BlockInit.LUNAR_STONE_BRICKS.get();
+            default -> BlockInit.CERULEAN_STONE_BRICKS.get();
+        };
+        var wood=switch(PlanetEcologyProfile.tree(dimension)) {
+            case "charwood" -> BlockInit.CHARWOOD_PLANKS.get();
+            case "hoarwood" -> BlockInit.HOARWOOD_PLANKS.get();
+            case "gildwood" -> BlockInit.GILDWOOD_PLANKS.get();
+            default -> BlockInit.SHARDWOOD_PLANKS.get();
+        };
         Block glass=random.nextBoolean()?Blocks.GLASS:switch(PlanetEcologyProfile.theme(dimension)) {
             case "mars" -> BlockInit.RUST_GLASS.get();
             case "eidolon", "moon" -> BlockInit.FROST_GLASS.get();
@@ -63,25 +89,27 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
             default -> BlockInit.CRYSTAL_GLASS.get();
         };
         for(int x=-19;x<=19;x++) for(int z=-19;z<=19;z++) {
+            // Leave the outer transition band untouched, rather than stamping
+            // a sharp rectangular green/brown lawn onto unrelated terrain.
+            if(Math.max(Math.abs(x),Math.abs(z))>17) continue;
             var floor=centre.offset(x,0,z);
+            int surfaceY=level.getHeight(Heightmap.Types.WORLD_SURFACE_WG,floor.getX(),floor.getZ())-1;
+            var nativeSurface=level.getBlockState(new BlockPos(floor.getX(),surfaceY,floor.getZ()));
+            if(!nativeSurface.getFluidState().isEmpty() || !nativeSurface.isSolidRender(level,floor))
+                nativeSurface=ZGDimensionTerrain.SOILS.get(dimension).get().defaultBlockState();
             for(int y=1;y<=9;y++) level.setBlock(floor.above(y),Blocks.AIR.defaultBlockState(),2);
-            for(int y=0;y<4;y++) level.setBlock(floor.below(y),ZGDimensionTerrain.SOILS.get(dimension).get().defaultBlockState(),2);
-            level.setBlock(floor,ZGDimensionTerrain.GRASS.get(dimension).get().defaultBlockState(),2);
+            for(int y=0;y<5;y++) level.setBlock(floor.below(y),ZGDimensionTerrain.SOILS.get(dimension).get().defaultBlockState(),2);
+            level.setBlock(floor,nativeSurface,2);
             if(Math.abs(x)<=1 || Math.abs(z)<=1) level.setBlock(floor,hull.defaultBlockState(),2);
         }
-        for(int x:new int[]{-18,0,18}) for(int z:new int[]{-18,0,18}) {
-            var base=centre.offset(x,-4,z);
-            for(int depth=0;depth<64 && base.getY()-depth>level.getMinBuildHeight();depth++) {
-                var at=base.below(depth);if(level.getBlockState(at).isSolidRender(level,at)) break;
-                level.setBlock(at,hull.defaultBlockState(),2);
-            }
-        }
+        // No raised sea platforms or long pylons: accepted terrain must already
+        // be within four blocks of this ground-level footprint.
         int index=0;
         for(var home:homes(layout)) {
             var at=centre.offset(home);
             for(int x=-4;x<=4;x++) for(int z=-4;z<=4;z++) for(int y=0;y<=6;y++) {
                 var pos=at.offset(x,y,z);
-                if(y==0 || y==1 && (Math.abs(x)==4 || Math.abs(z)==4)) level.setBlock(pos,hull.defaultBlockState(),2);
+                if(y==0 || y==1 && (Math.abs(x)==4 || Math.abs(z)==4)) level.setBlock(pos,wood.defaultBlockState(),2);
                 else if(y>=2 && (Math.abs(x)==4 || Math.abs(z)==4 || y==6)) {
                     boolean rib=Math.abs(x)==4 && Math.abs(z)==4 || y==6 && (x%4==0 || z%4==0);
                     // Alternate roof heights create stepped dome/greenhouse ribs.
@@ -113,7 +141,9 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
             if(x==0) level.setBlock(pos,Blocks.WATER.defaultBlockState(),2);
             else {
                 level.setBlock(pos,ZGDimensionTerrain.FARMLANDS.get(dimension).get().defaultBlockState().setValue(FarmBlock.MOISTURE,7),2);
-                var crop=ZGPlanetCrops.CROPS.get(ZGPlanetCrops.PLANET_CROPS.get(PlanetEcologyProfile.theme(dimension))).get();
+                var vegetables=net.zerog.tweaks.registry.ZGAlienAgriculture.vegetables(PlanetEcologyProfile.theme(dimension));
+                var crop=vegetables.isEmpty()?ZGPlanetCrops.CROPS.get(ZGPlanetCrops.PLANET_CROPS.get(PlanetEcologyProfile.theme(dimension))).get():
+                        net.zerog.tweaks.registry.ZGAlienAgriculture.CROPS.get(vegetables.get(Math.floorMod(x+z,vegetables.size()))).get();
                 level.setBlock(pos.above(),crop.getStateForAge(crop.getMaxAge()),2);
             }
         }

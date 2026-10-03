@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "zerog_tweaks:eidolon_cave_berry",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "zerog_tweaks:eidolon_cave_vines_plant",
+              "properties": {
+                "berries": "true"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
