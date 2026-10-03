@@ -1,0 +1,13 @@
+# Concord Vault rooms: full design sheets
+
+One sheet and one drop-in template per room. Rules: `../../briefs/concord_vault.md`.
+
+| # | Room | Sheet | Template | Status |
+| --- | --- | --- | --- | --- |
+| 1 | Storage Hall | `01_storage_hall.png` | `storage_hall.nbt` | designed |
+| 2-10 | crystal_garden, starlight_pool, collapsed_mine, prismling_nest, star_library, trap_hall, forge, observatory, concord_shrine | | | next |
+
+Each sheet has two cutaway views, a plan of every layer (y 0-8), the block list with counts, a light map, the loot, connectors and gameplay notes, and the rule check.
+
+To use a template, copy it over `1.21.x` `src/main/resources/data/zerog_tweaks/structure/concord_vault/rooms/<name>.nbt`. The name is the same, so the `branches` pool needs no change.
+Generators: `../../generators/vault_rooms/room_<name>.py` (shared code in `room_kit.py`). Block textures come from `1.21.x`.
