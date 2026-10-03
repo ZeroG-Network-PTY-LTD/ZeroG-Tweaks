@@ -16,6 +16,9 @@ public interface ZGGeoMob {
     default Set<String> toggleableBones() { return Set.of(); }
     default Set<String> hiddenBones() { return Set.of(); }
 
+    /** The art set to draw this mob with (base = the renderer's id); styled mobs return e.g. "mossback_autumn". */
+    default String assetId(String base) { return base; }
+
     /** body: idle/move loop; eyes: blink; action: attack (both triggered from the server with triggerAnim). */
     static void registerControllers(GeoEntity mob, AnimatableManager.ControllerRegistrar controllers, String id, String moveClip) {
         String p = "animation.zerog_tweaks." + id + ".";

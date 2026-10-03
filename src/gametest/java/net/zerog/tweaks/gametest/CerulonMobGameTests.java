@@ -101,6 +101,69 @@ public final class CerulonMobGameTests {
         helper.succeed();
     }
 
+    @GameTest(template = "equipment_empty", timeoutTicks = 20)
+    public static void mossback_styles_and_stats(GameTestHelper helper) {
+        int[] hits = new int[net.zerog.tweaks.entity.Mossback.Style.values().length];
+        for (int roll = 0; roll < 100; roll++) hits[net.zerog.tweaks.entity.Mossback.Style.forRoll(roll).ordinal()]++;
+        helper.assertTrue(hits[0] == 65 && hits[1] == 20 && hits[2] == 10 && hits[3] == 5,
+                "Mossback styles should be 65/20/10/5, got " + java.util.Arrays.toString(hits));
+        var moss = EntityInit.MOSSBACK.get().create(helper.getLevel());
+        helper.assertTrue(moss.getMaxHealth() == 40
+                && moss.getAttributeValue(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE) == 7,
+                "Mossback should have 40 HP and 7 damage");
+        helper.assertTrue(Math.abs(moss.getBbWidth() - 2.5) < 0.001 && Math.abs(moss.getBbHeight() - 2.0) < 0.001, "Hitbox 2.5 x 2");
+        moss.setStyle(net.zerog.tweaks.entity.Mossback.Style.BLOSSOM);
+        helper.assertTrue("mossback_blossom".equals(moss.assetId("mossback")), "Style should pick its own art set");
+        CompoundTag tag = new CompoundTag();
+        moss.addAdditionalSaveData(tag);
+        var back = EntityInit.MOSSBACK.get().create(helper.getLevel());
+        back.readAdditionalSaveData(tag);
+        helper.assertTrue(back.getStyle() == net.zerog.tweaks.entity.Mossback.Style.BLOSSOM, "Style lost on reload");
+        helper.succeed();
+    }
+
+    @GameTest(template = "equipment_empty", timeoutTicks = 20)
+    public static void mossback_calf_keeps_a_parent_style(GameTestHelper helper) {
+        var a = EntityInit.MOSSBACK.get().create(helper.getLevel());
+        var b = EntityInit.MOSSBACK.get().create(helper.getLevel());
+        a.setStyle(net.zerog.tweaks.entity.Mossback.Style.RUINBACK);
+        b.setStyle(net.zerog.tweaks.entity.Mossback.Style.AUTUMN);
+        for (int i = 0; i < 20; i++) {
+            var calf = (net.zerog.tweaks.entity.Mossback) a.getBreedOffspring(helper.getLevel(), b);
+            var st = calf.getStyle();
+            helper.assertTrue(st == net.zerog.tweaks.entity.Mossback.Style.RUINBACK || st == net.zerog.tweaks.entity.Mossback.Style.AUTUMN,
+                    "Calf style should come from a parent, got " + st);
+        }
+        helper.succeed();
+    }
+
+    @GameTest(template = "equipment_empty", timeoutTicks = 100)
+    public static void mossback_is_neutral_until_hit(GameTestHelper helper) {
+        var moss = helper.spawn(EntityInit.MOSSBACK.get(), 8, 2, 8);
+        var player = helper.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.moveTo(helper.absoluteVec(new net.minecraft.world.phys.Vec3(10.5, 2, 8.5)));
+        helper.runAfterDelay(30, () -> {
+            helper.assertTrue(moss.getTarget() == null, "A Mossback should ignore a player who didn't hit it");
+            moss.hurt(helper.getLevel().damageSources().playerAttack(player), 1.0F);
+            helper.runAfterDelay(20, () -> {
+                helper.assertTrue(moss.isAngry() || moss.getTarget() == player, "A hit Mossback should fight back");
+                moss.discard();
+                helper.succeed();
+            });
+        });
+    }
+
+    @GameTest(template = "equipment_empty", timeoutTicks = 20)
+    public static void mossback_roams_the_azure_plains(GameTestHelper helper) {
+        var biomes = helper.getLevel().registryAccess().registryOrThrow(Registries.BIOME);
+        Biome plains = biomes.getOrThrow(ResourceKey.create(Registries.BIOME, rl("azure_plains")));
+        Biome shores = biomes.getOrThrow(ResourceKey.create(Registries.BIOME, rl("crystal_shores")));
+        helper.assertTrue(spawns(plains, MobCategory.CREATURE, EntityInit.MOSSBACK.get()), "Mossbacks belong on the plains");
+        helper.assertFalse(spawns(shores, MobCategory.CREATURE, EntityInit.MOSSBACK.get()), "No Mossbacks on the shores");
+        helper.assertTrue(SpawnPlacements.getPlacementType(EntityInit.MOSSBACK.get()) == SpawnPlacementTypes.ON_GROUND, "Mossback spawn rule");
+        helper.succeed();
+    }
+
     private static boolean spawns(Biome biome, MobCategory category, EntityType<?> type) {
         return biome.getMobSettings().getMobs(category).unwrap().stream().anyMatch(d -> d.type == type);
     }

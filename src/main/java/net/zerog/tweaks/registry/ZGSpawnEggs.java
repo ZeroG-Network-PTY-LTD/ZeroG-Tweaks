@@ -45,7 +45,7 @@ public final class ZGSpawnEggs {
     public static final DeferredItem<ZGSpawnEggItem> ICE_LEECH = egg("ice_leech", 0x6AD0C0, 0xD0FBFB, "zerog_tweaks:ice_leech");
     public static final DeferredItem<ZGSpawnEggItem> METEOR_MAW = egg("meteor_maw", 0x3E3739, 0xC9A8FF, "shatteredskies:meteor_maw", "zerog_tweaks:meteor_maw");
     public static final DeferredItem<ZGSpawnEggItem> MOON_HOPPER = egg("moon_hopper", 0xECEEF2, 0xE8A0B0, "zerog_tweaks:moon_hopper");
-    public static final DeferredItem<ZGSpawnEggItem> MOSSBACK = egg("mossback", 0x5A4230, 0xC9A8FF, "shatteredskies:mossback", "zerog_tweaks:mossback");
+    public static final DeferredItem<ZGSpawnEggItem> MOSSBACK = egg("mossback", 0x5A4230, 0xC9A8FF, "zerog_tweaks:mossback");
     public static final DeferredItem<ZGSpawnEggItem> PRISM_SENTINEL = egg("prism_sentinel", 0x3FC9E8, 0xE0DCB8, "zerog_tweaks:prism_sentinel");
     public static final DeferredItem<ZGSpawnEggItem> PRISMLING = egg("prismling", 0x1592B8, 0xE8FFFF, "zerog_tweaks:prismling");
     public static final DeferredItem<ZGSpawnEggItem> REGOLITH_CRAWLER = egg("regolith_crawler", 0x9A9AA0, 0x6FE0FF, "zerog_tweaks:regolith_crawler");

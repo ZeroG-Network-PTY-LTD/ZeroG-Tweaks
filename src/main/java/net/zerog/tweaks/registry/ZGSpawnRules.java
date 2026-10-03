@@ -34,6 +34,8 @@ public final class ZGSpawnRules {
                 ZGSpawnRules::landAnimal, replace);
         event.register(EntityInit.AZURE_FOWL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ZGSpawnRules::landAnimal, replace);
+        event.register(EntityInit.MOSSBACK.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ZGSpawnRules::landAnimal, replace);
         event.register(EntityInit.PRISMLING_HOLDER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ZGSpawnRules::prismling, replace);
         event.register(EntityInit.GLIMMERFISH.get(), SpawnPlacementTypes.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

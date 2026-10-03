@@ -12,6 +12,7 @@ import net.zerog.tweaks.ZeroGTweaks;
 import net.zerog.tweaks.entity.AzureFowl;
 import net.zerog.tweaks.entity.CrystalStag;
 import net.zerog.tweaks.entity.Glimmerfish;
+import net.zerog.tweaks.entity.Mossback;
 import net.zerog.tweaks.entity.DuneBurrower;
 import net.zerog.tweaks.entity.FrostYak;
 import net.zerog.tweaks.entity.PrismSentinel;
@@ -55,6 +56,10 @@ public final class EntityInit {
     public static final DeferredHolder<EntityType<?>, EntityType<Glimmerfish>> GLIMMERFISH =
             ENTITIES.register("glimmerfish", () -> EntityType.Builder.<Glimmerfish>of(Glimmerfish::new, MobCategory.WATER_AMBIENT)
                     .sized(0.5F, 0.4F).eyeHeight(0.26F).clientTrackingRange(4).build("zerog_tweaks:glimmerfish"));
+    // Shattered Skies grazer, roams Cerulon's Azure Moss plains (2.5 x 2 hitbox per its sheet)
+    public static final DeferredHolder<EntityType<?>, EntityType<Mossback>> MOSSBACK =
+            ENTITIES.register("mossback", () -> EntityType.Builder.<Mossback>of(Mossback::new, MobCategory.CREATURE)
+                    .sized(2.5F, 2.0F).clientTrackingRange(10).build("zerog_tweaks:mossback"));
     // Galaxy 2 guardian: raised by the Concord Prism in its Cerulon arena; no natural spawning.
     public static final DeferredHolder<EntityType<?>, EntityType<PrismSentinel>> PRISM_SENTINEL =
             ENTITIES.register("prism_sentinel", () -> EntityType.Builder.<PrismSentinel>of(PrismSentinel::new, MobCategory.MONSTER)
@@ -73,5 +78,6 @@ public final class EntityInit {
         event.put(PRISM_SENTINEL.get(), PrismSentinel.createAttributes().build());
         event.put(AZURE_FOWL.get(), AzureFowl.createAttributes().build());
         event.put(GLIMMERFISH.get(), Glimmerfish.createAttributes().build());
+        event.put(MOSSBACK.get(), Mossback.createAttributes().build());
     }
 }

@@ -29,6 +29,8 @@ public final class EntityInitHooks {
                 c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c, "prismling", 0.35F));
         event.registerEntityRenderer(EntityInit.AZURE_FOWL.get(),
                 c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c, "azure_fowl", 0.3F));
+        event.registerEntityRenderer(EntityInit.MOSSBACK.get(),
+                c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c, "mossback", 1.3F));
         event.registerEntityRenderer(EntityInit.GLIMMERFISH.get(),
                 c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c, "glimmerfish", 0.2F));
         event.registerEntityRenderer(EntityInit.RUST_BEETLE.get(),
