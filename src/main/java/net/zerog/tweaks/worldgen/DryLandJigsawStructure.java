@@ -29,7 +29,9 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSetting
  * the sea. This builds the jigsaw exactly like vanilla (start projected to WORLD_SURFACE_WG, start_height added on
  * top), then samples a 5x5 grid over the finished bounding box and rejects the spot if any sample is under water
  * (surface above the ocean floor) or the surface varies by more than max_height_difference. With search_radius set,
- * it tries nearby spots before giving up (needed when the placement allows only one arena per world).
+ * it tries nearby spots before giving up. With always_place set (one-arena-per-world placements) it never gives up:
+ * if no spot passes, it takes the best one it saw (fewest wet samples, then flattest) and the beard foundation
+ * fills in under it, so a world can't end up without its arena.
  */
 public class DryLandJigsawStructure extends Structure {
     public static final MapCodec<DryLandJigsawStructure> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
@@ -39,7 +41,8 @@ public class DryLandJigsawStructure extends Structure {
             Codec.intRange(-64, 64).optionalFieldOf("start_height", 0).forGetter(s -> s.startHeight),
             Codec.intRange(1, 128).optionalFieldOf("max_distance_from_center", 80).forGetter(s -> s.maxDistanceFromCenter),
             Codec.intRange(0, 64).optionalFieldOf("max_height_difference", 4).forGetter(s -> s.maxHeightDifference),
-            Codec.intRange(0, 80).optionalFieldOf("search_radius", 0).forGetter(s -> s.searchRadius)
+            Codec.intRange(0, 80).optionalFieldOf("search_radius", 0).forGetter(s -> s.searchRadius),
+            Codec.BOOL.optionalFieldOf("always_place", false).forGetter(s -> s.alwaysPlace)
     ).apply(instance, DryLandJigsawStructure::new));
 
     private static final int SAMPLES = 5;
@@ -51,9 +54,11 @@ public class DryLandJigsawStructure extends Structure {
     private final int maxDistanceFromCenter;
     private final int maxHeightDifference;
     private final int searchRadius;
+    private final boolean alwaysPlace;
 
     public DryLandJigsawStructure(StructureSettings settings, Holder<StructureTemplatePool> startPool, int maxDepth,
-                                  int startHeight, int maxDistanceFromCenter, int maxHeightDifference, int searchRadius) {
+                                  int startHeight, int maxDistanceFromCenter, int maxHeightDifference, int searchRadius,
+                                  boolean alwaysPlace) {
         super(settings);
         this.startPool = startPool;
         this.maxDepth = maxDepth;
@@ -61,14 +66,15 @@ public class DryLandJigsawStructure extends Structure {
         this.maxDistanceFromCenter = maxDistanceFromCenter;
         this.maxHeightDifference = maxHeightDifference;
         this.searchRadius = searchRadius;
+        this.alwaysPlace = alwaysPlace;
     }
 
     @Override
     protected Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
         var chunk = context.chunkPos();
         // search_radius > 0 (one-per-world placements such as concentric_rings): try spots on a 16-block grid around the
-        // chunk, nearest first, so a single placement that lands on water still finds the closest dry ground. Capped at 80:
-        // pieces must stay within 8 chunks of the start chunk to be referenced (80 + a 47-wide template <= 128)
+        // chunk, nearest first, so a single placement that lands on water still finds the closest dry ground. Pieces must
+        // stay within 8 chunks of the start chunk to be referenced: keep search_radius + template width <= 128.
         List<int[]> offsets = new ArrayList<>();
         for (int ox = -searchRadius; ox <= searchRadius; ox += SEARCH_STEP) {
             for (int oz = -searchRadius; oz <= searchRadius; oz += SEARCH_STEP) {
@@ -76,6 +82,8 @@ public class DryLandJigsawStructure extends Structure {
             }
         }
         offsets.sort(Comparator.comparingInt(o -> o[0] * o[0] + o[1] * o[1]));
+        GenerationStub best = null;
+        int bestScore = Integer.MAX_VALUE;
         for (int[] o : offsets) {
             Optional<GenerationStub> stub = JigsawPlacement.addPieces(context, startPool, Optional.empty(), maxDepth,
                     new BlockPos(chunk.getMinBlockX() + o[0], startHeight, chunk.getMinBlockZ() + o[1]), false,
@@ -84,11 +92,12 @@ public class DryLandJigsawStructure extends Structure {
             if (stub.isEmpty() || !isValidBiomeAt(context, stub.get().position())) continue;
             // build the pieces now (the stub would build them later anyway) so the real footprint can be checked
             StructurePiecesBuilder pieces = stub.get().getPiecesBuilder();
-            if (isDryAndLevel(context, pieces.getBoundingBox())) {
-                return Optional.of(new GenerationStub(stub.get().position(), Either.right(pieces)));
-            }
+            var found = new GenerationStub(stub.get().position(), Either.right(pieces));
+            int score = siteScore(context, pieces.getBoundingBox());
+            if (score == 0) return Optional.of(found);
+            if (score < bestScore) { bestScore = score; best = found; }
         }
-        return Optional.empty();
+        return alwaysPlace ? Optional.ofNullable(best) : Optional.empty();
     }
 
     /** Same test Structure#generate applies to the returned stub; checked per candidate so the search skips water biomes. */
@@ -97,9 +106,10 @@ public class DryLandJigsawStructure extends Structure {
                 QuartPos.fromBlock(pos.getY()), QuartPos.fromBlock(pos.getZ()), context.randomState().sampler()));
     }
 
-    private boolean isDryAndLevel(GenerationContext context, BoundingBox box) {
+    /** 0 = dry and level enough. Otherwise worse the more samples are wet (x8), then the more uneven it is. */
+    private int siteScore(GenerationContext context, BoundingBox box) {
         var generator = context.chunkGenerator();
-        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, wet = 0;
         for (int i = 0; i < SAMPLES; i++) {
             for (int k = 0; k < SAMPLES; k++) {
                 int x = box.minX() + (box.maxX() - box.minX()) * i / (SAMPLES - 1);
@@ -108,12 +118,12 @@ public class DryLandJigsawStructure extends Structure {
                         context.heightAccessor(), context.randomState());
                 int floor = generator.getFirstFreeHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG,
                         context.heightAccessor(), context.randomState());
-                if (surface > floor) return false; // fluid on top
-                min = Math.min(min, surface);
-                max = Math.max(max, surface);
+                if (surface > floor) wet++;   // fluid on top
+                min = Math.min(min, floor);
+                max = Math.max(max, floor);
             }
         }
-        return max - min <= maxHeightDifference;
+        return wet * 8 + Math.max(0, max - min - maxHeightDifference);
     }
 
     @Override

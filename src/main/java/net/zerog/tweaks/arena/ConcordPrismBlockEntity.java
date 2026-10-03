@@ -31,20 +31,18 @@ import net.zerog.tweaks.registry.EntityInit;
 /**
  * Runs the Prism Sentinel fight for one arena (Design briefs/prism_sentinel_arena.md, section 5).
  *
- * IDLE: right-click asks "Are you Concord?", seals the entrance with prism barriers and, 3 s later, raises the Sentinel
- * from the prism (ACTIVE). If every player leaves or dies for 10 s, the Sentinel withdraws, the barrier opens and the
+ * IDLE: right-click asks "Are you Concord?", seals the entrance with prism barriers and, 3 s later, the Sentinel forms
+ * on the fight floor between the dais and the entrance (ACTIVE). If every player leaves or dies for 10 s, the Sentinel withdraws, the barrier opens and the
  * prism goes back to IDLE. When the Sentinel dies: the heir line, the barrier opens, the oculus lights and the prism
  * goes DEFEATED. A DEFEATED prism re-arms with a Sentinel Prism (rematch: no gate key).
  *
- * Arena geometry is read relative to the prism, so it works for any rotation of the structure: the fight floor is
- * 3 below it, the entrance is the one wall side (20-21 blocks out) that is open just above the floor, and the oculus
- * centre is 23 above it.
+ * Arena geometry is read relative to the prism ({@link PrismArena}), so it works for any rotation of the structure:
+ * the entrance is the one wall side that is open just above the floor.
  */
 public class ConcordPrismBlockEntity extends BlockEntity {
     public static final int SUMMON_DELAY = 60;
     public static final int EMPTY_RESET = 200;
     private static final int MISSING_GRACE = 100;
-    static final int FLOOR_DY = -3, OCULUS_DY = 23;
 
     @Nullable private UUID sentinel;
     private final List<BlockPos> barrier = new ArrayList<>();
@@ -113,7 +111,7 @@ public class ConcordPrismBlockEntity extends BlockEntity {
         if (st == State.DEFEATED) {
             // the oculus beam: light falling from the skylight onto the prism
             if (level.getGameTime() % 5 == 0) {
-                double y = worldPosition.getY() + 1 + level.random.nextDouble() * (OCULUS_DY - 1);
+                double y = worldPosition.getY() + 1 + level.random.nextDouble() * (PrismArena.OCULUS_ABOVE_PRISM - 1);
                 level.sendParticles(ParticleTypes.END_ROD, worldPosition.getX() + 0.5, y, worldPosition.getZ() + 0.5,
                         1, 0.15, 0.4, 0.15, 0.0);
             }
@@ -135,7 +133,15 @@ public class ConcordPrismBlockEntity extends BlockEntity {
     private void summon(ServerLevel level) {
         PrismSentinel boss = EntityInit.PRISM_SENTINEL.get().create(level);
         if (boss == null) { reset(level, null); return; }
-        boss.moveTo(worldPosition.getX() + 0.5, worldPosition.getY() + 1, worldPosition.getZ() + 0.5, 180, 0);
+        // on the floor between the dais and the entrance, facing the way in
+        Direction d = entrance(level);
+        Direction toward = d != null ? d : Direction.SOUTH;
+        double x = worldPosition.getX() + 0.5 + toward.getStepX() * PrismArena.SENTINEL_START;
+        double z = worldPosition.getZ() + 0.5 + toward.getStepZ() * PrismArena.SENTINEL_START;
+        double y = worldPosition.getY() - PrismArena.FLOOR_BELOW_PRISM + 1;
+        boss.moveTo(x, y, z, toward.toYRot(), 0);
+        boss.setYHeadRot(toward.toYRot());
+        level.sendParticles(ParticleTypes.END_ROD, x, y + 5, z, 120, 1.5, 4, 1.5, 0.05);
         boss.bindToPrism(worldPosition, rematch);
         boss.finalizeSpawn(level, level.getCurrentDifficultyAt(worldPosition), MobSpawnType.EVENT, null);
         level.addFreshEntity(boss);
@@ -157,7 +163,7 @@ public class ConcordPrismBlockEntity extends BlockEntity {
     // ---- arena geometry ----------------------------------------------------------------------------------------------
 
     public AABB arenaBox() {
-        double h = PrismSentinel.ARENA_HALF;
+        double h = PrismArena.HALF + 4;   // the boss bar and chat reach a little past the walls
         return new AABB(worldPosition.getX() + 0.5 - h, worldPosition.getY() - 10, worldPosition.getZ() + 0.5 - h,
                 worldPosition.getX() + 0.5 + h, worldPosition.getY() + 32, worldPosition.getZ() + 0.5 + h);
     }
@@ -170,9 +176,10 @@ public class ConcordPrismBlockEntity extends BlockEntity {
     /** The side of the wall that is open just above the floor: the entrance. */
     @Nullable
     Direction entrance(Level level) {
-        BlockPos above = worldPosition.above(FLOOR_DY + 2);
+        BlockPos above = worldPosition.below(PrismArena.FLOOR_BELOW_PRISM - 2);
         for (Direction d : Direction.Plane.HORIZONTAL) {
-            if (level.getBlockState(above.relative(d, 20)).isAir() && level.getBlockState(above.relative(d, 21)).isAir()) return d;
+            if (level.getBlockState(above.relative(d, PrismArena.ENTRANCE_NEAR)).isAir()
+                    && level.getBlockState(above.relative(d, PrismArena.ENTRANCE_FAR)).isAir()) return d;
         }
         return null;
     }
@@ -182,9 +189,10 @@ public class ConcordPrismBlockEntity extends BlockEntity {
         if (d == null) return;
         Direction side = d.getClockWise();
         BlockState wall = BlockInit.PRISM_BARRIER.get().defaultBlockState();
-        for (int out = 20; out <= 21; out++) {
-            for (int lateral = -2; lateral <= 2; lateral++) {
-                for (int dy = FLOOR_DY + 1; dy <= FLOOR_DY + 7; dy++) {
+        int floor = -PrismArena.FLOOR_BELOW_PRISM;
+        for (int out = PrismArena.ENTRANCE_NEAR; out <= PrismArena.ENTRANCE_FAR; out++) {
+            for (int lateral = -PrismArena.ENTRANCE_HALF_WIDTH; lateral <= PrismArena.ENTRANCE_HALF_WIDTH; lateral++) {
+                for (int dy = floor + 1; dy <= floor + PrismArena.ENTRANCE_HEIGHT; dy++) {
                     BlockPos p = worldPosition.relative(d, out).relative(side, lateral).above(dy);
                     if (level.getBlockState(p).isAir()) {
                         level.setBlock(p, wall, Block.UPDATE_ALL);
@@ -204,7 +212,7 @@ public class ConcordPrismBlockEntity extends BlockEntity {
 
     /** Lit oculus after a victory: the shimmer-glass core over the dais becomes a pulsar lamp. */
     private void setOculus(ServerLevel level, boolean lit) {
-        BlockPos p = worldPosition.above(OCULUS_DY);
+        BlockPos p = worldPosition.above(PrismArena.OCULUS_ABOVE_PRISM);
         BlockState now = level.getBlockState(p);
         if (lit && now.is(BlockInit.SHIMMER_GLASS.get())) {
             level.setBlock(p, BlockInit.PULSAR_LAMP.get().defaultBlockState(), Block.UPDATE_ALL);

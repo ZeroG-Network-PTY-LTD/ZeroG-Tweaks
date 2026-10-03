@@ -49,6 +49,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.zerog.tweaks.ZeroGTweaks;
 import net.zerog.tweaks.arena.ConcordPrismBlockEntity;
+import net.zerog.tweaks.arena.PrismArena;
 import org.joml.Vector3f;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
@@ -60,25 +61,25 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
  * Prism Sentinel, the Galaxy 2 guardian (mob spec prism_sentinel; Design briefs/prism_sentinel_arena.md section 5).
- * A test, not a hunt: 3.6 x 10.8, floats, shards orbit the core on a 4 s loop.
+ * A test, not a hunt: 3.6 x 10.8, glides on its pedestal just above the floor (so melee reaches it), shards orbit
+ * the core on a 4 s loop.
  *
- * Phase 0 rises from the Concord Prism (invulnerable). Phase 1 (above 2/3 health): beams that bounce off an orbiting
+ * Phase 0: forms on the fight floor (invulnerable for 2 s). Phase 1 (above 2/3 health): beams that bounce off an orbiting
  * shard. Phase 2: the shards break loose and circle the arena (8 damage on contact), beams slow down. Phase 3 (below 1/3):
  * the core cracks open in windows; hits while it is open deal double. Beams stop on any solid block, so the arena's
- * refractor pylons (#zerog_tweaks:beam_blocking) are cover. Tied to its prism by an anchor; it stays within
- * {@link #LEASH} blocks of it and reports its death back so the arena can open.
+ * refractor pylons (#zerog_tweaks:beam_blocking) are cover. Tied to its prism by an anchor; it stays on the fight
+ * floor ({@link #LEASH} blocks) and reports its death back so the arena can open. Arena sizes: {@link PrismArena}.
  */
 public class PrismSentinel extends Monster implements GeoEntity {
     public static final TagKey<Block> BEAM_BLOCKING =
             TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID, "beam_blocking"));
     public static final int INTRO_TICKS = 40;
-    public static final double LEASH = 20;
-    /** Arena box around the prism (the 47 x 32 x 47 template, inflated by 4) that gets the boss bar. */
-    public static final double ARENA_HALF = 23.5 + 4;
+    public static final double LEASH = PrismArena.FLOOR_RADIUS + 4;
     private static final float BEAM_DAMAGE = 10;
     private static final float SHARD_DAMAGE = 8;
     private static final double ORBIT_RADIUS = 4.0, ORBIT_HEIGHT = 6.8;
-    private static final double SPIN_RADIUS = 11.0;
+    private static final double SPIN_RADIUS = 15.0;
+    private static final double GLIDE = 0.1;   // pedestal clearance over the floor
     private static final ParticleOptions BEAM_DUST = new DustParticleOptions(new Vector3f(0.35F, 0.9F, 1.0F), 1.6F);
     private static final ParticleOptions SHARD_DUST = new DustParticleOptions(new Vector3f(0.75F, 0.97F, 1.0F), 2.2F);
 
@@ -133,6 +134,11 @@ public class PrismSentinel extends Monster implements GeoEntity {
         return Vec3.atBottomCenterOf(anchor != null ? anchor : blockPosition());
     }
 
+    /** The y the Sentinel stands at: on top of the fight floor. */
+    private double floorY() {
+        return homeCentre().y - PrismArena.FLOOR_BELOW_PRISM + 1;
+    }
+
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
@@ -179,10 +185,14 @@ public class PrismSentinel extends Monster implements GeoEntity {
         super.aiStep();
         setNoGravity(true);
         if (level().isClientSide) return;
-        if (anchor == null) anchor = blockPosition().below(3);   // egg/command: leash to the spawn point
+        // egg/command: treat the spawn point as the fight floor of an imaginary arena around it
+        if (anchor == null) anchor = blockPosition().above(PrismArena.FLOOR_BELOW_PRISM - 1);
         int phase = getPhase();
         if (phase == 0) {
-            setDeltaMovement(0, 0.06, 0);                         // the rise out of the prism
+            setDeltaMovement(Vec3.ZERO);                          // forming: light gathers into the body
+            if (tickCount % 3 == 0) {
+                ((ServerLevel) level()).sendParticles(BEAM_DUST, getX(), getY() + 5, getZ(), 6, 1.6, 4.5, 1.6, 0);
+            }
             if (tickCount >= INTRO_TICKS) entityData.set(PHASE, 1);
             return;
         }
@@ -215,7 +225,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
     /** Phase 2+: the four shards circle the arena at chest height and cut anyone they pass through. */
     private void spinShards(ServerLevel level) {
         Vec3 c = homeCentre();
-        double y = c.y - 1.5;   // the prism sits 3 above the fight floor; shards fly 1.5 above the floor
+        double y = floorY() + 1.2;   // chest height over the fight floor
         double turn = (tickCount % 200) / 200.0 * Math.PI * 2;
         shardHitCooldown.replaceAll((k, v) -> v - 1);
         shardHitCooldown.values().removeIf(v -> v <= 0);
@@ -300,9 +310,11 @@ public class PrismSentinel extends Monster implements GeoEntity {
         }
     }
 
+    /** The arena (template footprint + 4) around the prism: who sees the boss bar and hears the Sentinel. */
     public AABB arenaBox() {
         Vec3 c = homeCentre();
-        return new AABB(c.x - ARENA_HALF, c.y - 10, c.z - ARENA_HALF, c.x + ARENA_HALF, c.y + 32, c.z + ARENA_HALF);
+        double h = PrismArena.HALF + 4, f = floorY();
+        return new AABB(c.x - h, f - 6, c.z - h, c.x + h, f + 40, c.z + h);
     }
 
     @Override
@@ -351,25 +363,26 @@ public class PrismSentinel extends Monster implements GeoEntity {
 
     // ---- goals -------------------------------------------------------------------------------------------------------
 
-    /** Teleports back over the dais if it is ever pushed or pulled more than LEASH blocks from its prism. */
+    /** Teleports back onto the fight floor if it is ever pushed off it or lifted away. */
     private final class StayInArenaGoal extends Goal {
         StayInArenaGoal() { setFlags(EnumSet.of(Flag.MOVE)); }
         @Override
         public boolean canUse() {
             if (getPhase() == 0) return false;
             Vec3 c = homeCentre();
-            return Mth.square(getX() - c.x) + Mth.square(getZ() - c.z) > LEASH * LEASH || Math.abs(getY() - c.y) > 12;
+            return Mth.square(getX() - c.x) + Mth.square(getZ() - c.z) > LEASH * LEASH || Math.abs(getY() - floorY()) > 6;
         }
         @Override
         public void start() {
             Vec3 c = homeCentre();
             ((ServerLevel) level()).sendParticles(BEAM_DUST, getX(), getY() + 5, getZ(), 40, 1.5, 4, 1.5, 0);
-            teleportTo(c.x, c.y + 3, c.z);
+            double a = Math.atan2(getZ() - c.z, getX() - c.x);
+            teleportTo(c.x + Math.cos(a) * PrismArena.SENTINEL_START, floorY() + GLIDE, c.z + Math.sin(a) * PrismArena.SENTINEL_START);
             playSound(SoundEvents.ENDERMAN_TELEPORT, 2F, 0.6F);
         }
     }
 
-    /** Drifts around the dais just above the floor, on the far side from its target so beams cross the fight floor. */
+    /** Glides over the fight floor around the dais, on the far side from its target so beams cross the floor. */
     private final class HoverGoal extends Goal {
         private int retarget;
         HoverGoal() { setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK)); }
@@ -384,16 +397,15 @@ public class PrismSentinel extends Monster implements GeoEntity {
             if (--retarget > 0) return;
             retarget = 40 + random.nextInt(30);
             Vec3 c = homeCentre();
-            double bob = 0.5 + random.nextDouble() * 1.5;
+            double y = floorY() + GLIDE;
             if (target == null || !target.isAlive()) {
-                // no challenger: hold over the prism
-                getMoveControl().setWantedPosition(c.x, c.y + 1 + bob, c.z, 0.6);
+                getMoveControl().setWantedPosition(getX(), y, getZ(), 0.6);   // no challenger: hold its ground
                 return;
             }
-            // over the flat fight floor (outside the r4 dais), base just above it so melee can reach it
+            // stay on the open floor: clear of the dais (r4 + half its width) and inside the floor edge
             double a = Math.atan2(target.getZ() - c.z, target.getX() - c.x) + Math.PI + (random.nextDouble() - 0.5);
-            double r = 6 + random.nextDouble() * 3.5;
-            getMoveControl().setWantedPosition(c.x + Math.cos(a) * r, c.y - 3 + bob, c.z + Math.sin(a) * r, 0.8);
+            double r = PrismArena.DAIS_RADIUS + 4 + random.nextDouble() * (PrismArena.FLOOR_RADIUS - PrismArena.DAIS_RADIUS - 8);
+            getMoveControl().setWantedPosition(c.x + Math.cos(a) * r, y, c.z + Math.sin(a) * r, 0.8);
         }
     }
 

@@ -102,15 +102,16 @@ public final class PrismSentinelGameTests {
         helper.assertTrue(prism.state() == ConcordPrismBlock.State.ACTIVE, "Starting should make the prism ACTIVE");
         helper.assertFalse(prism.start(helper.getLevel()), "An active prism must not start twice");
         helper.runAfterDelay(ConcordPrismBlockEntity.SUMMON_DELAY + 5, () -> {
-            var bosses = helper.getLevel().getEntitiesOfClass(PrismSentinel.class, prism.arenaBox());
+            var bosses = ownSentinels(helper, prism);
             helper.assertTrue(bosses.size() == 1, "Expected 1 Sentinel after the countdown, found " + bosses.size());
-            helper.assertTrue(helper.absolutePos(rel).equals(bosses.get(0).getAnchor()), "Sentinel not bound to its prism");
+            var boss = bosses.get(0);
+            helper.assertTrue(Math.abs(boss.getY() - (helper.absolutePos(rel).getY() - 2)) < 1.5,
+                    "The Sentinel should stand on the fight floor, 3 below the prism; y=" + boss.getY());
         });
         // no player inside: after EMPTY_RESET ticks the Sentinel withdraws and the prism re-opens
         helper.runAfterDelay(ConcordPrismBlockEntity.SUMMON_DELAY + ConcordPrismBlockEntity.EMPTY_RESET + 20, () -> {
             helper.assertTrue(prism.state() == ConcordPrismBlock.State.IDLE, "Prism should reset to IDLE, is " + prism.state());
-            helper.assertTrue(helper.getLevel().getEntitiesOfClass(PrismSentinel.class, prism.arenaBox()).isEmpty(),
-                    "The Sentinel should withdraw on reset");
+            helper.assertTrue(ownSentinels(helper, prism).isEmpty(), "The Sentinel should withdraw on reset");
             helper.succeed();
         });
     }
@@ -125,6 +126,12 @@ public final class PrismSentinelGameTests {
         helper.assertTrue(prism.state() == ConcordPrismBlock.State.IDLE && prism.isRematch(), "Re-arm should give IDLE + rematch");
         helper.assertFalse(prism.rearm(helper.getLevel()), "Only a DEFEATED prism re-arms");
         helper.succeed();
+    }
+
+    /** Sentinels bound to this prism (tests run side by side, so the arena box can hold other tests' bosses). */
+    private static java.util.List<PrismSentinel> ownSentinels(GameTestHelper helper, ConcordPrismBlockEntity prism) {
+        return helper.getLevel().getEntitiesOfClass(PrismSentinel.class, prism.arenaBox(),
+                s -> prism.getBlockPos().equals(s.getAnchor()));
     }
 
     private static boolean dropped(GameTestHelper helper, Item item, int from, int to) {
