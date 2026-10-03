@@ -154,7 +154,7 @@ class Room:
         for k, v in (('_slab', 'slab'), ('_stairs', 'stairs'), ('_fence_gate', 'gate'), ('_fence', 'fence'), ('_wall', 'wall'),
                      ('chain', 'chain'), ('rail', 'rail'), ('_trapdoor', 'trapdoor'), ('lectern', 'lectern'), ('chest', 'chest'),
                      ('potted_', 'pot'), ('_pressure_plate', 'plate'), ('_carpet', 'plate'), ('starbloom', 'plant'),
-                     ('cluster', 'plant'), ('_bud', 'bud'), ('_button', 'button'), ('minecraft:water', 'water'), ('composter', 'composter')):
+                     ('cluster', 'plant'), ('_bud', 'bud'), ('_button', 'button'), ('minecraft:water', 'water'), ('liquid_starlight', 'water'), ('composter', 'composter')):
             if k in n: return v
         return 'full'
 
@@ -265,7 +265,7 @@ def tex_for(st, face):
         if base.startswith('potted_'): base = base[7:]
         if base.endswith('_cerulite_bud'): cands0 = [base, 'cerulite_cluster']
         else: cands0 = []
-        cands = list(cands0)
+        cands = list(cands0) + [base + '_still']
         if face in ('up', 'down'): cands += [base + '_top', base + '_log_top' if base.endswith('_wood') else '']
         if base.endswith('_brick') : base += 's'
         cands += [base, base.replace('_brick', '_bricks'), base + 's', base.replace('_wood', '_log'), base.replace('stripped_shardwood_wood', 'stripped_shardwood_log')]

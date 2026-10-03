@@ -6,7 +6,8 @@ One sheet and one drop-in template per room. Rules: `../../briefs/concord_vault.
 | --- | --- | --- | --- | --- |
 | 1 | Storage Hall | `01_storage_hall.png` | `storage_hall.nbt` | designed |
 | 2 | Crystal Garden | `02_crystal_garden.png` | `crystal_garden.nbt` | designed |
-| 3-10 | starlight_pool, collapsed_mine, prismling_nest, star_library, trap_hall, forge, observatory, concord_shrine | | | next |
+| 3 | Starlight Pool | `03_starlight_pool.png` | `starlight_pool.nbt` | designed |
+| 4-10 | collapsed_mine, prismling_nest, star_library, trap_hall, forge, observatory, concord_shrine | | | next |
 
 Each sheet has two cutaway views, a plan of every layer (y 0-8), the block list with counts, a light map, the loot, connectors and gameplay notes, and the rule check.
 
