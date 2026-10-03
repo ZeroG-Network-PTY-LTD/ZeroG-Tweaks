@@ -5,7 +5,53 @@ Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's
 economy together. This local work-in-progress also requires GeckoLib for the Tidewraith integration.
 
-Current candidate **1.0.2-dev** · NeoForge **21.1.252** · Minecraft **1.21.1** · Java **21**
+Current candidate **1.0.5-dev** · NeoForge **21.1.252** · Minecraft **1.21.1** · Java **21**
+
+## Current development update — weather, planets and the test hub
+
+[Download 1.0.5-dev](docs/jars/zerog-tweaks-1.21.1-1.0.5-dev.jar)
+· [Checksums](docs/jars/SHA256SUMS.txt)
+· [Test hub and gameplay changes](docs/planet-test-hub-1.21.1.md)
+· [Alien weather controls](docs/alien-weather-1.21.1.md)
+· [Optional realism status](docs/optional-realism-1.21.1.md).
+
+The current candidate includes food-property/cooking/hide/dye repairs, a separate
+Liquids tab, layered 10-block comet remnants, planetary panorama sky, cave
+ecology additions and a selectable test-hub world preset. The isolated seed-0
+hub verified all 34 destination/return routes (68 gates); **this does not certify
+complete planet ecology**. Small samples contained no tree logs. New village
+layouts, additional concept structures and full survival gate progression remain
+unfinished. A normal world with seed 0 is not automatically the hub: select
+the ZeroG Planet Test Hub preset or use the separately exported test save.
+
+Experimental **client-only cosmetic weather** adds dust/ash/spore/snow/electrical
+effects, particle funnels and native-rendered lightning. Use **ZeroG Weather** on
+the title screen; defaults Off, with Low/High controls. No tornado damage or
+terrain destruction is introduced by these effects. Airless moons stay clear.
+
+[Original ZeroG Atmosphere 0.1 shader ZIP](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/raw/refs/heads/Design/docs/asset-collection-1.21.1/zero-g-realism-v1/ZeroG-Atmosphere-0.1.zip)
+adds ray-marched clouds, haze and subtle bloom, with quality presets and airless
+exceptions. Iris 1.8.12 + its required Sodium 0.6.13 NeoForge pair were installed
+locally with shaders disabled. **Shader syntax/link checks and normal JAR builds
+passed; client/GPU visuals, performance and full modpack compatibility remain
+unverified.** This is not complete photorealism, PBR lighting, DLSS or hardware
+ray tracing. The third-party Optimum Realism pack stays local and is not included.
+
+![Original planetary universe panorama — source artwork, not an in-game screenshot](docs/images/planet-space-sky-1.21.1/universe_v1.png)
+
+### Earlier planetary artwork update
+
+[Planet artwork, seeds and minerals](docs/planet-art-and-minerals-1.21.1.md):
+six growable grain crops, plantable Solflower/Rust Tuber seeds, refreshed soils
+and grass, six tall Torch Blossoms, animated plant highlights, twelve mineral
+families, rare cosmic Blazes, and inventory icon repairs. **Build and static
+asset checks only; no client/server tests for that snapshot.** This is historical
+evidence, not runtime approval of the current candidate.
+
+[Download the local 1.0.3-dev candidate](docs/jars/zerog-tweaks-1.21.1-1.0.3-dev.jar)
+· [Checksums](docs/jars/SHA256SUMS.txt).
+
+![New planetary soil and grass artwork — offline reference](docs/images/planet-art-refresh-1.21.1/soil-and-grass.png)
 
 [Cerulon threading hotfix](docs/cerulon-threading-hotfix-1.21.1.md): occupied
 planet hives now store bee data rather than constructing live bees on worldgen
@@ -24,7 +70,7 @@ The [dimension ecology guide](docs/dimension-ecology-1.21.1.md) adds soil,
 farmland, grass and sands for all 34 dimensions, natural pools for the five
 additional fluids, glowing flora/bugs, coloured gas vents and daily bounded
 terrain-damaging impact remnants. **Back up saves: daily impacts are enabled
-by default and configurable.** Alien crop/fruit varieties remain future work.
+by default and configurable.** Further alien vegetables and tree fruits remain future work.
 
 ![Six dimensional fluid animations — offline reference](docs/images/crystal-material-update-1.21.1/dimension_fluids_reference.gif)
 

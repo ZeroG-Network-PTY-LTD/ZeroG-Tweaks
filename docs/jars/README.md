@@ -1,6 +1,30 @@
 # Development candidate — not a shipped release
 
-## Current: zerog-tweaks-1.21.1-1.0.2-dev.jar
+## Current: zerog-tweaks-1.21.1-1.0.5-dev.jar
+
+See [test hub and gameplay update](../planet-test-hub-1.21.1.md),
+[cosmetic weather](../alien-weather-1.21.1.md) and
+[optional realism](../optional-realism-1.21.1.md). Includes earlier inventory,
+planet-art/mineral/crop and occupied-hive threading fixes, plus food/recipe
+repairs, Liquids tab, 10-block layered impacts, planet sky, cave ecology, hub
+routes and opt-in client weather. Normal build and static asset checks passed.
+The earlier isolated hub run checked 34 destinations / 68 routes; it does not
+validate all current gameplay, trees or client rendering. No client was launched
+for this candidate. Shader ZIP is separate and requires Iris/Sodium; neither
+third-party graphics mod is embedded in the Tweaks JAR. Defaults remain lightweight.
+
+## Historical: zerog-tweaks-1.21.1-1.0.3-dev.jar
+
+See [planet artwork, seeds and minerals](../planet-art-and-minerals-1.21.1.md).
+Adds six four-stage grain crops, plantable Solflower/Rust Tuber seeds, six tall
+blossoms, redesigned soil/grass, twelve mineral families, scarce cosmic Blazes,
+and built-in inventory texture repairs for the separate Binnie companion.
+Normal build and packaged static checks only: no server tests or client launch
+for this candidate. Historical test results below do not validate 1.0.3-dev.
+The 1.0.2 hive-threading fix remains. Restart the Java CurseForge client after
+installation; new ores/plant placement require newly generated chunks.
+
+## Historical threading hotfix: zerog-tweaks-1.21.1-1.0.2-dev.jar
 
 Fixes the Cerulon occupied-hive worldgen threading crash. See the
 [cause, regression evidence and limits](../cerulon-threading-hotfix-1.21.1.md).
