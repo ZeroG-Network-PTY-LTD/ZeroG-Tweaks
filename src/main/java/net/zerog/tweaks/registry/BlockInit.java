@@ -60,6 +60,14 @@ public final class BlockInit {
     public static final DeferredBlock<Block> ASTRIUM_ORE = BLOCKS.register("astrium_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> AURELION_BLOCK = BLOCKS.register("aurelion_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> AURELION_ORE = BLOCKS.register("aurelion_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
+    /** Concord Vault: the lock that builds the Sentinel chamber, and the altars that hold its keys. Unbreakable. */
+    public static final DeferredBlock<net.zerog.tweaks.arena.ConcordLockBlock> CONCORD_LOCK = BLOCKS.registerBlock("concord_lock",
+            net.zerog.tweaks.arena.ConcordLockBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK)
+                    .sound(SoundType.AMETHYST).strength(-1.0F, 3600000.0F).noLootTable().lightLevel(s -> 7).pushReaction(PushReaction.BLOCK));
+    public static final DeferredBlock<net.zerog.tweaks.arena.VaultKeyAltarBlock> VAULT_KEY_ALTAR = BLOCKS.registerBlock("vault_key_altar",
+            net.zerog.tweaks.arena.VaultKeyAltarBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK)
+                    .sound(SoundType.AMETHYST).strength(-1.0F, 3600000.0F).noLootTable()
+                    .lightLevel(net.zerog.tweaks.arena.VaultKeyAltarBlock::light).pushReaction(PushReaction.BLOCK));
     /** Liquid Starlight (fluid: ZGFluids). Light 12; swimming in it gives Slow Falling and Night Vision. */
     public static final DeferredBlock<LiquidStarlightBlock> LIQUID_STARLIGHT = BLOCKS.register("liquid_starlight",
             () -> new LiquidStarlightBlock(ZGFluids.LIQUID_STARLIGHT.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)

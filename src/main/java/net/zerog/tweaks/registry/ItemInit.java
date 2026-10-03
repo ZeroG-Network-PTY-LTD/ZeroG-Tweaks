@@ -50,6 +50,11 @@ public final class ItemInit {
     public static final DeferredItem<BlockItem> ASTRIUM_ORE_ITEM = ITEMS.registerSimpleBlockItem("astrium_ore", BlockInit.ASTRIUM_ORE);
     public static final DeferredItem<BlockItem> AURELION_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("aurelion_block", BlockInit.AURELION_BLOCK);
     public static final DeferredItem<BlockItem> AURELION_ORE_ITEM = ITEMS.registerSimpleBlockItem("aurelion_ore", BlockInit.AURELION_ORE);
+    public static final DeferredItem<BlockItem> CONCORD_LOCK_ITEM = ITEMS.registerSimpleBlockItem("concord_lock", BlockInit.CONCORD_LOCK);
+    public static final DeferredItem<BlockItem> VAULT_KEY_ALTAR_ITEM = ITEMS.registerSimpleBlockItem("vault_key_altar", BlockInit.VAULT_KEY_ALTAR);
+    /** One of the four keys a Concord Vault hides in its rooms; each one used on the Concord Lock builds the chamber. */
+    public static final DeferredItem<Item> CONCORD_VAULT_KEY = ITEMS.register("concord_vault_key",
+            () -> new Item(new Item.Properties().stacksTo(4).rarity(net.minecraft.world.item.Rarity.UNCOMMON)));
     public static final DeferredItem<BlockItem> CERULEAN_SOIL_ITEM = ITEMS.registerSimpleBlockItem("cerulean_soil", BlockInit.CERULEAN_SOIL);
     public static final DeferredItem<net.minecraft.world.item.BucketItem> LIQUID_STARLIGHT_BUCKET = ITEMS.register("liquid_starlight_bucket",
             () -> new net.minecraft.world.item.BucketItem(ZGFluids.LIQUID_STARLIGHT.get(),

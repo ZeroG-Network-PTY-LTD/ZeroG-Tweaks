@@ -263,7 +263,7 @@ public final class ZGCreativeTabContents {
             "salvage_station", "cyrrium_casing", "tectium_casing", "wraithsteel_casing", "astrium_casing", "gate_controller",
             "gate_pad_plate", "gate_pylon", "gate_energy_port", "gate_lens_housing", "nullifite_gate_frame",
             "moonsteel_gate_frame", "cerulite_gate_frame", "skarnite_gate_frame", "eidolite_gate_frame", "solvanite_gate_frame",
-            "landing_platform", "crystal_cell", "cryo_pod", "broken_console", "concord_prism", "prism_barrier"
+            "landing_platform", "crystal_cell", "cryo_pod", "broken_console", "concord_prism", "prism_barrier", "concord_lock", "vault_key_altar", "concord_vault_key"
     };
 
     /** Tools & Utilities (91 entries) */

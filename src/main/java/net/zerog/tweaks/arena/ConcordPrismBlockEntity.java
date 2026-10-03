@@ -37,7 +37,7 @@ import net.zerog.tweaks.registry.EntityInit;
  * goes DEFEATED. A DEFEATED prism re-arms with a Sentinel Prism (rematch: no gate key).
  *
  * Arena geometry is read relative to the prism ({@link PrismArena}), so it works for any rotation of the structure:
- * the entrance is the one wall side that is open just above the floor.
+ * doorways are wall sides open just above the floor; the fight seals all of them (the Concord Vault chamber has four).
  */
 public class ConcordPrismBlockEntity extends BlockEntity {
     public static final int SUMMON_DELAY = 60;
@@ -185,8 +185,19 @@ public class ConcordPrismBlockEntity extends BlockEntity {
     }
 
     private void seal(ServerLevel level) {
-        Direction d = entrance(level);
-        if (d == null) return;
+        for (Direction d : Direction.Plane.HORIZONTAL) {
+            if (isOpen(level, d)) sealSide(level, d);
+        }
+    }
+
+    /** True if the wall is open on this side just above the floor (a doorway). */
+    private boolean isOpen(Level level, Direction d) {
+        BlockPos above = worldPosition.below(PrismArena.FLOOR_BELOW_PRISM - 2);
+        return level.getBlockState(above.relative(d, PrismArena.ENTRANCE_NEAR)).isAir()
+                && level.getBlockState(above.relative(d, PrismArena.ENTRANCE_FAR)).isAir();
+    }
+
+    private void sealSide(ServerLevel level, Direction d) {
         Direction side = d.getClockWise();
         BlockState wall = BlockInit.PRISM_BARRIER.get().defaultBlockState();
         int floor = -PrismArena.FLOOR_BELOW_PRISM;

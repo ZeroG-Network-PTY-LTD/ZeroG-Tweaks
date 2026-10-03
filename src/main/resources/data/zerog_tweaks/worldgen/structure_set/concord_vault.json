@@ -1,16 +1,18 @@
 {
   "structures": [
     {
-      "structure": "zerog_tweaks:prism_sentinel_arena",
+      "structure": "zerog_tweaks:concord_vault",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:concentric_rings",
-    "salt": 487215903,
+    "salt": 734190221,
     "distance": 6,
     "spread": 1,
     "count": 1,
-    "preferred_biomes": "#zerog_tweaks:has_structure/prism_sentinel_arena"
+    "preferred_biomes": [
+      "zerog_tweaks:concord_quarries"
+    ]
   }
 }
