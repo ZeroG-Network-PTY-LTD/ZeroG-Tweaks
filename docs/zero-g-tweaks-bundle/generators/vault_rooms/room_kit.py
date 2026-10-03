@@ -57,6 +57,12 @@ class Room:
         self.put(x, y, z, f'minecraft:jigsaw[orientation={facing}_up]', {
             'id': 'minecraft:jigsaw', 'name': Z + 'door', 'target': Z + 'door', 'pool': CORR,
             'final_state': 'minecraft:air', 'joint': 'aligned', 'placement_priority': 0, 'selection_priority': 0})
+    def spawner(self, x, y, z, entity, label=None, **cfg):
+        nbt = {'id': 'minecraft:mob_spawner', 'SpawnData': {'entity': {'id': entity}}, 'SpawnPotentials': [],
+               'Delay': 20, 'MinSpawnDelay': cfg.get('min_delay', 200), 'MaxSpawnDelay': cfg.get('max_delay', 800),
+               'SpawnCount': cfg.get('count', 3), 'MaxNearbyEntities': cfg.get('max_nearby', 6),
+               'RequiredPlayerRange': cfg.get('player_range', 16), 'SpawnRange': cfg.get('range', 4)}
+        self.put(x, y, z, 'minecraft:spawner', nbt); self.notes[(x, y, z)] = label or ('spawner: ' + entity)
     def chest_minecart(self, x, z, y, table):
         self.entities.append(((x + .5, y + .0625, z + .5), (x, y, z),
                               {'id': 'minecraft:chest_minecart', 'LootTable': Z + 'chests/concord_vault/' + table}))
@@ -243,6 +249,7 @@ def _proc(kind):
             elif kind == 'minecart': c = (110 + n, 114 + n, 122 + n) if x not in (0, 15) else (70, 74, 82)
             elif kind == 'crafting': c = (140 + n, 104 + n, 64 + n) if (x + y) % 6 else (90, 66, 40)
             elif kind == 'water': c = (40 + n, 90 + n, 190 + n)
+            elif kind == 'spawner': c = (40, 46, 58) if (x % 4 == 0 or y % 4 == 0) else (14, 18, 26)
             elif kind == 'composter': c = (120 + n, 86 + n, 50 + n) if x in (0, 15) or y in (0, 15) or y % 5 else (70, 52, 32)
             else: c = (200, 0, 200)
             p[x, y] = tuple(int(max(0, min(255, v))) for v in c[:3]) + ((c[3],) if len(c) > 3 else (255,))
@@ -256,7 +263,7 @@ def tex_for(st, face):
     if ns == 'minecraft':
         m = {'barrel': 'barrel_top' if face in ('up', 'down') else 'barrel_side', 'chest': 'chest', 'chain': 'chain', 'rail': 'rail',
              'lectern': 'lectern', 'bookshelf': 'lectern' if face in ('up', 'down') else 'bookshelf', 'crafting_table': 'crafting',
-             'smithing_table': 'crafting', 'cartography_table': 'crafting', 'water': 'water', 'composter': 'composter'}.get(n, 'chest')
+             'smithing_table': 'crafting', 'cartography_table': 'crafting', 'water': 'water', 'composter': 'composter', 'spawner': 'spawner'}.get(n, 'chest')
         im = _proc(m)
     else:
         base = n
