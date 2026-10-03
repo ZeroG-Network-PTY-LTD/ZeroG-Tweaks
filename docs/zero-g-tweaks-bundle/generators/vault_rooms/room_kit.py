@@ -15,9 +15,9 @@ DOORS = {'N': ('north', (8, 0), lambda i: (i, 0)), 'S': ('south', (8, 16), lambd
          'W': ('west', (0, 8), lambda i: (0, i)), 'E': ('east', (16, 8), lambda i: (16, i))}
 CENTRE = {(x, z) for x in range(7, 10) for z in range(7, 10)}
 CORR = Z + 'concord_vault/corridors'
-LIGHT = {Z + 'spectral_lantern': 15, Z + 'pulsar_lamp': 15, Z + 'cerulite_cluster': 5, Z + 'liquid_starlight': 12,
+LIGHT = {Z + 'small_cerulite_bud': 1, Z + 'medium_cerulite_bud': 2, Z + 'large_cerulite_bud': 4, Z + 'spectral_lantern': 15, Z + 'pulsar_lamp': 15, Z + 'cerulite_cluster': 5, Z + 'liquid_starlight': 12,
          Z + 'starbloom': 7, Z + 'potted_starbloom': 7}
-BANNED = ['_ore', 'cerulite_block', 'starlite_block', 'lumenite_block', 'aresite_block', 'gate_', '_casing', 'crystal_cell',
+BANNED = ['_ore', 'cerulite_cluster', 'budding_', 'cerulite_block', 'starlite_block', 'lumenite_block', 'aresite_block', 'gate_', '_casing', 'crystal_cell',
           'minecraft:torch', 'minecraft:wall_torch', 'minecraft:lantern', 'sea_lantern']
 
 # ------------------------------------------------------------------------------------------------ NBT helpers
@@ -129,7 +129,7 @@ class Room:
         chests = [nbt for (st, nbt) in self.blocks.values() if nbt and nbt.get('id') == 'minecraft:chest']
         res.append(('Every chest uses a concord_vault loot table', all('LootTable' in c for c in chests) and len(chests) > 0))
         bad = sorted({name_of(st) for st, _ in self.blocks.values() if any(b in name_of(st) for b in BANNED)})
-        res.append(('No ores, storage blocks, gate/machine parts, torches' + (f' (found {bad})' if bad else ''), not bad))
+        res.append(('No ores, storage blocks, gem-dropping clusters or budding blocks, gate/machine parts, torches' + (f' (found {bad})' if bad else ''), not bad))
         return res
     # ------------------------------------------------------------------ light (block light, flood fill like the game)
     def light(self):
@@ -154,7 +154,7 @@ class Room:
         for k, v in (('_slab', 'slab'), ('_stairs', 'stairs'), ('_fence_gate', 'gate'), ('_fence', 'fence'), ('_wall', 'wall'),
                      ('chain', 'chain'), ('rail', 'rail'), ('_trapdoor', 'trapdoor'), ('lectern', 'lectern'), ('chest', 'chest'),
                      ('potted_', 'pot'), ('_pressure_plate', 'plate'), ('_carpet', 'plate'), ('starbloom', 'plant'),
-                     ('cluster', 'plant'), ('_button', 'button')):
+                     ('cluster', 'plant'), ('_bud', 'bud'), ('_button', 'button'), ('minecraft:water', 'water'), ('composter', 'composter')):
             if k in n: return v
         return 'full'
 
@@ -198,6 +198,14 @@ class Room:
         if s == 'pot': return [(.3125, 0, .3125, .6875, .375, .6875), (.42, .375, .42, .58, .85, .58)]
         if s == 'plant': return [(.3, 0, .3, .7, .7, .7)]
         if s == 'gate': return [(0, .375, .4375, 1, .9375, .5625)]
+        if s == 'water': return [(0, 0, 0, 1, .875, 1)]
+        if s == 'composter': return [(0, 0, 0, 1, 1, 1)]
+        if s == 'bud':
+            h = {'small': .2, 'medium': .3, 'large': .45}[name_of(st).split(':')[1].split('_')[0]]
+            f = pr.get('facing', 'up'); w = .3
+            return [{'up': (.5 - w/2, 0, .5 - w/2, .5 + w/2, h, .5 + w/2), 'down': (.5 - w/2, 1 - h, .5 - w/2, .5 + w/2, 1, .5 + w/2),
+                     'north': (.5 - w/2, .5 - w/2, 1 - h, .5 + w/2, .5 + w/2, 1), 'south': (.5 - w/2, .5 - w/2, 0, .5 + w/2, .5 + w/2, h),
+                     'west': (1 - h, .5 - w/2, .5 - w/2, 1, .5 + w/2, .5 + w/2), 'east': (0, .5 - w/2, .5 - w/2, h, .5 + w/2, .5 + w/2)}[f]]
         if s == 'button': return [(.375, 0, .375, .625, .125, .625)]
         return [(0, 0, 0, 1, 1, 1)]
 
@@ -234,6 +242,8 @@ def _proc(kind):
             elif kind == 'pot': c = (150 + n, 80 + n, 56 + n)
             elif kind == 'minecart': c = (110 + n, 114 + n, 122 + n) if x not in (0, 15) else (70, 74, 82)
             elif kind == 'crafting': c = (140 + n, 104 + n, 64 + n) if (x + y) % 6 else (90, 66, 40)
+            elif kind == 'water': c = (40 + n, 90 + n, 190 + n)
+            elif kind == 'composter': c = (120 + n, 86 + n, 50 + n) if x in (0, 15) or y in (0, 15) or y % 5 else (70, 52, 32)
             else: c = (200, 0, 200)
             p[x, y] = tuple(int(max(0, min(255, v))) for v in c[:3]) + ((c[3],) if len(c) > 3 else (255,))
     return im
@@ -246,14 +256,16 @@ def tex_for(st, face):
     if ns == 'minecraft':
         m = {'barrel': 'barrel_top' if face in ('up', 'down') else 'barrel_side', 'chest': 'chest', 'chain': 'chain', 'rail': 'rail',
              'lectern': 'lectern', 'bookshelf': 'lectern' if face in ('up', 'down') else 'bookshelf', 'crafting_table': 'crafting',
-             'smithing_table': 'crafting', 'cartography_table': 'crafting'}.get(n, 'chest')
+             'smithing_table': 'crafting', 'cartography_table': 'crafting', 'water': 'water', 'composter': 'composter'}.get(n, 'chest')
         im = _proc(m)
     else:
         base = n
         for suf in ('_slab', '_stairs', '_wall', '_fence_gate', '_fence', '_pressure_plate', '_button'):
             if base.endswith(suf): base = base[:-len(suf)]
         if base.startswith('potted_'): base = base[7:]
-        cands = []
+        if base.endswith('_cerulite_bud'): cands0 = [base, 'cerulite_cluster']
+        else: cands0 = []
+        cands = list(cands0)
         if face in ('up', 'down'): cands += [base + '_top', base + '_log_top' if base.endswith('_wood') else '']
         if base.endswith('_brick') : base += 's'
         cands += [base, base.replace('_brick', '_bricks'), base + 's', base.replace('_wood', '_log'), base.replace('stripped_shardwood_wood', 'stripped_shardwood_log')]
@@ -445,7 +457,7 @@ def sheet(room, meta, out_png):
         d.text((cx + 34, cy_ + 3), f'{counts[k]:>4}  {pretty(k)}', font=M(14), fill=INK)
     y += ((len(order) + 2) // 3) * 30 + 26
     # ---- right-hand info blocks (two columns)
-    sections = meta['sections'] + [('Light', [f'Sources: {", ".join(sorted({pretty(st) for st, _ in room.blocks.values() if LIGHT.get(name_of(st))}))}.',
+    sections = meta['sections'] + [('Light', ['Sources: ' + ', '.join(f'{c} {k}' for k, c in sorted(collections.Counter(name_of(st).split(':')[1].replace('_', ' ') for st, _ in room.blocks.values() if LIGHT.get(name_of(st))).items())) + '.',
                                                (f'Lowest light on a walkable cell at y = 1: {lowest}. ' + ('Hostile mobs need block light 0 to spawn (1.21), so none spawn in this room.' if lowest > 0 else 'Some cells are at 0: hostile mobs can spawn there.'))])]
     sections.append(('Rule check (briefs/concord_vault.md)', [('PASS  ' if ok else 'FAIL  ') + t for t, ok in room.check()]))
     colx = [50, 50 + (W - 100) // 2 + 10]; cw = (W - 100) // 2 - 30; cys = [y, y]
