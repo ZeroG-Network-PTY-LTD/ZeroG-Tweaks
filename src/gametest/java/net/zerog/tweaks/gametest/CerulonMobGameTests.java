@@ -164,7 +164,13 @@ public final class CerulonMobGameTests {
         Biome plains = biomes.getOrThrow(ResourceKey.create(Registries.BIOME, rl("azure_plains")));
         Biome shores = biomes.getOrThrow(ResourceKey.create(Registries.BIOME, rl("crystal_shores")));
         helper.assertTrue(spawns(plains, MobCategory.CREATURE, EntityInit.MOSSBACK.get()), "Mossbacks belong on the plains");
-        helper.assertFalse(spawns(shores, MobCategory.CREATURE, EntityInit.MOSSBACK.get()), "No Mossbacks on the shores");
+        // the colleague's expanded_habitat_cerulon_mossback lists it in every Cerulon biome; the spawn rule (Azure Moss + light)
+        // is what keeps it on the moss, so check the rule instead of the biome list
+        var level = helper.getLevel();
+        var air = helper.absolutePos(new net.minecraft.core.BlockPos(4, 3, 4));
+        helper.setBlock(new net.minecraft.core.BlockPos(4, 2, 4), net.zerog.tweaks.registry.BlockInit.CRYSTAL_SAND.get());
+        helper.assertFalse(net.zerog.tweaks.registry.ZGSpawnRules.landAnimal(EntityInit.MOSSBACK.get(), level,
+                net.minecraft.world.entity.MobSpawnType.NATURAL, air, level.random), "Mossbacks must not spawn on sand");
         helper.assertTrue(SpawnPlacements.getPlacementType(EntityInit.MOSSBACK.get()) == SpawnPlacementTypes.ON_GROUND, "Mossback spawn rule");
         helper.succeed();
     }
