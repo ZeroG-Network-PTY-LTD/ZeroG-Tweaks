@@ -3,6 +3,11 @@
 NeoForge **1.21.1**, Java **21**, GeckoLib **4.9.3**. This is an unfinished
 development build, not a shipped release or proof of modpack compatibility.
 
+Current candidate: **1.0.1-dev**. Includes the latest Cerulon terrain/mob work,
+four amethyst-style budding crystal families, animated light-12 Star Glass,
+six planet Star Sands and updated crystal/ingot/raw-metal artwork.
+See the [illustrated update and installation guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/crystal-material-update-1.21.1.md).
+
 - [Full illustrated documentation and descriptions](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/README.md)
 - [Armour, Bees, materials, mobs, eggs and drops gallery](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/current-collection-guide-1.21.1.md)
 - [Blockbench design collection](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design/docs/asset-collection-1.21.1)

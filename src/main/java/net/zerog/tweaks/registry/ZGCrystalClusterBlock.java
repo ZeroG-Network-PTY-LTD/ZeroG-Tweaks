@@ -21,6 +21,7 @@ import net.minecraft.world.level.material.PushReaction;
 public class ZGCrystalClusterBlock extends AmethystClusterBlock {
     public ZGCrystalClusterBlock(BlockBehaviour.Properties props) {
         super(7.0F, 3.0F, props
+                .lightLevel(state -> 5)
                 .sound(SoundType.AMETHYST_CLUSTER)
                 .noOcclusion()
                 .pushReaction(PushReaction.DESTROY)

@@ -39,6 +39,13 @@ public final class ZGBlockColors {
     private static final int[] GALAXY = {0xFFFFFF, 0x9CB8F0, 0x9CB8F0, 0xF0A878, 0xC8E6F0, 0xF4D68C};
 
     private static final Map<String, WastelandType> BLOCKS = new HashMap<>();
+    static {
+        var crystals = Map.of("brine", WastelandType.OCEAN, "frost", WastelandType.FROZEN, "prism", WastelandType.CRYSTAL);
+        crystals.forEach((family, tint) -> {
+            BLOCKS.put("budding_" + family + "_crystal", tint);
+            for (String size : new String[]{"small", "medium", "large"}) BLOCKS.put(size + "_" + family + "_bud", tint);
+        });
+    }
     private static void put(String id, WastelandType t) { BLOCKS.put(id, t); }
     static {
         // barren

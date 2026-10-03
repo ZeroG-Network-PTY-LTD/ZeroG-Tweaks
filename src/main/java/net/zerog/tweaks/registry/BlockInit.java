@@ -71,7 +71,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> BLIGHTMOSS = BLOCKS.register("blightmoss", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<ZGCrystalClusterBlock> BRINE_CRYSTAL = BLOCKS.registerBlock("brine_crystal", ZGCrystalClusterBlock::new, props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F));
     public static final DeferredBlock<Block> BROKEN_CONSOLE = BLOCKS.register("broken_console", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<Block> BUDDING_CERULITE = BLOCKS.register("budding_cerulite", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F).lightLevel(s -> 4)));
+    public static final DeferredBlock<ZGBuddingCrystalBlock> BUDDING_CERULITE = BLOCKS.register("budding_cerulite", () -> new ZGBuddingCrystalBlock(BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.BUDDING_AMETHYST), () -> ZGCrystalGrowth.stages("cerulite")));
     public static final DeferredBlock<Block> CERULEAN_GEODE_SHELL = BLOCKS.register("cerulean_geode_shell", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CERULEAN_STONE = BLOCKS.register("cerulean_stone", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CERULEAN_STONE_BRICK_SLAB = BLOCKS.register("cerulean_stone_brick_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -947,6 +947,7 @@ public final class BlockInit {
     public static final DeferredBlock<FlowerPotBlock> POTTED_SHARDWOOD_SAPLING = potted("shardwood_sapling", SHARDWOOD_SAPLING);
 
     public static void register(IEventBus bus) {
+        ZGCrystalGrowth.init();
         BLOCKS.register(bus);
         bus.addListener(BlockInit::onCommonSetup);
     }

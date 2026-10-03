@@ -224,7 +224,8 @@ public final class ZGCreativeTabContents {
             "rimeglass_block", "coronite_block", "photium_block", "astrium_block", "radiantine_block", "fusion_dust_block",
             "nova_pearl_block", "solvanite_block", "dawnstone_block", "lunar_glass", "rust_glass", "crystal_glass",
             "frost_glass", "tide_glass", "dune_glass", "shimmer_glass", "refracting_glass", "slag_glass", "rift_glass",
-            "glassy_obsidian"
+            "glassy_obsidian",
+            "star_glass"
     };
 
     /** Natural Blocks (128 entries) */
@@ -248,7 +249,8 @@ public final class ZGCreativeTabContents {
             "shardwood_sapling", "charwood_log", "charwood_leaves", "charwood_sapling", "hoarwood_log", "hoarwood_leaves",
             "hoarwood_sapling", "gildwood_log", "gildwood_leaves", "gildwood_sapling", "starbloom", "ghostbloom", "solflower",
             "frostfern", "emberthorn", "cinder_cap", "lunar_lichen", "rust_lichen", "glowkelp", "rust_tuber", "skyberries",
-            "solflower_seeds", "pyrefruit"
+            "solflower_seeds", "pyrefruit",
+            "small_cerulite_bud", "medium_cerulite_bud", "large_cerulite_bud", "small_brine_bud", "medium_brine_bud", "large_brine_bud", "small_frost_bud", "medium_frost_bud", "large_frost_bud", "small_prism_bud", "medium_prism_bud", "large_prism_bud", "budding_brine_crystal", "budding_frost_crystal", "budding_prism_crystal", "moon_star_sand", "mars_star_sand", "cerulon_star_sand", "skarn_star_sand", "eidolon_star_sand", "solvane_star_sand"
     };
 
     /** Functional Blocks (34 entries) */

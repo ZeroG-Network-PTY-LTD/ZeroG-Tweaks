@@ -1290,6 +1290,7 @@ public final class ItemInit {
     }
 
     public static void register(IEventBus bus) {
+        ZGCrystalGrowth.registerItems();
         ZGSpawnEggs.init();  // spawn eggs register into ITEMS
         ZGTrims.init();      // armor trim templates register into ITEMS
         ZGUpgradeTemplates.init(); // netherite-style upgrade templates register into ITEMS
