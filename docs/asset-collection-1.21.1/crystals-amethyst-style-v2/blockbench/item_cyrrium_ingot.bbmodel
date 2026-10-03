@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cyrrium_ingot",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "c0bba554-664f-573f-8e00-849def77c745"
+    }
+  ],
+  "outliner": [
+    "c0bba554-664f-573f-8e00-849def77c745"
+  ],
+  "textures": [
+    {
+      "name": "cyrrium_ingot.png",
+      "id": "0",
+      "uuid": "4215d0f6-f323-57d9-a687-5e4039b48676",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABRUlEQVR4nGNgGAWjYBSMdMBIimIRGZX/lFj25skdDPuIdgDM8uop88iyvDUnCasjCDoA2dcwy92sDEiyfNexC3BHoDuAhRjLsVl8io2XgYGBgcHs12eSHCMio/If2RE4QwDdcgEHWwYGBgaGDwcOk2QhOkCPCqwhgGw5zNe7SLCYFMeihAA2ixkYEHFILYAcCvAQwJbKqWkxzFItSycUcXgIYEvt1LTYO7mA4f61SwwMDAwM147vw50GvJMLGFpzkihyBMxSZIthlqMDjBDwTi6AS5Zlx2HVZG9kRNARMHPQLUb2PQMDgXKga+oirOIHz50jqAeXj9EB1jSAHArkAlwOQA8BrNkQ2RHoBilq6ZHsAJierXMnEK4L0B2xde4EFHn0bHTt+D6sDtCydMIqR1RlRGq1i62apRhQWvePglEwCoYMAAC0SZtbH4EetwAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

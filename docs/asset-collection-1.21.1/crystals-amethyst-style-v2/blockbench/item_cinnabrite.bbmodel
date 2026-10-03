@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cinnabrite",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "ff63616b-70c6-51f5-80af-7e529426508c"
+    }
+  ],
+  "outliner": [
+    "ff63616b-70c6-51f5-80af-7e529426508c"
+  ],
+  "textures": [
+    {
+      "name": "cinnabrite.png",
+      "id": "0",
+      "uuid": "1b5b9534-b392-5cda-b13e-2f9a2fbb71a4",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABE0lEQVR4nO2Xvw6CMBDGP40YHJ1dncD3cGN1ImHyoZxIcIDFxVcgPgF0YnUzupo41MFgVP70SotEwzeRy12/X65tuAK9FGQZJu/UnIchV4UYNjWPlw4AIA18pU5IA7ya51KBGKmaAwBWK6QAbNfjAMBu1wF1TXJimfl0Hz0+ougtbrseGYKUVGn+YdwEQngGqszt8aS2jnouhISWYfI08GG73jOWA7Ekq61dH5mwC42uYa7D+aRSrg6gQ9IApdfwmwC61QNIAejef2mANtQDkAHa2H8pgLb0OwCiP1/rANZiDpZk2kFIM+Flu3tCAHq7QRpIyuLx0imArI+skCcaSMhDaRnQZmYVTGUmYmV1+jT7G90BpqFoUWUrKmkAAAAASUVORK5CYII=",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

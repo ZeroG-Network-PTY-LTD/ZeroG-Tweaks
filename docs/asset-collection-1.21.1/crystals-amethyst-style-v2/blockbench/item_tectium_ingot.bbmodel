@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "tectium_ingot",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "99e4bf16-4513-550d-b6bd-8c3b69221537"
+    }
+  ],
+  "outliner": [
+    "99e4bf16-4513-550d-b6bd-8c3b69221537"
+  ],
+  "textures": [
+    {
+      "name": "tectium_ingot.png",
+      "id": "0",
+      "uuid": "b77cba6c-7092-5b18-b004-c38384d05863",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABR0lEQVR4nGNgGAWjYBSMdMBIimJRYaH/lFj2+u07DPuIdgDM8tz0RLIsnzxzPlZHEHQAsq9hlhsbG5Fk+dmz5+COQHcACzGWY7PYi/k0AwMDA8O2v6YkOUZUWOg/siNwhgC65bVmfxkYGBgYmk8xk2QhOkCPCqwhgGw5zNfNp84RbQkpjkUJAWwWMzAg4pBaADkU4CGALZVT02KYpZqqSiji8BDAltqpabG7kx3Do8dPGBgYGBiu376HOw24O9kxTJ45nyJHwCxFthhmOTrACAF3Jzu4ZGREKFZNCWm5BB0BMwfdYmTfMzAQKAeWr1iNVXzBrMkE9eDyMTrAmgaQQ4FcgMsB6CGANRsiOwLdIDlZGZIdANOzc98hwnUBuiN27juEIo+eja7fvofVAZqqSljliKqMSK12sVWzFANK6/5RMApGwZABAPWemabKCKPHAAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

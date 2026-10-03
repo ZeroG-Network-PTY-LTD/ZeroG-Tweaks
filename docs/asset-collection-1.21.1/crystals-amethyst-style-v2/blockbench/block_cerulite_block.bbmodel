@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cerulite_block",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_block",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "4e4389a7-19d3-5cdc-b581-16b916d235e7"
+    }
+  ],
+  "outliner": [
+    "4e4389a7-19d3-5cdc-b581-16b916d235e7"
+  ],
+  "textures": [
+    {
+      "name": "cerulite_block.png",
+      "id": "0",
+      "uuid": "8e01ef4c-34e7-591f-99ba-cc9a897bd642",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAHjklEQVR4nH2X23MT1xnAfyuttLu+SWUMMQHHNgbMpUBIABsHAkk7acswmTjhoUwf0mnaSZm89M/o9KUPnTykl4em07SdNiQdMulMadpC2mA7NIbW3Gxjy9hgg8GyZUvaXXnP14ddrbTIzoNmdaSz5/fdv+9oT77zd/EKBTTDpO/FgygRFOCJoARy2SxWKo0SwRNQBE8RlFPCsJKVtfjv/fvd34IoEKl8lEKq1snm9Rjt24iJEpJNTYhIDXypUFwbLkTgK6ryntFQXwNPNjZW/aZwH8yiJxPoZanczCh/+NUIkl8CBAROvvXmmnBPhOWSYMS1cE0gvJPLgeeBpoWaO4uLoFRwtv9ZHhtBe+Lt8+JmRn3zrKxATAs3SCCt2EUAEOHYmR+GmnoimPEYXiBkafgKe5/rQQk0JmKoQOA79x9hpVMogRuX+pHgiQjaj0ZzMvSvS1wdHo34rQxHBKOhAbdoI45d8eNKifUvfAMJ9nao5Rp4YcWj4ElE4LJQZavGlMCe3h727N5WCZCG+ogwTi4XhZfcCFxEGJ6cCQ8vPx+Hu0pqXBor/7DrcDe7v9rl+yuXC+FGQ4PvR+VVNH/xmxG4iGC1bkGJ0JiIo0SYd70azWMQgc8P/Qc9DCyg63A3nkCKFQD6h67jLC76mqNh1Fms63mJklsiruuUXNf/T/lCbDATAEwV3DXNXhIFaCgR9vT2+BaoTr1tPYfISpz+oevR3F0p0fTs4cAwUgP3Cnn++reLXwpXCHbRZXxgkOzQF4ELgFy+GHmhs/sQW/fticDXdR+JgEUEXdfD75ppcXNy5kvhYwODfHH+ExbNFDenZlEi6J4IlmXWvNDRfZCZuXlE/PSzZ+9htXeGQC+fR0wrEgfJTW3k5hfClFMijPQPcvf+I+raOxEzjdWWChQDBWjfvZaVsPJls5ipdBgkLWaCs++9j5ZI+qlJAGpuIfYYXEQQJTyVcAnOZ3r2EXUdW2v2oYSFq5fZtXcnsRuX+kNpq+HjA4MoEV4+/WoIxy92uA9mIgfqyQSiBPduhu7nn+PQ870cONqLbzwhXuWqYuY2xcnbIIrrV4bRUm/9RE68+QaewPJCFiOo/S1mIhKcf/nTuVAIY1M79vQEEouRbNmMM5Xha698i5am+orPg+Ae/qyfGb2RQmYMBDRNQxCch3N+JUyd+bGICC+d+QGuEjRACbRYiZqAOv/+OZKWhVMokNzUxomj+/2eULCJJ5PcvXyZp3buoD6dCoVfLthMXrlC5t5c0GJ8JZyHD0Ck0oxuXLjIliNHEeD2wCDrj/WGHdGzbaxUiuN9J/nH2XMgwomj+7E95Xc/00AJbDpwgMznn0PSwHOdIBYkCOQKvLpL6uXF1P+uETdMrHicdcl4pdmYJsowWMouYKZTHOk7SbOh44kQ1zQgmj0BK4S7CnQNNm9cz/TsHABqpRTWGB0RtESCfc/uqzFfScFHb78DgRaaYYAIr515Y81cnzXSeJ6HljQiKasVl7DaOlkp5IkbFlbHdop3xtEbtmxl64Y0u3t7IgOJ4wljAwNoQbppVc1pLbgXVElN0yIpFzMtnIf3MZsrlVNESDRvIMZX1tfAlfhjwdbublSx4HdGzwsFOPvTn60KV6vke7imIkxYPQ0L3ZnKoOSZCPxJy28q5z/5lHW9xyhO3qY4fQctkeTooad9P64CX1FE4F4hH1qQwDpKKX9yKvpzaOzUd15FQRjRngiTeZeJZQcV5C0C5qZWxLG5+Gk/A8Mjq45p5UqJEpSnQng50/yu6guSbGpClPjNqBzRuWw2Ytrp2TkKE2Nh+qR7j2O1toNh8s8PPiJfcCIzohLYvnubD9Iq1lBK8drpPo7t78KemsCeGMEtOrh3M+jXLg+x/Zmnw/HbVQoNDYUgbgkSOghY7Z3Yk+MIgqYnMFs7GL42hn1nnK62jezs7amM8pLnrlh8fW8HDek0Rc+fhKw6k5e//QqOJ8Q0+OxKPfqMGHiX+v2AEwnhYwODIbxx+w6WR28hCIe6OgC4uizYd8b53uunuG+vkMsXw666sauL7ieaQ0vqGpHsimlw/oOPqWvvJBZP6MzqjYz0D7CUXSBftIN0ItS8DEfgv3kfLiJ0tW1k3vWIaURaupVKoURCzasDvLi4gAoqlYgQKzkuKGHeTHPv1i2SpkGhYDMzM1cxeyzmB2JrB3pCRymFPTURMXt1XVjKLoSaLxXsyB5JmrhKhbNFrJyrruPyQKtjpH+QpGlEfI7nYbZ24BXyuI6LM52h73QftqdwqiZfJUJrfZJdmzfwu1/8BgWYlt8nnCDLTNPg4p8/rrTyx/v6fNHgYKnA8R2t1PXsCU344e8/9Ef2ze10tW1kcT5LXTpd0wvGlx08AUTxx5//OjT1ye+/Hu5Bi4fpqrX+8oKU4a7tcOqFAygRFuYXIGlg1ZmR4FFC5Dq2VkW88O57IVzTdcR1wuta+mAvKEFP6MTK2ru2g1RdHMrw8sBahisRlksqAneVsLyQjRQlTU8QXu1cx4/q4K5YGL0Zuj0UQJTgzk6Hh5Q11w1jVU2r15pGOEkpgczgIMp1Vr+iKw9n7n7o9v8DYZOlYO+jFTgAAAAASUVORK5CYII=",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

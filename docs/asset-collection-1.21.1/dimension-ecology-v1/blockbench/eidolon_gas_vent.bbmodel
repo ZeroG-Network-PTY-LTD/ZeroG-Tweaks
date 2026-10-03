@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "eidolon_gas_vent",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_block",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "8e364a3e-8672-5e06-9e3a-1999c628ab82"
+    }
+  ],
+  "outliner": [
+    "8e364a3e-8672-5e06-9e3a-1999c628ab82"
+  ],
+  "textures": [
+    {
+      "name": "eidolon_gas_vent.png",
+      "id": "0",
+      "uuid": "e2f60d5c-73b6-5528-aaf9-c2ebf6383eb6",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE5ElEQVR4nLWXu4sbVxTGfytUiBnpMggJFs1Y4EIjIdyIITBViFgIIoUNJikMTkwaQ7CbdH4UqeL8B+lNDC5DXKkJglQiMKgJYjVbBPRCsIsQo9Ww3abQnLujzZNYexrNXEb3nPud737nnIP7T59dluwq03BIzsxjFBSjoM8tt8kkHO78luwqAINeF1NZABQPK5TsKmHQx6k1WC7mxOuITbQCoNXuABBHK6Ynxzi1BqOgj6ksnFqDjFFQhEGftJXtKsvFnFa7wyQcYioLo6AY9LoMel1a7Q6baIXr+SwXc85mY+3ccZs4tcbOftNwyPTkmOJhBQBTWbiezyjok5meHGMUFPE6YrmYs1zMyZl5XM9n0OvqUxrJiVvtjl4HtGOA09kYgFHQp+75lO0qcYKEU2twsTlnFPT1YQAOPvj47qXAezYbs1zMdUDFw4qGf7mY49QaTE+OtXMJ8pbbBGASDv+EpOwjQRoFpd+LhxUyaeeAzp1RUBgFpZ830UoHZxSUhlnStFzMqXu+hrjV7mhExLnr+ThJsI7bZBT0Ofjo0y8unVpDQyw5k8gluFICZ7yONOnSAQspBaXr62lUJSijoMg6tQbxOsJQlobTcZsMel2cWoPPvv6Kv7a/W9+1bx8+0qkylaVJLYFmDWVhKIvpNbYDxOvoPzn5J3v55jUv7t7T78IXQUCTMH0TXM9nGg759d2P7+X87WwKwIu79zCVtZPSi805p7MxmbrnU7KrTE+OmYRDnFqDs9lYE+h97IHtAPDq3U9sohWTcMjZbMwkHFI8rFD3fDKGsvRdLdtVfU9/D4L3DuC6le0qRkFRThR1FPQ5uP/02eXF5lxfD2H3b72f9+Y4nQq4uhmbaLWV4pyZZ5rA43r+Xp2nTXTC9Xw20YpWu0MmXkdMwiGnyV2/CRMuPPrmOWZy3cWyF5tzXekGve6N5P66iQ6czcZkAC4258TRSpPjJkxQePnmNYCuKVmRR0NZexGefwviTvtI5x/YImAUFHG0omRXudM+urEAbnseRkFR93zOZmPiaEVGqprIsRSRmzBTWeTMPEL85WJ+JcVpLdiHDF+3256nn+uer4tfttXuECcyKfJrpkrzPk2KXbpcbzmQOKx7/ja6pBHZl3344HNMZbFJ+gk3EaRWu8PBJ18+vZQPc2Zel8mcmeeXtz/sJYA77SOk7xC9EVXMSocC6D5NSvM+rPP4iSZ4zsxrFZQ0ZKQHgC0Ck3DIKOhTsqs7xPm/tlzMdYGTVh/Qac5ed162qxQPKzt63Xn8RPf8YdDfGTriaLVzQqkn0kem4U4jEK8jynaVg4fPX11KdDkzz8XmXG8URytGQZ+yXdV9oui4TEDSYkuO5XRy19PWand0N+S4za0QxeuI6ckxp7OxhmW5mDPodZmeHFO2q+TMvN7EKCgdrFFQTMKhnpBKyUQl37XaHQ05bHsN8THodbeTkSxIIYrXEU6toccnQUOgy5n5q1O7TT0pxetom45kv1HQ365HK+qer8c5KUKmsjCVteWANKFG4lSgFoFKQynDK6BTBFfzgQQnJ5dTy3cyg8h/Dx5/9/3loNfVUIszGavkRMXDyk6Or3NAvhPE0p0vbEVO+CT7AWTSrJyEQx356WysnQpPJuGQi835jl6kVVN4kR5q5QbE64h6klKpOfE64g/VTwLLuGrSTAAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

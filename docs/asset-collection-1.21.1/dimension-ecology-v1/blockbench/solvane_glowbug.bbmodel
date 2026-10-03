@@ -1,0 +1,628 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "bedrock",
+    "box_uv": false
+  },
+  "name": "solvane_glowbug",
+  "model_identifier": "geometry.solvane_glowbug",
+  "resolution": {
+    "width": 64,
+    "height": 64
+  },
+  "elements": [
+    {
+      "name": "body",
+      "uuid": "99d2ec2a-f735-57f3-afa5-190ee2bd75ed",
+      "from": [
+        -3.5,
+        0,
+        -5
+      ],
+      "to": [
+        3.5,
+        7,
+        5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            10,
+            10,
+            17,
+            17
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            27,
+            10,
+            34,
+            17
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            10,
+            10,
+            17
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            17,
+            10,
+            27,
+            17
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            10,
+            0,
+            17,
+            10
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            17,
+            0,
+            24,
+            10
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "left_wing",
+      "uuid": "5d5583a1-e4fb-5c0d-a305-fd9dffb15f52",
+      "from": [
+        1.5,
+        7,
+        -3
+      ],
+      "to": [
+        10.5,
+        7,
+        3
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            6,
+            18,
+            15,
+            24
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            15,
+            18,
+            24,
+            24
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "right_wing",
+      "uuid": "7b2465b4-c811-5c90-9c68-0372e75bb10d",
+      "from": [
+        -10.5,
+        7,
+        -3
+      ],
+      "to": [
+        -1.5,
+        7,
+        3
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            15,
+            18,
+            6,
+            24
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            24,
+            18,
+            15,
+            24
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "left_antenna",
+      "uuid": "b871502d-0e3c-55df-9256-b41395840212",
+      "from": [
+        1.5,
+        3,
+        -8
+      ],
+      "to": [
+        2.5,
+        5,
+        -5
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            2,
+            3,
+            5,
+            5
+          ],
+          "texture": 0
+        },
+        "north": {
+          "uv": [
+            5,
+            3,
+            6,
+            5
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            6,
+            3,
+            9,
+            5
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            9,
+            3,
+            10,
+            5
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            5,
+            0,
+            6,
+            3
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            6,
+            0,
+            7,
+            3
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "right_antenna",
+      "uuid": "bf02b6ad-a839-5419-8058-d46621a4e20c",
+      "from": [
+        -2.5,
+        3,
+        -8
+      ],
+      "to": [
+        -1.5,
+        5,
+        -5
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            2,
+            6,
+            5,
+            8
+          ],
+          "texture": 0
+        },
+        "north": {
+          "uv": [
+            5,
+            6,
+            6,
+            8
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            6,
+            6,
+            9,
+            8
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            9,
+            6,
+            10,
+            8
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            5,
+            3,
+            6,
+            6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            6,
+            3,
+            7,
+            6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "stinger",
+      "uuid": "17805e3b-90db-5213-ae52-566d4df0de27",
+      "from": [
+        0,
+        3,
+        5
+      ],
+      "to": [
+        0,
+        4,
+        7
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            26,
+            9,
+            28,
+            10
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            28,
+            9,
+            30,
+            10
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "front_legs",
+      "uuid": "6d8e5ff7-ea4c-511a-9f4f-f673e7c34cc0",
+      "from": [
+        -3.5,
+        -2,
+        -2
+      ],
+      "to": [
+        3.5,
+        0,
+        -2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            26,
+            1,
+            33,
+            3
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            33,
+            1,
+            26,
+            3
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "middle_legs",
+      "uuid": "19a8bec9-574f-554d-9d6e-2e8eb98a9d90",
+      "from": [
+        -3.5,
+        -2,
+        0
+      ],
+      "to": [
+        3.5,
+        0,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            26,
+            3,
+            33,
+            5
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            33,
+            3,
+            26,
+            5
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "back_legs",
+      "uuid": "b71177ce-d413-5024-949a-3c1dc2897b30",
+      "from": [
+        -3.5,
+        -2,
+        2
+      ],
+      "to": [
+        3.5,
+        0,
+        2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            26,
+            5,
+            33,
+            7
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            33,
+            5,
+            26,
+            7
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "textures": [
+    {
+      "name": "solvane_glowbug.png",
+      "id": "0",
+      "uuid": "c3db6f30-456f-572d-b33f-5c519b94bc22",
+      "mode": "bitmap",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABcUlEQVR4nO3YP0vDQBjH8ScxUBOhjoqTo2PBxXeg78DFyVGh4Dvo5Cp0cNJBKL4GfQVOgoOKo4siCA4FWwWxDpqQf0+aQLwT8/1AoPe7y9P0kjtCndPbtYn8OB88hR9lfWtRTOYn+/eOWODGG63AjY66897GOMouBvOZ3BYv3mj5M7mDbOUmpCYg/07Yyk1gAuINlkDTn4BZZTeuI++d+fL88CYiIrvH+bkNLIF4o/FLoOgO3V0O1SIrq+3MeK1OldyE5Jug70ZHOhcR2d68kX73NcrDdt54rU5RfRuST0Bs83off2byzsJy4uSw3Qrc3PFanaLctIIl8KHkWd/92viquVmVNsFufy6Rh+2yj/Tf3wQ9ZZNK5Yd7IxER2TkIcvvL1pmWm5B8ERLlxSaVhz9c6y9bZ1oOA9R/Ya6Gk8c6vqDTdpbqqPNbPK3j+mV0ZPJCbGn84mMCbF+AbY2fAAAAAAAAAAAAAAAAAAAA8H99AThaU9C9S5QfAAAAAElFTkSuQmCC",
+      "width": 64,
+      "height": 64,
+      "uv_width": 64,
+      "uv_height": 64
+    }
+  ],
+  "outliner": [
+    {
+      "name": "body",
+      "uuid": "c3db6f30-456f-572d-b33f-5c519b94bc22",
+      "origin": [
+        0,
+        4,
+        0
+      ],
+      "children": [
+        "99d2ec2a-f735-57f3-afa5-190ee2bd75ed",
+        "b871502d-0e3c-55df-9256-b41395840212",
+        "bf02b6ad-a839-5419-8058-d46621a4e20c",
+        "17805e3b-90db-5213-ae52-566d4df0de27",
+        "6d8e5ff7-ea4c-511a-9f4f-f673e7c34cc0",
+        "19a8bec9-574f-554d-9d6e-2e8eb98a9d90",
+        "b71177ce-d413-5024-949a-3c1dc2897b30",
+        {
+          "name": "left_wing",
+          "uuid": "b0ae93e7-efce-5494-8459-792a5f4c8e54",
+          "origin": [
+            1.5,
+            7,
+            -3
+          ],
+          "children": [
+            "5d5583a1-e4fb-5c0d-a305-fd9dffb15f52"
+          ]
+        },
+        {
+          "name": "right_wing",
+          "uuid": "1df56e46-e117-5335-b08f-0211f90b6093",
+          "origin": [
+            -1.5,
+            7,
+            -3
+          ],
+          "children": [
+            "7b2465b4-c811-5c90-9c68-0372e75bb10d"
+          ]
+        }
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "name": "animation.solvane_glowbug.flight",
+      "uuid": "74a861a8-1936-50a2-8b94-939302abae82",
+      "loop": "loop",
+      "length": 1.2,
+      "animators": {
+        "b0ae93e7-efce-5494-8459-792a5f4c8e54": {
+          "type": "bone",
+          "name": "wing",
+          "keyframes": [
+            {
+              "channel": "rotation",
+              "time": 0,
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "15"
+                }
+              ],
+              "interpolation": "linear"
+            },
+            {
+              "channel": "rotation",
+              "time": 0.3,
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "-15"
+                }
+              ],
+              "interpolation": "linear"
+            },
+            {
+              "channel": "rotation",
+              "time": 0.6,
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "15"
+                }
+              ],
+              "interpolation": "linear"
+            },
+            {
+              "channel": "rotation",
+              "time": 0.9,
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "-15"
+                }
+              ],
+              "interpolation": "linear"
+            },
+            {
+              "channel": "rotation",
+              "time": 1.2,
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "15"
+                }
+              ],
+              "interpolation": "linear"
+            }
+          ]
+        },
+        "1df56e46-e117-5335-b08f-0211f90b6093": {
+          "type": "bone",
+          "name": "wing",
+          "keyframes": [
+            {
+              "channel": "rotation",
+              "time": 0,
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "-15"
+                }
+              ],
+              "interpolation": "linear"
+            },
+            {
+              "channel": "rotation",
+              "time": 0.3,
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "15"
+                }
+              ],
+              "interpolation": "linear"
+            },
+            {
+              "channel": "rotation",
+              "time": 0.6,
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "-15"
+                }
+              ],
+              "interpolation": "linear"
+            },
+            {
+              "channel": "rotation",
+              "time": 0.9,
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "15"
+                }
+              ],
+              "interpolation": "linear"
+            },
+            {
+              "channel": "rotation",
+              "time": 1.2,
+              "data_points": [
+                {
+                  "x": "0",
+                  "y": "0",
+                  "z": "-15"
+                }
+              ],
+              "interpolation": "linear"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

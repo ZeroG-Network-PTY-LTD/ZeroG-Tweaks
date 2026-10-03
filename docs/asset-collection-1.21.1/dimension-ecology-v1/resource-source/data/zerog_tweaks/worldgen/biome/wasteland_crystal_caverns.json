@@ -1,0 +1,43 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.5,
+  "downfall": 0.7,
+  "effects": {
+    "sky_color": 12098280,
+    "fog_color": 12098280,
+    "water_color": 6970040,
+    "water_fog_color": 6970040,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "zerog_tweaks:dimension_ecology",
+      "zerog_tweaks:prism_cluster_scatter",
+      "zerog_tweaks:refracting_glass_scatter"
+    ],
+    []
+  ]
+}

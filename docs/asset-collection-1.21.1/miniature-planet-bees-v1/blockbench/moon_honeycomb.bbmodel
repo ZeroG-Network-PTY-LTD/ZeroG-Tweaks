@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "moon_honeycomb",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "585ec153-5d56-5157-a801-2cac940872a0"
+    }
+  ],
+  "outliner": [
+    "585ec153-5d56-5157-a801-2cac940872a0"
+  ],
+  "textures": [
+    {
+      "name": "moon_honeycomb.png",
+      "id": "0",
+      "uuid": "5dfd3c9f-3d1f-5f29-a738-fd1f3fecf580",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABBUlEQVR4nO2XvRGCQBCFP5wLLcHIHuzCGuyAxNACDE3owBrowgaMNLEEcwzkboC5W5af48YZX3g83iws+80Cf/2CtsdzFcMLYDRhm0MOUAE8LqdsqrcpMcwGrvMSgPvu6Tw2fIjXp+AbcGG3knex/57V117XYrRXXQDgwjQa4m1qNequGZW8gGALbO/qr7p1NsXblTgmzdGygZox7POK8oEkBBetV4KT6Zp8IOk+idargVMWAzpDMk3LNCN0tD7XghjQ0fiScyB5AQbiQEfr847MXNAZBaep0PGdSyDqRWVsHAcvLrUViQvJEluRWADE34qScyB5AWILltiKko+hWjF/z5LqA8nPG6rHKIf8AAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

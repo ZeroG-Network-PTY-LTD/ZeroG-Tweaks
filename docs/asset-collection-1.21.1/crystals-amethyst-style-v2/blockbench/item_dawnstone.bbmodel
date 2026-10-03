@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "dawnstone",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "f678817b-569c-5a74-ac5f-714917639f92"
+    }
+  ],
+  "outliner": [
+    "f678817b-569c-5a74-ac5f-714917639f92"
+  ],
+  "textures": [
+    {
+      "name": "dawnstone.png",
+      "id": "0",
+      "uuid": "70a005ca-85ca-5860-a33f-6749bd975da7",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABC0lEQVR4nGNgGAUUAC0pjv8Davn/Tw/+D4gjtKQ4/v8/MeH//08PKHYEEzmWX13XgSJ29cYNsqODJAdgs5yBgYGBgVce7ghSHcJIkeXm+RD680MUYW0NDYZrz34QZTZRinBajmYxOY4gGAW4LNeW5sSrj9h0wUJIAcQVAQzaGhoIw9cxMFxd18HwcEUBUdrxAZJzATI4cOzWwDqAGoBkB2DNhvR0ALXBqANIcgC1459kB9ACjDqAaAfQIv5JcgCtwNBxwMNLBwbWAfJ6DgwPLx2gukOIaw9c2wB3BAMDdUODYJMJV6vm6roODId4NezAUEeoWUZ0oxSbg7Y1eGBYSmxjlCpgQLtmwwYAAGiMbQAIQgBbAAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

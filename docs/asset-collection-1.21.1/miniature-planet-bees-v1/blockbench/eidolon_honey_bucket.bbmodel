@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "eidolon_honey_bucket",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "ec95ba33-125d-58a7-8ae0-22760c3fdb54"
+    }
+  ],
+  "outliner": [
+    "ec95ba33-125d-58a7-8ae0-22760c3fdb54"
+  ],
+  "textures": [
+    {
+      "name": "eidolon_honey_bucket.png",
+      "id": "0",
+      "uuid": "93f535b4-4119-54ce-9d89-930a47fddb05",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABHklEQVR4nGNgGAWjYIABIymKH7389p9UC+TEufDawURLy4nRRzAEkA2QEOMk2QEvXn2Hs7GFBlYHqOtY/GdgYGDYvXcfXIwcy4lxBFYHUOprUhyCNQ24OjtR3XJk85BDAW8UFFTUMDAwMDAkR3tTbLmuriUDAwMDw80rJ1DsxBoC6IrmLt1KkeUw/ejm4nQAPkPItRwXwJkN0aOBEjCho4WBgYGCEPB1d2TwdXek2CHYANFRQCtAlAM279w/sA6AAVpEw+CNAliKhaVgcgG+HIDXAeiAVumA5CigdjoY8DSAt0ECKw0ZGMgrEZHTD1lpAFkTqYmRGMsJOoBcRxBrOQMDka1i5KggFRByAFGJkJAhlOgjOheQ6ghyHT3yAAD4znHZ/3epTQAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

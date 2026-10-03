@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "g5_p6_grass_block",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_block",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "f5dfb1e9-6aff-55c6-bedf-136982806452"
+    }
+  ],
+  "outliner": [
+    "f5dfb1e9-6aff-55c6-bedf-136982806452"
+  ],
+  "textures": [
+    {
+      "name": "g5_p6_grass_block.png",
+      "id": "0",
+      "uuid": "fbd6f16a-af13-5b83-b625-97023a035026",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAGMElEQVR4nG2WPWvjahbHfzEpYlsKyCgiCoZAhAkYjG22usTccNNsmcbFsrvtdJeBhe33E2w3xcLAwvZu8gUMAYcpbTMwEIwCBhMHxVgQv6XLFuF/eDJcgUkkPY/OOf+Xc569//31P2/P6wWds1849iN64xu6zWtu0zsAvs9/0IjrnEc17rMJAOdRjcHDN9ujNb3xDQBHXsj3+Q+6zWvbc5lc8GXwlcvkguU2p1IKOPJC9s+jGudRjef1AiXyZfCVRlznMrngPKpx7EcA3GcTLpMLvs9/8LTK0LXc5jytMgsMWPBKKbB1l8kFR15II65zm97RiOsU7rMJ99mEIy/kNr2zYAryvF5wm97RG99QKQVW5e+dTwD0xjc8rxcc+5EF6zavOfYjLpMLbtM7S6wR1xk8fONplVEpBdymd+z987fPb8d+xNMqoxHXrYJGXLeslchymxuUSuBplTF4+MZ5VKMR1z8go2RFoa7n9YIjL+Q+m1C4TC4skCrTx5WMNjyvF3wZfAUwjajiRlzny+Ar99nEtOQG7I1vOPYj7rMJjbhuiO3fZxPOo5pxosCXyQXP64UlcexHHHmhVfp9/oPe+MYqU0A3yW7z2p5pnWgBqJQCChJFt3nN83phKr5N7+ic/cJ9NuE2vbOPCvYjL+RplbHc5hz7Ed3mNZfJhQX9vfPJqm7EdROegquQvetfP7+tNkuatSuyfErp4JA4TEhnQ6LglPGkT6fVZTDq0Wl1GU/6NGtXzBcpWT6lWbsCIJ0NWe9yVpslSbXN9vWF+SIFsDXrXU46GxKHCUm1zXyRsve3P//rbb3LiYJTvGJgizqt7oePKok4TCzJ1WbJepezfX0hCk7xyxXS2ZCk2ma1WeKXKwCMJ33OTlqWhBJfbZYUSgeHNGtXeMWALJ/iFQOSapvxpE/p4JCzkxZ+ucJg1AOgdHBIlk+Njiyfst7lhkLp4JDVZsnD4wiA+SK14ABxmNCsXTEY9RhP+hS8YmA380WKX67gFQNWmyVeMeDhccRqs7SNXjGw7MeTPl7x3fsKmM6GVvl8kRqKeg9YMQCFh8cRSbUNgF+uMJ70P1QnTksHh/bhwaiHX67QaXWteq8YGOfSifgGiIJTS6LT6poO9q5//fwGGEzarP+VnIuGBCtKvGJg+1y6AJJqG68YfNCDvpdU2xRWm6XxrA1ZPrX7dDa0e1Hx8DhivkhN7etdTqfVJcunFjyptonDhCyfMp70SWdD0tmQs5OWBR+MehQEYzobWnZ6KVqkE7ciuUQ8C35BLO7d4ta7/AMScZiw94+//PdNLyUovVQicZggq8opsmezdsV6lxOHCYNRj6TaJp0NLRm/XDHVA0bTarMky6fsXf3p72/KWt6Vv13e9VwfVd9wUcvyKWcnLesNpYPDD8kojlvUvgJL2c3aFQ+PI0NDtpPI1C3VN1Tx9vXFYPaKgak/DhOzq0uthL8v7vxyhbOTllU5X6S4ycVhYvy5DonDhDhMTJSuVrJ8ShScGlr6jpJe73L209nQGgxgHLtwy4rqdAogeAX3zw5QuxZ9frli+0sHh2xfXygoU7e9KrBrQ1XpFQP7udbdvr7QaXXNAYNRz5zlasptWPNFSkE+dh8qS3jvYKvN0qqVlVzXuPDLGUm1bcgJWXXNLJ/awNufL1ITl1+uWPMQZ365YqoX3KpKitYU1L1QFUqytQrQ3vGk/96IZCVVstosDRF3kgkpN7gu1+vpbGjBz05a1tpVPbzPE68YsK9hI4j1V3bUQJLq3SakdaJFClcA2VW9pNPqmo5U4N6n63+/SQfyu1cMbPMfHTh0UhKsUrQEKVqi4NQcohOSe6BJZ8P384Dbx13FuqNZVSXVto3Vn09S611ua/Q8Ck4NGRcBCXz/5wBKIsundFrdD+90L6Q0aISKrCoq1fd1r3c6lpUODtmXyl2PSjQ/DxdlLyG5J50/CuyejHSo2b6+WHte73IK7llPVhtP+jYXhISq98sVO+fFYWKzQt1PgYWSK2zNA/WKKDilIC7U8RRIQlptlvZzadLJRxNPIlQB6Wxoc8Sl1aV0+/ryfh5wlQ7YENFzHVZ/HsHwPu3kCllQylfVD48jzk5ahqyuKDjl/3HFzL1YI6/7AAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "name": "g5_p6_grass_block_top.png",
+      "id": "1",
+      "uuid": "9dc19b04-b4f4-5d66-bfbc-09a7b2eef1d1",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFRElEQVR4nG1XMavqaBA9N1hJLJQkmNYggUCwlgTC/oG1sdreTpYttn3dK7e0WLDa3sYfsIUQcVsRhBCU7QyfokXE9m5xOfMm965wuRqSb2bOOXNm8vbXL3++X583pIMx+h0Pq/0a09EEm9MWAHC4HBH7EUJviMKUAIDQGyI/7+QZ3rParwEAru3gcDliOprIM1mQYJEvkQUJ7q8Heu0uXNtBK/SGCL0hrs8bmMgiXyL2I2RBgtAbot/xAACFKZEFCQ6XI6ragJ/764GqNhIYgATvtbtyXxYkcG0HsR9hc9oi9iNYhSlRmBKu7WBz2kowBrk+b9ictljt1+i1u1LlPJ0BAFb7Na7PG/odT4JNRxP0Ox6yIMHmtJXEYj9Cft6hqg167S42py3efv/p1/d+x0NVG8R+JBXEfiRZM5H76yFQMoGqNsjPO4TeELEfNZBhsqSQn+vzBtd2UJgSVhYkEoiV8XAmwweuzxsW+RIARCOsOPYjLPIlClOKlnTA1X6NfsdDYUrEfiSItQpTIvSGwgkDZ0GC6/MmSfQ7HlzbkUoPlyNW+7VUxoA6yeloItd4H2kBgF67C4uimI4muD5vouLNaYt0MEZhSmxOWzmUsLu2g6o2uL8e6Hc8TEcTZEEiQefpTKqO/UiEx+AsxGJmRIKiyoJEDiYCWZCgMGUDUgACvaZltV8LrZvTFlVt5LdG7O2f3/4WEebnXaNKCoi0aLESSh2E7czneGY6GMvZVW0wHU2Qn3dwbQeWFooWla4+C5IGvIfLEYt8KTogn6v9GmzrzWmLwpQSbDqaoKoN5ulMgl+fN7TYQsxuns6Eb63k0Bs2DKqqzRfX1ALTSE5HEzmrqg2q2iD0hjhcjrD+zy511fN0hl67K2LqtbuN4IfLUbqG6OmkSU86GGOezsS02IoWs4r9SHp4ns4EQsKqfZ6HUITUhms7AH64JAsDgPy8w2q/xv31aKBrabhDbyhw0b30wewMHlLVRqyWGmJSWmyhN0Q6GMO1HUGQbdxiaxFO8sxpRYFqwwm9odDC6XZ/PRpWTp3Qcumm7CrGsO6vB6ajCRb5Eq7tSCKxH+H6vIl6GTwdjL8MGFZ/uBzh2g7ur0cDlcPlKEmTbp5psWpWSt54eGFK0QS55FSjsxEdIsYRTkSyIBEnJEWiAV5gO/EBbZlMkDwyoLbvw+X4ZRBp++b3Rb5sXJdZQB2wkn7HkxvZMrRoiowGw8p67W4jEJ8jMtQMr8d+9EGB3orYBeSKD/E3fZ/JMqCe90SHZ/NcjTJ1Z9Ec2Hra/T5Dxv9UOp0TgFgwf+fnnQwvClVDzyTf/vj5+zv7k7zTWLR4eu2u9L8eTPpe4GM/ZMvxTL1LAD8WnH7Hg8X9jC3I3YC60A7IJYWDap7OkA7GjTHLyoAPC56nMwmen3eyFVGsLS4O2ja5A3IVp9J5je3FcUxzoUnxul5se+2u8E5Uq9p8LKV0M737ExVuxQykl07Cz/XbtZ3GqE0H48Z+oDXApFv9jicBOGB0ddSFazvSHaSAB/Y7nmxT83TWUD81oYMCkGJbru2Af2wROh95p8qpk6o2jcWTnJIaTQlfbj6/T1DYrc+rtzYgPUR0FxApwv95EaFJMREips8mUhbnvzYOdgKT4zU6HZeRz9OPiXD/43Ba5EsJPk9nkjyADwoIB7NkZeSerce20hTopZUokCbCrvXCdYztaGmBUGTkjv7OKgBINYS21+7KICKSpFQPK62l++shyb79++3wrrMlP3yVLkyJdDBuvAdoo9HvkvQJvn6ztdnKXGiJVuxH+A+I56+618GkNwAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

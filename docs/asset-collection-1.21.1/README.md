@@ -1,5 +1,22 @@
 # ZeroG — complete design collection for Minecraft 1.21.1
 
+## New crystal/material revision
+
+Newer revisions: [34-dimension ecology](dimension-ecology-v1/README.md),
+[half-size planet bees](miniature-planet-bees-v1/README.md), and
+[cosmic vanilla-rig Blazes](planet-blazes-v1/README.md).
+The bee revision supersedes the six initial ecology bug skins/rig studies;
+the old files below remain historical provenance, not the current creature art.
+[Browse the additions](additions-review.html). No client visual approval is claimed.
+
+The [crystals-amethyst-style-v2 revision](crystals-amethyst-style-v2/README.md)
+contains 96 texture PNGs and 80 new editable projects: four growing cluster
+families, ten crystal/gem families, sixteen ingot/raw-metal pairs, Star Glass
+and six planet sands. [Open its local gallery](crystals-amethyst-style-v2/review.html).
+The historic showcase/hash roster below is preserved, not silently rewritten.
+Current gameplay and jar information lives on
+[Docs](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/crystal-material-update-1.21.1.md).
+
 Open `showcases/ZeroG_Full_Collection_1_21_1.bbmodel` in Blockbench. The Outliner groups the collection by use. Each individual model remains available in its source folder; use those projects to play their original animation clips. The combined catalogue intentionally has no animation clips: playing hundreds of entity animations together would not be a meaningful fit test.
 
 This is an **asset and documentation snapshot**, not a new compiled release. Existing gameplay source and release jars on `1.21.1-update` are unchanged. Catalogue geometry keeps authored dimensions; only positions are translated to arrange rows. The complete catalogue uses Blockbench's generic Free format, which supports multiple textures and per-texture UV sizes without Bedrock's single-texture limitation. Individual source entity projects retain their authored formats. The twenty-armour catalogue uses one packed atlas. Both approaches preserve texels and alpha; neither catalogue is an entity intended for runtime export. For a lighter review, open one category showcase instead of the texture-heavy full scene.

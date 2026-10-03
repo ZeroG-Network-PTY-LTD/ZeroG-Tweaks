@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "g3_p6_short_grass",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_plane",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        -45,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "c5f55667-1209-5cd7-8198-fa203b76906c"
+    },
+    {
+      "name": "crystal_plane",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "6ffe366e-bac8-5ce4-b588-87ead489195f"
+    }
+  ],
+  "outliner": [
+    "c5f55667-1209-5cd7-8198-fa203b76906c",
+    "6ffe366e-bac8-5ce4-b588-87ead489195f"
+  ],
+  "textures": [
+    {
+      "name": "g3_p6_short_grass.png",
+      "id": "0",
+      "uuid": "8746ccb2-efbf-57c0-baca-36735dc76a3f",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA3UlEQVR4nGNgGE6g/Uz2f1L1MA2UxVRzQFy/9//rhx+QrZ8qIUAJYCFXY1y/N9nBjgyoFgLtZ7L/V5pMZRwwB5ALhpcDBqwcoATQzQG4QocuDsCXQ6jqAHRLiEkTVHGApq0CTjlC5QPNoqD9TDZRdQTZRTEugFxEa9oqYEQLOqBJCGjaKjAQW0OSXHYjA5hvYWkAZimMT0zdMHwKIphvSfE9VR1AbvuAqlFAqu+p7gByANUcQI7vqeIAfMUwXRyADEZ2m5Ac31PNAQPeM1pUuJXsOoViB1DiewYGBgYAjuNId8HXF2QAAAAASUVORK5CYII=",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

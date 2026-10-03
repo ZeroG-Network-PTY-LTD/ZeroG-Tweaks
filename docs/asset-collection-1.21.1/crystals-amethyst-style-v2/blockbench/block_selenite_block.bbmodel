@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "selenite_block",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_block",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "2e29b116-d5c7-5f19-a1dc-da9c2989230e"
+    }
+  ],
+  "outliner": [
+    "2e29b116-d5c7-5f19-a1dc-da9c2989230e"
+  ],
+  "textures": [
+    {
+      "name": "selenite_block.png",
+      "id": "0",
+      "uuid": "aecc3ca9-0f5a-5c85-945e-f2d31383f13f",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAG1UlEQVR4nH2Xy2/b2BWHP15SImUztiU5sWOPo2Rm6sfYTiadpFOgQIBuuuiqKNBFF/0HC3TRVbddFGg77aRN846TiWXLkfyK7ehBUSJ5urjklWi5FSBQEsj7ndfvnCPr8GMo7XaA75fY+eEYz3MRERIRLEAEGh9alGc9NlZrCLC7f4rnuti2IopiRABARKjOFfH9EghI+luj2UZEEH0TInC96nJtuoR1eBqKAO1OjySxEIFuEOkHxg4+OjnFKyoqlWrudxF9BQ3sds7ZXKsZ+IvXda5dK+fgd27NaecAlcH96dKV8CDoI8D1agXfn5uAZy9lKxBhamrWwFMmibaSJIHPayM4AtYf/vREomGM7dgsLswzPeURRckIMma5AMWCPRGdoB+a57L7g6BNkiTsHZzw1dqXNA+PTFoAbKWI4hgHAduxAfDcYt7DMfgo35e+p/eMw//z/DUlz0NEUJbi5et3zM1eQwDbtomjiCiOsW2Fc/PmIgXbYhglfP+vF0hq5lXXJBF++vAeQA7uum7O2Aw+/m4eHvPwx9sEQR/Xc01KHAthGAkHzUNWlqpMT7sAvNs9yh2QpNfL0UkSyOTy5NkrECi6BZSlzLP9MDSxdz0XW1lEkYAFKknzMu3ZHJ22aR59+p9wEeEfj5/lvM3gF+dnlOdmcN0ig3A4Ad/eXDUO1Pc+kOhKxQH40GzR7QbcWakC8HY3uBJuJCdCZdYDYOeHBohwdNrG84qICE7Bod8PEQRJhJ88uJuL2vLSIo0PLZYWF7D+/Nc3AvB+72Qib1fBs3exWGBlad7ARQTHcRARBoMBtq3VEscx97bXJ9SUfbYuOkMRgSgWfv/Hv5iCk1So46oYvz762Tcg8Pd/PkUQ3GLRGOc4DkmS5Ay+u7U2AV/7ooJ13h5KFOubnr6s0zr8xGA4nIjGeES+fbB9yVBt2HepMbZtYyuFZVmUvCKLN2YAmPIrukf0QxQh97fv4GRw0yAchQyEklek2+vjODqfWKMUZPA4EZRlmRQ9/GbbNKadt7uICJ1en533WU21+Hp7A9d12VpdQgRUkmTFAZvrNT6eXSAidHv9ETCFFwpOGkYNVJaFUlYuCspWeG6Rra9WczU0VdK94fGT52ytVgnDmCgWVNaYMyNWv1jOhT0cDEafjbwwh19u23E6HQW4u7lm7tfDLuF3v3mkjbd1n1Dj8GymiegUxLlCGkvBSP65eWAriyAIjcZTxZpn0vrj7KJnDFYCDAdxboL96pff8ouff41SiuEwQgSmSq6RlWXl4QJmGLmei5WmKAhD7m2tG8N/++tH9PoR/rRHOIz1NMz2gQxecNRY08hHR0RoHnXoBSElz2W/0eLWyiLv3u/jOA6LCzcmtD4YtNlar/Hs1T7bG7f41O7lFhbn/8HdogIgCBMDF4FSujXZtkIEPr+9YtLU74e4bpFu95ztjduIVBDg1vI8IpKDI6BEhOEwvtLzfpgYeJY/E3bRkrXTYqrOecyXPVy3yP5BC4BMYZKA75f04LoUVQXw5l1jAt5uB7m6+Nv3OwD0gr4xpB8MzE54ctbn+KN+pjLnsbVeY1xh2XlxOv2StDjV81d17m3ensi575dynt+paXl6rqsHTWrw5WJsHDQnvLTIn/fsVZ1Mc9bxWbqUppvxeMGBtvS7xzsgULu1RBwnY9ESDppHLN+8QSaNXveCzY3alQWcOSOASpXkNFod01rP2+00d9mWoR+8Pl/Bc4vs7n0AEZRtE8cRCMRxbODHJ6dMlZwRND3mMhyBZ6/r+NPX9E54eaiMw5Wt8NRoVwSY8QtAYcxLSXuFw9Z6jUTSEy7B290Af6rEizd1KuUqSlk4l+FBEJo/J1lrtSwLK/VyGEUAE7v/2UWfylzJ5HwwjHEcZdII4E+VaB13qJSriAj1vRZOBlfpnjYOzzw7aB7y2dKCbhyOPZHXjdUar3b22Fwf5d5xdI/499O3FIsFAMrlas7R5aUFnL1Gk5XlRb0kjlUzIjQOWlTmSszNuHQ656airioq27Z5/rKOUvq7bkLCg/s/AoH9ZtucnyQjR52lxRuIwP5BC1spEknSfIClFAJsretwP36SeaPh7U7A9LRWztb6Co6tR3Nux8jqJHNOwMp2CNApqH02w4xf0IXSG+LYik4n4Pj0LLMFBO7f/dLkXAQDF8CxLcIwRtlqot8/f1lnZrY80TMQwTo6CwWBj+cB3SCiF/TxXNeE+H29wfWKz8ZaLef5/sEJ5fLo0E+fPpqwj0sQ0Y1nZqasCzJJwLLS/wbJaB8oz5ZMp8teWdHJKA7G8/n5am4x8f1yLuxYo/abwfV2pdUURQnXqy7/Bb5SQJI3eO6dAAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

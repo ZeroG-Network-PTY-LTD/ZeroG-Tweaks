@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "skarnite_block",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_block",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "0d84865b-5c8f-5cf1-bdb4-b24f5b3da2d5"
+    }
+  ],
+  "outliner": [
+    "0d84865b-5c8f-5cf1-bdb4-b24f5b3da2d5"
+  ],
+  "textures": [
+    {
+      "name": "skarnite_block.png",
+      "id": "0",
+      "uuid": "5bd79d9e-1d5c-5b5f-9ce7-0feedcd8a021",
+      "source": "data:image/png;base64,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",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

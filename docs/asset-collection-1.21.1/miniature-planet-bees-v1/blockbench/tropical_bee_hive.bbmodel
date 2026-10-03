@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "tropical_bee_hive",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_block",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        }
+      },
+      "uuid": "048e8f91-0cd9-5517-a8d1-f2c5a58ea910"
+    }
+  ],
+  "outliner": [
+    "048e8f91-0cd9-5517-a8d1-f2c5a58ea910"
+  ],
+  "textures": [
+    {
+      "name": "tropical_bee_hive.png",
+      "id": "0",
+      "uuid": "da31830f-8e48-58e3-b07e-5077fc9e029e",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACy0lEQVR4nO1XL6zTQBz+Rl5rtqYrYwLFku0tJJiaOhTJE0swCBwa83AIBBqS+Yd5+qGfnHgJQeAakkqydUmnnhjLrelqOgFi/I67669vWyaG4FO9a+/u+32/f9faj8dvf+GIuHfMw/8JAifqYHAmAABe4EOEEbzAxzrNUMwXsNstFPMFCrGEF/gAABFGcq3tNQEAhVjKOdrHfD+68XgCp+/eyOcHz55uZb9OM6zGU22dCXafm8/y8WAXNPrdg9afcJOT4QW8wEceJ1JS22vCbrc0iy3XQR4n2joiRW6zXAfAxl2cUiwB8h1ZV+91NmTmC+27dZqh3uvIse01Ue91ZPzkcYLVeLq/AmTFwxcDOSZfkpWEPE7ku0IsYaeZtFT1/+zyij2HjYF1mlUyVn1uWtfod7dabIJVwJR6MryQaaRK3uh3pY8JlKIAcHs9YomqYBWw263SQRws19FqgUncch0U8wW8wJcGmGAVsFxHc4MaCyWyFRsDmxigOKiqK6wCamrdBTVNgY1yu64l1NRu+PL8PoCNz8iXk/MPe21o4vTTe5nSVMrVUlxSoJgvDq5uJrzAl/FhuqxEgIJPhNHecnJYpxnyOJGBrbqsRICimlxgt1sHE1A7KaCnKWBkgRq1hO9Pvh5E4Hn/VXny44wnwG8wrHxH5fXRa+aQHcES+Pnlm0wxajB0MSnEUtZ6alLqOgDS52oFNHsLofI+oB6ex4ksuWqGiDDS4kSEUalDeoEvU3BnBagKkrRqNTO7odoL6CDOUnMdgVXAcp3KWqDOmzldZSX3LYFVQISRtmB2eVXyKYBSmprf3F6PZF+pSmlWAS/wtYJRiCUs12GtUJsWdT51TEFa1ZLvvBERuBsOHaCN/9yICLukZ2UW7HuzAfgLyjZo3XBwJuRlUs1xqgPA36inMZValTQRof8GAPInZzWeat2w9v/n9NgEfgP56m1+URZGHwAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "name": "tropical_bee_hive_side.png",
+      "id": "1",
+      "uuid": "e5dc6258-3517-5cde-b604-10ffd497a0b4",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC7UlEQVR4nO1XIW/bQBh9mWqTxHJuXcBQIyWrBk3MhiYVFA6MDY9sbGD/YFJ5UXCHCwMqDY2FBE6pKzmoIIscywlxwAbS9+Xuck5SBXRgD/kcn+/73vd97zm1X6+//MET4tlTHv5PBHCkL87PMgCAiiNkgyFUHGGZFygnU/itY5STKcpsBhVHAIBsMJS9vmoCAMpsJvf4Hvv3/o1yB/Dq62e5fvH2zc7ol3mB+ejO2GfD+Z6b73J5cAkap52D9h+5bt5eXELFERZJKpT6qgm/dWxk7IUBFklq7GNQLJsXBgBW5XIx5QyAtWN29W57Fcxkajy3zAvUu21Z+6qJerct/bNIUsxHd49ngFm8fHcua9aSWRKLJJXfymwGPy8kU73+496V8xxnDyzzojJiveZ2do3Tzs6MbTgZsKm+vbiUMdIpb5x2pMYERxQA7q/7zkB1OBnwW8cbB7nghYGhBXbgXhignEyh4kgSsOFkwAsDowx6L2wEW/FiYNUD7IMqXXEyoI/WNuhjCqyY23cvUdPd8P2n5wBWNWMtl3khdabyccSA9YjyWpduYF0maoMtxRsMlJOpUfNyMsUyL7BIUnhhAF81pTxlNjNYsLNn86k4kv6wS7bRA8wiGwxF/Ri5nxeGugGQTClADIzQGVk3bYUZ6V1NJyT08VokqUyKMJCkMpb+w6FkkEl4YbB6z83YHYDetdvAZ8a9K9S7bZzsscfAt3UAB7vhY7vehlMHfv/4KdTSYFjLMpuJ1usTwH0Mis5J2N5CVDKgH84J4IuIbDCUJuTadkgVRzKCezPA5jv5+AEADDWz3VCfCB7kytTeRzgZ8MKgUv/1+/ZMV2XpepZwMkANIMa9q42aAjDo51p/5v66L75iP0s4GVBxZIhJmc1EBW3oWkHn09ds0ipL3vpFRLi+cHiAsX5QS4I9tA2VU/DYLxvA/YGyC4Ybnp9l4nQulwNgOCMAw/kYNAOhewJraZ+P7gw3rP3/c/rUAfwFV0G4cKmI7dsAAAAASUVORK5CYII=",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "name": "tropical_bee_hive_top.png",
+      "id": "2",
+      "uuid": "32911dea-05b5-52c1-8f96-a267e515548f",
+      "source": "data:image/png;base64,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",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

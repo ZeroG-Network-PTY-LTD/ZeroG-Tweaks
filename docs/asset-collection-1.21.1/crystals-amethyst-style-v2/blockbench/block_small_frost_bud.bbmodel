@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "small_frost_bud",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_plane",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        -45,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "7d2df3de-be49-5e70-9c9a-14a58582624e"
+    },
+    {
+      "name": "crystal_plane",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "30d2b4aa-5dba-50ad-8169-f108103283d3"
+    }
+  ],
+  "outliner": [
+    "7d2df3de-be49-5e70-9c9a-14a58582624e",
+    "30d2b4aa-5dba-50ad-8169-f108103283d3"
+  ],
+  "textures": [
+    {
+      "name": "small_frost_bud.png",
+      "id": "0",
+      "uuid": "bbd65597-57cf-5b91-8f00-f4c79086aeb0",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAfklEQVR4nO3RvQ3EIAwF4HenrOKegpHYgRnYAAlvxg5ewalIESWnA9r3dfz5IRsgIiIiIiKiTSLiO+8/u8EpJQBAznmp1ncl2MwcAGqt176ZeSnFZzsy9YFRvLX2eK6qM+UAAMdMeAgBMcbXO2Mcquq99+Xxvrq3WER+rv9xAp2YLEaMgKltAAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

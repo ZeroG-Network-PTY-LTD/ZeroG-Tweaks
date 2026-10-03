@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "crimson_bee_hive",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_block",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        }
+      },
+      "uuid": "91cd0ab6-ae98-557b-b083-70932b29981d"
+    }
+  ],
+  "outliner": [
+    "91cd0ab6-ae98-557b-b083-70932b29981d"
+  ],
+  "textures": [
+    {
+      "name": "crimson_bee_hive.png",
+      "id": "0",
+      "uuid": "d55862d7-5ed0-574f-9d8b-4d50b7074cf4",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE+ElEQVR4nK1XsW7cRhB9nOWaOBMWDOa6K/MDrgJ1blIllSsJMuzUhmEX+RAXMYyrLUGCVKVz707xP7i87nIIDPAuqz3upli/4VBW52xD3pE7M/vmzcxj9fODLjeVIOSEPg3onMdmiGjFoakEALAZIgBglxLmtcd6H/UKADMRtOL0N/978azG8eF9PHm9wyoGzKTY65zX38INdjPXKgbdsEsJC9+gTwNmIljvI2YimNcerTj0acDCN5jXHvPao3N+Ymsmgl1KaMXpbwCQ9T5iFQPmdXGyGSJ2KWG9j1j4BiEnhFxOTiRohI7X+7JnFQOaStCnAUcnGceH9/H45ZfJHqK9S6kEMBPBTARNVa6d83qKzRDx/GmFD29bPH9aoXPfnmyXEmYiWPgGMxEN0j5fxaAIAdD7Vhxkl5KevBWHzRA1Hczh5fUWx4f3cXSS1fC8LoHQ6CoGtOLQitN9P734ZxII+dSKQ8gJTSWQT8uH+LR8qHB2zmPhGzx/Wqnz5dleDYVc0tOnAX0aEHLJK0nZp0HfZXBEme+u9+WQqxhQX15vAQAf3rYAgMcvv0xO/ub9DQAoCsAWyzPRnBJSnvDjuwMAwJPXO2yGwqNVDMonBkYE6quLCiEnXF3scHSS1cDl9RZXF5We7PQ8AxiDuLqotEo+LR9qMDxQyHlSbpshfsOfo5OM6tHsQZ7XHk01EujFsxqn51nr3cL68d0BLq+3OD3Pihqdvnl/o+VmU2C5A+DrIcqqfj2YZ5Yeq4BlaYMi5OSGdcxgmW/2DNq1CDHN5EJtH7TiFNY+Degxdkb+d3x4oNywuWSuW3FaVQyIwZ6eZzTV9JACQHNjuyH/W8WAznltNlwsQwCT2me6dimhc15Ttjzba9WEXNDu0wAJOWk0NDyvvTpmHoFCNluWtlXboHi1gbFH8KCtOHTOo7Ydij1+Xnut27tmBB3yFOsUNfd0bsnI1VQyGUqrGFDbvC98gw3ipK4/1yNjf3h1A1jasBdwpAnwWZ/58f+vqWmcaGA6CxgtAB0St+v1exbJxxNzzeuSXiEr7QP74v+xiChTbXlVPZo9yHTMUcn6b8XhL3wfGj/ut9rMbH8gIWvCT/Jxdc4j5IS/3977rgAev/wXfRrUIZ1z8NV0RFJQiAAFOg4hCgu+9/tv9yajGgB+edXfiSIX93auEHQVQ6G0lVnz2qsBq+kIX5CiHUsv2E5Gth0+6xQn+pENikKnc6XUZRWDlgWVEQAdnby345TajuwGxja+8I02MNpi42G6qZJacRDLSDprKtGh8+T1TltoU40BAkVDcGxTpIZc5gBbrk0nryzB9T6WVmzVLXPIvDJSGiAKdkRbtJpK9H3asuTmO0DpP3VTCSCjIuLiqLUSnI45+W4b3KWEDeKEZMy7LUEbcP3nH7OJw9PzrDVr+/t6H0fjdyyrH+woZpXd1eBacUUTFnl1o444E2jkLrjtZOycV/3AgAk/USPrAajG6NMAWZ7tNcKmEi0T1qz9kuG9DcgKFn5TAOMoDjkpCtzPymvFQW4TpqlG2DvnNb8UJby//a1AFUS5DkDlN4NhOVru1CSYlc6E6vZJuAmAynWqZP62bTbI2BEZPOUbbdcKI6J2qMZ9FaOCicjgJn6ITKX6SGAGbL8DSWh2SlZFTaNWAxJ+3pOYltU82em5g/1eePM+aeu1pCQCtj1vhoj/AGuUHncMF2APAAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "name": "crimson_bee_hive_side.png",
+      "id": "1",
+      "uuid": "dbee6127-1f09-5a73-956b-e6c7838d12fc",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFHklEQVR4nG1XPW/cRhB9nF2GOBMWBOK6+xOpAnVuUiWVKwkSLNeCERX5ISpiGFdLggSpSufeneD/cd3hEBigDqs97qZYv+FQEhveB3c+33szrH5/2+WmEoSc0KcBnauxGSJacWgqAQBshggA2KaEua+x3kW9A8BMBK04/c7fzj54HB28wfvzLVYxYCbFXudq/S48YA/zWsWgB7YpYVE36NOAmQjWu4iZCOa+RisOfRqwqBvMfY25r9G5emJrJoJtSmjF6XcAkPUuYhUD5r442QwR25Sw3kUs6gYhJ4RcMmclaISO17tyZhUDmkrQpwGHxxlHB2/w7tOPyRlWe5tSCWAmgpkImqrcO1drFpsh4vSkwtfPLU5PKnTuZWbblDATwaJuMBPRIO3/qxi0QgD0cysOsk1JM2/FYTNEbQd7ePfwiKODNzg8zmp47ksgNLqKAa04tOL03G9n/00CIZ5acQg5oakE8n25j+/LfS1n52os6ganJ5U6X17v1FDIpT19GtCnASGXvhKUfRr0WQbHKvPZ9a4kuYoB/u7hEQDw9XMLAHj36cck84vLJwDQKgCPWF6L9pQlZYbfvuwBAN6fb7EZCo5WMSieGBgr4O9vK4SccH+7xeFxVgN3D4+4v600s6ubDGAM4v62UpZ8X+5rMEwo5Dyh22aIL/BzeJxR/Tp7m+e+RlONADr74HF1k5Xvtqzfvuzh7uERVzdZq0anF5dPSjfbAosdAD+TKFf15948k3pkAWlpg2LJiQ3rmMGy39QM2rUVYpuJBW//aMVpWfs0oMeojPzt6GBPsWF7yV634pRVDIjBXt1kNNU0SQGgvbFqyN9WMaBztYoNL9IQwIT7bNc2JXSu1pYtr3fKmpBLtfs0QEJOGg0Nz32tjtlHoIDN0tJKtQ2KdxsYNYKJtuLQuRreKhQ1fu5r5e1rM4IOmcU6Re09nVsw8moqmQylVQzwtu+LusEGccJrGvz6udU+rnel/wQumcIEbO9taxonGpjOAvswh4Tla58GnJ5UL3q8GaJOQpaUSXA8s2VFQ8aWMbFF3cA3laBxglUK+od90F4UIaojgyFlISWwsw8TcmlFSU2rip7OaCTk8cFWnPLeSjSAiRKynHYJAYA//uoVU6yAtR1ygmf57YNAARqjpJOC/iLHRwfA3UPWQP7++Is6fvfpBzpX64jv06AtonMOPk9HzIKLyFhir9kBRW4vLp+Mw0ccHexrxk0lL5zZJJgc5CcL6MhSkOpmdzr2MEjZHW01qA12+KzTuDfaecJFp3OF6rKKQWnBzQjApPzEBX/jbkd0A6OML+pGBYy2yBJWkVtSKw5ilY7OmkoUfO/PtyqhTTUGCIzacH9b6ZIacpkDlNxpO8udFFzvYpFiu92SCQQUI6UBVsGOaFstYqBPg9qy4OYzxJUnfznbeXHU2hWcjjn5nhvcpoQN4gRk7LvVARuw//ef2cTh1U1W4bD6vt7F0fgrl90f7Cgmy14TuFZc2QkLl5/UEWcCjbxWbjsZO1fr/sCAWX5WjagHoDtGnwbI8nqnETaVKE3IWfsmw882ILuw8J0CGEdxyEmrwPNkXisO8hwwTTWWnWpG45x0natfvCtwC+K6DkDXbwZjhxax4wkwuzrbUWoz4SEAOpCeDygrs0GS4oLBc32jba9lRFSFatzPZVQwWTJ4iC8i01V9BDADtu+BBDSVkqzwNGp3QJafnwlMi2pmdnXjYN8XLi6TSq8FJStg5XkzRPwPOzBlcOiEdtAAAAAASUVORK5CYII=",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    },
+    {
+      "name": "crimson_bee_hive_top.png",
+      "id": "2",
+      "uuid": "59af167d-3b37-5836-b544-b015b368d367",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE/0lEQVR4nG2XzXbbRgyFP1BeWZKTZp/3aE+PHf/b+emTkOrDRNQ+7xDHsZ3Ybtw3EqUsckKiiwFmIKXc2ORgANwL4M5Ifnx4qe9m3wEF4Go+5u1sTSWCqjIAI4QBpRLh4/vdvD5o+tarIsCn+Rh/3szWVAgiMKgiiMVI31QVBaq3szUAIoKI8Ha2tlRgACqgty+q8Nff3/k0H2enH9/vbgRNYNKjKKpY8PLt4/td1NM5nb5QIOcHcD0f88YS86cyJ1fzEvDdbM1g/xd85T2uDMHmOjBVlcyK+evZOhupGV3Nd1HUUJbkZCt533M1HzM4C/ZNt+zYZmAIC5+36umJOEp3VAE/gZG99yGxz8akbv3v69fzMVXMzDdtB48Jbpeqp9BtnUIVAFzPx6j5KWUJpfrx4aUCXM5WYTF1/e18wsVsxQ6Sg8Y6l6CeoHIzn3A5WyFITuJ1ALFpbwm8nq1RNDca5sydvLbsB7PxNbWA/njgAc2jGxMaVBlJ2Q+wE1EraWaBPL9sf7MkYid78AqhRzeQXpoeqO1XZ9g0RI6nL/TGUPaWYa9KJWnuAW7bTZRENKrctpO8XyCJGElsKkksnjcrKinVvzEAO056Hxx6cBF+oXhQGAmMRPKIeVKOPAMIDN0FEBfNiotmlSZLUS5nK+7aiblLQUVSaudmnEpBlt7e6KkMwc18jEh6FxKASjbH+XK25twCi6SE5Wjym95uZedjWRkkHz8P2Bs0Ce9fgg+AM0u6MkMxYOfNKgUWA6SG8ryJY2iPsjHnd+0kbaIooL//b3ApwXslx1AKiGqwDwPKRbNioBw+PUnhXCEvmlWupVKaU23tbAuElyodSMnurp3YJKX3HfJMCgOJSk/EN1WW4Nd2Chb4tOlCuZKPXCYDMbIvvY2ur7sfsBIMuf3gpOn4af0ds9ZAbUIoOXhlouT037aToiuQ9WEIc3FujFWufhoM7tspX9tppuusWWWVPGm6QrGF9b+ekK8P5vOunRgDkvdj63Iwea4un/eBGkfjVLoCxs3+7gyKMfM1TMRx0+WGhTJR9+2Us2aVzoLjusvC4lewL+0kU+7a7Y01krR+2nRg9MfAx3XHw2LKabPKpRxM2KCInCrI/uR5vg9kdMEAIddYSwl5WGyyddJ0WXzc7L6d5u/Jj5XJ/N+3U7sPaAoKZfOgKYij9iwr2Qx+0nScNF1J2vypJiZyQ2iafW/sfCz/OX6ulatSQO2MxL44NjSjoIaPC0NJkV+POQAP7ZQjSySppvLPYi+XKvVA04EW+XWdd0M3LqpmPSFBDcMBluutv5bqsF4iCBn0SdPxYCgrKYhHkkbmsF6mkqAMqsk5kntk0MTCT0ta1UZadSP4Ud1xVHeln7wEfiVzI9i8jAjC42LKq3pZ7nFBeLaZcj/b1/RypdN8a6oQKg/qi0o4am37Yb3k22Ivi6mrX9SFGFzRfJ44e4/GhgfPfhTNNCfjzU6N97co2Q+LaVZA339Udxv2BD8H9TInFkVL/hg/Uz9w3Hhk2u2PAN8CzYdWDj+qNdgc1EtGoUSRbmfhqF7yuNjjVb3M9wUGc+Ann5/xT4s9vpkxwH69pA9B43V932w2fw1pZjKycmS28vv4mVaG5t+tZvKgjhaz2a+X+ZfQwObzZCxUtvZkPg/M11PYP0ApwVMI/ir0RCyPPz73vd16Y/min/16mcXBb1FqTPtU/QefFVQhMSY7qwAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

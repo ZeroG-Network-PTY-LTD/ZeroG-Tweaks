@@ -1,0 +1,2012 @@
+{
+  "schema": 1,
+  "families": {
+    "moon": "midnight",
+    "mars": "crimson",
+    "cerulon": "flora",
+    "skarn": "magma",
+    "eidolon": "frost",
+    "solvane": "gold_dust",
+    "flora_bee": "flora",
+    "midnight_bee": "midnight",
+    "crimson_bee": "crimson",
+    "tropical_bee": "tropical",
+    "gold_dust_bee": "gold_dust",
+    "magma_bee": "magma"
+  },
+  "concept_homes": {
+    "flora_bee": "cerulon",
+    "midnight_bee": "moon",
+    "crimson_bee": "mars",
+    "tropical_bee": "cerulon",
+    "gold_dust_bee": "solvane",
+    "magma_bee": "skarn"
+  },
+  "scale": 0.5,
+  "textures": [
+    {
+      "path": "entity/moon_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1ab3eca19ceeced92a74bde645d0639b4f65c243c91fdebda4fd8e14a0e9360a"
+    },
+    {
+      "path": "entity/moon_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "55e4cefa5583dd964cd147081dad6c93cf970039dc5f85c9c585642f662f9a71"
+    },
+    {
+      "path": "entity/moon_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "f00be148b4d0a5c49f980511cde5acd861038e749917d7ad14d66dff5f10273d"
+    },
+    {
+      "path": "entity/moon_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "60b69261fd8d862f77a29c5d308148b4dac3c3621150b778be48b29cec62f377"
+    },
+    {
+      "path": "entity/moon_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0ecf1861471e59ebf48a406898016a7a7e7979e0a140b2157764fd163841f7a2"
+    },
+    {
+      "path": "entity/moon_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "6b89704c7af66d2ef082d6f8fed7044769ea18ded59d46e86283f3c54d9d7949"
+    },
+    {
+      "path": "entity/moon_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "da808d87658747eabac580533aad4f7cdca1df3f73e083078fa3afd014199d17"
+    },
+    {
+      "path": "entity/moon_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b7421199569f3c2c5e0b4f6d66251989be175a0252f113f799f512b73218e829"
+    },
+    {
+      "path": "entity/moon_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1ab3eca19ceeced92a74bde645d0639b4f65c243c91fdebda4fd8e14a0e9360a"
+    },
+    {
+      "path": "entity/moon_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "55232a9f2d803a9101b4ad04992c9c33a1a85781acc9c758d8d5902b65bc317f"
+    },
+    {
+      "path": "entity/moon_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "9b2a2d5ac9056803693485b18281ef4495cd6a0e0ed21830438da16027d0f0ad"
+    },
+    {
+      "path": "block/moon_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "16bad6ba8c909653d0576ee6d89a295e7cb5e5a0788b43905146f8cb760bf58a"
+    },
+    {
+      "path": "block/moon_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8861e43ea2a804da14506f67f623f6d59baad4ede2c51daa973f60227ba1221f"
+    },
+    {
+      "path": "block/moon_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c56215287b6b71bd269897d57d499696ad719d822b9f8f7fbe68a90893a5788a"
+    },
+    {
+      "path": "block/moon_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "11a3daf6c88fce829831b8f02a94de13d0cdac302debd04ee0894eb2a5e51b89"
+    },
+    {
+      "path": "item/moon_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "92d4a7b75f03b9e3210900a971fc6fd1eb3984d0effa4640eecdfda50875c00e"
+    },
+    {
+      "path": "item/moon_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e7b924505315bcc5f5ccc7ad5032c17328854e544d8f63aba2087b54f26ef82c"
+    },
+    {
+      "path": "item/moon_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c76b4693be9133e56e4b87b2f552922ecf78f4a26467cfb9a42b4e9cf5b1db9d"
+    },
+    {
+      "path": "block/moon_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "d4d611849819ba9f96f193432da34333335df3d9dac823afd58e93038898390a"
+    },
+    {
+      "path": "block/moon_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "bfaf4f6ff3a3db7450124a33d556f0da1b3a78407a93ddb16768250c6e217799"
+    },
+    {
+      "path": "entity/mars_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b46d6960b0700b00a748b77b9749a3602da4944adbc05b1c1aaa3f4ee45ea7ba"
+    },
+    {
+      "path": "entity/mars_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "f8cf16e1f06e89566a2f354e9c0ad0e11036c6602e9e38a5b7fa7a3b58be93af"
+    },
+    {
+      "path": "entity/mars_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "2ecb7c4553128750eb066621c592aa6e8634167ec2d219cfb3ef497039847e6a"
+    },
+    {
+      "path": "entity/mars_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "d66af5211ef1553c40b11b0a00efe002ea6c4f8ff225947cebbaec88e9f69d79"
+    },
+    {
+      "path": "entity/mars_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "a5b85ab3080a71392265bc9714e993bc36123c3b5242b7bfd795d0d0eb6c1e61"
+    },
+    {
+      "path": "entity/mars_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "8778a9d6da1cbded17ad0ed69c13f7dc5107ffbf6f33f3d62f912e3b60cc3597"
+    },
+    {
+      "path": "entity/mars_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "4ef19e423ad1666cfdb226aabec7b92f34d59202c5a33d026236a79eba92e79f"
+    },
+    {
+      "path": "entity/mars_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b46d6960b0700b00a748b77b9749a3602da4944adbc05b1c1aaa3f4ee45ea7ba"
+    },
+    {
+      "path": "entity/mars_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b46d6960b0700b00a748b77b9749a3602da4944adbc05b1c1aaa3f4ee45ea7ba"
+    },
+    {
+      "path": "entity/mars_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "c9b35cbcc59dad10dbf249b6b6e5d321cf9fac6a2815270eb1640d14f4f1383c"
+    },
+    {
+      "path": "entity/mars_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1137f4941b7c070958e3bbf7af8fa984e7e61451189db5e2c187152afae7ea49"
+    },
+    {
+      "path": "block/mars_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "50144582b75a8ea96131429eca062687368d0fb365d622c8547e62225d7834eb"
+    },
+    {
+      "path": "block/mars_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a857c605ab17bcef8e7236ba938b350149cbe10d1ce2521871af7a501d646945"
+    },
+    {
+      "path": "block/mars_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "69f405df3b98ed76cbcd8ac512a33e26c9502e66e2a2666925941282cdefd479"
+    },
+    {
+      "path": "block/mars_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "2fe9d1c3c650c2a0dd9b1ca3d72f26cb2ca38c4066fcc2942250dc1fe4f39ad4"
+    },
+    {
+      "path": "item/mars_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a49a5b8ac3b47ef95c0c450b426ded677bcf0527079c7b59dc7460ca0edf6986"
+    },
+    {
+      "path": "item/mars_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c9350f615414bb860ca65436ca52200db71219dc1aebc18513c7d84be3a675c3"
+    },
+    {
+      "path": "item/mars_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "75114c41b351942aa38646fa24480dbb4d9d98325717619397b295a85420b088"
+    },
+    {
+      "path": "block/mars_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "0cbfc3ca88b14f1f97556b16a979d9ab79c6c62825a8fbe01897676626c36e06"
+    },
+    {
+      "path": "block/mars_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "1a9787a2c6140e80f0d103d1562179bef53fd554595f6dfd24145ab81a8c8bfa"
+    },
+    {
+      "path": "entity/cerulon_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0be06ee1f76a119ba78876f49a0d99e03cc654e5f82c09d017ba0244254ad5b5"
+    },
+    {
+      "path": "entity/cerulon_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "ff9eb3865a90a54ed01d3fa869751429ad28909b7ef56ac193541b30fd865d4f"
+    },
+    {
+      "path": "entity/cerulon_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b40cedfc183c140b7956af336d9b282c392e5effb1b84f32a64fbb222110e53d"
+    },
+    {
+      "path": "entity/cerulon_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "9a557e4b044e12c402539d92da256cdb81b98c3d505f24c590ac3972aeccaef9"
+    },
+    {
+      "path": "entity/cerulon_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0eaf7a367134a070bd5a327ffb56b729dc58d7f2ee4598ea3ca5d495ac52fd01"
+    },
+    {
+      "path": "entity/cerulon_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "7856e2cd7abb16c58c912eecd2f5a34e8bb831dc4bbfa43b0c3d2457be81ca4e"
+    },
+    {
+      "path": "entity/cerulon_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "dad33ed9845299daddd932f9161fc6b10accd32609fa434279fd8b670ba806bd"
+    },
+    {
+      "path": "entity/cerulon_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0be06ee1f76a119ba78876f49a0d99e03cc654e5f82c09d017ba0244254ad5b5"
+    },
+    {
+      "path": "entity/cerulon_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0be06ee1f76a119ba78876f49a0d99e03cc654e5f82c09d017ba0244254ad5b5"
+    },
+    {
+      "path": "entity/cerulon_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "57b271bad164c8f9171edb74814e023a682afcdbdfcc6c1a870186c69ae24a3e"
+    },
+    {
+      "path": "entity/cerulon_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "9b37e30d114b23cca9f81d25dca324f8de645c5987ba5992ea4494b731df6a63"
+    },
+    {
+      "path": "block/cerulon_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "27b17cd511e5ad96d0f89831b9537390cfa0300d3daf0f371d4c01ee0031d3fd"
+    },
+    {
+      "path": "block/cerulon_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "eb8e059462711ca5bff2edcb49ea0812ed54c805c2b76b0f68cbf1ef334b1e93"
+    },
+    {
+      "path": "block/cerulon_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "91148130b469025a38bd48fcbe20bffc4ae80832c9f0909cb2da10b10182c40f"
+    },
+    {
+      "path": "block/cerulon_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "6e8971bcfa69b90145aff43f490031712ac421033dc9466c530e07b799f4d169"
+    },
+    {
+      "path": "item/cerulon_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "66784fb998514f76bd5bd26532cda50fe2dc2d3841ec6576534b930be2297b79"
+    },
+    {
+      "path": "item/cerulon_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f2ae52f38bee14710d963d7b5ac465d2259f23df9fbaca77e7f33e2f359ea5ae"
+    },
+    {
+      "path": "item/cerulon_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "5a1887703665582bfe22e59436c7005d1d050d58e4bf918f369d877fd2889bf8"
+    },
+    {
+      "path": "block/cerulon_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "1adfc1f350c53963db4f7a962fc1dd058db6bd0b04b206e699b96bd810e2a9d2"
+    },
+    {
+      "path": "block/cerulon_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "a695e9737933925415a5a73a4aa8a2ac4c3f3983aaf46fb26a2c470b9e813a1d"
+    },
+    {
+      "path": "entity/skarn_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "8867c97a7e27617adac8493cce1320f6d3b3e664b5e19bb275189a817366537e"
+    },
+    {
+      "path": "entity/skarn_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "dde7ec48706e20db3f344942a4870cf49dbe3f81786ca172ccef097dc2af562b"
+    },
+    {
+      "path": "entity/skarn_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "5c573f8302077343524c462e7fa920239f6771a831853bdcf6b917b16e103750"
+    },
+    {
+      "path": "entity/skarn_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "053ccc89523ae59f2980611cf787321725512fcc4b3a3cd85e70a69569775cde"
+    },
+    {
+      "path": "entity/skarn_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1fa4328130f650a1b06d503fa8947e1423e06d6d929e31fe8c539791ddf153fd"
+    },
+    {
+      "path": "entity/skarn_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "d53c18e1403d0e3dfdbd8b4b28e0be71914caa586e9fac24f84922e1de1efe85"
+    },
+    {
+      "path": "entity/skarn_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "2b2b2c34c809abee1c0a265a7ef9d9c952cbcef134e5bb7d6c0635633b8bf694"
+    },
+    {
+      "path": "entity/skarn_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "8867c97a7e27617adac8493cce1320f6d3b3e664b5e19bb275189a817366537e"
+    },
+    {
+      "path": "entity/skarn_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "8867c97a7e27617adac8493cce1320f6d3b3e664b5e19bb275189a817366537e"
+    },
+    {
+      "path": "entity/skarn_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "ee9a9c9fb97b823ed29dac703e1d97f6f1008d9f9e8c96e307b596c4a6f6b972"
+    },
+    {
+      "path": "entity/skarn_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "3c24564b1b9f4cfcb0e153bc56180b41731589e43f0ed311a33738c6b858eb6a"
+    },
+    {
+      "path": "block/skarn_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "230edc86593c76dcbf30d0f0919dcbfa8f6387175e0aacb7f55062de1d4b4f8d"
+    },
+    {
+      "path": "block/skarn_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0366ce8ab2df81574e1d04ed4ce57bde3c2fc4eeae198aeb17bb12fb5584019d"
+    },
+    {
+      "path": "block/skarn_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7c7a4163f005b4c030901bd4178ce267b93d4a55a4e8d42fa6ac2bfa13593677"
+    },
+    {
+      "path": "block/skarn_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "89dc52890f9d2d2481a290252b2a1decb56ce0573dd61ec8cd83bc6ba91fd786"
+    },
+    {
+      "path": "item/skarn_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "1611c52daaa3ea0e5a8c7995ce271730827f692276cb5876a02c09e93e259a23"
+    },
+    {
+      "path": "item/skarn_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ec9fd1b82c7e3e544f46ca4c97ed1999f6400cea0937131df7380dc3ff0d29ab"
+    },
+    {
+      "path": "item/skarn_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9984cee6392b6a2a555560d349790b0259bbce92c5fd164706b84bb7054e6602"
+    },
+    {
+      "path": "block/skarn_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "38ef99f1ce3f3510b7dca571dc50f480983ebe86d3cd7567593b713d25a80b5d"
+    },
+    {
+      "path": "block/skarn_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "3e1c711c5aec7d74a7072995b57745ad52dfba10bd7fea1d725a98562c505ab3"
+    },
+    {
+      "path": "entity/eidolon_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1b4a27f43bd9b4d95ebe54e0f64e6d833b5c506d60e4b9e61adaa1dea492d6e1"
+    },
+    {
+      "path": "entity/eidolon_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "d09c5ef8799df2379f222dec56a6171cdd442d70d6c1fb51cabc3abf74be0228"
+    },
+    {
+      "path": "entity/eidolon_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "87a75def8ea7309a2408b5bc203c80fc5e326af893d22864e3e33e7a2e4edf5d"
+    },
+    {
+      "path": "entity/eidolon_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b71d6143152022179c653255090eee225f70418e7913da9b02b0fd19a085cd7b"
+    },
+    {
+      "path": "entity/eidolon_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "947c68ba16ca323e3fb490fc9b9853c406261f10f42744d467d456397215a78f"
+    },
+    {
+      "path": "entity/eidolon_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "054a59f11fc45cae160ec4e2935cf1c31b67f788c3b2784c5f0a1797a95dfb38"
+    },
+    {
+      "path": "entity/eidolon_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "6bcbe31038927f56291fbbc38e8190d32183a795af13367b687ba40e90279b96"
+    },
+    {
+      "path": "entity/eidolon_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1b4a27f43bd9b4d95ebe54e0f64e6d833b5c506d60e4b9e61adaa1dea492d6e1"
+    },
+    {
+      "path": "entity/eidolon_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1b4a27f43bd9b4d95ebe54e0f64e6d833b5c506d60e4b9e61adaa1dea492d6e1"
+    },
+    {
+      "path": "entity/eidolon_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "2a8d7da9dc9f9b5871349fbc53f18f00b46d1b71082ec9299ec0a267569bebe1"
+    },
+    {
+      "path": "entity/eidolon_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "d7d72897097c2674108ec4b2af0a7fae3ea89632f60b2f0746f5f5caf8aff203"
+    },
+    {
+      "path": "block/eidolon_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "5df7d42f07136c9ff659c6dc694225e913fdb7823eb5cf7bfa77365051ddab09"
+    },
+    {
+      "path": "block/eidolon_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f958777bb611bd1d40090bd0a2f57f93384a3374e95adf1c726a9637373ef9e1"
+    },
+    {
+      "path": "block/eidolon_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "bd3fddb9b25670e0f4da2aca8ee73e4d5ea546a2e238f222401803dca3d2c0df"
+    },
+    {
+      "path": "block/eidolon_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "b10bb77fc790056f4a013a90503951f5bd8b2aabbf0c07fdaa03884a491fcba9"
+    },
+    {
+      "path": "item/eidolon_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7d7722794b1413a82439dd09eda35886fea6795da7000185172fa9f031cbf532"
+    },
+    {
+      "path": "item/eidolon_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7b14217551fa19a3a41664d1c85071ec2b769c3ec0a8a6f5b6911f603645a07a"
+    },
+    {
+      "path": "item/eidolon_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "fb19423988cdafd1ee0947ca67ac5ac20b55c9ad7f333453190fe3faf172cfb7"
+    },
+    {
+      "path": "block/eidolon_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "41609e19d9c11cb7ac5bc39e4648ffb3caf1120cfafcd70b851c147dd0008530"
+    },
+    {
+      "path": "block/eidolon_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "65f34c05f04aa8afbee625d2a2883c3731dde8dab5c37a46b7184da0dba88dfb"
+    },
+    {
+      "path": "entity/solvane_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "36bedb93c17dde4725bda659741345c8840a6762aaece2d1651051f2583c1853"
+    },
+    {
+      "path": "entity/solvane_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "c812fc42a2479bc28c133acaf18d1c2ead97053d3f19aa1d1f34087058745b4e"
+    },
+    {
+      "path": "entity/solvane_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "de2bdf2c5ddaaa87ec37a7566615c2d8b26aa334677d14f964aec2c1f9425d3c"
+    },
+    {
+      "path": "entity/solvane_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "4d7825335f93ad0e6c8b646a27f29d72edcff4226829f379735b0b04bf896d9e"
+    },
+    {
+      "path": "entity/solvane_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "91b5ef40d9867b372bab70a2f6c92e9e1c490d7866933a38b648dfa5e21f1bf2"
+    },
+    {
+      "path": "entity/solvane_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "77412e0952d08b4eb8ff83d0368481a6c7d88b91230e07b6eb36755c72970697"
+    },
+    {
+      "path": "entity/solvane_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "952ecf8e8fb3f7e884f83c8bc16feec0c92e88e8349cb55901d2f12b9721be0e"
+    },
+    {
+      "path": "entity/solvane_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "36bedb93c17dde4725bda659741345c8840a6762aaece2d1651051f2583c1853"
+    },
+    {
+      "path": "entity/solvane_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "36bedb93c17dde4725bda659741345c8840a6762aaece2d1651051f2583c1853"
+    },
+    {
+      "path": "entity/solvane_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "59f4b461132de89cbdc274ebe860a219db5c296bf497f424849dbf5cd487a4c0"
+    },
+    {
+      "path": "entity/solvane_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "44ede56c8680fb5e062732f88330dbe278db7c7585117f0b3bcb41f6a3d93536"
+    },
+    {
+      "path": "block/solvane_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6297951769b9b5772b4b0d2db4ac504a130cbf8d29606926907f68fcaeb2b36f"
+    },
+    {
+      "path": "block/solvane_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6297951769b9b5772b4b0d2db4ac504a130cbf8d29606926907f68fcaeb2b36f"
+    },
+    {
+      "path": "block/solvane_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "31edc6a2272fa571e194feb499aa6a6b022a9c9d5db03f490cb2beff8de67499"
+    },
+    {
+      "path": "block/solvane_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "84686a1400b73314e54bc4889b01235da44236c0935c2e13988c7051154b0e44"
+    },
+    {
+      "path": "item/solvane_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9c8eda6b9f1009561ddb348f943e38e00c6c2b7c820471c0edc0361f17bed12c"
+    },
+    {
+      "path": "item/solvane_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "95037014ac9fe8ed371c1b3f85a2ee67274dc1cdd27ae2f87cefab1161ee298c"
+    },
+    {
+      "path": "item/solvane_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "265e5cb9a6ea492757a16f6fb89d27e121d603b2f25c2b9d9f1afd84df37e855"
+    },
+    {
+      "path": "block/solvane_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "33e393cfc03279dcea3a9409692678cbd6f0fb30f21956a07b5c1acbf0fdffa1"
+    },
+    {
+      "path": "block/solvane_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "0803ac1b0a33c38307489605638e331c008606f0771e36b5e5e58013a8b29d7e"
+    },
+    {
+      "path": "entity/flora_bee_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0be06ee1f76a119ba78876f49a0d99e03cc654e5f82c09d017ba0244254ad5b5"
+    },
+    {
+      "path": "entity/flora_bee_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "ff9eb3865a90a54ed01d3fa869751429ad28909b7ef56ac193541b30fd865d4f"
+    },
+    {
+      "path": "entity/flora_bee_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b40cedfc183c140b7956af336d9b282c392e5effb1b84f32a64fbb222110e53d"
+    },
+    {
+      "path": "entity/flora_bee_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "9a557e4b044e12c402539d92da256cdb81b98c3d505f24c590ac3972aeccaef9"
+    },
+    {
+      "path": "entity/flora_bee_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0eaf7a367134a070bd5a327ffb56b729dc58d7f2ee4598ea3ca5d495ac52fd01"
+    },
+    {
+      "path": "entity/flora_bee_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "7856e2cd7abb16c58c912eecd2f5a34e8bb831dc4bbfa43b0c3d2457be81ca4e"
+    },
+    {
+      "path": "entity/flora_bee_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "dad33ed9845299daddd932f9161fc6b10accd32609fa434279fd8b670ba806bd"
+    },
+    {
+      "path": "entity/flora_bee_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0be06ee1f76a119ba78876f49a0d99e03cc654e5f82c09d017ba0244254ad5b5"
+    },
+    {
+      "path": "entity/flora_bee_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0be06ee1f76a119ba78876f49a0d99e03cc654e5f82c09d017ba0244254ad5b5"
+    },
+    {
+      "path": "entity/flora_bee_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "57b271bad164c8f9171edb74814e023a682afcdbdfcc6c1a870186c69ae24a3e"
+    },
+    {
+      "path": "entity/flora_bee_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "9b37e30d114b23cca9f81d25dca324f8de645c5987ba5992ea4494b731df6a63"
+    },
+    {
+      "path": "block/flora_bee_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "27b17cd511e5ad96d0f89831b9537390cfa0300d3daf0f371d4c01ee0031d3fd"
+    },
+    {
+      "path": "block/flora_bee_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "bff00046df047765ef6fb540e9e4a1ada8d36775810f99160ff6426ca04a259b"
+    },
+    {
+      "path": "block/flora_bee_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f51d35849739f33017fe670ae915f2ccdd56192916342aca16f497d8362a2e84"
+    },
+    {
+      "path": "block/flora_bee_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "e0f71bdd6598f581b9afc1c59c9640fc8fec2147e6e104547d9ae1b21905298f"
+    },
+    {
+      "path": "item/flora_bee_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "66784fb998514f76bd5bd26532cda50fe2dc2d3841ec6576534b930be2297b79"
+    },
+    {
+      "path": "item/flora_bee_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f2ae52f38bee14710d963d7b5ac465d2259f23df9fbaca77e7f33e2f359ea5ae"
+    },
+    {
+      "path": "item/flora_bee_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "5a1887703665582bfe22e59436c7005d1d050d58e4bf918f369d877fd2889bf8"
+    },
+    {
+      "path": "block/flora_bee_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "1adfc1f350c53963db4f7a962fc1dd058db6bd0b04b206e699b96bd810e2a9d2"
+    },
+    {
+      "path": "block/flora_bee_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "a695e9737933925415a5a73a4aa8a2ac4c3f3983aaf46fb26a2c470b9e813a1d"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1ab3eca19ceeced92a74bde645d0639b4f65c243c91fdebda4fd8e14a0e9360a"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "55e4cefa5583dd964cd147081dad6c93cf970039dc5f85c9c585642f662f9a71"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "f00be148b4d0a5c49f980511cde5acd861038e749917d7ad14d66dff5f10273d"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "60b69261fd8d862f77a29c5d308148b4dac3c3621150b778be48b29cec62f377"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0ecf1861471e59ebf48a406898016a7a7e7979e0a140b2157764fd163841f7a2"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "6b89704c7af66d2ef082d6f8fed7044769ea18ded59d46e86283f3c54d9d7949"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "da808d87658747eabac580533aad4f7cdca1df3f73e083078fa3afd014199d17"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b7421199569f3c2c5e0b4f6d66251989be175a0252f113f799f512b73218e829"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1ab3eca19ceeced92a74bde645d0639b4f65c243c91fdebda4fd8e14a0e9360a"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "55232a9f2d803a9101b4ad04992c9c33a1a85781acc9c758d8d5902b65bc317f"
+    },
+    {
+      "path": "entity/midnight_bee_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "9b2a2d5ac9056803693485b18281ef4495cd6a0e0ed21830438da16027d0f0ad"
+    },
+    {
+      "path": "block/midnight_bee_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "16bad6ba8c909653d0576ee6d89a295e7cb5e5a0788b43905146f8cb760bf58a"
+    },
+    {
+      "path": "block/midnight_bee_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "855b7f192849203bbd583bfb9c9ae0b09d5a942aa4cab1b784d03acfe3c57814"
+    },
+    {
+      "path": "block/midnight_bee_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0b24dbe70262318a0ba754d22a87d09d8cb1b2136d762622ed78138e38942a47"
+    },
+    {
+      "path": "block/midnight_bee_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "718fcd0fdd57c9747f003bc9f68caa5c94a67af4cc9e9c3c197312d5409ec244"
+    },
+    {
+      "path": "item/midnight_bee_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "92d4a7b75f03b9e3210900a971fc6fd1eb3984d0effa4640eecdfda50875c00e"
+    },
+    {
+      "path": "item/midnight_bee_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e7b924505315bcc5f5ccc7ad5032c17328854e544d8f63aba2087b54f26ef82c"
+    },
+    {
+      "path": "item/midnight_bee_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c76b4693be9133e56e4b87b2f552922ecf78f4a26467cfb9a42b4e9cf5b1db9d"
+    },
+    {
+      "path": "block/midnight_bee_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "d4d611849819ba9f96f193432da34333335df3d9dac823afd58e93038898390a"
+    },
+    {
+      "path": "block/midnight_bee_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "bfaf4f6ff3a3db7450124a33d556f0da1b3a78407a93ddb16768250c6e217799"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b46d6960b0700b00a748b77b9749a3602da4944adbc05b1c1aaa3f4ee45ea7ba"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "f8cf16e1f06e89566a2f354e9c0ad0e11036c6602e9e38a5b7fa7a3b58be93af"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "2ecb7c4553128750eb066621c592aa6e8634167ec2d219cfb3ef497039847e6a"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "d66af5211ef1553c40b11b0a00efe002ea6c4f8ff225947cebbaec88e9f69d79"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "a5b85ab3080a71392265bc9714e993bc36123c3b5242b7bfd795d0d0eb6c1e61"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "8778a9d6da1cbded17ad0ed69c13f7dc5107ffbf6f33f3d62f912e3b60cc3597"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "4ef19e423ad1666cfdb226aabec7b92f34d59202c5a33d026236a79eba92e79f"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b46d6960b0700b00a748b77b9749a3602da4944adbc05b1c1aaa3f4ee45ea7ba"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b46d6960b0700b00a748b77b9749a3602da4944adbc05b1c1aaa3f4ee45ea7ba"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "c9b35cbcc59dad10dbf249b6b6e5d321cf9fac6a2815270eb1640d14f4f1383c"
+    },
+    {
+      "path": "entity/crimson_bee_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1137f4941b7c070958e3bbf7af8fa984e7e61451189db5e2c187152afae7ea49"
+    },
+    {
+      "path": "block/crimson_bee_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "50144582b75a8ea96131429eca062687368d0fb365d622c8547e62225d7834eb"
+    },
+    {
+      "path": "block/crimson_bee_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3e94b2e7feb9d094ecf402d76b126ebb2eadfc1be78eefbd1aa2bc39ffc78f43"
+    },
+    {
+      "path": "block/crimson_bee_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0496b313de0020bab20dde7d40dcd0ba57850c0b29e482fa38a36402726b9683"
+    },
+    {
+      "path": "block/crimson_bee_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "3eae163c21d14ee12773383412578004f4caae1aafc36ce58e09d4eb67a1c472"
+    },
+    {
+      "path": "item/crimson_bee_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a49a5b8ac3b47ef95c0c450b426ded677bcf0527079c7b59dc7460ca0edf6986"
+    },
+    {
+      "path": "item/crimson_bee_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c9350f615414bb860ca65436ca52200db71219dc1aebc18513c7d84be3a675c3"
+    },
+    {
+      "path": "item/crimson_bee_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "75114c41b351942aa38646fa24480dbb4d9d98325717619397b295a85420b088"
+    },
+    {
+      "path": "block/crimson_bee_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "0cbfc3ca88b14f1f97556b16a979d9ab79c6c62825a8fbe01897676626c36e06"
+    },
+    {
+      "path": "block/crimson_bee_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "1a9787a2c6140e80f0d103d1562179bef53fd554595f6dfd24145ab81a8c8bfa"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "15d374a31107f0a557eafbd6f3b028294eebd9dafd109273a80471218a458cde"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "dcb31bc46dd472db4145ba9b20c97df4e6683be6a7e96da6e04a6f8f2c2533db"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "784ecd37419275bd8c592f073e2c50e58d39d493388f20912646ef74f5f54c8c"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b92e517d6646359caa06723e48648560dc171dd94d57a350881d2ce807dc025c"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "5aa8aa257a6204dc27d5f9e2d8f5fde5b99f52f98500927118ec8f9f8fdcb4e4"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "5977d49c1b4a4c0c4a4de1ea209158748862d349daebaf5267712ee77596687f"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "d0ea30295c3f8209ab31aee48ab899b6b4525007615db51df997290bdda1f80c"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "15d374a31107f0a557eafbd6f3b028294eebd9dafd109273a80471218a458cde"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "15d374a31107f0a557eafbd6f3b028294eebd9dafd109273a80471218a458cde"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "444a389276c29b03e021ca8f9d30ff861cc56bd0980495898b1440faa3037fad"
+    },
+    {
+      "path": "entity/tropical_bee_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "117e604c6ecb2f88644626929b88798a939fc3c96763bf2849fea6dffb5d310d"
+    },
+    {
+      "path": "block/tropical_bee_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "251676f77fc846bbb5c17f18ed40811fdc1712e879c1a38ce5a90567adbfbc2b"
+    },
+    {
+      "path": "block/tropical_bee_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0d787388263c29194bf5c38fdfe67674937be447f9ee14c605b011f262441515"
+    },
+    {
+      "path": "block/tropical_bee_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6eb68bd8b6b02cc6b7b233eec8b3b9fa9f0a052abd4368ab2bc8700864574234"
+    },
+    {
+      "path": "block/tropical_bee_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "da16a0e6dcbad9c56d87a7ad49ae9de6aca33bfc1cc52858f1fd7babc3a1bfad"
+    },
+    {
+      "path": "item/tropical_bee_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "855241062ab32103e3df3abbfe9d1f0bf109a83c1aa0cabd0bc29f63bbac78c7"
+    },
+    {
+      "path": "item/tropical_bee_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7f14c0709fd78b3a1a632310e913275e5ef4c2a89ab64ce8d39b187e166558a7"
+    },
+    {
+      "path": "item/tropical_bee_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3652aa77e9c199b39af1c4a271f88612b700e6f42b6b93abf1c5a723ddd7f387"
+    },
+    {
+      "path": "block/tropical_bee_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "1facad2ea35e13e2367e2a81ff0c1a591b68f95287a5f46084b7d954fa9b6110"
+    },
+    {
+      "path": "block/tropical_bee_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "17cb182755240a7d62cd3948da54d307657073e3bd151211854bd241b202a831"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "36bedb93c17dde4725bda659741345c8840a6762aaece2d1651051f2583c1853"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "c812fc42a2479bc28c133acaf18d1c2ead97053d3f19aa1d1f34087058745b4e"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "de2bdf2c5ddaaa87ec37a7566615c2d8b26aa334677d14f964aec2c1f9425d3c"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "4d7825335f93ad0e6c8b646a27f29d72edcff4226829f379735b0b04bf896d9e"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "91b5ef40d9867b372bab70a2f6c92e9e1c490d7866933a38b648dfa5e21f1bf2"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "77412e0952d08b4eb8ff83d0368481a6c7d88b91230e07b6eb36755c72970697"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "952ecf8e8fb3f7e884f83c8bc16feec0c92e88e8349cb55901d2f12b9721be0e"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "36bedb93c17dde4725bda659741345c8840a6762aaece2d1651051f2583c1853"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "36bedb93c17dde4725bda659741345c8840a6762aaece2d1651051f2583c1853"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "59f4b461132de89cbdc274ebe860a219db5c296bf497f424849dbf5cd487a4c0"
+    },
+    {
+      "path": "entity/gold_dust_bee_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "44ede56c8680fb5e062732f88330dbe278db7c7585117f0b3bcb41f6a3d93536"
+    },
+    {
+      "path": "block/gold_dust_bee_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6297951769b9b5772b4b0d2db4ac504a130cbf8d29606926907f68fcaeb2b36f"
+    },
+    {
+      "path": "block/gold_dust_bee_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6297951769b9b5772b4b0d2db4ac504a130cbf8d29606926907f68fcaeb2b36f"
+    },
+    {
+      "path": "block/gold_dust_bee_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "31edc6a2272fa571e194feb499aa6a6b022a9c9d5db03f490cb2beff8de67499"
+    },
+    {
+      "path": "block/gold_dust_bee_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "84686a1400b73314e54bc4889b01235da44236c0935c2e13988c7051154b0e44"
+    },
+    {
+      "path": "item/gold_dust_bee_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9c8eda6b9f1009561ddb348f943e38e00c6c2b7c820471c0edc0361f17bed12c"
+    },
+    {
+      "path": "item/gold_dust_bee_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "95037014ac9fe8ed371c1b3f85a2ee67274dc1cdd27ae2f87cefab1161ee298c"
+    },
+    {
+      "path": "item/gold_dust_bee_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "265e5cb9a6ea492757a16f6fb89d27e121d603b2f25c2b9d9f1afd84df37e855"
+    },
+    {
+      "path": "block/gold_dust_bee_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "33e393cfc03279dcea3a9409692678cbd6f0fb30f21956a07b5c1acbf0fdffa1"
+    },
+    {
+      "path": "block/gold_dust_bee_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "0803ac1b0a33c38307489605638e331c008606f0771e36b5e5e58013a8b29d7e"
+    },
+    {
+      "path": "entity/magma_bee_glowbug_frame_0.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "8867c97a7e27617adac8493cce1320f6d3b3e664b5e19bb275189a817366537e"
+    },
+    {
+      "path": "entity/magma_bee_glowbug_frame_1.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "dde7ec48706e20db3f344942a4870cf49dbe3f81786ca172ccef097dc2af562b"
+    },
+    {
+      "path": "entity/magma_bee_glowbug_frame_2.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "5c573f8302077343524c462e7fa920239f6771a831853bdcf6b917b16e103750"
+    },
+    {
+      "path": "entity/magma_bee_glowbug_frame_3.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "053ccc89523ae59f2980611cf787321725512fcc4b3a3cd85e70a69569775cde"
+    },
+    {
+      "path": "entity/magma_bee_glowbug_frame_4.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "1fa4328130f650a1b06d503fa8947e1423e06d6d929e31fe8c539791ddf153fd"
+    },
+    {
+      "path": "entity/magma_bee_glowbug_frame_5.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "d53c18e1403d0e3dfdbd8b4b28e0be71914caa586e9fac24f84922e1de1efe85"
+    },
+    {
+      "path": "entity/magma_bee_glowbug_frame_6.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "2b2b2c34c809abee1c0a265a7ef9d9c952cbcef134e5bb7d6c0635633b8bf694"
+    },
+    {
+      "path": "entity/magma_bee_glowbug_frame_7.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "8867c97a7e27617adac8493cce1320f6d3b3e664b5e19bb275189a817366537e"
+    },
+    {
+      "path": "entity/magma_bee_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "8867c97a7e27617adac8493cce1320f6d3b3e664b5e19bb275189a817366537e"
+    },
+    {
+      "path": "entity/magma_bee_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "ee9a9c9fb97b823ed29dac703e1d97f6f1008d9f9e8c96e307b596c4a6f6b972"
+    },
+    {
+      "path": "entity/magma_bee_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "3c24564b1b9f4cfcb0e153bc56180b41731589e43f0ed311a33738c6b858eb6a"
+    },
+    {
+      "path": "block/magma_bee_hive_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "230edc86593c76dcbf30d0f0919dcbfa8f6387175e0aacb7f55062de1d4b4f8d"
+    },
+    {
+      "path": "block/magma_bee_hive_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4fbadc1231e9bbc6ab8356dc7badda0d9e953c1c16a1011e2cf25c6059299972"
+    },
+    {
+      "path": "block/magma_bee_hive_front.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "05d0fc640b6cbd272d6c37310dbd22237465b27f67e26bf9d360cfd5582b8da4"
+    },
+    {
+      "path": "block/magma_bee_hive_front_honey.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "53b9a8f273e8f2342d218c34eabbe7a042bf3a773b20850446f6fb653f01d401"
+    },
+    {
+      "path": "item/magma_bee_honeycomb.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "1611c52daaa3ea0e5a8c7995ce271730827f692276cb5876a02c09e93e259a23"
+    },
+    {
+      "path": "item/magma_bee_honey_bottle.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ec9fd1b82c7e3e544f46ca4c97ed1999f6400cea0937131df7380dc3ff0d29ab"
+    },
+    {
+      "path": "item/magma_bee_honey_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9984cee6392b6a2a555560d349790b0259bbce92c5fd164706b84bb7054e6602"
+    },
+    {
+      "path": "block/magma_bee_honey_still.png",
+      "size": [
+        32,
+        256
+      ],
+      "sha256": "38ef99f1ce3f3510b7dca571dc50f480983ebe86d3cd7567593b713d25a80b5d"
+    },
+    {
+      "path": "block/magma_bee_honey_flow.png",
+      "size": [
+        64,
+        512
+      ],
+      "sha256": "3e1c711c5aec7d74a7072995b57745ad52dfba10bd7fea1d725a98562c505ab3"
+    }
+  ],
+  "projects": [
+    "moon_glowbug",
+    "moon_hive",
+    "moon_honeycomb",
+    "moon_honey_bottle",
+    "moon_honey_bucket",
+    "mars_glowbug",
+    "mars_hive",
+    "mars_honeycomb",
+    "mars_honey_bottle",
+    "mars_honey_bucket",
+    "cerulon_glowbug",
+    "cerulon_hive",
+    "cerulon_honeycomb",
+    "cerulon_honey_bottle",
+    "cerulon_honey_bucket",
+    "skarn_glowbug",
+    "skarn_hive",
+    "skarn_honeycomb",
+    "skarn_honey_bottle",
+    "skarn_honey_bucket",
+    "eidolon_glowbug",
+    "eidolon_hive",
+    "eidolon_honeycomb",
+    "eidolon_honey_bottle",
+    "eidolon_honey_bucket",
+    "solvane_glowbug",
+    "solvane_hive",
+    "solvane_honeycomb",
+    "solvane_honey_bottle",
+    "solvane_honey_bucket",
+    "flora_bee",
+    "flora_bee_hive",
+    "flora_bee_honeycomb",
+    "flora_bee_honey_bottle",
+    "flora_bee_honey_bucket",
+    "midnight_bee",
+    "midnight_bee_hive",
+    "midnight_bee_honeycomb",
+    "midnight_bee_honey_bottle",
+    "midnight_bee_honey_bucket",
+    "crimson_bee",
+    "crimson_bee_hive",
+    "crimson_bee_honeycomb",
+    "crimson_bee_honey_bottle",
+    "crimson_bee_honey_bucket",
+    "tropical_bee",
+    "tropical_bee_hive",
+    "tropical_bee_honeycomb",
+    "tropical_bee_honey_bottle",
+    "tropical_bee_honey_bucket",
+    "gold_dust_bee",
+    "gold_dust_bee_hive",
+    "gold_dust_bee_honeycomb",
+    "gold_dust_bee_honey_bottle",
+    "gold_dust_bee_honey_bucket",
+    "magma_bee",
+    "magma_bee_hive",
+    "magma_bee_honeycomb",
+    "magma_bee_honey_bottle",
+    "magma_bee_honey_bucket"
+  ],
+  "entity_animation": "eight explicit PNG frames at three ticks, plus blink and fullbright mask",
+  "client_verified": false
+}

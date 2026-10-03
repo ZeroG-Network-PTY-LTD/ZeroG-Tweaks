@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "moon_glow_mushroom",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_plane",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        -45,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "8eb5ed1f-166f-5ce2-a34d-0a8e1d94152c"
+    },
+    {
+      "name": "crystal_plane",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "459e0697-59fc-5180-9acc-2242e90bb790"
+    }
+  ],
+  "outliner": [
+    "8eb5ed1f-166f-5ce2-a34d-0a8e1d94152c",
+    "459e0697-59fc-5180-9acc-2242e90bb790"
+  ],
+  "textures": [
+    {
+      "name": "moon_glow_mushroom.png",
+      "id": "0",
+      "uuid": "2789f2a6-7a1c-5138-bf3c-7a4c8975820d",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAvUlEQVR4nGNgGAWjYIABI6ka8jOr/hNSM3F6G9HmMlHbclLUMTAQGQKkGIgMiAkJggqIsTw/sxrJ0laSHII3CtAtz8+shmNSAD5PsJBkEg6AzdfYHIEtJHAGDbnxjg9gcwBJuYBUgB5l2DyF1QHICsmNd9yOQnUEVdIALkBM2sCIE1rEPTYASw8YDrh36StdHKCkx83IwEDjREgMILkygoHlc3eghFRksgdZZg14CIw6YNQBow4YdcCoA0YBAOAPQqyQ0wMYAAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

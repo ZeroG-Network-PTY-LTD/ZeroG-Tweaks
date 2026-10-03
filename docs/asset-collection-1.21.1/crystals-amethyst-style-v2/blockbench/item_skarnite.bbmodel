@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "skarnite",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "fb01d552-0237-5bfd-9341-4dea363b454a"
+    }
+  ],
+  "outliner": [
+    "fb01d552-0237-5bfd-9341-4dea363b454a"
+  ],
+  "textures": [
+    {
+      "name": "skarnite.png",
+      "id": "0",
+      "uuid": "8e464b94-5d85-5499-88f2-fee039c4dcc2",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABPUlEQVR4nO2XPQ6CQBCFxw0FJ5CGcAxqawtjPIDhBJYewtIjUFkZY+EhuIWEBk9gYcBqDeLOz+5CbHgl+/M+5g0sAEya9GfNuAlJqFofg/LZkB7koDa/n3bonPp2RsfSvGIhFAUgMY8OV3S82Mbc9jhAEqpWYl7vV6RBsY3JGI0AbO6LTGQu2fMnGzb3RWZlrIX1g7ECQ5sD4P3wRSPJ3VdpXn1VIeiac4uj5cYbAPIjJKFqNcQHoHw2syRUrc1dpnkF63nAT+ypWwHVH9DNMoYujxffhGNBXB4v43XjUzA0hDY3vZLJV/GQENh5gALoBb4QptxFAFIILFuJOQvQhTCJOu0k5iIADWETBVUVJwAbCKrjvQBsIKTm1gAchDR3LwCtPoSLOYDgqxiT6fR0AXCuQN/MxXwQ+f43THoDXC/GSOWStFAAAAAASUVORK5CYII=",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

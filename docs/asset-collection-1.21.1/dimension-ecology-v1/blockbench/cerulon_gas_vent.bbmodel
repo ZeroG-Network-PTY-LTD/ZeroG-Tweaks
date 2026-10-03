@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cerulon_gas_vent",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_block",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "b64fdca5-366c-5eaa-a7bd-edd2b48ff417"
+    }
+  ],
+  "outliner": [
+    "b64fdca5-366c-5eaa-a7bd-edd2b48ff417"
+  ],
+  "textures": [
+    {
+      "name": "cerulon_gas_vent.png",
+      "id": "0",
+      "uuid": "02eea501-4db6-5c93-8fd2-631c5bcfc118",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEsUlEQVR4nLWXv4vjVhDHPytss0iW8RphjK0igVjNQTC7KY6QC74maVJsCKQIXKqQ5uDqq1OEkP7+gaRLc1enMqRe4yaNXKR5NkYI21jWY5GKTSHNs7xcEbLe6STej5nvd97Md84+/eHnO4B9vABgq+YANGyXtj+kYbdQswkA/mjMRoU4nR6ZTtiqOd3gknS9ItcJddvlwg9Qswltf0jTG7CPFzRs15zjeH3SeAlA2x9iReENYsVC13xnOkHNJua/mk248AMynQDgeH0ynZDGS+q2S/3cIdM72v4QCarpDYjCKZne4Y/G5DrBH43xR2MatouV6YSNCml6A7ZqTtsf4nh94xBQHG67+KMxajah6Q3Ib1NynRik6ucOWzVnq+bo9QqA/DY16FWDisKbEpkWVje4pH7uEIU31G2XKJxy4QelAy3a/tBAJodVUYvCKVs1N450gyuy0rFcJ3SDSxq2y1bNzf5ucEV+m7KPF9SicErDdrE7PbOpCqNE43R6R5HUzx1yneB4ffKSkqY3MJc07FYZ7RR/NCYKb47yoqByx9nH1y/v9HpFVnKT6R2ZTpB/QkeuE9r+0NCU3bu0UdIk66JwyvusQKRlkDz76PNv7rISqiic0vaH6PWKesn/81dv3nvQf7U/f/merHRKr1clRTuDkgUYuCUzxSQXHmJfvP4NfzSm6Q3MPWlJa6Z31ARW8SgtvdyokPDtG8K3/x+Bb38PAUwtAEwuZDohv00LBIRzwBQSyfyH2B8vCgQ/+/FX0vWKrZpjl0VMHLLubxJv9T9/P9iB+9YNrkwNAUjjJZZkpFjDdukGVye7VFB4/uoNGxWyjxc4nZ5J+Jq8W7t851E4fZTooagdTW8AFIE2vUFRCeFQcOT7lFbNhX28QM0mJtFrVQr28YLlX+9O7kDVtmpuCl6ukyIJJSOrNeDUJih89dNb1GxiKmptHy9MWb2fkI/hRP/ZtdEEDbuFZZqN10fNJnzw5YtHc6D95ClQ1Bqhwao+uWqjeAwTpDO9Yx8viMIpVlUwbNWcjQrpP7s++eX2h0+AQqSk65VRWTUokq9+7nDhB0ZGPZaJrij05BWW4/XpBlemIT2GtZ88pRtcHnVDod6qqlg1m5DfpkThzUlpqNuuaUCSB6LCLVGrcKACOBkiVe6jcHokZgEsuWir5kdSzB+NzeaHmD8ak8ZLw30hVK9I16uiFANH0tnu9Kjb7qEtA/1n15VeUUgqSaKNCo8O3seLo3J7UNJTE7WI0n28KOqA4/WNHGuU0w0U3AVfvzTOFUpmZyQVFD09jZdHjvmjsXnnVRP+xQkAax8vyMthIdOJGRwatksaL8n0Dr1emQzOdGLGMIlOHBPqRCU7Xr8y4hWDjd3poUt1lN+mWCKnZfNWzamXs1zDds2TqU49dqdnZoGD1psezQUSraigamByl9PpFd2wfu7QDS7NZnkJMu/t40UxfpVqSfivdtHqfqFTzqnmWBROcbw+0gRr6XpFGi+PnmKV38PU1DKcyhqZng863zWR2p2eQU3+253ekdzbqJCzT757fSdOyKEiGqVIOV7fjFKZTkpIDy9BDrvwA3O5rEnXK5Px4owMPU6nx78w6wlGgF/okAAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

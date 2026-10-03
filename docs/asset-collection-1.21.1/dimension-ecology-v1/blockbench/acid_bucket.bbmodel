@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "acid_bucket",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "e25159c1-d9c4-5419-b23c-83fadcb7f4fd"
+    }
+  ],
+  "outliner": [
+    "e25159c1-d9c4-5419-b23c-83fadcb7f4fd"
+  ],
+  "textures": [
+    {
+      "name": "acid_bucket.png",
+      "id": "0",
+      "uuid": "5804fc0b-800b-551f-adda-1182ec0847e1",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABGklEQVR4nGNgGAWjYIABIymKH7389p9UC+TEufDawURLy4nRRzAEkA3Y9iqAZAd4iW2As7GFBlYHqOtY/GdgYGDYvXcfXIwcy4lxBFYHUOprUhyCNQ24OjtR3XJk85BDAW8UFFTUQBTpT6LY8v7ITwwMDAwMN6+cQLETawigK/p/MY8iy2H60c3F6QB8hpBrOS6AMxuiRwMlYEJHCwMDAwUh4OvuyODr7kixQ7ABoqOAVoAoB2zeuX9gHQADtIiGwRsFsBQLS8HkAnw5AK8D0AGt0gHJUUDtdDDgaQBvgwRWGjIwkFciIqcfstIAsiZSEyMxlhN0ALmOINZyBgYiW8XIUUEqIOQAohIhIUMo0Ud0LiDVEeQ6euQBADQ+d2dBuoyMAAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

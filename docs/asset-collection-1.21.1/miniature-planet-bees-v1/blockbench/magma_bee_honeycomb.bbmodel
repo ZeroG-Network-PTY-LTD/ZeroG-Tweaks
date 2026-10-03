@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "magma_bee_honeycomb",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "b8f2bbed-f4e5-5c00-8970-3d682866d019"
+    }
+  ],
+  "outliner": [
+    "b8f2bbed-f4e5-5c00-8970-3d682866d019"
+  ],
+  "textures": [
+    {
+      "name": "magma_bee_honeycomb.png",
+      "id": "0",
+      "uuid": "c6cbfe59-385b-5fa4-88be-9433d0421358",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABA0lEQVR4nO2XPQ6CQBCFP8yGeBYLY23hITyJpUew9CQewsLKwlhwFkODDUsWsjsMP8vGxFcuj5eBYb4M8Ncv6LJfVzG8AEYTdtrlABXA+fHJpnpdiWE28FhsATiUz8Zjw4d4fQq+ARt2L+C2edenOQDXVznaqy4A3LB+DfG6Wo26a0YlLyDYAtu7+qtunU3xdiWOiTtaNlAzhn1eUT6QhOCi9UpwMl2TDyTdJ9F6NXDKYkBnSKZxTXNCR+trWhADOhpfcg4kL8BAHOhofd6RmQs6o+A0FTq+cwlEvaiMjePgxaW2InEhWWIrEguA+FtRcg4kL0BswRJbUfIxVCvm71lSfQGlgxdiw65tiAAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

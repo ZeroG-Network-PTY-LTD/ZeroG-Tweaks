@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "rimeglass",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "bb020f2d-a1b4-52d6-8f2a-a2f66199ab4e"
+    }
+  ],
+  "outliner": [
+    "bb020f2d-a1b4-52d6-8f2a-a2f66199ab4e"
+  ],
+  "textures": [
+    {
+      "name": "rimeglass.png",
+      "id": "0",
+      "uuid": "5d790871-b411-5c0d-99dc-8635d5642d4f",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABHklEQVR4nGNgGAUUACktk/8DavmXP///D4gjpLRM/h958Ob/lz//6e8ImOXIDqDEEYykWr5q2w4430BGmIGBgYGBm5mB4etfBgY1PVMGBgYGhmfXzhBtLtEK0S1nYGBgsJaHOODrX1S1anqmRDuCKEW4LEe3mBxHMJFrubS2KV59ty6dJiqbshBSwMAAiWtY/DIwMDCs2raDYdW2HQxzdhwlRjteQDAE8IFTx04MrAOoAUh2AHp6oLsDqA1GHUCSA6gd/yQ7gBZg1AFEO4AW8U+SA2gFho4Dzly5MbAOMNHRYDhz5QbVHUJUe+DCk7dwRzAwUDc0iHJAmJcHhhi2XNFVVkCyA0hqFTMwoPaGyromYFhKSouYYjCgXbNhAwDWsXphgPd5QwAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

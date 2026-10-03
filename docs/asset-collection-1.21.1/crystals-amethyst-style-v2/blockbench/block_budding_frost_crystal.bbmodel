@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "budding_frost_crystal",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_block",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "66740ed5-2af5-57c0-a7ed-677c7eb325f9"
+    }
+  ],
+  "outliner": [
+    "66740ed5-2af5-57c0-a7ed-677c7eb325f9"
+  ],
+  "textures": [
+    {
+      "name": "budding_frost_crystal.png",
+      "id": "0",
+      "uuid": "08d1eb89-96e9-516f-9899-a780238c22bd",
+      "source": "data:image/png;base64,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",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

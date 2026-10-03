@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "g3_p4_short_grass",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_plane",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        -45,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "5e30e0d1-effe-50a1-8506-507980167624"
+    },
+    {
+      "name": "crystal_plane",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "4cb39673-83a5-5d49-ad11-aab84dd3e1b1"
+    }
+  ],
+  "outliner": [
+    "5e30e0d1-effe-50a1-8506-507980167624",
+    "4cb39673-83a5-5d49-ad11-aab84dd3e1b1"
+  ],
+  "textures": [
+    {
+      "name": "g3_p4_short_grass.png",
+      "id": "0",
+      "uuid": "1d56b91e-ec25-5275-97a4-7c75b246b5f2",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABC0lEQVR4nOWUsRGDMAxFRS6LUFKzByU9E9DBDKFjgvSU2YOaklGcyjkfhy3JXyRFfmn7rKf/bRH9i5Z+cmfrt2+D/AQg1j0R0f3KwmPTfQq381CcnTFxINUhJzGAtojvvi4rGwBEMfshgLHpXJhxrpIAYZF2HgptDJz9LECuNM4kAR6vZ6G98KhU/iwAIm8/F5sKQPIOJMNHBYDEsPST+0kEdVnRum+isyIAqQvhfl1WNhEcxb0Dyd+HAI6KwUi6VwFYzAQIgNPYdM7bL+0+G0BTwBQgFgMCZBJBrv0QgPa7mQH4GM4mXU4UcATrvqlGrwmAd4FbuwzAUjAAYj8EEFqeaz8E4IV0T0T0Bv0CeGQq/eJqAAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

@@ -1,0 +1,2937 @@
+{
+  "schema": 1,
+  "generator": "dimension_ecology.py",
+  "dimensions": [
+    "cerulon",
+    "eidolon",
+    "g2_moons",
+    "g2_p1",
+    "g2_p2",
+    "g2_p3",
+    "g2_p4",
+    "g2_p5",
+    "g2_p6",
+    "g3_moons",
+    "g3_p1",
+    "g3_p2",
+    "g3_p3",
+    "g3_p4",
+    "g3_p5",
+    "g3_p6",
+    "g4_moons",
+    "g4_p1",
+    "g4_p2",
+    "g4_p3",
+    "g4_p4",
+    "g4_p5",
+    "g4_p6",
+    "g5_moons",
+    "g5_p1",
+    "g5_p2",
+    "g5_p3",
+    "g5_p4",
+    "g5_p5",
+    "g5_p6",
+    "mars",
+    "moon",
+    "skarn",
+    "solvane"
+  ],
+  "texture_count": 357,
+  "editable_projects": 233,
+  "textures": [
+    {
+      "path": "block/cerulon_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "b5be7932470b313108a6aac37e6c639932b86a6bd0fabbaf93875cae090a1a4b"
+    },
+    {
+      "path": "block/cerulon_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d91aa3be8c11a9a9a869632f6d1b13e33d1cf71baa69a83189c42f7410374a9b"
+    },
+    {
+      "path": "block/cerulon_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3f0abe7342d98028b5249358897db79f8bc85a7fa7d6b8cc1c75d5108b2e8f3d"
+    },
+    {
+      "path": "block/cerulon_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0bdbfbc903e4b8ee3f1514fc8e8415ca08b24c65b38829c98977073eb962e4d2"
+    },
+    {
+      "path": "block/cerulon_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "aa417f95074073a8a7f2ef3f319a4ded422b3c68120d4d746465e91e4cb2329f"
+    },
+    {
+      "path": "block/cerulon_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "1498e2205ef0dfe19602240865913825b3b72b8ce9565968eb92254b0799ea12"
+    },
+    {
+      "path": "block/cerulon_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "1498e2205ef0dfe19602240865913825b3b72b8ce9565968eb92254b0799ea12"
+    },
+    {
+      "path": "block/cerulon_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e1da3ee9ac388d6fee1c5693cd6ed9c5ce5684cb251c58a767be8221a87b8084"
+    },
+    {
+      "path": "block/eidolon_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "135d08ce2e82287f6ba924ede4baf1af2c45e524632cefa4349536f2d4c33162"
+    },
+    {
+      "path": "block/eidolon_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f870ed3c0bf3ebf2dcd4efcb526c41721c8e0b378b8df4d85294c7a91d54c54c"
+    },
+    {
+      "path": "block/eidolon_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d46c4a40ad48dd7b4dde492685d60b1987619749f9b0fe8a6333193265825894"
+    },
+    {
+      "path": "block/eidolon_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e0b3aa73f304631129507c5685ed8f11bb1bb8e57737a07994a812dcab6b41d4"
+    },
+    {
+      "path": "block/eidolon_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d47d69ee06ab4787471ef4134b76b954917282470f4f1ff816c9b7e9cfaac0e5"
+    },
+    {
+      "path": "block/eidolon_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "33f8bae4e91bf60ef7baa8c6d0ab44b1114547eba604d8be6a3b807b5d834496"
+    },
+    {
+      "path": "block/eidolon_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "33f8bae4e91bf60ef7baa8c6d0ab44b1114547eba604d8be6a3b807b5d834496"
+    },
+    {
+      "path": "block/eidolon_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7bf94b652923c830c91cbbf9b5a0cf5fca9fce9de5fddf837dadbca2d0014662"
+    },
+    {
+      "path": "block/g2_moons_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "184217cc10e4986915ce2a3ec5df4ea0a9057f3a79fd036bc57aab1f5099b793"
+    },
+    {
+      "path": "block/g2_moons_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d88827b474819ea4acf7ca9055d88c9c1c2135c10033360896dafbc7ef44502e"
+    },
+    {
+      "path": "block/g2_moons_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2d8733095e5bb14d667f3efee6842addbe143743ac76e26b669bb7b397846aea"
+    },
+    {
+      "path": "block/g2_moons_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7382dd4dc12244da9db67d5aef6d76134be357e0fba5cc1c78ee9ae88ff92f4c"
+    },
+    {
+      "path": "block/g2_moons_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ce5107bb78135f920dd31ae0ae69b6f1d73a30466b657f923b7ef8ec0777ae09"
+    },
+    {
+      "path": "block/g2_moons_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "48c4aa1cf66c872035c430cd8d92901652656365539d287e39355dbfcad438c2"
+    },
+    {
+      "path": "block/g2_moons_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "48c4aa1cf66c872035c430cd8d92901652656365539d287e39355dbfcad438c2"
+    },
+    {
+      "path": "block/g2_moons_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "94fd2af87ce9d75e89664afe7dd635c86328084bb549fd52d1a19bb7e632f224"
+    },
+    {
+      "path": "block/g2_moons_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "336ff2cbdf1bc9cbe17185855bc93caaccac095b280d2d51cee0bc7ad63a8236"
+    },
+    {
+      "path": "block/g2_p1_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e0dd35301885a6f688bb55c8b3a61f9b4138358e5babca799c5048195d684d97"
+    },
+    {
+      "path": "block/g2_p1_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a8d3f4935ee4759390380af3eea1f9d73eca149707eea2932f2d42cf76221b91"
+    },
+    {
+      "path": "block/g2_p1_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "45613e67b9e81465a32a136e1a61ec51c1b00d7552b2481d3f4584cee4532246"
+    },
+    {
+      "path": "block/g2_p1_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6af22ef6be643075730f90853363f5056f8c658d2e87f099297b9d77567ae0a6"
+    },
+    {
+      "path": "block/g2_p1_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "782c1613fdfc5adb2bc1944df4382574d6249c01c2b992ae5123604f7ea30be7"
+    },
+    {
+      "path": "block/g2_p1_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "514dd56722c667e97106f1f6ce3f6342d7735d009d0e8864f956fb1a85236e15"
+    },
+    {
+      "path": "block/g2_p1_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "514dd56722c667e97106f1f6ce3f6342d7735d009d0e8864f956fb1a85236e15"
+    },
+    {
+      "path": "block/g2_p1_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f7bfbceb31ceba8ca1202fe295aa58ee671fcb39c9fca20da5f0f345adbd07c3"
+    },
+    {
+      "path": "block/g2_p1_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ec8ae097caf24d46ced6a9ca1e40287bb2f702c5b167d4a097e3cb0935614d00"
+    },
+    {
+      "path": "block/g2_p2_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "21b743640649660ee4f5b9155f437ef8891219efcba776be9456cb332ef73325"
+    },
+    {
+      "path": "block/g2_p2_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "022f75d7a987b4ee8f4794fcc247bfcb058aa73e9924ebd6f7b1cd26da84c98b"
+    },
+    {
+      "path": "block/g2_p2_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "16293e279bb64089f62e043ca1fc7f9ed4d3ab9a4d94eda2dde596f21033f406"
+    },
+    {
+      "path": "block/g2_p2_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "da8c5966a646e0f0ad678d3d36ed1202fcc3bbc61d0aaf33d7996b15d6d38660"
+    },
+    {
+      "path": "block/g2_p2_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3844dfc12d4aae6bea8b890c477c22fd9af8156b3ebfacd97c98e13b8b3330bc"
+    },
+    {
+      "path": "block/g2_p2_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "183a057069fe600489a6149234e78c83cdd3ec59c058f64a5cc87b5087b13386"
+    },
+    {
+      "path": "block/g2_p2_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "183a057069fe600489a6149234e78c83cdd3ec59c058f64a5cc87b5087b13386"
+    },
+    {
+      "path": "block/g2_p2_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a64ff41da0f6eabc1ddb63ebc583a499da418cf8b4d356c17028a5a8700db6a2"
+    },
+    {
+      "path": "block/g2_p2_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "70d958ba9dd585942fa95b5deae7962bbda39ce65204b54729d676f21921c408"
+    },
+    {
+      "path": "block/g2_p3_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "cf7d947b4067b37757dd1bc65272fee03775dccb29efa9241c065a94dd29916d"
+    },
+    {
+      "path": "block/g2_p3_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d577fe7fd87fc27c5e24bf04eb8169fc83b67221b9a9a7a0bef0c71781fd5517"
+    },
+    {
+      "path": "block/g2_p3_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "994eae74688639a57925c1e4c59948c271432967dbe4a26bdb6e31ede00a68b4"
+    },
+    {
+      "path": "block/g2_p3_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "02587457a576714a627b9726893b25b2ace0c4702a7a2d65e9379110dadde428"
+    },
+    {
+      "path": "block/g2_p3_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "19bf4fcc546fe1619420d1c41881ff878439f6904bf11519c672c83333246f4c"
+    },
+    {
+      "path": "block/g2_p3_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7a5272495c92d0694d77e7bd95a7cd0130462426858a972a14d41cb73de59730"
+    },
+    {
+      "path": "block/g2_p3_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7a5272495c92d0694d77e7bd95a7cd0130462426858a972a14d41cb73de59730"
+    },
+    {
+      "path": "block/g2_p3_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "347b21cb31d017fc3701431b95da096b3e0ffa64194ab98c42b7e8f310a55217"
+    },
+    {
+      "path": "block/g2_p3_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "136947e41f16780bd6d2ed16a6e045d905bbd826180ae36b2c3738545dcaf1f8"
+    },
+    {
+      "path": "block/g2_p4_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0552061bb2a656118138a3b4b092a05ba99b8347e99d8f5f0ca500bfc081030f"
+    },
+    {
+      "path": "block/g2_p4_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e3b355a592c3c191c994e12b5b1f7d3f199f555585ba9486f3ed433a593d2818"
+    },
+    {
+      "path": "block/g2_p4_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2060e728039874ae218218ed0792204c9b855334a82b22c85ea20d343f05517c"
+    },
+    {
+      "path": "block/g2_p4_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6538aa6967d25e30c640edf25daa795d69b4afb8d63a9506cd27643ba884f134"
+    },
+    {
+      "path": "block/g2_p4_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3f69e1e5bbb8e8924cace48f1039f1d1f79b4d484dc657c528913f17e721289f"
+    },
+    {
+      "path": "block/g2_p4_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e458df505f48f898465d1cf6b4b78392d6cdcad013188dc2586793546b30117d"
+    },
+    {
+      "path": "block/g2_p4_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e458df505f48f898465d1cf6b4b78392d6cdcad013188dc2586793546b30117d"
+    },
+    {
+      "path": "block/g2_p4_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c314e50951f4449c261f677d4522e8c1f64974423223268cf92d32c191a950a0"
+    },
+    {
+      "path": "block/g2_p4_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "778e74c4cdffebe34e573bad9377e8c26ea8b6d33dc8a182ecd6a494bc94ad37"
+    },
+    {
+      "path": "block/g2_p5_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c5d074620eb689c4bcdd57c3051983cb37478d8b6d8538331ed65efcc097e0e2"
+    },
+    {
+      "path": "block/g2_p5_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "fb3bca4126ca42c35bce05638b3914f3edc1c547bc7c7128f9345db6f29b86ba"
+    },
+    {
+      "path": "block/g2_p5_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9c50b4e7eff04aeaa67280d79bf42d36ad30142944429c74bc483b2f8cd5211f"
+    },
+    {
+      "path": "block/g2_p5_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3f158f2206bf6a76bdb6b48672693eff0a6315253282d1a2ca90abf68934a0e6"
+    },
+    {
+      "path": "block/g2_p5_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "dea4685049590fae11a3cfa2232c87b0e749834f6fef324c577bc27443969806"
+    },
+    {
+      "path": "block/g2_p5_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "67900c7cccd83d3de76380d8884ea3459233a7860f6cfa58a312deea780276c1"
+    },
+    {
+      "path": "block/g2_p5_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "67900c7cccd83d3de76380d8884ea3459233a7860f6cfa58a312deea780276c1"
+    },
+    {
+      "path": "block/g2_p5_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6c920c7a5b3e8538546bdd262460a1bd32db1213d2471700f8e5b4296255987d"
+    },
+    {
+      "path": "block/g2_p5_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "bba5fe7c4ddc5291b3d993849d43894cbdef5c75ec05e92171b6daf0ad005676"
+    },
+    {
+      "path": "block/g2_p6_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9e19ae40eedd20a7e1459bbf00b8d0280e0c3def52af454703d133b4fe98b0b1"
+    },
+    {
+      "path": "block/g2_p6_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d747cfbd48dcdd4bbe55a650a5fb4d90fd965ef29fb90d4e01e8b9db87bb2adc"
+    },
+    {
+      "path": "block/g2_p6_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "caeadc9b91f2f127080e98f45900c4b92033135c45a24c682abca14aa0a8312b"
+    },
+    {
+      "path": "block/g2_p6_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7f3d18c77ccff64d7e757e7b12669d9f0da1122f5722208897660de4560808ba"
+    },
+    {
+      "path": "block/g2_p6_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ac8c4e969d506421b75900e5bccf4a35eef93e253ac00046a49968c0ba6dd553"
+    },
+    {
+      "path": "block/g2_p6_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f26269d67379ae50cf53ae762278fe16163598987eb796b88f99287f61458104"
+    },
+    {
+      "path": "block/g2_p6_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f26269d67379ae50cf53ae762278fe16163598987eb796b88f99287f61458104"
+    },
+    {
+      "path": "block/g2_p6_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e809efe28f3043a6eb520e4c1b2d8828159402095be7938af3d5612adcb0bd5a"
+    },
+    {
+      "path": "block/g2_p6_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8c9b65b3296b133eecba8d65ab6becdb7827afb6337ac6172f2f8ab4aa8209f6"
+    },
+    {
+      "path": "block/g3_moons_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "322107e7582dfddf4490d11216b0eeac3345c7c046ce9027b6c430b8c62fbff8"
+    },
+    {
+      "path": "block/g3_moons_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "232363c124df52db43d84c0f50762af7d2fb811fbee920dd82bd0d31c1282e47"
+    },
+    {
+      "path": "block/g3_moons_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "62c32c10be991773a2bb22b726ecf2a6c555228658a36fcf95f68b5c90439222"
+    },
+    {
+      "path": "block/g3_moons_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "682249c8681932e4efe92628b44ecb8d0d4a1bd79207d365742b96609e76fc13"
+    },
+    {
+      "path": "block/g3_moons_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "fe4b88b7466fc862f29bcc0e4abcc99495f0639694809fab798dec5f71f1ddc4"
+    },
+    {
+      "path": "block/g3_moons_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8f880fbecc3efb17b26b1b09e4e8b013902b239830ced6b236a6967654ef4a23"
+    },
+    {
+      "path": "block/g3_moons_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8f880fbecc3efb17b26b1b09e4e8b013902b239830ced6b236a6967654ef4a23"
+    },
+    {
+      "path": "block/g3_moons_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "95b33730f69c256db9fa2ee4aeb5254c7b21f101206c40a74a48946bc9fce1fb"
+    },
+    {
+      "path": "block/g3_moons_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "06118b936c27c04ea2f737860a5a0b776a6cda10aa096041da12bead8656344b"
+    },
+    {
+      "path": "block/g3_p1_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0ca43be9c55c2de63653bc179ba7d48cec34d1f9af01b4486e4397079e913c12"
+    },
+    {
+      "path": "block/g3_p1_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f8ca3a2b6a1e5204dd03b9b0380f27925428c54f0d367fd775d0f96d84b8b438"
+    },
+    {
+      "path": "block/g3_p1_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "65817ae67f34af9daba02bc8787f010cce5aaaa96bbe28c0e3c814445c0a919a"
+    },
+    {
+      "path": "block/g3_p1_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "92bd91f7c4045ceb7644381191fa7e0ceb85145d6714e97c8f95d477d8fe70de"
+    },
+    {
+      "path": "block/g3_p1_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0b14d1ca2098b0756e2709433601b1d229fe3864908ad4d71eff40eba40493a7"
+    },
+    {
+      "path": "block/g3_p1_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "bc1635340495a1e211ad9a03044fe4df6533eb14fdab25b67156daee5eaf32fc"
+    },
+    {
+      "path": "block/g3_p1_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "bc1635340495a1e211ad9a03044fe4df6533eb14fdab25b67156daee5eaf32fc"
+    },
+    {
+      "path": "block/g3_p1_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ba2ae6a220026e67524d41381416f7746d17b748b2f85822a02d39af4a33dfa8"
+    },
+    {
+      "path": "block/g3_p1_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2efc871132ad5c3d8696241282d46c3794892f7af2650479f3ac76ceb3bf5fd7"
+    },
+    {
+      "path": "block/g3_p2_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4c04014c41ee55d4d2def42e3fd5f3fbe9a38a4ad762a80df1ef8030ee7e4ffc"
+    },
+    {
+      "path": "block/g3_p2_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4781a1a8dc95577aa604f7b6ac6957d0800eed444bb127d74119bfdd3a78a4c5"
+    },
+    {
+      "path": "block/g3_p2_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "144fafce8ccf63bea40b7c998b325ae1c5acc48cc73bc95e8b1702b9e353ff2f"
+    },
+    {
+      "path": "block/g3_p2_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "48035a3e620791231a26b0df04938e1c41fd6a61c98e4e6ed989ce0334e939cc"
+    },
+    {
+      "path": "block/g3_p2_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "30e2e419350245cf6059a8249f93f979a6d2734fcabc2bd680a022e1dcd6c43e"
+    },
+    {
+      "path": "block/g3_p2_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3d5ac52bd61b05629cc78355dc43d01e31239c4b2202b6e89c3f361d01cd19c2"
+    },
+    {
+      "path": "block/g3_p2_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3d5ac52bd61b05629cc78355dc43d01e31239c4b2202b6e89c3f361d01cd19c2"
+    },
+    {
+      "path": "block/g3_p2_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "54834f45a3a794c9c186d586bf4461109863de1889b6c0141548c9414c78f87c"
+    },
+    {
+      "path": "block/g3_p2_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4124bf8cbd3b98c7f4689b9dc54ac1eb7260fca0025c9f4d61367c9a9336f83d"
+    },
+    {
+      "path": "block/g3_p3_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2d016d5896cb5b0191ba8264c13e63d316a6c7a129979e4d76988da0b66f812a"
+    },
+    {
+      "path": "block/g3_p3_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "67bb336af5e6eea2d2ad1a4d3cee5d3265cab8e470e2cd8aefb848cdd8910668"
+    },
+    {
+      "path": "block/g3_p3_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a6c5d20ad59427670015a8bcce2a779255ce8ef0e5846a8118ff0dd2f5c4d6e1"
+    },
+    {
+      "path": "block/g3_p3_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a8807fad95b522c9e37ffd37093fec474dc84ea00093b7fdb7ac92eb4d941921"
+    },
+    {
+      "path": "block/g3_p3_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "bcb65ed27679c04937ddd7501891a88d1b65632bcb4e987b5948ec3f750abb72"
+    },
+    {
+      "path": "block/g3_p3_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "b905ec1f9929915a6edad79ba574cdf16f1bffc2c1c0b5f08f516acfeb4d1687"
+    },
+    {
+      "path": "block/g3_p3_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "b905ec1f9929915a6edad79ba574cdf16f1bffc2c1c0b5f08f516acfeb4d1687"
+    },
+    {
+      "path": "block/g3_p3_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "415dc3b78be9574554dd801984ca5ad2546a985b2bb3ec2eea64a91f2b2d9391"
+    },
+    {
+      "path": "block/g3_p3_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ac0ea9afa34c5f112b98da11cf26977f4e392fab676d357e4ee4edf3c03b89ee"
+    },
+    {
+      "path": "block/g3_p4_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "226a430c304a0a0cc88ee304d7bfdfea6cbbc9d3287bbafbe19bc52d67af2f73"
+    },
+    {
+      "path": "block/g3_p4_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2752960a9dae842ec955aaaf142badb3416a17985d6ca12b2e82a661f4355be7"
+    },
+    {
+      "path": "block/g3_p4_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4abfbcf57a2512804895feb2d332390a226ccffe4a3fbf5072e66f2bc4b15f1b"
+    },
+    {
+      "path": "block/g3_p4_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "66d1d8de9d30730a7fc5e17563d4e9d8b3df1290b59408d8fda5f4179617bf84"
+    },
+    {
+      "path": "block/g3_p4_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "82814b4c60b44a161e2c65807b6dc5cdf31487611fcfd666fa3e15190b8c3d29"
+    },
+    {
+      "path": "block/g3_p4_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e26c9be8404273bcdbbcc8dd2b546ee1c1c0febe13f80d35ea320b4de901187f"
+    },
+    {
+      "path": "block/g3_p4_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e26c9be8404273bcdbbcc8dd2b546ee1c1c0febe13f80d35ea320b4de901187f"
+    },
+    {
+      "path": "block/g3_p4_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "bad9276daae62280ed7ce61ecbbe9f2cb4a6d9c1e2394fed730d328d83cdc867"
+    },
+    {
+      "path": "block/g3_p4_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f30a6d8c58075b121033e5194016ee28f243892d5ef4d54c7da05550607e47b8"
+    },
+    {
+      "path": "block/g3_p5_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "af05bdf6acf91f7b34dabe5e79ffb416093ab2505196552cb057ea87d84a1b40"
+    },
+    {
+      "path": "block/g3_p5_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "98c46d419c7d065369c1cdf9d75bd70796f8512f48caeebf4a016de07619c1f3"
+    },
+    {
+      "path": "block/g3_p5_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c04307422dfd25d8efdfd8a9b3a5a07c2c0f91ed412fa78b326175a1a416783d"
+    },
+    {
+      "path": "block/g3_p5_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d99fa6cb7ae909e45d7ce004d506834fb8fcf5c84f4a4474cf0a775f80eaed19"
+    },
+    {
+      "path": "block/g3_p5_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d2e7e7d9f2389c826698d08920f1e9004c9375a9073eca89fa615e6d562fec6d"
+    },
+    {
+      "path": "block/g3_p5_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e386e38e73371e12f304b6d06e30ddbe5b9cfc5c5a3c039b913c984cbeddd231"
+    },
+    {
+      "path": "block/g3_p5_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e386e38e73371e12f304b6d06e30ddbe5b9cfc5c5a3c039b913c984cbeddd231"
+    },
+    {
+      "path": "block/g3_p5_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "22d2f11aeff591457de7d711640255a03f6485114498c977ec57c898f64e9fb1"
+    },
+    {
+      "path": "block/g3_p5_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4f72e2595c8f154873c5ea2204f7b42955efbb29757cb3808bd13b230ed9f3cc"
+    },
+    {
+      "path": "block/g3_p6_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2d8ae76ef61c093a274ac553f78813d3cba0aac71166422db6d08dc89010b685"
+    },
+    {
+      "path": "block/g3_p6_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0fa53fdde54410f6def1756e6fe52ad02788d51ad56c8ec8390385afa617d3d4"
+    },
+    {
+      "path": "block/g3_p6_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "b954b44a21aa7b3c0cb50fac67d2adab7086c8120d74a9cac77f6bd5dc6e7e49"
+    },
+    {
+      "path": "block/g3_p6_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "80475f8e9538c03e466d230d108879ac88969462db74b680e37e27b7feb2a085"
+    },
+    {
+      "path": "block/g3_p6_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "eb042d0adeb113ad432aa425509a2ecef68520884c4c9fdfe7e14401af034165"
+    },
+    {
+      "path": "block/g3_p6_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e61dda66f359e979d6ef43e3975a3a22d6142b10540f210ec2c83d05610e78e1"
+    },
+    {
+      "path": "block/g3_p6_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e61dda66f359e979d6ef43e3975a3a22d6142b10540f210ec2c83d05610e78e1"
+    },
+    {
+      "path": "block/g3_p6_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "79653be04e7839a73e01ce005c2ca37ccb10e449deb8939e628a2206d52c75b0"
+    },
+    {
+      "path": "block/g3_p6_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a100534e8226aee6aa57a6944bc9da321a8d431df9970c2110367b4cf127fa82"
+    },
+    {
+      "path": "block/g4_moons_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "980cadb2df0743a30f7f0b64e6c668fde15a5912f20ea7cdb58a317c9b93e301"
+    },
+    {
+      "path": "block/g4_moons_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c53621bf8b92d1eea84d48cc78ef67eca2c392a1a3c6797aa5a9514484beab2d"
+    },
+    {
+      "path": "block/g4_moons_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7a50cfc1625bdb95248ac67a96e01ce8881e90c38e29ed765032d5c37cd22591"
+    },
+    {
+      "path": "block/g4_moons_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6ec9a6b90ac27512acbfed0bc768843456f8fd098166fbff4a361f8f012b9a62"
+    },
+    {
+      "path": "block/g4_moons_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3b805c7b857c96a5a649c4f157ad17f7f13885cfef56fbed52eba2e20242d052"
+    },
+    {
+      "path": "block/g4_moons_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6a67a56165b0e929f63bdeced199fbb118c9de4035314915bb7700708f8361e9"
+    },
+    {
+      "path": "block/g4_moons_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6a67a56165b0e929f63bdeced199fbb118c9de4035314915bb7700708f8361e9"
+    },
+    {
+      "path": "block/g4_moons_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "01a1ca1f06b734c6f3107fbb687cf2766918a1668dfe0eb4eb55018caff58f9a"
+    },
+    {
+      "path": "block/g4_moons_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9e979687ad5b583d76e6752733cda13dcc0f356c79869a71ce862efc076cff5b"
+    },
+    {
+      "path": "block/g4_p1_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "56e4c4798e6a488657b9ba1534b6d50998aef0d0408cffd86a30bcba06da6ef0"
+    },
+    {
+      "path": "block/g4_p1_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c349de8fab081cc06d986f4ad9fd5c64e1bd08d4b9d486e86419ee24512ce7ce"
+    },
+    {
+      "path": "block/g4_p1_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "b7dc8ff87f4034abe41e148a69ed86d425a72c7b598e6f29214bee8db9329be7"
+    },
+    {
+      "path": "block/g4_p1_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "babdc48ad92c74fc315ae4545c5a2fb813fea96727c82828ad3705a18cbd1f2c"
+    },
+    {
+      "path": "block/g4_p1_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9fdcd9b3b8cfcd2f45e265ab34c4479261876cfebda8794cdeb04ca3dbc876ac"
+    },
+    {
+      "path": "block/g4_p1_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "37c35bbf37d1fbaa44ef6c738180eeb6848add201a41f5dd86751107bc336591"
+    },
+    {
+      "path": "block/g4_p1_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "37c35bbf37d1fbaa44ef6c738180eeb6848add201a41f5dd86751107bc336591"
+    },
+    {
+      "path": "block/g4_p1_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c75da19e1455882db7dbd2f53414fbf98ce740fcbe4740b3c47178825d7c1ffc"
+    },
+    {
+      "path": "block/g4_p1_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c5fd99c988ada1721fca408e3cbccec965cb4af50efa01f00feeaf68e74e8050"
+    },
+    {
+      "path": "block/g4_p2_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "dbe8de4201ac1ee861f676584eba87441207d9190671e382fe6b28b7b9dc29b1"
+    },
+    {
+      "path": "block/g4_p2_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "116458ffcb9d9fa38f4d47cfca5eee4bfe610c4e99cb941169d9b6c6c706f42f"
+    },
+    {
+      "path": "block/g4_p2_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c5cb4e63008f0e0e81d87a09720bd529a12084f4e664c8aaaa0ffcd8eb837c65"
+    },
+    {
+      "path": "block/g4_p2_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ab5481312895183edbc2fa3c4b8447fb40d912e1b940170ec95ffa9193e79834"
+    },
+    {
+      "path": "block/g4_p2_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "1039509a9d0c4fab191f04e94e4304668fe8d80ee49469c6c0b70957f2ad5270"
+    },
+    {
+      "path": "block/g4_p2_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c0003f0f519a20bc2268b0e614f8ec253e6e2ec894fff11cc75f5f3e65bfd647"
+    },
+    {
+      "path": "block/g4_p2_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c0003f0f519a20bc2268b0e614f8ec253e6e2ec894fff11cc75f5f3e65bfd647"
+    },
+    {
+      "path": "block/g4_p2_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3ce7528e542e60222cd9792de4211a003d34a2db228fe9decaa3501f8dde16b9"
+    },
+    {
+      "path": "block/g4_p2_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "437f8c361bd92e11ba87f90c3e75029f4fc0a65c4b2a90fee08980149e066d3a"
+    },
+    {
+      "path": "block/g4_p3_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ee495a0f719447f1232788e3167ccf0bee7ce8e1f448aed13acc58cead848dcd"
+    },
+    {
+      "path": "block/g4_p3_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "dc12afddc40da30869a088fa37c04f4679183377fe11a55bb2852400c466d495"
+    },
+    {
+      "path": "block/g4_p3_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "cc4770abb08ff498cd3f19b0955ff75ae3111870ea0cc7cd88efd6f4438f5c34"
+    },
+    {
+      "path": "block/g4_p3_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a6a56be4c319b29b93401d1dbb762e867bb04ba95c58427233e11a97047fdd04"
+    },
+    {
+      "path": "block/g4_p3_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a434d733a2472dff9307c9a45c76f4b91ab1a4eb04103ccee20f65f25b4a1fc9"
+    },
+    {
+      "path": "block/g4_p3_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "507cb0bed0c3603c88df78891c742a7ae2a474021841d98defa3a89637bbc066"
+    },
+    {
+      "path": "block/g4_p3_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "507cb0bed0c3603c88df78891c742a7ae2a474021841d98defa3a89637bbc066"
+    },
+    {
+      "path": "block/g4_p3_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "296ddff486291e39ac766fbaef37b70bf076a10dc769305f98a5c5c01029d7e2"
+    },
+    {
+      "path": "block/g4_p3_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "57344e0320e935dc7ccd1e4dfdf7b4771e3efab3a2adbf60de2ad3dff03c2b97"
+    },
+    {
+      "path": "block/g4_p4_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "eed7135592e718fa4f0e7854db11fa32f5fc61de3682caba6936626e190f06ab"
+    },
+    {
+      "path": "block/g4_p4_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4baf415dc8c7edbb043711d00f6f4eb905c51822942847b134eb89bba97f0ec2"
+    },
+    {
+      "path": "block/g4_p4_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8b87a3e4c5758826043d38e26488ee9a4dceeb236094dbd2eb2fb1303f2712dd"
+    },
+    {
+      "path": "block/g4_p4_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "86d6d117711d0c7b4e479b9110ce30f7a5af7f8b5dbf0fca16304f374c40b3ce"
+    },
+    {
+      "path": "block/g4_p4_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8cc5b4ccb19957c203ae2305ec35da62c84b5671a505adca41b212e2bb57e931"
+    },
+    {
+      "path": "block/g4_p4_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "08f7f02e1f10f9cb05fb4f3c6c7621fc44a8de393d82ccea1442be4dbb3b996e"
+    },
+    {
+      "path": "block/g4_p4_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "08f7f02e1f10f9cb05fb4f3c6c7621fc44a8de393d82ccea1442be4dbb3b996e"
+    },
+    {
+      "path": "block/g4_p4_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d85218b3993a285a6a3331c2ce727a509e4319847f3dc8789e7523ed221944f5"
+    },
+    {
+      "path": "block/g4_p4_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "5b375cd09ee28e664d749ede599e5deb2826c7aaa15bdf0f3b4565b641a551f2"
+    },
+    {
+      "path": "block/g4_p5_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6ab530d1d6254ab99b9c7213d9ebaee6327c650d1467a7e3f03f945c2774dbe8"
+    },
+    {
+      "path": "block/g4_p5_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "aee6ac04d031784251391381c937a67d292035f3b56041bcbeecdece917a2485"
+    },
+    {
+      "path": "block/g4_p5_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "cdfc47c995022a3683cef0efb98bea529c63cb42d4e383b784915efeadbf07ca"
+    },
+    {
+      "path": "block/g4_p5_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0ffee6818fdcee474820c64141d9ccd7fd156da0cb3b078390af6133980f39d7"
+    },
+    {
+      "path": "block/g4_p5_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "fbdedc88fd7ac20af04a23515e91f20c2426504b8b88a88d0916d28cb0e55d83"
+    },
+    {
+      "path": "block/g4_p5_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6612c38281a57e11c285c63b0b0f18b8b9d15a0f4cb1c92f3419b5ee2dae4d7c"
+    },
+    {
+      "path": "block/g4_p5_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6612c38281a57e11c285c63b0b0f18b8b9d15a0f4cb1c92f3419b5ee2dae4d7c"
+    },
+    {
+      "path": "block/g4_p5_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f08f54107b80611eb6ecacbb3de0f7d361cf3d80ad2470ab86c6aec348f4f63a"
+    },
+    {
+      "path": "block/g4_p5_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c8fc7f833b7e31d92c87a9f623c6ed30804c27a5991cf4d991500222e02fc32d"
+    },
+    {
+      "path": "block/g4_p6_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "741b4a2edf2f9a1029d3e75b99822340109a1bcd075b69863bc9ac8cca7fada1"
+    },
+    {
+      "path": "block/g4_p6_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c084e71ee25a2de35211a0a380b5af8a3c6e57ca05f4d29b59f65e885edde653"
+    },
+    {
+      "path": "block/g4_p6_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ba545f0b5fe09790b03ce7d188d042f7d7179d5aa9775b9a3907b184b0e6ef39"
+    },
+    {
+      "path": "block/g4_p6_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6813cb82f005ca4d10d20faad1d0ce3cbdbaa28008fb17e7988c1f42efb84900"
+    },
+    {
+      "path": "block/g4_p6_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "598488bffaab84fe4dbe4529b30c77d4ce2b2e20c50ce2cc98d2839f1ef9d929"
+    },
+    {
+      "path": "block/g4_p6_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a1be7ac5ecb8d7e3a8c7dcbd798f9c60f9a04fdee32a55aeb335c9a9d846c63e"
+    },
+    {
+      "path": "block/g4_p6_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a1be7ac5ecb8d7e3a8c7dcbd798f9c60f9a04fdee32a55aeb335c9a9d846c63e"
+    },
+    {
+      "path": "block/g4_p6_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "78b460046888f355eea8bb8a0a70ed722179fd0c61d40446de3999515cda3d3b"
+    },
+    {
+      "path": "block/g4_p6_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ef35ae7051a85f9ab28a3caf05d09be822aa72fe38d67453d0363dc7cfdddcca"
+    },
+    {
+      "path": "block/g5_moons_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6fc8bf4f8fd17fe0935d23582faa252849192196b6494bf228e52f100e8f5886"
+    },
+    {
+      "path": "block/g5_moons_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "07ea491c60188a25aa888aef8e4c5e1c9818ff200ba3fd00a397819a1568d7d4"
+    },
+    {
+      "path": "block/g5_moons_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a35affed52f2cd57586847e4fcb1e01be701c894ee8571b834035ea1482136bb"
+    },
+    {
+      "path": "block/g5_moons_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "485215a87c6626d6012376eface964c72aa46bb350c36546f6104a98ddd4d739"
+    },
+    {
+      "path": "block/g5_moons_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "940f7b5a66dc25ba8c99e5183a746d685af796628015a813ee4dc2d8d6254b73"
+    },
+    {
+      "path": "block/g5_moons_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "612e740d0b434e2d6ab7d67be93ea270003c38d0f98d9fb18240f97c741a5f28"
+    },
+    {
+      "path": "block/g5_moons_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "612e740d0b434e2d6ab7d67be93ea270003c38d0f98d9fb18240f97c741a5f28"
+    },
+    {
+      "path": "block/g5_moons_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f4d13ba15ef73b92705f994e9ce0b1e7573c32cd82b8e33dbca23b136f54a0dc"
+    },
+    {
+      "path": "block/g5_moons_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "46214cbe35aff848c54bdf2949cc8980808e846786ca18cd665b5299398ae9d0"
+    },
+    {
+      "path": "block/g5_p1_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7b45b1d1a3096d5474ee64bd84b25244460dd73bc5c2b8546231bf9432334b93"
+    },
+    {
+      "path": "block/g5_p1_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0bee2b050ffece6ce75f89438a00a540bd4dfe051a0115e8238885c898b54578"
+    },
+    {
+      "path": "block/g5_p1_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "10dbf586952b64ec15abfb03738535fa2f831d0f81d565b664218ad2c738125e"
+    },
+    {
+      "path": "block/g5_p1_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0b66f502004ece8a799f030bc828e4092e3995638d7c64a8402c4ed5e8104644"
+    },
+    {
+      "path": "block/g5_p1_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e213dd607bed6a6c031fa29ccd6fe8781e944f42ec52308f0a6d333fb2752193"
+    },
+    {
+      "path": "block/g5_p1_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "418b276ede74278d6e382e0abdd2c91bbcf8745b87135c583ef3bd39a4fbcfb0"
+    },
+    {
+      "path": "block/g5_p1_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "418b276ede74278d6e382e0abdd2c91bbcf8745b87135c583ef3bd39a4fbcfb0"
+    },
+    {
+      "path": "block/g5_p1_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "79846659914364e20dba937b445c93b86138a9ebf8cb82c7382ec1476aa57d1c"
+    },
+    {
+      "path": "block/g5_p1_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "970b77d8c4e79eed26c6623796fb1966d9328b262e49a1615005720770d3a820"
+    },
+    {
+      "path": "block/g5_p2_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7dbd935504f2c151ba41dc805a07de469b30d498bc2d2533945125fe89267315"
+    },
+    {
+      "path": "block/g5_p2_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c3834c0bf882af206f370ef7c3b1c22b45a86aaa3604bf24aad23e2224b1173d"
+    },
+    {
+      "path": "block/g5_p2_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "dd15f3b80158e6f88d27e7460aa45ff574a0c70c80b13b309eaeb3e09ae70526"
+    },
+    {
+      "path": "block/g5_p2_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8d2c3f98cdef0796ac241ebe1783167e03572db8414052c92ef77dd3a9b10e5f"
+    },
+    {
+      "path": "block/g5_p2_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ece768aaa2893781465c20ae01aa5c8676a51e4fcc954a06ac0f49111bb97719"
+    },
+    {
+      "path": "block/g5_p2_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2b4df2d8b83c9af7cdb609d2366dee8b62401f9fa524068e563397d3700231ba"
+    },
+    {
+      "path": "block/g5_p2_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2b4df2d8b83c9af7cdb609d2366dee8b62401f9fa524068e563397d3700231ba"
+    },
+    {
+      "path": "block/g5_p2_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7e3e487e1caf5da5f9c1b95509377c74ada8df5f7398273c8dcba57d47cde32f"
+    },
+    {
+      "path": "block/g5_p2_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "266c4223ac73797e6049a844b52911d2750958e76ca6a5904b5c13ff7323fa1d"
+    },
+    {
+      "path": "block/g5_p3_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "07e8b6fd116fafc591f649e7fc42ac04b0cdf34cf52188aef2697b49c263a580"
+    },
+    {
+      "path": "block/g5_p3_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d46d2fce01aa5a0e459a29b86327a5c9a43848799109fce3d5af310f9d29648a"
+    },
+    {
+      "path": "block/g5_p3_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "189f4b940e777800999b33f1241b1db01bd38f086d0173e711067e4a68595963"
+    },
+    {
+      "path": "block/g5_p3_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "760716236080326ead3f00b665b4330a212a7b12be8f1afda7f3cb973ff49b8c"
+    },
+    {
+      "path": "block/g5_p3_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4f95faccd0e6c978fbcdfdd0dd1af3c328b12a2a972e61435c2f1b4d1ab700e3"
+    },
+    {
+      "path": "block/g5_p3_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "671484c345891a3e43151e80b457b014e72a7b8377917121068f9290e6793211"
+    },
+    {
+      "path": "block/g5_p3_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "671484c345891a3e43151e80b457b014e72a7b8377917121068f9290e6793211"
+    },
+    {
+      "path": "block/g5_p3_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2b031fc3316e4a93643ee66435b034824a3d7a91a456df64cc7b15d382bca1fc"
+    },
+    {
+      "path": "block/g5_p3_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "81556387cb58ff5b4ff29dc9781cdf818555ac17dc468de93b1d5645d8297ca3"
+    },
+    {
+      "path": "block/g5_p4_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6b8f3799afdba65924560b80ebba286e27cc14ca5886fc70ec18b8b31d70cd17"
+    },
+    {
+      "path": "block/g5_p4_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2e4d0e35ea77ec7921cb798be4a084446d83fd1ffedacdc4fa9628f51296a643"
+    },
+    {
+      "path": "block/g5_p4_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6dba8028d27ca9eb8c49a9dc2afb14bcae56a073c7fd1f30cf5a818786a687ef"
+    },
+    {
+      "path": "block/g5_p4_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d9a6a12d630a52f137dea0972da8048306faa17bc40f1f2357a19887aaa5127a"
+    },
+    {
+      "path": "block/g5_p4_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "897222234bd8d793a88457289684b4e063c12181174fb69aabdadff625f8c117"
+    },
+    {
+      "path": "block/g5_p4_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "385fab169289652255fc5baf6eb88eeecf248863892f0be5cb20b549d3f3f8f1"
+    },
+    {
+      "path": "block/g5_p4_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "385fab169289652255fc5baf6eb88eeecf248863892f0be5cb20b549d3f3f8f1"
+    },
+    {
+      "path": "block/g5_p4_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d04787a21753eb34229b5492eeb41e6841f488309b3104ebbae8e10944c58334"
+    },
+    {
+      "path": "block/g5_p4_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "631d48953449297f906f91309f174691c77356790d6955a0a2613ab94e2fd7fc"
+    },
+    {
+      "path": "block/g5_p5_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f8b785f04a8e059f7205fc41c7a3cdbf792a33c074761d88ba30373f75539781"
+    },
+    {
+      "path": "block/g5_p5_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "13282ccef7e25cb849083d011b469e7f72d0a5a2e694e4874862ed3fa53d4224"
+    },
+    {
+      "path": "block/g5_p5_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a84908b3ec64f08c8a1f7ca629d9b3849429134d26726995ed15f0e94ad023e9"
+    },
+    {
+      "path": "block/g5_p5_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "85bb69da14dadddcaada1cdc0a4b7790f40e3313e3be23a9745c6aff676d3c39"
+    },
+    {
+      "path": "block/g5_p5_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a5a213d9a718bf1506fd9ea556a622467d80e6bd5b404cc053e2c72cb7c4efc8"
+    },
+    {
+      "path": "block/g5_p5_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3b004ba8f6acbc46200df69da0290ad1c647f34003c4b38768e5d47fa33aaf8d"
+    },
+    {
+      "path": "block/g5_p5_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3b004ba8f6acbc46200df69da0290ad1c647f34003c4b38768e5d47fa33aaf8d"
+    },
+    {
+      "path": "block/g5_p5_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "18ca2c6b027243c67c2b8e8debe76c680f9d7c833d08a6c90305ad1e503cb851"
+    },
+    {
+      "path": "block/g5_p5_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "b26be9f32a375c94331d5d6195cc2c45c208a19bdf586c39f99ae7cdc477858a"
+    },
+    {
+      "path": "block/g5_p6_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "778defb1cf162a15f15392294523b1b0c2243ce0b9f007f169acb9ef66eccbd7"
+    },
+    {
+      "path": "block/g5_p6_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "04e21945b74767e530005c3488a60c3a9f5fa42e68a35a707ccab7c46e132ead"
+    },
+    {
+      "path": "block/g5_p6_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e5c7bc823363f356bcbabd57243fe99c8dae2373d3a0229f0d34e8b82080d5da"
+    },
+    {
+      "path": "block/g5_p6_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3e932884867ff56cabd165324aa0972b63d7da742c5aff1526d367d833dd1a4b"
+    },
+    {
+      "path": "block/g5_p6_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "75243e17a9a8b576cf155034a1ec3db5649a5708ea0c947f2bded7d7e08f14e8"
+    },
+    {
+      "path": "block/g5_p6_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e6e6134b7ce142b7382401c0690d6fa667b9dd3c2e29cf9ef3f9c00efaca7547"
+    },
+    {
+      "path": "block/g5_p6_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e6e6134b7ce142b7382401c0690d6fa667b9dd3c2e29cf9ef3f9c00efaca7547"
+    },
+    {
+      "path": "block/g5_p6_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4f7e0c66fca13380834afeb06359aa79ce682b89b8b67bae3d9634ddb2186c83"
+    },
+    {
+      "path": "block/g5_p6_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "edde3a2f879970c7dd4df8b2c8d85063b6be26ef470ecf134467e5be83dacbeb"
+    },
+    {
+      "path": "block/mars_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "b4b7e151a1061283632af86adec296c1abcd7a42479564f8e83d0877bc477359"
+    },
+    {
+      "path": "block/mars_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "df1cb24ce87e2a0c993da4a024ebb441b6ab1a40801afb10a5a57d93a8c166d2"
+    },
+    {
+      "path": "block/mars_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "92a4103bf88295c380028ef042e1339189597c39f2e19611059150bc8b4dc575"
+    },
+    {
+      "path": "block/mars_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0bf5f0a382c42d581355363a1df7b04e807365d4bd8611d3e46cdd6af9320507"
+    },
+    {
+      "path": "block/mars_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3fb6f3b656f57603ac10be9bb6fb2f2a05e58464bdde418ae34a372d548e19f7"
+    },
+    {
+      "path": "block/mars_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f0064fbb1c4ae9443b0f92187a254fe2cbd1156988695a4d4a6da62ba151fee8"
+    },
+    {
+      "path": "block/mars_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f0064fbb1c4ae9443b0f92187a254fe2cbd1156988695a4d4a6da62ba151fee8"
+    },
+    {
+      "path": "block/mars_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2c4e606636b9393ebe2a59e8bd66c15e82148f2664a48e44961f68572b27c242"
+    },
+    {
+      "path": "block/moon_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "69d4e2b5500610de0766851df151c7beaf3efa08a905158a1e62a23a8b42fbdf"
+    },
+    {
+      "path": "block/moon_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e245b9bc168bb327ff212b86e36266b30ee2592435328a7dc9984d1775ad406f"
+    },
+    {
+      "path": "block/moon_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a7829c5635a310782667f47323fa7c7d6676d3b54649c432404849a8d43c8705"
+    },
+    {
+      "path": "block/moon_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d8f54477966c28b0f2d40a3a4243d3f79a1b0823bd9ba671cb7fa3b97e064035"
+    },
+    {
+      "path": "block/moon_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "3230e2efc1f5c05825611ae91d4a6a0793c78437d4fc275e711a6d4146f3abc3"
+    },
+    {
+      "path": "block/moon_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a42e15f3e0000e9caaebfee85cdda4d23e6aeb619a31d20ccf39b4ea36e7ac2e"
+    },
+    {
+      "path": "block/moon_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a42e15f3e0000e9caaebfee85cdda4d23e6aeb619a31d20ccf39b4ea36e7ac2e"
+    },
+    {
+      "path": "block/moon_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "537aaa35bd9e44cb4c18936754aca0417fcf64b868850513c25207d62151a858"
+    },
+    {
+      "path": "block/skarn_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d0d857b643af53038afd9ef0810f93cf92895452bb4c3cf3efa3f4acc187c546"
+    },
+    {
+      "path": "block/skarn_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8de58610e296175b8cd83ad31440893e1d4170a9df2ac0302e330997c875ba7a"
+    },
+    {
+      "path": "block/skarn_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "67b01c6fe573c72f187035aa103159ae8e6fb358f5ce970209a1d049de19783b"
+    },
+    {
+      "path": "block/skarn_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c144aa85e65acbcf98bfd99755aa97ff3a99f9df6b598e2fc8e8508b5ee50a95"
+    },
+    {
+      "path": "block/skarn_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4f3775d752159ec250e376676bc550c5b33fec9b1746b4056562e223f2516aa7"
+    },
+    {
+      "path": "block/skarn_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "b3e098093a71e1487303a99b35301e690c897f4109ed9a648a060e2c5233c259"
+    },
+    {
+      "path": "block/skarn_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "b3e098093a71e1487303a99b35301e690c897f4109ed9a648a060e2c5233c259"
+    },
+    {
+      "path": "block/skarn_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "dfd6b9df51f4f9263713670ff8ed3252cc9f843a13a168770d45a395090354dd"
+    },
+    {
+      "path": "block/solvane_soil.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8761ed37c10533ca353be7b70059fd8817f14f315e472b9cf9839c659fca3fb5"
+    },
+    {
+      "path": "block/solvane_farmland_dry.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "65d7b100f676c8d04b4007271725d45d3743ff21daada6b19e8aae639a2cacc5"
+    },
+    {
+      "path": "block/solvane_farmland_wet.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "fd3c822509d503940f66e1a3a8e7bbf4faff988a0c90b655d4c33af850240e0c"
+    },
+    {
+      "path": "block/solvane_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f5d4db28fca554d92a7d93167164bc2cf30ad49b993f62c7db8a4eb830a36e46"
+    },
+    {
+      "path": "block/solvane_grass_side.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9896fb0532e8b46b592c455989b1335cfff225793776f20effd378dc697831e8"
+    },
+    {
+      "path": "block/solvane_short_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2bf31bb8423e4625b05226372c71cc3640085955766bbc8d8486570d4e6d2710"
+    },
+    {
+      "path": "block/solvane_tall_grass.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2bf31bb8423e4625b05226372c71cc3640085955766bbc8d8486570d4e6d2710"
+    },
+    {
+      "path": "block/solvane_tall_grass_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "002b5e294aad293239d6ad2b3eccd020980fb41ceb3816693000a36b3fb8d0d4"
+    },
+    {
+      "path": "block/moon_gas_vent.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "137e998194f36f8a1c3c6dfc9085326d74183d4c144938a696bf6e7ca9e3cc92"
+    },
+    {
+      "path": "entity/moon_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "43894e41657c3a955017e74042b48468f6ea1fff96acf1a05920b9c5ff7dfb0a"
+    },
+    {
+      "path": "entity/moon_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "d279511066db946ca9570f1e3878afb114783495fbc36d202a80ad6b43a442c6"
+    },
+    {
+      "path": "entity/moon_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "092d5fce93247911474af5ea23ad0a0d2c32f0370ecb80dd4815c0b96cf4d6ee"
+    },
+    {
+      "path": "block/moon_glow_shrub.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c72225e287208a690ca82ce2d674ed4803572a4953a85cb4777de3f3d138de1b"
+    },
+    {
+      "path": "block/moon_glow_flower.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f37b35e6b247fd26693f6a344d26823f4d0bf09110c4e198ebc46ca39e51eb1e"
+    },
+    {
+      "path": "block/moon_glow_mushroom.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d4635890da35cb8fbc9fea7e19fdc58f38462bd322ef45847b48dc0893d0a688"
+    },
+    {
+      "path": "block/mars_gas_vent.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9e8c8ddf1af6256bedf63b6e2f55bb16d61ab73c6f6d8f9f88b822ef4930723a"
+    },
+    {
+      "path": "entity/mars_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "7c68de889f05191cc4ecbe5bf1a2ee6de9d4982958c23f2ae6d62d102cf736d8"
+    },
+    {
+      "path": "entity/mars_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "27e6fb338f28912b6cf167581e10fdbe8ad2e550bb05bd4a72468734db6cea68"
+    },
+    {
+      "path": "entity/mars_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "93dd6c629c95e11d8e9dfff2243ad11d2ea0ee9405a40c24f194a61e9b1433c8"
+    },
+    {
+      "path": "block/mars_glow_shrub.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d508ba35556fc1041c1b8a2735cd315e37d36904f7ee20a322a3e2a68093d109"
+    },
+    {
+      "path": "block/mars_glow_flower.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "5a21739a29f88181a1bf96735f72b163381b2e945f5fb19607ae7bf6783f09a4"
+    },
+    {
+      "path": "block/mars_glow_mushroom.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7ee4c696f2d36768f42007eb4334cbab5853987f9ec91be3c3097773a5a72674"
+    },
+    {
+      "path": "block/cerulon_gas_vent.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8c82ea3fc5986955c7a77890bdc1710b830d602dccecb39d20a0ee2d94bb76e6"
+    },
+    {
+      "path": "entity/cerulon_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "f04e1ca6bfb0bd1d205b15d55e89e810ef422f1989299ad5943d01703fda5fd6"
+    },
+    {
+      "path": "entity/cerulon_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "ee536790c6a003b8a463ab8b163107c8fc6a1fb87867590b6a0ff7d57ca767c5"
+    },
+    {
+      "path": "entity/cerulon_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "6a4952ee60761c3d52342005292c6416e7999506f711870eb817fe251a49dc35"
+    },
+    {
+      "path": "block/cerulon_glow_shrub.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "1c871fd66c5e547c2c917146ede37eaa7b131a26f0caaa5b63897d5286e52549"
+    },
+    {
+      "path": "block/cerulon_glow_flower.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "754c4375b18a6eb3a4135f13619a819d54a4469eae20ba381b1c6c6f6b8c8b3a"
+    },
+    {
+      "path": "block/cerulon_glow_mushroom.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7641bc61a0d3122355c918c8ee4fa94c7d9659ad03c96f5f0090713735b72c52"
+    },
+    {
+      "path": "block/skarn_gas_vent.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e4f713cf7c4a8eb09f96496c69a7c00d0fc94f060054e2a1b5baf253045db648"
+    },
+    {
+      "path": "entity/skarn_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "bc0c8066c2d738a3a353d6d76a6fe8ceab18f2b6474d67785c9aabb684a6eb86"
+    },
+    {
+      "path": "entity/skarn_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "aef621d23d598749e1bc40de3cdb3f19d4470c7baddd7cc55b49a1ebdabbb41a"
+    },
+    {
+      "path": "entity/skarn_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "3ae9f6cb9c018249201fbe9413e293e33e6dd984ffa5c0608e555335566cd678"
+    },
+    {
+      "path": "block/skarn_glow_shrub.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "744971c177fb698e6c5fde0f1f6a6daf29755ec7bf5d6435de0cd71265f0959f"
+    },
+    {
+      "path": "block/skarn_glow_flower.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "983b459f22d658ce223820fc13f5ede4767fc3569ed9fef5e9a020aa7a699ec4"
+    },
+    {
+      "path": "block/skarn_glow_mushroom.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "35d12cda6466f76d1eeae47233196228f0fb1729e22d4120589a668da652458c"
+    },
+    {
+      "path": "block/eidolon_gas_vent.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "525cf0185ff85cbfd6e88911c895925fc84071bbc280d19aef00b3a903f7bd98"
+    },
+    {
+      "path": "entity/eidolon_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "cea07a63f997ffe0f237eeeb97e338d3e1aa37effa644227c059513fe7973c8f"
+    },
+    {
+      "path": "entity/eidolon_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0461a2ae553b8d8d9db00d94c71e595cee2be8a2f63759f2b66cd3fda17bbd04"
+    },
+    {
+      "path": "entity/eidolon_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "4ef4e27c0c5bb4bfd3a7b816b36fd4dcde2bdcc7e689219613d1cb63bd177079"
+    },
+    {
+      "path": "block/eidolon_glow_shrub.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "59587671a3be6575ea355e65bb2cfa01dfe55d222ce8708cc7a5105521c63170"
+    },
+    {
+      "path": "block/eidolon_glow_flower.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "dde7769a86a8d4a71d6c2d404d7e554a74145cc2141bb2ae52af4f1579817ade"
+    },
+    {
+      "path": "block/eidolon_glow_mushroom.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c8bdf31033e56fd3a44c2ca845b943cd399b6c76383bf327ff3ca7b44a480d83"
+    },
+    {
+      "path": "block/solvane_gas_vent.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f00dbf48aaa413f4d535cf679bb8ef14535ae7d8c647f9d63e3f415b57099907"
+    },
+    {
+      "path": "entity/solvane_glowbug.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "b8bedc3574450b0b958d3de4ee88724fa85a466ef62ad983acd02dfff101ace3"
+    },
+    {
+      "path": "entity/solvane_glowbug_glowmask.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "bf87a842862119b1905dbd6128a6dc9bdbf8c1a07c17ee9963f01eb6fdd5dbe3"
+    },
+    {
+      "path": "entity/solvane_glowbug_blink.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "71edcd794f7c9cb6ef32011eed77d71c3124a99d3794a363771b35fd05d39b58"
+    },
+    {
+      "path": "block/solvane_glow_shrub.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a2680b1b84e24fca847be91c72cbc2c3948c6e4337a44b424dc96cc401482fa5"
+    },
+    {
+      "path": "block/solvane_glow_flower.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6748337c33b4a1eb7c50a4e5293b9b1ffbe807b4262613aa48393d89d4ef3cea"
+    },
+    {
+      "path": "block/solvane_glow_mushroom.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "88a205449aeb43f0d5813e4550f498e78a35c3b03ebbf029d3911f911f71d0ae"
+    },
+    {
+      "path": "block/acid_still.png",
+      "size": [
+        32,
+        512
+      ],
+      "sha256": "6707c73b309955ed545270f8bb60016e4538e8e09e93ddb0dd1fb2480348f664"
+    },
+    {
+      "path": "block/acid_flow.png",
+      "size": [
+        64,
+        1024
+      ],
+      "sha256": "d31fa0ecf33139790bf292805e85142b3a29b32c9de3690ea65edc6b76d259b8"
+    },
+    {
+      "path": "item/acid_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a5f6a200324b1b54659e9f506c5004796f4d14bb311002c6d230cf5454b0708a"
+    },
+    {
+      "path": "block/magma_slag_still.png",
+      "size": [
+        32,
+        512
+      ],
+      "sha256": "34a1e7447cbed4a9619b8a304eace60a1bccff9ea49100954b40f70c47444009"
+    },
+    {
+      "path": "block/magma_slag_flow.png",
+      "size": [
+        64,
+        1024
+      ],
+      "sha256": "ab163bb9bdc039d692cbeaa56b9a156efa3e9968d490c1f6769ce9486e10e543"
+    },
+    {
+      "path": "item/magma_slag_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "b39e7a1823ec5fb1f06cc7311b417791820a6a6900b1d2a3316eca15d30abb2b"
+    },
+    {
+      "path": "block/cryo_fluid_still.png",
+      "size": [
+        32,
+        512
+      ],
+      "sha256": "7001442a8b92d9554883afb721d2fa3a6651e9541fa1b127a4d03e91b2b35fb4"
+    },
+    {
+      "path": "block/cryo_fluid_flow.png",
+      "size": [
+        64,
+        1024
+      ],
+      "sha256": "8b9ba9e22637c0c83be1b2fe921eefc24bfd8f100920d58689619fc44918d254"
+    },
+    {
+      "path": "item/cryo_fluid_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "1c58560c5e58e0fc4d5956b89b755cc50c78531c9b016aa386dcaf4d0a1a297e"
+    },
+    {
+      "path": "block/solar_plasma_still.png",
+      "size": [
+        32,
+        512
+      ],
+      "sha256": "96356ed7b393d9c8d91cf2e9417191567f9465b39cabee498662f3441d8246a0"
+    },
+    {
+      "path": "block/solar_plasma_flow.png",
+      "size": [
+        64,
+        1024
+      ],
+      "sha256": "df9ab24384d24016380597e14e583000ff729e0f60572700235758ebf15b09ff"
+    },
+    {
+      "path": "item/solar_plasma_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a5af399c82e5e547c98e17148bb0b5aa32933a3843acb28bc72e9e9d6fffeab9"
+    },
+    {
+      "path": "block/null_fluid_still.png",
+      "size": [
+        32,
+        512
+      ],
+      "sha256": "7b6b2bfb81266afdccb0caa1f472ef864e7de477c77cc8a14f7c35ba6ff25cb2"
+    },
+    {
+      "path": "block/null_fluid_flow.png",
+      "size": [
+        64,
+        1024
+      ],
+      "sha256": "73da8504d6a2b6c01ba21740bccb0f2638ecfe1f06ba5471469fc4522a54d5fe"
+    },
+    {
+      "path": "item/null_fluid_bucket.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "5aa5617910ac310df12b49c6d186c506ac13c305acbe3698a1ecd86bb6eebe25"
+    }
+  ],
+  "pool_biomes": {
+    "acid": [
+      "wasteland_acid_swamps",
+      "wasteland_mud_flats",
+      "wasteland_moss_bogs"
+    ],
+    "magma_slag": [
+      "ember_fields",
+      "marble_contact_zone",
+      "charwood_barrens",
+      "wasteland_basalt_fields",
+      "wasteland_ash_plains",
+      "wasteland_lava_lakes"
+    ],
+    "cryo_fluid": [
+      "frozen_graveyard",
+      "phantom_ice_sheets",
+      "hoarwood_taiga",
+      "wasteland_glaciers",
+      "wasteland_ice_spike_forest",
+      "wasteland_frozen_canyons"
+    ],
+    "solar_plasma": [
+      "corona_flats",
+      "sunspot_plateaus",
+      "gildwood_oasis"
+    ],
+    "null_fluid": [
+      "lunar_highlands",
+      "lunar_mare",
+      "shadowed_craters",
+      "wasteland_cratered_plains",
+      "wasteland_dust_badlands",
+      "wasteland_canyon_scars"
+    ]
+  },
+  "tests_executed": false
+}

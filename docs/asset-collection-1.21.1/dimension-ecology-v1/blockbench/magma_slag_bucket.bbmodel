@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "magma_slag_bucket",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "4025e961-b5fa-5cb7-8243-b620b6dc37f3"
+    }
+  ],
+  "outliner": [
+    "4025e961-b5fa-5cb7-8243-b620b6dc37f3"
+  ],
+  "textures": [
+    {
+      "name": "magma_slag_bucket.png",
+      "id": "0",
+      "uuid": "bf26195a-c3d4-532d-80a1-85a9c2495ca7",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABKklEQVR4nGNgGAWjYIABIymKH7389p9UC+TEufDawURLy4nRRzAEkA14EStOsgMkFr+Es7GFBlYHqOtY/GdgYGDYvXcfXIwcy4lxBFYHUOprUhyCNQ24OjtR3XJk85BDgQWXYldnJ4aCiuUMDAwMDMaLIim2PPaZNgMDAwPDTbQowBoCN6+cQFF0Nm45RZbD9KObi9MB+Awh13JcAGc2hOWEgooasixGBhM6WhgYGCgIAV93RwZfd0eKHYINEB0FtAJEOWDzzv0D6wAYoEU0DN4ogKVYWAomF+DLAXgdgA5olQ5IjgJqp4MBTwN4GySw0pCBgbwSETn9kJUGkDWRmhiJsZygA8h1BLGWMzAQ2SpGjgpSASEHEJUICRlCiT6icwGpjiDX0SMPAABCWnKCekvjdgAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

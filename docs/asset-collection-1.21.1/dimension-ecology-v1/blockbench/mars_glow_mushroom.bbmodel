@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "mars_glow_mushroom",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "crystal_plane",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        -45,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "f739a6cd-9f22-58b4-bd51-3e352de5b368"
+    },
+    {
+      "name": "crystal_plane",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "bc9030b3-7738-5888-9b9d-24d87ccf729e"
+    }
+  ],
+  "outliner": [
+    "f739a6cd-9f22-58b4-bd51-3e352de5b368",
+    "bc9030b3-7738-5888-9b9d-24d87ccf729e"
+  ],
+  "textures": [
+    {
+      "name": "mars_glow_mushroom.png",
+      "id": "0",
+      "uuid": "94686e66-8bcc-594a-9218-e99d955421d4",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAvElEQVR4nGNgGAWjYIABI6kaml31/hNSU7v7EtHmMlHbclLUMTAQGQKkGIgMiAkJggqIsbzGVRfObtl9mSSH4I0CdMtrXHXhmBSAzxMsJJmEA2DzNTZHYAsJnA7A5mpiLCIVkJQLSAXoUYbNU1gdgKyQ3HjHBdAdQZU0gAsQE2UYiYLcPE8qgCVIDAf874qmiwMYy5YyMjDQOBES5RByNR5Nd0EJKeuZe8gya8BDYNQBow4YdcCoA0YdMAoA/ug9bw3gubcAAAAASUVORK5CYII=",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

@@ -1,0 +1,905 @@
+{
+  "schema": 1,
+  "generator": "crystals_v2.py",
+  "texture_count": 96,
+  "editable_projects": 80,
+  "materials": [
+    "selenite",
+    "aresite",
+    "cerulite",
+    "lumenite",
+    "skarnite",
+    "cinnabrite",
+    "eidolite",
+    "rimeglass",
+    "solvanite",
+    "dawnstone"
+  ],
+  "metal_families": [
+    "nullifite",
+    "moonsteel",
+    "ferrox",
+    "olympium",
+    "cobaltium",
+    "cyrrium",
+    "aurelion",
+    "ruskite",
+    "tectium",
+    "pyrium",
+    "salvium",
+    "wraithsteel",
+    "palladine",
+    "photium",
+    "astrium",
+    "radiantine"
+  ],
+  "textures": [
+    {
+      "path": "block/cerulite_cluster.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "0a3dd5bc9cde54a9ff480cb3f2f61dc2e4e3840ac33ff6475d0da8f80899a4aa",
+      "sha256": "8c8588b50fae97313d894e1c31ee59e2b3c8a848414cd30b15ce01fe556f4fef"
+    },
+    {
+      "path": "block/brine_crystal.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "a02a2f24610a11d988c1a2116c2e2e3e1338879350b7c3794a5b782563718b99",
+      "sha256": "fe0a0055f95d68ce0ce5d52f57e5320f36cd6294ed625c697bb7201c0c107c4c"
+    },
+    {
+      "path": "block/frost_crystal.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "a02a2f24610a11d988c1a2116c2e2e3e1338879350b7c3794a5b782563718b99",
+      "sha256": "fe0a0055f95d68ce0ce5d52f57e5320f36cd6294ed625c697bb7201c0c107c4c"
+    },
+    {
+      "path": "block/prism_cluster.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "a02a2f24610a11d988c1a2116c2e2e3e1338879350b7c3794a5b782563718b99",
+      "sha256": "fe0a0055f95d68ce0ce5d52f57e5320f36cd6294ed625c697bb7201c0c107c4c"
+    },
+    {
+      "path": "item/selenite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "2773d7ea1550ad55d087b2c05f5d43d3936d9d10057b7c44c145515313e88d02",
+      "sha256": "8c6651d45805a8dd62d5221c9269ca50bfa26366b72ae7bae9337dcd35cfb882"
+    },
+    {
+      "path": "block/selenite_block.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "801180fffb67b8ac7b8e3efe4ede5c3485c5aaf49ae29b57af90f1e03d68a9a6",
+      "sha256": "502f3fe6c24f259b05c1a077406a1a501975f8880687825ed15e988937ad4ff7"
+    },
+    {
+      "path": "block/selenite_ore.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "98d4ed39c4ec9b800d3371a8d0eaca07aee590f8de96b1627db3ad783d165f88",
+      "sha256": "20a2531462d385f2b558fbcbcc4b900cf30514361ff4e7b2d5e705526899d126"
+    },
+    {
+      "path": "item/aresite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "e9301e3942db708ac2df9cca7907d371af4b19ada45881bea8b314acf6981620",
+      "sha256": "0669fb981a63205e16b6d180325e2dc7a72e89d69dc3edd6abd92518f4647b95"
+    },
+    {
+      "path": "block/aresite_block.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "36fb5c8b62ae48916c4b6a58f8f8bc9eafaccc405a04eee9b8a6e6cf2af31384",
+      "sha256": "7755d650a99ccf8a6ccd4b4d93bba68f65e7561b6cab2a2fac0a99b0ee5e581c"
+    },
+    {
+      "path": "block/aresite_ore.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "93c9d8f579d4d7fdb9d61327eb2a249ad16973581a8d3044a97fb4b28f356666",
+      "sha256": "284f6d20c1fee245e0d89e7b977e35ac3ca36b38db85138c0acc496fc9f51cc3"
+    },
+    {
+      "path": "item/cerulite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "1d858790c4ec260183664bf4a5e7a072af751f21e22db8de525a76c69de5bc70",
+      "sha256": "cc0844ddfd64068c449c4cc689398f2e49e1c80ea9654d12227402ebc8cf2968"
+    },
+    {
+      "path": "block/cerulite_block.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "0df928ae6ea0f9887352ac474b4d8ea68d50f24e794a29b4051e2feccbd562ad",
+      "sha256": "570f2e02fd07e0cdf90e6ffb0d8d9a3fec25c20a546ed5d651e39a61e6ef41af"
+    },
+    {
+      "path": "block/cerulite_ore.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "c1cfe09fd52863179fb0809b97d665a28aa1b644abab7cbb6e868cf2a682edc8",
+      "sha256": "fb20b8bc081b09ea78484d60dcb13d308dc97d4d23a6ee6ef3e4870067f30197"
+    },
+    {
+      "path": "item/lumenite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "61c5916086b6c38f6afb7fa49b6f4a6dc1e98a23468157dc04594ff143eb8dc1",
+      "sha256": "d289ad3fa18b9b3944e7defe0d81656fb11f6fb20d0f2fac2edc43c1ff5d879a"
+    },
+    {
+      "path": "block/lumenite_block.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "4492cc4fcea53ffecccb9e91d9c2bc9c25a954b9189f9dc73cc01baa2521a587",
+      "sha256": "bc959fb9360c5408385c80dbda7f62e32ec8dea3d474f23fa1310acb680c4859"
+    },
+    {
+      "path": "block/lumenite_ore.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "478825f9ad999e1059c52903166813e030f5f7664d74cf911aceec6c5ad3a771",
+      "sha256": "cc175758237be1f92f2165a781a8c5e5b58ed2d3a559919eebb7748ffe3b0ae9"
+    },
+    {
+      "path": "item/skarnite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "9618d738323686a012631a386f786e6119e9320a44299957ebc924a558fef495",
+      "sha256": "cc367e0a27c8f2dc918d98d0c3310dcc4e026b4f74723eec63880c69617047ed"
+    },
+    {
+      "path": "block/skarnite_block.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "c401db0de2e454855fa9b4406c976b3c7c765c5c8716e64b2b973202913e2a72",
+      "sha256": "0497563e00f92836282d612ce5a2c65ed7278fd593881106e21491f22f6a69a9"
+    },
+    {
+      "path": "block/skarnite_ore.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "2e2d90f7b1b5c303d7a65fdfff678c9a3cd8b15b9c45cf26fe0d55acb2f13135",
+      "sha256": "c4b32ea4faa654a5d6f602109e22720cd128f4e32020e3b248c4ccdc1a00633b"
+    },
+    {
+      "path": "item/cinnabrite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "511fc70cc161c1a0f8e69aff99ce78e46c86ab9a6eb6c7d4a2e79c00579c1e17",
+      "sha256": "fd8ed5411a5e83168373fd1dc85d94da4790047272c5dfafae201b0d7c66fd40"
+    },
+    {
+      "path": "block/cinnabrite_block.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "b655e33ae2daf1f0e51e6cdb4a08184c28fae315612816558e010223a266f19a",
+      "sha256": "375b044c9f5082a094761ac668a75c02d8a26b854d0b40ea5284d9ce69eff2f8"
+    },
+    {
+      "path": "block/cinnabrite_ore.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "d477850bfe73dafafa82dfa66429b0963588611e2a05a09943de5b2168f5be7d",
+      "sha256": "ee60e155a63abee3844ee86b9e4d91aaeb727470e7d1029ee713a65a2d5b0e6a"
+    },
+    {
+      "path": "item/eidolite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "1ea9c00226cc35d2cf35bc8589733f12a10205a7189b7b3a074ebc285802ba32",
+      "sha256": "f027ab1a04aadb910a772dd6d998cd30589e10d1828675ad1ded246aded26587"
+    },
+    {
+      "path": "block/eidolite_block.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "46c9168b337fda8623b4748bf6c799be8ce501ac0d06240c2c3ed2b380c8f78c",
+      "sha256": "62d37caaa32178c7ea5507ec54db01bf51c49ac2a40b2f69e167f9b77b8127b9"
+    },
+    {
+      "path": "block/eidolite_ore.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "ce73e806168f8cbe2a6d623255ee269bcb239c8bae7d538901012958ade1c72a",
+      "sha256": "ab36cd4b4c42031b1563baf99deb21c3892e28c96c4df803738a838e1e888152"
+    },
+    {
+      "path": "item/rimeglass.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "45a6fcd93c211a25b8908567960dfa5b17c0e8d9a23097030612615640051bdd",
+      "sha256": "82b6c619a6c550fba5e0f95bee48f2f6ed7c0678cf1af7c7438228fb5110f609"
+    },
+    {
+      "path": "block/rimeglass_block.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "3c39591ffdc669ed41d6e5b516de0c11f06b97ed9e74d2d8f3308faa00289894",
+      "sha256": "4b4d16f46b23b35b17040d51b46da14307bd08b6a4242af23ef77de0af1bb09a"
+    },
+    {
+      "path": "block/rimeglass_ore.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "e981a639dc43076004a5540740b1746b3ad7c9983caacb7ea054c89e8af408c3",
+      "sha256": "4fabe9cdbf3721f7c0a69851a7476d6426353e91fc56aabf16cc859e44064fe5"
+    },
+    {
+      "path": "item/solvanite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "aaa3bc504ee5bd9f30f516801d9122a76724ee64629fc96ee55c61fb27a01291",
+      "sha256": "c00c32f663edc97264984baa6176e2d3cba65907ac86fedccbbe3b6043cc2e31"
+    },
+    {
+      "path": "block/solvanite_block.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "40d7a4873133c792a454b4b2485592110f08923584d7d1f5c4d735bf345c0ecc",
+      "sha256": "782b9c72df7cdc5f82f185cd93b65df7ea198d84ffdf8021a704f6970d33d464"
+    },
+    {
+      "path": "block/solvanite_ore.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "c0971bc66f0eb210b1706f9c1bb7dabb595cd79d9b7ecc88cb9d2efc4eec558e",
+      "sha256": "3974e05c3745abb59aba61d3fc8cc47d3d2f0244d1fe217cc47255f9d28cc98b"
+    },
+    {
+      "path": "item/dawnstone.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "0fbb00e284f66ab56c8a38f8aaa623439b0953d42d03856b20717607128f0849",
+      "sha256": "8b0772bf3b7afe031f9596ad4949f110dab59b85a1ae4f2c1e9fe2d5f02e8dee"
+    },
+    {
+      "path": "block/dawnstone_block.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "7ac451931d9332b84a28fb9aea04e8164605404ec19335888caa9514acaf4aed",
+      "sha256": "cf927a35696290c93f51e8566fe1abd25f84ca4508e8413329a16fd0ac3739bc"
+    },
+    {
+      "path": "block/dawnstone_ore.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "5e16812955ace46ea31180f2b14ab9d033d1e57a1c4bbadca51b8150bb45f1cf",
+      "sha256": "8bc77982c33e5bb853c1bf7519cee8f1b72101dd10982c0bef50e9754bae36e8"
+    },
+    {
+      "path": "item/nullifite_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "3195f5d51b10b6e7a0f705500017bb8476c466560713dfa11f007d9f185ae9d0",
+      "sha256": "d20ea99866eb9e6e991f010fdb6f9dcb3cb133a3932277cc93d0d7abf13c52c6"
+    },
+    {
+      "path": "item/raw_nullifite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "e8ea14ca50fe70cce3dc0897618eb49137c5f4e11ce7579d1d5a63ff6509d6f8",
+      "sha256": "b7652d21f47da210878d79f5953f6e2e89ba198376a05f2ebf60ab7dace3a2a1"
+    },
+    {
+      "path": "item/moonsteel_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "3dfd39cd0734e4d02ea5754638b2b069c5b5f5b2e05751abe798a15f13b1a5aa",
+      "sha256": "7c7c3918369c9c2413855a65fa63d492de8d41e065b7e2a3b15467066750729d"
+    },
+    {
+      "path": "item/raw_moonsteel.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "59e2f872c512fbd03fec8db5a00d52e32240aba9c334c927f72c88ac00926be2",
+      "sha256": "afa9d25766fd906bcf2b4d242542cfa981ecab3a6c00ccabe6671f3181f5893a"
+    },
+    {
+      "path": "item/ferrox_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "9855b5989940fb78b4c2cbda26820dfad436d5e5bad2eab0943eb0f233a02a2e",
+      "sha256": "0e1b096fad5bbff04090dd9993912529f38bd0bc4657f44b645cea220fe58950"
+    },
+    {
+      "path": "item/raw_ferrox.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "0bebfd61d1d96c34705720287fcb064123adcf67c489c2d4905af81830b0c18e",
+      "sha256": "9f0f1129a561326ded2a271cd650b1ad164c1d4c2bd6da1c6855543212cf3347"
+    },
+    {
+      "path": "item/olympium_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "70341d7535123f7a91dbb09b6242bac961159d33a5703001532a49971568ac37",
+      "sha256": "e16bc6f9875858b782c73cfa05f607a54b0aece7bc93d56d26b8fe6c648de8f0"
+    },
+    {
+      "path": "item/raw_olympium.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "332f176cd04ef111bede8cd3866e788881010bc92479009063947553973e4441",
+      "sha256": "a2168936d4f3d18db6d342dfa91f22b9d67e4f064169c2a64d7830bfd521702b"
+    },
+    {
+      "path": "item/cobaltium_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "2bb1a4e24b2f97e90c4ad1611fa0f74d42cdd0272edb72474fe8ed2ad4154754",
+      "sha256": "569eb8fa1c5e7e40c07bbb0287523171b270e6d77121c53bec8c30567a1cd4e0"
+    },
+    {
+      "path": "item/raw_cobaltium.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "a74fd78b4c0ad970d0ab83d5a57fc8b275a9417ba27834eb25b9800b8341ba82",
+      "sha256": "1844ce00fe78e1da2ad4c7605bf425f39d8381cc699577fbcd70779d753b408e"
+    },
+    {
+      "path": "item/cyrrium_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "51993b57d874ef02b2ccd6da5a124cbd4f26073925982d3a407d73f214bf7421",
+      "sha256": "fba307f0a850267e83f7313a61935436ecf445312f8d820115024eedc39c01c2"
+    },
+    {
+      "path": "item/raw_cyrrium.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "60560398cf7a0b89d9a251b9efdc31ef85a328c34dbad11a9d87e4f39625ab02",
+      "sha256": "7a39f85bb944108ee29e3aa7f224d27a37a1762072c23400c722ac9b7195ddb9"
+    },
+    {
+      "path": "item/aurelion_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "8dc8c1bb14cc5dbaa02af59c59db1f45de955e021b8bacaa5d3d8110bc09fbfd",
+      "sha256": "80ce6006fe753fa8375195090a0bfe9d141ea827a18a4e0f0317cc92340fdb32"
+    },
+    {
+      "path": "item/raw_aurelion.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "25c94ae264a693a81faf0b5500ecf0b7bb32c4aa7de6bec42a0eaff200896d8b",
+      "sha256": "963037e7d0f87acef1d0cf35eb850eb1d20c8ab2d7db46fc56b6689d2fdb7c32"
+    },
+    {
+      "path": "item/ruskite_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "31b46bb39e7b9a229afb53e7b30a17043217174756c8badc135623454b36c68d",
+      "sha256": "9fdccf7176389bf055fe1557b78aed1c72ff1c214daccf9c07bb57a779d6080d"
+    },
+    {
+      "path": "item/raw_ruskite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "f0c5188d2823360e77e3a875c0cef7edd6815ef8610d5150393ea68091188155",
+      "sha256": "63799162e7ce50e064ad9b373cad5775519ac700ad9f4885ee3fcf8bd2f52e5b"
+    },
+    {
+      "path": "item/tectium_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "676012f3d58eb11028008889266b2350f6e4b7abc844b86e5d952b93368c1ae0",
+      "sha256": "5d2755497de4efa83945a8c0fdd7d3ecf60d14399c28436f5559ff5b0d953ff1"
+    },
+    {
+      "path": "item/raw_tectium.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "2fa1e891b0fbcfe7ae00f0c0c70a4162967939a5fb1c38c97f4f21777392e332",
+      "sha256": "6af2b284163494d09d16d32138ad372011ed8db40c36a75a47fa523484cac207"
+    },
+    {
+      "path": "item/pyrium_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "0e71188b66a1a3a742babc4de26b7526e391b07573d9b4bb66eea85de0270db7",
+      "sha256": "b2806fbb5ce5891a7a42dcdf270ba9c63f59d9de4a7de7f95e4e98eb7999483e"
+    },
+    {
+      "path": "item/raw_pyrium.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "916e2acc7d8a1cf19dea7a8549dac373257d7a21f2e7f76dbb16df4bf7531055",
+      "sha256": "1bc5deaf6287b95991d1835b32d517e558e8abb2ff0de5dfd49ca959f6b4dc50"
+    },
+    {
+      "path": "item/salvium_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "32821d10a42ea18ffac3e88ca7a26a527e11bab38ae8f3fd9d509f4cf6fa9d6a",
+      "sha256": "c22d9843137517d90b8197e16eac501f0b252453e65e63fbe96259afb47c2787"
+    },
+    {
+      "path": "item/raw_salvium.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "b461a808c58060b47b917f0afa9243410bcf8e2ce4dc4db605d66aceb00c684c",
+      "sha256": "f83b57fca230dc4b72d0d0e5419072e349677dde564eb4c9b062cdb0fc681b95"
+    },
+    {
+      "path": "item/wraithsteel_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "7666bd18c6d64efc3dabe64e3841b5d5c61fe3d6d432ecf19101aceee8adaacd",
+      "sha256": "d77ba13444bd2ad55fa63f1faff11c37077cee9d5056b1f6699b8dc6fc4affd0"
+    },
+    {
+      "path": "item/raw_wraithsteel.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "1f3173b487504a12e56b71370872dcd2517966c303349f99b702fe010c435c5e",
+      "sha256": "2eca61b60867ef3adb886dd7b38e8d9c7bb7d18b6f877060406c5c9df9b53036"
+    },
+    {
+      "path": "item/palladine_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "563282b35b16d672da3ec3d40ba5d77779015e26ceeb771829fbf5c92a0d0d93",
+      "sha256": "76e7debd1b2bf2630074397fa773f5cac3e365a271d5cb89f37492a52a26c7b3"
+    },
+    {
+      "path": "item/raw_palladine.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "8919034c5ea7e661768d861ab14bf5034e05ba36ae2ef01593f4976ef1479990",
+      "sha256": "8b07340f24483981183282c1a32a12125bfb7a6b7b1c5e70e6b552442af82d70"
+    },
+    {
+      "path": "item/photium_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "551c85f3a7efa7fae5a74b6358d0d5ae1113884b360267abd0d9c79b77fd8ff7",
+      "sha256": "d2408079477e40a74d0dfb7fdc3e9a48e6cfffca51f05d32fdea3aebf464bd68"
+    },
+    {
+      "path": "item/raw_photium.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "c9450cd47cd8e78d2e16d7f6e97d785a630b4945fbf19c45b8b8392903109164",
+      "sha256": "c846a1776fa83e63756e3a71f564b40003747f2638fcceb4b8d32b5cd7fb28e2"
+    },
+    {
+      "path": "item/astrium_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "85ae28e5aa090b2cbf3b45b620dc1bfdd90b72ca1e274cc4f92599d8d92a9f46",
+      "sha256": "74b09aa4e9d497876a84889259b6fd9af8ff7198a836bd80f43f694585b641ad"
+    },
+    {
+      "path": "item/raw_astrium.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "87e83c11d096fca3192727b9ee2b404f6004ac18e5971b70096e68008af3b014",
+      "sha256": "3def4b6b4dc9406d2f7eaa6bdf898f2a83148815f24bd81e376d3a5877a07a48"
+    },
+    {
+      "path": "item/radiantine_ingot.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "da87a017ceb6be0387c5d22a7cdab3b6c646f091bb60a7047ce96eaf65cc43c7",
+      "sha256": "804ed2ef04ffd302790d565ca3c37daf55880d97801740bbc76d52f4eb2173f0"
+    },
+    {
+      "path": "item/raw_radiantine.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "9b226e0c0b6ad5a37358f5ef51563e7522f5303ffe3b84daf793f9dc53372480",
+      "sha256": "014e3c1349309302b2f945f16da08eb1101e0adf747301788bba42bfb470ceb3"
+    },
+    {
+      "path": "block/budding_cerulite.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "5ad22ed791c93bbc46ca24de663831776264e71aa9311455a9399a20fc831741",
+      "sha256": "b46752a2c3c0dd14653b191aaaf54488794ed5799d1ff44ac7407493c5aa4d5e"
+    },
+    {
+      "path": "block/cerulean_geode_shell.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "0c184c83acdd2bfffd719a87c6f712b2ce6ec1bb5f2795fc3002a71dd5a47f4d",
+      "sha256": "9f90af9cee1ddc1f7f514cc33817d249d3c1b7c559926c27c0290cd5f92844e8"
+    },
+    {
+      "path": "block/budding_cerulite_emissive.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "bafe9c31c26e49ec17cd92ed11e76b8f68a281ec431fd523f6848521310d8861",
+      "sha256": "4824f5a89fcc0bd57bbe4cbdba033daf40952b091a36af69da16673ef3d419e3"
+    },
+    {
+      "path": "block/budding_cerulite_glowmask.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "9135679a2e2ce3c13da1a9cf3981578542993bc4c236a458567f1ee7c20be4d6",
+      "sha256": "4824f5a89fcc0bd57bbe4cbdba033daf40952b091a36af69da16673ef3d419e3"
+    },
+    {
+      "path": "block/cerulite_cluster_emissive.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "9fc4d3aeed8284554eca38b3759fee59d9a4dc91e6cafd3e7e646fdc8a084c10",
+      "sha256": "526aa1fb419fa05edc2bcdf459f47a7e36771c5e38dccb905a903f1218da2d7e"
+    },
+    {
+      "path": "block/cerulite_cluster_glowmask.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "e4d8d795a6665ccfa1212019ac72970fb783fb24e8a9236dcd04cfba40654301",
+      "sha256": "526aa1fb419fa05edc2bcdf459f47a7e36771c5e38dccb905a903f1218da2d7e"
+    },
+    {
+      "path": "block/small_cerulite_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "e5d7d1870a37db9e35a3e7708b1f6c9cf68b3fe0751655b2820dced453579dd9",
+      "sha256": "76e0db7a9b69adabb087fdb4932c93f56fea2cd40612ec19707cba0e4853d147"
+    },
+    {
+      "path": "block/medium_cerulite_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "5eb39384ba112c68ef5bb89cfbbc001d66dff380e9cd78cc4ec4711523300b32",
+      "sha256": "0562413a0018af748a60c62607f86a2c528beb0913be290d3bc380f49e7a149b"
+    },
+    {
+      "path": "block/large_cerulite_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "fe9632f7da9d240c9fae5044d7299a8cf23deecd0ddb3863c72ff9636eb81855",
+      "sha256": "be6e692e89b96ef258c303f5443206b0246d5a864a17580792a0ae51d3eb3438"
+    },
+    {
+      "path": "block/small_brine_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "a3beed4ce8245f02a02e1b25e409bd3b461e56e9b35544be38eee27bff2cb09d",
+      "sha256": "b64119fa07d2231cb5fec15ac35f28c6f97a8037f32894758eecbe57af709961"
+    },
+    {
+      "path": "block/medium_brine_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "23b92a1859bf9816eff6f9939e4277634a63e9d5e7adac90fb1b4fd5a82e6303",
+      "sha256": "67be5632b7cf2eaccdbc7a13e1345b8d083cb23f33606eaca665f9c9a4f46ec3"
+    },
+    {
+      "path": "block/large_brine_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "4c649ea63f212eaf406f05f282daf404903e892003588778806e928f13f7aa37",
+      "sha256": "2fd9e14631c56677b30fd8664c499ce39e3576d2a9f38cc168f6db0319162065"
+    },
+    {
+      "path": "block/budding_brine_crystal.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "e67f28e8c17ed87a83e3593d28b89d40f6c7e2791cffc8aed07ef55bf0b6f1ab",
+      "sha256": "fb448b8737a75f159c4fa2c40d78cb18f4f0888a5056707672d4effc2e2da810"
+    },
+    {
+      "path": "block/small_frost_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "a3beed4ce8245f02a02e1b25e409bd3b461e56e9b35544be38eee27bff2cb09d",
+      "sha256": "b64119fa07d2231cb5fec15ac35f28c6f97a8037f32894758eecbe57af709961"
+    },
+    {
+      "path": "block/medium_frost_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "23b92a1859bf9816eff6f9939e4277634a63e9d5e7adac90fb1b4fd5a82e6303",
+      "sha256": "67be5632b7cf2eaccdbc7a13e1345b8d083cb23f33606eaca665f9c9a4f46ec3"
+    },
+    {
+      "path": "block/large_frost_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "4c649ea63f212eaf406f05f282daf404903e892003588778806e928f13f7aa37",
+      "sha256": "2fd9e14631c56677b30fd8664c499ce39e3576d2a9f38cc168f6db0319162065"
+    },
+    {
+      "path": "block/budding_frost_crystal.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "e67f28e8c17ed87a83e3593d28b89d40f6c7e2791cffc8aed07ef55bf0b6f1ab",
+      "sha256": "fb448b8737a75f159c4fa2c40d78cb18f4f0888a5056707672d4effc2e2da810"
+    },
+    {
+      "path": "block/small_prism_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "a3beed4ce8245f02a02e1b25e409bd3b461e56e9b35544be38eee27bff2cb09d",
+      "sha256": "b64119fa07d2231cb5fec15ac35f28c6f97a8037f32894758eecbe57af709961"
+    },
+    {
+      "path": "block/medium_prism_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "23b92a1859bf9816eff6f9939e4277634a63e9d5e7adac90fb1b4fd5a82e6303",
+      "sha256": "67be5632b7cf2eaccdbc7a13e1345b8d083cb23f33606eaca665f9c9a4f46ec3"
+    },
+    {
+      "path": "block/large_prism_bud.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "4c649ea63f212eaf406f05f282daf404903e892003588778806e928f13f7aa37",
+      "sha256": "2fd9e14631c56677b30fd8664c499ce39e3576d2a9f38cc168f6db0319162065"
+    },
+    {
+      "path": "block/budding_prism_crystal.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "e67f28e8c17ed87a83e3593d28b89d40f6c7e2791cffc8aed07ef55bf0b6f1ab",
+      "sha256": "fb448b8737a75f159c4fa2c40d78cb18f4f0888a5056707672d4effc2e2da810"
+    },
+    {
+      "path": "block/star_glass.png",
+      "size": [
+        64,
+        1024
+      ],
+      "before_sha256": "a419b1a3a7797ce7da10bfadf33eae97e9dc5969ff24ebf586e40ac96d1af7d0",
+      "sha256": "eafdf9322a2160e2ebdac3ca0f87c4b15ad80aebc8074154213092bb41d6b042"
+    },
+    {
+      "path": "block/star_glass_blue.png",
+      "size": [
+        64,
+        1024
+      ],
+      "before_sha256": "a419b1a3a7797ce7da10bfadf33eae97e9dc5969ff24ebf586e40ac96d1af7d0",
+      "sha256": "3a67f9ed32dca179fd79baae789e8b7fe6bac463b1ab2468d186e90ad1a44f6d"
+    },
+    {
+      "path": "block/star_glass_teal.png",
+      "size": [
+        64,
+        1024
+      ],
+      "before_sha256": "908614109214071c9e88898b2afbbb22690ff04a200653cdca71d523a8cfff37",
+      "sha256": "4f0b947397b56f84072e635806579a0a5fba78a61b9277cdbc4b24a637cc77c3"
+    },
+    {
+      "path": "block/moon_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "4fcd01012daa5a91ec94b3f8075f8f039e72fcdd5edff67ca1cb80ab06b93523",
+      "sha256": "4fcd01012daa5a91ec94b3f8075f8f039e72fcdd5edff67ca1cb80ab06b93523"
+    },
+    {
+      "path": "block/mars_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "cc14c88c2e1c1ce92432196f6b6f6f4a97e16e712eea97ec6ce4e31393e6af4f",
+      "sha256": "cc14c88c2e1c1ce92432196f6b6f6f4a97e16e712eea97ec6ce4e31393e6af4f"
+    },
+    {
+      "path": "block/cerulon_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "132ad5d739b1117b652ef0e1102727b56ae3bcc87ec47026f228c39dde204b6b",
+      "sha256": "132ad5d739b1117b652ef0e1102727b56ae3bcc87ec47026f228c39dde204b6b"
+    },
+    {
+      "path": "block/skarn_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "4fb12e908b3c6a898a6b04c1393cfcafad57bc39ad90b5fd4217aa2d88f41c56",
+      "sha256": "4fb12e908b3c6a898a6b04c1393cfcafad57bc39ad90b5fd4217aa2d88f41c56"
+    },
+    {
+      "path": "block/eidolon_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "d43fb2a865d73fc2a9b98e6822657e192d314c8d4a80fbced215bcd96731cad2",
+      "sha256": "d43fb2a865d73fc2a9b98e6822657e192d314c8d4a80fbced215bcd96731cad2"
+    },
+    {
+      "path": "block/solvane_star_sand.png",
+      "size": [
+        32,
+        32
+      ],
+      "before_sha256": "377f2c8c4eaea8b13384a89654bf85804389a994dd714ecfccea583072add462",
+      "sha256": "377f2c8c4eaea8b13384a89654bf85804389a994dd714ecfccea583072add462"
+    }
+  ],
+  "lighting_changed": true,
+  "growth_changed": true,
+  "game_import_verified": false
+}

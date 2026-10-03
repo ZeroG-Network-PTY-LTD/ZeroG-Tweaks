@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cryo_fluid_bucket",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "463b2ba8-0198-570a-a2b6-b33d5fd9bf88"
+    }
+  ],
+  "outliner": [
+    "463b2ba8-0198-570a-a2b6-b33d5fd9bf88"
+  ],
+  "textures": [
+    {
+      "name": "cryo_fluid_bucket.png",
+      "id": "0",
+      "uuid": "3db87012-041b-5ca1-a2d3-0867e968a869",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABHklEQVR4nGNgGAWjYIABIymKH7389p9UC+TEufDawURLy4nRRzAEkA24zstJsgM0P3+Hs7GFBlYHqOtY/GdgYGDYvXcfXIwcy4lxBFYHUOprUhyCNQ24OjtR3XJk85BDAW8UFFTUMDAwMDAoBXlTbHmemSUDAwMDw80rJ1DsxBoC6IrurdtKkeUw/ejm4nQAPkPItRwXwJkN0aOBEjCho4WBgYGCEPB1d2TwdXek2CHYANFRQCtAlAM279w/sA6AAVpEw+CNAliKhaVgcgG+HIDXAeiAVumA5CigdjoY8DSAt0ECKw0ZGMgrEZHTD1lpAFkTqYmRGMsJOoBcRxBrOQMDka1i5KggFRByAFGJkJAhlOgjOheQ6ghyHT3yAADaQXRt/CZnFgAAAABJRU5ErkJggg==",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}

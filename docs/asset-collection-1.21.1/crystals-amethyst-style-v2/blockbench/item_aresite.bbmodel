@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "aresite",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "inventory_sprite",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "uuid": "53796732-1fcb-5479-9c47-af2cb2ea374e"
+    }
+  ],
+  "outliner": [
+    "53796732-1fcb-5479-9c47-af2cb2ea374e"
+  ],
+  "textures": [
+    {
+      "name": "aresite.png",
+      "id": "0",
+      "uuid": "8974905e-bc6d-518e-a7be-7f6b90d854d2",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABPklEQVR4nO2XMQqDMBSGn1JBKPQKHsBVOuoBhHbrSTxBZ9deopsFD+Du2B6gVxAEwcFOEbV5Ly+JpYv/mMT8n/lfEgXYtOnPclQDQs8fbAxefUd6kJ3C/Hm7omPe9wfal1a1EsKlADjmQZ6j/WUSqabHAULPHzjm7ywjDcokImPcYebkrMcYgmOsNF/OKYviq0GZu6axEFYP0gjWNgfA62FGw8ndVmlVz1ZhrAHOfg8uJ2sAqOpZPYwAr75zQs8fdN4yrWo47w/aDNMVcJcdolh+oaJt1EX4K4iibaTt0l2wNoQwl50D5FG8JgR2H6AA4gFbCFnuLAAuBJYtx1wJMIWQibrtOOYsAAGhEwW1KkYAOhBUxVsB6EBwzbUBVBDc3K0AhJYQJuYAjK9iTLLb0wTAeAWWZibmq8j2v2HTBx5iyBCIOxRFAAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "uv_width": 32,
+      "uv_height": 32,
+      "width": 32,
+      "height": 32
+    }
+  ],
+  "animations": []
+}
