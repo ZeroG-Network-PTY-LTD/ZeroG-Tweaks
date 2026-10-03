@@ -5,7 +5,12 @@ Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's
 economy together. This local work-in-progress also requires GeckoLib for the Tidewraith integration.
 
-Current candidate **1.0.1-dev** · NeoForge **21.1.252** · Minecraft **1.21.1** · Java **21**
+Current candidate **1.0.2-dev** · NeoForge **21.1.252** · Minecraft **1.21.1** · Java **21**
+
+[Cerulon threading hotfix](docs/cerulon-threading-hotfix-1.21.1.md): occupied
+planet hives now store bee data rather than constructing live bees on worldgen
+workers. **53 isolated server tests passed**, including the new regression.
+The older 1.0.1-dev candidate has this known crash; client/modpack retest remains pending.
 
 New [half-size bees, hives, honeys and cosmic Blazes](docs/planet-bees-and-blazes-1.21.1.md):
 twelve vanilla-rig bee families, matching hive/comb/bottle/bucket products,
@@ -38,7 +43,7 @@ This is a development candidate, not a complete gameplay release.
 
 [All updated ingots/raw materials](docs/images/crystal-material-update-1.21.1/ingots_raw_reference.png)
 · [Full texture roster](docs/images/crystal-material-update-1.21.1/crystals_v2_preview.png)
-· [Download the 1.21.1 NeoForge jar](docs/jars/zerog-tweaks-1.21.1-1.0.1-dev.jar)
+· [Download the 1.21.1 NeoForge jar](docs/jars/zerog-tweaks-1.21.1-1.0.2-dev.jar)
 · [SHA-256 checksums](docs/jars/SHA256SUMS.txt).
 
 The historical images and collection remain available below. The new asset
@@ -140,7 +145,7 @@ with this unreviewed build.
     ./gradlew build          # Linux/macOS
     gradlew.bat build        # Windows
 
-Output: build/libs/zerog-tweaks-1.21.1-1.0.1-dev.jar
+Output: build/libs/zerog-tweaks-1.21.1-1.0.2-dev.jar
 
 First build pulls NeoForge, NeoForm and Parchment, and recompiles vanilla
 sources — expect 5–15 minutes. Incremental builds after that run ~15s

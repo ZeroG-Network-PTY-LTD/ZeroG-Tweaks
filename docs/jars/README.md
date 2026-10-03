@@ -1,6 +1,12 @@
 # Development candidate — not a shipped release
 
-## Current: zerog-tweaks-1.21.1-1.0.1-dev.jar
+## Current: zerog-tweaks-1.21.1-1.0.2-dev.jar
+
+Fixes the Cerulon occupied-hive worldgen threading crash. See the
+[cause, regression evidence and limits](../cerulon-threading-hotfix-1.21.1.md).
+All 53 isolated server GameTests passed, including worker-thread hive population
+and custom-bee release data. The normal candidate excludes test classes.
+The 1.0.1-dev JAR below is historical and has this known crash.
 
 Includes the latest Cerulon/Mossback/Prism Sentinel work plus budding crystals,
 updated metal/crystal artwork, all 34 dimension farming/sand families,
@@ -13,7 +19,7 @@ See the [illustrated update and installation guide](../crystal-material-update-1
 and [build evidence](../crystal-material-build-evidence.json). Normal build/static
 asset validation passed; 52 isolated server GameTests passed. All 6,408 model
 and 1,166 blockstate reference sets resolve, including generated trim sprites.
-No in-game/modpack approval is claimed. SHA256SUMS.txt covers all four jars.
+No in-game/modpack approval is claimed. SHA256SUMS.txt covers the archived and current jars.
 Keep only ONE Tweaks candidate installed, since all have the same mod ID.
 Older jars below are retained unchanged. User-directed local installation backs
 up conflicting Tweaks jars outside mods; it does not remove unrelated mods.
