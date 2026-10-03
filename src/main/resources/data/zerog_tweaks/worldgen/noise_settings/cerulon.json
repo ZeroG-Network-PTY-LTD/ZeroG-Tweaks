@@ -174,22 +174,42 @@
                   {
                     "type": "minecraft:condition",
                     "if_true": {
-                      "type": "minecraft:biome",
-                      "biome_is": [
-                        "zerog_tweaks:crystal_shores"
-                      ]
+                      "type": "minecraft:water",
+                      "offset": -1,
+                      "surface_depth_multiplier": 0,
+                      "add_stone_depth": false
                     },
                     "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "zerog_tweaks:crystal_sand"
-                      }
+                      "type": "minecraft:sequence",
+                      "sequence": [
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                              "zerog_tweaks:crystal_shores"
+                            ]
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "zerog_tweaks:crystal_sand"
+                            }
+                          }
+                        },
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "zerog_tweaks:azure_moss"
+                          }
+                        }
+                      ]
                     }
                   },
                   {
                     "type": "minecraft:block",
                     "result_state": {
-                      "Name": "zerog_tweaks:azure_moss"
+                      "Name": "zerog_tweaks:crystal_sand"
                     }
                   }
                 ]
