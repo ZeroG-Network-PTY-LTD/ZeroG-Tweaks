@@ -389,8 +389,9 @@ def sheet(room, meta, out_png):
     order = sorted(counts, key=lambda k: (-counts[k], k))
     G = {k: glyphs[i] for i, k in enumerate(order)}
     # ---- page
-    views = [(meta.get('view_a_title', 'Cutaway from the south-west (south and west walls cut away)'), render(room, 38, 34, 30, hide=lambda x, y, z: y == 8 or ((z == 16 or x == 0) and y >= 2), light=light)),
-             (meta.get('view_b_title', 'Cutaway from the north-east (north and east walls cut away)'), render(room, 218, 34, 30, hide=lambda x, y, z: y == 8 or ((z == 0 or x == 16) and y >= 2), light=light))]
+    top, dep = meta.get('cut_top', 8), meta.get('cut_depth', 1)
+    views = [(meta.get('view_a_title', 'Cutaway from the south-west (south and west walls cut away)'), render(room, 38, 34, 30, hide=lambda x, y, z: y >= top or ((z >= 17 - dep or x < dep) and y >= 2), light=light)),
+             (meta.get('view_b_title', 'Cutaway from the north-east (north and east walls cut away)'), render(room, 218, 34, 30, hide=lambda x, y, z: y >= top or ((z < dep or x >= 17 - dep) and y >= 2), light=light))]
     H = 4200
     img = Image.new('RGB', (W, H), BG); d = ImageDraw.Draw(img)
     d.text((50, 34), meta['title'], font=F(46, True), fill=INK)
