@@ -90,6 +90,8 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
     private boolean isSurface(String name) {
         return name.endsWith("_soil") || name.endsWith("_grass_block") || java.util.Set.of("regolith","rustsand","crystal_sand","azure_moss","cerulean_soil",
                 "slag","oxide_crust","permafrost","polar_frost","shimmer_sand","dunesand","toxic_mud","blightmoss","tidesand","sludgestone","prismstone",
-                "frostrock","sunspot_rock","lunar_stone","martian_stone","skarn_rock","solar_stone","cerulean_stone").contains(name);
+                "frostrock","sunspot_rock","lunar_stone","martian_stone","skarn_rock","solar_stone","cerulean_stone",
+                "frozen_regolith","crater_dust","mare_basalt","ember_crust","corona_crust","craterstone","snowpack",
+                "vent_rock","scoria","scorched_marble","sunbaked_stone","salt_crust","glacial_ice","crater_ice","phantom_ice").contains(name);
     }
 }

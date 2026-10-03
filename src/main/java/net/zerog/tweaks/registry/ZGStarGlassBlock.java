@@ -32,6 +32,12 @@ public class ZGStarGlassBlock extends HalfTransparentBlock {
 
     @Override public MapCodec<ZGStarGlassBlock> codec() { return CODEC; }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(NEBULA); }
+    @Override public ItemStack getCloneItemStack(net.minecraft.world.level.LevelReader level,BlockPos pos,BlockState state) {
+        var nebula=state.getValue(NEBULA);
+        if(nebula==Nebula.PURPLE) return new ItemStack(this);
+        return new ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(
+                net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","star_glass_"+nebula.getSerializedName())));
+    }
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,

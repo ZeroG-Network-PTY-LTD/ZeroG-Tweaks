@@ -27,6 +27,9 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class BlockInit {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ZeroGTweaks.MODID);
+    public static final DeferredBlock<net.zerog.tweaks.worldgen.SettlementAnchorBlock> SETTLEMENT_ANCHOR = BLOCKS.registerBlock(
+            "settlement_anchor",net.zerog.tweaks.worldgen.SettlementAnchorBlock::new,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).lightLevel(s -> 15));
 
     private static BlockBehaviour.Properties props(MapColor mc, SoundType st, float str, float res) {
         return BlockBehaviour.Properties.of().mapColor(mc).sound(st).strength(str, res);

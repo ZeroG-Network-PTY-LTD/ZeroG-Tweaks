@@ -25,6 +25,10 @@ public final class BlockEntityInit {
             BLOCK_ENTITIES.register("concord_prism", () -> BlockEntityType.Builder.of(
                     net.zerog.tweaks.arena.ConcordPrismBlockEntity::new, BlockInit.CONCORD_PRISM.get()).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<net.zerog.tweaks.worldgen.SettlementAnchorBlockEntity>> SETTLEMENT_ANCHOR =
+            BLOCK_ENTITIES.register("settlement_anchor", () -> BlockEntityType.Builder.of(
+                    net.zerog.tweaks.worldgen.SettlementAnchorBlockEntity::new, BlockInit.SETTLEMENT_ANCHOR.get()).build(null));
+
     private BlockEntityInit() {}
 
     public static void register(IEventBus modBus) {

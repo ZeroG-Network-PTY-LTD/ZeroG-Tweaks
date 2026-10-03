@@ -31,6 +31,7 @@ public final class PlanetHubGameTests {
                 report.addProperty("gate_count",ledger.gates.size());
                 var planets=new com.google.gson.JsonArray();report.add("planets",planets);
                 var player=helper.makeMockServerPlayerInLevel();
+                var terrainFingerprints=new java.util.HashSet<String>();
                 try {
                     int index=0;
                     for(String name:ZGDimensionTerrain.dimensions()) {
@@ -50,6 +51,44 @@ public final class PlanetHubGameTests {
                         click(player,PlanetGate.controller(arrival.centre));
                         helper.assertTrue(player.serverLevel()==server.overworld(),"Return gateway failed "+id);
                         var entry=new com.google.gson.JsonObject();entry.addProperty("dimension",id);
+                        // Native noise generator, not colour/block-ID fingerprints.
+                        var heights=new java.util.ArrayList<Integer>();
+                        for(int sx=-3;sx<=3;sx++) for(int sz=-3;sz<=3;sz++) {
+                            int sample=world.getChunkSource().getGenerator().getBaseHeight(sx*173+512,sz*173-1024,
+                                    net.minecraft.world.level.levelgen.Heightmap.Types.OCEAN_FLOOR_WG,world,world.getChunkSource().randomState());
+                            heights.add(sample);
+                            int repeat=world.getChunkSource().getGenerator().getBaseHeight(sx*173+512,sz*173-1024,
+                                    net.minecraft.world.level.levelgen.Heightmap.Types.OCEAN_FLOOR_WG,world,world.getChunkSource().randomState());
+                            helper.assertTrue(sample==repeat,"Terrain is not deterministic "+id);
+                        }
+                        helper.assertTrue(terrainFingerprints.add(heights.toString()),"Mirrored terrain heightmap "+id);
+                        helper.assertTrue(new java.util.HashSet<>(heights).size()>3,"Flat/unvaried terrain "+id);
+                        entry.add("terrain_height_samples",new com.google.gson.Gson().toJsonTree(heights));
+                        var protectedBreak=new net.neoforged.neoforge.event.level.BlockEvent.BreakEvent(world,
+                                PlanetGate.controller(arrival.centre),world.getBlockState(PlanetGate.controller(arrival.centre)),player);
+                        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.post(protectedBreak);
+                        helper.assertTrue(protectedBreak.isCanceled(),"Arrival gate can be broken "+id);
+                        helper.assertTrue(!net.zerog.tweaks.event.DailyPlanetImpacts.impact(world,arrival.centre,6,name),"Impact entered arrival region "+id);
+                        // Actual generated schematic, populated through the same server
+                        // method as the ticking anchor. GameTest disables natural features.
+                        for(int cx=6;cx<=10;cx++) for(int cz=6;cz<=10;cz++)world.getChunk(cx,cz);
+                        int settlementY=Math.max(world.getSeaLevel()+2,world.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE,136,136));
+                        var outpost=new net.minecraft.core.BlockPos(136,settlementY,136);
+                        helper.assertTrue(net.zerog.tweaks.worldgen.PlanetSettlementFeature.build(world,outpost,name,index%4,
+                                net.minecraft.util.RandomSource.create(1000+index)),"Settlement failed "+id);
+                        var anchor=(net.zerog.tweaks.worldgen.SettlementAnchorBlockEntity)world.getBlockEntity(outpost);
+                        helper.assertTrue(anchor!=null,"No settlement anchor "+id);anchor.populate(world);
+                        helper.assertTrue(anchor.residentsCreated()==6,"Settlement has no inhabitants "+id);
+                        long count=world.getEntitiesOfClass(net.minecraft.world.entity.npc.Villager.class,
+                                new net.minecraft.world.phys.AABB(Vec3.atLowerCornerOf(outpost.offset(-20,0,-20)),Vec3.atLowerCornerOf(outpost.offset(20,8,20)))).size();
+                        helper.assertTrue(count==6,"Expected six real villagers, found "+count+" in "+id);
+                        anchor.populate(world);helper.assertTrue(anchor.residentsCreated()==6,"Resident duplication "+id);
+                        entry.addProperty("settlement_residents",count);
+                        entry.addProperty("settlement_position",outpost.toShortString());
+                        helper.assertTrue(world.getEntitiesOfClass(net.minecraft.world.entity.npc.Villager.class,
+                                new net.minecraft.world.phys.AABB(Vec3.atLowerCornerOf(outpost.offset(-20,0,-20)),Vec3.atLowerCornerOf(outpost.offset(20,8,20))))
+                                .stream().allMatch(v->net.minecraft.core.registries.BuiltInRegistries.VILLAGER_TYPE.getKey(v.getVillagerData().getType()).getNamespace().equals("zerog_tweaks")),
+                                "Outpost clothing not synchronized via native villager types "+id);
                         entry.addProperty("tree_species",net.zerog.tweaks.worldgen.PlanetEcologyProfile.tree(name));
                         entry.addProperty("landing",arrival.centre.toShortString());
                         int ores=0,logs=0,vines=0,mushrooms=0;
@@ -71,7 +110,8 @@ public final class PlanetHubGameTests {
                     var previous=server.overworld().getBlockState(broken);
                     server.overworld().setBlock(broken,Blocks.AIR.defaultBlockState(),2);
                     helper.assertTrue(PlanetGate.missing(server.overworld(),centre)!=null,"Broken frame was accepted");
-                    server.overworld().setBlock(broken,previous,2);
+                    net.zerog.tweaks.travel.ArrivalProtection.repairLoaded(server);
+                    helper.assertTrue(server.overworld().getBlockState(broken).equals(previous),"Arrival gate repair failed");
                     var gate=ledger.gates.get(GateLedger.key("minecraft:overworld",centre));
                     ledger.add(new GateLedger.Gate(gate.dimension,gate.centre,gate.target,false));
                     var input=ledger.input(server.overworld(),centre.offset(7,1,0));
@@ -81,6 +121,50 @@ public final class PlanetHubGameTests {
                     var roundtrip=GateLedger.load(ledger.save(new net.minecraft.nbt.CompoundTag(),server.registryAccess()),server.registryAccess());
                     helper.assertTrue(roundtrip.gates.get(GateLedger.key(gate.dimension,gate.centre)).energy==123456,"Gate energy not persisted");
                     ledger.add(gate);
+                    // Actual natural feature placement, not the authored demos above.
+                    var mars=PlanetTestHub.planet(server,"zerog_tweaks:mars");
+                    int naturalSettlements=0;
+                    var naturalAnchors=new java.util.ArrayList<net.zerog.tweaks.worldgen.SettlementAnchorBlockEntity>();
+                    for(int cx=24;cx<36;cx++) for(int cz=24;cz<36;cz++) {
+                        var chunk=mars.getChunk(cx,cz);
+                        for(var be:chunk.getBlockEntities().values()) if(be instanceof net.zerog.tweaks.worldgen.SettlementAnchorBlockEntity colony) {
+                            naturalSettlements++;naturalAnchors.add(colony);
+                        }
+                    }
+                    helper.assertTrue(naturalSettlements>0,"Natural worldgen produced no inhabited outposts in 144 Mars chunks");
+                    for(var colony:naturalAnchors) {
+                        var pos=colony.getBlockPos();
+                        for(int cx=(pos.getX()-20)>>4;cx<=(pos.getX()+20)>>4;cx++)
+                            for(int cz=(pos.getZ()-20)>>4;cz<=(pos.getZ()+20)>>4;cz++) mars.getChunk(cx,cz);
+                        colony.populate(mars);helper.assertTrue(colony.residentsCreated()==6,"Natural outpost residents never spawn");
+                    }
+                    report.addProperty("naturally_generated_mars_settlements",naturalSettlements);
+                    // Build a real supported mine fixture through dry native stone.
+                    var mine=new net.minecraft.core.BlockPos(680,0,680);
+                    for(int cx=40;cx<=44;cx++) for(int cz=40;cz<=44;cz++)mars.getChunk(cx,cz);
+                    for(var pos:net.minecraft.core.BlockPos.betweenClosed(mine.offset(-19,-1,-19),mine.offset(19,4,19)))
+                        mars.setBlock(pos,net.zerog.tweaks.registry.BlockInit.MARTIAN_STONE.get().defaultBlockState(),2);
+                    helper.assertTrue(net.zerog.tweaks.worldgen.PlanetMineshaftFeature.build(mars,mine,net.minecraft.util.RandomSource.create(10)),"Mineshaft build failed");
+                    helper.assertTrue(mars.getBlockState(mine.offset(6,0,0)).is(Blocks.RAIL),"Mine rails missing");
+                    helper.assertTrue(mars.getBlockState(mine.offset(6,2,1)).is(net.zerog.tweaks.registry.BlockInit.HULL_PLATING.get()),"Mine supports missing");
+                    helper.assertTrue(mars.getBlockEntity(mine.offset(0,0,2)) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity,"Mine loot chest missing");
+                    for(String colour:new String[]{"blue","teal"}) {
+                        var item=net.minecraft.core.registries.BuiltInRegistries.ITEM.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","star_glass_"+colour));
+                        var component=item.getDefaultInstance().get(net.minecraft.core.component.DataComponents.BLOCK_STATE);
+                        helper.assertTrue(component!=null && component.properties().get("nebula").equals(colour),"Glass variant places wrong colour");
+                    }
+                    helper.assertTrue(net.zerog.tweaks.registry.ZGCrystalGrowth.STAR_GLASS.get().asItem()==net.minecraft.core.registries.BuiltInRegistries.ITEM.get(
+                            net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","star_glass")),"Canonical glass item overwritten");
+                    report.addProperty("supported_mineshaft_fixture",true);report.addProperty("star_glass_variant_items",true);
+                    var impact=new net.minecraft.core.BlockPos(744,64,680);
+                    for(int cx=45;cx<=47;cx++) for(int cz=41;cz<=43;cz++)mars.getChunk(cx,cz);
+                    for(var pos:net.minecraft.core.BlockPos.betweenClosed(impact.offset(-8,-7,-8),impact.offset(8,9,8)))
+                        mars.setBlock(pos,net.zerog.tweaks.registry.BlockInit.MARTIAN_STONE.get().defaultBlockState(),2);
+                    helper.assertTrue(net.zerog.tweaks.event.DailyPlanetImpacts.impact(mars,impact,6,"mars"),"Comet cannot create its remnant");
+                    var core=mars.getBlockState(impact.above());
+                    helper.assertTrue(core.is(net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(
+                            net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","redshift_garnet_ore"))),"Comet rare centre missing");
+                    report.addProperty("comet_remnant_fixture",true);
                     try {
                         java.nio.file.Files.writeString(server.getWorldPath(net.minecraft.world.level.storage.LevelResource.ROOT).resolve("zerog-hub-report.json"),
                                 new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(report));

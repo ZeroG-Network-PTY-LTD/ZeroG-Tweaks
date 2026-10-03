@@ -64,6 +64,8 @@ public final class ZGCrystalGrowth {
 
     public static void registerItems() {
         ITEMS.forEach((id, block) -> ItemInit.ITEMS.register(id, () -> new BlockItem(block.get(), new net.minecraft.world.item.Item.Properties())));
+        for(var colour:new ZGStarGlassBlock.Nebula[]{ZGStarGlassBlock.Nebula.BLUE,ZGStarGlassBlock.Nebula.TEAL})
+            ItemInit.ITEMS.register("star_glass_"+colour.getSerializedName(),() -> new net.zerog.tweaks.item.StarGlassVariantItem(STAR_GLASS.get(),colour));
     }
 
     private static int sandColour(String planet) {

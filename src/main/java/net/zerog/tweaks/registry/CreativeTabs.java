@@ -66,6 +66,7 @@ public final class CreativeTabs {
                     }
                     if (catchAll) {
                         Set<String> listed = new HashSet<>(HIDDEN);
+                        listed.add("star_glass_blue");listed.add("star_glass_teal");
                         ZGPlanetCrops.CROPS.keySet().forEach(id -> listed.add(id+"_crop"));
                         listed.addAll(ZGPlanetMaterials.BLOCK_ITEMS.keySet());
                         ZGPlanetCrops.PLANET_CROPS.values().forEach(id -> { listed.add(id); listed.add(id+"_seeds"); });
@@ -78,6 +79,9 @@ public final class CreativeTabs {
                         }
                     }
                     if (name.equals("liquids")) liquidItems().forEach(out::accept);
+                    if (name.equals("building_blocks")) {
+                        out.accept(item("star_glass_blue"));out.accept(item("star_glass_teal"));
+                    }
                     if (name.equals("building_blocks") || name.equals("natural_blocks")) {
                         ZGPlanetMaterials.BLOCK_ITEMS.forEach((id, block) -> {
                             if (id.endsWith("_ore") == name.equals("natural_blocks")) out.accept(block.get());

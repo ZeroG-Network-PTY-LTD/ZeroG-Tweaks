@@ -29,6 +29,14 @@ public final class ZeroGTweaks {
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::tick);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::interact);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::commands);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::breaking);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::placing);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::fluid);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::piston);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::explosion);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::damage);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::spawn);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::tick);
         modBus.addListener(net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent.class,event ->
                 event.registerBlock(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,
                     (level,pos,state,be,side) -> level instanceof net.minecraft.server.level.ServerLevel server ?

@@ -8,6 +8,7 @@ def main():
     p.add_argument('--destination',type=Path,required=True)
     p.add_argument('--nbt-library',type=Path,required=True)
     p.add_argument('--export',action='store_true')
+    p.add_argument('--label',default='ZeroG Planet Showcase 1.0.6 — Seed 0')
     a=p.parse_args();source=a.source.resolve();target=a.destination.resolve()
     assert (source/'level.dat').is_file() and (source/'zerog-hub-report.json').is_file()
     assert target.parent.name=='saves' and not target.exists(), 'Only a NEW save in saves/ is permitted'
@@ -22,12 +23,13 @@ def main():
     assert str(d['WorldGenSettings']['dimensions']['minecraft:overworld']['generator']['settings']['biome'])=='zerog_tweaks:planet_test_hub'
     result={'source':str(source),'destination':str(target),'seed':0,'gates':68,
             'exported':False,'existing_saves_changed':False,
-            'caveat':'Small test samples contain no tree logs; complete ecology is not certified.'}
+            'caveat':'Fresh independently seeded terrain; 34 demonstration colonies. Small samples do not certify complete ecology or client graphics.'}
     if a.export:
         target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copytree(source,target,ignore=shutil.ignore_patterns('session.lock','playerdata','advancements','stats','level.dat_old'))
         exported=nbtlib.load(target/'level.dat');data=exported['Data']
-        data['LevelName']=nbtlib.String('ZeroG Planet Test Hub — Seed 0')
+        data['LevelName']=nbtlib.String(a.label)
+        data['DayTime']=nbtlib.Long(17000)
         data['GameType']=nbtlib.Int(1)
         data['allowCommands']=nbtlib.Byte(1)
         data['SpawnX']=nbtlib.Int(62);data['SpawnY']=nbtlib.Int(65);data['SpawnZ']=nbtlib.Int(0)

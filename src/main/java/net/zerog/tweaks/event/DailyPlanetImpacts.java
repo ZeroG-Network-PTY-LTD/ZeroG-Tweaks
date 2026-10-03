@@ -36,12 +36,14 @@ public final class DailyPlanetImpacts {
             long day=Math.floorDiv(level.getDayTime(),24000L);
             if(Math.floorMod(level.getDayTime(),24000L)<18000 || ledger.days.getOrDefault(dim,-1L)>=day) continue;
             var player=level.players().get(level.random.nextInt(level.players().size()));
-            for(int attempt=0;attempt<6;attempt++) {
+            for(int attempt=0;attempt<24;attempt++) {
                 double angle=level.random.nextDouble()*Math.PI*2;int distance=80+level.random.nextInt(65);
                 int x=player.blockPosition().getX()+(int)(Math.cos(angle)*distance),z=player.blockPosition().getZ()+(int)(Math.sin(angle)*distance);
                 int radius=Math.max(6,ZGEcologyConfig.RADIUS.get());
                 if(!level.hasChunkAt(new BlockPos(x-radius-2,64,z-radius-2))||!level.hasChunkAt(new BlockPos(x+radius+2,64,z+radius+2))) continue;
-                var centre=new BlockPos(x,level.getHeight(Heightmap.Types.WORLD_SURFACE,x,z)-1,z);
+                // Ocean worlds also receive impacts: strike the seabed, not the
+                // water surface (which can never pass the solid-centre check).
+                var centre=new BlockPos(x,level.getHeight(Heightmap.Types.OCEAN_FLOOR,x,z)-1,z);
                 if(level.players().stream().anyMatch(p->p.distanceToSqr(centre.getX(),centre.getY(),centre.getZ())<64*64)) continue;
                 if(impact(level,centre,radius,dim)) {
                     ledger.days.put(dim,day);ledger.setDirty();
@@ -53,7 +55,10 @@ public final class DailyPlanetImpacts {
     }
     /** Validate the entire volume before changing anything. Does not explode or drop arbitrary terrain items. */
     public static boolean impact(ServerLevel level,BlockPos centre,int radius,String dim) {
+        if(!level.getServer().isSameThread()) return false;
         radius=Math.max(6,radius); // Preserve the config key, but the ten-block remnant needs a six-block crater.
+        if(net.zerog.tweaks.travel.ArrivalProtection.intersects(level,
+                centre.offset(-radius-2,-radius-1,-radius-2),centre.offset(radius+2,radius+3,radius+2))) return false;
         if(centre.getY()<level.getMinBuildHeight()+radius+2 || centre.getY()>level.getMaxBuildHeight()-radius-2) return false;
         for(BlockPos pos:BlockPos.betweenClosed(centre.offset(-radius-2,-radius-1,-radius-2),centre.offset(radius+2,radius+3,radius+2))) {
             if(!level.hasChunkAt(pos) || level.getBlockEntity(pos)!=null || !natural(level,pos)) return false;
@@ -78,12 +83,15 @@ public final class DailyPlanetImpacts {
     }
     private static boolean natural(ServerLevel level,BlockPos pos) {
         var state=level.getBlockState(pos); if(state.isAir()) return true;
-        if(!state.getFluidState().isEmpty()||state.getDestroySpeed(level,pos)<0) return false;
+        if(state.getDestroySpeed(level,pos)<0) return false;
+        if(!state.getFluidState().isEmpty()) return true;
         if(state.is(BlockTags.BASE_STONE_OVERWORLD)||state.is(BlockTags.BASE_STONE_NETHER)||state.is(BlockTags.DIRT)||state.is(BlockTags.SAND)||state.is(BlockTags.ICE)) return true;
         var id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(state.getBlock());
         if(!id.getNamespace().equals("zerog_tweaks")) return state.is(Blocks.SHORT_GRASS)||state.is(Blocks.TALL_GRASS)||state.is(Blocks.SNOW);
         String path=id.getPath();return path.endsWith("_soil")||path.endsWith("_grass_block")||path.endsWith("_short_grass")||path.endsWith("_tall_grass")||path.endsWith("_tall_blossom")||path.endsWith("_ore")||path.contains("glow_")
-                ||java.util.Set.of("regolith","rustsand","oxide_crust","lunar_stone","martian_stone","cerulean_stone","skarn_rock","solar_stone","permafrost","polar_frost","prismstone","sludgestone","frostrock","sunspot_rock","crystal_sand","slag","azure_moss","cerulean_soil","shimmer_sand","tidesand","dunesand","blightmoss","toxic_mud").contains(path);
+                ||java.util.Set.of("regolith","rustsand","oxide_crust","lunar_stone","martian_stone","cerulean_stone","skarn_rock","solar_stone","permafrost","polar_frost","prismstone","sludgestone","frostrock","sunspot_rock","crystal_sand","slag","azure_moss","cerulean_soil","shimmer_sand","tidesand","dunesand","blightmoss","toxic_mud",
+                "frozen_regolith","crater_dust","mare_basalt","ember_crust","corona_crust","craterstone","snowpack","ashfall",
+                "vent_rock","scoria","scorched_marble","sunbaked_stone","salt_crust","glacial_ice","crater_ice","phantom_ice").contains(path);
     }
     private DailyPlanetImpacts(){}
 }

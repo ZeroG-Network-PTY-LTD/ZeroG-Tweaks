@@ -58,6 +58,10 @@ public final class ZGSpawnRules {
     public static boolean landAnimal(EntityType<?> type, LevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random) {
         var ground = level.getBlockState(pos.below());
         boolean grass = ground.is(BlockInit.AZURE_MOSS.get()) || ground.is(BlockTags.ANIMALS_SPAWNABLE_ON);
+        if(type==EntityInit.RUST_BEETLE.get() || type==EntityInit.DUNE_BURROWER.get() || type==EntityInit.FROST_YAK.get())
+            grass |= ground.is(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.BLOCK,
+                    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID,"planet_natural_surfaces")))
+                    && ground.isFaceSturdy(level,pos.below(),net.minecraft.core.Direction.UP);
         return grass && level.getRawBrightness(pos, 0) > 8;
     }
 

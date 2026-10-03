@@ -5,8 +5,12 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "zerog_tweaks:star_glass"
+          "type": "minecraft:alternatives",
+          "children": [
+            {"type":"minecraft:item","name":"zerog_tweaks:star_glass_blue","conditions":[{"condition":"minecraft:block_state_property","block":"zerog_tweaks:star_glass","properties":{"nebula":"blue"}}]},
+            {"type":"minecraft:item","name":"zerog_tweaks:star_glass_teal","conditions":[{"condition":"minecraft:block_state_property","block":"zerog_tweaks:star_glass","properties":{"nebula":"teal"}}]},
+            {"type":"minecraft:item","name":"zerog_tweaks:star_glass"}
+          ]
         }
       ],
       "conditions": [

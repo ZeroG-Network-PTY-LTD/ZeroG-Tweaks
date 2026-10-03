@@ -65,7 +65,7 @@ neoForge {
         }
         planetHubTests {
             type = 'gameTestServer'
-            gameDirectory = file('run-local-planet-hub-20261004')
+            gameDirectory = file(providers.gradleProperty('planetTestDirectory').getOrElse('run-local-planet-generation-20261004-r2'))
             systemProperty 'neoforge.enabledGameTestNamespaces', 'zerog_tweaks'
         }
         client {
