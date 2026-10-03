@@ -261,8 +261,9 @@ public final class ZGCreativeTabContents {
             "landing_platform", "crystal_cell", "cryo_pod", "broken_console", "concord_prism", "prism_barrier"
     };
 
-    /** Tools & Utilities (89 entries) */
+    /** Tools & Utilities (90 entries) */
     public static final String[] TOOLS_AND_UTILITIES = {
+            "glimmerfish_bucket",
             "nullifite_shovel", "nullifite_pickaxe", "nullifite_axe", "nullifite_hoe", "ferrox_shovel", "ferrox_pickaxe",
             "ferrox_axe", "ferrox_hoe", "moonsteel_shovel", "moonsteel_pickaxe", "moonsteel_axe", "moonsteel_hoe",
             "olympium_shovel", "olympium_pickaxe", "olympium_axe", "olympium_hoe", "cobaltium_shovel", "cobaltium_pickaxe",

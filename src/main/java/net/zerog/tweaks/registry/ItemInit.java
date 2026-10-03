@@ -1034,6 +1034,11 @@ public final class ItemInit {
     public static final DeferredItem<Item> GILDCRAB_SHELL = ITEMS.registerSimpleItem("gildcrab_shell");
     public static final DeferredItem<Item> GLIMMER_SCALE = ITEMS.registerSimpleItem("glimmer_scale");
     public static final DeferredItem<Item> GLIMMERFISH = ITEMS.registerSimpleItem("glimmerfish");
+    public static final DeferredItem<net.minecraft.world.item.MobBucketItem> GLIMMERFISH_BUCKET = ITEMS.register("glimmerfish_bucket",
+            () -> new net.minecraft.world.item.MobBucketItem(EntityInit.GLIMMERFISH.get(), net.minecraft.world.level.material.Fluids.WATER,
+                    net.minecraft.sounds.SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1)
+                            .component(net.minecraft.core.component.DataComponents.BUCKET_ENTITY_DATA,
+                                    net.minecraft.world.item.component.CustomData.EMPTY)));
     public static final DeferredItem<Item> GRAZER_HIDE = ITEMS.registerSimpleItem("grazer_hide");
     public static final DeferredItem<Item> GRAZER_STEAK = ITEMS.registerSimpleItem("grazer_steak");
     public static final DeferredItem<Item> GRILLED_SCORCH_TAIL = ITEMS.registerSimpleItem("grilled_scorch_tail");

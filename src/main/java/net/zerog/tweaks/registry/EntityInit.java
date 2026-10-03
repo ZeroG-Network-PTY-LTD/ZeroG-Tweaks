@@ -9,7 +9,9 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import net.zerog.tweaks.ZeroGTweaks;
+import net.zerog.tweaks.entity.AzureFowl;
 import net.zerog.tweaks.entity.CrystalStag;
+import net.zerog.tweaks.entity.Glimmerfish;
 import net.zerog.tweaks.entity.DuneBurrower;
 import net.zerog.tweaks.entity.FrostYak;
 import net.zerog.tweaks.entity.PrismSentinel;
@@ -46,6 +48,13 @@ public final class EntityInit {
             ENTITIES.register("tidewraith_boss", () -> EntityType.Builder.<TidewraithBoss>of(TidewraithBoss::new, MobCategory.MONSTER)
                     .sized(2.4F, 2.125F).clientTrackingRange(16).build("zerog_tweaks:tidewraith_boss"));
 
+    // Cerulon natural mobs (art already on 1.21.x: geo, animations, textures)
+    public static final DeferredHolder<EntityType<?>, EntityType<AzureFowl>> AZURE_FOWL =
+            ENTITIES.register("azure_fowl", () -> EntityType.Builder.<AzureFowl>of(AzureFowl::new, MobCategory.CREATURE)
+                    .sized(0.4F, 0.8F).clientTrackingRange(10).build("zerog_tweaks:azure_fowl"));
+    public static final DeferredHolder<EntityType<?>, EntityType<Glimmerfish>> GLIMMERFISH =
+            ENTITIES.register("glimmerfish", () -> EntityType.Builder.<Glimmerfish>of(Glimmerfish::new, MobCategory.WATER_AMBIENT)
+                    .sized(0.5F, 0.4F).eyeHeight(0.26F).clientTrackingRange(4).build("zerog_tweaks:glimmerfish"));
     // Galaxy 2 guardian: raised by the Concord Prism in its Cerulon arena; no natural spawning.
     public static final DeferredHolder<EntityType<?>, EntityType<PrismSentinel>> PRISM_SENTINEL =
             ENTITIES.register("prism_sentinel", () -> EntityType.Builder.<PrismSentinel>of(PrismSentinel::new, MobCategory.MONSTER)
@@ -62,5 +71,7 @@ public final class EntityInit {
         event.put(TIDEWRAITH.get(), Tidewraith.createAttributes().build());
         event.put(TIDEWRAITH_BOSS.get(), TidewraithBoss.createAttributes().build());
         event.put(PRISM_SENTINEL.get(), PrismSentinel.createAttributes().build());
+        event.put(AZURE_FOWL.get(), AzureFowl.createAttributes().build());
+        event.put(GLIMMERFISH.get(), Glimmerfish.createAttributes().build());
     }
 }

@@ -1,7 +1,6 @@
 package net.zerog.tweaks.registry;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.HorseRenderer;
 import net.minecraft.client.renderer.entity.NoopRenderer;
 
 import net.neoforged.api.distmarker.Dist;
@@ -23,11 +22,15 @@ public final class EntityInitHooks {
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(EntityInit.CRYSTAL_STAG.get(),
-                (EntityRendererProvider) HorseRenderer::new);
+                c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c, "crystal_stag", 0.7F));
         event.registerEntityRenderer(EntityInit.FROST_YAK.get(),
                 (EntityRendererProvider) NoopRenderer::new);
         event.registerEntityRenderer(EntityInit.PRISMLING_HOLDER.get(),
-                (EntityRendererProvider) NoopRenderer::new);
+                c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c, "prismling", 0.35F));
+        event.registerEntityRenderer(EntityInit.AZURE_FOWL.get(),
+                c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c, "azure_fowl", 0.3F));
+        event.registerEntityRenderer(EntityInit.GLIMMERFISH.get(),
+                c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c, "glimmerfish", 0.2F));
         event.registerEntityRenderer(EntityInit.RUST_BEETLE.get(),
                 (EntityRendererProvider) NoopRenderer::new);
         event.registerEntityRenderer(EntityInit.DUNE_BURROWER.get(),

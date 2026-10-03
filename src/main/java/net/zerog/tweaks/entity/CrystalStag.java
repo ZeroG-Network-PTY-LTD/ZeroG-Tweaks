@@ -23,12 +23,18 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.IShearable;
 
 import net.zerog.tweaks.registry.ItemInit;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.AnimatableManager;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
  * Crystal Stag (Cerulon): shearable crystal antlers, 1-2 Starlite,
  * regrow in 5 minutes. Breeds with Starbloom. Loot data already ships.
+ * AI follows mob spec crystal_stag (goals in spec order); drawn by ZGGeoMobRenderer, antlers hidden while sheared.
  */
-public class CrystalStag extends Animal implements IShearable {
+public class CrystalStag extends Animal implements IShearable, GeoEntity, ZGGeoMob {
+    private final AnimatableInstanceCache animationCache = GeckoLibUtil.createInstanceCache(this);
     private static final net.minecraft.network.syncher.EntityDataAccessor<Boolean> SHEARED =
             net.minecraft.network.syncher.SynchedEntityData.defineId(CrystalStag.class,
                     net.minecraft.network.syncher.EntityDataSerializers.BOOLEAN);
@@ -75,6 +81,34 @@ public class CrystalStag extends Animal implements IShearable {
             this.regrowTicks = 0;
         }
     }
+
+    @Override
+    protected void registerGoals() {
+        goalSelector.addGoal(0, new net.minecraft.world.entity.ai.goal.FloatGoal(this));
+        goalSelector.addGoal(1, new net.minecraft.world.entity.ai.goal.PanicGoal(this, 1.8));
+        goalSelector.addGoal(2, new net.minecraft.world.entity.ai.goal.BreedGoal(this, 1.0));
+        goalSelector.addGoal(3, new net.minecraft.world.entity.ai.goal.TemptGoal(this, 1.1, this::isFood, false));
+        goalSelector.addGoal(4, new net.minecraft.world.entity.ai.goal.FollowParentGoal(this, 1.1));
+        goalSelector.addGoal(5, new net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal(this, 1.0));
+        goalSelector.addGoal(6, new net.minecraft.world.entity.ai.goal.LookAtPlayerGoal(this, Player.class, 6.0F));
+        goalSelector.addGoal(7, new net.minecraft.world.entity.ai.goal.RandomLookAroundGoal(this));
+    }
+
+    public boolean isSheared() { return this.entityData.get(SHEARED); }
+
+    @Override
+    public java.util.Set<String> toggleableBones() { return java.util.Set.of("antlers"); }
+
+    @Override
+    public java.util.Set<String> hiddenBones() { return isSheared() ? java.util.Set.of("antlers") : java.util.Set.of(); }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        ZGGeoMob.registerControllers(this, controllers, "crystal_stag", "walk");
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() { return animationCache; }
 
     @Override
     public boolean isFood(ItemStack stack) {
