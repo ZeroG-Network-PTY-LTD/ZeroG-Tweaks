@@ -686,6 +686,8 @@ public final class ItemInit {
     public static final DeferredItem<BlockItem> PULSAR_DUST_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("pulsar_dust_block", BlockInit.PULSAR_DUST_BLOCK);
     public static final DeferredItem<BlockItem> PULSAR_DUST_ORE_ITEM = ITEMS.registerSimpleBlockItem("pulsar_dust_ore", BlockInit.PULSAR_DUST_ORE);
     public static final DeferredItem<BlockItem> PULSAR_LAMP_ITEM = ITEMS.registerSimpleBlockItem("pulsar_lamp", BlockInit.PULSAR_LAMP);
+    public static final DeferredItem<BlockItem> CONCORD_PRISM_ITEM = ITEMS.registerSimpleBlockItem("concord_prism", BlockInit.CONCORD_PRISM);
+    public static final DeferredItem<BlockItem> PRISM_BARRIER_ITEM = ITEMS.registerSimpleBlockItem("prism_barrier", BlockInit.PRISM_BARRIER);
     public static final DeferredItem<BlockItem> PYRIUM_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("pyrium_block", BlockInit.PYRIUM_BLOCK);
     public static final DeferredItem<BlockItem> PYRIUM_ORE_ITEM = ITEMS.registerSimpleBlockItem("pyrium_ore", BlockInit.PYRIUM_ORE);
     public static final DeferredItem<BlockItem> RADIANT_BRICK_SLAB_ITEM = ITEMS.registerSimpleBlockItem("radiant_brick_slab", BlockInit.RADIANT_BRICK_SLAB);

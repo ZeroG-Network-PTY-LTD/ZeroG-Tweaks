@@ -6,9 +6,11 @@
     }
   ],
   "placement": {
-    "type": "minecraft:random_spread",
-    "spacing": 24,
-    "separation": 8,
-    "salt": 487215903
+    "type": "minecraft:concentric_rings",
+    "salt": 487215903,
+    "distance": 6,
+    "spread": 1,
+    "count": 1,
+    "preferred_biomes": "#zerog_tweaks:has_structure/prism_sentinel_arena"
   }
 }

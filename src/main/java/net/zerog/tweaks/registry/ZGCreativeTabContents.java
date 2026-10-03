@@ -251,14 +251,14 @@ public final class ZGCreativeTabContents {
             "solflower_seeds", "pyrefruit"
     };
 
-    /** Functional Blocks (32 entries) */
+    /** Functional Blocks (34 entries) */
     public static final String[] FUNCTIONAL_BLOCKS = {
             "selenite_lamp", "pulsar_lamp", "tremor_lamp", "spectral_lantern", "fusion_lamp", "captains_lantern",
             "combustion_generator", "solar_array", "fusion_reactor", "ore_refinery", "alloy_forge", "crystal_growth_chamber",
             "salvage_station", "cyrrium_casing", "tectium_casing", "wraithsteel_casing", "astrium_casing", "gate_controller",
             "gate_pad_plate", "gate_pylon", "gate_energy_port", "gate_lens_housing", "nullifite_gate_frame",
             "moonsteel_gate_frame", "cerulite_gate_frame", "skarnite_gate_frame", "eidolite_gate_frame", "solvanite_gate_frame",
-            "landing_platform", "crystal_cell", "cryo_pod", "broken_console"
+            "landing_platform", "crystal_cell", "cryo_pod", "broken_console", "concord_prism", "prism_barrier"
     };
 
     /** Tools & Utilities (89 entries) */
