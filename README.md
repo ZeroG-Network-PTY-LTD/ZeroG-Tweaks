@@ -5,9 +5,32 @@ Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's
 economy together. This local work-in-progress also requires GeckoLib for the Tidewraith integration.
 
-Current candidate **1.0.6-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
+Current candidate **1.0.7-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
 
-## Explore ZeroG — current field guide
+## Alien agriculture, cave families and liquid categories
+
+[1.0.7 guide: crops, caves, rare terrain-blended villages and all liquid IDs](docs/crops-caves-liquids-1.0.7.md)
+adds twenty seeded alien crop families and thirty-four cave berry/vine/mineral
+families. The liquid inventory is separated into **Planetary Liquids** (six
+buckets) and **Bee Honeys** (twelve), retaining all eighteen distinct source,
+flowing and bucket identities with vanilla-shaped container artwork.
+Isolated tests passed collection/placement of every liquid, crop/cave behaviour
+and all thirty-four gateway return routes. The fresh **ZeroG Planet Showcase
+1.0.7 — Seed 0** is exported with 68 active gates and no demonstration colonies;
+seed **0**, spawn **62 / 65 / 0**. The clean production build and packaged asset
+checks passed. [Download 1.0.7-dev](docs/jars/zerog-tweaks-1.21.1-1.0.7-dev.jar)
+· [Checksums](docs/jars/SHA256SUMS.txt).
+The prior showcase described below is preserved, not silently replaced.
+
+![All eighteen filled buckets — offline artwork reference](docs/images/crops-caves-liquids-1.0.7/buckets.png)
+
+Villages now choose one candidate per 50×50-chunk region and reject wet/steep
+sites; this is not one village per fifty individual chunks. New sites follow
+native surfaces and planetary soil/farmland/wood rather than floating on tall
+pillars or stamping identical green lawns. The next fresh hub excludes authored
+demonstration colonies. Existing played saves and all earlier galleries remain.
+
+## Preserved 1.0.6 field guide
 
 [Download 1.0.6-dev](docs/jars/zerog-tweaks-1.21.1-1.0.6-dev.jar)
 · [SHA-256 checksums](docs/jars/SHA256SUMS.txt)
