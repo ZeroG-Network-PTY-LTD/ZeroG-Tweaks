@@ -1,5 +1,11 @@
 # ZeroG 1.21.1 — illustrated collection guide
 
+**Current development candidate: 1.0.1-dev.** Read the
+[latest illustrated update](crystal-material-update-1.21.1.md) for the new
+crystal/metal artwork, budding growth, Star Glass, planet sands and newest
+Cerulon mobs/fluid/biomes. The historical design sections below remain intact;
+their older counts, screenshots and test results are not new candidate evidence.
+
 Current branch ownership: [code](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/1.21.x),
 [designs](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design),
 and [documentation](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Docs).

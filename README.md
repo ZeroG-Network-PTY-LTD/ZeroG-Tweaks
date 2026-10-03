@@ -5,7 +5,46 @@ Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's
 economy together. This local work-in-progress also requires GeckoLib for the Tidewraith integration.
 
-Mod version **1.0.0** · NeoForge **21.1.252** · Minecraft **1.21.1** · Java **21**
+Current candidate **1.0.1-dev** · NeoForge **21.1.252** · Minecraft **1.21.1** · Java **21**
+
+New [half-size bees, hives, honeys and cosmic Blazes](docs/planet-bees-and-blazes-1.21.1.md):
+twelve vanilla-rig bee families, matching hive/comb/bottle/bucket products,
+animated wing patterns and planet nests; six Blaze types with eighteen palette
+variants, matching rod drops and emissive accents. **52 isolated server tests
+passed**; client graphics and the actual CurseForge modpack remain unverified.
+
+![Miniature bee wing texture animation — offline UV reference](docs/images/crystal-material-update-1.21.1/miniature_bees_texture_animation.gif)
+
+The [dimension ecology guide](docs/dimension-ecology-1.21.1.md) adds soil,
+farmland, grass and sands for all 34 dimensions, natural pools for the five
+additional fluids, glowing flora/bugs, coloured gas vents and daily bounded
+terrain-damaging impact remnants. **Back up saves: daily impacts are enabled
+by default and configurable.** Alien crop/fruit varieties remain future work.
+
+![Six dimensional fluid animations — offline reference](docs/images/crystal-material-update-1.21.1/dimension_fluids_reference.gif)
+
+## Latest update — crystals, Star Glass and Cerulon
+
+The [illustrated 1.0.1-dev update and installation guide](docs/crystal-material-update-1.21.1.md)
+combines the latest Cerulon/Mossback/Prism Sentinel work with four budding
+crystal families, refreshed crystal/ore textures, all sixteen ingot/raw-metal
+pairs, six planet Star Sands and light-12 animated Star Glass. It includes
+Liquid Starlight, Cerulean Soil and the expanded Cerulon biomes from upstream.
+This is a development candidate, not a complete gameplay release.
+
+![New Star Glass animation — offline reference](docs/images/crystal-material-update-1.21.1/animated_updates.gif)
+
+![Six planet sands smelt into Star Glass](docs/images/crystal-material-update-1.21.1/planet_sands_reference.png)
+
+[All updated ingots/raw materials](docs/images/crystal-material-update-1.21.1/ingots_raw_reference.png)
+· [Full texture roster](docs/images/crystal-material-update-1.21.1/crystals_v2_preview.png)
+· [Download the 1.21.1 NeoForge jar](docs/jars/zerog-tweaks-1.21.1-1.0.1-dev.jar)
+· [SHA-256 checksums](docs/jars/SHA256SUMS.txt).
+
+The historical images and collection remain available below. The new asset
+revision has 96 texture PNGs and 80 editable Blockbench projects on Design.
+Installation is performed only under the user's explicit request; earlier
+Tweaks jars are backed up outside the mods folder, not permanently deleted.
 
 ## Illustrated collection and current implementation
 
@@ -13,7 +52,7 @@ New update: [in-game multiblock reference guide](https://github.com/ZeroG-Networ
 — press G for eight apiary layouts, layers from Y=0, 360° rotation, clickable
 part coordinates and quantities. Genetics/cryo are separate external modules;
 formation, world ghost placement and processing remain unfinished. This
-guide is included on `1.21.x`; it is not installed into CurseForge.
+guide is included in the current `1.21.x` development jar.
 
 Start with the [illustrated armour, Bees, materials and mobs guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/current-collection-guide-1.21.1.md).
 It groups the designs by use, lists every armour family and apiary tier, and
@@ -29,7 +68,8 @@ describe the newer implementation.
 ![Approved non-boss Tidewraith, repaired face](https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Design/docs/asset-collection-1.21.1/approved-tidewraith/docs/shattered-skies/abyssal-face-repair/updated_threequarter.png)
 
 Images are design sheets/software previews, not in-world screenshots. Twelve
-isolated server tests and the client model/animation/texture upload check pass.
+isolated server tests and the client model/animation/texture upload check passed
+on earlier snapshots; these are historical results, not tests of 1.0.1-dev.
 The complete mod, HD worn-armour mapping and Bees gameplay are not finished.
 
 See [verification and reproducible test commands](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/verification-1.21.1.md)
@@ -52,7 +92,13 @@ The full scene contains **609 model presentations** across 12 categories, includ
 
 ### Future collection updates
 
-Accepted vanilla-based space bees and Productive Bees integration; live mob registrations, AI, eggs, drops and boss mechanics; block GUI/menu bindings and frame/bee/comb/genetic slots; production exports; controller/hatchery/multiblock tests; Java armour rendering, animation and emissive support; then tested client builds and release packaging. These are planned features, not completed by this documentation update. See the [collection guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/asset-collection-1.21.1/README.md) for detailed descriptions, provenance and limits.
+The miniature bee and cosmic Blaze additions above supersede the historical
+entity-pending notes in the original collection. Next: family-only hive
+occupancy/genetics and Productive Bees integration; remaining creature
+registrations/AI/boss mechanics; machine menus and production exports;
+controller/hatchery/multiblock formation; Java HD worn-armour rendering and
+animation; then client/modpack tests and release packaging. These remain
+planned features, not claims of completion.
 
 ## Branches
 
@@ -75,7 +121,7 @@ or vice versa. Full migration details are in the
 - **17 machine/functional blocks** — gate frames / controller / energy ports / lens housing / pad plate, alloy forge, combustion generator, fusion reactor + lamp, ore refinery, salvage station, crystal growth chamber, solar array, landing platform, cryo pod, spectral lantern.
 - **65 food/util items** — 30+ dishes, planet materials, 5 smithing templates, galaxy gate keys, Heart of Solvane, Ration Pack, Neutralizer.
 - **9+ gear sets** — astrium, cerulite, cyrrium, moonsteel, olympium, nullifite, radiante, salvium, skarnite, solvanite... full 9-piece kits (pick/shovel/axe/hoe/sword + 4 armor pieces).
-- **Other mob work:** the newly consolidated upstream code includes Crystal Stag, Dune Burrower, Frost Yak, Prismling and Rust Beetle entity sources in addition to the reviewed Tidewraith pair. Those newer sources and the Ore Refinery implementation are preserved, not rolled back. Their gameplay is not covered by this update's earlier isolated test evidence; source presence alone is not in-game approval. Remaining mobs, AI, drops and progression still need implementation/testing.
+- **Other mob work:** current code includes Crystal Stag, Dune Burrower, Frost Yak, Prismling, Rust Beetle, Azure Fowl, Glimmerfish, Mossback and the Prism Sentinel boss, alongside the approved Tidewraith pair. The latest Cerulon AI, natural-spawn rules, variants, arena, fluid and terrain work are preserved. These features are not covered by the earlier isolated test evidence; source presence alone is not in-game approval. Remaining mobs, AI, drops and progression still need implementation/testing.
 
 ## Getting started
 
@@ -94,7 +140,7 @@ with this unreviewed build.
     ./gradlew build          # Linux/macOS
     gradlew.bat build        # Windows
 
-Output: build/libs/zerog-tweaks-1.21.1-1.0.0.jar
+Output: build/libs/zerog-tweaks-1.21.1-1.0.1-dev.jar
 
 First build pulls NeoForge, NeoForm and Parchment, and recompiles vanilla
 sources — expect 5–15 minutes. Incremental builds after that run ~15s
@@ -102,7 +148,7 @@ sources — expect 5–15 minutes. Incremental builds after that run ~15s
 
 ### Install (players)
 
-1. Copy the built jar (or download it from Releases) into your instance's mods/ folder.
+1. Back up the instance/saves, then copy the current development jar from [Docs/docs/jars](docs/jars/) into your instance's mods/ folder. Keep only one `zerog_tweaks` jar installed; do not install the historical candidates together.
 2. Add the GeckoLib 4.9.3 jar for NeoForge 1.21.1 into the same mods/ folder.
 3. Launch — the mod appears as "ZeroG Tweaks" with its own creative tab (zerog_tweaks).
 

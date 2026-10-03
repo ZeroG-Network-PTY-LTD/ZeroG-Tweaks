@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "candidate": "zerog-tweaks-1.21.1-1.0.1-dev.jar",
+  "sha256": "515070c3df3e50f9b8deb40cd60635ea8dbc228dcefa6b60054619e2837da2db",
+  "minecraft": "1.21.1 Java Edition",
+  "java": "Temurin 21.0.12.1+1",
+  "neoforge_build_and_target_instance": "21.1.252",
+  "geckolib": "4.9.3",
+  "gradle": "9.2.1",
+  "runtime_source_commit": "30824f8d927e72b8aa6197a6864098494b1459b7",
+  "code_branch_head_with_validation_tool": "5ffe398a7e3dfa604d3c03d514d6f5d6b617bf7c",
+  "design_commit": "08252791d4d2fd0ee45cfe0f72417abe2a471ec2",
+  "build": {
+    "command": "gradlew.bat clean build",
+    "result": "BUILD SUCCESSFUL",
+    "transcript": "20261003_161926_clean.log",
+    "test_classes_excluded_from_jar": true,
+    "note": "Later validation-tool/README commits do not change compiled runtime inputs. No client launch."
+  },
+  "isolated_server_tests": {
+    "command": "gradlew.bat runZeroGTests -PzeroGTests -PtidewraithTests",
+    "transcript": "20261003_161652_runZeroGTests.log",
+    "required": 52,
+    "passed": 52,
+    "failed": 0,
+    "scope": ["existing regression suite", "crystal growth/waterlogging/light", "34 farming/sand families", "five additional dimensional fluids and pool registrations", "impact container refusal and saved-day ledger", "12 half-size bee species and valid hive storage", "matching honey bottle/bucket/comb harvesting", "six Blaze registrations and persistent randomized palettes", "existing four planet saplings plus vanilla oak on all 34 soils"],
+    "disposable_development_world": true,
+    "curseforge_client_or_existing_saves_opened": false
+  },
+  "static_art_and_packaging": {
+    "crystal_texture_hashes_and_jar_matches": 96,
+    "ecology_bee_blaze_final_texture_hashes_and_jar_matches": 622,
+    "editable_projects_with_embedded_texture_and_uv_checks": 391,
+    "models_parent_texture_override_references": 6408,
+    "blockstates_model_references": 1166,
+    "atlas_generated_sprites_with_verified_source_palettes": 3160,
+    "unresolved_references": 0,
+    "star_sand_furnace_recipes": 34,
+    "liquid_bucket_models_referencing_actual_vanilla_water_bucket_base": 18,
+    "bee_both_wing_uv_faces_painted": true,
+    "animated_strip_metadata_and_preview_gif_loops": "passed",
+    "old_documented_jar_hashes_preserved": true,
+    "legacy_collection_roster_not_rewritten": true
+  },
+  "warnings": [
+    "Daily impacts damage terrain by default; player-built natural stone/soil cannot be distinguished. Back up saves or disable dailyImpacts.",
+    "No client visual approval, actual modpack compatibility certification, natural-spawn/pool-frequency measurement, or long-running impact cadence test.",
+    "Bee products follow hive family; vanilla AI can mix occupants. Productive Bees integration remains unfinished.",
+    "Cosmic Blazes retain vanilla fireball behavior and particles. Emissive masks are not dynamic world lighting.",
+    "Preview PNGs/GIFs are offline references. Blaze Blockbench files are bind-pose studies; runtime orbit animation uses vanilla code.",
+    "No complete release, campaign boss implementation, future alien crops/fruit varieties, machine processing/menu/multiblock formation claim."
+  ],
+  "publication_branches": {"runtime": "1.21.x", "art_generators": "Design", "guides_images_jar_checksum": "Docs", "Released": "untouched"},
+  "installation_policy": "Only zerog_tweaks duplicates moved to timestamped backup outside mods; preserve aeroapiary, geckolib, productivebees, other mods, configs and saves. Verify copied candidate SHA256."
+}
