@@ -15,7 +15,7 @@ DOORS = {'N': ('north', (8, 0), lambda i: (i, 0)), 'S': ('south', (8, 16), lambd
          'W': ('west', (0, 8), lambda i: (0, i)), 'E': ('east', (16, 8), lambda i: (16, i))}
 CENTRE = {(x, z) for x in range(7, 10) for z in range(7, 10)}
 CORR = Z + 'concord_vault/corridors'
-LIGHT = {Z + 'small_cerulite_bud': 1, Z + 'medium_cerulite_bud': 2, Z + 'large_cerulite_bud': 4, Z + 'spectral_lantern': 15, Z + 'pulsar_lamp': 15, Z + 'cerulite_cluster': 5, Z + 'liquid_starlight': 12,
+LIGHT = {'minecraft:campfire': 15, Z + 'small_cerulite_bud': 1, Z + 'medium_cerulite_bud': 2, Z + 'large_cerulite_bud': 4, Z + 'spectral_lantern': 15, Z + 'pulsar_lamp': 15, Z + 'cerulite_cluster': 5, Z + 'liquid_starlight': 12,
          Z + 'starbloom': 7, Z + 'potted_starbloom': 7}
 BANNED = ['_ore', 'cerulite_cluster', 'budding_', 'cerulite_block', 'starlite_block', 'lumenite_block', 'aresite_block', 'gate_', '_casing', 'crystal_cell',
           'minecraft:torch', 'minecraft:wall_torch', 'minecraft:lantern', 'sea_lantern']
@@ -166,7 +166,7 @@ class Room:
         for k, v in (('_slab', 'slab'), ('_stairs', 'stairs'), ('_fence_gate', 'gate'), ('_fence', 'fence'), ('_wall', 'wall'),
                      ('chain', 'chain'), ('rail', 'rail'), ('_trapdoor', 'trapdoor'), ('lectern', 'lectern'), ('chest', 'chest'),
                      ('potted_', 'pot'), ('_pressure_plate', 'plate'), ('_carpet', 'plate'), ('starbloom', 'plant'),
-                     ('cluster', 'plant'), ('_bud', 'bud'), ('_button', 'button'), ('minecraft:water', 'water'), ('liquid_starlight', 'water'), ('composter', 'composter')):
+                     ('cluster', 'plant'), ('_bud', 'bud'), ('_button', 'button'), ('minecraft:water', 'water'), ('liquid_starlight', 'water'), ('composter', 'composter'), ('campfire', 'campfire'), ('minecraft:anvil', 'anvil'), ('grindstone', 'grindstone'), ('cauldron', 'cauldron')):
             if k in n: return v
         return 'full'
 
@@ -212,6 +212,10 @@ class Room:
         if s == 'gate': return [(0, .375, .4375, 1, .9375, .5625)]
         if s == 'water': return [(0, 0, 0, 1, .875, 1)]
         if s == 'composter': return [(0, 0, 0, 1, 1, 1)]
+        if s == 'campfire': return [(0, 0, 0, 1, .44, 1)]
+        if s == 'anvil': return [(.125, 0, .125, .875, .25, .875), (.25, .25, .3, .75, .6, .7), (0, .6, .2, 1, 1, .8)]
+        if s == 'grindstone': return [(.25, .25, .125, .75, .875, .875), (0, 0, .375, .125, .7, .625), (.875, 0, .375, 1, .7, .625)]
+        if s == 'cauldron': return [(0, 0, 0, 1, 1, 1)]
         if s == 'bud':
             h = {'small': .2, 'medium': .3, 'large': .45}[name_of(st).split(':')[1].split('_')[0]]
             f = pr.get('facing', 'up'); w = .3
@@ -257,6 +261,15 @@ def _proc(kind):
             elif kind == 'water': c = (40 + n, 90 + n, 190 + n)
             elif kind == 'spawner': c = (40, 46, 58) if (x % 4 == 0 or y % 4 == 0) else (14, 18, 26)
             elif kind == 'dispenser': c = (96 + n, 98 + n, 104 + n) if not (5 <= x <= 10 and 5 <= y <= 10) else (30, 30, 34) if 6 <= x <= 9 and 6 <= y <= 9 else (60, 60, 66)
+            elif kind in ('furnace', 'blast_furnace'):
+                c = (110 + n, 110 + n, 116 + n) if kind == 'furnace' else (80 + n, 82 + n, 92 + n)
+                if 4 <= x <= 11 and 8 <= y <= 13: c = (30, 26, 24)
+                if kind == 'blast_furnace' and y in (2, 3): c = (150, 150, 158)
+            elif kind == 'anvil': c = (64 + n, 66 + n, 72 + n)
+            elif kind == 'grindstone': c = (130 + n, 130 + n, 128 + n) if 3 < y < 13 else (96, 70, 44)
+            elif kind == 'cauldron': c = (44, 70, 160) if 2 <= x <= 13 and 2 <= y <= 13 else (54 + n, 56 + n, 62 + n)
+            elif kind == 'campfire': c = (255, 170 + n * 3, 60) if (x * 3 + y * 5) % 7 < 3 else (110 + n, 76 + n, 44 + n)
+            elif kind == 'smithing': c = (54 + n, 56 + n, 64 + n) if y < 6 else (120 + n, 86 + n, 52 + n)
             elif kind == 'composter': c = (120 + n, 86 + n, 50 + n) if x in (0, 15) or y in (0, 15) or y % 5 else (70, 52, 32)
             else: c = (200, 0, 200)
             p[x, y] = tuple(int(max(0, min(255, v))) for v in c[:3]) + ((c[3],) if len(c) > 3 else (255,))
@@ -270,7 +283,7 @@ def tex_for(st, face):
     if ns == 'minecraft':
         m = {'barrel': 'barrel_top' if face in ('up', 'down') else 'barrel_side', 'chest': 'chest', 'chain': 'chain', 'rail': 'rail',
              'lectern': 'lectern', 'bookshelf': 'lectern' if face in ('up', 'down') else 'bookshelf', 'crafting_table': 'crafting',
-             'smithing_table': 'crafting', 'cartography_table': 'crafting', 'water': 'water', 'composter': 'composter', 'spawner': 'spawner', 'dispenser': 'dispenser'}.get(n, 'chest')
+             'smithing_table': 'smithing', 'cartography_table': 'crafting', 'water': 'water', 'composter': 'composter', 'spawner': 'spawner', 'dispenser': 'dispenser', 'furnace': 'furnace', 'blast_furnace': 'blast_furnace', 'anvil': 'anvil', 'grindstone': 'grindstone', 'water_cauldron': 'cauldron', 'cauldron': 'cauldron', 'campfire': 'campfire'}.get(n, 'chest')
         im = _proc(m)
     else:
         base = n

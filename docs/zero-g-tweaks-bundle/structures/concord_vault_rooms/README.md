@@ -11,7 +11,8 @@ One sheet and one drop-in template per room. Rules: `../../briefs/concord_vault.
 | 5 | Prismling Nest | `05_prismling_nest.png` | `prismling_nest.nbt` | designed |
 | 6 | Star Library | `06_star_library.png` | `star_library.nbt` | designed |
 | 7 | Trap Hall | `07_trap_hall.png` | `trap_hall.nbt` | designed |
-| 8-10 | forge, observatory, concord_shrine | | | next |
+| 8 | Forge | `08_forge.png` | `forge.nbt` | designed |
+| 9-10 | observatory, concord_shrine | | | next |
 
 Each sheet has two cutaway views, a plan of every layer (y 0-8), the block list with counts, a light map, the loot, connectors and gameplay notes, and the rule check.
 
