@@ -62,8 +62,14 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
                     level.setBlock(pos,hive.defaultBlockState(),2);
                     if(level.getBlockEntity(pos) instanceof net.minecraft.world.level.block.entity.BeehiveBlockEntity storage) {
                         for(int n=0;n<2;n++) {
-                            var bee=net.zerog.tweaks.registry.ZGGlowbugs.TYPES.get(variant).get().create(level.getLevel());
-                            if(bee!=null){bee.setHivePos(pos);storage.storeBee(net.minecraft.world.level.block.entity.BeehiveBlockEntity.Occupant.of(bee));}
+                            // Like vanilla BeehiveDecorator, store data only on the
+                            // worldgen worker. Bee construction initializes goals using
+                            // ServerLevel.random and must wait for server-thread release.
+                            var data=new net.minecraft.nbt.CompoundTag();
+                            var type=net.zerog.tweaks.registry.ZGGlowbugs.TYPES.get(variant).get();
+                            data.putString("id",net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(type).toString());
+                            storage.storeBee(new net.minecraft.world.level.block.entity.BeehiveBlockEntity.Occupant(
+                                    net.minecraft.world.item.component.CustomData.of(data),0,600));
                         }
                     }
                 }
