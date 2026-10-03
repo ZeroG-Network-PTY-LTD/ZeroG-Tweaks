@@ -21,6 +21,10 @@ public final class BlockEntityInit {
                     (pos, state) -> new OreRefineryBlockEntity(BlockEntityInit.ORE_REFINERY.get(), pos, state),
                     BlockInit.ORE_REFINERY.get()).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<net.zerog.tweaks.arena.ConcordPrismBlockEntity>> CONCORD_PRISM =
+            BLOCK_ENTITIES.register("concord_prism", () -> BlockEntityType.Builder.of(
+                    net.zerog.tweaks.arena.ConcordPrismBlockEntity::new, BlockInit.CONCORD_PRISM.get()).build(null));
+
     private BlockEntityInit() {}
 
     public static void register(IEventBus modBus) {

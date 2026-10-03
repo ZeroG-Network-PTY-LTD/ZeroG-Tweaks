@@ -12,6 +12,7 @@ import net.zerog.tweaks.ZeroGTweaks;
 import net.zerog.tweaks.entity.CrystalStag;
 import net.zerog.tweaks.entity.DuneBurrower;
 import net.zerog.tweaks.entity.FrostYak;
+import net.zerog.tweaks.entity.PrismSentinel;
 import net.zerog.tweaks.entity.Prismling;
 import net.zerog.tweaks.entity.RustBeetle;
 import net.zerog.tweaks.entity.Tidewraith;
@@ -45,6 +46,11 @@ public final class EntityInit {
             ENTITIES.register("tidewraith_boss", () -> EntityType.Builder.<TidewraithBoss>of(TidewraithBoss::new, MobCategory.MONSTER)
                     .sized(2.4F, 2.125F).clientTrackingRange(16).build("zerog_tweaks:tidewraith_boss"));
 
+    // Galaxy 2 guardian: raised by the Concord Prism in its Cerulon arena; no natural spawning.
+    public static final DeferredHolder<EntityType<?>, EntityType<PrismSentinel>> PRISM_SENTINEL =
+            ENTITIES.register("prism_sentinel", () -> EntityType.Builder.<PrismSentinel>of(PrismSentinel::new, MobCategory.MONSTER)
+                    .sized(3.6F, 10.8F).fireImmune().clientTrackingRange(16).build("zerog_tweaks:prism_sentinel"));
+
     private EntityInit() {}
 
     public static void register(IEventBus modBus) {
@@ -55,5 +61,6 @@ public final class EntityInit {
     private static void attributes(EntityAttributeCreationEvent event) {
         event.put(TIDEWRAITH.get(), Tidewraith.createAttributes().build());
         event.put(TIDEWRAITH_BOSS.get(), TidewraithBoss.createAttributes().build());
+        event.put(PRISM_SENTINEL.get(), PrismSentinel.createAttributes().build());
     }
 }

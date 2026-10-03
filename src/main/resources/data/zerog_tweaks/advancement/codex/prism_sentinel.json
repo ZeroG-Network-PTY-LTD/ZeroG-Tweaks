@@ -24,11 +24,26 @@
           }
         ]
       }
+    },
+    "defeated_prism_sentinel": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "zerog_tweaks:prism_sentinel"
+            }
+          }
+        ]
+      }
     }
   },
   "requirements": [
     [
-      "has_sentinel_prism"
+      "has_sentinel_prism",
+      "defeated_prism_sentinel"
     ]
   ],
   "parent": "zerog_tweaks:codex/cerulite"
