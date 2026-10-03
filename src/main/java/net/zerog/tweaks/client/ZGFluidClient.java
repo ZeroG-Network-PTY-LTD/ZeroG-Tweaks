@@ -23,6 +23,26 @@ public final class ZGFluidClient {
 
     @SubscribeEvent
     public static void extensions(RegisterClientExtensionsEvent event) {
+        for(var honey:net.zerog.tweaks.registry.ZGPlanetApiary.FAMILIES.values()) {
+            event.registerFluidType(new IClientFluidTypeExtensions(){
+                @Override public ResourceLocation getStillTexture(){return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID,"block/"+honey.id+"_honey_still");}
+                @Override public ResourceLocation getFlowingTexture(){return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID,"block/"+honey.id+"_honey_flow");}
+            },honey.type.get());
+        }
+        for (var liquid : net.zerog.tweaks.registry.ZGDimensionFluids.ALL) {
+            event.registerFluidType(new IClientFluidTypeExtensions() {
+                @Override public ResourceLocation getStillTexture() {
+                    return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID, "block/" + liquid.id + "_still");
+                }
+                @Override public ResourceLocation getFlowingTexture() {
+                    return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID, "block/" + liquid.id + "_flow");
+                }
+                @Override public Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level,
+                        int renderDistance, float darkenWorldAmount, Vector3f colour) {
+                    return new Vector3f(((liquid.fog >> 16) & 255) / 255F, ((liquid.fog >> 8) & 255) / 255F, (liquid.fog & 255) / 255F);
+                }
+            }, liquid.type.get());
+        }
         event.registerFluidType(new IClientFluidTypeExtensions() {
             @Override public ResourceLocation getStillTexture() { return STILL; }
             @Override public ResourceLocation getFlowingTexture() { return FLOW; }
@@ -39,6 +59,14 @@ public final class ZGFluidClient {
     @SuppressWarnings("deprecation")
     public static void setup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            for(var honey:net.zerog.tweaks.registry.ZGPlanetApiary.FAMILIES.values()) {
+                ItemBlockRenderTypes.setRenderLayer(honey.source.get(),RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(honey.flowing.get(),RenderType.translucent());
+            }
+            for (var liquid : net.zerog.tweaks.registry.ZGDimensionFluids.ALL) {
+                ItemBlockRenderTypes.setRenderLayer(liquid.source.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(liquid.flowing.get(), RenderType.translucent());
+            }
             ItemBlockRenderTypes.setRenderLayer(ZGFluids.LIQUID_STARLIGHT.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ZGFluids.FLOWING_LIQUID_STARLIGHT.get(), RenderType.translucent());
         });

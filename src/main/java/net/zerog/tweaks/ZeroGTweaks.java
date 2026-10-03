@@ -13,7 +13,8 @@ import net.zerog.tweaks.worldgen.ZGStructures;
 public final class ZeroGTweaks {
     public static final String MODID = "zerog_tweaks";
 
-    public ZeroGTweaks(IEventBus modBus) {
+    public ZeroGTweaks(IEventBus modBus, net.neoforged.fml.ModContainer container) {
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON, net.zerog.tweaks.registry.ZGEcologyConfig.SPEC);
         ModInit.register(modBus);
         ZGArmorMaterials.register(modBus);
         TidewraithContent.register(modBus);
@@ -22,5 +23,6 @@ public final class ZeroGTweaks {
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::incomingDamage);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::breakSpeed);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::playerTick);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.DailyPlanetImpacts::tick);
     }
 }

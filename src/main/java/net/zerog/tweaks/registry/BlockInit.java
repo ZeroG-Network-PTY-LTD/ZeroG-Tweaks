@@ -948,7 +948,10 @@ public final class BlockInit {
 
     public static void register(IEventBus bus) {
         ZGCrystalGrowth.init();
+        ZGDimensionTerrain.init();
+        ZGDimensionFluids.init();
         BLOCKS.register(bus);
+        bus.addListener(ZGDimensionFluids::setup);
         bus.addListener(BlockInit::onCommonSetup);
     }
 

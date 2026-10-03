@@ -7,6 +7,11 @@ Current candidate: **1.0.1-dev**. Includes the latest Cerulon terrain/mob work,
 four amethyst-style budding crystal families, animated light-12 Star Glass,
 six planet Star Sands and updated crystal/ingot/raw-metal artwork.
 See the [illustrated update and installation guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/crystal-material-update-1.21.1.md).
+The [dimension ecology guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/dimension-ecology-1.21.1.md)
+covers 34 soil/farming/grass/sand families, five additional dimensional fluids
+and pools, glowing vegetation/bugs, gas vents and daily impact remnants.
+**Daily impacts excavate terrain by default. Back up saves; disable
+`dailyImpacts` in `config/zerog_tweaks-common.toml` if unwanted.**
 
 - [Full illustrated documentation and descriptions](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/README.md)
 - [Armour, Bees, materials, mobs, eggs and drops gallery](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/current-collection-guide-1.21.1.md)
@@ -19,6 +24,13 @@ Implemented: 80 functional armour pieces, 100 tools, eight partial full-set
 bonuses, approved regular/boss Tidewraith pair, deposit/fence repairs, and a
 G-key guide for eight apiary structures: layers from Y=0, rotatable views,
 coordinates and quantities. Genetics/cryo are separate external modules.
+
+New vanilla-rig creatures: twelve half-size bee families with animated wing
+textures, hives, combs, bottled/bucket honey and planet nests; six cosmic Blaze
+types with three persistent palettes each, emissive rods/eyes and matching rod
+drops. See the [bee/Blaze guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/planet-bees-and-blazes-1.21.1.md).
+Isolated server checks: 52 passed, including all planet soils and existing saplings. Client visuals and modpack compatibility
+remain unverified; these are not claims of final visual approval.
 
 Still unfinished: HD worn-armour rendering, remaining creature gameplay,
 Productive Bees integration, machine processing/menus, multiblock formation,

@@ -33,6 +33,10 @@ public final class ZGSpawnRules {
     @SubscribeEvent
     public static void register(RegisterSpawnPlacementsEvent event) {
         var replace = RegisterSpawnPlacementsEvent.Operation.REPLACE;
+        ZGPlanetBlazes.TYPES.values().forEach(type->event.register(type.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules,replace));
+        ZGGlowbugs.TYPES.values().forEach(type->event.register(type.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                (entity,level,reason,pos,random)->level.getBlockState(pos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON)&&level.getRawBrightness(pos,0)>8,replace));
         event.register(EntityInit.CRYSTAL_STAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ZGSpawnRules::landAnimal, replace);
         event.register(EntityInit.AZURE_FOWL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
