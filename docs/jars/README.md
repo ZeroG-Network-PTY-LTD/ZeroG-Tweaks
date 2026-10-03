@@ -1,6 +1,17 @@
 # Development candidate — not a shipped release
 
-## Current: zerog-tweaks-1.21.1-1.0.5-dev.jar
+## Current: zerog-tweaks-1.21.1-1.0.6-dev.jar
+
+See [the illustrated generation and gate field guide](../planet-generation-1.0.6.md)
+and [all item-model art references](../runtime-item-catalog-1.0.6.md). Independent
+planet terrain, four colony layouts, persistent space-clothed villagers, supported
+mineshafts, arrival protection/repair, comet placement fixes, animated sky and
+Blue/Teal connected Star Glass. Clean build, five static contracts, native server
+integration and packaged artwork/reference checks passed. Client/GPU/modpack
+review remains pending. The user-authorized installation backs up 1.0.5 outside
+mods and preserves unrelated mods; a NEW seed-0 showcase preserves the old save.
+
+## Historical: zerog-tweaks-1.21.1-1.0.5-dev.jar
 
 See [test hub and gameplay update](../planet-test-hub-1.21.1.md),
 [cosmetic weather](../alien-weather-1.21.1.md) and

@@ -1,5 +1,11 @@
 # Planet test hub and current gameplay candidate
 
+**Historical 1.0.5 snapshot.** For the fresh 1.0.6 showcase, independent planetary
+generation, inhabited colonies and current tests, read the
+[new field guide](planet-generation-1.0.6.md). The older exported save below is
+preserved, not regenerated or deleted. This guide's old unfinished-status notes
+are not the current colony/clothing implementation status.
+
 Minecraft Java 1.21.1, NeoForge 21.1.252, Java 21, GeckoLib 4.9.3.
 Current candidate: `zerog-tweaks-1.21.1-1.0.5-dev.jar`.
 

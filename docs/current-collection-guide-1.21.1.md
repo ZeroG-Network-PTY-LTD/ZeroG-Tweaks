@@ -1,5 +1,12 @@
 # ZeroG 1.21.1 — illustrated collection guide
 
+**Preserved historical collection.** Current runtime candidate is **1.0.6-dev**;
+see the [new field guide](planet-generation-1.0.6.md) and
+[exhaustive runtime item-model artwork index](runtime-item-catalog-1.0.6.md).
+Historical art and counts below remain available. Miniature vanilla-rig planet
+bees/hives now exist as described in [the bee/Blaze guide](planet-bees-and-blazes-1.21.1.md);
+older entity-pending statements do not override that implementation.
+
 **Current development candidate: 1.0.1-dev.** Read the
 [latest illustrated update](crystal-material-update-1.21.1.md) for the new
 crystal/metal artwork, budding growth, Star Glass, planet sands and newest

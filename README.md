@@ -5,7 +5,66 @@ Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's
 economy together. This local work-in-progress also requires GeckoLib for the Tidewraith integration.
 
-Current candidate **1.0.5-dev** · NeoForge **21.1.252** · Minecraft **1.21.1** · Java **21**
+Current candidate **1.0.6-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
+
+## Explore ZeroG — current field guide
+
+[Download 1.0.6-dev](docs/jars/zerog-tweaks-1.21.1-1.0.6-dev.jar)
+· [SHA-256 checksums](docs/jars/SHA256SUMS.txt)
+· [Fresh planets, colonies, caves, glass and gate building](docs/planet-generation-1.0.6.md)
+· [All 4,096 item-model artwork references](docs/runtime-item-catalog-1.0.6.md).
+
+The new local **ZeroG Planet Showcase 1.0.6 — Seed 0** contains 34 independently
+seeded planetary terrains, 68 active destination/return gates, and one inhabited
+demonstration colony per destination at X/Z=136/136. Seed **0**, hub spawn
+**62 / 65 / 0**. The previous save is preserved: use the new showcase rather than
+expecting already explored chunks to regenerate. Natural four-layout colonies,
+space-clothed vanilla villagers and supported mining galleries now generate.
+The current server check found four natural Martian colonies in its test area.
+
+![Original animated-sky source — still artwork reference, not an in-game screenshot](docs/images/planet-generation-1.0.6/universe_v2.png)
+
+Planet skies now rotate smoothly with twinkling stars; Blue and Teal Star Glass
+join Purple as inventory items, with same-colour connected galaxy projection.
+Gate arrival pads resist damage and impacts. Comets retain weaker shells and rare
+cores and can land at seabeds. **Client visuals remain for in-game review**;
+small automated ecology samples contained no tree logs. The generation/debugging
+checks certify their stated server assertions, not the whole modpack.
+
+### Themed atlas and illustrated systems
+
+| Explore | What the illustrated guide covers |
+| --- | --- |
+| [Planets and ecology](docs/dimension-ecology-1.21.1.md) | 34 soil/farmland/grass/sand identities, native plants and liquids, flora and impacts; read the 1.0.6 field guide for current generation changes |
+| [Seeds, crops and minerals](docs/planet-art-and-minerals-1.21.1.md) | Six grain crops, Torch Blossoms, native soil art and twelve additional mineral families |
+| [Bees, hives, combs and Blazes](docs/planet-bees-and-blazes-1.21.1.md) | Twelve half-size vanilla-rig bee families and coordinated products, six rare Blaze families with palette/rod variants |
+| [Armour, wieldables and materials](docs/current-collection-guide-1.21.1.md) | Twenty material equipment families, fitted art, tool studies and honest runtime/renderer boundaries |
+| [Apiaries and frames](docs/multiblock-reference-guide.md) | Eight tiered assembly references, frame housings, ports and external gene/cryo modules; G opens the rotating layered guide |
+| [Mobs, eggs and drops](docs/current-collection-guide-1.21.1.md#approved-tidewraith-pair-other-mobs-and-drops) | Approved Tidewraith pair, preserved roster, palette/drop/egg studies; not every study is registered |
+| [Crystals and Star Glass](docs/crystal-material-update-1.21.1.md) | Budding crystal growth, metals, raw materials and animated glass; current variant/connection rules in the 1.0.6 guide |
+| [Gate assembly and travel](docs/planet-generation-1.0.6.md#t6-test-gate--exact-assembly) | Exact part positions, labelled diagram, test power, operator binding and FE limits |
+| [Food, crafting and liquids](docs/planet-test-hub-1.21.1.md) | Eating/cooking, hide/leather, flower/dye conversions and dedicated liquid tab |
+| [Weather and optional realism](docs/alien-weather-1.21.1.md) | Dust, ash, storms and cosmetic lightning; separate from terrain-damaging comets |
+| [Complete artwork index](docs/runtime-item-catalog-1.0.6.md) | 41 texture-reference sheets plus searchable local HTML and exact model IDs; not a registered-item count or 3D render |
+
+![Preserved bee frames and genetics showcase](docs/images/collection-gallery-1.21.1/bees-frames-and-genetics.png)
+
+![Preserved fitted armour collection](https://raw.githubusercontent.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/Design/docs/asset-collection-1.21.1/armour/lineup.png)
+
+### What is deliberately unfinished
+
+The apiary guide is not a working production GUI or formation system. Genetics,
+frame effects, processing/export automation and full Productive Bees integration
+remain pending. Fitted/animated HD armour studies are not the current vanilla-layer
+worn renderer. Catalogue-only mobs, final boss phases/arenas, bespoke alien trades,
+all-seed ecology coverage and client/GPU/modpack validation remain future work.
+See [the full current field guide](docs/planet-generation-1.0.6.md) for exact scope.
+
+### Preserved update history
+
+Everything below is retained historical documentation. Older candidate counts,
+test evidence and unfinished-status statements describe their own snapshots;
+the 1.0.6 field guide above supersedes them where implementation changed.
 
 ## Current development update — weather, planets and the test hub
 
@@ -164,7 +223,7 @@ Older branches remain untouched. Never merge the Design/Docs histories into code
 or vice versa. Full migration details are in the
 [branch publication record](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/branch-publication.md).
 
-## What's in this mod
+## Historical content summary (superseded counts)
 
 - **86 planet/terrain blocks, stone families, woods** — lunar/martian/abyssal stone sets, a glass and sand type for every planet (lunar, rust, crystal, frost, tide, dune, shimmer), the Nullifite family.
 - **4 standing crystals/clusters** — Brine Crystal, Frost Crystal, Cerulite Cluster, Prism Cluster. Render as vanilla amethyst-cluster-style billboards and behave like real clusters: thin spike hitbox, place against any clicked face, pop when the support block is removed, sheared off by pistons (PushReaction.DESTROY).
@@ -191,7 +250,7 @@ with this unreviewed build.
     ./gradlew build          # Linux/macOS
     gradlew.bat build        # Windows
 
-Output: build/libs/zerog-tweaks-1.21.1-1.0.2-dev.jar
+Output: build/libs/zerog-tweaks-1.21.1-1.0.6-dev.jar
 
 First build pulls NeoForge, NeoForm and Parchment, and recompiles vanilla
 sources — expect 5–15 minutes. Incremental builds after that run ~15s
