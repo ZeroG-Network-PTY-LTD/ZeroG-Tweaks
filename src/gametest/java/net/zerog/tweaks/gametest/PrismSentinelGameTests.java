@@ -61,6 +61,20 @@ public final class PrismSentinelGameTests {
         });
     }
 
+    @GameTest(template = "equipment_empty", timeoutTicks = 120)
+    public static void dying_sentinel_does_not_change_phase(GameTestHelper helper) {
+        helper.getLevel().getServer().setDifficulty(Difficulty.NORMAL, true);
+        var boss = helper.spawn(EntityInit.PRISM_SENTINEL.get(), 8, 2, 8);
+        helper.runAfterDelay(PrismSentinel.INTRO_TICKS + 5, () -> {
+            helper.assertTrue(boss.getPhase() == 1, "Phase 1 after the intro");
+            boss.kill();
+            helper.runAfterDelay(5, () -> {
+                helper.assertTrue(boss.getPhase() == 1, "A dying Sentinel jumped to phase " + boss.getPhase());
+                helper.succeed();
+            });
+        });
+    }
+
     @GameTest(template = "equipment_empty", timeoutTicks = 40)
     public static void anchor_and_rematch_survive_reload(GameTestHelper helper) {
         var boss = EntityInit.PRISM_SENTINEL.get().create(helper.getLevel());

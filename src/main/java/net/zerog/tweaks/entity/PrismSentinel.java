@@ -184,7 +184,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
     public void aiStep() {
         super.aiStep();
         setNoGravity(true);
-        if (level().isClientSide) return;
+        if (level().isClientSide || isDeadOrDying()) return;   // no phase change (or chat line) while dying
         // egg/command: treat the spawn point as the fight floor of an imaginary arena around it
         if (anchor == null) anchor = blockPosition().above(PrismArena.FLOOR_BELOW_PRISM - 1);
         int phase = getPhase();
