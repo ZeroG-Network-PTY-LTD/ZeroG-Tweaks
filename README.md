@@ -7,7 +7,19 @@ economy together. This local work-in-progress also requires GeckoLib for the Tid
 
 Current development build **1.0.12-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
 
-## Current 1.0.12-dev hotfix: artwork, Orbital Bees controllers and vanilla sky
+## Current addition: single-block machines and use-specific interfaces
+
+[Single-block machine guide](docs/single-block-machines-1.0.12.md): Genetic Splicer
+and Geno Station are now single cubes with detailed 32-pixel faces and animated
+terminals. Eleven existing machine menus have clearer input/output layouts.
+Six unfinished core machines and twenty hatches/ports expose labelled read-only
+interface plans, not fake working inventories. Genetics processing remains pending.
+The resource-only Orbital Bees repair removes obsolete model assets while keeping
+classes, data and IDs unchanged. Both previous jars are backed up before installation.
+
+![Native single-block face previews, not in-game captures](docs/images/single-block-machines-1.0.12/single-block-faces.png)
+
+## 1.0.12-dev hotfix: artwork, Orbital Bees controllers and vanilla sky
 
 [Detailed visual and controller guide](docs/art-and-controller-hotfix-1.0.12.md):
 recovered coloured bee icons, native A/C material/food/plant art, wood/leaves and
