@@ -7,13 +7,31 @@ economy together. This local work-in-progress also requires GeckoLib for the Tid
 
 Current development build **1.0.12-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
 
-## Current addition: single-block machines and use-specific interfaces
+## Current addition: working optional bee genetics and approved artwork
+
+[Workflow and verification ledger](docs/sol-build-workflow-2026-10-05.md): Geno
+Station analysis/sampling and Genetic Splicer single-trait jobs now have
+server-validated controls, power, jelly catalysts, recovery slots and persistent
+state. Four isolated Productive Bees integration tests and a no-optional-mod
+startup test passed. Full alveary progression and transport remain unfinished;
+client visual approval is still required. Version remains **1.0.12-dev**.
+
+![Approved equipment and vegetation concept—not installed textures](docs/images/genetics-runtime-v1/approved-equipment-vegetation-concept.png)
+
+Both equipment palettes and A/C vegetation are approved. This is reference art,
+not a native game-ready texture atlas. The next production pass covers equipment,
+materials, farming, flowers, trees, vines and underwater vegetation. Existing
+galleries are retained. The selected 1.0.9 hub's planetary refresh remains pending
+until terrain, gate records and structure/ecology checks are verified together.
+
+## Single-block machines and use-specific interfaces
 
 [Single-block machine guide](docs/single-block-machines-1.0.12.md): Genetic Splicer
 and Geno Station are now single cubes with detailed 32-pixel faces and animated
 terminals. Eleven existing machine menus have clearer input/output layouts.
 Six unfinished core machines and twenty hatches/ports expose labelled read-only
-interface plans, not fake working inventories. Genetics processing remains pending.
+interface plans, not fake working inventories. The genetics implementation above
+replaces the two terminals' older placeholder processing.
 The resource-only Orbital Bees repair removes obsolete model assets while keeping
 classes, data and IDs unchanged. Both previous jars are backed up before installation.
 
