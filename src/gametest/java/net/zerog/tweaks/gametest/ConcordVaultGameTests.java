@@ -73,6 +73,36 @@ public final class ConcordVaultGameTests {
     }
 
     @GameTest(template = "equipment_empty", timeoutTicks = 20)
+    public static void keys_are_scattered_over_different_rooms(GameTestHelper helper) {
+        // 12 rooms on a grid around a chamber at the origin, 40 blocks apart
+        var rooms = new java.util.ArrayList<net.minecraft.world.level.levelgen.structure.BoundingBox>();
+        for (int gx = -1; gx <= 2; gx++) {
+            for (int gz = -1; gz <= 1; gz++) {
+                int x = gx * 40, z = gz * 40 + 60;
+                rooms.add(new net.minecraft.world.level.levelgen.structure.BoundingBox(x, 0, z, x + 16, 8, z + 16));
+            }
+        }
+        for (int seed = 0; seed < 20; seed++) {
+            var picks = net.zerog.tweaks.worldgen.ConcordVaultStructure.pickKeyRooms(rooms, BlockPos.ZERO, 4,
+                    net.minecraft.util.RandomSource.create(seed));
+            helper.assertTrue(picks.size() == 4 && new java.util.HashSet<>(picks).size() == 4, "Need 4 keys in 4 different rooms");
+            double closest = Double.MAX_VALUE;
+            for (int i = 0; i < picks.size(); i++) {
+                for (int j = i + 1; j < picks.size(); j++) {
+                    closest = Math.min(closest, Math.hypot(picks.get(i).getX() - picks.get(j).getX(), picks.get(i).getZ() - picks.get(j).getZ()));
+                }
+            }
+            helper.assertTrue(closest >= 40, "Keys should not be in neighbouring rooms (closest pair " + closest + ")");
+            double first = Math.hypot(picks.get(0).getX(), picks.get(0).getZ());
+            helper.assertTrue(first >= 80, "The first key should be in one of the far rooms (" + first + ")");
+        }
+        var few = net.zerog.tweaks.worldgen.ConcordVaultStructure.pickKeyRooms(rooms.subList(0, 3), BlockPos.ZERO, 4,
+                net.minecraft.util.RandomSource.create(1));
+        helper.assertTrue(few.size() == 3, "Never more keys than rooms");
+        helper.succeed();
+    }
+
+    @GameTest(template = "equipment_empty", timeoutTicks = 20)
     public static void lock_rotation_matches_the_structure(GameTestHelper helper) {
         helper.assertTrue(ConcordLockBlock.rotationOf(Direction.SOUTH) == net.minecraft.world.level.block.Rotation.NONE
                 && ConcordLockBlock.rotationOf(Direction.WEST) == net.minecraft.world.level.block.Rotation.CLOCKWISE_90
