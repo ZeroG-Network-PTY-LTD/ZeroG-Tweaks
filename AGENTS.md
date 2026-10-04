@@ -35,6 +35,8 @@ Rules:
 
 ## Ground rules
 
+- **Current verified genetics milestone (2026-10-05):** `genetics/` plus optional mixins implement analysis, sampling and single-trait splicing using the installed Productive Bees cage/attachment API. Four isolated integration tests and one no-optional-mod startup test passed. Use `-PgeneticsTests` only for disposable test runs; rebuild normally before distribution so test classes do not ship. Do not reintroduce queen/princess/fertility assumptions. Full alveary progression, transport and the supplied Sol backlog are still separate work; see [the workflow ledger](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/sol-build-workflow-2026-10-05.md). Never mark client visual approval or the selected hub's planetary regeneration complete from a compilation or headless genetics test.
+
 - **Locked artwork standard (Claude and all contributors):** read [Design/docs/art-direction-lock.md](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/art-direction-lock.md) before creating or changing textures. Equipment/materials use C magitech; vegetation blends A natural shading and C selective luminous buds/fruit. Use centred readable sprites, hue-shifted shadows/highlights, coherent pixel density, and matching inventory/placed artwork. No flat placeholders, no gems in dirt/farmland; update generators and validate active resource-pack layers. Concept previews are not in-game proof.
 
 - **Platform:** Minecraft 1.21.1, NeoForge 21.1.x (ModDevGradle), Java 21, Parchment mappings. Mod id `zerog_tweaks`, package `net.zerog.tweaks`.

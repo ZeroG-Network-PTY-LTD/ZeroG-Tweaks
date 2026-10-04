@@ -43,6 +43,11 @@ if (providers.gradleProperty('tidewraithTests').isPresent()) {
 if (providers.gradleProperty('clientReview').isPresent()) {
     sourceSets.main.java.srcDir 'src/client-review/java'
 }
+if (providers.gradleProperty('geneticsTests').isPresent()) {
+    sourceSets.main.java.srcDir 'src/genetics-gametest/java'
+    sourceSets.main.resources.srcDir 'src/genetics-gametest/resources'
+    sourceSets.main.resources.srcDir 'src/gametest/resources'
+}
 if (providers.gradleProperty('planetHubTests').isPresent()) {
     sourceSets.main.java.srcDir 'src/planet-hub-gametest/java'
     sourceSets.main.resources.srcDir 'src/planet-hub-gametest/resources'
@@ -58,6 +63,11 @@ neoForge {
     }
 
     runs {
+        geneticsTests {
+            type = 'gameTestServer'
+            gameDirectory = file(providers.gradleProperty('geneticsTestDirectory').getOrElse('run-local-genetics-20261005'))
+            systemProperty 'neoforge.enabledGameTestNamespaces', providers.gradleProperty('geneticsTestNamespaces').getOrElse('zerog_tweaks')
+        }
         zeroGTests {
             type = 'gameTestServer'
             gameDirectory = file('run-local-zerog-tests')

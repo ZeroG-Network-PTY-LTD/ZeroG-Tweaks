@@ -23,6 +23,14 @@ public final class MenuInit {
     public static final DeferredRegister<MenuType<?>> MENUS =
             DeferredRegister.create(Registries.MENU, ZeroGTweaks.MODID);
 
+    public static final DeferredHolder<MenuType<?>, MenuType<net.zerog.tweaks.genetics.GeneticsMenu>> GENETICS =
+        MENUS.register("genetics",()->IMenuTypeExtension.create((window,inv,buf)-> {
+            BlockEntity machine=inv.player.level().getBlockEntity(buf.readBlockPos());
+            if(machine==null||!net.zerog.tweaks.genetics.GeneticsRuntime.handles(net.zerog.tweaks.genetics.GeneticsRuntime.id(machine)))
+                throw new IllegalStateException("Genetics menu position is not a supported machine");
+            return new net.zerog.tweaks.genetics.GeneticsMenu(window,inv,machine);
+        }));
+
     public static final DeferredHolder<MenuType<?>, MenuType<OreRefineryMenu>> ORE_REFINERY =
             MENUS.register("ore_refinery", () -> IMenuTypeExtension.create(
                     (int windowId, Inventory inv, RegistryFriendlyByteBuf buf) -> {

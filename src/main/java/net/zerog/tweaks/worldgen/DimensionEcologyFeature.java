@@ -17,6 +17,8 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
         var level=context.level(); var random=context.random(); var dim=level.getLevel().dimension().location().getPath();
         if (!ZGDimensionTerrain.SOILS.containsKey(dim)) return false;
         var theme=PlanetEcologyProfile.theme(dim);
+        String biome=level.getBiome(context.origin()).unwrapKey().map(k->k.location().getPath()).orElse("");
+        var habitat=PlanetEcologyProfile.habitat(dim,biome);
         var origin=context.origin(); var soil=ZGDimensionTerrain.SOILS.get(dim).get(); var grass=ZGDimensionTerrain.GRASS.get(dim).get();
         int radius=3+random.nextInt(3); boolean changed=false;
         for (int x=-radius;x<=radius;x++) for (int z=-radius;z<=radius;z++) {
@@ -30,17 +32,17 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
             level.setBlock(pos,grass.defaultBlockState(),2);
             if (level.getBlockState(pos.below()).is(previous.getBlock())) level.setBlock(pos.below(),soil.defaultBlockState(),2);
             changed=true;
-            if(random.nextInt(14)==0 && level.isEmptyBlock(pos.above())) {
+            if(random.nextInt(habitat.flowerChance())==0 && level.isEmptyBlock(pos.above())) {
                 var choices=random.nextBoolean()?net.zerog.tweaks.registry.ZGPlanetBotany.FLOWERS.get(theme)
                         :net.zerog.tweaks.registry.ZGPlanetBotany.SHRUBS.get(theme);
                 var plant=net.zerog.tweaks.registry.ZGPlanetBotany.PLANTS.get(choices.get(random.nextInt(choices.size()))).get().defaultBlockState();
                 if(plant.canSurvive(level,pos.above()))level.setBlock(pos.above(),plant,2);
             }
-            if (random.nextInt(5)==0 && level.isEmptyBlock(pos.above())) {
+            if (random.nextInt(habitat.shortGrassChance())==0 && level.isEmptyBlock(pos.above())) {
                 var plant=ZGDimensionTerrain.SHORT_GRASS.get(dim).get().defaultBlockState();
                 if (plant.canSurvive(level,pos.above())) level.setBlock(pos.above(),plant,2);
             }
-            if (random.nextInt(18)==0 && level.isEmptyBlock(pos.above()) && level.isEmptyBlock(pos.above(2))) {
+            if (random.nextInt(habitat.tallGrassChance())==0 && level.isEmptyBlock(pos.above()) && level.isEmptyBlock(pos.above(2))) {
                 var plant=ZGDimensionTerrain.TALL_GRASS.get(dim).get().defaultBlockState();
                 if(plant.canSurvive(level,pos.above())) net.minecraft.world.level.block.DoublePlantBlock.placeAt(level,plant,pos.above(),2);
             }
@@ -54,7 +56,7 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
                 if (plant.canSurvive(level,pos.above())) level.setBlock(pos.above(),plant,2);
             }
         }
-        if (changed && random.nextInt(3)==0) {
+        if (changed && random.nextInt(habitat.treeChance())==0) {
             String tree=PlanetEcologyProfile.tree(dim);
             var key=ResourceLocation.fromNamespaceAndPath("zerog_tweaks",tree+"_tree");
             var configured=level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).get(key);

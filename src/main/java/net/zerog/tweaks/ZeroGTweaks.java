@@ -19,6 +19,7 @@ public final class ZeroGTweaks {
         ModInit.register(modBus);
         ZGArmorMaterials.register(modBus);
         TidewraithContent.register(modBus);
+        modBus.addListener(net.zerog.tweaks.genetics.GeneticsIntegration::capabilities);
         ZGStructures.register(modBus);
         net.zerog.tweaks.registry.ZGFluids.register(modBus);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::incomingDamage);

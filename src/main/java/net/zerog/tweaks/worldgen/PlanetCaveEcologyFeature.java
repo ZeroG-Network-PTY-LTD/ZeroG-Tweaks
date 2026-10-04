@@ -27,20 +27,22 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
         String dim=level.getLevel().dimension().location().getPath();
         if(!ZGDimensionTerrain.SOILS.containsKey(dim)) return false;
         var random=context.random(); String theme=PlanetEcologyProfile.theme(dim);
+        String biome=level.getBiome(context.origin()).unwrapKey().map(k->k.location().getPath()).orElse("");
+        var habitat=PlanetEcologyProfile.habitat(dim,biome);
         int chunkX=context.origin().getX()&~15,chunkZ=context.origin().getZ()&~15;
         boolean changed=false;
-        for(int column=0;column<32;column++) {
+        for(int column=0;column<habitat.caveColumns();column++) {
             int x=chunkX+1+random.nextInt(14),z=chunkZ+1+random.nextInt(14);
             int surface=level.getHeight(Heightmap.Types.WORLD_SURFACE_WG,x,z);
             for(int y=level.getMinBuildHeight()+8;y<Math.min(surface-8,level.getMaxBuildHeight()-8);y++) {
                 var pos=new BlockPos(x,y,z);
                 if(level.isEmptyBlock(pos)) {
-                    if(natural(level,pos.above()) && random.nextInt(14)==0) {
-                        if(random.nextBoolean()) changed|=hang(level,random,pos,theme,2+random.nextInt(5));
-                        else changed|=spike(level,pos,Direction.DOWN,1+random.nextInt(3));
+                    if(natural(level,pos.above()) && random.nextInt(habitat.hangingChance())==0) {
+                        if(random.nextBoolean()) changed|=hang(level,random,pos,theme,3+random.nextInt(5));
+                        else changed|=spike(level,pos,Direction.DOWN,1+random.nextInt(5));
                     }
-                    if(natural(level,pos.below()) && random.nextInt(12)==0) {
-                        if(random.nextBoolean()) changed|=spike(level,pos,Direction.UP,1+random.nextInt(3));
+                    if(level.isEmptyBlock(pos) && natural(level,pos.below()) && random.nextInt(habitat.floorChance())==0) {
+                        if(random.nextBoolean()) changed|=spike(level,pos,Direction.UP,1+random.nextInt(4));
                         else {
                             // A small fertile pocket supports the existing glowing alien mushroom.
                             level.setBlock(pos.below(),ZGDimensionTerrain.SOILS.get(dim).get().defaultBlockState(),2);
@@ -48,14 +50,14 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
                             if(mushroom.canSurvive(level,pos)) { level.setBlock(pos,mushroom,2);changed=true; }
                         }
                     }
-                    if(random.nextInt(24)==0) for(var face:Direction.Plane.HORIZONTAL) {
+                    if(level.isEmptyBlock(pos) && random.nextInt(18)==0) for(var face:Direction.Plane.HORIZONTAL) {
                         if(!natural(level,pos.relative(face))) continue;
                         var lichen=(theme.equals("mars")?BlockInit.RUST_LICHEN.get():BlockInit.LUNAR_LICHEN.get())
                                 .defaultBlockState().setValue(MultifaceBlock.getFaceProperty(face),true);
                         if(lichen.canSurvive(level,pos)) {level.setBlock(pos,lichen,2);changed=true;}
                         break;
                     }
-                    if(level.isEmptyBlock(pos) && random.nextInt(28)==0)for(var face:Direction.Plane.HORIZONTAL) {
+                    if(level.isEmptyBlock(pos) && random.nextInt(20)==0)for(var face:Direction.Plane.HORIZONTAL) {
                         if(!natural(level,pos.relative(face)))continue;
                         String kind=net.zerog.tweaks.registry.ZGAlienVines.KINDS.get(random.nextInt(4));
                         var vine=net.zerog.tweaks.registry.ZGAlienVines.VINES.get(theme+"_"+kind).get().defaultBlockState()
@@ -64,10 +66,10 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
                         if(vine.canSurvive(level,pos)){level.setBlock(pos,vine,2);changed=true;}
                         break;
                     }
-                } else if(level.getFluidState(pos).is(FluidTags.WATER) && natural(level,pos.below()) && random.nextInt(10)==0) {
+                } else if(level.getFluidState(pos).is(FluidTags.WATER) && natural(level,pos.below()) && random.nextInt(7)==0) {
                     var kelp=BlockInit.GLOWKELP.get().defaultBlockState();
                     if(kelp.canSurvive(level,pos)) {
-                        int height=1+random.nextInt(4);
+                        int height=2+random.nextInt(5);
                         for(int n=0;n<height;n++) {
                             var p=pos.above(n);
                             if(!level.getBlockState(p).is(Blocks.WATER)) break;
@@ -86,11 +88,11 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
         for(int x=-3;x<=3;x++) for(int z=-3;z<=3;z++) for(int y=3;y<=9;y++) {
             var leaf=trunk.offset(x,y,z);
             if(!level.getBlockState(leaf).is(BlockTags.LEAVES)) continue;
-            if(level.isEmptyBlock(leaf.below()) && random.nextInt(10)==0)
+            if(level.isEmptyBlock(leaf.below()) && random.nextInt(7)==0)
                 hang(level,random,leaf.below(),theme,2+random.nextInt(4));
             for(var face:Direction.Plane.HORIZONTAL) {
                 var pos=leaf.relative(face);
-                if(!level.isEmptyBlock(pos)||random.nextInt(20)!=0) continue;
+                if(!level.isEmptyBlock(pos)||random.nextInt(14)!=0) continue;
                 String kind=net.zerog.tweaks.registry.ZGAlienVines.KINDS.get(random.nextInt(4));
                 var vine=net.zerog.tweaks.registry.ZGAlienVines.VINES.get(theme+"_"+kind).get().defaultBlockState()
                         .setValue(VineBlock.getPropertyForFace(face.getOpposite()),true)
