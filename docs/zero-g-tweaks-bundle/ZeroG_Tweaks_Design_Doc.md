@@ -744,7 +744,15 @@ A compact, themed set that makes planet materials useful, runs on FE and works a
 
 The mod's story runs like a campaign in five acts, with a guide, a recurring villain and a choice at the end.
 
-**Hook:** a meteor falls near the player's base carrying humming Nullifite. When the first gate is built, a voice comes through the static: Navigator Echo, awaiting coordinates, asking how long she has been asleep.
+**Hook (approved Prologue revision, Oct 4, 2026):** Nullifite comes from the
+Pathfinder's shattered gate core deep beneath Earth. First Raw Nullifite pickup
+triggers the Moon relay's Courier reply the next night. Its chest holds Echo's
+Dormant Wisp and the Concord Codex; the Broken Console asks refugees to rebuild
+the gate. A Dormant Wisp is required to craft the Gate Controller. Echo wakes
+asking how long she has been asleep. Existing ore placement and registry IDs
+are retained. See [Prologue: The Signal](briefs/prologue_the_signal.md) for the
+complete lore and recovery requirements. This replaces the older coincidental
+meteor hook without rewriting the five existing acts.
 
 **Characters**
 
