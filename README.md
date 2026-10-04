@@ -5,9 +5,23 @@ Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's
 economy together. This local work-in-progress also requires GeckoLib for the Tidewraith integration.
 
-Current candidate **1.0.9-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
+Current candidate **1.0.10-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
 
-## Planet atmosphere and creative weather testing
+## Real planetary rain and harsh lightning storms
+
+[1.0.10 storm guide](docs/native-planet-storms-1.0.10.md): acid rain is now
+animated green rain sheets and green splashes; electrical storms bring ordinary
+rain, darkened skies, clouds and real server-side vanilla lightning strikes.
+Creative **Z-Admintools** weather controls are planet-wide. Acid remains
+harmless; lightning has vanilla damage/fire interactions and avoids protected
+arrival gates. The existing 1.0.9 Seed 0 showcase works without regeneration.
+All previous artwork, models, item catalogues and galleries below are retained.
+
+[Download 1.0.10-dev](docs/jars/zerog-tweaks-1.21.1-1.0.10-dev.jar) ·
+[SHA256 checksums](docs/jars/SHA256SUMS.txt). Visual and shader appearance remains
+for player review; isolated server checks do not certify GPU rendering.
+
+## Preserved 1.0.9 atmosphere and creative weather testing
 
 [1.0.9 atmosphere guide](docs/planet-atmosphere-1.0.9.md): Creative **Z-Admintools**
 has a local weather-testing screen for fog, blizzards, steam, geyser spray, ash,

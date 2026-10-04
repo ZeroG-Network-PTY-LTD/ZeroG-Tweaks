@@ -1,5 +1,9 @@
 # Planet atmosphere, admin weather tester and native alien vines
 
+> Historical 1.0.9 guide. [1.0.10](native-planet-storms-1.0.10.md) replaces the
+> local dust-like acid rain and cosmetic lightning with native rain sheets and
+> real server-side strikes. The original descriptions below are preserved.
+
 Minecraft **Java 1.21.1**, **NeoForge 21.1.252**, **Java 21**, **GeckoLib 4.9.3**.
 This development candidate preserves existing item/block/dimension IDs.
 
