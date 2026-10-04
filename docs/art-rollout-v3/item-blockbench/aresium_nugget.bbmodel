@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "aresium_nugget",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "aresium_nugget",
+      "type": "cube",
+      "uuid": "bf9b24d2-2db8-538e-9a0d-87511c53dd3f",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "bf9b24d2-2db8-538e-9a0d-87511c53dd3f"
+  ],
+  "textures": [
+    {
+      "name": "aresium_nugget.png",
+      "id": "0",
+      "uuid": "c04a4448-ecb2-541a-89d2-128162ca9253",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9klEQVR4nGNgGAWjYBSMgqEKvPW0/1PDHBZyLZ8eb8aQuZABxRFbL11lJNUskjXALJdVl2d4fPMhXDxz4SkMtcQ4iCQH4LIcG8hceIooBzDRynJiAVEOIMVydH0UO4BUy0nxPQMDEWkA3RfT482ItjzYQIwhadF+vHaQnA1hluBySLCBGEnmkRwCpFq69sIrvLmB6FyAD5xPmsBwPmkCWXrJKglhQGnSMgYGBgYGw3kFcIcg84kBZEeB0qRlDPfyouB8bNFAKPiJcgAxjkF3wNoLrxgYGGhQFONzCMwBxPiaYgdgc0ywgRjJllMVUKt9MApGwcgDACjObwS0mXhOAAAAAElFTkSuQmCC"
+    }
+  ]
+}

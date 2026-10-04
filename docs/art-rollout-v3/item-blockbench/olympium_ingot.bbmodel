@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "olympium_ingot",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "olympium_ingot",
+      "type": "cube",
+      "uuid": "c75887f6-53d2-5311-9fb6-14adc73a3e3f",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "c75887f6-53d2-5311-9fb6-14adc73a3e3f"
+  ],
+  "textures": [
+    {
+      "name": "olympium_ingot.png",
+      "id": "0",
+      "uuid": "74b05104-4887-5b67-b71a-c5efa68d860a",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABR0lEQVR4nO2WvwrCMBCHT3ESpIiDuqgoCAqCo7uDj+Lg6Ojs2NHBR3Ho7lgRFAT/LuIgDj5AnSK1uWsuqTrlN7Yh33fX9hoAGxsbZjqVZvCLfVP/gq8vO5SV1oEP+11jAaqI2A5g8Hajiq7d7M/kPnPPBwC8C6RAFC7AFEglRklkuHAKPHKnAAAwG0/Q+6pIHRBwTtW6IlgXPjoQhXPA4Zh0QfoKxMumAx+5UxZc7B1+xJLAwt+zwSLcylfHq3QNnQMmEjrw8DtADqJvScw9/w1fHm7SfeUkTArv1Yuxa2IFknSBgrMGUVRi0G28v2FuVJWTAqf7E2qFnCRBbbi9Plgg7PlLAuvLLtWpNANMgoK1ynmWABX0ZyQGRVii5GTZm1LVGv0NhQQlQMESC0QlSk6WDaNOP1iUC1XHMR2YcX51ILWxAQB4AZ4YnCGL92c8AAAAAElFTkSuQmCC"
+    }
+  ]
+}

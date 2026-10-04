@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "dawnstone",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "dawnstone",
+      "type": "cube",
+      "uuid": "8a361ac8-f8a7-55b0-b2a1-43be154abd58",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "8a361ac8-f8a7-55b0-b2a1-43be154abd58"
+  ],
+  "textures": [
+    {
+      "name": "dawnstone.png",
+      "id": "0",
+      "uuid": "e56a43a7-e816-5336-8aa2-55b843ad1e75",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABhUlEQVR4nO2WoW4CQRCGh6YGg0Q0JATF2VMNoqbiBJoXICEkFTxHH6CiSUPCCyBJk1ZgKkhVLagLCUEgMciroLPZ7O3MzmwvFW1/BZdl5pt/ZvYA+NdfV01yKEuTIib468c6GD94AJO/3N+IEy/ecnh43okgLiUBTfLrhD/4vjYfJ/2WgYgGKFlvJZAqS5OCc+EiFEBjPcDZftSk3zIQaoDYwXMVgmAd0FYfghADVFW9JC7pQEz1dv9dUa0oTad7IHb/Kbkb4V2PLE2KXrcBq83RPHu6C9wBXxo/+le106xDfjiVAMh7YLU5Qq/bMN9nyz0Mb6+gPZrDdjogATrNuve5LzkAMQOSO7wqsWtotwDg7MJ2OoD2aK5KQlXPAsS4QPX/W1ex6wInX//zw4n9DQuA5C6EtA2c9SIAGwI1W+6DiTUKAqB8LnCSVC8G0A5kqO9qABQ3kO4GSKHFAHZA3xzgBkitVwOgNGtZOQC1liht9QDCf8U+UbeeVuoWcBX+5Evs9+gTYOy3cdlQflkAAAAASUVORK5CYII="
+    }
+  ]
+}

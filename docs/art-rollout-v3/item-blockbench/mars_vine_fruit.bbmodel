@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "mars_vine_fruit",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "mars_vine_fruit",
+      "type": "cube",
+      "uuid": "6630e529-1fd6-5b63-ae6b-ee6a735cc54a",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "6630e529-1fd6-5b63-ae6b-ee6a735cc54a"
+  ],
+  "textures": [
+    {
+      "name": "mars_vine_fruit.png",
+      "id": "0",
+      "uuid": "7fbc984c-86c5-53c2-bade-7b3c10740797",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB2ElEQVR4nO2WMUgCYRTH/xfR0tLS5hDkBS5JFghtEuSuYFNCuCq2OTk5uSm5SpBLCrUrRFsQpGXLgefY1tr+NdRdd+f3vXt35xDUf7v7vo//773vvXcH/Ou367hdE9y9e6d59l5LK8uCsMxVEOlKUfp+lQOQSCWAb4hRtampzAHguXfjWreMHy+uFs4BzAwYE+MLAovZUJmnK0WhitopVga8EGjXxKja1LzmKkNV9ACgXHDKG3UilYAxMQAA709zrG2sk+cpANYVdISJjjDtZ2c2Ng/ioc0BRgZmrZzQs0kAgDmcoqzpLrCTsSbNgJ+xJbIGZq3cwp12hImyprsyEsbYF+DkcFcAgDN6J4RXW+MX9B9eA5kDzBqg1N8X6G1/hD7vC2AOp3b0+tlRaCOV2HMAAMzLO3JdVjM757fktZAZqA/mLLD6YI5GQd6Os1ZOWPUUCMAqKBVE9/7NNr/u5u1ilalRiEMFQWaAgihlYmTkXAhW26joLXM9m3S1KSVvTbDakOpvKvUyeYNhd4EXgiqsIArUhjJxU69S5EkYVZEAuHOC2h8awG9OAD+zwrnPW0tLuQIVRCkTI9cjAzijUZk438vaOfD3WyZOS6pmyVIAKJAwPyl/S5/1ENGMYGWTkwAAAABJRU5ErkJggg=="
+    }
+  ]
+}

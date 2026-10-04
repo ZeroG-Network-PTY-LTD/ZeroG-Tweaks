@@ -1,0 +1,958 @@
+{
+  "original_art": true,
+  "license": "All Rights Reserved",
+  "resolution": 32,
+  "generator": "docs/wood-dust-art-v2/generate.py",
+  "style": "A natural wood/leaf forms plus C selective botanical and mineral accents",
+  "gpu_verified": false,
+  "world_light_changed": false,
+  "wood_families": [
+    "shardwood",
+    "charwood",
+    "hoarwood",
+    "gildwood"
+  ],
+  "textures": [
+    {
+      "path": "block/shardwood_log.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "393b8937b56b7f11bd1389c9aec31c02f504bdd63a91bd3a18853c5ee9622b8f",
+      "palette": {
+        "bark": [
+          45,
+          79,
+          89
+        ],
+        "wood": [
+          81,
+          154,
+          157
+        ],
+        "leaf": [
+          45,
+          144,
+          126
+        ],
+        "bud": [
+          180,
+          123,
+          230
+        ]
+      }
+    },
+    {
+      "path": "block/shardwood_log_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "90ce05e1baab9c13fd6c34a2ade9dd7b8b6685a0e4fc531a38c7a73436323068",
+      "palette": {
+        "bark": [
+          45,
+          79,
+          89
+        ],
+        "wood": [
+          81,
+          154,
+          157
+        ],
+        "leaf": [
+          45,
+          144,
+          126
+        ],
+        "bud": [
+          180,
+          123,
+          230
+        ]
+      }
+    },
+    {
+      "path": "block/stripped_shardwood_log.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0ae503b6416ac1f03049de80d89b98b2fe8d9826b24dc80a7faf38339c38a30f",
+      "palette": {
+        "bark": [
+          45,
+          79,
+          89
+        ],
+        "wood": [
+          81,
+          154,
+          157
+        ],
+        "leaf": [
+          45,
+          144,
+          126
+        ],
+        "bud": [
+          180,
+          123,
+          230
+        ]
+      }
+    },
+    {
+      "path": "block/stripped_shardwood_log_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "9af2b377549396a28d8c8158c053d91b5d347868d8845798406c66f258b1a203",
+      "palette": {
+        "bark": [
+          45,
+          79,
+          89
+        ],
+        "wood": [
+          81,
+          154,
+          157
+        ],
+        "leaf": [
+          45,
+          144,
+          126
+        ],
+        "bud": [
+          180,
+          123,
+          230
+        ]
+      }
+    },
+    {
+      "path": "block/shardwood_planks.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4bbb3f191e9a90392c930640c12159df750e3e12544dfda120954b6d3b592410",
+      "palette": {
+        "bark": [
+          45,
+          79,
+          89
+        ],
+        "wood": [
+          81,
+          154,
+          157
+        ],
+        "leaf": [
+          45,
+          144,
+          126
+        ],
+        "bud": [
+          180,
+          123,
+          230
+        ]
+      }
+    },
+    {
+      "path": "block/shardwood_leaves.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f10ce2f804f7121b358135c61f132692ca3a20dad18f8dba59f2237604b46fb6",
+      "palette": {
+        "bark": [
+          45,
+          79,
+          89
+        ],
+        "wood": [
+          81,
+          154,
+          157
+        ],
+        "leaf": [
+          45,
+          144,
+          126
+        ],
+        "bud": [
+          180,
+          123,
+          230
+        ]
+      }
+    },
+    {
+      "path": "block/charwood_log.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ec37bc7f50d4c522a11e57c247943ce0e22cb52bc9454c1ade2066476666ac59",
+      "palette": {
+        "bark": [
+          49,
+          36,
+          37
+        ],
+        "wood": [
+          125,
+          68,
+          53
+        ],
+        "leaf": [
+          103,
+          69,
+          74
+        ],
+        "bud": [
+          244,
+          154,
+          71
+        ]
+      }
+    },
+    {
+      "path": "block/charwood_log_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "7e2df471679d50ae6a3508985935f64fb91813d02dc8694b13ed0cd38dae336b",
+      "palette": {
+        "bark": [
+          49,
+          36,
+          37
+        ],
+        "wood": [
+          125,
+          68,
+          53
+        ],
+        "leaf": [
+          103,
+          69,
+          74
+        ],
+        "bud": [
+          244,
+          154,
+          71
+        ]
+      }
+    },
+    {
+      "path": "block/stripped_charwood_log.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "814a1e77e8c7282afbd9e7792ab305cb10bb71bb94c7f1129207bb7de7e57205",
+      "palette": {
+        "bark": [
+          49,
+          36,
+          37
+        ],
+        "wood": [
+          125,
+          68,
+          53
+        ],
+        "leaf": [
+          103,
+          69,
+          74
+        ],
+        "bud": [
+          244,
+          154,
+          71
+        ]
+      }
+    },
+    {
+      "path": "block/stripped_charwood_log_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "996e18c2e80012935952c61e546b3bb6f0e4b87d10c8bef826b901b7e21d102b",
+      "palette": {
+        "bark": [
+          49,
+          36,
+          37
+        ],
+        "wood": [
+          125,
+          68,
+          53
+        ],
+        "leaf": [
+          103,
+          69,
+          74
+        ],
+        "bud": [
+          244,
+          154,
+          71
+        ]
+      }
+    },
+    {
+      "path": "block/charwood_planks.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a62e3e8a9abf70ccd16fa60e1d4e2004d0b38333a3edf14b366c66eaaea83d20",
+      "palette": {
+        "bark": [
+          49,
+          36,
+          37
+        ],
+        "wood": [
+          125,
+          68,
+          53
+        ],
+        "leaf": [
+          103,
+          69,
+          74
+        ],
+        "bud": [
+          244,
+          154,
+          71
+        ]
+      }
+    },
+    {
+      "path": "block/charwood_leaves.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "967ea24598002ec2530d517bdf73595412cc8689e03cfe85c2bf217f56f6edc9",
+      "palette": {
+        "bark": [
+          49,
+          36,
+          37
+        ],
+        "wood": [
+          125,
+          68,
+          53
+        ],
+        "leaf": [
+          103,
+          69,
+          74
+        ],
+        "bud": [
+          244,
+          154,
+          71
+        ]
+      }
+    },
+    {
+      "path": "block/hoarwood_log.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c15b94e7e0dfddf88e4468f867b06ccae5b8f5f354bc690e983d10d55c470835",
+      "palette": {
+        "bark": [
+          100,
+          103,
+          142
+        ],
+        "wood": [
+          166,
+          164,
+          194
+        ],
+        "leaf": [
+          149,
+          165,
+          185
+        ],
+        "bud": [
+          151,
+          218,
+          228
+        ]
+      }
+    },
+    {
+      "path": "block/hoarwood_log_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "79b5d9ea4b582f7238dc3f8ffeb4a8d3defbce37e8a8b5d52b0f8a2e77a23172",
+      "palette": {
+        "bark": [
+          100,
+          103,
+          142
+        ],
+        "wood": [
+          166,
+          164,
+          194
+        ],
+        "leaf": [
+          149,
+          165,
+          185
+        ],
+        "bud": [
+          151,
+          218,
+          228
+        ]
+      }
+    },
+    {
+      "path": "block/stripped_hoarwood_log.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0911b7fdb99048caeee19e3d24a889dd975af21a16ae831abc55af01492b0c86",
+      "palette": {
+        "bark": [
+          100,
+          103,
+          142
+        ],
+        "wood": [
+          166,
+          164,
+          194
+        ],
+        "leaf": [
+          149,
+          165,
+          185
+        ],
+        "bud": [
+          151,
+          218,
+          228
+        ]
+      }
+    },
+    {
+      "path": "block/stripped_hoarwood_log_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "bd4a671dffb10a74ab322d66f98213e3e70d168105045fc8ddc9962671f248a7",
+      "palette": {
+        "bark": [
+          100,
+          103,
+          142
+        ],
+        "wood": [
+          166,
+          164,
+          194
+        ],
+        "leaf": [
+          149,
+          165,
+          185
+        ],
+        "bud": [
+          151,
+          218,
+          228
+        ]
+      }
+    },
+    {
+      "path": "block/hoarwood_planks.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c0aa572fed68e06bfdafa261d4f7acfcaf0fccb71ec9796006269770abbdf02c",
+      "palette": {
+        "bark": [
+          100,
+          103,
+          142
+        ],
+        "wood": [
+          166,
+          164,
+          194
+        ],
+        "leaf": [
+          149,
+          165,
+          185
+        ],
+        "bud": [
+          151,
+          218,
+          228
+        ]
+      }
+    },
+    {
+      "path": "block/hoarwood_leaves.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "fc5c900773ad5ed895dcee3d103f1dd47aef56b5c21ae0e58023273bfdec44ca",
+      "palette": {
+        "bark": [
+          100,
+          103,
+          142
+        ],
+        "wood": [
+          166,
+          164,
+          194
+        ],
+        "leaf": [
+          149,
+          165,
+          185
+        ],
+        "bud": [
+          151,
+          218,
+          228
+        ]
+      }
+    },
+    {
+      "path": "block/gildwood_log.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6c5e8ead219563eeb1a405787add17d733dbe44c8146abf264ed845b1aaeeb3a",
+      "palette": {
+        "bark": [
+          130,
+          83,
+          43
+        ],
+        "wood": [
+          192,
+          148,
+          78
+        ],
+        "leaf": [
+          151,
+          164,
+          64
+        ],
+        "bud": [
+          247,
+          197,
+          97
+        ]
+      }
+    },
+    {
+      "path": "block/gildwood_log_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "2d89779448c9714324fdb7cc6a2b64ba3df833b3f16aca3df148e2a52f2c2c3d",
+      "palette": {
+        "bark": [
+          130,
+          83,
+          43
+        ],
+        "wood": [
+          192,
+          148,
+          78
+        ],
+        "leaf": [
+          151,
+          164,
+          64
+        ],
+        "bud": [
+          247,
+          197,
+          97
+        ]
+      }
+    },
+    {
+      "path": "block/stripped_gildwood_log.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "52fb84728c497464047b3e075b6c4b8c953fb357393bf9375e321337ff5fc7ff",
+      "palette": {
+        "bark": [
+          130,
+          83,
+          43
+        ],
+        "wood": [
+          192,
+          148,
+          78
+        ],
+        "leaf": [
+          151,
+          164,
+          64
+        ],
+        "bud": [
+          247,
+          197,
+          97
+        ]
+      }
+    },
+    {
+      "path": "block/stripped_gildwood_log_top.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f71dfd6795b1b283a947b427d013ac9df2abf3bfd1a326417e451f3e07deea1e",
+      "palette": {
+        "bark": [
+          130,
+          83,
+          43
+        ],
+        "wood": [
+          192,
+          148,
+          78
+        ],
+        "leaf": [
+          151,
+          164,
+          64
+        ],
+        "bud": [
+          247,
+          197,
+          97
+        ]
+      }
+    },
+    {
+      "path": "block/gildwood_planks.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "57c1ffa3f1682f39d5e76e3bcf158bd43fa5a922851f55fbcb61a692c6a0563c",
+      "palette": {
+        "bark": [
+          130,
+          83,
+          43
+        ],
+        "wood": [
+          192,
+          148,
+          78
+        ],
+        "leaf": [
+          151,
+          164,
+          64
+        ],
+        "bud": [
+          247,
+          197,
+          97
+        ]
+      }
+    },
+    {
+      "path": "block/gildwood_leaves.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "d86fb3e6e1ceb29b8082aa287a54e1c3c67ab5d4ceb2ac894862cb6ca4957448",
+      "palette": {
+        "bark": [
+          130,
+          83,
+          43
+        ],
+        "wood": [
+          192,
+          148,
+          78
+        ],
+        "leaf": [
+          151,
+          164,
+          64
+        ],
+        "bud": [
+          247,
+          197,
+          97
+        ]
+      }
+    },
+    {
+      "path": "item/aresium_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "45180b92d51d4d342f115a26ed93ebe95ef8abb7a66c3de1aa9d201989010fa6",
+      "palette": [
+        186,
+        110,
+        73
+      ]
+    },
+    {
+      "path": "item/azurium_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "cac02af316b141aef338fced36ae14eedd02b26d47dbbbc944b719b87d3b1d18",
+      "palette": [
+        89,
+        174,
+        194
+      ]
+    },
+    {
+      "path": "item/basaltine_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a81d84f0a3a34db5ca4846451a77c3e4790423638e68509d6aea8628756ad320",
+      "palette": [
+        134,
+        118,
+        107
+      ]
+    },
+    {
+      "path": "item/corona_topaz_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "f676629172e3bb89d535be5d7af1f827ef8733af33cbebf3e48f0e3127176e0f",
+      "palette": [
+        245,
+        205,
+        89
+      ]
+    },
+    {
+      "path": "item/eclipse_opal_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "0f5d327fe51c11148144bfc7adb349c16c2a7801c8ada5b439531f80582453bc",
+      "palette": [
+        120,
+        95,
+        197
+      ]
+    },
+    {
+      "path": "item/ember_spinel_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c9521fdedc496535153189cab996a262c44ce84449a06d2a58b2a0eeb53c3a3e",
+      "palette": [
+        239,
+        136,
+        73
+      ]
+    },
+    {
+      "path": "item/fusion_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "120c3365899987d65ce53f6fb01c25da459456754fdbdc513d5ad6893fa70e87",
+      "palette": [
+        224,
+        96,
+        16
+      ]
+    },
+    {
+      "path": "item/helion_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "afdd64acb8d899353de2fa32f75323ec51c3df077826a6eefd37be56575d19d5",
+      "palette": [
+        221,
+        175,
+        88
+      ]
+    },
+    {
+      "path": "item/lunarium_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "922c543393ef5f79ba01c3c5e6ca8ac49ad6d31cd83bb74344f5ad4d89bdef4f",
+      "palette": [
+        173,
+        165,
+        204
+      ]
+    },
+    {
+      "path": "item/pulsar_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "95fb444d5284a9ea9fa08d92b48c001f320e5001a3b3d59e9bc20c53d7fd49df",
+      "palette": [
+        47,
+        127,
+        208
+      ]
+    },
+    {
+      "path": "item/redshift_garnet_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "6898637ac5bfbb17368b20fe413ec695f4a423c8dcac1d9676902bd040f7baba",
+      "palette": [
+        208,
+        62,
+        93
+      ]
+    },
+    {
+      "path": "item/rime_nickel_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "e9192c031b6ad239f7e2030e3d48ddf8e6a1c176d0d2890ccb273f9ea80f2508",
+      "palette": [
+        152,
+        190,
+        199
+      ]
+    },
+    {
+      "path": "item/spectral_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "46c23248c86eb6246dd59a2dcd02fd008d0e855aa77688e2ef80a9be522f6279",
+      "palette": [
+        58,
+        164,
+        172
+      ]
+    },
+    {
+      "path": "item/stardust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "8d7c1557e4a96d3930b2ff0a526d9795067e81a284dafe46df20f8aca408b84d",
+      "palette": [
+        169,
+        129,
+        230
+      ]
+    },
+    {
+      "path": "item/tidal_sapphire_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "a5e2384fbde3a3bdaa911eb14822c2ffe7bf4c8f196c401c670590bbdb358198",
+      "palette": [
+        64,
+        138,
+        215
+      ]
+    },
+    {
+      "path": "item/tremor_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "50b9e014002157168222609af00d1142de5bcd14a3609cfa87241aa6051ac1de",
+      "palette": [
+        192,
+        90,
+        16
+      ]
+    },
+    {
+      "path": "item/wraith_quartz_dust.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "45a03bc7a4bffeb77f37cb9fa2980a86cd2b45976de42c0a93e6c0a5dcf4c5c8",
+      "palette": [
+        181,
+        219,
+        237
+      ]
+    }
+  ]
+}

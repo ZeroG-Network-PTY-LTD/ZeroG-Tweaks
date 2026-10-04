@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "olympium_nugget",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "olympium_nugget",
+      "type": "cube",
+      "uuid": "588ed791-cd9b-500e-9558-123b533aff19",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "588ed791-cd9b-500e-9558-123b533aff19"
+  ],
+  "textures": [
+    {
+      "name": "olympium_nugget.png",
+      "id": "0",
+      "uuid": "ef6f5ede-64e1-5885-a373-9d1c725285d9",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9klEQVR4nGNgGAWjYBSMgqEKzFS0/lPDHBZyLc/2MGVg2MGA4ohTd64xkmoWyRpglmupyDNcu/MQLj51x2kMtcQ4iCQH4LIcG5i64zRRDmCileXEAqIcQIrl6PoodgCplpPiewYGItIAui+yPUyJttxcUYxh8u4DeO0gORvCLMHlEHNFMZLMIzkESLX05P1XeHMD0bkAHygsL2AoLC8gSy9ZJSEMrJjRxsDAwMDQ3zkB7hBkPjGA7ChYMaONISKjCs7HFg2Egp8oBxDjGHQHnLz/ioGBgQZFMT6HwBxAjK8pdgA2x5gripFsOVUBtdoHo2AUjDwAADSFbUKUcaraAAAAAElFTkSuQmCC"
+    }
+  ]
+}

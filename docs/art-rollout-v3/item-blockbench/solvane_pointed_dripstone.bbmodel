@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "solvane_pointed_dripstone",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "solvane_pointed_dripstone",
+      "type": "cube",
+      "uuid": "c8b69175-b8b9-5f00-b40a-a7d064863c1c",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "c8b69175-b8b9-5f00-b40a-a7d064863c1c"
+  ],
+  "textures": [
+    {
+      "name": "solvane_pointed_dripstone.png",
+      "id": "0",
+      "uuid": "6539673b-b12c-5420-9a35-9be6d38a32ac",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABOElEQVR4nO3Uz0rDQBDH8W+T3c1mN2lDU0FUrEi91IN4CYiv4FHMy0ieyYep0IvQQ8FTKV79k/XgSXpp2koayRz3MHyY+e3AFnV78eAe757czejebdrD2wawi2oBLWBjQJ4VbpheAnDaH7PpT2juBGoHzJdTzgdX9QDyrHCD6ISuTgGIgoRBdMzZwXXlHDR3BS2gNkCeFa5vD7FBj0AYAJTQGNUj1mnlg9S8CewFYLZ4XjlC8+WUo2T0t4A8K1xXpxgVo6Xlo3wHQHgSKTRGxtggqZSDZq6gBdQCyLPCRUGCUTGBCFG+piw/f5p0fISnUCIklJZQxWsHsTkT2BvAbDFZOUKzxYRhf/zr7fXtZXeAPCucUTGhtCihUb5GeJLSfQHQ6Xj4nkD6CuVrtDBoadfKQfNW8O8A3/emO0uH2wMqAAAAAElFTkSuQmCC"
+    }
+  ]
+}

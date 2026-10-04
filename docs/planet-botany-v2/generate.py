@@ -31,7 +31,12 @@ def texture(id,im,kind='block'):
  pack=res/'resourcepacks/visual_refresh'/f'assets/{ns}/textures'/rel
  if pack.exists():im.save(pack)
  files.append({'path':rel,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'size':list(im.size)})
-def rgb(c,k=1):return tuple(max(0,min(255,round(v*k))) for v in c)+(255,)
+def rgb(c,k=1):
+ # A/C art direction: restrained violet shadows and warm pale highlights.
+ value=tuple(max(0,min(255,round(v*k))) for v in c)
+ target=(52,43,85) if k<1 else (249,234,192)
+ amount=min(.22,abs(k-1)*.35)
+ return tuple(round(v*(1-amount)+t*amount) for v,t in zip(value,target))+(255,)
 def palette(theme):i=themes.index(theme);return leaves[i],fruits[i]
 def title(id):return id.replace('_',' ').title()
 def shade(im,seed):
@@ -80,9 +85,12 @@ def flower(theme,index,id):
   if style==4:
    d.ellipse((12,6,20,14),fill=rgb(c,.65));d.arc((13,7,19,13),20,270,fill=rgb(c,1.35))
  elif style==3:
-  for y,w in [(15,5),(10,4),(5,2)]:
-   d.polygon([(16-w,y),(16,y-5),(16+w,y),(19,y+3),(13,y+3)],fill=rgb(c))
-   d.line((16,y-3,16,y+1),fill=(255,225,149,255))
+  # Torchflower-inspired flared petals, layered calyx and visible stamens.
+  d.polygon([(8,15),(5,6),(10,8),(12,2),(16,8),(22,2),(22,9),(28,6),(24,17),(19,20),(12,20)],fill=rgb(c,.57))
+  d.polygon([(9,14),(8,8),(12,11),(13,5),(17,12),(22,6),(21,13),(26,10),(22,17),(14,18)],fill=rgb(c,1.07))
+  for x,y in [(12,11),(17,8),(21,12)]:
+   d.line((x,y,x,y+6),fill=(255,222,145,255));d.point((x,y),fill=(255,247,200,255))
+  d.polygon([(10,19),(15,22),(22,18),(20,23),(15,24),(11,22)],fill=rgb(green,.83))
  else:
   d.polygon([(8,9),(12,4),(16,9),(21,3),(25,9),(22,18),(13,18)],fill=rgb(c))
   d.line((13,9,15,15),fill=rgb(c,1.35),width=2)
@@ -138,6 +146,72 @@ def fruiticon(theme,id,seed=False):
    for x,top in [(9,8),(15,4),(22,10)]:
     d.rectangle((x-1,top+4,x+2,28),fill=rgb(c));d.line((x,top+5,x,27),fill=rgb(c,1.3))
     d.polygon([(x-2,top+5),(x,top),(x+3,top+5)],fill=rgb(green))
+  elif 'corn' in id:
+   d.rounded_rectangle((10,4,23,28),radius=4,fill=rgb(c,.46))
+   for x in [12,16,20]:
+    for y in range(7,26,4):
+     d.rectangle((x,y,x+2,y+2),fill=rgb(c,1.16 if x==12 else .92))
+     d.point((x,y),fill=rgb(c,1.4))
+   d.polygon([(11,29),(5,15),(11,21),(17,29),(25,17),(23,29)],fill=rgb(green,.82))
+   d.line((8,19,12,26),fill=rgb(green,1.24),width=1)
+  elif any(s in id for s in ['carrot','parsnip','radish']):
+   d.polygon([(9,11),(23,9),(23,17),(18,24),(11,30),(10,21)],fill=rgb(c,.5))
+   d.polygon([(10,12),(21,10),(20,17),(15,25),(12,27)],fill=rgb(c))
+   d.line((12,13,13,20),fill=rgb(c,1.4),width=2)
+   for y in [17,22]:d.line((16,y,20,y-1),fill=rgb(c,.63))
+   d.polygon([(15,11),(8,6),(10,3),(16,7),(24,2),(25,5),(20,11)],fill=rgb(green,.85))
+   d.line((12,5,16,9),fill=rgb(green,1.25))
+  elif any(s in id for s in ['turnip','beet','onion','garlic']):
+   d.polygon([(13,11),(8,16),(8,23),(13,28),(17,30),(20,27),(25,22),(24,16),(19,11)],fill=rgb(c,.6))
+   d.ellipse((9,12,23,26),fill=rgb(c));d.arc((10,13,20,25),130,270,fill=rgb(c,1.3),width=2)
+   if 'garlic' in id or 'onion' in id:
+    for x in [13,18,21]:d.arc((x-3,13,x+3,26),-60,90,fill=rgb(c,.64))
+   d.line((16,28,15,31),fill=rgb(c,.72))
+   d.line([(14,13),(13,7),(10,3)],fill=rgb(green,.77),width=2)
+   d.line([(17,13),(18,6),(23,3)],fill=rgb(green),width=2)
+  elif any(s in id for s in ['broccoli','artichoke','cabbage','lettuce']):
+   if 'broccoli' in id:
+    d.polygon([(13,18),(20,18),(19,28),(14,28)],fill=rgb(green,.88))
+    heads=[(10,14,5),(16,10,6),(23,15,5),(16,17,5)]
+   else:heads=[(10,21,6),(21,21,6),(16,13,7),(16,23,6)]
+   for x,y,r in heads:
+    d.ellipse((x-r,y-r,x+r,y+r),fill=rgb(c,.72))
+    d.arc((x-r+1,y-r+1,x+r-1,y+r-1),150,340,fill=rgb(c,1.26),width=2)
+    d.line((x-1,y-2,x+2,y+2),fill=rgb(c,.55))
+   if 'artichoke' in id:
+    for y in [11,16,21]:
+     for x in [11,17,22]:d.polygon([(x-3,y+3),(x,y-2),(x+3,y+3)],fill=rgb(c,1.1))
+   d.line((16,23,16,29),fill=rgb(green,1.1),width=2)
+  elif 'cucumber' in id:
+   d.rounded_rectangle((9,3,23,29),radius=6,fill=rgb(c,.53))
+   d.rounded_rectangle((10,4,20,27),radius=5,fill=rgb(c))
+   d.line((12,8,12,23),fill=rgb(c,1.37),width=2)
+   d.line((20,9,20,24),fill=rgb(c,.72))
+   for x,y in [(16,9),(18,16),(15,22)]:d.rectangle((x,y,x+1,y+1),fill=rgb(c,1.22))
+   d.line((16,4,17,1),fill=rgb(green,.85),width=2)
+  elif 'chili' in id or 'okra' in id:
+   if 'okra' in id:
+    d.polygon([(12,6),(21,6),(23,13),(19,24),(13,30),(12,20)],fill=rgb(c,.63))
+    d.polygon([(14,7),(20,7),(20,15),(16,25),(14,28)],fill=rgb(c))
+    d.line((15,10,15,23),fill=rgb(c,1.35),width=2)
+   else:
+    d.polygon([(16,7),(24,10),(26,17),(21,24),(9,29),(13,23),(17,18)],fill=rgb(c,.58))
+    d.polygon([(17,9),(23,11),(23,17),(18,22),(12,26),(17,17)],fill=rgb(c))
+    d.line((20,11,21,16),fill=rgb(c,1.38),width=2)
+   d.line([(17,7),(16,3),(11,3)],fill=rgb(green,.8),width=2)
+  elif 'pepper' in id:
+   d.ellipse((7,11,18,29),fill=rgb(c,.68));d.ellipse((15,11,26,28),fill=rgb(c,.82))
+   d.ellipse((11,10,22,29),fill=rgb(c));d.line((14,14,14,23),fill=rgb(c,1.3),width=2)
+   d.line((21,14,21,25),fill=rgb(c,.64));d.line((16,11,17,4),fill=rgb(green,.8),width=2)
+  elif 'squash' in id:
+   d.polygon([(13,5),(20,5),(21,13),(26,20),(24,28),(9,28),(6,22),(12,14)],fill=rgb(c,.65))
+   d.ellipse((9,15,23,28),fill=rgb(c));d.rectangle((14,7,19,18),fill=rgb(c,1.06))
+   d.line((13,17,12,25),fill=rgb(c,1.35),width=2)
+   d.line((16,6,17,2),fill=rgb(green,.82),width=2)
+  elif 'aubergine' in id:
+   d.ellipse((8,10,25,29),fill=rgb(c,.58));d.ellipse((9,10,23,26),fill=rgb(c))
+   d.line((12,14,11,21),fill=rgb(c,1.4),width=2)
+   d.polygon([(9,12),(10,6),(15,8),(21,4),(23,10),(18,13)],fill=rgb(green,.83))
   elif any(s in id for s in ['cherry','coalberry']):
    for x,y in [(10,23),(22,24)]:bud(d,x,y,c,5)
    d.line([(10,19),(16,6),(22,20)],fill=rgb(green,.7),width=2)
@@ -206,8 +280,10 @@ for theme in themes:
   for age in range(4):
    tex=id+f'_stage{age}';texture(tex,crop(theme,id,age));cross(tex);variants[f'age={age}']={'model':ns+':block/'+tex}
   states(id+'_crop',variants)
+  # Existing vegetables must share the same palette/silhouette pass as new crops.
+  texture(id,fruiticon(theme,id),'item');icon(id)
   if id==row['crop']:
-   texture(id,fruiticon(theme,id),'item');texture(id+'_seeds',fruiticon(theme,id,True),'item');icon(id);icon(id+'_seeds')
+   texture(id+'_seeds',fruiticon(theme,id,True),'item');icon(id+'_seeds')
   loot(id+'_crop',[drop(id+'_crop',id+'_seeds'),drop(id+'_crop',id,2,mature(id+'_crop',3)),drop(id+'_crop',id+'_seeds',2,mature(id+'_crop',3))])
   recipe(id+'_to_seeds',[id],id+'_seeds',2)
   lang['item.'+ns+'.'+id]=title(id);lang['item.'+ns+'.'+id+'_seeds']=title(id)+' Seeds';lang['block.'+ns+'.'+id+'_crop']=title(id)+' Crop'
@@ -314,6 +390,7 @@ def sheet(rows,file,cols=6):
 sheet([(title(row['id']),('item/' if row['category'] in ['tree_fruit','crop','gourd'] else 'block/')+row['id']+('_slice' if row['category']=='gourd' else '')+'.png') for row in families],'fifty-new-varieties.png')
 sheet([(title(id)+' '+str(age),'block/'+id+f'_stage{age}.png') for id in ['orbit_pea','lunar_snap_pea','solar_tomato','glacier_broccoli','reef_artichoke','corona_corn'] for age in range(4)],'crop-growth-stages.png',4)
 sheet([(title(theme)+' grass','block/'+theme+'_short_grass.png') for theme in themes]+[(title(theme)+' tall top','block/'+theme+'_tall_grass_top.png') for theme in themes],'grass-and-tall-grass.png')
+sheet([(title(id),'item/'+id+'.png') for theme in themes for id in oldgroups[theme]+[catalog[theme]['crop']]],'vegetable-items.png')
 frames=[]
 for age in range(4):
  frame=Image.new('RGB',(600,180),(16,25,34));d=ImageDraw.Draw(frame);d.text((10,8),'Growth '+str(age)+' / 3 — original texture preview',font=font,fill=(220,235,238))

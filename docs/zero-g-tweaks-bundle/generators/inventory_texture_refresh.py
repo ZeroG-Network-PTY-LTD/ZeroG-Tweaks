@@ -19,7 +19,12 @@ def write_json(path,data):
     path.write_text(json.dumps(data,indent=2)+'\n')
 
 def rgb(value):return tuple(int(value[i:i+2],16) for i in (1,3,5))
-def shade(color,factor):return tuple(max(0,min(255,round(c*factor))) for c in color)+(255,)
+def shade(color,factor):
+    # Approved C hue shifting: cooler shadows, warm highlights, readable clusters.
+    value=tuple(max(0,min(255,round(c*factor))) for c in color)
+    target=(43,34,77) if factor<1 else (255,240,205)
+    mix=min(.24,abs(factor-1)*.4)
+    return tuple(round(c*(1-mix)+t*mix) for c,t in zip(value,target))+(255,)
 
 def sprite(spec):
     """Extend existing native mask shapes; four-step hue-preserving light ramps."""
@@ -152,7 +157,9 @@ def block_preview(side,top,path):
     canvas.convert('RGB').save(path)
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--bee-jar',type=Path,required=True);args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--bee-jar',type=Path,required=True)
+    parser.add_argument('--code',type=Path,help='Separate 1.21.x checkout; ship normal fallback assets as well as the built-in pack')
+    args=parser.parse_args()
     pack=OUT/'resourcepack';assets=pack/'assets';source=COLLECTION/'bees/blockbench_by_use/items'
     candidates={}
     for path in sorted(source.rglob('*.bbmodel')):
@@ -217,6 +224,21 @@ def main():
               'texture_budget':'32x32 newly rendered sprites; recovered original bee sprites retain their authored dimensions',
               'glow_policy':'Default artwork only. Emissive slots never export over visible texture names.',
               'preview_policy':'Offline sprite catalogues; no GPU/game visual approval claimed.'}
+    manifest['files']=[{'path':file.relative_to(pack).as_posix(),
+                       'sha256':hashlib.sha256(file.read_bytes()).hexdigest()}
+                      for file in sorted(assets.rglob('*')) if file.is_file()]
     write_json(OUT/'manifest.json',manifest)
+    if args.code:
+        # A saved selection can put mod_resources above the built-in refresh pack.
+        # Ship the same pixels/models in our normal mod resources too; do not
+        # silently rewrite the player's selected packs or the separate addon JAR.
+        import shutil
+        runtime=args.code/'src/main/resources'
+        for file in assets.rglob('*'):
+            if not file.is_file():continue
+            relative=file.relative_to(pack)
+            for destination in [runtime/relative,runtime/'resourcepacks/visual_refresh'/relative]:
+                destination.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copy2(file,destination)
     print(json.dumps({'restored_layers':len(restored),'sprites':len(foods),'unresolved_layers':missing,'output':str(OUT)}))
 if __name__=='__main__':main()

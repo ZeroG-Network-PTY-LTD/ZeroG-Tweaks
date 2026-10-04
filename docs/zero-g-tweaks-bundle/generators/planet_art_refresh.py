@@ -10,34 +10,44 @@ from crystals_v2 import embedded_project
 ROOT=Path(__file__).resolve().parents[3]
 OUT=ROOT/'docs/asset-collection-1.21.1/planet-art-refresh-v1'
 def rgb(hex):return tuple(bytes.fromhex(hex.lstrip('#')))
-def tint(col,f):return tuple(min(255,max(0,round(c*f))) for c in col)
+def tint(col,f):
+ # Approved A/C direction: cooler shadows and warm highlights, not grayscale multiplication.
+ value=tuple(min(255,max(0,round(c*f))) for c in col)
+ target=(62,49,94) if f<1 else (245,233,190)
+ amount=min(.22,abs(f-1)*.36)
+ return tuple(round(c*(1-amount)+t*amount) for c,t in zip(value,target))
 def soil(col,seed):
  rng=random.Random(seed);im=Image.new('RGBA',(32,32),col+(255,));d=ImageDraw.Draw(im)
  # Clustered dirt grains, not independent bright noise at every pixel.
  for _ in range(150):
   x,y=rng.randrange(-2,32),rng.randrange(-2,32);w,h=rng.choice([(2,2),(3,2),(4,3),(1,2)])
-  shade=rng.choice([.68,.78,.88,1.06,1.17]);d.rectangle((x,y,x+w,y+h),fill=tint(col,shade)+(255,))
+  shade=rng.choice([.63,.76,.88,1.04,1.12]);d.rectangle((x,y,x+w,y+h),fill=tint(col,shade)+(255,))
   if w>2:d.line((x,y,x+w-1,y),fill=tint(col,shade+ .1)+(255,))
  for _ in range(10):
-  x,y=rng.randrange(30),rng.randrange(30);d.rectangle((x,y,x+1,y+1),fill=tint(col,1.28)+(255,))
+  # Ordinary matte grains only; never ore/gem-colored or emissive accents in soil.
+  x,y=rng.randrange(30),rng.randrange(30);d.rectangle((x,y,x+1,y+1),fill=tint(col,1.12)+(255,))
  return im
 def farm(base,col,wet):
  im=base.copy();d=ImageDraw.Draw(im)
  if wet:
   for y in range(32):
-   for x in range(32):r,g,b,a=im.getpixel((x,y));im.putpixel((x,y),(int(r*.64),int(g*.67),int(b*.7),a))
+   for x in range(32):
+    r,g,b,a=im.getpixel((x,y));im.putpixel((x,y),tint((r,g,b),.64)+(a,))
  for x in range(1,32,8):
-  for dx,f in [(0,.48),(1,.57),(2,.72),(3,1.18)]:
+  for dx,f in [(0,.43),(1,.55),(2,.76),(3,1.14),(4,1.04)]:
    for y in range(32):
     old=base.getpixel(((x+dx)%32,y));c=tint(old[:3],f*(.68 if wet else 1));d.point(((x+dx)%32,y),fill=c+(255,))
  return im
 def vegetation(col,seed,kind,upper=False):
  rng=random.Random(seed);leaf=grass_colour(col);im=Image.new('RGBA',(32,64 if kind=='tall' else 32));d=ImageDraw.Draw(im);height=im.height
- for index in range(11 if kind in ['tall','shrub'] else 7):
-  root=12+index%8;tip=rng.randrange(2,30);y=rng.randrange(2,24 if kind=='tall' else 17)
+ for index in range(13 if kind in ['tall','shrub'] else 8):
+  root=6+index%20;tip=rng.randrange(2,30);y=rng.randrange(2,24 if kind=='tall' else 17)
   mid=(root+tip)//2;points=[(root,height-1),(mid,height//2),(tip,y)]
   d.line(points,fill=tint(leaf,.62)+(255,),width=2)
   d.line([(x+1,yy) for x,yy in points],fill=tint(leaf,1.22)+(255,))
+  if kind=='short' and index%3==0:
+   sy=height//2+rng.randrange(0,8);side=-1 if index%2 else 1
+   d.polygon([(mid,sy),(mid+side*4,sy-4),(mid+side*3,sy)],fill=tint(leaf,.9)+(255,))
   if kind in ['shrub','tall']:
    side=-1 if index%2 else 1;sy=height//2+rng.randrange(-8,8)
    d.polygon([(mid,sy),(mid+side*7,sy-7),(mid+side*5,sy-1)],fill=leaf+(255,))
@@ -210,6 +220,6 @@ def main():
    im=Image.open(OUT/f'resource-source/assets/zerog_tweaks/textures/block/{planet}_glow_flower.png').crop((0,n*32,32,(n+1)*32)).resize((128,128),Image.Resampling.NEAREST);canvas.paste(im,(i*128,0),im);ImageDraw.Draw(canvas).text((i*128+8,135),planet,fill='white')
   frames.append(canvas)
  frames[0].save(OUT/'flower-highlights.gif',save_all=True,append_images=frames[1:],duration=200,loop=0)
- (OUT/'manifest.json').write_text(json.dumps({'generator':str(Path(__file__).relative_to(ROOT)),'art_style':'original deterministic 32px pixel art','gpu_verified':False,'files':records,'blockbench_projects':projects},indent=2)+'\n')
+ (OUT/'manifest.json').write_text(json.dumps({'generator':str(Path(__file__).relative_to(ROOT)),'art_style':'approved A/C direction: original deterministic 32px clustered pixel art with hue-shifted ramps; natural mineral-free soils','gpu_verified':False,'files':records,'blockbench_projects':projects},indent=2)+'\n')
  print(f'{len(records)} textures; {len(projects)} editable Blockbench projects; preview and highlight GIF')
 if __name__=='__main__':main()

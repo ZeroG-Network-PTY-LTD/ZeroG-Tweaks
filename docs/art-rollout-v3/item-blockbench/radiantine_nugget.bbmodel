@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "radiantine_nugget",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "radiantine_nugget",
+      "type": "cube",
+      "uuid": "33ec2496-ad11-501f-bf43-0c42b508db98",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "33ec2496-ad11-501f-bf43-0c42b508db98"
+  ],
+  "textures": [
+    {
+      "name": "radiantine_nugget.png",
+      "id": "0",
+      "uuid": "80fdd4f9-6b78-5dae-8efe-570cfa27181f",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA+klEQVR4nGNgGAWjYBSMgqEKIh3E/1PDHBZyLV/Wws3AUIPqiOUHXjKSahbJGuCW60gyMFx5DhePqvmKoZYYB5HkAFyWYwNRNV+JcgATrSwnFhDlAFIsR9dHsQNItZwU3zMwEJEG0H2xrIWbaMtTPX4xOFW8x2sHydkQZgkuh6R6/CLJPJJDgFRLZ+9gw5sbiM4F+IBC2DkGhbBzZOklqySEgdZ5JxgYGBgYHqwygjsEmU9TB7TOO8FQnWQB5bExpHr8wrCYUPAzMJBREuKSQ04Hs3ewMTAwEFcUkxQCMAPxOYQYX5PtAHSHoDuGVMupCqjVPhgFo2DkAQAFXm15civDxAAAAABJRU5ErkJggg=="
+    }
+  ]
+}

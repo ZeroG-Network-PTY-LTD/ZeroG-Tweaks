@@ -78,6 +78,125 @@ def faces_for(e):
     return out
 
 ROT = -45  # whole tool rotated so it lies on the same diagonal as the flat sprite (handle bottom-left)
+# Hand-facing correction only: a half-turn on X, mirrored for the left hand.
+# Original Z presentation angles are retained; cube geometry stays unchanged.
+# Preserve authored translation/scale and all non-hand presentation contexts.
+DISPLAY = {
+    "thirdperson_righthand": {
+        "rotation": [
+            180,
+            -90,
+            55
+        ],
+        "translation": [
+            0,
+            4,
+            0.5
+        ],
+        "scale": [
+            0.85,
+            0.85,
+            0.85
+        ]
+    },
+    "thirdperson_lefthand": {
+        "rotation": [
+            -180,
+            90,
+            -55
+        ],
+        "translation": [
+            0,
+            4,
+            0.5
+        ],
+        "scale": [
+            0.85,
+            0.85,
+            0.85
+        ]
+    },
+    "firstperson_righthand": {
+        "rotation": [
+            180,
+            -90,
+            25
+        ],
+        "translation": [
+            1.13,
+            3.2,
+            1.13
+        ],
+        "scale": [
+            0.68,
+            0.68,
+            0.68
+        ]
+    },
+    "firstperson_lefthand": {
+        "rotation": [
+            -180,
+            90,
+            -25
+        ],
+        "translation": [
+            1.13,
+            3.2,
+            1.13
+        ],
+        "scale": [
+            0.68,
+            0.68,
+            0.68
+        ]
+    },
+    "ground": {
+        "rotation": [
+            0,
+            0,
+            0
+        ],
+        "translation": [
+            0,
+            2,
+            0
+        ],
+        "scale": [
+            0.5,
+            0.5,
+            0.5
+        ]
+    },
+    "head": {
+        "rotation": [
+            0,
+            180,
+            0
+        ],
+        "translation": [
+            0,
+            13,
+            7
+        ],
+        "scale": [
+            1,
+            1,
+            1
+        ]
+    },
+    "fixed": {
+        "rotation": [
+            0,
+            180,
+            0
+        ],
+        "scale": [
+            1,
+            1,
+            1
+        ]
+    }
+}
 def to_json(tool):
     els = []
     for e in tool.el:
@@ -89,7 +208,7 @@ def to_json(tool):
         els.append(j)
     return {'credit': 'ZeroG Tweaks - 3D Moonsteel tool (generators/tools3d.py)', 'parent': 'minecraft:item/handheld',
             'texture_size': [64, 64], 'textures': {'0': f'zerog_tweaks:item/3d/{SET}_tools', 'particle': f'zerog_tweaks:item/{SET}_ingot'},
-            'elements': els}
+            'elements': els, 'display': DISPLAY}
 
 def handle(t, top, cap=True):
     # pommel moon-gem, grip with cord wraps, steel ferrule; centred on x=8, from y=-3

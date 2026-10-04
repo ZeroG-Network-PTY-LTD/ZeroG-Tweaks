@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "astrium_nugget",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "astrium_nugget",
+      "type": "cube",
+      "uuid": "1a539010-3ac0-5e85-a503-0061dabd6173",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "1a539010-3ac0-5e85-a503-0061dabd6173"
+  ],
+  "textures": [
+    {
+      "name": "astrium_nugget.png",
+      "id": "0",
+      "uuid": "d132ca52-643e-523b-bff1-10c414f4a508",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9klEQVR4nGNgGAWjYBSMgqEKTHUd/1PDHBZyLU+LTWVgWMyA4ojTl/czkmoWyRpglmtpqDJcu3EbLj5r8WwMtcQ4iCQH4LIcG5i1eDZRDmCileXEAqIcQIrl6PoodgCplpPiewYGInMBsqFpsalEW26sb8pw+vJ+yh2AzRJcDjHWNyXJPIKplJh4xGfp2Yun8eYGonMBPlAW+Y6hLPIdWXrJKglhYGWHMgMDAwND13IhuEOQ+cQAsqNgZYcyQ3jFXTgfWzQQCn6iHECMY9AdcPbiaQYGBhoUxfgcAnMAMb6m2AHYHGOsb0qy5VQF1GofjIJRMPIAADfxb1LdBqIaAAAAAElFTkSuQmCC"
+    }
+  ]
+}

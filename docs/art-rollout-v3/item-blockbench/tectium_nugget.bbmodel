@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "tectium_nugget",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "tectium_nugget",
+      "type": "cube",
+      "uuid": "bd17aed5-a5dc-55e1-a82e-786f0230a87b",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "bd17aed5-a5dc-55e1-a82e-786f0230a87b"
+  ],
+  "textures": [
+    {
+      "name": "tectium_nugget.png",
+      "id": "0",
+      "uuid": "1fa489da-07ad-50bc-a590-99a3d0701bb8",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA80lEQVR4nO2WMQrCMBSGf8VTFAoODYLg3KFX6JCrCD2G0KtUCIgH6OAsCJIOgtBr6JSitY3vpe0g5ttSmvd/SfpCAY/H4/lV1mLzGKPOwjVcpgmg8CZx0ecZtxZ7gglfiSWu+tY8L1T58S5FiCXQF95FoUqSwHyqcCokAU54e95gAW44Z/UA4Rtor0KmCTlcRAH2h6M1g92GJqRPREQBqx57B7ihuqqt3UDuAhu5DJHL0Gmu001oUFkMANgW90bkdUzB+QhUFiPdnZpx1zF8236SAEWmLaCrGsAEV7FNxAhQVj1YoEtGRAE7fFTG+j/weP6PJ/S7bB6DoqYRAAAAAElFTkSuQmCC"
+    }
+  ]
+}

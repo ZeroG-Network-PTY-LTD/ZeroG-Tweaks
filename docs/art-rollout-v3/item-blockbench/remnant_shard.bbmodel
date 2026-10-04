@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "remnant_shard",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "remnant_shard",
+      "type": "cube",
+      "uuid": "12a694d3-328b-5ed8-bf5c-9dfffb69c794",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "12a694d3-328b-5ed8-bf5c-9dfffb69c794"
+  ],
+  "textures": [
+    {
+      "name": "remnant_shard.png",
+      "id": "0",
+      "uuid": "ccd626d4-fb42-5b4a-aeb4-53595d2acb03",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABRklEQVR4nO1Wuw4BQRS9hJ+g0ekkOolfUGg8fkGi9BlKiV/waBR+QaKT6DSyDZ2CSqKgusnsuK8ZRLOn3Ln3nsfOzC5Ahgx/Ri6mqdkZPLm1zXIaNDOoGIlb/W7q+Xq2iBaSDyFv9btv5FK9pU5VWak2nuVaPUVMOeZw2u8gOWxZHjUBjbw9n6j9EkQBGDtHboX0OlgBlWoj1USRo3stBWqeKsCNPta5P88sgFPrwncdm4L5GP4KhdAGySmurXrD7wqQSEePM4yLJbZeE2MS4A7xxfjkFlIX5A2Fm0W6RKhUJOLTfgcA8HYr/n0TkgJQJaqm4LuNcc8KoJpjcUmO4rr4NXQvDm4/tOcT0j0S329XAKDdAygJuE0hSVySI9xvV5UcwPg/4D+TTgeSu/hIgCREg0SMMB9Dy7CY+qi/YimNUKEZMrwAWQSa9lLQwpAAAAAASUVORK5CYII="
+    }
+  ]
+}

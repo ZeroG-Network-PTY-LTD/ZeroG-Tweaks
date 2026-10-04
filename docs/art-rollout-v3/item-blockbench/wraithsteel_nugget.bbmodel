@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "wraithsteel_nugget",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "wraithsteel_nugget",
+      "type": "cube",
+      "uuid": "52d6c2d0-1c63-5317-82fb-62950e815139",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "52d6c2d0-1c63-5317-82fb-62950e815139"
+  ],
+  "textures": [
+    {
+      "name": "wraithsteel_nugget.png",
+      "id": "0",
+      "uuid": "d759688f-5703-5c82-8851-0382353dc8bd",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA+UlEQVR4nGNgGAWjYBSMgqEKbBx8/lPDHBZyLS9tq2VgqGJAccSRA1sYSTWLZA0wy3V0NBmuXLkOF++uasZQS4yDSHIALsuxge6qZqIcwEQry4kFRDmAFMvR9VHsAFItJ8X3DAxEpAF0X5S21RJtua2nC0N7eQFeO0jOhjBLcDnE1tOFJPNIDgFSLT28fQ/e3EB0LsAHhDycGIQ8nMjSS1ZJCAP+E9sYGBgYGN7t2Ad3CDKfpg7wn9jGsDG/Cs639XTBsJhQ8DMwkFES4pJDTgeHt+9hYGAgrigmKQRgBuJzCDG+JtsB6A5BdwypllMVUKt9MApGwcgDAEWGcoDDgc4GAAAAAElFTkSuQmCC"
+    }
+  ]
+}
