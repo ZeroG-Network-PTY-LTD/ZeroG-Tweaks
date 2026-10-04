@@ -16,7 +16,30 @@ public final class AlienCaveCropGameTests {
     public static void twenty_crops_and_planet_cave_families(GameTestHelper helper) {
         // Open sky above the flat test terrain, not the underground template.
         var level=helper.getLevel();var pos=helper.absolutePos(new BlockPos(1,130,1));
-        helper.assertTrue(ZGAlienAgriculture.HOMES.size()==20,"Expected twenty crop families");
+        helper.assertTrue(ZGAlienAgriculture.HOMES.size()==28,"Expected twenty-eight crop/gourd families");
+        helper.assertTrue(ZGPlanetBotany.PLANTS.size()==30 && ZGPlanetBotany.BUDS.size()==12,"Missing new botany families");
+        helper.assertTrue(ZGAlienAgriculture.GOURDS.size()==4,"Missing alien melon families");
+        for(var entry:ZGPlanetBotany.BUDS.entrySet()) {
+            var bud=entry.getValue().get();
+            boolean supported=false;
+            for(String wood:java.util.List.of("hoarwood","charwood","shardwood","gildwood")) {
+                var log=net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks",wood+"_log"));
+                level.setBlock(pos.north(),log.defaultBlockState(),3);
+                var state=bud.defaultBlockState().setValue(CocoaBlock.FACING,Direction.NORTH);
+                if(!state.canSurvive(level,pos))continue;
+                supported=true;level.setBlock(pos,state,3);
+                bud.performBonemeal(level,net.minecraft.util.RandomSource.create(7),pos,state);
+                helper.assertTrue(level.getBlockState(pos).getValue(CocoaBlock.AGE)==1,"Fruit bud did not grow");
+                level.setBlock(pos,state.setValue(CocoaBlock.AGE,2),3);
+                var drops=Block.getDrops(level.getBlockState(pos),level,pos,null);
+                helper.assertTrue(drops.stream().anyMatch(s->s.is(bud.getCloneItemStack(level,pos,state).getItem())),"Fruit harvest loot missing");
+                helper.assertTrue(bud.getCloneItemStack(level,pos,state).get(net.minecraft.core.component.DataComponents.FOOD)!=null,"Fruit not edible");
+                break;
+            }
+            helper.assertTrue(supported,"Fruit has no supported planetary tree "+entry.getKey());
+            level.setBlock(pos.north(),Blocks.STONE.defaultBlockState(),3);
+            helper.assertTrue(!bud.defaultBlockState().canSurvive(level,pos),"Fruit bud incorrectly supports stone");
+        }
         for(var entry:ZGAlienAgriculture.CROPS.entrySet()) {
             var crop=entry.getValue().get();level.setBlock(pos.below(),ZGDimensionTerrain.FARMLANDS.get(ZGAlienAgriculture.HOMES.get(entry.getKey())).get().defaultBlockState().setValue(FarmBlock.MOISTURE,7),3);
             var immature=crop.getStateForAge(0);level.setBlock(pos,immature,3);

@@ -6,7 +6,13 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zerog_tweaks:cinder_pepper_seeds"
+          "name": "zerog_tweaks:cinder_pepper_seeds",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ]
         }
       ]
     },

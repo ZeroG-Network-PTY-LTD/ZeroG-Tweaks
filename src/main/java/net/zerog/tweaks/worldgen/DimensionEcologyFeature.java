@@ -30,7 +30,13 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
             level.setBlock(pos,grass.defaultBlockState(),2);
             if (level.getBlockState(pos.below()).is(previous.getBlock())) level.setBlock(pos.below(),soil.defaultBlockState(),2);
             changed=true;
-            if (random.nextInt(5)==0) {
+            if(random.nextInt(14)==0 && level.isEmptyBlock(pos.above())) {
+                var choices=random.nextBoolean()?net.zerog.tweaks.registry.ZGPlanetBotany.FLOWERS.get(theme)
+                        :net.zerog.tweaks.registry.ZGPlanetBotany.SHRUBS.get(theme);
+                var plant=net.zerog.tweaks.registry.ZGPlanetBotany.PLANTS.get(choices.get(random.nextInt(choices.size()))).get().defaultBlockState();
+                if(plant.canSurvive(level,pos.above()))level.setBlock(pos.above(),plant,2);
+            }
+            if (random.nextInt(5)==0 && level.isEmptyBlock(pos.above())) {
                 var plant=ZGDimensionTerrain.SHORT_GRASS.get(dim).get().defaultBlockState();
                 if (plant.canSurvive(level,pos.above())) level.setBlock(pos.above(),plant,2);
             }

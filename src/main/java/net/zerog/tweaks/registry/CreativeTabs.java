@@ -85,6 +85,7 @@ public final class CreativeTabs {
                     if (catchAll) {
                         Set<String> listed = new HashSet<>(HIDDEN);
                         listed.add("weather_tester");
+                        listed.addAll(ZGPlanetBotany.PLANTS.keySet());listed.addAll(ZGPlanetBotany.BUDS.keySet());
                         listed.addAll(ZGAlienVines.VINES.keySet());
                         ZGGasVents.AMBIENT_VENTS.keySet().forEach(id->listed.add(id+"_ambient_vent"));
                         ZGAlienVines.FRUITS.keySet().forEach(id->listed.add(id+"_vine_fruit"));
@@ -115,11 +116,14 @@ public final class CreativeTabs {
                     }
                     if (name.equals("food_and_drinks")) ZGPlanetCrops.PLANET_CROPS.values().stream().sorted().forEach(id -> out.accept(item(id)));
                     if(name.equals("food_and_drinks")) {
+                        ZGPlanetBotany.BUDS.keySet().forEach(id->out.accept(item(id)));
                         ZGAlienVines.FRUITS.values().forEach(fruit->out.accept(fruit.get()));
                         ZGAlienAgriculture.HOMES.keySet().forEach(id->out.accept(item(ZGAlienAgriculture.GOURDS.containsKey(id)?id+"_slice":id)));
                         ZGPlanetCaveVariants.FAMILIES.keySet().forEach(id->out.accept(item(id+"_cave_berry")));
                     }
                     if (name.equals("natural_blocks")) {
+                        ZGPlanetBotany.PLANTS.values().forEach(plant->out.accept(plant.get()));
+                        ZGPlanetBotany.BUDS.keySet().forEach(id->out.accept(item(id)));
                         ZGAlienVines.VINES.values().forEach(vine->out.accept(vine.get()));
                         ZGGasVents.AMBIENT_VENTS.values().forEach(vent->out.accept(vent.get()));
                         ZGAlienAgriculture.HOMES.keySet().forEach(id->out.accept(item(id+"_seeds")));

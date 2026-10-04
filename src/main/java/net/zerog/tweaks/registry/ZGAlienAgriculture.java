@@ -19,6 +19,7 @@ public final class ZGAlienAgriculture {
     public static final Map<String,DeferredBlock<ZGPlanetCrops.PlanetCrop>> CROPS=new LinkedHashMap<>();
     public static final Map<String,DeferredBlock<Block>> GOURDS=new LinkedHashMap<>();
     public static final Map<String,DeferredBlock<StemBlock>> STEMS=new LinkedHashMap<>();
+    public static final List<String> GOURD_IDS=List.of("nebula_melon","eclipse_pumpkin","aurora_melon","solar_melon");
     static {
         add("moon","lunar_turnip","pearl_carrot","orbit_pea");
         add("mars","rust_beet","ares_chili","copper_onion");
@@ -27,6 +28,9 @@ public final class ZGAlienAgriculture {
         add("eidolon","frost_cabbage","rime_parsnip","ghost_garlic");
         add("solvane","solar_tomato","corona_corn","sunburst_squash");
         HOMES.put("nebula_melon","cerulon");HOMES.put("eclipse_pumpkin","moon");
+        add("moon","lunar_snap_pea");add("mars","martian_okra");add("cerulon","reef_artichoke");
+        add("skarn","cinder_asparagus");add("eidolon","glacier_broccoli");add("solvane","sunroot_beet");
+        HOMES.put("aurora_melon","eidolon");HOMES.put("solar_melon","solvane");
     }
     private static void add(String home,String... ids) {for(String id:ids) HOMES.put(id,home);}
     private static <T> ResourceKey<T> key(ResourceKey<? extends net.minecraft.core.Registry<T>> registry,String id) {
@@ -35,14 +39,14 @@ public final class ZGAlienAgriculture {
     public static List<String> vegetables(String theme) {return CROPS.keySet().stream().filter(id->HOMES.get(id).equals(theme)).toList();}
     public static void init() {
         HOMES.forEach((id,theme)-> {
-            if(id.equals("nebula_melon") || id.equals("eclipse_pumpkin")) return;
+            if(GOURD_IDS.contains(id)) return;
             var produce=ItemInit.ITEMS.registerSimpleItem(id,new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(.35F).build()));
             var crop=BlockInit.BLOCKS.register(id+"_crop",()->new ZGPlanetCrops.PlanetCrop(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT),
                     ()->net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks",id+"_seeds")),produce));
             CROPS.put(id,crop);
             ItemInit.ITEMS.register(id+"_seeds",()->new ItemNameBlockItem(crop.get(),new Item.Properties()));
         });
-        for(String id:List.of("nebula_melon","eclipse_pumpkin")) {
+        for(String id:GOURD_IDS) {
             var fruit=BlockInit.BLOCKS.registerSimpleBlock(id,BlockBehaviour.Properties.ofFullCopy(id.endsWith("melon")?Blocks.MELON:Blocks.PUMPKIN));
             GOURDS.put(id,fruit);ItemInit.ITEMS.registerSimpleBlockItem(id,fruit);
             ItemInit.ITEMS.registerSimpleItem(id+"_slice",new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(.3F).build()));

@@ -6,7 +6,13 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zerog_tweaks:tidal_cucumber_seeds"
+          "name": "zerog_tweaks:tidal_cucumber_seeds",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ]
         }
       ]
     },

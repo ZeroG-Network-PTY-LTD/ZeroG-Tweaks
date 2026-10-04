@@ -6,7 +6,13 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "zerog_tweaks:lunar_turnip_seeds"
+          "name": "zerog_tweaks:lunar_turnip_seeds",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1
+            }
+          ]
         }
       ]
     },

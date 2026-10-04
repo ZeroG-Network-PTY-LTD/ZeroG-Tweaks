@@ -11,6 +11,8 @@ assert len(spec['dimension_themes'])==34 and len(materials)==12
 with ZipFile(a.jar) as jar:
  for row in manifest['files']:
   source=(revision/'resource-source'/row['path']).read_bytes();assert hashlib.sha256(source).hexdigest()==row['sha256']
+  overlay=a.design_root/'docs/planet-botany-v2/source'/row['path'].removeprefix('assets/zerog_tweaks/textures/')
+  if row['path'].startswith('assets/zerog_tweaks/textures/') and overlay.exists():source=overlay.read_bytes()
   assert source==jar.read(row['path'])==(res/row['path']).read_bytes(),row['path']
   im=Image.open(io.BytesIO(source));assert list(im.size)==row['size'];assert im.getbbox(),row['path']
   if im.height>32:

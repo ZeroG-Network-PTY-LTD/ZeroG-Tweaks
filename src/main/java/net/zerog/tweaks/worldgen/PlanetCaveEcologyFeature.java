@@ -82,6 +82,7 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
         return changed;
     }
     public static void decorateCanopy(WorldGenLevel level,RandomSource random,BlockPos trunk,String theme) {
+        net.zerog.tweaks.registry.ZGPlanetBotany.decorateTree(level,random,trunk,theme);
         for(int x=-3;x<=3;x++) for(int z=-3;z<=3;z++) for(int y=3;y<=9;y++) {
             var leaf=trunk.offset(x,y,z);
             if(!level.getBlockState(leaf).is(BlockTags.LEAVES)) continue;

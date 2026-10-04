@@ -38,6 +38,12 @@ if (refresh/'manifest.json').exists():
                 data=(refresh/'resource-source'/row['path']).read_bytes()
                 assert hashlib.sha256(data).hexdigest()==row['sha256'],row['path']
                 latest[name]=data
+botany=a.design_root/'docs/planet-botany-v2'
+if (botany/'manifest.json').exists():
+    for row in json.loads((botany/'manifest.json').read_text())['textures']:
+        data=(botany/'source'/row['path']).read_bytes()
+        assert hashlib.sha256(data).hexdigest()==row['sha256'],row['path']
+        if row['path'] in latest:latest[row['path']]=data
 with ZipFile(a.jar) as jar:
     for name,data in latest.items():
         relative='assets/zerog_tweaks/textures/'+name
