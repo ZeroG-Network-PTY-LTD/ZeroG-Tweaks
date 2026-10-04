@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "red_dune_brush",
+  "model_identifier": "red_dune_brush",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "366d7213-c30d-52ff-b7d3-6e3cc96e4d12",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "2a4001ba-9e0b-5dc1-a4b0-5d90b5eb1970",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "366d7213-c30d-52ff-b7d3-6e3cc96e4d12",
+    "2a4001ba-9e0b-5dc1-a4b0-5d90b5eb1970"
+  ],
+  "textures": [
+    {
+      "name": "red_dune_brush.png",
+      "uuid": "5526eec2-ef7c-59b7-b4f4-5bfee45f747c",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "scorched_heather",
+  "model_identifier": "scorched_heather",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "fd7d880a-ead0-5290-802f-bd27404b33dc",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "ef6c20f0-98c5-50c6-b8fe-40671e207757",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "fd7d880a-ead0-5290-802f-bd27404b33dc",
+    "ef6c20f0-98c5-50c6-b8fe-40671e207757"
+  ],
+  "textures": [
+    {
+      "name": "scorched_heather.png",
+      "uuid": "b219173b-8469-5790-83fc-a52ad7076818",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "frost_snowdrop",
+  "model_identifier": "frost_snowdrop",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "cbc5ffe0-1932-5c42-87fb-83df11bc7182",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "a420c05e-f311-51cc-845b-94eb8c45943b",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "cbc5ffe0-1932-5c42-87fb-83df11bc7182",
+    "a420c05e-f311-51cc-845b-94eb8c45943b"
+  ],
+  "textures": [
+    {
+      "name": "frost_snowdrop.png",
+      "uuid": "1feb9c47-1ead-5260-bf92-d921b4ac0c35",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEGUlEQVR4nO2XW2xVRRSGv5nZPa1oJBwroFi0AsEqD/pCgsY0RjBgAkaNMbwowcRLwNYKEhEQQgxBRQgGEjXxlnhBicolpYiRhChBQZRgaUpryyXQ0tJSiPRyzp6Z5cM+lBC6T+Cc+qQrOS8zs+b/z/+vtfbe8H/810MNxiXStEQwGpwHo0GAtIWEgeZO1IPrY3GCwSCAQE9ta3Sh0dGSCAB1x7qypupBIaAVhQWGIQ+MIx06UqEjbT1ehAmlyX+XgBxeJISOtHVgNForjFZopfBeSIWO3Wsfk7j8/C0QobuxAxDwHu+F0PkLWwQmIpITATm0MCouJCou6y8WGqDKVii8kLaOooQBL6Ss45pEgAC9KYvRkSo5EUArztafItARYOg8gdGIgHWeKVVLBR2ilSIVegq94D2kQkdgNEZH63eUDIuFyNqGUrdQeps7KbjvdtK7m+lNWYoSAaHzWOuZvinBtckb+OL+Fj7dUY8QiQXgvKB1JP8LMyawv6GdyQu2XIYXq4DUvyZYT8p6jBe6+0KKEgFeJPpnIqyZeJpJFe8pUz5b2rp6SVuH0QrnhQKjcRnva492YmJsiLcgdLTXtxMYjfOewgJDT19IYHS/FWnrACh+/CNV/uw82fXBOwOirP3uYCxMfBt68HJRxu4+i9aKVOgynrtLqnvozbfEXpUt4hXI9HI6dJiMnxd+aesQgfGZ4pq+dLVsWVaV01jPmtT69Sz5eHs9AM77qJ2Efm9nTysjtJ6KhrvZunxeTgSyTsJEoGnp7ObE6fN0nOujtbMnM1w0Hef6MEpx6OgZuk4cGzC/cttv8RMonyh/br5MXfCGANz79JwBQSqq90lF9T6Z9uqKrCRyehbsen+VUkpR/vwrMmzU6Ev25m7eI5U1+0VpTXtjHcmS0qx35fwwGnpTCec72ug6ebx/7cWtv4opKECcQynFmeNH6Dj6F9lUyDqK527ZI+tmTBqwuHrOdjJ8zHhq3lykorO/yOh7JtJSd5Damm8B0Mbw/dtLshZn7GZlzX7x1nLmeDOfz5l52bnpS1dL2NtDsqSUCVMfRQcBO9evBBG0MWx/a/EVdUXsoYrqfdJxpBHvHCAU3zaOdY9cqkZF9V5x1tK0eyfeWgB2rF52Ve04oAUz3/1MvA3xNmT4uDsBON10mCfXfCJfVc3qB2j86Uda6w8yYmzZVQNfiKxJD728TJK3jgGEERkibQ11bHjpKQXw8MKV0lJ3gAObN+T8cntFiVOqXpfk6DF4ZykuHYs2Ad5ajuz9mbaGWv7Y9GXOBK7oleyHNcsVwOTKxSLe451j5Pi7GDIsmamR3CMn5k+s+lBO1v7O3+2n+HPbN3l9W+Q0iDbOf0YhglL5f9fkPAmvHzkqb/nzIuDCkOtuHJE3gX8AVavsZr7IDGwAAAAASUVORK5CYII="
+    }
+  ]
+}

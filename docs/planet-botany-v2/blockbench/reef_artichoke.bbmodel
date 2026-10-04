@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "reef_artichoke",
+  "model_identifier": "reef_artichoke",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "a7ef043b-c2ab-5145-adea-9a777268d070",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "53f7bb08-3631-5964-abdc-2e7fe9512292",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "a7ef043b-c2ab-5145-adea-9a777268d070",
+    "53f7bb08-3631-5964-abdc-2e7fe9512292"
+  ],
+  "textures": [
+    {
+      "name": "reef_artichoke_stage3.png",
+      "uuid": "7b671366-1e05-522f-8dc3-4cff1660d11d",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

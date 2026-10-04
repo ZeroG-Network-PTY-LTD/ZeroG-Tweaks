@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "basalt_bloom",
+  "model_identifier": "basalt_bloom",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "811785d7-9611-5f03-949e-72e106417559",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "c485faa4-4ed8-57d3-8728-3f1fd654d4aa",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "811785d7-9611-5f03-949e-72e106417559",
+    "c485faa4-4ed8-57d3-8728-3f1fd654d4aa"
+  ],
+  "textures": [
+    {
+      "name": "basalt_bloom.png",
+      "uuid": "7006c8b7-04cb-58bd-a5a5-642999460389",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE0klEQVR4nOWWXWwUVRTHf/fOlNpSK4uFftsqSP0g8UGNESXAi4IgMUK0IvEBJUokgL5q+BA1MTyZaCwIEhSUh6oPREECCEJAJDQIIuVDSsu2lBYoZbstOzv3Hh9mWwS6y3bLmye5m5nZc8/5n/859z8D/3dTA3GWjdMFK6AVGAtaoV7ZpGRntaB14OQo8Axq0sa0YqcNQL57XrBC+7kovhUEQKCkeChU5EPjlWvAHB2AmLP5lvF1WsnXTxOM0BKOYEWwIjgKSopyQQTOdIIV8C34Ely7muMfjZfbAgDfEg5HsAKeEXYe76DbMyAEywJasX5XOIjoW/AtWt2a4PQAaIUVQauA5YlVIX47eTlooAqifPNrE7MnlIFSAStaUVmQM3gAsqNaqMjHJpiNG8HzgzZEHywnNraC2Nh7iJtEC0RAQOKWU+einFyeug0pOZLtLwebz1wBhNOtURBwHEXFOyu4+tdaXEfTc9XHdRXOwQYEcLWisb2bq3GLqxUCPLB4T7+5kgKQbb3JO689S/xExpYH94naXEcT9y052Q7hLUfxreBohW8EVyt8aznd3sPUz+puyucmLd+3yNkIylFYY1m3pxkAY4WZD5Xjuoq4b3EdHcyHVsTihu31l4IWAOPvH4ZnBN8InrH9pkkOQCmMSHCsBKqfKEaAnCyHDhGshewsh56Yj+voPnYmjAkF+I2glcK3Qv35KHe4/Y9byhmwX04WgLix9E5SL+2Rh8txHYXraHzfEvct2UeacLXCdRQnWroAOH2hB98IM1ce6jdXylOg525RXTEfrRXWSrBEONUapbZmH9aCFzfE4obaVb+jFVgRPN9SMTKXU+3deL5NmhxStSBh+fO3qWPLnhZB+obKiuBboXnr3zha9VViBVxH0eMZcrIcQnlDmLTij5QspyVEYwpzifvSp4S7T3YwfvSwoFpj8YxlxuNFbNjbkmAqYCI7Sd8HDCAQIelTw3H3DQvaIsFM9ArT7HElwctSQ1fMYCWlBqUPIGveVqWVIu4HKugZi+dbjrZ04fmWUUW5ZLuamG/7lqMUq+587PYAAHhk+V5Vfz7KP+3dDHE1IjDE1Tz5yX51OByhrvEKWiu8RPJ3I1WICFPffilzKU5lE199TqKXIxz4afd1MV77eL4Yzw8kOcvFGsP6xV8kzZM2AzfaXSNCyA09XrhmiRSUFVJaVUFhZTEXzrZyqaWdKW/NTMpCSgCLvlqadKM1lrxQft/9gtWLpbSqEgUc2XWQ+n1HUFrzc02t2lxTm5SBpH8sXLNEtKO52NzG1+99fpPf9AWzpPNCByWjy3l08lOAsH3dJmxCNbeu/nFw34SL1i6V9qZWrLG4WS7DS0fw6Zxl1/kHIB2O7q5DOwGZW1b9MKC56td59gfzJFRcwMXmNkbcUwwiXGxuQ4AN/xmo6QtmSfh4A4X3lpKK5gED6LVnXn9B7i4biTWW4lHlgNDW2Mq3S2sUwLT51RKub+DQtv0Zn6a0Nk55c4aEigqw1lJQVojjOAhCw58naD7RRN0vezMGcMuXEcDmld8rgGfnvihKKawxjKwsIS+Uf9NRHKhlhLz6/Tfk7LEzRDo6ObzjQMbVQ4ZCtPHD1Uo7GpW5kA4OAEDe8HyEwdE/KABKKYbm5w0awL+BenEbcuAFSgAAAABJRU5ErkJggg=="
+    }
+  ]
+}

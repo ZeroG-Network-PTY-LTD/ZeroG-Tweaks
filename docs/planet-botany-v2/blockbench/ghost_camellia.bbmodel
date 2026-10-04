@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ghost_camellia",
+  "model_identifier": "ghost_camellia",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "bc070fa5-a734-5a24-912f-961061f803c7",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "e00a3ae7-0303-5cd0-930f-e0062b7f1143",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "bc070fa5-a734-5a24-912f-961061f803c7",
+    "e00a3ae7-0303-5cd0-930f-e0062b7f1143"
+  ],
+  "textures": [
+    {
+      "name": "ghost_camellia.png",
+      "uuid": "3f9efd5b-c56a-5433-8093-de472388dcfd",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFJUlEQVR4nMWXa2xUVRDHf+ec7RZjUII8ijwiyqOlYIiGRPCLRkBAlA9goCBIgn6SZwSfBbQaUiMg4RENgYjlrZAAVVrAgGhICErTQltepUBhi1gLhQhse+8544dbVsVutywaJtm7Z3Nn5v8/M3NmzsI9FpWsofwyW7AOjAaRwNmARXfsLykCUjRHaPD5PXKVaIMlNcUQbfAJGc3DY9fckc8WK8u1TwTfQcXvYB3VVVcACGmFAB3TWkM4BPU+ZHQMnLd/P6H/FhGQq7kB+InfiFRdwbdCyChEYF/xBSa+1Bd8B6khEIK1tRAOoQYtaRZDJwS/9JHgBCpqQIKlVgrnBCfCxJGZ4CT4NNigHkRAK1zU48jqLLkrAigNJdXgAM+yvziCaySyvyRC3rdl5OWXQdiACHnbjjYSAucErZsPcsIUSCRHOHcZfIf4DmUUX+aXAcKk7GGYkOarnAJEwDphysjMwE5AGUVDvU/q0M/j4oSaBd8/Xai6Ap4FAZViwFqUgsnzhrMmpzDQa3yICM4JsZh7QsX5OkpXZUnf1zY2SSJuCuSnGUKK5lxlLafPXQERxLPkFRxjUvbzrJq/E986nAgiglZBbXy5sxyjgxo5draWcEhjtGJ7zogmayF+BEQ4W3kZzzoAVuWXYp2QYjTOCUopjFZYJ1jrcFrfigUrtx9Fa8WgzE7cqA/6g5OmazE+AScxY893DOzTiVZhww/FkSDMIvg2KDKlFfI3gInDMggZTXllLUYrjp+vi3XL2yVuCtQzy5RzjaHVCifCjajPwMw01i3Yzdg5z+EE6j2LCEx4ZwhOhPFDe+NEuB71eKxrG05XX0MrGP1hYZM1kPAUnFgzQaINPkbf4iocLL+E7xyvvDsEBDzPsmnhXgAmj8jA8x0ChIymuKKGp6duTe4UAPR6tgfXy38NoAXWFh5j3ODeAGzI/R7rHFprBvTugDGa1fllTH6hDzfq/aBZueb9JySAZ2nwHK3CBhRMGJqOAClGM35obzzfcSZylZDWeNYxIL0jzglGKY5U1uL5zTNI2AlVj49VaorBiVDvWZwIDY3f12/6rC08FmvLnm/RWlHvBcfTOWHwm9vubhYA3D/8C1V0soaiUzU4J6SmGP646VH16zUG9ukUjAHfUlF9jRPn6wKiDlaa0Ql9J3UfOLRijCDEegTAyQt1ZHRry1PTtiiA8cs3iDaG2nOnKch9Ly5O0jeig8vGSOXFq0BApGfnNgyavlWNX7Ze2nXvCUBtVSWIsP6NrP+ewIvzFkt1eTGHt+TFfGQtXScdeqRjwmG8aJRT+3ejjMFZn12fzm0Sq9lTMLOwSJYMe6LpBqIV97dtH/s9dcdB6fL4k1wsP0JZ4XZuteXC3OxmNxn35YyCw+J8n98qjrN51qv/0huZvVDqLp6nS78n6T9qHAB7V+TGWu7uRfNbFN24StN2HJSaM6cQ62PCqbTt2p3lowb+Q3/6d4fE+j6nftzzF/DiD+4orU2mIGvpOhFxON8jLb0fAJdOlpG1dK1snD4xBlBxYB+R0iLSemWyq4U7vl2aNRo8c6481O3R4NbbMwMELh4/ypa3XlcAw99eINXlxZTkf510MbfIcMisefJgWhcAHs7sjxe9iTaGsz8f4EJpESU7NidNIPEsAPZ8lqMABs/IFh1KwVmfdo/04L42bePO+ZZKUsxfXrhaIqVFXL9cS8mOTUnvHlo4C26Xb2ZPCf6VSIJZ+38RAHggrTPO2ntHwFlL6/Yd75rAnzzpn5CEmBgsAAAAAElFTkSuQmCC"
+    }
+  ]
+}

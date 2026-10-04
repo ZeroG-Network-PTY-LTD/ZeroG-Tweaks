@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "rust_lily",
+  "model_identifier": "rust_lily",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "540ee325-c995-5c45-baee-39131be658aa",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "35ad4c30-1c83-51d2-824c-9533591a29ce",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "540ee325-c995-5c45-baee-39131be658aa",
+    "35ad4c30-1c83-51d2-824c-9533591a29ce"
+  ],
+  "textures": [
+    {
+      "name": "rust_lily.png",
+      "uuid": "84533dcd-cf42-59dc-bddd-0b130c8a9132",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAD6klEQVR4nO2VS0xcZRTHf983EyCW4U0ptIJUg1EXTXxU68Y0IbrowpBCNJEYsdqNr+hCG+iiidqN2lSJUUnc1Ki1UGrUuHAhqUmjoUaKxgcWzQCDWAbm0RHizNzvOy7uzCg6nblDcWM8u3vvd8/5nf95fPC//RdNRh8Sr2f1RjuXUw8LIkwO3OkJoiQAGX5QEEgP9uR1Lu/1CSLEghG2N1R68ukZQE7uE/yai8FlrAjn+vNk6NckghGsFawIK0f3FlXBuwJW+C0YocyvSTmWjqbAWsATfYJAyrH4tEIrhRVh/JnOghCeAOT4A4Kx+JRiNWWwIqQcS+ylLoFMaSxEg8toTe57yrFFS6GKBh/ZJxhLPBRDAMdY6m66EoD4RAi/1gSaq7i4ECdtMsmKkE07bYTz4QR3HBnLG6uoAqr7TRWdi2JF8GVk1VmJLSQdw9JcNJdxyjEYASugleLHxQTWXtq/pxLUbqnKBdNKET47SyptqNzRQsq4gZOORSs3aBZmJeVgrbD7aP7sPQOo3mPKimAFko7bC8m0wVqh3Of7izq46mgo82vK/T6SpkD6XgEAGrdWk3Is5X7tZqtdiKRxVdHaLc9K0sFmpmEyFEOrwm3mGUD1HlPZEUwZS+zcPOVlPiqu25JRxmRGD6yV3DTcNXi6IEFJm3Dz5kq0VpT7tTtqaZPL3B1RB7dUkuuLYlYSgOp7W/3ZcIrwVyGWJkJuMOO+K8+oZMVVYEMBAFpba3NZ+pSizKfRWuFTipSxuUa0Irx+/c0bD6Duf0v5MqP27UKcyfkYUxcSuYaz1gXTSiEi3PbUvQVl8JcKANB28CO1o2+P/B7VTL3/2Zom63zx0ew6RFkhsK2xoK+SFcjapqZa+FuN9554Vmram6lpa6K+o5X47AUSoTA7n8h/fUMRBXpOHZbhrv78YyRQUVeVe+x655A03tBOZDrEzOmvEWNRWvPFkeMFx/CSH3tGD4s1huhPv/Dpgdf+ce72A72yuhij/tpWrtmzC4CJoQ+wxgDw5aujRS+6ggBd7x6SePBXlM+tUk17Cyd7Dq453z3ynFjHMHfmm9y7s4MjngIXBOh84REJtDSQWFii5qpmAJanZgEYGxjK/bPr6ftk+fsZarY3M/7ycEmBCwJk7ZbHuiXQ0oA1lvqObQBEpucZ639DAdz65D0SmQ5x/sMz6wpeFCBrOx/vkU1NdYBQe/VWrGOwxrI4Oc3SDzNMf/z5ugE87YHxV1x5b9x/t4gICFS3NVFRF0A8rNtCti7y3c/vl/B3QVbDMX7+ZHzd2cM6F9HYwJASY1FF7vp/DQDcTXi58l8WgAhc0VB92QB/ABpQFBlA4+ycAAAAAElFTkSuQmCC"
+    }
+  ]
+}

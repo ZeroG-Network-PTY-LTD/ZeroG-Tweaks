@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "solar_melon",
+  "model_identifier": "solar_melon",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "ribbed_melon",
+      "uuid": "49130282-bf0e-514d-a068-2d33f6b699c9",
+      "type": "cube",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "49130282-bf0e-514d-a068-2d33f6b699c9"
+  ],
+  "textures": [
+    {
+      "name": "solar_melon_side.png",
+      "uuid": "ee8f432a-9fcc-5aa4-8afb-becb4d28db69",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABj0lEQVR4nM2VPU/EMAxAjQVSWW4CFday9N/y97rQFSpODLdQCRQz0BLbSZsPg7ghQk3ycuE5ti/eHo80nSYYXgZ4/5jh4baD7qaD+XOG4XmA6TRBe2ihv++huWxgPI7w9DrC9VUD/V0P7aEFC4+OHKyD2F9i83pOr1l4JCIgIraZvocj9u2Wb/Lf5GBlLTxqUN5cHfJze3mQhUe+sKVtT6eVR1pU8FtLrSR0hyGw8Sg11YTAxqNcyFMY21/Lo78RT5M9hfxAAiuP8hACcjKegUKWThRcopxHrSZXYc7I4ZGr5Apjec4VcvUWHkkplPHUusM5Kx+EIKX7t9fPoRLyCrWqKZuz8D4ErlChU2uV/P9XwtjLTTWT2Iuu5VHmdKzHu415Uv9hHb+bhjGFJWmWw0cqoe7bvNpRsNfKy0rIGknsB/yL36iEFfy5VEJSsdqr9elmVMJHm1EqxqlmVMKjrmjFio08emWRPHWLLicVZud5Bo8+LltpFs7lVLpcHuXjKRt7tT6XP4c0/Nt+n9r7BaEVwv8G+lm0AAAAAElFTkSuQmCC"
+    },
+    {
+      "name": "solar_melon_top.png",
+      "uuid": "848cb000-b2c5-58b8-956e-5f047f4daf87",
+      "id": "1",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

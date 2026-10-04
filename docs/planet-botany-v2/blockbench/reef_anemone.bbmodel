@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "reef_anemone",
+  "model_identifier": "reef_anemone",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "eb327b3b-4626-593f-9062-5a4fe040e116",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "6e59d8c5-9132-58b9-9ce6-b3dcb080fcdc",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "eb327b3b-4626-593f-9062-5a4fe040e116",
+    "6e59d8c5-9132-58b9-9ce6-b3dcb080fcdc"
+  ],
+  "textures": [
+    {
+      "name": "reef_anemone.png",
+      "uuid": "8d2d7f2c-9efe-544a-99a1-43de5af5eb08",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFHklEQVR4nMWWeWyURRiHn5n5lm2NVbkU09rShChIg8GDGMEYBBqIJmqIUbxiPIhBEw8kKpFoNKBRCIcakGAggpggCqKCIEeUgEBE5bAiPRd60FoErYq738y8/rHb9erutquGN9k/Nt/M+3vmnd+8M3CaQ+U7URbsFAC0Bu9AQD08ssf58gKQV3YJCEdb6hAASbIYbSiZOalHObs9WN5pFrSBxmoQIdYag6Q8IjBwQFlyYBiH4kHJ5LeV58zfLQBZ1SQg0FhNzbEYBUEkJQ3bar/irhET/hisDTj7h8DjY7Nq5ASQ1S1CGIfmOgDq2hrpXLnRhrK+AwDwzqK1wXuH1iY9pupYjKFz7s+oo3MBIB6aapNmE8/mmr14kdTPJ+svHh1EQGuWfbEJlCa0FvGCVtnXmBvAhngXgg1BaSZfeR2f1e/Hi6ds0m585Rp85VrEWt7Y9SF3X16JdyGRIIIXz6B+xVnTZ8WTOVsFAbwFbRCf3FulDfaBMzh1cBmF0YDQekAo3DYR6y2hcxRGevFrGOfoie8RYMjse7vUygggs7cIQE3bUax3XNi/GCHpxV+ueQ+AwGgCowmtJwgUofWoT64n0IbQW+qPt2K9JRr04lDbESYuf+4fekHm2miqjzVgvSP0jsW712O0BoFJo5N5tFZpP8QTAggr9m5KpxhZVoEX4VQYR6uudzszgHi8CAlniQYRRg2sSK7MORLhHgqihkToCIzGe0lVQrhvxATC1DGsbm/Gi1DT3pSE7yIymlA9PkYlnMX/CSThLForjq6+nETCo7XCeSEeOuKhI9h6HV48cWtxIlzUv4TD7Y1opbjlrZldbnfWUzBs7mTlRQidRSuFF0/oLNsbDiCbxxNPJOGiEUPDquEs2fMx3gvR1Alw4ik+qy+3rpyV0Wu5G9GS/dLRUkegDQBLv9jIHcPHpDth6CwNJ1o7+w47Yge567JxSOp++Lq5ljGLn8iok9kDnaE1CRemVu+4edg1xF2YhBMIjEkaTIF1jitKBhO3IYWRXnzdXIvOsPfp9Ln01T0VKmoiaKVTfkiV3UQwWrHiy82cCuPpbxEToJUmbkO8CKMXTcta5dydECiacaP6qqmGmuPNRIMIWiniLqTueCtXlAxGK0XCWQ63N1LVGsOLRyvNjArJmTuv98COKfPEegckt74giFDd3sTA3gO4euGjCmDkghcFEX5uamHfSwvyN2Gm+PzB+fJtqkuCMKhvMdcunqaumv+CnHlBMUprOhqOIM7x+dQZ/z3AZU9PlR8OHqJ+7UfpHFfNmyVFZaXoSNLbLZ/txDuHOMeBeYu61Mp6CirXLJdNN93Z5UQRKDyvX/r/uNXLpE/FEDrqYzRt3Y50Cs9/Pb8HyfgP3hZxjp9q67ss4aXTH5NTbW2cc/FgSieMRRlD1cKlKKMR59g/d2G3qpsZYN1K6aiP4Z1HGU3RwFI23nD7X8ZXvvumgND86Q5MJILPUuoeAYx67WU54/zz6KiPUVRehjaGH6vr8M6x+4ln03OGP/mInKj6jqLyMg7M75lwVoDOuGTqg1Jwbj+UNpw9qByAH2vq2DXtGQUw/KlH5UTVdzS8vz5vM3dr4tCH7pOi0hKUNhSVlwLgraV97z5OHqqmYd2GvAFy3wXAN68uUQBDp9wrIh4EispLKejfD3+gKl9tIM8+MGLWDDl56DC/fd/OkQ1b8l49dPMu+Hvsmf68QgRyPLn/NwCAwnP7p98ApwVARIj26f2vAX4HpHSNnrdP4d0AAAAASUVORK5CYII="
+    }
+  ]
+}

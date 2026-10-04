@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "selenite_bell",
+  "model_identifier": "selenite_bell",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "0164bfb2-03dd-5175-a9f2-56edc0d2f416",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "611c8f99-284b-562b-bdea-c5e13d6fcd9a",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "0164bfb2-03dd-5175-a9f2-56edc0d2f416",
+    "611c8f99-284b-562b-bdea-c5e13d6fcd9a"
+  ],
+  "textures": [
+    {
+      "name": "selenite_bell.png",
+      "uuid": "d2e1eb40-0953-50e0-84ba-7219bceea1b0",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEIklEQVR4nO2XTWxVRRiGn5m5rUgoKLYUtT+CQRNFXRjdYHAhSrSYuHABmqiQGP5agohdQFNjojHWlBpMaeMPxIWxUhKNbQGRxkjUaCBaKKIItLTh9hbobaEtlZ5zZj4Xt15Uem7qvXWl3+LkJOd8877zfn8z8L/9101NxiJt74oYDUaDdSAw9oDuc7+xZNPUUJzIZBDQCk72XAQRrAswOoLWBs+/TE/8RGrfySAgAuIcC+66jojJxokjsB5aaYry7/x3CbS/L+Jb0FrjHElgJy5BJBilamWrhPlnHAI/gM7YeazzcZKDVprL3iWMTiwtCFqF7zMlgR/fEbEWtBlLMMvYoon3+9coJQIijqzINTjn8K2H1gbfegAYbXDi0iPgBDp7zyVBjY5grU/gfIyOsGjDGnECSmuccxit8QOP7KwpyV371qMg77ZQjJRleKhe5FRPLwvm53LgcIzsrGsJrM8fOmzpWE/OrFxWTn+ZPd+/lyDtEjIppZMkHrnvOU5G26jYXnIVXmhwDtaJaJWQV2uN0gY/GCWwHr4dRSnNE1NW0FpTp/zAo+9ilP7BGIMjcS4Mn6N/qJf+oV76BqN0xI6g9fhQoSFwAp3RszhxeP4o4hwgREw21gXIWJYDPP1akVq4arkcqN8xrqKffbstDCZcgSCAy/4IWplkSfnWS5aZbz3kT8k146bZoSCpLJSAE5Il5ZxDxCV37VuPIPAozr8DgJLKcmmqfD2ttp7S6cPN3fL5we24Mfm1MiitsdYHhEX3Pot1Pp9M/YDmV95Ii0DKTqiUon+ol8GRPgZH4vQPxQiCRJ0PDJ8nsB5dZ48xEO0Z13/d3l2hHTAjW7hquTxWsVEAHnj+mXFB1jY3SNmeRllcvi4libRmwYH6HUpEeHD1Cvl78pXt3illu3eKycoifrqb64sKUq6V9jCanp/H0Pk4F85ckb+05WMREXTEIDYgfrqbge4oqVRI2YrXNjdI7ZKl4ybXcLyf3LnF7KvaqgDK9jRK4T3zOXPkJ45/+TXOWhDY9+bWlMkZ+rF0904Boa+ji4bS8qv+K6l8SUYvjZA39xbuXrIYHTG0vlUPgAss+2u2Tagqwgk0N0hfZxdCYtbPLCqg9vFlf/l/bdNHoo3h16++wVmLs5bWmrp/VI7jhuCpumoREUSEWfNuRRtD7OfjLH27ShrKrqjR8d0hetqPkTdvLvuraye/ET28sVRuKC5EgLw5xQCcPXGKxhc2K4BHN22QaPsxjjTtTftwOyHHRRvWyMziQgBy5xRjjMEf9ej6oY3Y0V9o+7QlbQITOpLt35JIqIfWrxZxgrMBs2+fx5Rp0xLZnoGlxfzJ6lflzOGjDMfjHG35IqO7RVqNaNeLFQoRlMr8XpN2J5xx842IZD5r0r8XiJCTm5sxgd8B1gAL538zL5sAAAAASUVORK5CYII="
+    }
+  ]
+}

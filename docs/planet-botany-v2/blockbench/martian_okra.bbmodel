@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "martian_okra",
+  "model_identifier": "martian_okra",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "3beef6cd-5fcc-55a6-bb24-b4abd24e04d7",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "ef3b42cb-c5c3-5b1f-8c00-57b489e36f1c",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "3beef6cd-5fcc-55a6-bb24-b4abd24e04d7",
+    "ef3b42cb-c5c3-5b1f-8c00-57b489e36f1c"
+  ],
+  "textures": [
+    {
+      "name": "martian_okra_stage3.png",
+      "uuid": "89eed71d-90f1-5973-bb5d-47dff8e75548",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

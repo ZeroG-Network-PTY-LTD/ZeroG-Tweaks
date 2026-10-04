@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "dust_orchid",
+  "model_identifier": "dust_orchid",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "4c7e46bc-c6ae-5bea-a9c8-e0c6d113cf2f",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "77e25469-425b-5383-aa9d-d4775db21c45",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "4c7e46bc-c6ae-5bea-a9c8-e0c6d113cf2f",
+    "77e25469-425b-5383-aa9d-d4775db21c45"
+  ],
+  "textures": [
+    {
+      "name": "dust_orchid.png",
+      "uuid": "eb0514da-cfd0-5ffe-9f30-7eac1ea9e860",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE6klEQVR4nMWXW2xVRRSGv5m9T1tooelNQCzF0xJN0AchYiog8RpfMBIoFcVLhAeIaJSIRmJ4QIMPJkbkmlhUQmLCRa4GCagpV6VQCVFCoS20pSmllELb0J6evWeWD/tQSmhPD22i6+WcPXtm/f/M/OvfM/A/hxpsAvlhrqAVeOZ20nk/Jpx3UARk4+sCwuWGNiKewXEUvhFcrcj79OeEcifUSfYvEpDbDcbC5TYALtTfwNFBGt9YkkMOEc9w6XoHz3xd2m9+t1/wXxYKIlDX0qMRaq6042pFkqPxrKX0fBNT8nOwVrAiRH2byNziE5ADiwRjof46+BYcHcw+5KA1WBEivgEBEUhyNZ6xXLh6E88mRkDHfetbqG0JfrVi45FqUArp8hmTlUbUWLRSHK5qZmpBDlHfEjWWcE4qL607MngNyN6FQv2N4MEEM9pw5ALzpoQxxmKezMbzLa6jqN1di2eFFFfjW8EzlvGj0lGOQi3Y3CdOvyxlbbFAIDDXUXhG2HS8hrdLVhP55/sYAQ0I1btqeghScLTC1QrPCo98tq9XrISW6a9PXhBXK0KO5sHsVLoez4iBxmpDwHUVCFTtqsE3lpSQQ6dncGOEzja2Mbvkj7vw+q0CgAlf7L9jYKR8gUisKr2Y2q1VgHCo8iqOUgjC1IIcfBt01Kr3uSZEQNbODrbBBiZDfiYdlddAIOoZUpJdurygGibnZ+PF9CIiRI2lsqmdFNfpNXf/GlhfLJ5nqLjSDgK+tZTVtFC8aAJyy5wkWImG/fUxYHC1IuIHhiQCs749du8a6PpmlghwpqEVAVJCDqXnm5g2Llja8PQ8OiM+AqSeau3Ww4GKRiKeITnk4BvLnO/+HFgVdK6cKRUxx4t4hqPV13hqXA6+tTGFa8ZmDmVTWS1zJ+Xhao0g+EbI+HBHQgKPa0RaKTzf0hE1JLkOheEsrAhaKbRSRH2LESiakMuGYxe52eXH2oSDHzwt8XInRCD5vW1K69tgWtHt81aEcHYqUd8EqhdBa9X9viBnWCL4ifnA5nmF4lnBN5aHRw7HN5ZwdhpDetS6ZwJDCv4LrqOY4+RyYPGquBgDOg88Nn+6KK3YPTb4UIZiDpkScuiM+riO5s2kMQC01jVRtnJLnzjxP0Z9xKmSPcp4hmfLWvm7oZWzje2xbQqU/1bKWEQEsULaqKy4uQZ8Ipq89A1pPnORc7sOd+d47st3xBpL1kO5aMehtvQU1ljEGE6s/qlXrLhOWLRjhWydsbR3kiIMyU7vfpy17XO579EwzRV11PxejjUWBE6u6R34VvT5smj7CrHG0HapqVchFX70mtxsvEbO+DD5L07CSQ5RvnYngiDGcnLN9sGdB2ZuWS7XqxtwklyssaTnjWR78bI7+hftWCGmy6Pu0Gl0kosYy4lV2+5pW3vt/PxX70raiEza6pvIyB+Ndh2aK+rQjubXJWu6xzyx+BVpOVdHRsFoylZuHZCe4g6a9P5sSRuRCUBG/v1YP9iS3z5epwAKl7wqzRW1VO45OmAxJzRw4oKXZXjuCEBIzxuJkxzC6+ii6XQVzRW1VO29+6CRaCR0Hihfv1MBTFw4Q6wf3IAyxz1ASuawQO2DiAExn7Z8vrRUXqLj6g2q9x0f1O1qQE54cFmJQrjjsvSfEgAYkjV80Ms/KALWWIb2cMKBxr//nHL42yKDnAAAAABJRU5ErkJggg=="
+    }
+  ]
+}

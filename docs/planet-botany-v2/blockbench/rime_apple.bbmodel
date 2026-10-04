@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "rime_apple",
+  "model_identifier": "rime_apple",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "mature_fruit",
+      "uuid": "d9c811ef-7548-525d-951f-ef6638270183",
+      "type": "cube",
+      "from": [
+        4,
+        3,
+        1
+      ],
+      "to": [
+        12,
+        12,
+        9
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "attachment_stalk",
+      "uuid": "d0d039bf-377f-5ea4-9bd9-4f224def5121",
+      "type": "cube",
+      "from": [
+        7.5,
+        12,
+        0
+      ],
+      "to": [
+        8.5,
+        13,
+        3
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "d9c811ef-7548-525d-951f-ef6638270183",
+    "d0d039bf-377f-5ea4-9bd9-4f224def5121"
+  ],
+  "textures": [
+    {
+      "name": "rime_apple_buds_stage2.png",
+      "uuid": "5c749689-dfd9-5db4-a18e-7e1eb2299655",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACvElEQVR4nKVXsY4UMQx9zkx3OpoDtIJqJfgCav6BL+NjKOipkGgR9YrmtM01d4KKsSkmmdiOPbuIlVab8SSO8/zy7KUvHz/I8fAMUyFMpWCaaBvfP/zC8XC7Pk8FVAjCgmVhnM5PeP38Bn8WwcKMhQVLHZ/OT3h1dzPYFxaczo/13WovIgCLgAUQkfrt49W+PmOzo77L5sd23mzdPrNxCJAQSrWxWkxCoB1H7OZbew+cnb1I4LAjguEk2hG7ja0PDGjw9tvtxTvcO5mF3geofcTBShDQbJ0TWAQkwMv3b3AH4PHrqdqxpUBcUH4DHgIaU9LsKQnbJyNVT1VMwgilyFfxkbdJ7WM5cYmENiV6bSefGHuJiMYKAU+sjM0ZQUf0AhJGROspGB3sQRqRzaOoUZq7sRONDAICrhpACV/sie1181faE7RIEplNQaZsMR8uqaRGqVhG98k6BV6U/lVuoxQ3e7HM7YF4BDI2Rxt4gn7+9nMLisUSt2SRDyRk2F+TAquGHqWO5KiSBgEtLBoBf/KIM3tya5EMSJgtarfA5v5aubWHia8qMDcnJEAR2ibqFOgSbdjMcfBeDZukX+gH6mZMIIpIuPYEaellnX+bLo2AL+Mlu7M2BXnpvUZudU3xiG0k9IzW1TDuB2TYOAuo+eno9PG8XS2ycvzj03fcP/zG8XBbJ5PqB0YSeoJqGbZktmV8pym1G2Un9qTaQ+C/m9IiuSObKnVaHkmoUZotuchs2N+RO5135JHB9u0kvNgPXF9I/HXTpLIp6ITmioZPT2E3mc0Go+6P7frlplSTUKvk2pIxzOJY0cYxiwwbxwTtKTCVt6Ixazi9HGt7I2fehGT/LWxV9WXcNaW2XntnezXfC4yW23dvXwwkbOvTplRDbbUhZvMY5DUqafqBqLMZZTqTW21nFeygkmxR+gtLc3V4HAIUuQAAAABJRU5ErkJggg=="
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "corona_hibiscus",
+  "model_identifier": "corona_hibiscus",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "a53e1098-e94a-5fee-838b-0f32f5d987e1",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "b8b424b4-4b5a-538f-90e9-d16ee2d640a3",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "a53e1098-e94a-5fee-838b-0f32f5d987e1",
+    "b8b424b4-4b5a-538f-90e9-d16ee2d640a3"
+  ],
+  "textures": [
+    {
+      "name": "corona_hibiscus.png",
+      "uuid": "ff3f9a06-6d6d-5e43-b955-7fb2339f9b49",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFKElEQVR4nMWXW2xUVRSGv733DG0IBgvlogKFSoKRIBEENEYxEqImGoFyxxflRYHITRANMeKDlDtGQNHwAtgLEgTRgDxUhEQuNSFBLgWmU0tL71QwMnTmnL2XD4eOETptGUxYyWTnzFl7/f/867L3wH02le7G5g1NAoAEi9GG7gt63HW8tAhc39gsApQ3lhP34ghCRiiDuB/n2dXP3VXMTjvLbhEcXLvSjO98yhvLMdpgncUoQ052Tqsnvfr2hTCoqarD+J0iIMWBznWXa6hursZ3Pr7zMdrwa/QYM0ZNx2iDb31COoTnPDJDmbR4LfRfltMuhu4QfJcIAg1VdWilceLwrEfYhBERZo2eiVYaozRdQl1I2ARa6WDVmiNLDss9EcBCfVUtThwJm+BI5ChaaVq8Fo5Fj7P9+E62H9+BEyHhJygsLQp8/QTOBWt71mEKpECk6nIlmeEMvFsSbz++A4CF0xZhjGHVzvykOlOfmkJIhzDaAOBbn5wPBqXECbUHfmVVldRfqUUrzY34TTLDGcQSMayzvD9rGfk7VwKgtUYQFCpJJJ6IA3D56mUOLy6RF9a92CaJlCmozq8UEUdZXRkVTRUYHeS1qLSYJTOXsrZwDVoFwCKCtRZBKCotxjmHVpryhnI86+FZj6/e2NpmLaRUQGvNuZrzGG3wrEdhaRHWWbTSaK2xzgYBdAjrLA6HIfAtKC0EYPTAURgVpELEtYmTmoDShE042W5jBo7Gdz4nKk4Sa4khIknZlVJouZUGpZgxejq+9aloqsBzHpHGSJLIHTipCPRd8ohqla/1o5XmmdynWV+8jgVTFyIi+M5HRJg/dQEJP0HeiElBB4gjt1culxouoZXmnYK5bdZAh11waP5BMdrgOz/53YmKk4RNmEXTF+P5HoKwcdcGAPJG5BHShhavBaNDXKy/wMQv8tLrAoDxw1/iQnUZIPjWZ8+p75gycjIhE2Jt4RqcOERgzKBRiAi7ftvF5JF5aK0xWqNV+6Om4zmwTSRSexHPevjWJzOciWe9gL0OIQiRhggARhkEGJidg299yhuj+M5jytZpKXE6nIRqtlIJP5HMaywRw4lLTsaCk0XJ59ZaiSVuJt+3B94pAgBDPx6mIg0RIg2RJJgTR7QxysgBTyIiOBEqmyuJNkUxt1r1j+FFHcZO6z6wd84eMSqEvdWicT9OzbUa+mX1Z9KXQcHlb5og2ihqqq6z8dOSlDhp34j2vL1bIo0RkOA2NLj3YF7fMlGt3TpJ+g3IAqAyehVrhQ/f3ff/E1i6YryUnann+29PJ2Pkb54gOYN6oBRkZIQo+ekiAMbolCq024bFB2fLtJe3tT1AlCKrZ9fkc8GPb8nQJ/py4VwDR0siiIAxis9W/tzuj0z58psf3hSAqso/WTZ37x1+S1eMl4a6vxnyeG9ezRsGwNaNR4Nzwjo2r/mlU+qmdCo+OFuikatY60Bg8JBeTH/lv2oUHZgtIBwtKccYhQh8vurwvV9K13+dJ9m9u1Fb/Rf9ch4EIHqpiXDYsGzev2osWj5Ozv1eS+7gbLasO5JWPbW7ae6SsfJwv+6IQE5uD4xRRC81sXzBfgWwcPk4KTtTx4G9Z9Mu5k5tnLd0rGT37gbAY0P7gEAs5nH61BXOna7l0P7zaRPo8DAC2LQ6KKg57z0vSimsdQx6tCdZWV0xplPDNKWlxfyT9a/JhbP1NDfd4MC+9OWHTp4Ft9tHi/Yrz7NBh9yjpa1fn4ceaP1fen8I3D4J07V/AKhQopo6rR29AAAAAElFTkSuQmCC"
+    }
+  ]
+}

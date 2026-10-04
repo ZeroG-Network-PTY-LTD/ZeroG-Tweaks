@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "aurora_fern",
+  "model_identifier": "aurora_fern",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "612adca3-ecbc-5019-a51b-89ee5f30747e",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "88fc965a-2d4a-513b-b174-3cfa0e2fd4a6",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "612adca3-ecbc-5019-a51b-89ee5f30747e",
+    "88fc965a-2d4a-513b-b174-3cfa0e2fd4a6"
+  ],
+  "textures": [
+    {
+      "name": "aurora_fern.png",
+      "uuid": "787c813c-8b07-575c-b2ec-5f2bc6fa7848",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

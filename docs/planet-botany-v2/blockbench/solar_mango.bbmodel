@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "solar_mango",
+  "model_identifier": "solar_mango",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "mature_fruit",
+      "uuid": "59093d46-bc34-5a60-8948-04832f69b6c1",
+      "type": "cube",
+      "from": [
+        4,
+        3,
+        1
+      ],
+      "to": [
+        12,
+        12,
+        9
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "attachment_stalk",
+      "uuid": "a8262b44-bc7a-5ef3-b8b4-0dc05122c1c8",
+      "type": "cube",
+      "from": [
+        7.5,
+        12,
+        0
+      ],
+      "to": [
+        8.5,
+        13,
+        3
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "59093d46-bc34-5a60-8948-04832f69b6c1",
+    "a8262b44-bc7a-5ef3-b8b4-0dc05122c1c8"
+  ],
+  "textures": [
+    {
+      "name": "solar_mango_buds_stage2.png",
+      "uuid": "374b2d61-d2eb-59f8-968b-2772118119f2",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC2klEQVR4nI1XMW4bQQyc21MbA2ksIPAP4irIl/I1w08I0gQp0wWpkjpqXBlwf2SKu9sdDnmyLQjSebnkDDnkrqbHLw9+9/4Oc5sxTzNaa5inGXOb8fTyhL62rS++YLEFl+cLzjdnLLY+L77AzLD4unb77gzbbNd1g9mCf88XnG9usdj63Nwd+9v276BP0DoM0d6CvQU/Jv7ouftztLCJAhgF3h345nizLOxeCSq27o42WJoYxc05oB3uG2AlqFsg6W5rCUwMe6q3V061lAISkEu4Ewn+x/fTQDzBpxXM5I5P958BAL///MKEKQQMb67/QRAuTSx5KEHUwf5XMu+ZuRbkgPletm3/SUXjPsEhANzhU8XYJCPyzCC1TL6L8ED1HQCzR1H/LkZmaTWgQqBDhOTIpASp/0FqDiwpKHdT6ATWi6E5O+uZsA6gHE6pxQ6CFCI1xPXGzjgTowQELqU/Mk9BZGaoHsxpEiq7JEJV9IHoXIKk0oh9S+wrACS+LrrOMk62OO/X0nz/+4Pa1wLAloKjECErvYOJomU9KNvRTZZK07x0RiIsRaeplEMIHpTOYs6TMLTXQDkyIODKICPdQfGcAd5PINoYj5FlEuEOTjJ1nJ1R0kBE/LSK/b6JAQQRaitqFrperOspk6RRrB0QRAhJfUplVj4z5BLsazwPggZGMJmEeujIKC5PPrIdfvKQOg1n03oX2E69bz+/9ksp3xVCEFTg82cSIWWy6T9dej7WzjJDqWkltKQBKncLDq9cSrV/e+oFYMWyd4FqBfskLIPlG04S3UH99QY9RroNkNqGfEKlNtOyFOM2nHRhSFmYqCYkGztL1ydYYHZ85sf9r4qQ/BXHcXHP1ynHZTuyq+ZAYdtvxdeHzZiUbxEd68AgIhQy8sMkHpcWwFm3qcGRDQZAd8f9h4+BPY99moTH16art1u2I4G+qbPQL6VeOKnrWQ4oAX/1By8iqP9W3yVmhO9uFwAAAABJRU5ErkJggg=="
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "moon_thistle",
+  "model_identifier": "moon_thistle",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "9233231d-7c92-5565-91c6-d2d16764d2c5",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "ada0d4b5-5a6b-5902-98bd-9e7d594038d3",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "9233231d-7c92-5565-91c6-d2d16764d2c5",
+    "ada0d4b5-5a6b-5902-98bd-9e7d594038d3"
+  ],
+  "textures": [
+    {
+      "name": "moon_thistle.png",
+      "uuid": "dcbee42c-f5c7-56f0-8cbe-3e361a372e77",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

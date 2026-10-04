@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cinder_asparagus",
+  "model_identifier": "cinder_asparagus",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "44c1160d-65e6-5e99-b2f0-b6ae8f95b27e",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "146de282-566f-5573-bcf8-209e05604929",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "44c1160d-65e6-5e99-b2f0-b6ae8f95b27e",
+    "146de282-566f-5573-bcf8-209e05604929"
+  ],
+  "textures": [
+    {
+      "name": "cinder_asparagus_stage3.png",
+      "uuid": "861523ad-7324-5c45-b57f-f4f1a5480ced",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

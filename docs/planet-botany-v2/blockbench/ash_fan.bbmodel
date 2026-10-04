@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ash_fan",
+  "model_identifier": "ash_fan",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "2837b3a7-dffb-5be5-b0ba-e8eadfbd7540",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "204511c2-aaf3-5cce-b064-ee5fbbba278c",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "2837b3a7-dffb-5be5-b0ba-e8eadfbd7540",
+    "204511c2-aaf3-5cce-b064-ee5fbbba278c"
+  ],
+  "textures": [
+    {
+      "name": "ash_fan.png",
+      "uuid": "81d45e61-b191-5b57-b44d-6ab2a040b6aa",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

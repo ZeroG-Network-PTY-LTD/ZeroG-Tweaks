@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "glacier_broccoli",
+  "model_identifier": "glacier_broccoli",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "11a2dbd0-422e-5d59-a1f1-9cb5c93b8d9e",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "cda9d07e-09a7-58dd-9cc7-f52299009c26",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "11a2dbd0-422e-5d59-a1f1-9cb5c93b8d9e",
+    "cda9d07e-09a7-58dd-9cc7-f52299009c26"
+  ],
+  "textures": [
+    {
+      "name": "glacier_broccoli_stage3.png",
+      "uuid": "f95f0efc-6652-5bcc-bc36-01308d59e831",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "frostlace",
+  "model_identifier": "frostlace",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "71b24d15-a85a-52f3-86f7-f7cde0802ea4",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "c8eba913-e734-5820-ae2d-cc30af6f4a53",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "71b24d15-a85a-52f3-86f7-f7cde0802ea4",
+    "c8eba913-e734-5820-ae2d-cc30af6f4a53"
+  ],
+  "textures": [
+    {
+      "name": "frostlace.png",
+      "uuid": "6276f4c6-26b8-58fe-beb1-ffc7961f19a4",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

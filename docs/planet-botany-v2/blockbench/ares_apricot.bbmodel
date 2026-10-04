@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ares_apricot",
+  "model_identifier": "ares_apricot",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "mature_fruit",
+      "uuid": "16041cbf-d32f-5b6b-81ab-38a85721c199",
+      "type": "cube",
+      "from": [
+        4,
+        3,
+        1
+      ],
+      "to": [
+        12,
+        12,
+        9
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "attachment_stalk",
+      "uuid": "c731eeab-455d-58ac-b1fc-9b7b6cc38c8b",
+      "type": "cube",
+      "from": [
+        7.5,
+        12,
+        0
+      ],
+      "to": [
+        8.5,
+        13,
+        3
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "16041cbf-d32f-5b6b-81ab-38a85721c199",
+    "c731eeab-455d-58ac-b1fc-9b7b6cc38c8b"
+  ],
+  "textures": [
+    {
+      "name": "ares_apricot_buds_stage2.png",
+      "uuid": "7ac71ea5-6042-5a34-9b6f-fe0c89acfd72",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADJUlEQVR4nI1XvW6UMRAcf3EBpIhQmoAQujdAvAFvxOvRUPEESFAihSZXHVIKfoqch8LeX/uDBFm52Ofd9ezs7FI+vn/Hw/UlLraCi1L677GO979xuL4M++dGnBtx++MnXl49xcP4WxeJ21M/O7eme+dGPDTi++kXXlw90f1KEn0BLACB/plAI9BIlFKw0e1DzuUuof/cXhvfbcOW3TE/Vb5QxtokEMICI9FKP28Q49SACB+wfbbH+EABot9vEwJ0wRR7sa5pj2jOmL58OPG2DQ1qkCRQGSKNS4wrMuJU1s694DSgQXfeV7U8AwXm6ObNK9wAOH05BmQ0emSHAw1QuRP44dPpEKkefhKaa/khmaCPZBNI2xSQBeqR6GiYjc2gcVGa/xCtVEAwtiTbyDUiNyx4xwF5gVVB/0JAwKETSZvRkGC55lWqlkZio0ISDy2AnQU+Eg0GNCIigQMx15oCMGiEVkCu7z009qoMPZ1bJojkOiAAI5N8nsi7QiMFpfxw3KixRCzXMwfKpJCmB9mJU73pgdHXRvdqv6YqIAP8WdNX8MrdD1+PqQKMG1WgkPqX9X8SmtyG4BalByCQ03OjBqM7JNyyyKhjn+81GlJRhmK0USWXuRN6BBp7cyqJbOugohBxyFrUDrNbPSl8J1wJEYMQxe439XxENMV+ryZLkwmRK5NMwj0erHuAODdEAAkqzRH0UlykEyYpRpTq0IqXNZ6IJghgFbwg4C4vpTiTK6VmalgBDUNAK86VZJRiR8LPn77h7v4PDtfPOkGlQpCI5hyt0JDHaLAJjW3JalezOd/TcJkQimg4HQgcyzMhqJdVjEqGuiSyDTQQhWiegJwOaCqSFC/zrLWccioGEA39Cw0h8zQTglIF1FdvK6MlzYSLoHQmXKARJT3+f6FmZ20MpyU4MHIuez7WDU3QCFKcyrfmkrJXF3WgA0nZm4DmNuzRmKTY+akSle+EKkiJTBPs7jwONtGJCpHqhAVnQrQwtkdO2d+fgGKgb18/T9wwG1VyqZ0wNKdB0JJmQq2AhIbTj6yOa36wC9Gjh8hwxl00cs/PgRo/gL82SuhVrDQ9EwAAAABJRU5ErkJggg=="
+    }
+  ]
+}

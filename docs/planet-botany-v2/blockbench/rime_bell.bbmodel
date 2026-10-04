@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "rime_bell",
+  "model_identifier": "rime_bell",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "4e160533-77de-54fb-b7f2-f5d6cb52c444",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "08d5a0c6-537a-50ae-b47d-faf60d0865b9",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "4e160533-77de-54fb-b7f2-f5d6cb52c444",
+    "08d5a0c6-537a-50ae-b47d-faf60d0865b9"
+  ],
+  "textures": [
+    {
+      "name": "rime_bell.png",
+      "uuid": "bf38feca-1577-5d92-bfeb-9414643ef74e",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEFUlEQVR4nO2WXWxURRTHf3PvbQtK1EKxVhBKBMFQjcQnUYMRAiHiR0zUkJjQaIwa6SJWQFNi8QNRRAykRF5MMNEYwNjQQkhqaAyJaVGpgoWkCym0FrQf2+LHut29M3N8uNslSO/abEt80PMy986dM//fPXPmzMD/9l83NRaTSEe1oC0YC64DQvAswLkLqIU7QnW8sQDACtIeA8DXFs9V+NoCcCzdH2bOmAAMalK+Qc2fgbVCyrdYAcdRzJtZdGUBpK1KEMGKgA1ax1GkfIO1QtI3fL3tUQnzH/0SOIp4NAYIuCoQtSaA0BYRwVHhqZYVQNqqguQCyHdBp5MspSHfRd2yUeEbUtrgOQ46abAiCAHPUJPSJjcArJDs6MfXFt8EIJ7rIGmFxZWvC04SYwWlhGRKk/SDJMwIuA5lpZNCJbJuQzm+ThKdA4xfMJNfG6NobRmX75FIaTxXsfTzPK6eOInaRT3srG/F2CDcjhNMa2wQhmeXzeVkRz93r/riMr3QCMixtYKjSGpLgRWsDZIrPugzvsDD15b37uzm3tU7Vfyecjkf+xPXUenIC762mbX/4XQfmTUZKQCOoj/aC0AypbEieK6D6yiSfrCmQ23J47vUfc+vla8+3DxsRLfVHg+VCQdQKthagLWCq1QmCkNFxnUu6l1bMjV0qmwWDjCosVbQxuImDSkdlFYh6BuX7zH7pkIAHqzeKvtei+RU1rM6/bynXD5uaMNawdjgr/NcJ5NcK5bMwXMdnvmxjPo3KnMCyFoJryrw6Oz5nfOxON0DCboHEmgjiED3QAJXKb5r62Ggq2NY/4r6I6EVcFR2/8pXZekrmwRg/ooXhhWpqGuWyIFv5YGqzVkhcjoLGms2KWs0C55bIxOnzbjk24sHj8rKfU3i5OXR297GNcU3Zp0r58PoupKpxPt7iZ09nemrqD8iRmu8ggKsMVw49xOxs6dZsubN3A6jlXVNUvPQXcMmV+K3C0yeMYuD71apYGyzlNx6O73tUU421AGCcl0atm7ImpyhHyP7j4gI9J05xWeRJy8bt2z9Fkkl4hSVzuSOR5ZjtaZxxzukDwoa3q8e0a4IHVRR1yy9Z06l34Si0lnUPHxpNCIHvhGjNacOf3lR+B/++O827BIs3/6JiFis9plSNg+jNd3REzzxwS7Zvbo8I9DedJiu1qNMmnYzh7a/NfaFaPFLG6Rw6nQEKJlzG35ykL72KHsqn1IAS9e9Lb9ET/B97ac5X25H5LgwUiWFU6YDUDy7DKt9ADpbmulqbeFY3e6cAUZ0JTu0faMCWLRqvaAU1hhumD2XCUXXo7Jct0ZiOXk/tuUjOdfawh99PRzfv3dUBDkVor0vP60QwZrwu94VBQCYUFSc2Xr/CoCIMGFy8agB/gIVnvn9C3zysgAAAABJRU5ErkJggg=="
+    }
+  ]
+}

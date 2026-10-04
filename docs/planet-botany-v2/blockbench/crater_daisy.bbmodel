@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "crater_daisy",
+  "model_identifier": "crater_daisy",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "7735f82d-0dab-522c-a46e-8dabd3821d2f",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "31f6e195-23b3-557e-9f6d-37cb5c2c9eea",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "7735f82d-0dab-522c-a46e-8dabd3821d2f",
+    "31f6e195-23b3-557e-9f6d-37cb5c2c9eea"
+  ],
+  "textures": [
+    {
+      "name": "crater_daisy.png",
+      "uuid": "2397bbd5-2607-5b20-8e81-40e3c2a14386",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFGklEQVR4nMWXWWxVVRSGv733KcSgD6VMQgM0gGBKolEgRomKMgV9MESJSByJijIqgzEO8cGIQeZJECVKCEFQEtQwFSiCUUFEwbaUwUsHOliLjQ8K95y99/LhXq9Be+9tLyast3PO3uv/97/+tc45cJVD5brx0DIRAOfAaNAa7pih2p0vJwIHl4oYDbGGKgTBqADnLUYbJr3Vp10527y4douIc3C+KXEda4ghAEkCXTv3xmiF0dC7W2JNv0nZFWkTgZqPE3LHGiBWd4q8oGPyxAE//ryfUUMex2iD0RCPEvdBMFpx7+zMJHQ28OrNIpGFk9UeEQhMB0QE6yJEPGOGPoVWGhEhsoKIR8TjxRM5x+pZ38sVEdAKYvWQF2guhRFHT+9CxJNnOuCTYJENiWwcEUfJ0Y/w4rE2RCuNF58xf5CNwMUQvHi8hTyTx7jbnmH3kfUU9x3Oo4+sIFEcobRkOTsOr2PssMkJYK2JbEhRj8EZ82esT+kiEQGcgHUWkrYzOmDEc9/CmY0ARNYTBIqSXYtTxnQu4YWGC+cA4elFg1vFSktg19tWtDZU/1IOQK+uAxAEBO4eOfNvLgRGE1mfhBUO7FsCIhgTUNN4Eq0TIlc1lvHWpon/wUtbAhFPVeNJAJyP2Hn4fbw4tNLcfmfixAh4LXgRIuu5pqNhz3cfAuDFUdx3ON6FiZOq1u2WloDSGutCjA5QSlPc9w6MDnA+QusTeC8ERuO9EA8dAPHQM3roEzgXIUB981kQobGlCkljxrRdMPalQIl4lNKplrMuRCnNhk2TiUceL0I8cngRvBcO7FtAZOOp7uhRUETDbzGsC1uVPyMBgKnLhyrrwn/63IXEo4ucqj3Cl/vn430C2GjF1m1T2HXkA0R8qv3Ee/Kv6878TZPSei3rJPxpvciZ8y2pybfv2EbuumkCkOgGAc43nUJrg1EBZdVfMerWx3A+QgSqfyln7pp70uJknQNacZkXRtw8MQFuAuLhRYwJknPCYQkZWDiMyIUgQqzheHIsZ8ifjUDxk0qppKSXwj/w4lFaE9k4WmtKjm5AK43WmsB0QCuNtXES/jHMWzvyyt4FAA+90U2drfuB2qZKJElEK0Pdr2e5oXBICqymqYKapoqEIuIpG1KeNXdO3wPvPFsqRpuULwShtqmSngX9mffevQpg0tol4sKQlto6di9YnrsJ08WiKQeksaWKMLpEXtCRHp37MmfNCDVx1TvSpagPAvxWXYt3js3T5uVuwnRR2mMn9c2VHNu2PZV8wrL50rVfEeI9eR07cKGqBqU1Y+bNkHQqZCQwc882WTZ6fKsbRYROBfmp6+k7t0rP4kHUnSjn9MGvAfDWsXfxqowqp304Y/en4p2lOVbdqoT3vT5Xfq9v5PriG7ll/P0AlK5clyQHJQtXtKm8aRdN+2KzNJ+rRhmDi4cUFPXh3Qcun2jTd2wRgMr9B/HOoY2hZOHKdvmq1RI8vHKBiAjOWnoNGoAI1JdVMGHpfNky6+UUwJlD39BQXkn3QQPY107gvyPjplFzpkl+YU+UMRT0LkQEms9VsfWFVxTAuNfmSN2JCo5v35FzN7Vp48gXn5f8wl54Z+k+cADeWkBx7vBRGk+e5vhnO3Mm0KY23Lt4tQIYNXuqKKXxztF9YH+u61pAQ0XGj96skRPzBxe9KeePl/FnSwsnPt+d8+mhje+Cf8cns19VSito/6/g/0MA4NouBbjIXj0CKEWnzvnZ12WJvwCMrJ03C/hNMAAAAABJRU5ErkJggg=="
+    }
+  ]
+}

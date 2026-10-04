@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "tidal_iris",
+  "model_identifier": "tidal_iris",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "65affc15-dd7e-5d27-a7c9-7c9c7da44377",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "504c8c45-8584-5be5-bd91-73f98db05354",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "65affc15-dd7e-5d27-a7c9-7c9c7da44377",
+    "504c8c45-8584-5be5-bd91-73f98db05354"
+  ],
+  "textures": [
+    {
+      "name": "tidal_iris.png",
+      "uuid": "4d3c7fc4-5bfa-5be7-bedb-96150478e37a",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEF0lEQVR4nO2WTWxUVRTHf/e+mWkNtISPtNSSQktXFKiYGANxQUwUjK5cudKFMago4AeibOgCNSZoalISkCrGiDExJFowRAyGjaTERqUwbWkb0mkLtoOpTdoO89677x4XMx2tdmZep6yMd/feOx+/c/7nnjz4//wXj5zskbC2esHBP+0tGFw+iQsidO1pCwWxIAA52SMoTertM/MGl5O9ggjTNwdpql4bKmZoAGnvFoxhZuQ6rvG5tLv13xCBz8RIH1YsbmCYPtxRtAvhO6AUU2M30EphRWiqXjcX8MQVQYSYE8WKYMXiGZ+Lzx8pCBEKQD76RRDBM4aU52LFopUieegryXz/VQgMEzcHsSK4xsdaQWvNfTXrC9dVNPnH1wQbMD02hG8NJghY2bwdP/Bx+37Ct4aVNesZG72edYDyaAwBTGAQoDc5zPZjr8+bq2gH1LMbVXKkjxkvjRVBK421FkdpvMDHinD75gBlTpQyJ4rWGs/4pLL2PeMJrORXIZQEVasbcLKBvcBnKv4jWmsqNmzDyc6EF5ic7kF2BtzARyvNw8f35+10KAD14gMqo7tGK40bGDzfwzNeNrmPG/jMeC5aaxydgXKUZsZLF4wd+hZUrW7IJbNi0ToLY3xiThRHaaxYrLW4xhBzosTHEzi68JiFBvh7Fzzjc+vnC1ixVGzYmrt2sUg0V3nKT6OVYkf7wYIEC9qEtTX1mSqzw+j6HtZavKzWmcHLaB9zoniBKRpzQQDqpa3KNYaySBStFen+LqZ7O3PSzM5HTg6xdxcAoLG2kRkvjWcMM346l2h28ZQ5EdzAJ+W5vNscufsAau9DqiwSxYqlZzzBld9u0H97lPh4InMNA5ORSCt0JMLm13YXXMVFN2G+s2HXM5L+fYIbp8/MibH1g8OitAP8lffSvvyDuOAOzJ57qquQf2y4HV9/LssaG1jWWM+yxgZSt8aYGhqm+Y09ebtQUKTHzn4p5554al566xvKVyzPPe/sOCUrNjcx2dvP6PcXc++vth4r2OW8Hx89/ZkoRzM1NDxvC+8/+KrcSSZZvrGJuscfARHiR9tRWqMchytH2kLJm9doZ8cXMtk/yKyeFevqOP/k03Psd35zSpTjMHL+BxDQsSjd7x9d0FzNa7yt9R1ZWreG6eFRKhvWohyHP671IcDlAy05ny1v7pPJvgGWrLmXa20nShrogk6b9r0gS+vWYD2PysZ6EGFqaJjO/YcUwJa3XpGJ7jiJb8+XfJtCOW7au0uW1NagtENFfR0AIkKys4vJvgESZ78rGaD4qgKufnhcAWx8+TmxxgBC5fp6yletgAI/G2FOSeQPvtcik73XuTOeZPjchZKrhxIX0eUDLQqRxRZfOgBA+aqVKKdk98UD2CAgVlm5aIA/AVpPLTPhia1vAAAAAElFTkSuQmCC"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cinder_dahlia",
+  "model_identifier": "cinder_dahlia",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "148b0355-6926-5086-8e80-b1be768c1823",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "2ba5b92e-bfbe-545c-ba96-313900d5b104",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "148b0355-6926-5086-8e80-b1be768c1823",
+    "2ba5b92e-bfbe-545c-ba96-313900d5b104"
+  ],
+  "textures": [
+    {
+      "name": "cinder_dahlia.png",
+      "uuid": "79be9d1b-f73b-52e4-8e6e-13147852d08f",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFF0lEQVR4nMWWW2xVVRCGv5m9W8AItdwstiBgxKhEY4hYwQu8qFEUjZcgtFEBjeANY6KJMQrIg5r44AMKWm1BBOMFo4kgkqBQqWIIioDc6e20FIsI5VDsOXut8eEcqmJPTzk8OMl+2HuvNfPPP//MWvA/m+S60ZZNMkIFb6kPKsiUL87YX04A7INJBtDSHCdUIems898Fz357Rj57vNiqpxoqUHsMgObmOBhE3hOoUFzSFyKDQODCfuAMmbAiq/8eAbCN04yEg7o26ltSWUfOCFT4ZvcRyicMBTttk/NgIDO/6jaGZg2+/n4j6aEpDmaoCN5ARUg4T/nEYeCByKceAbxhHlDh15evPx3amQHAGzS2pZ0L6/f8gQoknGfj/qNUrqtn6YZGUIFQqVzXAGaIQhR5giwRspbA1t5n1LdBnoIzzBnv18RwHh569Cqc8yyr2Iqq4Lwx7dpi8gJJAQK8M4KHM5ch7Db40tuMhuMgkmIAcGYknTHj8TFUvbkF5w0D8kVQgUChI/KYQV4g7G6Os/2l8TZ63sYuQWQkyJbcZiQc9b+dYP/BOKhgBu/XNFE+40oqF27BjLQeUt0QOaOyOkavUPFm7D14AhUhUPh89lVdaiEzA2bsaooTqABGxbpGwFCF/Hwl8h5NZ20Gzhuapv3d9TESznPjqEIiZ/TOU1S6rkJmAAlHfij8mfT0CpVrRxYQqlBTe5T2kxGhKgmXKkteIISBkIiMvEB44LpiDNjdHMebsb05njFMxhLII2skEf2z7cCbMX7keXxQuY17yi9HJCWPjsi4u2w0IlA+rpiOyNMReYoH9GZ/60lUhLsX/dwlBVm7YMfc8RaqYECUHrkb9h5BVSh76AogNYOWvfcLgQrl41LZY0Z70rO96TgTXvsxty4AuOzqIo4dOMYpEFXVMR68roSk8yyv2obzRuSNiaP6k3SequoY94wtok9egPdG77D7QZAVAJF10p90xvQbSkg6w5tx15jzCVXZezBOIvIEgTB2RAG9QqUj8uw8eIL/zuh/W9ZJKJNXSkd0SvFCIvJ4SyneG1R9FyM/TAnyZMKhAic6XFo7xo3d0N8jAACD5qyTTbVH2RY7jqoQpME0tLZTOqKARBrgvtaT7D7UTq9QSUSeJQNKs/rO6T5Q89w1ncI8dTIeONzOiIF9KH1lkwCUL3jMVJXDTYf4cuFHuYuwKxv36ibZ/Hyp7fmtHQyS3rh48DmUvrJJyl+ebf2LB6GqtDa0UDCosFtfOV/J7nhyqjXva2Dzqu86fZTNn2UDhxYRhAHeOXbWbE0FUWX1ok+6jNUtA88sW2Cvl73Q9SESKH0HFHS+z3lvrg29dAQttU388s1mVBURYfXiT7tNMuPPp959yTRQDtU1s3zu4v+smzxnmrUdPkrRyGLG3DIe7xzfrljd2XWr3vq4R+xmXPRkxYv2R8vvgBElIgYPH8Ib0+f9a/3TS+YbBjuqt6CBoqqsykD1GQEomz/LCocMpLWhhZJLhuOdo+VAEwDL5/3Nxu1PTLHYrjoGD7+ANe+szElP3W66dda9Vlg0AO88g4YVgUFrYwsr5r8tAJMen2JNe+r56evvcxZzjzbePPMuKxjcH4AhF5WAgWHUbt1DbFcdP639IWcAPZoDayo+E4CbZtxpp1psyEVDObewHz59J8jVckI+5YWZ1rizjva2+FllDz08C063DxdUCMJZZ58zAIB+A8/D+/8RgBn07V+QfWEW+wsjG1ok6bsbFQAAAABJRU5ErkJggg=="
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "pearl_fern",
+  "model_identifier": "pearl_fern",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "83fda722-74cf-5017-bb78-b6322af68db1",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "3ea51584-7ccb-5c55-a97f-fc65a441feb3",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "83fda722-74cf-5017-bb78-b6322af68db1",
+    "3ea51584-7ccb-5c55-a97f-fc65a441feb3"
+  ],
+  "textures": [
+    {
+      "name": "pearl_fern.png",
+      "uuid": "c17927dd-89cb-5fa2-aaee-f0990370871d",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,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"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ember_torchflower",
+  "model_identifier": "ember_torchflower",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "37aa1c40-7874-5f08-9477-ab77479d524a",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "5bc516e2-f8fa-5a8c-a807-d7d8b43883d0",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "37aa1c40-7874-5f08-9477-ab77479d524a",
+    "5bc516e2-f8fa-5a8c-a807-d7d8b43883d0"
+  ],
+  "textures": [
+    {
+      "name": "ember_torchflower.png",
+      "uuid": "dc925d5e-b36d-58ab-9f7b-1d1a34f3b565",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADiUlEQVR4nL2XW2hcVRSGv73PSCVpamLSJs2FJlS0iogPFkTQWnzwEhuxSghCFYQqWJWm+NI+hKSx6oMoIlKr0AuEIvEGYlorVSEFoRZDDFqqqaSZTCYhqaOdNMWZOXstH6ZJDW3SnD3W9XTgrP2v//zr32vvAwXG4Kv3aiHrbaEEblpbVSiEf+jXzap6WAfa7vFWoTAFsg4mE9xeU+IN4U1Ae55UjAFRRBRfFfwVsIYwngZrEFXEswn+BDIOEYVsSGANa6qKvWCMzyL9/HElMPwdnyLnhFhgQOG3iQvc2fl9JEw/BWKWC8NpRJUlMYsIZJyQDSUylB+BrENUscYQPNKEqBIYw+rlRdeegH7ymKJKNtS8+SRvQGsM1sDx7XdHsmMsKgFilr/OnMMayIaCZENElUyoDIxOQcTd4GXC9DsPaM7pRQNaYtaQc8LJsWnWvfnDtTdhSWVx3gPWkA3z5vPditE90N2k5AcgIkpx44aLLRBElfgb6yI1IRIB/ahJERiPpxFRAmtmTRiY/POv49N8t23toklEImBavjDJeBoRZsevSP7r8wpAJhTWv3Vi0T6I3ILq2pLZ4plQmD70Jdbkz4P+kSmWxC5Btu7vuKoSXrtg+PX7NGYtPyWmCEW4/rqAnBNuW7mUhh29BmDbgZ0qThj88SQ973XPWyf6HABWbe816zc16vmU40TPsTngmzpf0Iq6Sow1pBJnKassXxDL+zRcVl6K6lyFt+7r0LLqCmwQAIZUcpJUcpLGLc3ztmJBBVoP7NS3n2m7onzGGErKb7hUfG+71q2pZ3xolJ97+xDnsNZyeM+nC7Z53pet+ztUnPDH6ARdbbsvy2t6+Sk9d/ZP6m5t4I7778IGlm+7ehAnWGs5tPvjRflr3qSt+9p1Mj6ODSzihBurl/Pu5s45+a907VIXOn451ocN8t386oPPIhn7islP79qi5TUrGPs9Qe0t9YhzJE+PYK3lYMee2TUbXmrRxKkzrKiv5siH0QovSGAmHnpuo5atrACFyoYaQJkYHudg+/sG4NEXWzRxaoj+o8e9il+VwEw8/PwTWlZVQZgLqbl5FblMFoChgUHGTo/QdyTaNezfsag5MOPkBzdvVGMM4hxVq2spKilCnPOtDXhOwuYdz2pycITzqTT93/jLD56DqPu1vUZVLxtE/xsBgGUVpYhEvwX/ZwRUYWmp/z/hTPwDB7WpBnaU5CYAAAAASUVORK5CYII="
+    }
+  ]
+}

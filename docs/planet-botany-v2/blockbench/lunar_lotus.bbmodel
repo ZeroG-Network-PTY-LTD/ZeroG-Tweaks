@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "lunar_lotus",
+  "model_identifier": "lunar_lotus",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "foliage_plane_a",
+      "uuid": "f5afdb69-a30e-5b25-a68a-06bb77c1fdad",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "name": "foliage_plane_b",
+      "uuid": "df227f3d-cc56-54fb-9bf2-32f5de43e891",
+      "type": "cube",
+      "from": [
+        0.7,
+        0,
+        8
+      ],
+      "to": [
+        15.3,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        }
+      },
+      "rotation": [
+        0,
+        -45,
+        0
+      ]
+    }
+  ],
+  "outliner": [
+    "f5afdb69-a30e-5b25-a68a-06bb77c1fdad",
+    "df227f3d-cc56-54fb-9bf2-32f5de43e891"
+  ],
+  "textures": [
+    {
+      "name": "lunar_lotus.png",
+      "uuid": "d51093b8-81e6-5aca-aa11-b317de98219f",
+      "id": "0",
+      "width": 32,
+      "height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFE0lEQVR4nOWWW2xVRRSGv5nZbUXlZisUkUKJIEWQeDdogEYiAVEfNEbRaNRoonJRKCQKaIy3SKBqtEq8RRMgXA0YgYAIAonRGLUVUCiFFmhLpQXEC+3ee2aWD6cUEc7p4dT44nrZtzVr/WvNv/498H83dTbOX5aKaA3Og2m9Fk9V6sBSEQRs63vroP8ElVbstAFsKhXRCmobDwBCZFvQOqBXbiGX9lFUH0z4WQ9I4n50Sfsg0gKw+TURAfY17Gl7p7WhR/cCBMFog3MOELKzAsI4BqC2sZJH5g5JmUOnA8AL1DRUYV2MiKd8z0asi/Di0cpgbYwXx5pv3qMlitDKoJQmtmG7sdMCoBUopRHxePEMLRzBD1VfIOIQ8SitWfvN+4y77hGU0m3ACvOHths7aM9h7yIR66CqPkJpjYjgfIzRAWPGTqM5tCCw5uthxC7C6ADrYmJCGo8e4IOSn+ThuYOTbkPKDuxZKOIFKmtb6Nm9LyIe6yKU0pQuGMafzTHeC9nZmrmzt5FlcvDiEfHUNlZiXUQYNzP/qXJJliMpsupFItbDzv3HATA6QBAQGDV6CggEgSa2nsBoQGhucSxZ/sTJ6rTBOQtAfdNuXlhw12n5km5B7GB3bUhWkEMYHWf9tx/hxaGVZvgIzzk5hihyCBB5hwh4L2yr3tIWo6jP9WQFOThvUerMzU4KwAvELmwj381XP3BivNF6KlHsiK2nU07A8RZLEGi8CJcXjiSyLQhCEGQTxs00HK1u04Z/WsoZ/fSl3wXAupjsrE44l5hvowOuvXESgVHY1i0QYOOGlzE6wHlLfdMeQGg4UgMIryy694y5UpLwtpmdVWyjBPlsSOxCvDhqD+3i+dJheA9aK7wIs+ZchrQSUClNQc8iDh7ei3VR0uSQxhje8Vyuemvyt+K8ba3eIALOWxYsfhCjgwTZ/CaUMsQ2wpgA60Jyu/Zm+vzijithQY8iRDyBycKLZ0fNVgYXDCcw2XjxWBcz+qr72fDdx2QFOWil8d5jXftK2G4HgNbk2VgXA8LAi6/BuggthhOdiV1I8RUT8OJwzmJ9TJbJaTd2Wh24fXYXZV0rF1xMEGSjlKauaTciQs8L+qGVQSvTJtdaacqvrPh3AAA8WXaDqm2s5ODhvYRRc1uikvmjVH1TFTUN24hdSIK0jtV9lmPDkHGzSpKqIJzlgeTvNvKxh+SPpiN8t2zlKTHunV8qNorQJkFWcZYlU57O7F+Qys7PyyVxSjhpE1cvkdx+BeQPGkBeYQGHa/bxa10DY2ZMTtqFlCR84rPFUjb+7jOiFxHOy+3e9vz4qoXSe+hg6n7cwa5NWxES/4J1c95I2eWkHyevWyE2ijiy7wCLJ844ze+WZ6fLbw2HuGhIEUPHj8EYw+Z3PsRGEUobPp/7ZsfOhJPWLpPGqr0oY/DWkVdYQNmt95ziP2X9J2JbWqjc8hUA2hjWvZq64rQA3Pfu69K5Rx5N1fvIHzQQbQy/VFbhrWPpkycJNXbmNKnf9hMXDujPhnllGRE65aKbnnpMcvv2wTtH/qUD0EFA3fafWVEyWwGMfWaq1O/YScWqNRlPU1oLR099XLr2ykcZTV6/vujAYMOI/d9X0PBzJeUrV2cMIC0p3lD6tgIonvSo+NiijKbHJf3p1LUL3rlMcwMZCtGd816U2ortNB87RsWqtRlXDxkK0fJpsxQiHa4+YwAAnXteeJoS/qcAUIpzu3XrMIC/AGrdkgl7Mg81AAAAAElFTkSuQmCC"
+    }
+  ]
+}
