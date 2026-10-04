@@ -23,7 +23,9 @@ import net.zerog.tweaks.registry.*;
 @GameTestHolder("zerog_tweaks")
 @PrefixGameTestTemplate(false)
 public final class AlienAtmosphereGameTests {
-    @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=200)
+    // A fresh hub must generate all 34 landing sites before this test can
+    // inspect protected gates. The old 200-tick budget only worked on warm saves.
+    @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=20000)
     public static void native_storms_strike_and_protect_arrivals(GameTestHelper helper) {
         var server=helper.getLevel().getServer();
         var mars=server.getLevel(ResourceKey.create(Registries.DIMENSION,ResourceLocation.fromNamespaceAndPath("zerog_tweaks","mars")));

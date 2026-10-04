@@ -17,6 +17,7 @@ public final class GateLedger extends SavedData {
     public static final int CAPACITY=50_000_000,TRAVEL_COST=50_000_000;
     public final Map<String,Gate> gates=new LinkedHashMap<>();
     public boolean hubBuilt;
+    public boolean exhibitsBuilt;
     public int prepared;
     // Absent in older saves: never retrofit preview settlements automatically.
     public boolean inspectionEnabled;
@@ -36,6 +37,7 @@ public final class GateLedger extends SavedData {
     public void add(Gate gate) {gates.put(key(gate.dimension,gate.centre),gate);setDirty();}
     public static GateLedger load(CompoundTag tag,HolderLookup.Provider registries) {
         var ledger=new GateLedger();ledger.hubBuilt=tag.getBoolean("hubBuilt");ledger.prepared=tag.getInt("prepared");
+        ledger.exhibitsBuilt=tag.getBoolean("exhibitsBuilt");
         ledger.inspectionEnabled=tag.getBoolean("inspectionEnabled");ledger.inspectionPrepared=tag.getInt("inspectionPrepared");
         for(var value:tag.getList("inspectionVillages",Tag.TAG_COMPOUND)) {
             var data=(CompoundTag)value;
@@ -50,6 +52,7 @@ public final class GateLedger extends SavedData {
     }
     @Override public CompoundTag save(CompoundTag tag,HolderLookup.Provider registries) {
         tag.putBoolean("hubBuilt",hubBuilt);tag.putInt("prepared",prepared);var list=new ListTag();
+        tag.putBoolean("exhibitsBuilt",exhibitsBuilt);
         tag.putBoolean("inspectionEnabled",inspectionEnabled);tag.putInt("inspectionPrepared",inspectionPrepared);
         var villages=new ListTag();inspectionVillages.forEach((dimension,positions)->positions.forEach(position->{
             var data=new CompoundTag();data.putString("dimension",dimension);data.putLong("centre",position.asLong());villages.add(data);

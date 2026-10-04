@@ -85,6 +85,7 @@ public final class CreativeTabs {
                     if (catchAll) {
                         Set<String> listed = new HashSet<>(HIDDEN);
                         listed.add("weather_tester");
+                        listed.add("concord_codex");
                         listed.addAll(ZGPlanetBotany.PLANTS.keySet());listed.addAll(ZGPlanetBotany.BUDS.keySet());
                         listed.addAll(ZGAlienVines.VINES.keySet());
                         ZGGasVents.AMBIENT_VENTS.keySet().forEach(id->listed.add(id+"_ambient_vent"));
@@ -105,6 +106,7 @@ public final class CreativeTabs {
                         }
                     }
                     if (name.equals("liquids")) planetaryLiquidItems().forEach(out::accept);
+                    if (name.equals("tools_and_utilities")) out.accept(ItemInit.CONCORD_CODEX.get());
                     if (name.equals("honey_liquids")) honeyLiquidItems().forEach(out::accept);
                     if (name.equals("building_blocks")) {
                         out.accept(item("star_glass_blue"));out.accept(item("star_glass_teal"));

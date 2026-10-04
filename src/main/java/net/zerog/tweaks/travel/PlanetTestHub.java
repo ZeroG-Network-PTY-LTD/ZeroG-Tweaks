@@ -38,7 +38,9 @@ public final class PlanetTestHub {
     }
     public static void started(ServerStartedEvent event) {
         var server=event.getServer();if(!isHub(server))return;
-        var ledger=GateLedger.get(server);if(ledger.hubBuilt)return;
+        var ledger=GateLedger.get(server);if(ledger.hubBuilt) {
+            com.mojang.logging.LogUtils.getLogger().info("ZeroG hub exhibits: {}",HubExhibits.build(server.overworld()));return;
+        }
         var level=server.overworld();
         for(int x=-12;x<=137;x++) for(int z=-12;z<=162;z++)
             level.setBlock(new BlockPos(x,63,z),BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);
@@ -51,6 +53,7 @@ public final class PlanetTestHub {
         }
         level.setDefaultSpawnPos(new BlockPos(62,65,0),0);
         ledger.hubBuilt=true;ledger.inspectionEnabled=true;ledger.setDirty();
+        com.mojang.logging.LogUtils.getLogger().info("ZeroG hub exhibits: {}",HubExhibits.build(level));
     }
     public static void tick(ServerTickEvent.Post event) {
         var server=event.getServer();
@@ -130,7 +133,12 @@ public final class PlanetTestHub {
     }
     public static void commands(RegisterCommandsEvent event) {
         event.getDispatcher().register(Commands.literal("zerog").requires(s->s.hasPermission(2))
-            .then(Commands.literal("hub").then(Commands.literal("status").executes(c-> {
+            .then(Commands.literal("hub")
+                .then(Commands.literal("exhibits").executes(c->{
+                    String result=HubExhibits.build(c.getSource().getServer().overworld());
+                    c.getSource().sendSuccess(()->Component.literal(result),false);return GateLedger.get(c.getSource().getServer()).exhibitsBuilt?1:0;
+                }))
+                .then(Commands.literal("status").executes(c-> {
                 var ledger=GateLedger.get(c.getSource().getServer());
                 c.getSource().sendSuccess(()->Component.literal("Hub destinations: "+ledger.prepared+"/34; gates: "+ledger.gates.size()
                         +"; inspection planets: "+ledger.inspectionPrepared+"/34"),false);

@@ -1155,6 +1155,8 @@ public final class ItemInit {
     public static final DeferredItem<Item> RAW_FERROX = ITEMS.registerSimpleItem("raw_ferrox");
     public static final DeferredItem<Item> RAW_MOONSTEEL = ITEMS.registerSimpleItem("raw_moonsteel");
     public static final DeferredItem<Item> RAW_NULLIFITE = ITEMS.registerSimpleItem("raw_nullifite");
+    public static final DeferredItem<Item> DORMANT_WISP = ITEMS.registerSimpleItem("dormant_wisp",new Item.Properties().stacksTo(1));
+    public static final DeferredItem<net.zerog.tweaks.item.ConcordCodexItem> CONCORD_CODEX = ITEMS.register("concord_codex",()->new net.zerog.tweaks.item.ConcordCodexItem(new Item.Properties()));
     public static final DeferredItem<Item> RAW_OLYMPIUM = ITEMS.registerSimpleItem("raw_olympium");
     public static final DeferredItem<Item> RAW_PALLADINE = ITEMS.registerSimpleItem("raw_palladine");
     public static final DeferredItem<Item> RAW_PHOTIUM = ITEMS.registerSimpleItem("raw_photium");

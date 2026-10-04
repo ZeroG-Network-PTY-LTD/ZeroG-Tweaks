@@ -25,6 +25,12 @@ public final class ZeroGTweaks {
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::breakSpeed);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::playerTick);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.DailyPlanetImpacts::tick);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.lore.ConcordPrologue::pickup);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.lore.ConcordPrologue::tick);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.lore.ConcordPrologue::interact);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.lore.ConcordPrologue::loot);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.lore.ConcordPrologue::placed);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.lore.ConcordPrologue::greeting);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.AlienFarmlandSensor::tick);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::started);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::tick);
