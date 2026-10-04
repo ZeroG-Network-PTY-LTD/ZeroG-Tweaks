@@ -1,0 +1,62 @@
+{
+ "format_version": "1.8.0",
+ "animations": {
+  "animation.aeroapiary.genetic_splicer.idle": {
+   "loop": true,
+   "animation_length": 8,
+   "bones": {
+    "helix": {
+     "rotation": {
+      "0.0": [
+       0,
+       0,
+       0
+      ],
+      "8.0": [
+       0,
+       360,
+       0
+      ]
+     }
+    }
+   }
+  },
+  "animation.aeroapiary.genetic_splicer.working": {
+   "loop": true,
+   "animation_length": 2,
+   "bones": {
+    "helix": {
+     "rotation": {
+      "0.0": [
+       0,
+       0,
+       0
+      ],
+      "2.0": [
+       0,
+       360,
+       0
+      ]
+     },
+     "position": {
+      "0.0": [
+       0,
+       0,
+       0
+      ],
+      "1.0": [
+       0,
+       0.5,
+       0
+      ],
+      "2.0": [
+       0,
+       0,
+       0
+      ]
+     }
+    }
+   }
+  }
+ }
+}
