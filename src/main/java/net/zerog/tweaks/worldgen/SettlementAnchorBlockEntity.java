@@ -36,11 +36,12 @@ public final class SettlementAnchorBlockEntity extends BlockEntity {
             var id=java.util.UUID.nameUUIDFromBytes((server.dimension().location()+"/"+pos.asLong()+"/resident/"+anchor.residents)
                     .getBytes(java.nio.charset.StandardCharsets.UTF_8));
             if(server.getEntity(id)!=null) {anchor.setChanged();continue;}
-            var villager=EntityType.VILLAGER.create(server);if(villager==null) return;
-            villager.setUUID(id);villager.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,0,0);villager.setPersistenceRequired();
             String theme=PlanetEcologyProfile.theme(server.dimension().location().getPath());
-            var clothing=net.zerog.tweaks.registry.ZGVillagerAttire.TYPES.get(theme+"_space_"+Math.floorMod(id.hashCode(),4)).get();
-            villager.setVillagerData(villager.getVillagerData().setType(clothing));
+            String species=net.zerog.tweaks.registry.ZGPlanetVillagers.THEMES.get(theme);
+            if(species==null)return;
+            var villager=net.zerog.tweaks.registry.ZGPlanetVillagers.TYPES.get(species).get().create(server);if(villager==null) return;
+            villager.setUUID(id);villager.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,0,0);villager.setPersistenceRequired();
+            villager.setStyle(id.hashCode());
             if(!server.addFreshEntity(villager)) return;anchor.setChanged();
         }
         String theme=PlanetEcologyProfile.theme(server.dimension().location().getPath());

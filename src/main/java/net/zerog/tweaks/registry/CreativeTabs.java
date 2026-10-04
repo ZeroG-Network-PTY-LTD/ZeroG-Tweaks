@@ -49,6 +49,12 @@ public final class CreativeTabs {
             tab("liquids", "liquid_starlight_bucket", new String[0], SPAWN_EGGS.getId(), false);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> HONEY_LIQUIDS =
             tab("honey_liquids", "flora_bee_honey_bucket", new String[0], LIQUIDS.getId(), false);
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ADMIN_TOOLS =
+            TABS.register("admin_tools", () -> CreativeModeTab.builder()
+                    .title(Component.literal("Z-Admintools"))
+                    .icon(() -> new ItemStack(ItemInit.WEATHER_TESTER.get()))
+                    .withTabsBefore(HONEY_LIQUIDS.getId())
+                    .displayItems((params, out) -> out.accept(ItemInit.WEATHER_TESTER.get())).build());
     public static java.util.List<Item> honeyLiquidItems() {
         return liquidItems().stream().filter(it -> ZGPlanetApiary.FAMILIES.values().stream()
                 .anyMatch(family -> family.bucket.get() == it)).toList();
@@ -78,6 +84,10 @@ public final class CreativeTabs {
                     }
                     if (catchAll) {
                         Set<String> listed = new HashSet<>(HIDDEN);
+                        listed.add("weather_tester");
+                        listed.addAll(ZGAlienVines.VINES.keySet());
+                        ZGGasVents.AMBIENT_VENTS.keySet().forEach(id->listed.add(id+"_ambient_vent"));
+                        ZGAlienVines.FRUITS.keySet().forEach(id->listed.add(id+"_vine_fruit"));
                         listed.add("star_glass_blue");listed.add("star_glass_teal");
                         ZGPlanetCrops.CROPS.keySet().forEach(id -> listed.add(id+"_crop"));
                         listed.addAll(ZGPlanetMaterials.BLOCK_ITEMS.keySet());
@@ -105,10 +115,13 @@ public final class CreativeTabs {
                     }
                     if (name.equals("food_and_drinks")) ZGPlanetCrops.PLANET_CROPS.values().stream().sorted().forEach(id -> out.accept(item(id)));
                     if(name.equals("food_and_drinks")) {
+                        ZGAlienVines.FRUITS.values().forEach(fruit->out.accept(fruit.get()));
                         ZGAlienAgriculture.HOMES.keySet().forEach(id->out.accept(item(ZGAlienAgriculture.GOURDS.containsKey(id)?id+"_slice":id)));
                         ZGPlanetCaveVariants.FAMILIES.keySet().forEach(id->out.accept(item(id+"_cave_berry")));
                     }
                     if (name.equals("natural_blocks")) {
+                        ZGAlienVines.VINES.values().forEach(vine->out.accept(vine.get()));
+                        ZGGasVents.AMBIENT_VENTS.values().forEach(vent->out.accept(vent.get()));
                         ZGAlienAgriculture.HOMES.keySet().forEach(id->out.accept(item(id+"_seeds")));
                         ZGAlienAgriculture.GOURDS.values().forEach(block->out.accept(block.get()));
                         ZGPlanetCaveVariants.FAMILIES.forEach((id,family)->{out.accept(family.point().get());out.accept(family.rock().get());});

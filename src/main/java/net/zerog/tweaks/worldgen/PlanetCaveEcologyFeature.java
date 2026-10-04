@@ -55,6 +55,15 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
                         if(lichen.canSurvive(level,pos)) {level.setBlock(pos,lichen,2);changed=true;}
                         break;
                     }
+                    if(level.isEmptyBlock(pos) && random.nextInt(28)==0)for(var face:Direction.Plane.HORIZONTAL) {
+                        if(!natural(level,pos.relative(face)))continue;
+                        String kind=net.zerog.tweaks.registry.ZGAlienVines.KINDS.get(random.nextInt(4));
+                        var vine=net.zerog.tweaks.registry.ZGAlienVines.VINES.get(theme+"_"+kind).get().defaultBlockState()
+                                .setValue(VineBlock.getPropertyForFace(face),true)
+                                .setValue(CaveVines.BERRIES,kind.equals("fruit_ivy")&&random.nextBoolean());
+                        if(vine.canSurvive(level,pos)){level.setBlock(pos,vine,2);changed=true;}
+                        break;
+                    }
                 } else if(level.getFluidState(pos).is(FluidTags.WATER) && natural(level,pos.below()) && random.nextInt(10)==0) {
                     var kelp=BlockInit.GLOWKELP.get().defaultBlockState();
                     if(kelp.canSurvive(level,pos)) {
@@ -81,7 +90,10 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
             for(var face:Direction.Plane.HORIZONTAL) {
                 var pos=leaf.relative(face);
                 if(!level.isEmptyBlock(pos)||random.nextInt(20)!=0) continue;
-                var vine=Blocks.VINE.defaultBlockState().setValue(VineBlock.getPropertyForFace(face.getOpposite()),true);
+                String kind=net.zerog.tweaks.registry.ZGAlienVines.KINDS.get(random.nextInt(4));
+                var vine=net.zerog.tweaks.registry.ZGAlienVines.VINES.get(theme+"_"+kind).get().defaultBlockState()
+                        .setValue(VineBlock.getPropertyForFace(face.getOpposite()),true)
+                        .setValue(CaveVines.BERRIES,kind.equals("fruit_ivy")&&random.nextBoolean());
                 if(vine.canSurvive(level,pos)) level.setBlock(pos,vine,2);
             }
         }

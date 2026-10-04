@@ -22,6 +22,9 @@ import net.zerog.tweaks.item.ZGGeoArmorItem;
 
 public final class ItemInit {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ZeroGTweaks.MODID);
+    /** Administrative visual preview only: no recipe and no survival functionality. */
+    public static final DeferredItem<Item> WEATHER_TESTER = ITEMS.register("weather_tester",
+            () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
     /** Standard tool tier: iron-level, repairs with iron ingot. */
     public static final Tier TOOL_TIER = new Tier() {

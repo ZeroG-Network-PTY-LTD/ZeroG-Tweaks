@@ -25,7 +25,7 @@ import org.joml.Matrix4f;
 @EventBusSubscriber(modid="zerog_tweaks",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
 public final class PlanetSpaceSky extends DimensionSpecialEffects {
     public static final ResourceLocation EFFECT=ResourceLocation.fromNamespaceAndPath("zerog_tweaks","space");
-    private static final ResourceLocation TEXTURE=ResourceLocation.fromNamespaceAndPath("zerog_tweaks","textures/environment/universe_v2.png");
+    private static final ResourceLocation TEXTURE=ResourceLocation.fromNamespaceAndPath("zerog_tweaks","textures/environment/universe_v3.png");
     private static final float[] MESH=mesh();
     private static final float[][] STARS=stars();
     private PlanetSpaceSky() { super(Float.NaN,false,SkyType.NORMAL,false,false); }
@@ -56,13 +56,38 @@ public final class PlanetSpaceSky extends DimensionSpecialEffects {
             RenderSystem.enableBlend();RenderSystem.defaultBlendFunc();RenderSystem.setShader(GameRenderer::getPositionColorShader);
             var starBuffer=Tesselator.getInstance().begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR);
             for(var star:STARS) {
-                int alpha=(int)(85+100*(.5+.5*Math.sin(time*.035+star[9])));
+                double shimmer=.5+.5*Math.sin(time*star[10]+star[9]);
+                int alpha=(int)(130+110*shimmer);
+                // Slow independent colour cycles, not synchronized flashes.
+                double hue=time*.0015+star[9];
+                int red=(int)(190+65*(.5+.5*Math.sin(hue)));
+                int green=(int)(190+65*(.5+.5*Math.sin(hue+2.1)));
+                int blue=(int)(190+65*(.5+.5*Math.sin(hue+4.2)));
                 for(int[] corner:new int[][]{{-1,-1},{1,-1},{1,1},{-1,1}})
                     starBuffer.addVertex(skyView,star[0]+corner[0]*star[3]+corner[1]*star[6],
                             star[1]+corner[0]*star[4]+corner[1]*star[7],star[2]+corner[0]*star[5]+corner[1]*star[8])
-                            .setColor(200,222,255,alpha);
+                            .setColor(red,green,blue,alpha);
             }
             BufferUploader.drawWithShader(starBuffer.buildOrThrow());
+            // Radial translucent halos; no square texture borders around the stars.
+            var halos=Tesselator.getInstance().begin(VertexFormat.Mode.TRIANGLES,DefaultVertexFormat.POSITION_COLOR);
+            for(var star:STARS) {
+                double hue=time*.0015+star[9];
+                int red=(int)(160+95*(.5+.5*Math.sin(hue)));
+                int green=(int)(160+95*(.5+.5*Math.sin(hue+2.1)));
+                int blue=(int)(160+95*(.5+.5*Math.sin(hue+4.2)));
+                int alpha=(int)(24+22*(.5+.5*Math.sin(time*star[10]+star[9])));
+                for(int segment=0;segment<12;segment++) {
+                    halos.addVertex(skyView,star[0],star[1],star[2]).setColor(red,green,blue,alpha);
+                    for(int end=0;end<2;end++) {
+                        double haloAngle=(segment+end)*Math.PI/6;
+                        float a=(float)Math.cos(haloAngle)*5,b=(float)Math.sin(haloAngle)*5;
+                        halos.addVertex(skyView,star[0]+a*star[3]+b*star[6],star[1]+a*star[4]+b*star[7],
+                                star[2]+a*star[5]+b*star[8]).setColor(red,green,blue,0);
+                    }
+                }
+            }
+            BufferUploader.drawWithShader(halos.buildOrThrow());
         } finally {
             RenderSystem.disableBlend();RenderSystem.setShaderColor(1,1,1,1);RenderSystem.enableCull();RenderSystem.depthMask(true);setupFog.run();
         }
@@ -83,16 +108,17 @@ public final class PlanetSpaceSky extends DimensionSpecialEffects {
         return vertices;
     }
     private static float[][] stars() {
-        var random=new java.util.Random(729411L);var result=new float[240][10];
+        var random=new java.util.Random(729411L);var result=new float[240][11];
         for(var star:result) {
             double phi=Math.acos(2*random.nextDouble()-1),theta=random.nextDouble()*Math.PI*2;
             var normal=new org.joml.Vector3f((float)(Math.sin(phi)*Math.cos(theta)),(float)Math.cos(phi),(float)(Math.sin(phi)*Math.sin(theta)));
             var tangent=new org.joml.Vector3f(normal).cross(new org.joml.Vector3f(0,1,0)).normalize();
             var second=new org.joml.Vector3f(normal).cross(tangent).normalize();
-            float size=.018F+random.nextFloat()*.045F;
+            float size=.15F+random.nextFloat()*.32F;
             star[0]=normal.x*99;star[1]=normal.y*99;star[2]=normal.z*99;
             star[3]=tangent.x*size;star[4]=tangent.y*size;star[5]=tangent.z*size;
             star[6]=second.x*size;star[7]=second.y*size;star[8]=second.z*size;star[9]=random.nextFloat()*6.28F;
+            star[10]=.009F+random.nextFloat()*.014F;
         }
         return result;
     }

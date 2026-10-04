@@ -58,9 +58,9 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
                     PlanetCaveEcologyFeature.decorateCanopy(level,random,pos,theme);
             }
         }
-        if(changed && random.nextInt(12)==0 && net.zerog.tweaks.registry.ZGGasVents.VENTS.containsKey(dim)) {
+        if(changed && random.nextInt(12)==0 && net.zerog.tweaks.registry.ZGGasVents.AMBIENT_VENTS.containsKey(theme)) {
             var pos=level.getHeightmapPos(Heightmap.Types.WORLD_SURFACE_WG,origin).below();
-            if(level.getBlockState(pos).is(grass)) level.setBlock(pos,net.zerog.tweaks.registry.ZGGasVents.VENTS.get(dim).get().defaultBlockState(),2);
+            if(level.getBlockState(pos).is(grass)) AmbientPlanetLandforms.place(level,random,pos,theme,grass);
         }
         if(changed && random.nextInt(8)==0) {
             var variants=net.zerog.tweaks.registry.ZGGlowbugs.HOMES.entrySet().stream().filter(e->e.getValue().equals(theme)).map(java.util.Map.Entry::getKey).toList();

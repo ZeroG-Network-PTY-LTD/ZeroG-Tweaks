@@ -31,7 +31,7 @@ for planet in report['planets']:
                         local[kind]+=1;counts[kind]+=1
                         if kind in species:assert 0<=int(entity['PlanetStyle'])<=2
     number=len(planet['inspection_village_positions'])
-    assert local['minecraft:villager']>=number*6,(name,'Vanilla residents missing',dict(local))
-    assert sum(local[s] for s in species)==number*2,(name,'Planetary residents missing/duplicated',dict(local))
+    assert local['minecraft:villager']==0,(name,'Old vanilla planetary residents remain',dict(local))
+    assert sum(local[s] for s in species)==number*8,(name,'Planetary residents missing/duplicated',dict(local))
 print(json.dumps({'saved_residents':dict(counts),'unique_uuids':len(uuids),'planets':len(report['planets']),
                  'inspection_villages':sum(len(p['inspection_village_positions']) for p in report['planets'])},indent=2))

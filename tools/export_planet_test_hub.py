@@ -8,7 +8,7 @@ def main():
     p.add_argument('--destination',type=Path,required=True)
     p.add_argument('--nbt-library',type=Path,required=True)
     p.add_argument('--export',action='store_true')
-    p.add_argument('--label',default='ZeroG Planet Showcase 1.0.8 — Seed 0')
+    p.add_argument('--label',default='ZeroG Planet Showcase 1.0.9 — Seed 0')
     a=p.parse_args();source=a.source.resolve();target=a.destination.resolve()
     assert (source/'level.dat').is_file() and (source/'zerog-hub-report.json').is_file()
     assert target.parent.name=='saves' and not target.exists(), 'Only a NEW save in saves/ is permitted'

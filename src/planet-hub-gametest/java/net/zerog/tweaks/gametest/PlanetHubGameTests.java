@@ -65,7 +65,7 @@ public final class PlanetHubGameTests {
                                 for(int cz=(site.getZ()-20)>>4;cz<=(site.getZ()+20)>>4;cz++)world.getChunk(cx,cz);
                             var anchor=(net.zerog.tweaks.worldgen.SettlementAnchorBlockEntity)world.getBlockEntity(site);
                             helper.assertTrue(anchor!=null,"Missing inspection anchor "+id);anchor.populate(world);
-                            helper.assertTrue(anchor.residentsCreated()==6 && anchor.speciesResidentsCreated()==2,"Expected six vanilla plus two planetary villagers "+id);
+                            helper.assertTrue(anchor.residentsCreated()==6 && anchor.speciesResidentsCreated()==2,"Expected eight designed planetary villagers "+id);
                             helper.assertTrue(site.distSqr(new net.minecraft.core.BlockPos(0,site.getY(),0))<=385*385,"Village not near gate "+id);
                         }
                         // Native noise generator, not colour/block-ID fingerprints.
@@ -99,14 +99,14 @@ public final class PlanetHubGameTests {
                         helper.assertTrue(anchor.residentsCreated()==6,"Settlement has no inhabitants "+id);
                         long count=world.getEntitiesOfClass(net.minecraft.world.entity.npc.Villager.class,
                                 new net.minecraft.world.phys.AABB(Vec3.atLowerCornerOf(outpost.offset(-20,0,-20)),Vec3.atLowerCornerOf(outpost.offset(20,8,20)))).size();
-                        helper.assertTrue(count==8,"Expected six vanilla plus two planetary villagers, found "+count+" in "+id);
+                        helper.assertTrue(count==8,"Expected eight designed planetary villagers, found "+count+" in "+id);
                         anchor.populate(world);helper.assertTrue(anchor.residentsCreated()==6,"Resident duplication "+id);
                         entry.addProperty("settlement_residents",count);
                         entry.addProperty("settlement_position",outpost.toShortString());
                         helper.assertTrue(world.getEntitiesOfClass(net.minecraft.world.entity.npc.Villager.class,
                                 new net.minecraft.world.phys.AABB(Vec3.atLowerCornerOf(outpost.offset(-20,0,-20)),Vec3.atLowerCornerOf(outpost.offset(20,8,20))))
-                                .stream().allMatch(v->net.minecraft.core.registries.BuiltInRegistries.VILLAGER_TYPE.getKey(v.getVillagerData().getType()).getNamespace().equals("zerog_tweaks")),
-                                "Outpost clothing not synchronized via native villager types "+id);
+                                .stream().allMatch(v->v instanceof net.zerog.tweaks.entity.PlanetVillager),
+                                "Outpost still contains old vanilla planetary residents "+id);
                         }
                         entry.addProperty("tree_species",net.zerog.tweaks.worldgen.PlanetEcologyProfile.tree(name));
                         entry.addProperty("landing",arrival.centre.toShortString());
