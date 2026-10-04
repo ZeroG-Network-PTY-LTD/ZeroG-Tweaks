@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "Genetic Splicer",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "Genetic Splicer",
+      "type": "cube",
+      "uuid": "7a938d05-3fc1-5f95-965c-f97f45b4c90c",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "autouv": 0,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0,
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1,
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2,
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 3,
+          "cullface": "east"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 4,
+          "cullface": "up"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 5,
+          "cullface": "down"
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "7a938d05-3fc1-5f95-965c-f97f45b4c90c"
+  ],
+  "textures": [
+    {
+      "name": "genetic_splicer_front.png",
+      "uuid": "dbb82d36-dfc1-5d74-bfcf-94578f2bbd62",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACOElEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9AAs2wTVljAyykohgogaIqDnHcP+rInEOAIGOBdcZ6AFY8EkuuiTNICREWUjcOneWociPgzwHgMA3MVEGcsHzAwcJqmEhpGDhgskMbgp6KGIBp88ybDA1hvPXpV9iCJqJqoZYwERIASHLQQBkOcgR5AAWUjWALC/zwRSnWQhgA11bGBhu1Z8F0xbSl8A0uYCJXI1xc1jB9KKU3+TbzkCmA0BRcOKpHphWa8QeJTRLA+twpHhsiZMmIRCEJcWTazkIkBwCMEcgB3sXmZaDANmJEDkXUAJY8Em+vncbp9wabQ0w7dePv/HCyMREvgOKA7gYaA1YsAmmd92hukV83EzEO+AtA/XbhG+/UpAIY07uZgg6uZvhp6oKiviZWRIMJ/sFGRS576OIr83YzbAwfjeDyC956mTDBz8YGC7NWYgpfuclw9KdzzHEbz38ybDl9AJijGZgwdZuR+8XbA+JBNNsAgJY0wp6/DauigHTPOz8DNjMN8rA0yqOAbfbQU1nBOB9/QbCgNFoaQU9fn/wfoDQDBCaqH7B8UP7GfQOgVigrPeCgRZALxliPgukIkV1gLCYBE0sJQQYFRR0/g+IzSDfs7IxAAB6aaZ7vchh/wAAAABJRU5ErkJggg==",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "genetic_splicer_back.png",
+      "uuid": "d36e49ea-bb99-56d4-91c5-384f3c367ac6",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABLElEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9ABPDAAMWXBLUzBXIqZ5oB9CrfGAhpODV86cUWSAmKU2ZAyztnChywN3bNylzwF0CBlAKWAgpGI2Cu6NRYDeaC55SlM1GC6KhWxAdP7SfKrng1NGDDCysbKQ7QFhMgioFEcwckhyQbPuGgdpg7mER4h0wF4diWgAWbO12WvcLjDLe4W6UxoDb7bQD6OazIKd6vUMgFhcDA8MLmliulwwxn4UViwOECaRWWgFGBQWd/wNiM8j3rGwMAMAzZe2FIt6aAAAAAElFTkSuQmCC",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "genetic_splicer_left.png",
+      "uuid": "cf68812b-42cb-5cb9-90a9-a6a7ecb97b0e",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABLElEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9ABPDAAMWXBLUzBXIqZ5oB9CrfGAhpODV86cUWSAmKU2ZAyztnChywN3bNylzwF0CBlAKWAgpGI2Cu6NRYDeaC55SlM1GC6KhWxAdP7SfKrng1NGDDCysbKQ7QFhMgioFEcwckhyQbPuGgdpg7mER4h0wF4diWgAWbO12WvcLjDLe4W6UxoDb7bQD6OazIKd6vUMgFhcDA8MLmliulwwxn4UViwOECaRWWgFGBQWd/wNiM8j3rGwMAMAzZe2FIt6aAAAAAElFTkSuQmCC",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "genetic_splicer_right.png",
+      "uuid": "4f854ca6-1779-5548-b1c1-01de7e11f6db",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABLElEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9ABPDAAMWXBLUzBXIqZ5oB9CrfGAhpODV86cUWSAmKU2ZAyztnChywN3bNylzwF0CBlAKWAgpGI2Cu6NRYDeaC55SlM1GC6KhWxAdP7SfKrng1NGDDCysbKQ7QFhMgioFEcwckhyQbPuGgdpg7mER4h0wF4diWgAWbO12WvcLjDLe4W6UxoDb7bQD6OazIKd6vUMgFhcDA8MLmliulwwxn4UViwOECaRWWgFGBQWd/wNiM8j3rGwMAMAzZe2FIt6aAAAAAElFTkSuQmCC",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "genetic_splicer_top.png",
+      "uuid": "ecc5a4e9-a577-5328-a4e7-6a441f9d9e9a",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABUUlEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9AAsuiTVljAyykoigogRE1JxjuP9VkTQHgEDHgusMtAZMhBQsOMAGxuSIEQNYCFme4PALzoYBYsRgfIpDAAawGUisGMVRQK4YxVGQ4PALJW6Rg5kYMaqngQUkOGQ0DRALWPBJjqYBZDByywEQwJa/iRWjyAG0Dn4QILouoBVgwSWR3nWHapbwcTOR7oC3DNRrmL79OlSiYD+03U7rfoFRxjvcIRADbrfTDqCbzwJjHD+0n0HvEIjFxcDA8IImluslQ8xnYcXiAGExCZpYSggwKijo/B8Qm0G+Z2VjAADcJrXdIktd4AAAAABJRU5ErkJggg==",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "genetic_splicer_bottom.png",
+      "uuid": "1822b5fb-c298-58e4-aee9-93f0b7cdad21",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABUUlEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9AAsuiTVljAyykoigogRE1JxjuP9VkTQHgEDHgusMtAZMhBQsOMAGxuSIEQNYCFme4PALzoYBYsRgfIpDAAawGUisGMVRQK4YxVGQ4PALJW6Rg5kYMaqngQUkOGQ0DRALWPBJjqYBZDByywEQwJa/iRWjyAG0Dn4QILouoBVgwSWR3nWHapbwcTOR7oC3DNRrmL79OlSiYD+03U7rfoFRxjvcIRADbrfTDqCbzwJjHD+0n0HvEIjFxcDA8IImluslQ8xnYcXiAGExCZpYSggwKijo/B8Qm0G+Z2VjAADcJrXdIktd4AAAAABJRU5ErkJggg==",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    }
+  ]
+}

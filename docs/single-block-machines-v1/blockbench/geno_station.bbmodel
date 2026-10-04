@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "Geno Station",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "Geno Station",
+      "type": "cube",
+      "uuid": "7e022e6f-fb33-57ff-b6e5-98a63fc421e7",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "autouv": 0,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0,
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1,
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2,
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 3,
+          "cullface": "east"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 4,
+          "cullface": "up"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 5,
+          "cullface": "down"
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "7e022e6f-fb33-57ff-b6e5-98a63fc421e7"
+  ],
+  "textures": [
+    {
+      "name": "geno_station_front.png",
+      "uuid": "1dcaa411-abbe-5cbf-919b-817841ceedb0",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACDklEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9AAs2wTVljAyykohgogaIqDnHcP+rInEOAIGOBdcZ6AFY8EkuuiTNICREWUjcOneWociPgzwHgMA3MVEGcsHzAwcJqmEhpGDhgskMX9rJdIE6A4P/RFXKHOCmoEe0ff4nT4HpjeZmROthYiADmE+cCMbUAExUMWUgHeC0dh0YkwtYGGgE4u6BynwGhvlSqtQJAd2yMjCmNmCiuomjDqBmInx97zacfb6hHs4+mpoCZ+/ydIez1+pqw9nzJCCNGkYmJvIdUBzAxUBrwIJNML3rDtUt4uNmIt4Bbxmo3yZ8+5WCbBhzcjdD0MndDD9VVVDEz8ySYDjZL8igyH0fRXxtxm6GhfG7GUR+yVOnJHzwg4Hh0pyFmOJ3XjIs3fkcQ/zWw58MW04vIMZoBhZs7Xb0fsH2kEgwzSYggDWtoMdv46oYMM3Dzs+AzXyjDDyt4hhwux3UdEYA3tdvIAwYjZZW0OP3B+8HCM0AoYnqFxw/tJ9B7xCIBcp6LxhoAfSSIeazsDJgOkBYTIImlhICjAoKOv8HxGaQ71nZGAB3konS0hxjvAAAAABJRU5ErkJggg==",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "geno_station_back.png",
+      "uuid": "3889768f-ed48-5a09-ad74-63b0474492ee",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABLElEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9ABPDAAMWXBLUzBXIqZ5oB9CrfGAhpODV86cUWSAmKU2ZAyztnChywN3bNylzwF0CBlAKWAgpGI2Cu6NRYDeaC55SlM1GC6KhWxAdP7SfKrng1NGDDCysbKQ7QFhMgioFEcwckhyQbPuGgdpg7mER4h0wF4diWgAWbO12WvcLjDLe4W6UxoDb7bQD6OazIKd6vUMgFhcDA8MLmliulwwxn4UViwOECaRWWgFGBQWd/wNiM8j3rGwMAMAzZe2FIt6aAAAAAElFTkSuQmCC",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "geno_station_left.png",
+      "uuid": "2084da8c-6c21-5d8d-a498-885cb6483978",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABLElEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9ABPDAAMWXBLUzBXIqZ5oB9CrfGAhpODV86cUWSAmKU2ZAyztnChywN3bNylzwF0CBlAKWAgpGI2Cu6NRYDeaC55SlM1GC6KhWxAdP7SfKrng1NGDDCysbKQ7QFhMgioFEcwckhyQbPuGgdpg7mER4h0wF4diWgAWbO12WvcLjDLe4W6UxoDb7bQD6OazIKd6vUMgFhcDA8MLmliulwwxn4UViwOECaRWWgFGBQWd/wNiM8j3rGwMAMAzZe2FIt6aAAAAAElFTkSuQmCC",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "geno_station_right.png",
+      "uuid": "1c0a8660-52c2-538a-9090-c1b16a8860f6",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABLElEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9ABPDAAMWXBLUzBXIqZ5oB9CrfGAhpODV86cUWSAmKU2ZAyztnChywN3bNylzwF0CBlAKWAgpGI2Cu6NRYDeaC55SlM1GC6KhWxAdP7SfKrng1NGDDCysbKQ7QFhMgioFEcwckhyQbPuGgdpg7mER4h0wF4diWgAWbO12WvcLjDLe4W6UxoDb7bQD6OazIKd6vUMgFhcDA8MLmliulwwxn4UViwOECaRWWgFGBQWd/wNiM8j3rGwMAMAzZe2FIt6aAAAAAElFTkSuQmCC",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "geno_station_top.png",
+      "uuid": "3d01850c-eab8-5563-916c-a98831bc0e3c",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABUUlEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9AAsuiTVljAyykoigogRE1JxjuP9VkTQHgEDHgusMtAZMhBQsOMAGxuSIEQNYCFme4PALzoYBYsRgfIpDAAawGUisGMVRQK4YxVGQ4PALJW6Rg5kYMaqngQUkOGQ0DRALWPBJjqYBZDByywEQwJa/iRWjyAG0Dn4QILouoBVgwSWR3nWHapbwcTOR7oC3DNRrmL79OlSiYD+03U7rfoFRxjvcIRADbrfTDqCbzwJjHD+0n0HvEIjFxcDA8IImluslQ8xnYcXiAGExCZpYSggwKijo/B8Qm0G+Z2VjAADcJrXdIktd4AAAAABJRU5ErkJggg==",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "geno_station_bottom.png",
+      "uuid": "80da00b4-bcff-5294-912b-c4187e6623e7",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABUUlEQVR4nGOMjMv9LyoixDAQYNvmzQwsIMbRI0cZBgqwwBhqGpoM9AoJkM/5BYVQHQACLd4XwbRj5RcGWoD97TxgettmhBgLuqKY+ksMa8qUaeIAmPkMDALYHeAI9rkSQ9P8hzSx/NJrObD5DAzvsDsAVSF9AAsuiTVljAyykoigogRE1JxjuP9VkTQHgEDHgusMtAZMhBQsOMAGxuSIEQNYCFme4PALzoYBYsRgfIpDAAawGUisGMVRQK4YxVGQ4PALJW6Rg5kYMaqngQUkOGQ0DRALWPBJjqYBZDByywEQwJa/iRWjyAG0Dn4QILouoBVgwSWR3nWHapbwcTOR7oC3DNRrmL79OlSiYD+03U7rfoFRxjvcIRADbrfTDqCbzwJjHD+0n0HvEIjFxcDA8IImluslQ8xnYcXiAGExCZpYSggwKijo/B8Qm0G+Z2VjAADcJrXdIktd4AAAAABJRU5ErkJggg==",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    }
+  ]
+}

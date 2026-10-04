@@ -1,5 +1,12 @@
 # Orbital-Bees genetics machines v1: Genetic Splicer and Geno Station
 
+**Later user revision (2026-10-05):** the assembled/helix block geometry below is
+archived concept work. Runtime models must now be single full cubes with face
+textures, as authored in [single-block-machines-v1](../single-block-machines-v1/README.md).
+Do not ship the assembled models or external helix from this folder. The genetics
+behaviour and five-slot GUI descriptions remain future backend specifications,
+not implemented features in the current four-/two-slot addon menus.
+
 Redesign of `aeroapiary:genetic_splicer` and `aeroapiary:geno_station` (ZeroG Orbital-Bees), with new GUIs. Registry ids are unchanged.
 
 **Status: design input.** All previews are software renders made by the generator, not in-game captures. Nothing here is installed in a jar.
