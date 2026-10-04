@@ -5,7 +5,27 @@ Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's
 economy together. This local work-in-progress also requires GeckoLib for the Tidewraith integration.
 
-Current candidate **1.0.11-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
+Current development build **1.0.12-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
+
+## The Signal: Courier Pod and hub inspection district
+
+[1.0.12 Prologue and showcase guide](docs/prologue-and-hub-1.0.12.md): the first
+Raw Nullifite pickup schedules the Moon relay's Courier reply. Its fractured
+shell, meteorite crater, chest and Broken Console deliver Echo's Dormant Wisp
+and a readable Concord Codex. The Wisp is now required in the Gate Controller
+recipe; a seven-day replacement and 5% ancient-city chest chance provide recovery.
+Existing IDs, ore generation, played saves and all galleries below are retained.
+
+![Original isometric Courier schematic, not an in-game capture](docs/images/prologue-1.0.12/courier-isometric.svg)
+
+The explicit test hub gains eight authored apiary layouts, four real formation
+references and ten labelled Concord Vault inspection rooms north of the gates.
+Occupied plots are never cleared. Unsupported detected claim mods pause Courier
+delivery; full survival gate-tier progression remains unfinished.
+
+[Download 1.0.12-dev](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev.jar) ·
+[Checksums](docs/jars/SHA256SUMS.txt) ·
+[Design source](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design/docs/zero-g-tweaks-bundle/structures/concord_courier).
 
 ## Budding crops, tree fruits and fifty new planetary varieties
 
