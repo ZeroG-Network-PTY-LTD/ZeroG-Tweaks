@@ -7,6 +7,25 @@ economy together. This local work-in-progress also requires GeckoLib for the Tid
 
 Current development build **1.0.12-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
 
+## Current 1.0.12-dev hotfix: artwork, Orbital Bees controllers and vanilla sky
+
+[Detailed visual and controller guide](docs/art-and-controller-hotfix-1.0.12.md):
+recovered coloured bee icons, native A/C material/food/plant art, wood/leaves and
+dust shading, wet farmland, detailed melons/dripstone/vents/torchflowers and
+recognizable controller terminals. Moonsteel keeps the final X-axis correction.
+Nine apiary/hive/alveary interfaces get the compact reference layout with server status and
+guarded output sorting; unsupported lifespan/tank/tolerance systems stay sealed.
+The planetary panorama is no longer rendered: vanilla skies return with 480
+larger smoothly colour-changing scattered stars. Version remains **1.0.12-dev**.
+Offline previews and asset checks are not in-game visual approval; player review
+is still needed. Existing galleries, IDs and played saves remain intact.
+
+![Native terminal artwork; source preview, not an in-game capture](docs/images/art-controller-1.0.12/controller-terminals-preview.png)
+
+[Download current same-version hotfix](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev.jar) ·
+[Checksums](docs/jars/SHA256SUMS.txt) ·
+[GUI design sources](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design/docs/alveary-controller-gui-v1).
+
 ## The Signal: Courier Pod and hub inspection district
 
 [1.0.12 Prologue and showcase guide](docs/prologue-and-hub-1.0.12.md): the first
