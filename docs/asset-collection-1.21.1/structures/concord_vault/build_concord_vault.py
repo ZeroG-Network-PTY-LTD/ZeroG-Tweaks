@@ -131,7 +131,22 @@ g = {'__name__': 'v3', '__file__': 'build_prism_arena_v3.py'}
 exec(compile(src, 'build_prism_arena_v3(vault)', 'exec'), g)
 SX, SY, SZ, C, FLOOR = g['SX'], g['SY'], g['SZ'], g['C'], g['FLOOR']
 
-shell = Piece(SX, SY, SZ)
+# Underground the hall needs a roof: the v3 arena was open to the sky. The cleared space ends in a brick dome just above
+# the stage-3 ribs (and above the oculus lamp in the middle), two blocks thick, so no rock, ore, water or cave vines show.
+WALL_TOP, RING_Y = g['WALL_TOP'], g['RING_Y']
+SHELL_Y = RING_Y + 5                       # oculus lamp at RING_Y + 2, roof RING_Y + 3 .. + 4
+
+
+def ceiling(x, z):
+    """First roof block above the cell: follows the ribs (WALL_TOP + 1 at r 29.5 up to RING_Y at r 8), flat over the oculus."""
+    r = math.hypot(x - C, z - C)
+    if r < 9.5:
+        return RING_Y + 3
+    t = min(1.0, max(0.0, (29.5 - r) / 21.5))
+    return math.ceil(WALL_TOP + 1 + (RING_Y - WALL_TOP - 1) * math.sin(t * math.pi / 2)) + 1
+
+
+shell = Piece(SX, SHELL_Y, SZ)
 stages = {1: Piece(SX, SY, SZ), 2: Piece(SX, SY, SZ), 3: Piece(SX, SY, SZ)}
 FLOOR_DETAIL = {Z + 'pulsar_lamp', Z + 'smooth_cerulean_stone', Z + 'polished_black_cerulean_stone_bricks'}
 for (x, y, z), block, stage in g['WRITES']:
@@ -140,12 +155,23 @@ for (x, y, z), block, stage in g['WRITES']:
         if y == FLOOR and r <= 22.9 and block in FLOOR_DETAIL:
             shell.put(x, y, z, Z + 'polished_cerulean_stone')     # plain floor until the first key
             stages[1].put(x, y, z, block)
-        else:
+        elif not (block == 'minecraft:air' and y >= ceiling(x, z)):
             shell.put(x, y, z, block)
     elif block != 'minecraft:air':
         stages[stage].put(x, y, z, block)
 for ex, ey, ez, bx, by, bz in g['ENTITIES']:                     # rails and minecarts belong to the stands
     stages[3].entities.append(((ex, ey, ez), (bx, by, bz), {'id': 'minecraft:minecart', 'Pos': [ex, ey, ez]}))
+ROOF = [Z + 'cerulean_stone_bricks'] * 5 + [Z + 'cracked_cerulean_stone_bricks', Z + 'polished_black_cerulean_stone_bricks']
+roof_rng = random.Random(4417)
+for x in range(SX):
+    for z in range(SZ):
+        r = math.hypot(x - C, z - C)
+        if r > 31.6:
+            continue
+        c = ceiling(x, z)
+        for y in range(WALL_TOP + 1 if r > 29.6 else c, c + 2):   # past the wall: seal the gap up to the dome's foot
+            if (x, y, z) not in shell.blocks or shell.blocks[(x, y, z)][0] == 'minecraft:air':
+                shell.put(x, y, z, roof_rng.choice(ROOF))
 shell.put(C, FLOOR + 1, C, Z + 'polished_black_cerulean_stone')   # the lock on a plinth where the prism will stand
 shell.put(C, FLOOR + 2, C, Z + 'polished_black_cerulean_stone')
 shell.put(C, FLOOR + 3, C, Z + 'concord_lock[facing=south,stage=0]')
