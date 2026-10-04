@@ -24,7 +24,7 @@ Soil and farmland remain matte and mineral-free, with darker wet furrows.
 The coloured screen art helps identify the interaction face. Its painted lamps
 are not a claim that status, processing, emitted light or animation are wired.
 The accompanying compatibility GUI is documented in
-`../alveary-controller-gui-v1/README.md`: nine real menus get a wider readable
+`../alveary-controller-gui-v1/README.md`: nine real menus get the compact reference
 reference layout with paged outputs, server-synced progress/formation and guarded output sorting. Reserved
 backend systems remain sealed. The renderer now only draws a full GeckoLib model
 for ENTITYBLOCK_ANIMATED blocks, avoiding a second model on top of baked machines.
