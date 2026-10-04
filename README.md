@@ -5,7 +5,27 @@ Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's
 economy together. This local work-in-progress also requires GeckoLib for the Tidewraith integration.
 
-Current candidate **1.0.10-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
+Current candidate **1.0.11-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
+
+## Budding crops, tree fruits and fifty new planetary varieties
+
+[1.0.11 botany field guide](docs/planet-botany-1.0.11.md) adds **18 flowers,
+12 shrubs, 12 tree fruits, six vegetables and two alien melons**. Peas and
+vegetables display sprouts, buds, developing produce and ripe produce; matching
+planetary trees can carry three-stage regrowing fruit pods. All 34 planetary
+grass sets gain directional shading, leaf veins and continuous tall silhouettes.
+Existing registry IDs, the earlier galleries and previous downloads are retained.
+
+![Original botanical artwork; not an in-game capture](docs/images/planet-botany-1.0.11/fifty-new-varieties.png)
+
+![Four crop growth states; source preview, not continuous texture animation](docs/images/planet-botany-1.0.11/budding-growth.gif)
+
+[Download 1.0.11-dev](docs/jars/zerog-tweaks-1.21.1-1.0.11-dev.jar) ·
+[Checksums](docs/jars/SHA256SUMS.txt) ·
+[50 editable Blockbench projects](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design/docs/planet-botany-v2/blockbench).
+Seven isolated server checks and eight packaged-asset audits passed. GPU visuals
+remain for player review. This publication does **not** replace an installed JAR
+or regenerate any existing world.
 
 ## Real planetary rain and harsh lightning storms
 
