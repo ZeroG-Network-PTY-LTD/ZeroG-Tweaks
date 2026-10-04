@@ -5,7 +5,18 @@ Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's
 economy together. This local work-in-progress also requires GeckoLib for the Tidewraith integration.
 
-Current candidate **1.0.7-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
+Current candidate **1.0.8-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
+
+## Planetary residents and nearby village inspections
+
+[1.0.8 resident and village guide](docs/planetary-villagers-1.0.8.md) admits
+the six authored Lunari, Rustborn, Glintfolk, Ashwright, Hollow Kin and Sunwarden
+models alongside ordinary villagers, with native trading, six spawn eggs,
+clothing styles and authored animation loops. A fresh seed-0 showcase places
+one or two terrain-grounded inspection settlements near each planetary gate;
+ordinary natural villages remain rare and existing hub saves are not retrofitted.
+
+![Original six-species design reference](docs/images/planetary-villagers-1.0.8/overview.png)
 
 ## Alien agriculture, cave families and liquid categories
 
