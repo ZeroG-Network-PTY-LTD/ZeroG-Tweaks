@@ -33,7 +33,7 @@ public final class ApiaryRendererRepair {
     }
     public static boolean hasAnimatedAssets(String id,java.util.function.Predicate<ResourceLocation> exists) {
         // Only these shipped machines have both a UV atlas and their geo/animation files.
-        return (id.equals("apiary_controller")||id.equals("genetic_splicer"))
+        return id.equals("apiary_controller")
             &&exists.test(asset("geo/machines/"+id+".geo.json"))
             &&exists.test(asset("textures/block/machines/"+id+"_hd.png"))
             &&exists.test(asset("animations/"+id+".animation.json"));

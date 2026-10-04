@@ -32,7 +32,13 @@ with ZipFile(a.jar) as jar,ZipFile(a.bee_jar) as addon:
     for row in manifest['controller_bindings']:
         relative='assets/aeroapiary/models/'+row['model']+'.json'
         obj=json.loads(jar.read(relative));old=json.loads(addon.read(relative))
-        if row.get('geometry_preserved'):
+        single=a.design_root/'docs/single-block-machines-v1/manifest.json'
+        replacement_ids=json.loads(single.read_text())['single_block_ids'] if single.exists() else []
+        if row['id'] in replacement_ids:
+            assert len(obj['elements'])==1
+            assert obj['elements'][0]['from']==[0,0,0] and obj['elements'][0]['to']==[16,16,16]
+            assert obj['elements'][0]['faces']['north']['texture']=='#front'
+        elif row.get('geometry_preserved'):
             assert len(obj['elements'])==len(old['elements'])
             for new_cube,old_cube in zip(obj['elements'],old['elements']):
                 assert new_cube['from']==old_cube['from'] and new_cube['to']==old_cube['to']

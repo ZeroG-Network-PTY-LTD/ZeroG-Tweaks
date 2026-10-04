@@ -170,13 +170,17 @@ public final class AlvearyControllerScreen extends AbstractContainerScreen<Abstr
     @EventBusSubscriber(modid="zerog_tweaks",value=Dist.CLIENT)
     public static final class Opening {
         @SubscribeEvent public static void open(ScreenEvent.Opening event) {
-            if(!(event.getNewScreen() instanceof AbstractContainerScreen<?> screen)||screen instanceof AlvearyControllerScreen)return;
+            if(!(event.getNewScreen() instanceof AbstractContainerScreen<?> screen)||screen instanceof AlvearyControllerScreen||screen instanceof MachineWorkbenchScreen)return;
             var menu=screen.getMenu();
             ApiaryMachineAccess.read(menu).ifPresent(machine->{
                 int tier=AlvearyLayout.tier(machine.id());
                 var player=Minecraft.getInstance().player;
                 if(tier>0 && player!=null && menu.slots.size()==AlvearyLayout.machineSlots(tier)+36)
                     event.setNewScreen(new AlvearyControllerScreen(menu,player.getInventory(),screen.getTitle(),tier));
+                else if(tier==0 && player!=null)
+                    MachineGuiProfile.read("aeroapiary",machine.id()).filter(profile->!profile.designOnly()
+                        &&menu.slots.size()==profile.roles().size()+36).ifPresent(profile->
+                            event.setNewScreen(new MachineWorkbenchScreen(menu,player.getInventory(),screen.getTitle(),profile)));
             });
         }
     }

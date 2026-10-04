@@ -46,7 +46,7 @@ public final class AlvearyMenuSync {
     @SubscribeEvent public static void tick(PlayerTickEvent.Post event) {
         if(!(event.getEntity() instanceof ServerPlayer player)||player.tickCount%20!=0)return;
         ApiaryMachineAccess.read(player.containerMenu).ifPresent(machine->{
-            if(AlvearyLayout.tier(machine.id())==0)return;
+            // All verified addon machine menus can receive the same read-only cycle status.
             String error=machine.error();if(error.length()>1024)error=error.substring(0,1024);
             PacketDistributor.sendToPlayer(player,new State(player.containerMenu.containerId,machine.progress(),machine.formed(),error));
         });

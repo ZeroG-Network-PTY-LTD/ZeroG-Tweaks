@@ -24,4 +24,10 @@ def effective_art_sources(design):
             data = (rollout / 'source' / row['path']).read_bytes()
             assert hashlib.sha256(data).hexdigest() == row['sha256'], row['path']
             latest[row['path']] = data
+    single=design/'docs/single-block-machines-v1'
+    if (single/'manifest.json').exists():
+        for row in json.loads((single/'manifest.json').read_text())['files']:
+            data=(single/'source'/row['path']).read_bytes()
+            assert hashlib.sha256(data).hexdigest()==row['sha256'],row['path']
+            latest[row['path']]=data
     return latest
