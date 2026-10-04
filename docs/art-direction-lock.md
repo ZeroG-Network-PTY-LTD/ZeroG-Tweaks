@@ -42,6 +42,42 @@ Keep inventory, placed models and source Blockbench textures consistent. Machine
 **What not to do**
 - No flat single-colour fills, no upscaled 16 px art passed off as 32 px, no pure black outlines, no glow on parts that have no reason to glow, no off-centre or cropped silhouettes.
 
+## Lighting, gradient and depth references (user-approved 2026-10-04): follow to the T
+
+These three renders are mandatory references alongside the sheet above. Every new item sprite, block texture and 3D model must match them. If a texture looks right flat but wrong when it is lit or turned, it fails.
+
+![Gradients, depth and perspective](art-direction/zerog_gradients_depth_perspective.png)
+
+![Block lighting](art-direction/zerog_block_lighting.gif)
+
+![Floating items](art-direction/zerog_floating_items.gif)
+
+| File | What it locks |
+| --- | --- |
+| `art-direction/zerog_gradients_depth_perspective.png` | The nine material ramps (Moonsteel, copper, Nullifite, Solvanite, Cerulite, leaf, glow accent, wood, tint gray) with hue notes; right/wrong technique pairs; 2D depth layering; 2D perspective per asset type; 3D model depth in Blockbench. |
+| `art-direction/zerog_block_lighting.gif` | How a block reads under light: faces step along the hue-shifted ramp (shadows go violet, never grey), and glow inlays stay emissive. |
+| `art-direction/zerog_floating_items.gif` | How dropped/held items read in 3D: 1 px extrusion, light from the top-left, darker extruded edges, crystal and inlay accents that pulse, contact shadow. |
+
+**Rules taken from these renders**
+- **Ramps:** one 6-tone hue-shifted ramp per material. Use the exact hex values in `generator/style_kit.py` (`RAMPS`) unless the user approves a new ramp. Never darken by multiplying toward black.
+- **Shading:** shade by moving along the ramp index. A face toward the light steps up one or two tones; a face turned away steps down toward the violet or deep-brown end.
+- **Bands:** clustered bands, no noise dithering, no pillow shading. The light always comes from the top-left front.
+- **Glow (C accents):** the dark rim, then the saturated tone, then a white core. Glow is emissive: it is never shaded by the light and may pulse in animations.
+- **Galaxy-tinted blocks:** store a gray value ramp. The tint supplies the hue.
+- **2D perspective:**
+  - items use a 3/4 oblique view (top + front + end);
+  - blocks are isometric on 2:1 pixel steps;
+  - tools and weapons sit on the 45° diagonal, head top-right.
+  - Keep one viewpoint per sprite.
+- **3D depth by role:** grip 1 px, blade 1.5 px, guard 2 px, inlays +0.25 px. Block icons use the GUI transform `[30, 225, 0]`. Extruded item edges are one to two tones darker than the face.
+
+**Regenerating:** the renders come from `art-direction/generator/` (Python 3 + Pillow):
+- `python3 gradient_panel.py <out.png>` builds the gradient section;
+- `python3 depth_study.py <out.png>` builds the depth and perspective sections;
+- `python3 anims.py <out_dir>` builds both GIFs.
+
+`style_kit.py` holds the ramps, sprite builders and the ramp-step lit renderer, so new previews can be checked under the same light.
+
 ## Required review evidence
 
 For every batch provide original source/generator, palette and material description, inventory-size and enlarged contact sheets, model/UV checks, alpha and animation metadata checks, and source/JAR byte consistency. Test inventory alignment, hands and placed appearance when a client test is authorized. Label concept previews, static inspections and actual in-game captures accurately; never claim a concept image is installed art.
