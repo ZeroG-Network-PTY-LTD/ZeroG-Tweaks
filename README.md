@@ -5,9 +5,31 @@ Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's
 economy together. This local work-in-progress also requires GeckoLib for the Tidewraith integration.
 
-Current candidate **1.0.8-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
+Current candidate **1.0.9-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
 
-## Planetary residents and nearby village inspections
+## Planet atmosphere and creative weather testing
+
+[1.0.9 atmosphere guide](docs/planet-atmosphere-1.0.9.md): Creative **Z-Admintools**
+has a local weather-testing screen for fog, blizzards, steam, geyser spray, ash,
+dust devils, visual-only acid rain and cosmetic lightning/thunder. Larger
+twinkling stars have colour-cycling halos; a detailed replacement panorama keeps
+the actual 1774×887 resolution. Six planetary themes gain 24 native climbing
+vine designs, six edible fruits and safe ambient vent clusters/dormant cones.
+Planet settlements now use only the six designed species; existing planetary
+villagers migrate with their saved trade/inventory data. Overworld villagers
+remain untouched. Acid-rain gameplay and the broader flora redesign are later work.
+
+[Download 1.0.9-dev](docs/jars/zerog-tweaks-1.21.1-1.0.9-dev.jar) ·
+[SHA256 checksums](docs/jars/SHA256SUMS.txt). The identical clean-build JAR was
+installed before publication, with the older JAR backed up. Six isolated server
+checks passed; a new **ZeroG Planet Showcase 1.0.9 — Seed 0** has 68 gates and
+60 nearby inspection villages, populated only by 480 designed planetary residents.
+Existing played saves and all older galleries remain untouched. Client weather,
+shader appearance and performance are still for player review.
+
+![Updated universe artwork, not an in-game screenshot](docs/images/planet-atmosphere-1.0.9/universe_v3.png)
+
+## Preserved 1.0.8 species admission and village inspections
 
 [1.0.8 resident and village guide](docs/planetary-villagers-1.0.8.md) admits
 the six authored Lunari, Rustborn, Glintfolk, Ashwright, Hollow Kin and Sunwarden

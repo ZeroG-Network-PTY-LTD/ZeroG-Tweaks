@@ -1,5 +1,10 @@
 # Alien weather — experimental client effects
 
+[Latest 1.0.9 atmosphere and creative weather tester](planet-atmosphere-1.0.9.md)
+extends this prototype with fog/blizzards, visual acid rain, safe ambient vents
+and a Creative-only **Z-Admintools** preview screen. The following description
+preserves the original 1.0.5 implementation for reference.
+
 Added in `1.0.5-dev`. **Off by default**, independent of Iris/shaders. On the
 title screen, use **ZeroG Weather** and choose Off, Low or High. Thunder audio
 and extra sky flashes have separate controls; extra flashes are off by default.
