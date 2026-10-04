@@ -11,8 +11,37 @@ Mod version **1.0.0** · NeoForge **21.1.252** · Minecraft **1.21.1** · Java *
 
 | Branch | Contents |
 | --- | --- |
-| `1.21.1-update` | **Active line.** Full NeoForge source (src/), Gradle build wiring, working Gradle wrapper, crystal-cluster + crop fixes. Recommended. |
-| `main` | Placeholder line (empty). |
+| `Released` | Default branch. Release builds and this README. |
+| `1.21.x` | **Active code line.** Full NeoForge source (src/) and Gradle build. |
+| `Design` | All design and art work: texture previews, mob sheets, GUI layouts and the art-direction lock. |
+| `Docs` | Guides, images and built JARs. |
+
+## Art direction (required for every texture and model)
+
+All ZeroG items, blocks and models must match the approved art references **to the T**. The full rules are in
+[`docs/art-direction-lock.md` on the Design branch](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/art-direction-lock.md).
+
+| Reference | What it sets |
+| --- | --- |
+| [Equipment art sheet](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/art-direction/zerog_equipment_art_reference.png) | The overall look: native 32x32 pixel art, dark-hue outlines (never pure black), hue-shifted shading, glowing violet/cyan accents only on meaningful parts, vegetation style. |
+| [Gradients, depth and perspective](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/art-direction/zerog_gradients_depth_perspective.png) | The nine 6-tone material ramps, right/wrong shading techniques, 2D depth layers, viewing angle per asset type, 3D model depth. |
+| [Block lighting GIF](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/art-direction/zerog_block_lighting.gif) | How blocks read under light: shadows step toward violet, never grey; glow inlays stay emissive. |
+| [Floating items GIF](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/art-direction/zerog_floating_items.gif) | How dropped and held items read in 3D: 1 px extrusion, top-left light, darker edges, pulsing accents. |
+
+![Block lighting](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/raw/Design/docs/art-direction/zerog_block_lighting.gif)
+
+![Floating items](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/raw/Design/docs/art-direction/zerog_floating_items.gif)
+
+Quick rules:
+- **Ramps:** one hue-shifted ramp per material, using the exact hex values in [`style_kit.py`](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/art-direction/generator/style_kit.py). Never darken toward black.
+- **Shading:** shade by stepping along the ramp. Use clustered bands with no dithering or pillow shading. The light comes from the top-left front.
+- **Glow:** a dark rim, then the saturated tone, then a white core. Glow is never shaded by the light.
+- **Galaxy-tinted blocks:** store a gray ramp; the tint adds the hue.
+- **Viewing angle:**
+  - items are drawn 3/4 oblique;
+  - blocks are isometric on 2:1 pixel steps;
+  - tools sit on the 45° diagonal, head top-right.
+- **Model depth:** grip 1 px, blade 1.5 px, guard 2 px, inlays +0.25 px. Block icons use the GUI transform `[30, 225, 0]`.
 
 ## What's in this mod
 
