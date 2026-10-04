@@ -16,6 +16,32 @@ Blend A natural shading and C selective luminous buds/fruit. Distinguish leafy b
 
 Keep inventory, placed models and source Blockbench textures consistent. Machine fronts need unmistakable terminals or typed glyphs. Transport must retain the supplied 4/6/8-pixel family widths, tier palette, semantic connection colours and UVs. Enhance material shading and seams, not the meaning of controls. Upscaling a 16-pixel source is not HD detail: a native 32-pixel revision requires checking every UV and animation frame.
 
+## Reference sheet (user-approved 2026-10-04)
+
+![ZeroG equipment art reference](art-direction/zerog_equipment_art_reference.png)
+
+`art-direction/zerog_equipment_art_reference.png` is the target look for every new or repaired ZeroG texture. The sheet is still captioned "Concept preview — awaiting approval", but the user approved it as the standard on 2026-10-04. Match it before anything else in this file; where older art disagrees, this sheet wins.
+
+**Rows on the sheet**
+- Moonsteel set: sword, pickaxe, helmet, chestplate, ingot, raw ore, dust (top row inventory size, second row enlarged).
+- Planetary palette study: the same items re-coloured for a warm copper/rust metal with the same violet crystal accents. This shows how one design carries across planet palettes.
+- A + C vegetation: natural teal grass (A), an alien pea plant through its growth stages (A + C), and a fruiting woody vine (A + C).
+
+**What to copy**
+- Native 32 x 32, one pixel density per sprite, silhouette centred with even padding. Tools sit on the handheld diagonal, head top-right.
+- Outlines are a dark hue of the material (deep navy, deep brown), never pure black.
+- Hue-shifted ramps: metal shadows go blue/purple, highlights go pale or warm, with a clean white specular streak along edges (blade, pick curve, helmet crown). 4 to 6 tones per material, clustered, no noise dithering.
+- C accents only where they mean something: a glowing violet/cyan inlay down the blade fuller, a crystal at the pick head and pommel, a visor ridge on the helmet, a core in the chestplate. Accents glow with a lighter centre and one darker rim pixel.
+- Armour is chunky and layered: rounded helmet with a dark visor slot; chestplate with stacked pauldrons, a raised breastplate and a centre core.
+- Ingot: beveled bar with a lit top face, a mid front, a dark end, and two or three embedded crystal flecks.
+- Raw ore: a lumpy rock chunk with faceted crystals (bright facet, mid facet, dark facet) in two accent colours.
+- Dust: a soft granular pile, darker at the base, with a few bright sparkle pixels.
+- Planet variants keep the same shapes and accents and only swap the metal ramp (for example copper: dark brown outline, orange mid, peach highlight).
+- Vegetation: A shading for leaves, stems and grass (teal-green ramps, layered blades, a few sparkles); C only for buds, pods and fruit (luminous purple with a pale centre). Growth stages read clearly from sprout to fruiting. Woody vines show bark, twist and leaf clusters with gaps.
+
+**What not to do**
+- No flat single-colour fills, no upscaled 16 px art passed off as 32 px, no pure black outlines, no glow on parts that have no reason to glow, no off-centre or cropped silhouettes.
+
 ## Required review evidence
 
 For every batch provide original source/generator, palette and material description, inventory-size and enlarged contact sheets, model/UV checks, alpha and animation metadata checks, and source/JAR byte consistency. Test inventory alignment, hands and placed appearance when a client test is authorized. Label concept previews, static inspections and actual in-game captures accurately; never claim a concept image is installed art.
