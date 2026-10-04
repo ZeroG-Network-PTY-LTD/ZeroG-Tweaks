@@ -5,7 +5,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
-/** Local creative preview. No packets, world commands or destructive weather actions. */
+/** Creative weather controls: synchronized planet storms, local quality settings. */
 public final class WeatherTestScreen extends Screen {
     public WeatherTestScreen() { super(Component.literal("Z-Admintools — Weather tester")); }
     @Override protected void init() {
@@ -27,6 +27,6 @@ public final class WeatherTestScreen extends Screen {
     @Override public void render(GuiGraphics graphics,int mouseX,int mouseY,float tick) {
         super.render(graphics,mouseX,mouseY,tick);
         graphics.drawCenteredString(font,title,width/2,18,0xFFFFFF);
-        graphics.drawCenteredString(font,"Creative • planets only • visual effects, no damage",width/2,32,0xA8CBDF);
+        graphics.drawCenteredString(font,"Creative • planet weather • real lightning; acid is harmless",width/2,32,0xA8CBDF);
     }
 }

@@ -10,6 +10,7 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -28,13 +29,22 @@ public final class PlanetSpaceSky extends DimensionSpecialEffects {
     private static final ResourceLocation TEXTURE=ResourceLocation.fromNamespaceAndPath("zerog_tweaks","textures/environment/universe_v3.png");
     private static final float[] MESH=mesh();
     private static final float[][] STARS=stars();
-    private PlanetSpaceSky() { super(Float.NaN,false,SkyType.NORMAL,false,false); }
+    private PlanetSpaceSky() { super(192,false,SkyType.NORMAL,false,false); }
     @SubscribeEvent public static void register(RegisterDimensionSpecialEffectsEvent event) { event.register(EFFECT,new PlanetSpaceSky()); }
     @Override public Vec3 getBrightnessDependentFogColor(Vec3 colour,float daylight) {
         return colour.multiply(daylight*.94+.06,daylight*.94+.06,daylight*.91+.09);
     }
     @Override public boolean isFoggyAt(int x,int y) { return false; }
     @Override public float[] getSunriseColor(float time,float partialTick) { return null; }
+    @Override public boolean renderSnowAndRain(ClientLevel level,int ticks,float partialTick,LightTexture light,double x,double y,double z) {
+        return PlanetPrecipitation.render(level,ticks,partialTick,light,x,y,z);
+    }
+    @Override public boolean tickRain(ClientLevel level,int ticks,Camera camera) { return PlanetPrecipitation.tick(level,ticks,camera); }
+    @Override public boolean renderClouds(ClientLevel level,int ticks,float partialTick,com.mojang.blaze3d.vertex.PoseStack stack,
+            double x,double y,double z,Matrix4f view,Matrix4f projection) {
+        // Native clouds appear only in precipitation; Iris may supply its own volumetric layer.
+        return level.getRainLevel(partialTick)<.01F;
+    }
     @Override public boolean renderSky(ClientLevel level,int ticks,float partialTick,Matrix4f view,
                                       Camera camera,Matrix4f projection,boolean foggy,Runnable setupFog) {
         setupFog.run();
@@ -42,7 +52,10 @@ public final class PlanetSpaceSky extends DimensionSpecialEffects {
                 && (living.hasEffect(MobEffects.BLINDNESS)||living.hasEffect(MobEffects.DARKNESS)))) return true;
         RenderSystem.depthMask(false);RenderSystem.disableCull();RenderSystem.disableBlend();
         FogRenderer.setupNoFog();RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderTexture(0,TEXTURE);RenderSystem.setShaderColor(1,1,1,1);
+        float storm=level.getRainLevel(partialTick);
+        float brightness=1-.82F*storm;
+        if(level.getSkyFlashTime()>0 && !net.zerog.tweaks.registry.ZGWeatherConfig.REDUCED_FLASH.get())brightness=1;
+        RenderSystem.setShaderTexture(0,TEXTURE);RenderSystem.setShaderColor(brightness,brightness,brightness,1);
         try {
             // A full slow orbit in two game days, interpolated between ticks.
             // Dimension offsets show different regions of the surrounding universe.
@@ -53,11 +66,11 @@ public final class PlanetSpaceSky extends DimensionSpecialEffects {
             var buffer=Tesselator.getInstance().begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_TEX);
             for(int i=0;i<MESH.length;i+=5) buffer.addVertex(skyView,MESH[i],MESH[i+1],MESH[i+2]).setUv(MESH[i+3],MESH[i+4]);
             BufferUploader.drawWithShader(buffer.buildOrThrow());
-            RenderSystem.enableBlend();RenderSystem.defaultBlendFunc();RenderSystem.setShader(GameRenderer::getPositionColorShader);
+            RenderSystem.enableBlend();RenderSystem.defaultBlendFunc();RenderSystem.setShaderColor(1,1,1,1);RenderSystem.setShader(GameRenderer::getPositionColorShader);
             var starBuffer=Tesselator.getInstance().begin(VertexFormat.Mode.QUADS,DefaultVertexFormat.POSITION_COLOR);
             for(var star:STARS) {
                 double shimmer=.5+.5*Math.sin(time*star[10]+star[9]);
-                int alpha=(int)(130+110*shimmer);
+                int alpha=(int)((130+110*shimmer)*(1-.94F*storm));
                 // Slow independent colour cycles, not synchronized flashes.
                 double hue=time*.0015+star[9];
                 int red=(int)(190+65*(.5+.5*Math.sin(hue)));
@@ -76,7 +89,7 @@ public final class PlanetSpaceSky extends DimensionSpecialEffects {
                 int red=(int)(160+95*(.5+.5*Math.sin(hue)));
                 int green=(int)(160+95*(.5+.5*Math.sin(hue+2.1)));
                 int blue=(int)(160+95*(.5+.5*Math.sin(hue+4.2)));
-                int alpha=(int)(24+22*(.5+.5*Math.sin(time*star[10]+star[9])));
+                int alpha=(int)((24+22*(.5+.5*Math.sin(time*star[10]+star[9])))*(1-.94F*storm));
                 for(int segment=0;segment<12;segment++) {
                     halos.addVertex(skyView,star[0],star[1],star[2]).setColor(red,green,blue,alpha);
                     for(int end=0;end<2;end++) {

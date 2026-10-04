@@ -24,13 +24,13 @@ public final class PlanetWeatherScreen extends Screen {
         }).bounds(x,y+48,220,20).build());
         addRenderableWidget(Button.builder(Component.literal("Done"),b -> onClose()).bounds(x,y+80,220,20).build());
     }
-    private Component qualityLabel() {return Component.literal("Weather: "+switch(ZGWeatherConfig.QUALITY.get()) {case 1->"Low";case 2->"High";default->"Off (lightweight)";});}
+    private Component qualityLabel() {return Component.literal("Ambient particles: "+switch(ZGWeatherConfig.QUALITY.get()) {case 1->"Low";case 2->"High";default->"Off";});}
     private Component thunderLabel(){return Component.literal("Thunder audio: "+(ZGWeatherConfig.THUNDER.get()?"On":"Off"));}
     private Component flashLabel(){return Component.literal("Extra sky flashes: "+(ZGWeatherConfig.REDUCED_FLASH.get()?"Off":"On"));}
     @Override public void onClose(){minecraft.setScreen(parent);}
     @Override public void render(GuiGraphics graphics,int mouseX,int mouseY,float tick) {
         super.render(graphics,mouseX,mouseY,tick);
         graphics.drawCenteredString(font,title,width/2,22,0xFFFFFF);
-        graphics.drawCenteredString(font,"Cosmetic only: no damage, suction or terrain destruction",width/2,37,0xAAAAAA);
+        graphics.drawCenteredString(font,"Acid is harmless • native lightning can damage and ignite",width/2,37,0xAAAAAA);
     }
 }

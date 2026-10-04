@@ -8,10 +8,6 @@ import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.network.chat.Component;
@@ -31,12 +27,11 @@ import net.zerog.tweaks.registry.ZGWeatherConfig;
 import net.zerog.tweaks.worldgen.PlanetEcologyProfile;
 import org.joml.Vector3f;
 
-/** Opt-in local atmosphere: never modifies blocks, server RNG or living entities. */
+/** Client atmosphere; real rain/storm state and lightning are owned by the server. */
 @EventBusSubscriber(modid="zerog_tweaks", value=Dist.CLIENT)
 public final class PlanetWeatherEffects {
     private static Level previousLevel;
     private static long lastTick = Long.MIN_VALUE;
-    private static int boltId = -1000000;
     public enum Preview {
         AUTO("Automatic planet cycle"), CLEAR("Clear / stop preview"), FOG("Cold fog"),
         BLIZZARD("Snow blizzard"), STEAM("Steam vents"), ASH("Volcanic ash"),
@@ -48,10 +43,18 @@ public final class PlanetWeatherEffects {
     private static Preview preview=Preview.AUTO;
     private static Preview active=Preview.CLEAR;
     private static float intensity;
+    public static Preview activeWeather() { return active; }
+    public static float strength() { return intensity; }
+    @SubscribeEvent public static void thunder(net.neoforged.neoforge.client.event.sound.PlaySoundEvent event) {
+        if(planet(Minecraft.getInstance().level) && !ZGWeatherConfig.THUNDER.get()
+                && event.getOriginalSound().getLocation().equals(net.minecraft.sounds.SoundEvents.LIGHTNING_BOLT_THUNDER.getLocation()))
+            event.setSound(null);
+    }
     public static void setPreview(Preview mode) {
         var client=Minecraft.getInstance();
         if(client.player==null || !client.player.getAbilities().instabuild || !planet(client.level)) return;
         preview=mode;
+        client.player.connection.sendCommand("zgweather "+mode.name().toLowerCase(java.util.Locale.ROOT));
         if(mode!=Preview.AUTO && mode!=Preview.CLEAR && ZGWeatherConfig.QUALITY.get()==0) {
             ZGWeatherConfig.QUALITY.set(1); ZGWeatherConfig.SPEC.save();
         }
@@ -94,7 +97,8 @@ public final class PlanetWeatherEffects {
         var client = Minecraft.getInstance(); var level = client.level; var player = client.player;
         if (level != previousLevel) { previousLevel=level; lastTick=Long.MIN_VALUE; preview=Preview.AUTO; active=Preview.CLEAR; intensity=0; }
         if (level==null || player==null || client.isPaused()) return;
-        if(ZGWeatherConfig.QUALITY.get()==0 || !planet(level)) {active=Preview.CLEAR;intensity=0;return;}
+        if(planet(level) && ZGWeatherConfig.REDUCED_FLASH.get())level.setSkyFlashTime(0);
+        if(!planet(level)) {active=Preview.CLEAR;intensity=0;return;}
         long time=level.getGameTime(); if(time==lastTick) return; lastTick=time;
         var dimension=level.dimension().location(); String name=dimension.getPath();
         if(preview!=Preview.AUTO && !player.getAbilities().instabuild) preview=Preview.AUTO;
@@ -116,9 +120,16 @@ public final class PlanetWeatherEffects {
             };
             }
         } else active=preview;
+        var received=net.zerog.tweaks.event.PlanetStorms.clientState;
+        if(received.dimension().equals(dimension.toString()))active=Preview.valueOf(received.value().name());
         float target=active==Preview.CLEAR?0:1;
         intensity+=(target-intensity)*.08F;
+        level.setRainLevel(active==Preview.ACID || active==Preview.ELECTRICAL || active==Preview.BLIZZARD?intensity:0);
+        level.setThunderLevel(active==Preview.ELECTRICAL?intensity:0);
         if(active==Preview.CLEAR) return;
+        // Native precipitation is not a particle-quality option, and real bolts
+        // are synchronized entities. Do not substitute dust/sparks or duplicate bolts.
+        if(active==Preview.ACID || active==Preview.ELECTRICAL || ZGWeatherConfig.QUALITY.get()==0)return;
         var origin=player.blockPosition();
         if(!level.canSeeSky(origin) || player.isUnderWater()) return;
         var particles=client.options.particles().get(); if(particles==ParticleStatus.MINIMAL) return;
@@ -161,35 +172,11 @@ public final class PlanetWeatherEffects {
                         player.getY()+random.nextDouble()*6,player.getZ()+random.nextGaussian()*.4,0,.35,0);
             } else if(active==Preview.ASH) {
                 level.addParticle(ParticleTypes.ASH,x,y,z,0.07,-0.025,0.02);
-            } else if(active==Preview.ACID) {
-                level.addParticle(new DustParticleOptions(colour,.7F),x,y+5,z,.015,-.65,.01);
-            } else if(active==Preview.ELECTRICAL) {
-                level.addParticle(ParticleTypes.ELECTRIC_SPARK,x,y,z,0.10,0.01,0.02);
             } else {
                 level.addParticle(new DustParticleOptions(colour,1.3f),x,y,z,0.14,0.006,0.04);
             }
         }
-        if(active==Preview.ELECTRICAL && time%160==20) {
-            double angle=random.nextDouble()*Math.PI*2;
-            double x=player.getX()+Math.cos(angle)*40,z=player.getZ()+Math.sin(angle)*40;
-            var pos=BlockPos.containing(x,0,z); if(!level.hasChunkAt(pos)) return;
-            double y=level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,pos.getX(),pos.getZ());
-            var bolt=new CosmeticBolt(level); bolt.setPos(x,y,z);
-            while(level.getEntity(boltId)!=null) boltId--;
-            bolt.setId(boltId--); level.addEntity(bolt);
-            if(ZGWeatherConfig.THUNDER.get()) level.playLocalSound(x,y,z,SoundEvents.LIGHTNING_BOLT_THUNDER,
-                    SoundSource.WEATHER,2.0f,0.85f+random.nextFloat()*0.2f,true);
-        }
     }
 
-    /** Reuses vanilla bolt rendering, but skips native fire/damage/loud sound logic. */
-    private static final class CosmeticBolt extends LightningBolt {
-        private int age;
-        CosmeticBolt(Level level) { super(EntityType.LIGHTNING_BOLT,level); setVisualOnly(true); }
-        @Override public void tick() {
-            if(++age>=5) discard();
-            else if(!ZGWeatherConfig.REDUCED_FLASH.get()) level().setSkyFlashTime(1);
-        }
-    }
     private PlanetWeatherEffects() {}
 }
