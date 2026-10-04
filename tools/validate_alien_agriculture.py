@@ -2,9 +2,11 @@
 import argparse,hashlib,json
 from pathlib import Path
 from zipfile import ZipFile
+from art_source_layers import effective_art_sources
 p=argparse.ArgumentParser();p.add_argument('--design',type=Path,required=True);p.add_argument('--jar',type=Path,required=True);a=p.parse_args()
 root=Path(__file__).resolve().parents[1];res=root/'src/main/resources';manifest=json.loads((a.design/'manifest.json').read_text())
 botany=a.design.parent/'planet-botany-v2'
+effective=effective_art_sources(a.design.parent.parent)
 assert manifest['crop_families']==20 and manifest['cave_families']==34
 with ZipFile(a.jar) as jar:
  for row in manifest['textures']:
@@ -12,6 +14,7 @@ with ZipFile(a.jar) as jar:
   assert hashlib.sha256(data).hexdigest()==row['sha256'],name
   overlay=botany/'source'/row['path']
   if overlay.exists():data=overlay.read_bytes()
+  data=effective.get(name,data)
   assert data==jar.read(name)==(res/name).read_bytes(),name
  assert not any('/gametest/' in name for name in jar.namelist()),'Test classes leaked'
  themes=json.loads((root/'tools/planet_materials.json').read_text())['dimension_themes']

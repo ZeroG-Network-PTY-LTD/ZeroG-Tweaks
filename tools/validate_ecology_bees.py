@@ -3,6 +3,7 @@ import argparse,base64,hashlib,io,json
 from pathlib import Path
 from zipfile import ZipFile
 from PIL import Image
+from art_source_layers import effective_art_sources
 p=argparse.ArgumentParser();p.add_argument('--design-root',type=Path,required=True);p.add_argument('--jar',type=Path,required=True);a=p.parse_args()
 code=Path(__file__).resolve().parents[1];res=code/'src/main/resources';base=a.design_root/'docs/asset-collection-1.21.1';latest={};count=0
 for revision in ['dimension-ecology-v1','miniature-planet-bees-v1','planet-blazes-v1','vanilla-liquid-buckets-v1']:
@@ -44,6 +45,17 @@ if (botany/'manifest.json').exists():
         data=(botany/'source'/row['path']).read_bytes()
         assert hashlib.sha256(data).hexdigest()==row['sha256'],row['path']
         if row['path'] in latest:latest[row['path']]=data
+# Explicit final art overlay: retain original-source checks and verify new hashes.
+wood_dust=a.design_root/'docs/wood-dust-art-v2'
+if (wood_dust/'manifest.json').exists():
+    for row in json.loads((wood_dust/'manifest.json').read_text())['textures']:
+        data=(wood_dust/'source'/row['path']).read_bytes()
+        assert hashlib.sha256(data).hexdigest()==row['sha256'],row['path']
+        if row['path'] in latest:latest[row['path']]=data
+for relative,data in effective_art_sources(a.design_root).items():
+    prefix='assets/zerog_tweaks/textures/'
+    if relative.startswith(prefix) and relative[len(prefix):] in latest:
+        latest[relative[len(prefix):]]=data
 with ZipFile(a.jar) as jar:
     for name,data in latest.items():
         relative='assets/zerog_tweaks/textures/'+name

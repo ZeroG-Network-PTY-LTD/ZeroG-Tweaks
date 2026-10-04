@@ -24,6 +24,11 @@ public final class ZeroGTweaks {
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::incomingDamage);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::breakSpeed);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::playerTick);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.HandheldBeeSmoker::item);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.HandheldBeeSmoker::block);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.HandheldBeeSmoker::tick);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.HandheldBeeSmoker::logout);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.HandheldBeeSmoker::stopped);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.DailyPlanetImpacts::tick);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.lore.ConcordPrologue::pickup);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.lore.ConcordPrologue::tick);

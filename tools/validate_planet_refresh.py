@@ -3,16 +3,25 @@ import argparse, base64, hashlib, io, json
 from pathlib import Path
 from zipfile import ZipFile
 from PIL import Image
+from art_source_layers import effective_art_sources
 p=argparse.ArgumentParser();p.add_argument('--design-root',type=Path,required=True);p.add_argument('--jar',type=Path,required=True);a=p.parse_args()
 root=Path(__file__).resolve().parents[1];res=root/'src/main/resources';revision=a.design_root/'docs/asset-collection-1.21.1/planet-art-refresh-v1'
 spec=json.loads((root/'tools/planet_materials.json').read_text());manifest=json.loads((revision/'manifest.json').read_text());materials=json.loads((root/'tools/planet_material_art_manifest.json').read_text())
 def read(relative):return json.loads((res/relative).read_text())
 assert len(spec['dimension_themes'])==34 and len(materials)==12
+effective=effective_art_sources(a.design_root)
+later=a.design_root/'docs/wood-dust-art-v2';later_files={}
+if (later/'manifest.json').exists():
+ for row in json.loads((later/'manifest.json').read_text())['textures']:
+  data=(later/'source'/row['path']).read_bytes();assert hashlib.sha256(data).hexdigest()==row['sha256'],row['path']
+  later_files['assets/zerog_tweaks/textures/'+row['path']]=data
 with ZipFile(a.jar) as jar:
  for row in manifest['files']:
   source=(revision/'resource-source'/row['path']).read_bytes();assert hashlib.sha256(source).hexdigest()==row['sha256']
   overlay=a.design_root/'docs/planet-botany-v2/source'/row['path'].removeprefix('assets/zerog_tweaks/textures/')
   if row['path'].startswith('assets/zerog_tweaks/textures/') and overlay.exists():source=overlay.read_bytes()
+  if row['path'] in later_files:source=later_files[row['path']]
+  source=effective.get(row['path'],source)
   assert source==jar.read(row['path'])==(res/row['path']).read_bytes(),row['path']
   im=Image.open(io.BytesIO(source));assert list(im.size)==row['size'];assert im.getbbox(),row['path']
   if im.height>32:

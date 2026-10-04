@@ -18,6 +18,24 @@ import net.zerog.tweaks.guide.MultiblockGuides;
 @GameTestHolder("zerog_hub_exhibits")
 @PrefixGameTestTemplate(false)
 public final class HubExhibitGameTests {
+    @GameTest(templateNamespace="zerog_hub_exhibits",template="equipment_empty",timeoutTicks=100)
+    public static void smoker_calms_nearby_bees_without_affecting_distant_bees(GameTestHelper helper) {
+        var level=helper.getLevel();
+        helper.assertTrue(BuiltInRegistries.ITEM.containsKey(ResourceLocation.fromNamespaceAndPath("aeroapiary","bee_smoker")),"Existing handheld smoker missing");
+        var centre=helper.absoluteVec(new net.minecraft.world.phys.Vec3(2,2,2));
+        var near=net.minecraft.world.entity.EntityType.BEE.create(level);
+        var far=net.minecraft.world.entity.EntityType.BEE.create(level);
+        var player=helper.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        near.moveTo(centre);far.moveTo(centre.add(9,0,0));
+        for(var bee:java.util.List.of(near,far)) {
+            bee.setRemainingPersistentAngerTime(400);bee.setPersistentAngerTarget(player.getUUID());bee.setTarget(player);
+            level.addFreshEntity(bee);
+        }
+        helper.assertTrue(net.zerog.tweaks.event.HandheldBeeSmoker.calm(level,centre)>=1,"Smoke reached no bees");
+        helper.assertTrue(!near.isAngry()&&near.getTarget()==null&&near.getPersistentAngerTarget()==null,"Nearby bee still attacking");
+        helper.assertTrue(far.isAngry()&&far.getTarget()==player,"Smoke incorrectly calmed distant bee");
+        near.discard();far.discard();helper.succeed();
+    }
     @GameTest(templateNamespace="zerog_hub_exhibits",template="equipment_empty",timeoutTicks=400)
     public static void authored_apiaries_real_formation_and_ten_safe_room_exhibits(GameTestHelper helper) {
         var level=helper.getLevel().getServer().overworld();

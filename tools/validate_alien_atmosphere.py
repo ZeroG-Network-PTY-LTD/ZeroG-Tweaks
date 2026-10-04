@@ -2,9 +2,11 @@
 import argparse, io, json, zipfile
 from pathlib import Path
 from PIL import Image
+from art_source_layers import effective_art_sources
 p=argparse.ArgumentParser();p.add_argument('--jar',type=Path,required=True);p.add_argument('--design',type=Path,required=True);a=p.parse_args()
 source=a.design/'docs/alien-vines-weather-v1';manifest=json.loads((source/'manifest.json').read_text())
 prefix='assets/zerog_tweaks/'
+effective=effective_art_sources(a.design)
 with zipfile.ZipFile(a.jar) as jar:
     names=set(jar.namelist());assert not any('/gametest/' in name for name in names),'Test classes shipped'
     for row in manifest['vines']:
@@ -25,7 +27,8 @@ with zipfile.ZipFile(a.jar) as jar:
     assert len(climbers)==len(set(climbers))
     for row in manifest['vines']:assert 'zerog_tweaks:'+row['id'] in climbers
     for theme in manifest['palette_row_order']:
-        assert jar.read(prefix+'textures/item/'+theme+'_vine_fruit.png')==(source/'textures'/(theme+'_vine_fruit.png')).read_bytes()
+        relative=prefix+'textures/item/'+theme+'_vine_fruit.png'
+        assert jar.read(relative)==effective.get(relative,(source/'textures'/(theme+'_vine_fruit.png')).read_bytes())
         assert prefix+'blockstates/'+theme+'_ambient_vent.json' in names
     panorama=jar.read(prefix+'textures/environment/universe_v3.png')
     assert panorama==(a.design/'docs/planet-worldgen-overhaul/source/universe_v3.png').read_bytes()

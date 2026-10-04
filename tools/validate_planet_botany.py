@@ -4,9 +4,11 @@ from collections import Counter
 from pathlib import Path
 from zipfile import ZipFile
 from PIL import Image
+from art_source_layers import effective_art_sources
 p=argparse.ArgumentParser();p.add_argument('--design-root',type=Path,required=True);p.add_argument('--jar',type=Path,required=True);a=p.parse_args()
 source=a.design_root/'docs/planet-botany-v2';m=json.loads((source/'manifest.json').read_text())
 root=Path(__file__).resolve().parents[1]/'src/main/resources'
+effective=effective_art_sources(a.design_root)
 families=m['new_families'];assert len(families)==len({r['id'] for r in families})==50
 assert Counter(r['category'] for r in families)=={'flowers':18,'shrubs':12,'tree_fruit':12,'crop':6,'gourd':2}
 assert m['original_art'] and m['resolution']==32
@@ -22,7 +24,8 @@ for path in projects:
 with ZipFile(a.jar) as jar:
  for row in m['textures']:
   data=(source/'source'/row['path']).read_bytes();assert hashlib.sha256(data).hexdigest()==row['sha256']
-  name='assets/zerog_tweaks/textures/'+row['path'];assert data==jar.read(name)==(root/name).read_bytes(),name
+  name='assets/zerog_tweaks/textures/'+row['path'];data=effective.get(name,data)
+  assert data==jar.read(name)==(root/name).read_bytes(),name
   im=Image.open(io.BytesIO(data));assert im.size==(32,32) and im.getbbox(),name
  for row in families:
   id=row['id'];assert f'assets/zerog_tweaks/models/item/{id}.json' in jar.namelist(),id
