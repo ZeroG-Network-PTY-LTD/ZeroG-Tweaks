@@ -25,6 +25,20 @@ The installed PB API and addon expose no native queen lifespan counter, fertilit
 
 Approved climate-module effects, rotor tolerance adjustments, quantum coil charge, mutation/territory/lifespan frame effects, actual drone breeding and flower/territory requirements need separate authoritative rules and implementation. Existing art shows these planned capabilities; it is not proof of gameplay.
 
+Required decisions to implement these honestly: native orbital bee lifespan unit and values (with whether death consumes the captured bee); fertility/breeding parents and offspring probabilities; climate ranges per species/planet and exact module/rotor offsets; flower block tags, loaded search radius and minimum counts; territory scope; mutation pairs/probabilities and frame modifier rules; quantum charge capacity/cost and when it is consumed. PB exposes none of these as the proposed allele system. Endurance alone is not an authoritative replacement for lifespan, and actual PB weather tolerance does not establish a gravity or temperature allele. Until these decisions are supplied, the menu must keep those fields explicitly unavailable instead of displaying fabricated biology.
+
+## Ordinary addon machine contract audit
+
+Verified with bytecode of the locally installed `zerog-binnie-expansion-1.21.1-1.0.0.jar`, classes `ZeroGMachines` and `ZeroGSlotFamilies`. Tests exercise the installed dispatch and derive expected products from its actual recipe function rather than defining a new recipe:
+
+- `stardust_smelter`: slots0/1 input/fuel, slot2 output. Actual comb results are meteor→2 stardust, nebula→3, molten→1. Fuel is consumed by the existing processor even though `stardust` ignores its second argument.
+- `starmetal_smelter`: stardust in slot0, redstone in slot2, three starmetal nuggets into slot3. Slot1 is not read by processing. Existing broad alloy/glowstone acceptance does not establish additional working recipes.
+- `silk_weaver`: silk thread in slot0, woven silk into slot3. The recipe ignores the second argument; slot1 is not read at all. Ordinary string and a pattern acceptance are not proof of a working second recipe.
+- `frame_infusion_altar`: impregnated frame in slot0, reagent in slot1, output in slot3. Amethyst makes proven frame; cosmic jelly makes cosmic vigor; stardust makes starlit frame. Slot2 is not read. Ender-eye acceptance does not establish a recipe.
+- `centrifuge`: direct isolated calls to the installed alias produced the exact `centrifugeProducts` meteor-comb output after 200 ticks. The earlier switch-dispatch suspicion was disproved by this regression; no alias-dispatch patch was required or claimed.
+
+Unused smelter slot1, weaver slot1 and infusion slot2 reject new menu and pipe insertion; their old saved stacks remain extractable. The isolated checks cover both entry points and conservation. Legacy Silk Weaver pattern/catalyst processing still needs a dedicated audit. No additional machine recipe is inferred from an icon, generic slot predicate, or similarly named item.
+
 PB productivity changes actual recipe output quantities, not cycle speed. Verified directly from installed `productivebees-1.21.1-13.14.0.jar`, `AdvancedBeehiveBlockEntity.lambda$beeReleasePostAction$1`: for positive numeric productivity value `v`, a single output grows by `v`; larger counts `n` grow by `round(n × (1/(v+2) + (v+1)/2))`. Zero outputs remain empty. The cage trait is validated against the installed `GeneValue` enum domain. The same arithmetic reserves the maximum possible products before processing; output chance and components are preserved and oversized quantities split through the actual inventory handler. The mapped frame-cycle modifier is separate and explicit above. Full PB hive upgrade/flower simulation parity is not claimed.
 
 ## Transport baseline and follow-up limits
@@ -37,7 +51,7 @@ Null Link survival-player inventory interactions charge the same2FE/item remote 
 
 Still pending from the full transport design: visible moving-content renderers. Keep that on the tracked list until tested; working transport is not a claim that renderer work is done.
 
-**Transport-family GUI TODO (not redesigned in this delivery):** the current shared TransportMenu exposes nine physical slots plus both ghost-template grids for every family. Energy-only and fluid-only blocks therefore show irrelevant item/filter regions and currently permit incidental physical item storage through their raw menu handler. Restrict insertable/visible slots and controls to the family's real capabilities; preserve pre-existing incidental items through labelled extraction-only recovery rather than deleting them. Keep Null Link's genuine shared item/fluid storage and paid remote transactions intact. Give the combustion generator only its real filtered fuel slot and actual FE/burn information. A successful generic transport test is not approval of this outstanding semantic/UI cleanup.
+**Transport-family correction:** physical save/menu indices are retained, but energy/fluid families hide operating item slots and unrelated ghost grids. A labelled recovery toggle exposes only take-out access for old incidental items. Raw handler insertion, shift-click and irrelevant filter commands are rejected server-side. Item families and Null Links retain genuine buffers and paid remote transactions. The combustion generator retains its filtered fuel slot. Isolated recovery/ghost/control checks are distinct from pending client layout approval.
 
 ## Tests
 

@@ -115,10 +115,8 @@ def tank_face(r,side=False,top=False,level=0):
         d.rectangle((9,9,22,22),fill=r[0]);frame(d,r,(10,10,21,21),2)
         d.rectangle((14,14,17,17),fill=R['glow'][3]);d.point((14,14),fill=R['glow'][5]);return out
     d.rectangle((5,5,24,25),fill=(0,0,0,0));frame(d,r,(4,4,25,26),2)
-    if level:
-        # Neutral value-ramp backing: indicates fullness, never promises a liquid colour.
-        y=25-round(level*18/8);d.rectangle((6,y,23,24),fill=R['tint_gray'][1][:3]+(130,))
-        d.line((7,y,22,y),fill=R['tint_gray'][4][:3]+(190,))
+    # Leave the window genuinely clear. The block-entity renderer paints the
+    # actual stored-fluid atlas sprite/tint behind it; no grey fake fill layer.
     # Discrete gauge reads levels while fluid GUI identifies the actual contents.
     d.rectangle((27,6,29,24),fill=r[0])
     for n in range(8):d.line((27,23-n*2,28,23-n*2),fill=R['glow'][4] if n<level else r[2])

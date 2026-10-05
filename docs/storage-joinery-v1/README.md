@@ -20,10 +20,11 @@ Four woods: `shardwood`, `charwood`, `hoarwood`, `gildwood`. Each adds:
   panels and genuinely transparent upper windows. Eight vanilla-parented models.
 - `{wood}_lattice_trapdoor`: vanilla facing/half/open matrix, three model forms.
   Transparent diamond lattice with outlined wood rails; not painted dark holes.
-- `{wood}_chest`: model-rendered single-block container, no vanilla ChestBER.
+- `{wood}_chest`: original single-block container, no vanilla ChestBER.
   North-facing latch and carved lid seam; facing north/east/south/west variants.
-  Runtime OPEN may be present but is deliberately not a painted lid-animation
-  claim: these variants match both OPEN values. Static authored body 14×14×14.
+  A client block-entity renderer now hinges the upper section from synchronized
+  OPEN state. The source body remains 14×14×14; interpolation is bounded and tested.
+  Double joining is not implemented and GPU/client approval remains pending.
 - `{wood}_barrel`: six directional facings plus open=true/false, with its lid
   recess facing the selected direction. Twelve variants and two block models.
 
@@ -41,8 +42,10 @@ in code. Both use the approved Moonsteel/copper/glow six-tone ramps.
 Six `{tier}_fluid_tank` IDs: copper, nullifite, cyrrium, tectium, wraithsteel,
 astrium. States are facing=north/east/south/west and level=0..8. Each has nine
 model/texture levels and a machined top cap. Transparent panes, outlined frames,
-graduated inlay gauges and neutral translucency indicate fullness; the neutral
-backing does **not** falsely show a particular stored fluid colour. Runtime fluid
+graduated inlay gauges indicate fullness. Panes have no painted neutral backing:
+the client renderer fills them from the synchronized stored fluid's sprite, tint,
+amount and luminosity. Empty tanks are transparent; no arbitrary fluid is depicted.
+Runtime fluid
 capability, routing, buckets, capacity and synchronized GUI values live in code.
 
 ## GUI boundary

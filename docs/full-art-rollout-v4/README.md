@@ -15,9 +15,16 @@ model writers; their source hashes are recorded in `manifest.json`.
 
 - Twenty existing equipment-family IDs; native 32px inventory sprites.
 - All twenty worn armour sets use vanilla Netherite-shaped humanoid geometry.
-  Their 40 native 64×32 sheets match the exact 1.21.1 Netherite alpha/UV coverage;
+  Their 40 native 128×64 sheets preserve the normalized 1.21.1 Netherite alpha/UV coverage;
   original material colours and magitech surface accents are painted on that
   layout. The former bulky geo shells are inactive, not additional worn layers.
+  The October 5 faceted pass paints new plates at twice the native density:
+  diagonal metal planes, beveled edges, mirrored breastplate chevrons and recessed
+  cyan/violet sockets. Only the alpha template is expanded; old artwork is not
+  upscaled. Face openings and hand visibility are unchanged. Emissive-looking
+  pixels are shading, not a claim that vanilla armour emits world light.
+  `worn-front-fit-preview.png` maps actual exported front UVs onto a schematic
+  humanoid; it is not a client screenshot or GPU approval.
 - Moonsteel handheld geometry, pivot, position, scale and X-axis half-turn remain
   unchanged. The actually wielded 64px atlas is painted separately at its twelve
   fixed material swatches, so the runtime tool does not remain on an old atlas.

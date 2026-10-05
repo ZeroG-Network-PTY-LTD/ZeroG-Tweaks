@@ -408,6 +408,58 @@ def atlas(geo, original, c, accent, glow_original=None, emit_inlays=False):
                             col=shade(accent,1.14 if xx%3 else 1.5);im.putpixel((x+xx,y+yy),col[:3]+(a,));glow.putpixel((x+xx,y+yy),col)
     return im,glow,bounds
 
+def worn_facets(coverage,c,accent,layer):
+    """Original 128x64 plate artwork on normalized vanilla/netherite UV coverage.
+
+    The template's alpha footprint alone is doubled, never its old flat artwork.
+    Each face is painted at native output density with directional plate facets,
+    narrow bevels, a mirrored breastplate chevron, and recessed energy sockets.
+    """
+    im=blank((128,64));d=ImageDraw.Draw(im);mask=Image.new('L',im.size)
+    md=ImageDraw.Draw(mask)
+    for y,xs in enumerate(coverage['rows']):
+        for x in xs:md.rectangle((x*2,y*2,x*2+1,y*2+1),fill=255)
+    bounds=[];cyan=(101,224,242)
+    bones=[('Head',0,0,8,8,8),('Body',16,16,8,12,4),('Arm',40,16,4,12,4),('Leg',0,16,4,12,4)]
+    for name,u,v,w,h,z in bones:
+        faces=[(u+z,v,w,z),(u+z+w,v,w,z),(u,v+z,z,h),(u+z,v+z,w,h),(u+z+w,v+z,z,h),(u+2*z+w,v+z,w,h)]
+        for face,(x,y,fw,fh) in enumerate(faces):
+            x,y,fw,fh=x*2,y*2,fw*2,fh*2;bounds.append([x,y,x+fw,y+fh])
+            # Diagonal broad planes, not vertical stripes or repetitive banding.
+            d.rectangle((x,y,x+fw-1,y+fh-1),fill=shade(c,.38))
+            d.polygon([(x+1,y+1),(x+fw-2,y+1),(x+fw-2,y+fh-3),(x+fw//2,y+fh-2),(x+1,y+fh-4)],fill=shade(c,.86))
+            d.polygon([(x+1,y+1),(x+fw-2,y+1),(x+fw//2,y+fh//2),(x+1,y+fh-4)],fill=shade(c,1.21 if face<2 else 1.08))
+            d.polygon([(x+fw-2,y+1),(x+fw-2,y+fh-3),(x+fw//2,y+fh-2),(x+fw//2,y+fh//2)],fill=shade(c,.64))
+            d.line([(x+1,y+fh-3),(x+fw//2,y+fh-1),(x+fw-2,y+fh-3)],fill=shade(c,.52))
+            d.line([(x+1,y+fh-4),(x+fw//2,y+fh-2),(x+fw-2,y+fh-4)],fill=shade(c,1.24))
+            d.line([(x+1,y+2),(x+1,y+1),(x+fw-3,y+1)],fill=shade(c,1.65))
+            if fw>=8 and fh>=8:
+                # An inset seam gives the edge a physical lip, not a black outline.
+                d.line((x+2,y+3,x+fw-3,y+3),fill=shade(c,.59))
+                d.line((x+3,y+4,x+fw-4,y+4),fill=shade(c,1.34))
+                for px,py in [(x+2,y+2),(x+fw-3,y+2),(x+2,y+fh-4),(x+fw-3,y+fh-4)]:
+                    d.point((px,py),fill=shade(c,1.52))
+            if name=='Body' and face==3 and layer==1:
+                cx=x+fw//2;top=y+3;mid=y+fh//2;low=y+fh-4
+                for sign in [-1,1]:
+                    path=[(cx+sign*(fw//2-2),top),(cx+sign*2,mid),(cx,low)]
+                    d.line(path,fill=shade(c,.39),width=4)
+                    d.line([(px,py-1) for px,py in path],fill=shade(c,1.44),width=3)
+                    d.line(path,fill=shade(cyan,.98),width=1)
+                crystal(d,cx,mid+1,accent,3)
+                d.point((cx-1,mid),fill=shade(cyan,1.65))
+            elif face==3:
+                # Short, supported inlays on visor rims, cuffs, kneepads and greaves.
+                iy=y+max(4,fh//3);ix=x+fw//2
+                d.line((ix,iy,ix,iy+max(1,fh//5)),fill=shade(c,.38),width=3)
+                d.line((ix,iy,ix,iy+max(1,fh//5)),fill=shade(accent,1.15))
+                d.point((ix,iy),fill=shade(cyan,1.6))
+                if name=='Head':
+                    d.line([(x+2,y+2),(x+fw//2,y+5),(x+fw-3,y+2)],fill=shade(c,1.55))
+                    d.line([(x+3,y+3),(x+fw//2,y+6),(x+fw-4,y+3)],fill=shade(accent,1.08))
+    im.putalpha(mask)
+    return im,bounds
+
 def native_leaf(d,x,y,spread,c,right=True):
     side=1 if right else -1
     pts=[(x,y),(x+side*spread,y-6),(x+side*(spread+2),y-3),(x+side*2,y+1)]
@@ -586,21 +638,14 @@ def main():
                 artifact('assets/zerog_tweaks/textures/item/armor/olympium.png.mcmeta',{'texture':{'blur':False,'clamp':False},'glowsections':{'sections':sections}},'geckolib_emission_metadata')
                 artifact('assets/zerog_tweaks/textures/item/armor/olympium_glowmask.png.mcmeta',{'texture':{'blur':False,'clamp':False}},'geckolib_emission_metadata')
             elif mask:save('item/armor/'+name+'_glowmask',glow,'worn_glowmasks')
-        # Vanilla fallback UV sheets remain their 64x32 contract, not resized.
+        # Vanilla normalized UV contract, with newly painted HD native plate faces.
         for layer in [1,2]:
             path=TEXTURES/f'models/armor/{name}_layer_{layer}.png'
             if not path.exists():continue
-            cubes=[{'name':'Head','cubes':[{'size':[8,8,8],'uv':[0,0]}]},
-                   {'name':'Body','cubes':[{'size':[8,12,4],'uv':[16,16]}]},
-                   {'name':'Arm','cubes':[{'size':[4,12,4],'uv':[40,16]}]},
-                   {'name':'Leg','cubes':[{'size':[4,12,4],'uv':[0,16]}]}]
             coverage=json.loads((BASE/'vanilla-netherite-uv-coverage.json').read_text())['layers'][str(layer)]
-            vanilla_mask=blank((64,32))
-            for y,xs in enumerate(coverage['rows']):
-                for x in xs:vanilla_mask.putpixel((x,y),(255,255,255,255))
-            im,_,bounds=atlas({'minecraft:geometry':[{'bones':cubes}]},vanilla_mask,c,accent)
-            assert im.getchannel('A').tobytes()==vanilla_mask.getchannel('A').tobytes(),'Netherite UV coverage mismatch'
-            save(f'models/armor/{name}_layer_{layer}',im,'vanilla_armor_uvs',{'face_bounds':bounds,'vanilla_netherite_alpha':True,'reference_sha256':coverage['source_sha256'],'geometry':'vanilla HumanoidArmorModel; no custom shell'})
+            im,bounds=worn_facets(coverage,c,accent,layer)
+            assert im.getchannel('A').resize((64,32),Image.Resampling.NEAREST).tobytes()==bytes(255 if x in coverage['rows'][y] else 0 for y in range(32) for x in range(64)),'Netherite normalized UV coverage mismatch'
+            save(f'models/armor/{name}_layer_{layer}',im,'vanilla_armor_uvs',{'face_bounds':bounds,'native_density':2,'vanilla_netherite_alpha':True,'reference_sha256':coverage['source_sha256'],'geometry':'vanilla HumanoidArmorModel; normalized UV coverage unchanged','artwork':'native faceted plates, mirrored chest chevron, recessed cyan/violet inlays'})
     trim_icons()
     bees=functions(DOCS/'zero-g-tweaks-bundle/generators/planet_bees.py',['connected_comb'],['STYLES','FAMILIES'])
     for key,style in bees['FAMILIES'].items():
@@ -772,6 +817,31 @@ def validate_and_report():
                 label=Path(key).name
                 d.text((x+4,y+87),label[:21],font=font,fill=(204,223,235));d.text((x+4,y+101),label[21:42],font=font,fill=(204,223,235))
             sheet.save(BASE/f'{group}-native-{page+1:02d}.png')
+    # Exact exported front UVs on a schematic humanoid, not a game screenshot.
+    # This avoids illegible small atlas thumbnails when reviewing plate details.
+    sheet=Image.new('RGB',(1008,510),(19,25,37));d=ImageDraw.Draw(sheet)
+    d.text((18,14),'Actual worn textures — front UV fitting study (not in-game approval)',font=font,fill=(227,233,244))
+    for col,name in enumerate(['moonsteel','ferrox','nullifite']):
+        outer=Image.open(TEXTURES/f'models/armor/{name}_layer_1.png').convert('RGBA')
+        inner=Image.open(TEXTURES/f'models/armor/{name}_layer_2.png').convert('RGBA')
+        figure=Image.new('RGBA',(32,64));fd=ImageDraw.Draw(figure)
+        fd.rectangle((8,0,23,15),fill=(167,139,125,255))
+        fd.rectangle((8,16,23,39),fill=(53,66,82,255))
+        fd.rectangle((0,16,7,39),fill=(167,139,125,255));fd.rectangle((24,16,31,39),fill=(167,139,125,255))
+        fd.rectangle((8,40,23,63),fill=(53,66,82,255))
+        fd.rectangle((11,6,12,7),fill=(220,226,231,255));fd.rectangle((19,6,20,7),fill=(220,226,231,255))
+        fd.rectangle((14,11,17,11),fill=(94,72,66,255))
+        for tex,box,pos in [(outer,(16,16,32,32),(8,0)),(outer,(40,40,56,64),(8,16)),
+                            (outer,(88,40,96,64),(0,16)),(outer,(88,40,96,64),(24,16)),
+                            (inner,(8,40,16,64),(8,40)),(inner,(8,40,16,64),(16,40)),
+                            (outer,(8,40,16,64),(8,40)),(outer,(8,40,16,64),(16,40))]:
+            face=tex.crop(box)
+            if pos in [(24,16),(16,40)]:face=face.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+            figure.alpha_composite(face,pos)
+        figure=figure.resize((192,384),Image.Resampling.NEAREST)
+        sheet.paste(figure,(col*336+72,58),figure)
+        d.text((col*336+72,460),name+' / native 128x64 layers',font=font,fill=(204,223,235))
+    sheet.save(BASE/'worn-front-fit-preview.png')
     if errors:raise SystemExit('\n'.join(errors))
     print(json.dumps({'unique_textures':len(rows),'category_counts':dict(counts),'unchanged':len(untouched),'validation_errors':errors}))
 
