@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "updated": "2026-10-05",
+  "candidate_version": "1.0.12-dev",
+  "branch_ownership": {"runtime": "1.21.x", "artwork": "Design", "guides_jars_images": "Docs"},
+  "rules": ["Install backed-up JAR before publishing", "Do not reset player saves", "No Mekanism code or assets copied", "No new machine types before existing GUI/port audit", "Static asset/server checks are not client visual approval"],
+  "tasks": [
+    {"id": "reference-audit", "status": "implemented", "acceptance": "Six local JAR inventories and original-design boundary recorded"},
+    {"id": "four-wood-joinery", "status": "implemented", "acceptance": "16 registered blocks, recipes/loot, native artwork and editable sources"},
+    {"id": "wood-storage-expansion", "status": "server_verified", "acceptance": "Eight containers, 27/54 slots, persistence, automation, break conservation"},
+    {"id": "six-fluid-tanks", "status": "server_verified", "acceptance": "Six capacities, bucket round-trip, pipeline transfer, upgrade and filled-item placement"},
+    {"id": "generator-flux-modules", "status": "server_verified", "acceptance": "Real fuel/FE terminal, max three independent modules, save/reload and conservation"},
+    {"id": "sunless-agriculture", "status": "server_verified", "acceptance": "33 custom crops and four gourd families, zero-light survival/growth, dry farmland"},
+    {"id": "themed-village-doors", "status": "server_verified", "acceptance": "Four wood-matched settlement fixtures, both door halves/facing"},
+    {"id": "vanilla-worn-armor", "status": "server_verified_pending_client", "acceptance": "All 80 main armor pieces use standard vanilla renderer; material IDs/stats retained; 40 native atlases match Netherite coverage"},
+    {"id": "orbital-comb-style", "status": "source_verified_pending_client", "acceptance": "12 highlighted combs use cohesive honeycomb silhouette; source byte bindings require the delivery asset receipt"},
+    {"id": "alveary-role-substitutions", "status": "server_verified", "acceptance": "Explicit ZeroG power/item/fluid parts in valid structures, preserved native buffers, loaded-only unique controller and ambiguous-owner rejection"},
+    {"id": "alveary-output-gui", "status": "server_verified_pending_client", "acceptance": "Real products paged from actual output start; take-only legacy frame recovery; client layout approval remains pending"},
+    {"id": "refinery-controls", "status": "server_verified_pending_client", "acceptance": "Exact 200-tick recipes, catalyst consumed only for boost, synchronized progress, slot filters and conserved reload/drop state"},
+    {"id": "blueprint-interaction", "status": "source_verified_pending_client", "acceptance": "Real block entities bypass decorative preview interception; combustion profile matches fuel-only live terminal"},
+    {"id": "client-acceptance", "status": "pending_user_review", "acceptance": "Actual worn armor, GUI sizing, all placed facings and lighting in CurseForge client"},
+    {"id": "dynamic-tank-fluid-renderer", "status": "todo", "acceptance": "Actual stored-fluid tint inside panes, not a neutral fullness gauge"},
+    {"id": "chest-lid-animation", "status": "todo", "acceptance": "Original animated lid or optional double joining; currently static body"},
+    {"id": "transport-moving-renderer", "status": "todo", "acceptance": "Visual movement of transported items/fluids without changing conserved transfers"},
+    {"id": "existing-machine-purpose-audit", "status": "partial", "acceptance": "Refinery and blueprint interception repaired; remaining forge/crystal/salvage/solar/fusion recipe and sided-port logic not certified"},
+    {"id": "legacy-addon-machine-dispatch", "status": "todo", "acceptance": "Ordinary centrifuge currently dispatches infusion; smelter/weaver/infusion input semantics require supported fixes and regression tests"},
+    {"id": "transport-family-gui", "status": "todo", "acceptance": "Hide/reject unrelated item and ghost grids on energy/fluid families; preserve old incidental items as take-only recovery"},
+    {"id": "per-machine-upgrade-contracts", "status": "todo", "acceptance": "Explicit compatible module types, bounded speed/efficiency formulas, real recipes and server tests"},
+    {"id": "advanced-alveary-biology", "status": "todo_api_and_design", "acceptance": "Authoritative lifespan/climate/gravity/rotor/coil/drone/territory rules, no invented Productive Bees API"},
+    {"id": "external-claim-team-adapters", "status": "todo", "acceptance": "Server integration and safe hidden Star Map Fragment world locations"},
+    {"id": "remaining-mob-model-mechanics", "status": "todo", "acceptance": "Cinder Mite adds, approved shorn Yak model and outstanding boss phases"}
+  ]
+}

@@ -1,0 +1,2072 @@
+{
+  "license": "All Rights Reserved, original repository-authored native source",
+  "paid_generation": false,
+  "canonical_package_admission": false,
+  "cli_limitation": "game-dev unavailable; approved repository-native source workflow, no provider/vendor import",
+  "source_sha256": "0659673d6c15e57366ba2eae01a8aa8e33338ceea8a99f9794358b1d6f9cc6c1",
+  "style_source_sha256": "dc7fbbea1f8326006f47166003ce6816537ca2979155743e3d20a192fea0e8b4",
+  "palettes": {
+    "moonsteel": [
+      "#141326",
+      "#2b2a4a",
+      "#454a78",
+      "#6a7bb0",
+      "#9fb6d8",
+      "#e6f4ff"
+    ],
+    "copper": [
+      "#1e0d0b",
+      "#4a1f17",
+      "#83391f",
+      "#c0622c",
+      "#eb9a52",
+      "#ffd9a0"
+    ],
+    "nullifite": [
+      "#0b0712",
+      "#231536",
+      "#3f2766",
+      "#6a45a8",
+      "#a07ee0",
+      "#e2d4ff"
+    ],
+    "solvanite": [
+      "#1f0e05",
+      "#5a2b0a",
+      "#a3570f",
+      "#e09a1c",
+      "#ffd04a",
+      "#fff4c0"
+    ],
+    "cerulite": [
+      "#06141f",
+      "#0e3550",
+      "#14648a",
+      "#1fa2c4",
+      "#5fe0f0",
+      "#dcffff"
+    ],
+    "leaf": [
+      "#0a1a1c",
+      "#14383a",
+      "#1f5e58",
+      "#2f8a78",
+      "#58b894",
+      "#a8e6c0"
+    ],
+    "glow": [
+      "#2a0e4a",
+      "#5a22a0",
+      "#9a4ef0",
+      "#c48cff",
+      "#e8ccff",
+      "#ffffff"
+    ],
+    "rock": [
+      "#121220",
+      "#272838",
+      "#3e4052",
+      "#5c5f74",
+      "#85899c",
+      "#b9bccb"
+    ],
+    "tint_gray": [
+      "#161616",
+      "#363636",
+      "#5a5a5a",
+      "#868686",
+      "#b6b6b6",
+      "#ececec"
+    ],
+    "wood": [
+      "#1a0e0a",
+      "#3c2216",
+      "#5e3a24",
+      "#875a36",
+      "#b0824e",
+      "#dcb27a"
+    ]
+  },
+  "wood_ramp_roles": {
+    "shardwood": [
+      "cerulite",
+      "leaf"
+    ],
+    "charwood": [
+      "wood",
+      "copper"
+    ],
+    "hoarwood": [
+      "moonsteel",
+      "cerulite"
+    ],
+    "gildwood": [
+      "solvanite",
+      "wood"
+    ]
+  },
+  "tank_ramp_roles": {
+    "copper": "copper",
+    "nullifite": "nullifite",
+    "cyrrium": "moonsteel",
+    "tectium": "solvanite",
+    "wraithsteel": "rock",
+    "astrium": "cerulite"
+  },
+  "files": [
+    {
+      "path": "assets/zerog_tweaks/textures/block/shardwood_panel_door_top.png",
+      "sha256": "2d5cbf3195226e3941ce629f583f4619fd5a4e6b0252de2b297ad43e74c52af6",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/shardwood_panel_door_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/shardwood_panel_door_bottom.png",
+      "sha256": "2dc16c5988ba40aac70d7b86900db73efed46ba136e81f2bd81e6162f3f1d148",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/shardwood_panel_door_bottom.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/shardwood_lattice_trapdoor.png",
+      "sha256": "8db9c83831c8f00f093b3bbe27137d15687b823b2de832b7e358b11123739a6e",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/shardwood_lattice_trapdoor.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_panel_door_bottom_left.json",
+      "sha256": "047ca7d31ba16ae9abe1e082da7cd58c1a38ad884519bacfcc3c1b7a8032f38f",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_panel_door_bottom_left.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_panel_door_bottom_left_open.json",
+      "sha256": "4bdfc48b018fc27b88c430339f6ed46dbe972f3533c499e699cb04499b29eca3",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_panel_door_bottom_left_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_panel_door_bottom_right.json",
+      "sha256": "5518853d2adeaf530d8cf0ac3e7490756ff6e546e39bda5a15faaa5685d1f4d6",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_panel_door_bottom_right.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_panel_door_bottom_right_open.json",
+      "sha256": "5bddd07bbca0a41bcd9c8f6a8b876cf394208f99249e81ef82e5ac440e8646d4",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_panel_door_bottom_right_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_panel_door_top_left.json",
+      "sha256": "96e88042b5249d908d1dda59d0e04cc2cd233c68389ca4dcf5bbaf4376e7cdbd",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_panel_door_top_left.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_panel_door_top_left_open.json",
+      "sha256": "2ce5ea8ac176de00feab518b3273886ed2cd2354c1fb022c807dbe5e333702a9",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_panel_door_top_left_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_panel_door_top_right.json",
+      "sha256": "87fa802a462bcce9c853b1cd00f6d2274c096330466bb738352c2d88be0f5fe5",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_panel_door_top_right.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_panel_door_top_right_open.json",
+      "sha256": "251dd5d057a67a9293d5a30ed7cf4ee18c99beac703f53c7730e50d2058938de",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_panel_door_top_right_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/shardwood_panel_door.json",
+      "sha256": "2c763c849518df62fd2b54a2ca36693a0fee2b61a14f1f494b83bb8e72e3a2f8",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/shardwood_panel_door.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_lattice_trapdoor_bottom.json",
+      "sha256": "d52ba76713eb64bff756c0736f5197589692fda7202d8388f7d5182e3c9861bd",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_lattice_trapdoor_bottom.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_lattice_trapdoor_open.json",
+      "sha256": "90f5eead3b72ad5fac5071298c1b86b8d4e2d64f5b5a9f4a7c733a69ab66857f",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_lattice_trapdoor_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_lattice_trapdoor_top.json",
+      "sha256": "cee670026e28812d1edf106460d30d37702390f7658f20b659ba3a392f2087f1",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_lattice_trapdoor_top.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/shardwood_lattice_trapdoor.json",
+      "sha256": "ff6b6584b8b41a962e03cf8b65371382e168f309cc34e2e81cabf1e79d148b31",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/shardwood_lattice_trapdoor.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/shardwood_panel_door.png",
+      "sha256": "18f9a9186b28f456739b070002cd6783eb18025893d5fae326f753a6b8eca6dd",
+      "layers": [
+        "assets/zerog_tweaks/textures/item/shardwood_panel_door.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/shardwood_panel_door.json",
+      "sha256": "2936e18a4b60454dc6da2cfdb5fd29d74b4e9a49f6c1b950e2892ed3b60e5d97",
+      "layers": [
+        "assets/zerog_tweaks/models/item/shardwood_panel_door.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/shardwood_lattice_trapdoor.json",
+      "sha256": "17a9d822b424efc9c446f64fc0059d42072e202a1463a843f8756a9add90ac80",
+      "layers": [
+        "assets/zerog_tweaks/models/item/shardwood_lattice_trapdoor.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/shardwood_chest_front.png",
+      "sha256": "a094f1b146a5069d9fcccf67b2c9229a693b565bd4e80fc914198652fb8dcc93",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/shardwood_chest_front.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/shardwood_chest_side.png",
+      "sha256": "7521725a5cc0a3b031b1504cbcb737ae7802f890eaf30dfb2dbc0d1943a22ed8",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/shardwood_chest_side.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/shardwood_chest_top.png",
+      "sha256": "19634a2e207191847d34060d203e89d7cf760c5db9f44b32639a16fb64a0e619",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/shardwood_chest_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/shardwood_chest_bottom.png",
+      "sha256": "f71afcfc3fa4530bb117669be7bd5aca0d7cfab012ecf26e8447ee701f794c9a",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/shardwood_chest_bottom.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_chest.json",
+      "sha256": "f7963d68d71b183c11758f9799d4bd83dfba540fb04bc76f6d51f3f53b7cb693",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/shardwood_chest.json",
+      "sha256": "3617d5903474e8d80142e43f7b19253a1b4f398865f2de1ce2259c795310da07",
+      "layers": [
+        "assets/zerog_tweaks/models/item/shardwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/shardwood_chest.json",
+      "sha256": "4dd22a2210fd695f595fb919a412dd6d29b379a9a6396fc78a013aa1cfcb62c1",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/shardwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/shardwood_barrel_side.png",
+      "sha256": "6a5bcd3826091a30077be0bbac3acb204fab74ddc1e965086c856fd0950030e0",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/shardwood_barrel_side.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/shardwood_barrel_front.png",
+      "sha256": "6597de936a1f7a2dc960570bd243ee4a6a4b6c07e5b89a32e6c65a567ffe4292",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/shardwood_barrel_front.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/shardwood_barrel_front_open.png",
+      "sha256": "7805524343b734e1dcabba59348f797c007d0cc2c12304eb3fc2f25053a2ad0c",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/shardwood_barrel_front_open.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_barrel.json",
+      "sha256": "ec14cb150f1b31957db213a14ce550de261d10dcea81696b022ab02e401daeeb",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/shardwood_barrel_open.json",
+      "sha256": "70c2fed09bcfe6463a238e6e5b1b46d500468be8ab4b072666f8765436035edb",
+      "layers": [
+        "assets/zerog_tweaks/models/block/shardwood_barrel_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/shardwood_barrel.json",
+      "sha256": "6b9895da99235fc43ce30514853a3c83f95f3edb1f452b66347ba1deb46c2ca7",
+      "layers": [
+        "assets/zerog_tweaks/models/item/shardwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/shardwood_barrel.json",
+      "sha256": "a2e9866beda8342add513c5e8d2ae5328cd76bc74c8516bb8f119ddfc5f953dd",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/shardwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/charwood_panel_door_top.png",
+      "sha256": "f436535314c72fca819e67fb4244bf95a0692361594f37be6c3aa39e8ca86b01",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/charwood_panel_door_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/charwood_panel_door_bottom.png",
+      "sha256": "800ce7e49eb33a1b56aaf01d1cf92ca93bc8e382f4ce437260ce4483e52e8352",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/charwood_panel_door_bottom.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/charwood_lattice_trapdoor.png",
+      "sha256": "cde0dcc184ebd4fafe80f8ffe04ab51f9106dc12e54f1e73c7ca92a55d7d3689",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/charwood_lattice_trapdoor.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_panel_door_bottom_left.json",
+      "sha256": "e0d4dc5b25293c8bc28dc07cc900ef148ad4cf3edbf2f8aefdf64a5d11dd088b",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_panel_door_bottom_left.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_panel_door_bottom_left_open.json",
+      "sha256": "bf94daa9200fb98f9425fe98ebf2c4376b03e10f72cc806c88a84e24354a9f30",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_panel_door_bottom_left_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_panel_door_bottom_right.json",
+      "sha256": "aa82127cd0229ed6b6e338f5febc61a91a50e922ee0ec25717fa7a86190ae9a2",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_panel_door_bottom_right.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_panel_door_bottom_right_open.json",
+      "sha256": "82d39753b089cc3d8c4493bda06abdd43e5413204c2a24238ba8fb9d16673a87",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_panel_door_bottom_right_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_panel_door_top_left.json",
+      "sha256": "777b81ca16591954aa2131146fc2ff8d6ab5f13e319e4ec6edc2045d25a58c48",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_panel_door_top_left.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_panel_door_top_left_open.json",
+      "sha256": "489f849255d440ca278217fc82b2b8ae2dc90fe1afec8256d90b50afb2d2189e",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_panel_door_top_left_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_panel_door_top_right.json",
+      "sha256": "3151cc63b360496a383409e72dd1ab9398c674e7d14660e3f920dc502a4af13d",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_panel_door_top_right.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_panel_door_top_right_open.json",
+      "sha256": "5d25994069d9abced6229f95d5a6e349da0d3a22a9f70d95514c48b96f2ea14f",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_panel_door_top_right_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/charwood_panel_door.json",
+      "sha256": "afca0d47f19541e98df7122b0bb0f57fe4486c23d25e76281a2d0b14bbac02dc",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/charwood_panel_door.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_lattice_trapdoor_bottom.json",
+      "sha256": "47506385298a1284108e9f4f78919332398666a40adcd12503fd5d04efd54baa",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_lattice_trapdoor_bottom.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_lattice_trapdoor_open.json",
+      "sha256": "720dc7072fac7fb6e9d91fdaf5045f093e50dbdf0f76340f60cbb7f3196d078d",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_lattice_trapdoor_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_lattice_trapdoor_top.json",
+      "sha256": "a41e17a4ba2df459dc13186fcc54e2ff73dfb09805b38e353e73c3f36972e454",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_lattice_trapdoor_top.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/charwood_lattice_trapdoor.json",
+      "sha256": "4c65ae602b055f9e5546b00bed3dd4fee1e775490f19ff8dcef9f0c8e5aa9ac0",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/charwood_lattice_trapdoor.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/charwood_panel_door.png",
+      "sha256": "a0d796c6bd8c03f4d0e98ff5c592197071afbc70acc0a0cd5a442cb1b845d304",
+      "layers": [
+        "assets/zerog_tweaks/textures/item/charwood_panel_door.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/charwood_panel_door.json",
+      "sha256": "50b51f255071f602f56355d5b664b9a32b77f793596b55bb919d4577db6d77af",
+      "layers": [
+        "assets/zerog_tweaks/models/item/charwood_panel_door.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/charwood_lattice_trapdoor.json",
+      "sha256": "bc414c8c878b59a91b009753ce7195ba21a050c827a8a27331b9e15ad05d5558",
+      "layers": [
+        "assets/zerog_tweaks/models/item/charwood_lattice_trapdoor.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/charwood_chest_front.png",
+      "sha256": "466ffe25eedc81291f68f5638e643c5d0121e5d7adafdaaf24df5ff8005139b3",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/charwood_chest_front.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/charwood_chest_side.png",
+      "sha256": "a68e928bb72eaa646d169351e8dc7597203f7f0d8ec486a39c8b96db674ec332",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/charwood_chest_side.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/charwood_chest_top.png",
+      "sha256": "a9cd22fa914a8375b59fea72ad0551cf91411e60db1e1fd72bfc7d4b74b4fdbe",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/charwood_chest_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/charwood_chest_bottom.png",
+      "sha256": "fa51ec41929fc1f317cf2054cc98f2236c923b1c76c1fbec6bc47f276057f921",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/charwood_chest_bottom.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_chest.json",
+      "sha256": "fcc29b0490c8775acc9e9655e10211dcf97bac75fadbd30bac0bf5929ff41759",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/charwood_chest.json",
+      "sha256": "35239501823f71eabfbb26d51c3f5ecece4e6c74a4b8a70df376caa5cfdab4be",
+      "layers": [
+        "assets/zerog_tweaks/models/item/charwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/charwood_chest.json",
+      "sha256": "d6d5c332278d4eaaecfd4df7a7da15302525e79158b51ab3bb4cb4c06925e638",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/charwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/charwood_barrel_side.png",
+      "sha256": "2e32b3b66d28980cec7623438320f213487f358acdf34961ec1ecdbd6aed3c43",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/charwood_barrel_side.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/charwood_barrel_front.png",
+      "sha256": "8c458ccb1c1a3430e193e748ea12e15a2945d6b76ebe805cae696f88fbbc02b3",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/charwood_barrel_front.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/charwood_barrel_front_open.png",
+      "sha256": "b4d304d8111a4b5ead6074b1862378cab15563ac04b590c9c184268c25eb6221",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/charwood_barrel_front_open.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_barrel.json",
+      "sha256": "763ff775df2212d18140f160cc4d158d5dac046df17d1e128f47b4ebd2b98773",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/charwood_barrel_open.json",
+      "sha256": "4bee4f4707b761f170f7b9d3b0bde0d199b1a413687fa13b29fce316a9b562d2",
+      "layers": [
+        "assets/zerog_tweaks/models/block/charwood_barrel_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/charwood_barrel.json",
+      "sha256": "3e5aa1578ed476f0fadb3ef93c0c43d5ffdf301571510b7906f332999b5e2238",
+      "layers": [
+        "assets/zerog_tweaks/models/item/charwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/charwood_barrel.json",
+      "sha256": "d8ba11b6940cfc8c0efc625c645865c1b75361ee17ee76fecdf82e22dbc0be44",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/charwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/hoarwood_panel_door_top.png",
+      "sha256": "cb098dd544ec0792900da825377c56af7e631fe9a53dd4a37a8ce0b5bd1209f0",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/hoarwood_panel_door_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/hoarwood_panel_door_bottom.png",
+      "sha256": "fff78935c463d6918e5442730d6b8c07ca02e31b77f43829b142ca8969866e64",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/hoarwood_panel_door_bottom.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/hoarwood_lattice_trapdoor.png",
+      "sha256": "3761019bbb1fa96a17c0ddf0a3762b5fcbe19083341e5bd0157a073680a06d62",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/hoarwood_lattice_trapdoor.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_panel_door_bottom_left.json",
+      "sha256": "7d32ff2f80a5217c4fa472c93b1e6bb3e80b338bfb20f972bc2126ce58a9128b",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_panel_door_bottom_left.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_panel_door_bottom_left_open.json",
+      "sha256": "b55c7ed0c8a1fcab98f4a2a8dd76af091fefa275fa4b743f3eef6fc147a99ae1",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_panel_door_bottom_left_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_panel_door_bottom_right.json",
+      "sha256": "3cfb098661aa6f7c9cb1ec2e642aec87e6ddbeb3e6343facdf9a67d0a8f25dbb",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_panel_door_bottom_right.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_panel_door_bottom_right_open.json",
+      "sha256": "05b11db374b658dcf4f6cc179d24904c2b1f503f29b91e21d3bd758256e4f244",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_panel_door_bottom_right_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_panel_door_top_left.json",
+      "sha256": "86776b6046aa2addace69b1e3a9969262ae6e1c6da217f8ed3dd07e9deb444b6",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_panel_door_top_left.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_panel_door_top_left_open.json",
+      "sha256": "18cef0de19344fe9d4b9ab4b4df4d8a459bd8b67fa629e9ef5b5f54773575d17",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_panel_door_top_left_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_panel_door_top_right.json",
+      "sha256": "51c04ab27a76740a7d3407ac042afd9e72efa6aae449e730e1f0c196b01250e8",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_panel_door_top_right.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_panel_door_top_right_open.json",
+      "sha256": "4a3a328458d8c760b5aa8c25eb918d8cdb7d6e18bdab6e85b2715a9d15e92bb3",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_panel_door_top_right_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/hoarwood_panel_door.json",
+      "sha256": "308e3053adb51b4660c6a67f1d9c6ab1fa8d0f11fae14495135650c7b1e6ae52",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/hoarwood_panel_door.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_lattice_trapdoor_bottom.json",
+      "sha256": "4eac6f72d475a0696df7e8a35df2f2866ef06bc2f04c5384694b0184a8f8c143",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_lattice_trapdoor_bottom.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_lattice_trapdoor_open.json",
+      "sha256": "76da583e9d21cf3f3dcc667118c30a0abbb0ff601276be7a657e5123c5ec2af9",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_lattice_trapdoor_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_lattice_trapdoor_top.json",
+      "sha256": "8cb9df02df1377ace6f1ff618aafd416425e926254918cc4b61d1d88f150feea",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_lattice_trapdoor_top.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/hoarwood_lattice_trapdoor.json",
+      "sha256": "1a65bb38f8e6887bdc4af91273c88d70bb08b8f7789ad9bccf19af43b7d47a70",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/hoarwood_lattice_trapdoor.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/hoarwood_panel_door.png",
+      "sha256": "1d93b18f6306aa9d2c1489a8e0615f9bd15af1e435ec8cf6dbbbea578ead802e",
+      "layers": [
+        "assets/zerog_tweaks/textures/item/hoarwood_panel_door.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/hoarwood_panel_door.json",
+      "sha256": "aa378d8f969ca131da5444307e59bacd7e1dbad4468220af919299a7a17b56ba",
+      "layers": [
+        "assets/zerog_tweaks/models/item/hoarwood_panel_door.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/hoarwood_lattice_trapdoor.json",
+      "sha256": "3643b9d99f01cbe3e2da8969d617f5d17aef52e4fa6d853d72799360e51e7fcc",
+      "layers": [
+        "assets/zerog_tweaks/models/item/hoarwood_lattice_trapdoor.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/hoarwood_chest_front.png",
+      "sha256": "6048b563e3286aec8944a486dd4fe1b621c28b9f7d8e01deea137296196ad54b",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/hoarwood_chest_front.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/hoarwood_chest_side.png",
+      "sha256": "09d375455153f95a7f82e07aa6036603ee35e39575842385943747b265e60980",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/hoarwood_chest_side.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/hoarwood_chest_top.png",
+      "sha256": "2bb6b791b0e828f131cf146e3b9531def5d30a0bba0a7d4333f00e5e05a146e4",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/hoarwood_chest_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/hoarwood_chest_bottom.png",
+      "sha256": "51edcbfe45807ec8f213438e3d575b25e8938d3262aaabec47f1daa1d0c9fa10",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/hoarwood_chest_bottom.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_chest.json",
+      "sha256": "baa04eb63019fa5227b8c879bfa8d22a121e08fc91cc28d2718e614a8ddb97e7",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/hoarwood_chest.json",
+      "sha256": "a4fbd4eacfd645dbcb2837c6d7654cebdcfeaec91bfce0ef5f15fd0bf27d48e4",
+      "layers": [
+        "assets/zerog_tweaks/models/item/hoarwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/hoarwood_chest.json",
+      "sha256": "0d13f9a6e9abf7d4c5affed16aeead3af4f2bb2561675816709589957eb32925",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/hoarwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/hoarwood_barrel_side.png",
+      "sha256": "b6b14e2a4b58c7df07c1280b6e7042f53591406a546eadbf8299c65ed770fc6f",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/hoarwood_barrel_side.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/hoarwood_barrel_front.png",
+      "sha256": "1d6404fb18a362bc83fd4d60e68d755c94a83144be225964be365b4f0909461c",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/hoarwood_barrel_front.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/hoarwood_barrel_front_open.png",
+      "sha256": "2a76849406c363d35776e415c162d2bbd1405193b992aec7d1f16f1a2f333697",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/hoarwood_barrel_front_open.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_barrel.json",
+      "sha256": "bb7609931a4f2e9d30657dfaf439ec43444beb2c132a13ca1e572eaa9e163d00",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/hoarwood_barrel_open.json",
+      "sha256": "1c1ee8a49da754fef190def773a76d8262d3c449a32770a0631c056f097c43f9",
+      "layers": [
+        "assets/zerog_tweaks/models/block/hoarwood_barrel_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/hoarwood_barrel.json",
+      "sha256": "2760b5ad75ac880f03fe7e0f289baba094a91f72368caceea929dc7d0c4371ef",
+      "layers": [
+        "assets/zerog_tweaks/models/item/hoarwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/hoarwood_barrel.json",
+      "sha256": "7966d32617dc977cad21d3fbd07e77f0a8581720e22f3854b7017ea3fad2b94b",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/hoarwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/gildwood_panel_door_top.png",
+      "sha256": "07d581c0986cf267ac7bc325afdf77356efcae212126a5b4437ad9e7f9583433",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/gildwood_panel_door_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/gildwood_panel_door_bottom.png",
+      "sha256": "9729916196292f59f44fc90df29718a5704b9f4b3315970749abdc9b7a126113",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/gildwood_panel_door_bottom.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/gildwood_lattice_trapdoor.png",
+      "sha256": "52f3a86313a15dc66d0d84aebd803d0df48198b08ddc05bc1c29a62ca78940cc",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/gildwood_lattice_trapdoor.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_panel_door_bottom_left.json",
+      "sha256": "d692dbddadd57d3dab0b24a902af5693845ac006d8b4b2846cfe04327243feff",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_panel_door_bottom_left.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_panel_door_bottom_left_open.json",
+      "sha256": "3b84ac76c0434e85f1ca7987cd0fb7fcb76a1d366fe247c02f9e379e99ef804c",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_panel_door_bottom_left_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_panel_door_bottom_right.json",
+      "sha256": "1c3d686266344d6d8d1c6ed7cf66f0c8cc5c0b6ab899c64d64e86dfa804c88b8",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_panel_door_bottom_right.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_panel_door_bottom_right_open.json",
+      "sha256": "ed5cead4a28b142097234fa8a0068dadc9e48007e78ccc4e846740de78b5502a",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_panel_door_bottom_right_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_panel_door_top_left.json",
+      "sha256": "b18480ae4f4179471b77c98d74a86c6cd639f615ffc565a6d08045b30e7fe608",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_panel_door_top_left.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_panel_door_top_left_open.json",
+      "sha256": "68f3bb108c3edc08927d508125c3252ab371fa670929fd8404737e42df1d0e92",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_panel_door_top_left_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_panel_door_top_right.json",
+      "sha256": "5e96e9486107d4091bfc55aba990e4ddcb1e6fe1b4f5b58ca51784b266d63530",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_panel_door_top_right.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_panel_door_top_right_open.json",
+      "sha256": "7eeb87896966a8e4adcbd403ba69f20f937d1c9cba88eaf97b3d543380d7ed5e",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_panel_door_top_right_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/gildwood_panel_door.json",
+      "sha256": "4c2a9870b339964f7bc435295fa494392288ddc2bafa52767296bd9260401fa3",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/gildwood_panel_door.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_lattice_trapdoor_bottom.json",
+      "sha256": "82d40c7144b2e8da9ea809de56d322f3335b80dbe059e7c48957b6490532c358",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_lattice_trapdoor_bottom.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_lattice_trapdoor_open.json",
+      "sha256": "2e6faaa3a9e4873f288752b2ecc14d8dbdeb6d784c2ce5a2fe27b153329b14d9",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_lattice_trapdoor_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_lattice_trapdoor_top.json",
+      "sha256": "ed9f8a5194613a08291b74c634c5d015f60ac2d3dd0a060c206cd783a3a30ae2",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_lattice_trapdoor_top.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/gildwood_lattice_trapdoor.json",
+      "sha256": "c810d64cd99dc8af8681fd18c1954857009f8932cde3fe205d51164de8b0e8c3",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/gildwood_lattice_trapdoor.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/gildwood_panel_door.png",
+      "sha256": "378c4f0c59fb99f2a1cf7fa361ab27e1269317b2a97914fff96e5def344e785c",
+      "layers": [
+        "assets/zerog_tweaks/textures/item/gildwood_panel_door.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/gildwood_panel_door.json",
+      "sha256": "6824205387a8a7086054ce87951b5d01258fe084a8ce3c817e0db8e40b4966ae",
+      "layers": [
+        "assets/zerog_tweaks/models/item/gildwood_panel_door.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/gildwood_lattice_trapdoor.json",
+      "sha256": "c269864faed06304b1b52a894c8480bc5f807c3e9b7c3e7e96ff917c4a453bf8",
+      "layers": [
+        "assets/zerog_tweaks/models/item/gildwood_lattice_trapdoor.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/gildwood_chest_front.png",
+      "sha256": "5d4c9f8c662b5a5672b3c2a0d6aca5c1ab12c01d5f85dd1be3982d62b769f6b0",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/gildwood_chest_front.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/gildwood_chest_side.png",
+      "sha256": "fa78ed59eec50090c6b089d60b448fb316249a5af3ccd107fd9d6304fdb4215a",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/gildwood_chest_side.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/gildwood_chest_top.png",
+      "sha256": "c887114455ffb0858d8865c87f9703166143c8f786cf3fa497457b5ce641f6e3",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/gildwood_chest_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/gildwood_chest_bottom.png",
+      "sha256": "96acbdaa907ab07105cec374e5bee30335652df5e39a4a59e63d5cf828b530fc",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/gildwood_chest_bottom.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_chest.json",
+      "sha256": "d3d3af4669a5a0ecf33a8c0befd3cc5d0709f000b16780e61d88f553e08e4e22",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/gildwood_chest.json",
+      "sha256": "242a9441c8602dbc05a1c03e0db768cd2e7e15e875255a60f170cd5a43fad52d",
+      "layers": [
+        "assets/zerog_tweaks/models/item/gildwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/gildwood_chest.json",
+      "sha256": "d0cefe2ff70a35ada622590bfdbaeed775778f136f5d24b2a78a51d56d4cca55",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/gildwood_chest.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/gildwood_barrel_side.png",
+      "sha256": "f59367067ce3412eeb4c85f6cafb21adba41973325aa24d9d2f184079a0d9208",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/gildwood_barrel_side.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/gildwood_barrel_front.png",
+      "sha256": "1372423d677aae0d9f378b923ad77b958dd8d60e31fb3edf46e4515624e0905c",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/gildwood_barrel_front.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/gildwood_barrel_front_open.png",
+      "sha256": "3e20c6c1728bc7cd4e031ae3e964efe0fc2a1e970db7d32e9d54c8ac37bcf251",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/gildwood_barrel_front_open.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_barrel.json",
+      "sha256": "77e9564a1f7e8a6d4c05a9e22e95b5424ecadc2d6f2839ce7d649e618f334862",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/gildwood_barrel_open.json",
+      "sha256": "ba3ccd30e4b3c45c99b461059974425619ee73fb53c3127d8327097e630bcc50",
+      "layers": [
+        "assets/zerog_tweaks/models/block/gildwood_barrel_open.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/gildwood_barrel.json",
+      "sha256": "06101e29780727fc7e995f031e645f943529e39f02b6b7b36e7c131062c20796",
+      "layers": [
+        "assets/zerog_tweaks/models/item/gildwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/gildwood_barrel.json",
+      "sha256": "07013b6ad05fed24546b824dd2515cd3ae0e95fcf84adc184496f23acb74793f",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/gildwood_barrel.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/copper_fluid_tank_top.png",
+      "sha256": "d2e1447eb28bb07561944d180b289a0cf9ffff84fcb4df8db01b2b582ffbd985",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/copper_fluid_tank_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/copper_fluid_tank_level0.png",
+      "sha256": "063d2df1aa9ba9421061331ee2bf45fe74cb4f78e90ce58e16a326ad34cefac8",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/copper_fluid_tank_level0.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/copper_fluid_tank_level0.json",
+      "sha256": "bc37f46c6910cde496f0e52dc837eebb8fd4decc686d1d2af90519bfcd7dcfc0",
+      "layers": [
+        "assets/zerog_tweaks/models/block/copper_fluid_tank_level0.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/copper_fluid_tank_level1.png",
+      "sha256": "ce41d8101b5bf88ecdf75e5b0a40805abb7b18f3f77bedf6abb332998e1b7005",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/copper_fluid_tank_level1.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/copper_fluid_tank_level1.json",
+      "sha256": "9914a61a9f7d91dcb5ae0cc82fbc5713d4919d717d730eb03c0aba2ff643b7bd",
+      "layers": [
+        "assets/zerog_tweaks/models/block/copper_fluid_tank_level1.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/copper_fluid_tank_level2.png",
+      "sha256": "c4e0df6a7ee2acaa0ea8bab3a51133ba2c09cfa88cdfe6a41a5c7d1afab6f601",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/copper_fluid_tank_level2.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/copper_fluid_tank_level2.json",
+      "sha256": "783790cca290862e31e94798f669a5c2c44d14dfccf6df3a1aa2553f38572b29",
+      "layers": [
+        "assets/zerog_tweaks/models/block/copper_fluid_tank_level2.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/copper_fluid_tank_level3.png",
+      "sha256": "abd8753b024ea4fd2265c360693d0d6fc934bb556215b79138eb61bfd2de13f8",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/copper_fluid_tank_level3.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/copper_fluid_tank_level3.json",
+      "sha256": "3e0311acb495dd7ab99a36f2901d5113f89361bc237b3e9805e0b108513dd698",
+      "layers": [
+        "assets/zerog_tweaks/models/block/copper_fluid_tank_level3.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/copper_fluid_tank_level4.png",
+      "sha256": "acf71c88f7d226e4b67dfe567f5e098c1df2631d5c06fa598ea4dfedc13745a4",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/copper_fluid_tank_level4.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/copper_fluid_tank_level4.json",
+      "sha256": "44a21d064a028fae3468d80bf3922f858b877d72d7a807fbd9ac2ad8313ca320",
+      "layers": [
+        "assets/zerog_tweaks/models/block/copper_fluid_tank_level4.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/copper_fluid_tank_level5.png",
+      "sha256": "eb6425b8a0dcb62a1591448e71391dc80bfdac528a6079576ade85f5988df11a",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/copper_fluid_tank_level5.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/copper_fluid_tank_level5.json",
+      "sha256": "a3ed2ec4d2e0279dade63b4a73370b90e61be9fc5fe4556a59a3956d8aef766f",
+      "layers": [
+        "assets/zerog_tweaks/models/block/copper_fluid_tank_level5.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/copper_fluid_tank_level6.png",
+      "sha256": "aff6246d52dc02d9a755c234712a863e5c494cc01bf15f31955bd3eb5bbaeb52",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/copper_fluid_tank_level6.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/copper_fluid_tank_level6.json",
+      "sha256": "3de115fd53ae915eba6bff97970d137ec107ffb7be01cc916fe71b3809cc78d9",
+      "layers": [
+        "assets/zerog_tweaks/models/block/copper_fluid_tank_level6.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/copper_fluid_tank_level7.png",
+      "sha256": "8234b851ecfbf107a5401267b7a49ef44ed7295fb102ef03f9bd769d4c3047f9",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/copper_fluid_tank_level7.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/copper_fluid_tank_level7.json",
+      "sha256": "cb514896931a1c5c67c5347723d0ea2cbbb3eea8a3dc57b682e5727cf8f8edfb",
+      "layers": [
+        "assets/zerog_tweaks/models/block/copper_fluid_tank_level7.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/copper_fluid_tank_level8.png",
+      "sha256": "afca6e4ce4637feb7ac5f1fb0bfeab412ecafb0691a2174fe4cb776842de914d",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/copper_fluid_tank_level8.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/copper_fluid_tank_level8.json",
+      "sha256": "ad428041510dba9586f0e878a0b1068d913cebfee93ce8a9868840b3e7dd2c08",
+      "layers": [
+        "assets/zerog_tweaks/models/block/copper_fluid_tank_level8.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/copper_fluid_tank.json",
+      "sha256": "65f8c15972d928c6cb6082344839df48bfabc0a20ff3797483819d04695f951d",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/copper_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/copper_fluid_tank.json",
+      "sha256": "84ec7065da575b20e8f60851bb031d2fa0048cae6588630088ba2c5433c95c0e",
+      "layers": [
+        "assets/zerog_tweaks/models/item/copper_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_top.png",
+      "sha256": "4acf330584c3eb6b38b9fb3d6b9d4f9cc28243bf68efa3106a67c4fbfbd1b5ce",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level0.png",
+      "sha256": "f46fc3746012f37f5d43a9edcd0ac73705aed37227f91b5d8c9f61b1dec70968",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level0.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level0.json",
+      "sha256": "bbba0bf3972c3cc3e256c9fcb60acd7860e6389dee0c5e52bea49362df7c049d",
+      "layers": [
+        "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level0.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level1.png",
+      "sha256": "8c0f24ee19253e0f22c090aedbf3a9dcc570bfff53167d7650bfa3451c8af7a2",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level1.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level1.json",
+      "sha256": "0aa7032723c3bcee7017b5237bd24b0525e00a9509b3a183e9331704784ebd05",
+      "layers": [
+        "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level1.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level2.png",
+      "sha256": "8f1e12bb411279956cf2d62b4985b76a0c8e31ad1e72a0d2aef2bf825458bf3a",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level2.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level2.json",
+      "sha256": "b074b5ca7604ed89bec38853fe3ff09856044f54af87a551cbc6a365a6a2a1e0",
+      "layers": [
+        "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level2.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level3.png",
+      "sha256": "9337ad50816121504b93c76eb493af2474926fb8584b02360b021e1e5f8e8877",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level3.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level3.json",
+      "sha256": "5d41bf186ca68cc7546dec1f6c897fa12964a0a57cfe40c3b54ad2f1d5bf8ff8",
+      "layers": [
+        "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level3.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level4.png",
+      "sha256": "46bd4e3bc544d2fe0610776a4b95d79d691dd6f04317a1caedab777ed285e2db",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level4.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level4.json",
+      "sha256": "bdbf86275eee3423d295ae5dd48eb9cf3ec42d6889398063f0e0d932452aad55",
+      "layers": [
+        "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level4.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level5.png",
+      "sha256": "6aa1e59763ec85493661b3e7bc0cd05405381136b05a6d6e8d4b6d0af5e006bb",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level5.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level5.json",
+      "sha256": "796a093cbe2c0bebab0f1468a5ae5c29143cec94ff70f74b1291a5446b91c229",
+      "layers": [
+        "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level5.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level6.png",
+      "sha256": "99fc5118821144995e633f6911422397d261652d4db816b9ea4159dafae1ede1",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level6.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level6.json",
+      "sha256": "08fab31136ffc7b1b6b9489650e7c69197295a83b50679d2174bc75a570112e2",
+      "layers": [
+        "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level6.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level7.png",
+      "sha256": "e585e59d107c1d0f841d72fa3794417e3c789f03f269596aab08d28a59a98247",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level7.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level7.json",
+      "sha256": "9a25d538c2b7722e153fb679293631714ea6fdf265b82b50e3cccf56a0526ec9",
+      "layers": [
+        "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level7.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level8.png",
+      "sha256": "b991084009cfa9fa88051e804c7308ac63ed45cb30c0aa05e8426354551f343c",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level8.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level8.json",
+      "sha256": "132c4df488a0e389673a5032292bc03b8c2b56b0a07dc926e6ea35584c5d1647",
+      "layers": [
+        "assets/zerog_tweaks/models/block/nullifite_fluid_tank_level8.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/nullifite_fluid_tank.json",
+      "sha256": "8cf7d78c36596e2b450e2c6b3c8864baf2af9a707d2bd3c76a834d16f8f0617e",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/nullifite_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/nullifite_fluid_tank.json",
+      "sha256": "6633811e8623ee0d8310e3fdcd7feed6c22f3d22cb238c66b35705ca630ee93b",
+      "layers": [
+        "assets/zerog_tweaks/models/item/nullifite_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_top.png",
+      "sha256": "50396fac80e92780ede6fd937471e78bbac5c041b6e1dacbcc9115f8058ab411",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level0.png",
+      "sha256": "f001274e12e57285e0db02ce040695fe66f334c2d90bc4a626cb4c84bd7bb880",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level0.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level0.json",
+      "sha256": "03594575dd6f89f9561c5f4a691f79b3f83361981f82d88e6a497ef4484ec298",
+      "layers": [
+        "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level0.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level1.png",
+      "sha256": "eae69f7159d17619fb5f2a15bd654a566b296eca64bd92210a7ec7681ecd1e73",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level1.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level1.json",
+      "sha256": "34323ead87768a69a89c8eec10f1857843f2049ab877a4c768e1879be8d55fbf",
+      "layers": [
+        "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level1.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level2.png",
+      "sha256": "d753df53cfa14c136201dad2ebee3b7c3b12bf5028e546aeeb4abaef02eb6c25",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level2.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level2.json",
+      "sha256": "893ba057643090614c8dd81e97362fa3cb5fdeca529e3f283ba8166b5e85d81e",
+      "layers": [
+        "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level2.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level3.png",
+      "sha256": "16efd79b089df68c1fd06ce8c03ea3515bb5220543f42ac487acad4abb126797",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level3.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level3.json",
+      "sha256": "d9cfdaa871a28ab62dd251d28219e570551fe4bc6741ba14c72d9e36d6f527cb",
+      "layers": [
+        "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level3.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level4.png",
+      "sha256": "f8c9fb61c8ba4e3b5688abecc45a6b7a0278f300989734e1190a06bd7d9b49e6",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level4.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level4.json",
+      "sha256": "90f97aa98fd89b17a85ba9f29e7f6193b8373e32a2bda14513c1bc3b7a503b14",
+      "layers": [
+        "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level4.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level5.png",
+      "sha256": "81e69d09cf1ccb068357347a1e6b48e33983af4f14a071ef674eac02b786d5ad",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level5.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level5.json",
+      "sha256": "5e4572a1bf06528f8ad81aa25629963d63374b5894b97f7411bd5cebad037a99",
+      "layers": [
+        "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level5.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level6.png",
+      "sha256": "509662775900cb0d738c25fda061b8ad1f3c99251a9148e266595af53743d8c6",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level6.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level6.json",
+      "sha256": "adc02202218386fef9a322771a1a8ba6201bcbdfef15748d046f1ef80533ea20",
+      "layers": [
+        "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level6.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level7.png",
+      "sha256": "d9d4ec1f843be13a4de5a9d7ec680550809973c6473095e3867687661d1423b4",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level7.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level7.json",
+      "sha256": "d73884de95440ec02051569a97211e6e997ca5349906988731e99aa2fe6938fc",
+      "layers": [
+        "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level7.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level8.png",
+      "sha256": "cec67490a4cffa88640dd797d0d48fc0d352eb8c01dbc92323ac40cddf2e5da5",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level8.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level8.json",
+      "sha256": "91cb5e98dbe7e9751a3bd284c44dd49977e10d8ef2b9932a8296ca88145973b7",
+      "layers": [
+        "assets/zerog_tweaks/models/block/cyrrium_fluid_tank_level8.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/cyrrium_fluid_tank.json",
+      "sha256": "98e4221805bc7e7c265612138ef221c85d53048c6073ed2df3f2648b93d8f026",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/cyrrium_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/cyrrium_fluid_tank.json",
+      "sha256": "fc08c5280bd1516d81ce1d901b64e882bcc4249af48ea65e5f7814f52772c469",
+      "layers": [
+        "assets/zerog_tweaks/models/item/cyrrium_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/tectium_fluid_tank_top.png",
+      "sha256": "298ef748cbc40b69c48d2eb0d58042a89194ad571e5174edcb1489ff482c3b02",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/tectium_fluid_tank_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level0.png",
+      "sha256": "2eea6dd4f5417e65d2d2948de0e4a05a7c86d2251e5b5d69f32c0d3de5744228",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level0.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/tectium_fluid_tank_level0.json",
+      "sha256": "85668d35260c309db50b5e4555a06a8013def1f00b16c058bf944a48d785b47e",
+      "layers": [
+        "assets/zerog_tweaks/models/block/tectium_fluid_tank_level0.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level1.png",
+      "sha256": "907e6bbcb3fbab1a78537ba07f4e8c93cfdc528f0e0b33875e1c9de4711b6dd4",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level1.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/tectium_fluid_tank_level1.json",
+      "sha256": "7fd20ba15b9f721dde9fc83a336244a3a6a23ad35b39f05ddfb021a264a04211",
+      "layers": [
+        "assets/zerog_tweaks/models/block/tectium_fluid_tank_level1.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level2.png",
+      "sha256": "8b09eb8994e8564d3cd2bd503ad531f792b9eea677301e468d941d8ba960dcce",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level2.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/tectium_fluid_tank_level2.json",
+      "sha256": "2d4961ca37dbb50e7ab3230477e53068a3d2ad5f4b54bfd8bb408d088315eb1d",
+      "layers": [
+        "assets/zerog_tweaks/models/block/tectium_fluid_tank_level2.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level3.png",
+      "sha256": "2d71c2fce807b3f50a4a8725cf2e49d0ef660184e54fc98fb40d72ba2dfb6c30",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level3.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/tectium_fluid_tank_level3.json",
+      "sha256": "8df4be30614346da6bbb49bb395279164c6c82f9c679e2c598efa2b4cea59f09",
+      "layers": [
+        "assets/zerog_tweaks/models/block/tectium_fluid_tank_level3.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level4.png",
+      "sha256": "691634a7d7d2cb9fe9eff9b5bd4d6af39e367658a501c8691c4366ea6debb809",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level4.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/tectium_fluid_tank_level4.json",
+      "sha256": "a4b2724e792f7a29e9e12cc77ff6ff5dfa22c20679d0b9c1583d2abb50a2a052",
+      "layers": [
+        "assets/zerog_tweaks/models/block/tectium_fluid_tank_level4.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level5.png",
+      "sha256": "bc0cf5ab77dbfc6f1cd7df2c987bebd0884b1cf9047a013340d36ef93f925de7",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level5.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/tectium_fluid_tank_level5.json",
+      "sha256": "53a230553027c6ff02b5f4b7519d834b94c34d3e22e1817bb9a8596f318b1736",
+      "layers": [
+        "assets/zerog_tweaks/models/block/tectium_fluid_tank_level5.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level6.png",
+      "sha256": "fa11063a2c58ab82369e81942fe816d1b39f6144af4edb0f498ebc5a48376e93",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level6.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/tectium_fluid_tank_level6.json",
+      "sha256": "bf8fcbc3c038a370b0a074e8d058800761b82120c6268fda67940a1831837966",
+      "layers": [
+        "assets/zerog_tweaks/models/block/tectium_fluid_tank_level6.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level7.png",
+      "sha256": "9cedf0b082c80d66b52da3a1b7c896afe4c33541187f2bfbc89b8a3f2250b0dd",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level7.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/tectium_fluid_tank_level7.json",
+      "sha256": "c96b14cbf325e74032a137d9d7008041d48890507ec7734fe883375325714208",
+      "layers": [
+        "assets/zerog_tweaks/models/block/tectium_fluid_tank_level7.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level8.png",
+      "sha256": "98689b018b21322cf6fbf50c9fd6c6d731c016b6c35abd22d1984524646c8184",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level8.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/tectium_fluid_tank_level8.json",
+      "sha256": "db8a0dacb112c379f0354a79bddb25577513df11556c2bec4c7f95dae88d4deb",
+      "layers": [
+        "assets/zerog_tweaks/models/block/tectium_fluid_tank_level8.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/tectium_fluid_tank.json",
+      "sha256": "a470bbf5ed66b208d19d3757f83b110e7c838faf0d790e70e7e24ffb110999ea",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/tectium_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/tectium_fluid_tank.json",
+      "sha256": "f0faebe2da23308d16f7d9df757986845a37fa6ffa1a26c6719640627c4b756f",
+      "layers": [
+        "assets/zerog_tweaks/models/item/tectium_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_top.png",
+      "sha256": "c4646feaf893884ff8198e3bd0cc3d3036bd276ecc5e0fdbc8b69a061dd6e0fd",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level0.png",
+      "sha256": "f809f5af1384b78392a443b873a08ac0f9f8e2c643572ef32ffe1b00a527e90b",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level0.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level0.json",
+      "sha256": "cc188758fc0db0e71b358a26efe0151de97bd5ac6c26888200c645725b2801b5",
+      "layers": [
+        "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level0.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level1.png",
+      "sha256": "1d96eb824c289733990b46e8b7edf577e5f69a4d88d92a92bd6dd2e19cff1e6b",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level1.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level1.json",
+      "sha256": "6277acba6954159a2a541bde8ca12ddc20f6be95c494d954ac58b25b77220c3f",
+      "layers": [
+        "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level1.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level2.png",
+      "sha256": "11fc831aef852c460f127f8b58320a5bc5b6f3dcf497cae8d394648959192e59",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level2.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level2.json",
+      "sha256": "31e3308d0dee233e4eab207477a730a1add58d66236d31c8de7e3b1075faeaf1",
+      "layers": [
+        "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level2.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level3.png",
+      "sha256": "4134f1d0d448389bbc64a22b0bff3d2f9b3d3c4d5ad4c378cfac2374579be8fd",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level3.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level3.json",
+      "sha256": "4bd31a4fa7c999e4ab56ab3dc78e7def1339fd6546099910fb2298eab2a9e83f",
+      "layers": [
+        "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level3.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level4.png",
+      "sha256": "dbfa0ab8d9d6122312b4b963b9fd473be10c40a372cde1b46eb4c9f56ee48e86",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level4.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level4.json",
+      "sha256": "d9c0a70e7137330121b90508624cdbc7928414385cbd04de79d805dec8490a34",
+      "layers": [
+        "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level4.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level5.png",
+      "sha256": "44ec8aedf4e0b30478731c355a305dd6ca1ccfc2a50c35a5c6e28272b7eb1edc",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level5.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level5.json",
+      "sha256": "f2fb620e96c935aba6c944d30d37bb4f081c37f9b79f9c74888167074a77cc92",
+      "layers": [
+        "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level5.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level6.png",
+      "sha256": "222b6c31cb789a05435316bd3a7fa4fd08cf38ac13607350d0ce665aa786685c",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level6.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level6.json",
+      "sha256": "1fe467d05701d8c7d10ada39cfe029f4a732fa9c58d9c2b7a2bd02b875587477",
+      "layers": [
+        "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level6.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level7.png",
+      "sha256": "a8436d18420b83df2081115f9b9f5005de1a6f6bf70717fcbb8faa43d441ccf6",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level7.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level7.json",
+      "sha256": "eb05be915068e05bf13ff090d20ff6662304ba45d92dff7b50dd92bf4dfc7d7b",
+      "layers": [
+        "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level7.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level8.png",
+      "sha256": "6fd849eff5552546bd84b7d4d07a22379664cfa23f16c20e9c9107ba986bfd35",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level8.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level8.json",
+      "sha256": "3a8bc52196f609d8d178c7644c6ed7afa1ab3cc9c2826bdd76d8d937eb1f1a66",
+      "layers": [
+        "assets/zerog_tweaks/models/block/wraithsteel_fluid_tank_level8.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/wraithsteel_fluid_tank.json",
+      "sha256": "c9f263c7f50620f61ef11ba68bbbb30ab6e111c514b1ba5373cebedff37b356c",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/wraithsteel_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/wraithsteel_fluid_tank.json",
+      "sha256": "00418586097868d0a01a432df6ef162373506a64437b9b8b80045d6900594cf1",
+      "layers": [
+        "assets/zerog_tweaks/models/item/wraithsteel_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/astrium_fluid_tank_top.png",
+      "sha256": "9e50451f727be9f763c5374db0017dd36cd688b296481e577bfa684d11f434f7",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/astrium_fluid_tank_top.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level0.png",
+      "sha256": "ea8bd213676d6cb7ff630f31d87f6a6c94c81bcfb8f61696d68a67367183485d",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level0.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/astrium_fluid_tank_level0.json",
+      "sha256": "b0d8f5d6388e302962424b7eb4b11cb08bde8f08801f7f4318630dfabbe6f05a",
+      "layers": [
+        "assets/zerog_tweaks/models/block/astrium_fluid_tank_level0.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level1.png",
+      "sha256": "44ddb7e82db1a26ceb33e7a1afd317587150f067d00547ab0e0d36956200c212",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level1.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/astrium_fluid_tank_level1.json",
+      "sha256": "de27b6d30eb9f10811cea89ca35f7151e52a1627a9f4fca4ce47a10d21817769",
+      "layers": [
+        "assets/zerog_tweaks/models/block/astrium_fluid_tank_level1.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level2.png",
+      "sha256": "49b30d6506432057e1fcfd5cf7e4786abf027b14c69dbb95528e4d9dc9c1061e",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level2.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/astrium_fluid_tank_level2.json",
+      "sha256": "1392a14f4af5f639496f72441fd09454959b4ba5b39b4fa0019efacdab72d2c1",
+      "layers": [
+        "assets/zerog_tweaks/models/block/astrium_fluid_tank_level2.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level3.png",
+      "sha256": "a600e73155762eeaa77ab405e8d08014bdb1ebf6048dba9ce3583a0156c2c629",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level3.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/astrium_fluid_tank_level3.json",
+      "sha256": "5a7b008fcef6502258ffcb3295a60c50096bff8dd0f29b9132afaaaee03ca69b",
+      "layers": [
+        "assets/zerog_tweaks/models/block/astrium_fluid_tank_level3.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level4.png",
+      "sha256": "1bb555b205183df59d07c526b6c72f52024c63924de75f636bfa50b29907255d",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level4.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/astrium_fluid_tank_level4.json",
+      "sha256": "53fdb6546ded07309d4aae7fb0804392b91d203a0fa7d4b0a6cb0320dba7a338",
+      "layers": [
+        "assets/zerog_tweaks/models/block/astrium_fluid_tank_level4.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level5.png",
+      "sha256": "ec31140d57cf009b62fd32fd5e29e73d1833b7a6d91ef231bed1289c666f391b",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level5.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/astrium_fluid_tank_level5.json",
+      "sha256": "d4e407cf008a836694ac122f96099f8f7c260317b2bb2053ec93bb2544718e80",
+      "layers": [
+        "assets/zerog_tweaks/models/block/astrium_fluid_tank_level5.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level6.png",
+      "sha256": "a70952ae153a495892058b518f9924b1d2e262ac2fefd629e6d0714cf00513dd",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level6.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/astrium_fluid_tank_level6.json",
+      "sha256": "eaf2c319b5585c0fac5f53828282ca4217271a5e9c3a72ef996c5eef3313aee9",
+      "layers": [
+        "assets/zerog_tweaks/models/block/astrium_fluid_tank_level6.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level7.png",
+      "sha256": "b43c38ea83040d79090e32b770855d013e30ef3eba3c3d7f240180876f3f7463",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level7.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/astrium_fluid_tank_level7.json",
+      "sha256": "9c234b828c0f458c536451895e66876489712905ad725a84280c43a17e6cf677",
+      "layers": [
+        "assets/zerog_tweaks/models/block/astrium_fluid_tank_level7.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level8.png",
+      "sha256": "0e113a6b7e1da7699a1d670790dbe6a326863b436b73bc9ab0aac0f0a23bf14b",
+      "layers": [
+        "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level8.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/block/astrium_fluid_tank_level8.json",
+      "sha256": "0f973dddef64a7aabc6633fdc67427e4ee38437c103ff86e8fb743c3ee7accdc",
+      "layers": [
+        "assets/zerog_tweaks/models/block/astrium_fluid_tank_level8.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/blockstates/astrium_fluid_tank.json",
+      "sha256": "e35ae6df07eae9ee65c77e7aae34b4c3ce92479e864b2f53400678d57ba150af",
+      "layers": [
+        "assets/zerog_tweaks/blockstates/astrium_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/astrium_fluid_tank.json",
+      "sha256": "c9bc1d7dcadd199f23680698f5658b95adb535e2de3016d480f08ed93293ede7",
+      "layers": [
+        "assets/zerog_tweaks/models/item/astrium_fluid_tank.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/storage_expansion_module.png",
+      "sha256": "d783556c689da7aac717d31b0c3908a5e4f5c47efdf29c089bbf40e762dd4109",
+      "layers": [
+        "assets/zerog_tweaks/textures/item/storage_expansion_module.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/storage_expansion_module.json",
+      "sha256": "8969bf3b9f4feaf64cd5d1e8065a96b9ae76ab0139f1c70f9d2b35fb4fc886c6",
+      "layers": [
+        "assets/zerog_tweaks/models/item/storage_expansion_module.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/generator_flux_module.png",
+      "sha256": "18fe2140e2ba512e14d9d26dafbf7bc71721255d6562d5ca895144f05dbe37a8",
+      "layers": [
+        "assets/zerog_tweaks/textures/item/generator_flux_module.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/models/item/generator_flux_module.json",
+      "sha256": "f9b72650864512131d32e0cf236c437d1f804a7453905cc4ea12bb50e75d6453",
+      "layers": [
+        "assets/zerog_tweaks/models/item/generator_flux_module.json"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/gui/fluid_tank.png",
+      "sha256": "f32a85634eb627599e53c5efa62ff5fb89b45738f85d39d07df33accc3221abd",
+      "layers": [
+        "assets/zerog_tweaks/textures/gui/fluid_tank.png"
+      ]
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/gui/combustion_generator.png",
+      "sha256": "39f3e5c4a88f7bb1023177fc9dba9d0c0e847676be2992f1035cdb9e0b08ec57",
+      "layers": [
+        "assets/zerog_tweaks/textures/gui/combustion_generator.png"
+      ]
+    }
+  ],
+  "blockbench": [
+    {
+      "path": "blockbench/shardwood_chest.bbmodel",
+      "sha256": "8ac5c78f995c27a8e33ded81ad5ab3730e9e6fc5e45d58c078ee9f9006dc61ec"
+    },
+    {
+      "path": "blockbench/shardwood_barrel.bbmodel",
+      "sha256": "9bb7d0bb370bb7f54250d5fefa84e91d401eea0b229e1e12f13f2ba97ec4e9f7"
+    },
+    {
+      "path": "blockbench/shardwood_panel_door.bbmodel",
+      "sha256": "9a52a9d457aaf76f8f97cc72d586f31fd8b8757598c4c405c99f864e4f1a76df"
+    },
+    {
+      "path": "blockbench/shardwood_lattice_trapdoor.bbmodel",
+      "sha256": "34678755bd613f26ba8f7f99ea61a5b458ec426f93215fd0df09b475283015cc"
+    },
+    {
+      "path": "blockbench/charwood_chest.bbmodel",
+      "sha256": "5af2c81b708ad1364234d5b60d9ff8c3b6de699ec7e435beb8e70d95607e32ec"
+    },
+    {
+      "path": "blockbench/charwood_barrel.bbmodel",
+      "sha256": "54ebee54cb7ce5f0794633dce1c237c537dcdf13adad3bdd98a841acd9c03d00"
+    },
+    {
+      "path": "blockbench/charwood_panel_door.bbmodel",
+      "sha256": "7c5e1a4c6c77b1a6a3627f3ef2316e79cda934efa84115f757c2743dceec5c7a"
+    },
+    {
+      "path": "blockbench/charwood_lattice_trapdoor.bbmodel",
+      "sha256": "bd26adeb6ff3977f6eb6eca2b94771f73eedb301b2a09a4b5bb93a7e04d95bc8"
+    },
+    {
+      "path": "blockbench/hoarwood_chest.bbmodel",
+      "sha256": "10a55eb2009507c550e3b56b91eac271ab479a152a3ade8dde91922745d183a7"
+    },
+    {
+      "path": "blockbench/hoarwood_barrel.bbmodel",
+      "sha256": "c1a67ae2ef2c7ae37037f168ea38c174fbf3f710a36a8d796e358eb27d53c173"
+    },
+    {
+      "path": "blockbench/hoarwood_panel_door.bbmodel",
+      "sha256": "8bace5ff40fa1536bc025e981add41411fa4115151d9de162f558975e036e92d"
+    },
+    {
+      "path": "blockbench/hoarwood_lattice_trapdoor.bbmodel",
+      "sha256": "4c3bc1295775fc59c3f90b1962bfa250c3b5f35052b0d6b912c594d5a16e6b9a"
+    },
+    {
+      "path": "blockbench/gildwood_chest.bbmodel",
+      "sha256": "8a87bbc77d04b740a59d143f5323831a9d6a60f9b817a4b29f4630044e20931f"
+    },
+    {
+      "path": "blockbench/gildwood_barrel.bbmodel",
+      "sha256": "d261d76fc2586ace11038b4ca0c145746a0d934d61340dfb2d540700c4fb2265"
+    },
+    {
+      "path": "blockbench/gildwood_panel_door.bbmodel",
+      "sha256": "bce1aaee6b7ced59502b0d39d86e239b7949a7689202a9db065834b94f997185"
+    },
+    {
+      "path": "blockbench/gildwood_lattice_trapdoor.bbmodel",
+      "sha256": "e537b8de90f29d0453241d63632bacf08162d65d678c37d03ffc6c2d9591ac9f"
+    },
+    {
+      "path": "blockbench/copper_fluid_tank.bbmodel",
+      "sha256": "579ed885d960ae52fcf18d417c8e59ef99e1242afb62d7d753dbafdd4425544e"
+    },
+    {
+      "path": "blockbench/nullifite_fluid_tank.bbmodel",
+      "sha256": "661e0c7c83edfed52467a2f8f8cfdf5d7a74116edafb42031562c1e1dee0887f"
+    },
+    {
+      "path": "blockbench/cyrrium_fluid_tank.bbmodel",
+      "sha256": "10f57984dba140337611ea69b5e3433d78ce26dcfb64f88ac073937cd15dd395"
+    },
+    {
+      "path": "blockbench/tectium_fluid_tank.bbmodel",
+      "sha256": "31a5a79780a1d6119edc66029fd71268f584b89b8aa026b5d1bb4c14987c5927"
+    },
+    {
+      "path": "blockbench/wraithsteel_fluid_tank.bbmodel",
+      "sha256": "2194ae271c264791bcbc0278ad69537f5fe3d00c96919161400c76857f259941"
+    },
+    {
+      "path": "blockbench/astrium_fluid_tank.bbmodel",
+      "sha256": "7ec1fe13befbea7b8717b5f6721f2ec736205202590e62ea84e66ef185301205"
+    },
+    {
+      "path": "blockbench/storage_expansion_module.bbmodel",
+      "sha256": "7dcd9c7070e957486ac71aa586dc5c4619128e4585c0fd5283c91c1882e11714"
+    },
+    {
+      "path": "blockbench/generator_flux_module.bbmodel",
+      "sha256": "6f45531751a663750c8741958b90d3e865040587d7addbb4886ce3c1b30e6aeb"
+    }
+  ],
+  "vanilla_template_source_sha256": "186526b0a96ef83ec1b640f1162c3de1a1c188b9eff7bfd6692e870fecb7eece",
+  "counts": {
+    "textures": 108,
+    "models": 110,
+    "blockbench": 24
+  },
+  "validation_errors": [],
+  "client_verified": false
+}

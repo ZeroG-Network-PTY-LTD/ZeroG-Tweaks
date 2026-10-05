@@ -1,5 +1,30 @@
 # ZeroG Tweaks
 
+## Current same-version extension: planetary storage and machine corrections
+
+[Full workflow and field guide](docs/storage-and-machinery-workflow.md) ·
+[Remaining tasks](docs/storage-and-machinery-todo.json) ·
+[Installed build and verification receipt](docs/storage-machinery-delivery-2026-10-05.json) ·
+[Original native gallery](docs/images/storage-joinery-v1/README.md)
+
+Four wood families gain panel doors, lattice trapdoors and independently expandable
+chests/barrels. Six fluid-tank tiers hold 5,000–5,000,000 mB with buckets, sided ports
+and conserved upgrades. Crops survive sunless farmland and grow slowly; new village
+doors match the planet's wood. Machine corrections and vanilla-proportioned worn
+armour take priority over adding more machine types. The 1.0.12-dev version is retained.
+No Mekanism code or artwork is redistributed, and no additional machine dependency
+is introduced. Historical images/guides below are preserved, not deleted.
+
+The same-version update includes twelve repaired honeycomb sprites, all 80 main
+armour items on vanilla Netherite-style coverage, Alveary service-block acceptance
+and output/recovery paging, refinery controls, and a working combustion terminal.
+**50 isolated server checks passed** (44 workflow, 4 genetics, 2 without optional
+bee addons), followed by a clean production build and zero-error asset audits.
+In-game visual approval and the remaining legacy machine bugs are explicitly
+tracked, not claimed complete. No saves or existing hub terrain were changed.
+
+![Original planetary joinery](docs/images/storage-joinery-v1/native-gallery-01.png)
+
 A NeoForge 1.21.1 content/companion mod for the ZeroG modpack — shattered-void
 Nullifite progression, galaxy teleporters, planet ores, space woods, machine
 blocks, and the food/economy layer that ties the ZeroG planet network's

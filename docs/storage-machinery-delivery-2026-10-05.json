@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-05T01:23:20.035521+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev.jar",
+  "sha256": "39282958b10846d70218077ff34a58f18bed3d1841221b4aebaf30aa278cfb5a",
+  "bytes": 25081947,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261005-012233-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": false,
+  "world_regeneration": false,
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261005_011501_runWorkflowTests.log",
+      "sha256": "b7422a78b7f0a70175e6c3f2b06c9ada555bbcb2df1007dc762aca87d4bc4c3e",
+      "required_passes": 44,
+      "client_visual_approval": false
+    },
+    {
+      "log": "20261005_011637_runWorkflowTests.log",
+      "sha256": "963cf5273bc9993faad405c2f211d865a1dc7c43bd390653bbb17ffd691bf76c",
+      "required_passes": 2,
+      "client_visual_approval": false
+    },
+    {
+      "log": "20261005_011811_runGeneticsTests.log",
+      "sha256": "17cfc4c57f3794b059a85d85e5c38f14c4fd649755c0835b505b6a6644ba89db",
+      "required_passes": 4,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "full-art-v4-delivery-asset-audit.json",
+      "sha256": "0dbfcf2ea3df34ed4b438a690be4fd96a14784c381dce10f205f08e9ba823ade",
+      "checked": {
+        "models": 7933,
+        "blockstates": 1520,
+        "pngs": 3893,
+        "animation_metadata": 96,
+        "source_byte_bindings": 3828
+      },
+      "errors": 0
+    },
+    {
+      "report": "storage-joinery-delivery-asset-audit.json",
+      "sha256": "79899783b80f723dad0dd7995ef5f69be65eb068a86ad848aa52170d22cd2073",
+      "checked": {
+        "models": 7933,
+        "blockstates": 1520,
+        "pngs": 3893,
+        "animation_metadata": 96,
+        "source_byte_bindings": 264
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261005_012020_clean.log",
+    "sha256": "66e0a72ba9e057bed8b7bc257a7b9e2133c23ad1e7c6b60cf79fd839e12e3e3e",
+    "clean_production": true
+  },
+  "remaining": [
+    "Client visual/gameplay approval",
+    "Transport family-specific GUI/recovery",
+    "Legacy addon centrifuge dispatch and other machine input contracts",
+    "Advanced alveary biology",
+    "Dynamic tank-fluid renderer and chest-lid animation"
+  ],
+  "guide": "storage-and-machinery-workflow.md",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 15
+}
