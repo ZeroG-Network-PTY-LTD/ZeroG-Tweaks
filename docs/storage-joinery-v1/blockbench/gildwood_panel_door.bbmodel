@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "gildwood_panel_door",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "gildwood_panel_door_0",
+      "type": "cube",
+      "uuid": "7b1ee560-fdd6-5222-9348-d3523ba3a72a",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        3,
+        16,
+        16
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "down": {
+          "uv": [
+            32,
+            26,
+            0,
+            32
+          ],
+          "texture": 0
+        },
+        "north": {
+          "uv": [
+            6,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            6,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "gildwood_panel_door_1",
+      "type": "cube",
+      "uuid": "ee83baf5-cee1-55e5-a7b9-f467c1426981",
+      "from": [
+        0,
+        16,
+        0
+      ],
+      "to": [
+        3,
+        32,
+        16
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            6,
+            32,
+            0
+          ],
+          "texture": 1
+        },
+        "north": {
+          "uv": [
+            6,
+            0,
+            0,
+            32
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            6,
+            32
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 1
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "7b1ee560-fdd6-5222-9348-d3523ba3a72a",
+    "ee83baf5-cee1-55e5-a7b9-f467c1426981"
+  ],
+  "textures": [
+    {
+      "name": "gildwood_panel_door_bottom.png",
+      "id": "0",
+      "uuid": "2539b308-d348-5b32-8307-663705632e92",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABn0lEQVR4nGOU52P9zzCAgAVEPDjkOiCWK9jthjgAxqEnsJZlBdMsMIG9S0oZEgrmgNnppj/BdM32b+DQeXjqElZD7EteguWXtB/FKo9N/x+JOLA9j76DeO8ZmGASIEFvCwUGWgN0e1iQJbeeeACmt1/5DQ+m6OgDWA1qyxdC4cP0IAN0/TA9MHtQHPD4zXuwhqVLHcCalp7chtMX0eZeWMWJ0bOkgg0cdSC7HqOHgKcOJGGAwZ0urHFfNfEdTkvI0cOEzImptMaZoGgFmOhq22B0AAsyB5z4ljowbMeR8skBMR2/GBgYeJDYeBxAK1CSYAFn9yw4gT8KlgxkIvREzoZ0Aiz0sAQ92OmaC5ZUsDHIcX6B48PrTOjrAEKAiVCFQk0AyuJ4HQArjmkJ0OsKpoHOBUz0rIxAJa28mR5uBwwEYKK3hehpgAVfZYS38YED4NOD3owDAZwhgKstiA+Qo4cFvVluG3SGId2UlahmOaEchKtZLisyiJrlTMiSyM1lWgJkexhBndOB6BuC0svRx78RaYCcBEQNAA6BAbEZCgAi+LLH0GumNQAAAABJRU5ErkJggg==",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "gildwood_panel_door_top.png",
+      "id": "1",
+      "uuid": "1741c723-c6a5-5041-bed3-d6957046939d",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB50lEQVR4nGOU52P9zzCAgAVEPDjkOiCWK9jthjgAxqEnsJZlBdMsMIG9S0oZEgrmgNnppj/BdM32b+DQeXjqElZD7EteguWXtB/FKo9N/x+JOLA9j76DeO8ZGEFpAKTINugMg7eFAsPWEw8Y7r35QtAHx3qE4A6QtjtAlHoQiOn4Bbfn8Zv3iBAAAZAgDEwrccFpWFbPHgwxUtQj28MCY4BcA4qXpUsd4D4KqNvEiG6YjZIYzlxDjPolFWzgkAPZ9ZiBgYEJWdJTB5Iw6AmYkDkxldY4ExRdHDAQgGlQOSA6+gA4GmgFqia+w+8AegB5Mz38DlhCo0QI8n1bPqQwQgYsuLLh9RsvGNqjzLDm+clbrmCIEaMe5Hv0Yp2JgY4AlMbwhgAy0NSQIKkkJFY9JA3sHqTZcPuV3zS1DFTP4HUACNCyHAABvInQczhXRm35QuBcgF4QseDThK/up4Z6vA7A1urBB4hVj54GWJA5oCCCpNSjWBuVoOIUJI9uSKcnKzwXIacjdP3YimImYn2IyweUJmIm5Gb5o+884NYxLoDNB6QCULNcVkQQbBcIYG2WH15nwkArgGwPqCGM4gAYkOMk3C8gF8B8DgIo/QIQB85moCWA2ANrlrPAhGF9NXoDcBQMiM1QAADK5d+A+4ZqMQAAAABJRU5ErkJggg==",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    }
+  ]
+}

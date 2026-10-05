@@ -403,21 +403,16 @@
     "id": "combustion_generator",
     "namespace": "zerog_tweaks",
     "slots": [
-      "Fuel",
-      "Residue output"
+      "Fuel"
     ],
     "outputStart": 1,
-    "purpose": "Burn fuel to generate FE; show fuel burn time and energy buffer.",
-    "pending": true,
-    "designOnly": true,
+    "purpose": "Burn supported fuels into FE. Up to three flux modules increase output and storage; no residue output. The dedicated live menu shows fuel, burn progress and FE.",
+    "pending": false,
+    "designOnly": false,
     "positions": [
       [
-        62,
-        38
-      ],
-      [
-        188,
-        50
+        48,
+        36
       ]
     ],
     "metrics": [

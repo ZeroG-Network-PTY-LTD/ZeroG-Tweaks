@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "hoarwood_panel_door",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "hoarwood_panel_door_0",
+      "type": "cube",
+      "uuid": "359e2312-f997-52d6-9232-d77cee35a327",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        3,
+        16,
+        16
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "down": {
+          "uv": [
+            32,
+            26,
+            0,
+            32
+          ],
+          "texture": 0
+        },
+        "north": {
+          "uv": [
+            6,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            6,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "hoarwood_panel_door_1",
+      "type": "cube",
+      "uuid": "e02a8b9c-1759-554c-916f-c51ca2d70e41",
+      "from": [
+        0,
+        16,
+        0
+      ],
+      "to": [
+        3,
+        32,
+        16
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            6,
+            32,
+            0
+          ],
+          "texture": 1
+        },
+        "north": {
+          "uv": [
+            6,
+            0,
+            0,
+            32
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            6,
+            32
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 1
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "359e2312-f997-52d6-9232-d77cee35a327",
+    "e02a8b9c-1759-554c-916f-c51ca2d70e41"
+  ],
+  "textures": [
+    {
+      "name": "hoarwood_panel_door_bottom.png",
+      "id": "0",
+      "uuid": "05dc81f6-f430-5e6d-b9b6-16666fee7556",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABo0lEQVR4nGMUEVb7zzCAgAVEdC/eNCCWl8b6QRwA49ATiIurgGkWmMCJNzcZjMwCwWxzUQ0wff7kOnDonD56A6shq2aUgeWXTVmAVR6b/qIWf7A9jxkYGNgYGBiYYBIgQcHcEgZaA3R7WJAl30/uAdPPHlyCB1NPSRFWg+wD01D4MD3IAF0/TA/MHhQHsN27BtZQ0tMH1rT71FacvnA188YqToyeGLcEcNSB7HqJHgJSCnpw9s5DN7HG/cH1s3BaQo4eJmROVE4CzgRFK8BEV9sGvQN6SorA0UBNsGTXAobH3GxgDGKDMDJgYaADCFyNsHR9aAL+KFg2kIlQCikb0guw0MMS9GCnay6IcUtgkP36C44nNnbQ1wGEABOhCoWaAFTP4HUACFC7HEAH6HUF00DnAiZ6VkagktbUWgO3AwYCMNHbQvQ0wIIeRLAWEaGGBC6ATw96Mw4EcIYArrYgPkCOHhb0Znl+fQWDOTQ3EGqWE8pBuJrl4Cp6sDTLmZAlkZvLtATI9jCCOqcD0TcEpZeXL+8g0gA5CYgaABwCA2IzFAAA9a+vd3HH+XsAAAAASUVORK5CYII=",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "hoarwood_panel_door_top.png",
+      "id": "1",
+      "uuid": "6a2444e3-1e61-5a59-8b8f-23edd84f2c5e",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB7ElEQVR4nGMUEVb7zzCAgAVEdC/eNCCWl8b6QRwA49ATiIurgGkWmMCJNzcZjMwCwWxzUQ0wff7kOnDonD56A6shq2aUgeWXTVmAVR6b/qIWf7A9jxkYGNiQHQASFMwtYXg/uYfh4KnlEEFGBob0OHeshqekT4Sz4erRAZJ+mHpke1BCAARggiAQeeYidkMZGBiWm+hjiJGiHtkeFhiD7d41cLyU9PTBXb1QQYAR3TA+0wCcuYYY9TFuCeCoA9n1koGBgQlZUkpBj4HegAmZE5WTgDNB0cUBAwGYBpUDekqKwNFAK3Bw/Sz8DqAHMLWGFHI4HbCMRokQ5Hv7wDQMcRZc2fDAoSsM8ouOYM3zz4uiMcSIUQ/yPXqxzsRARwBKY3hDABk42OmQVBISqx4UCqtmDNZs+OzBJZpaBqpn8DoABGhZDoAA3kQoNZwrI/vANHAuQC+IWPBpwlf3U0M9Xgdga/XgA8SqR08DLMgcUBCBU+oU7I1KUHEKkkc3xN4sEp6LkNMRun5sRTETkR7E6QNKEzETcrP8MTcbQ359BU7F2HxAKgA1y38paYHtAgFGUNcMFEwgi2HN5YmNHQy0Asj2gBrCWJvl2CoNqgFuNtzNchgANZdpBdiQumYge+AOgPXV6A3AaWBAbIYCAPAwxp+gJm0rAAAAAElFTkSuQmCC",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    }
+  ]
+}

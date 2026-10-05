@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "solvane_honeycomb_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "solvane_honeycomb",
+      "type": "cube",
+      "uuid": "b6d6bd89-ef68-50c7-96e1-3bd76effca73",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "b6d6bd89-ef68-50c7-96e1-3bd76effca73"
+  ],
+  "textures": [
+    {
+      "name": "solvane_honeycomb.png",
+      "id": "0",
+      "uuid": "91ca8e34-4bb9-5c20-92fe-af14e6ea541c",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACtElEQVR4nLVXsW4TQRDdPTYSgcg1IT8QKpQoKYml0OQH0kZp0yRR2pSIggYBDW1ES0FLZcmhjGVwBUqLUCCllQASxkHvzs+eXe/urc/mSSvf3t3szM68eXvWl43HahLUFh/eyHn3oqPVFMiqGHUvOvl48qylpoVOzQB33my083l9c9V63my09cqDW/8nAx8//6WT3DFGNn9f9btf8vvMBN7jmFkGak7N6RR4cXKlDncXip3Ulr32ZRzRKQFw53AOpyEwmA+tnwrlePnmjzrYmYsGYGKOBztQVYAyHOzMyXX0xBxoNtpYYIxw21vGupZzgDxBEFgj1i1algAG9c1Vq+YgW+9HY1hjcuDb99/579v3vTEeuDYsoa9bslBkcISBhVB3zrEoxtK920PnvBeyoXNfJjQzINmeSjYSLpWgT19fqY31LJyB5kBkUgHn0yKLPYyRDSl3yVlm44OWJUAGHq3dsV5wyRYimhQoH0GRfsAtgYmlFcGAbKjt0f6a5Yg1P9wt5jIQ2kjncOzLgJGT07N+Lh5sSQbDhXxEG81blhLiWm4mdFAZXkCpqFxQP2lQMF1NBMoxnYcU0fiMoeEb69lI1Rbt5yAW6strgHPauF21ojo8G+JKSFARZ6WELHEpCeuitahkPrItKd4fdUaIoFzz9GxcCc3YHaXynT9/1SolG4kGfqQSNEmI+qKnZ6WE1IGkAGathNe/lDreW9AY7vsmFO3xXpGy7S2bbEf7NtFkEEyztIHzGHSsC1gKnxLyvtsB0oY7d0slu0CHvgkhHDi/oQeQZJ73qd+EaDmAElyqhC6kMhZfNCoZvn4PwaQu6Pbw3XmbdCfvehbTU/+kmLIXkAmWQSKrLd98Pf80JJpk+CTtaVJfdI9p7rqK00r/DdUAslMQSMqRG0NyBnxO5JFbFf8A5SYBEtLmpEAAAAAASUVORK5CYII="
+    }
+  ]
+}

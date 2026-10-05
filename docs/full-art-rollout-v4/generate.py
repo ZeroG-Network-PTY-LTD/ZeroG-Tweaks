@@ -594,9 +594,18 @@ def main():
                    {'name':'Body','cubes':[{'size':[8,12,4],'uv':[16,16]}]},
                    {'name':'Arm','cubes':[{'size':[4,12,4],'uv':[40,16]}]},
                    {'name':'Leg','cubes':[{'size':[4,12,4],'uv':[0,16]}]}]
-            im,_,bounds=atlas({'minecraft:geometry':[{'bones':cubes}]},Image.open(path).convert('RGBA'),c,accent)
-            save(f'models/armor/{name}_layer_{layer}',im,'vanilla_armor_uvs',{'face_bounds':bounds,'alpha_preserved':True})
+            coverage=json.loads((BASE/'vanilla-netherite-uv-coverage.json').read_text())['layers'][str(layer)]
+            vanilla_mask=blank((64,32))
+            for y,xs in enumerate(coverage['rows']):
+                for x in xs:vanilla_mask.putpixel((x,y),(255,255,255,255))
+            im,_,bounds=atlas({'minecraft:geometry':[{'bones':cubes}]},vanilla_mask,c,accent)
+            assert im.getchannel('A').tobytes()==vanilla_mask.getchannel('A').tobytes(),'Netherite UV coverage mismatch'
+            save(f'models/armor/{name}_layer_{layer}',im,'vanilla_armor_uvs',{'face_bounds':bounds,'vanilla_netherite_alpha':True,'reference_sha256':coverage['source_sha256'],'geometry':'vanilla HumanoidArmorModel; no custom shell'})
     trim_icons()
+    bees=functions(DOCS/'zero-g-tweaks-bundle/generators/planet_bees.py',['connected_comb'],['STYLES','FAMILIES'])
+    for key,style in bees['FAMILIES'].items():
+        _,secondary,accent=bees['STYLES'][style]
+        save('item/'+key+'_honeycomb',bees['connected_comb'](accent,secondary),'connected_honeycombs',{'native_size':32,'connected_wax_rims':True,'seven_recessed_cells':True,'ids_unchanged':True})
     save('item/3d/moonsteel_tools',tool_swatch_atlas(),'wielded_tool_atlas',{'size':64,'swatch_size':16,'geometry_and_display_unchanged':True})
     mineral=functions(DOCS/'art-rollout-v3/generate.py',['tint','blank','mineral'])
     woods=functions(DOCS/'wood-dust-art-v2/generate.py',['ramp','bark','rings','boards','leaves','dust'],['WOODS'])
@@ -742,9 +751,10 @@ def validate_and_report():
         project_rows.append({'path':path.relative_to(DOCS.parent).as_posix(),'sha256':digest(path)})
     (BASE/'blockbench-sprite-source-manifest.json').write_text(json.dumps({'scope':'editable two-face texture sources, not worn/wielded geometry replacements','files':project_rows},indent=2)+'\n')
     # Paginated proof, real PNG pixels at inventory size and enlarged, not concepts.
-    categories={'equipment':['equipment','ingots','raw_materials','dusts','new_gate_items'],
+    categories={'equipment':['equipment','ingots','raw_materials','dusts','new_gate_items','connected_honeycombs'],
                 'environment':['flowers','shrubs','crop_stages','grain_crop_stages','gourd_ground_vines','harvested_food','wood_leaves','grasses','cave_vines','ocean_vegetation','mushrooms','wall_vines','legacy_plants','legacy_crop_stages','saplings','planetary_kelp','planetary_kelp_items'],
-                'transport':['transport_contract_assets'], 'trim':['native_trim_overlays']}
+                'transport':['transport_contract_assets'], 'trim':['native_trim_overlays'],
+                'honeycombs':['connected_honeycombs'], 'worn':['vanilla_armor_uvs']}
     tilelookup={k:im for k,im in TILES}
     fonts=[Path('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'),Path('C:/Windows/Fonts/consola.ttf')]
     available=next((f for f in fonts if f.exists()),None)
@@ -757,7 +767,7 @@ def validate_and_report():
             for i,r in enumerate(batch):
                 key=r['path'].split('/textures/')[1].removesuffix('.png');im=tilelookup[key]
                 x=(i%8)*126;y=48+(i//8)*138
-                native=im;large=im.resize((80,80),Image.Resampling.NEAREST)
+                native=im;large=im.resize((round(im.width*80/max(im.size)),round(im.height*80/max(im.size))),Image.Resampling.NEAREST)
                 sheet.paste(native,(x+4,y+44),native);sheet.paste(large,(x+40,y),large)
                 label=Path(key).name
                 d.text((x+4,y+87),label[:21],font=font,fill=(204,223,235));d.text((x+4,y+101),label[21:42],font=font,fill=(204,223,235))

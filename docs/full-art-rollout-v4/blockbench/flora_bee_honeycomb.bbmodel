@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "flora_bee_honeycomb_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "flora_bee_honeycomb",
+      "type": "cube",
+      "uuid": "27d9b886-3ae2-58cf-b5ef-8b141bba926e",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "27d9b886-3ae2-58cf-b5ef-8b141bba926e"
+  ],
+  "textures": [
+    {
+      "name": "flora_bee_honeycomb.png",
+      "id": "0",
+      "uuid": "d65e401f-b829-5743-9203-19c83eed9c78",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACpUlEQVR4nLVXz2sUMRROxqkLHlcQxMui0CIF8SoFKQgFEQ9C/4Oe9Cb0T9BbwZt78uit6KFIYUEZhKVQEEQYZIWWXsSTSw9SqIVd+Wb2W16ymUzmhx+EnWTy8l7e+/JlVh+/OFBV0F1dmsr+OL3QqgGiOkbj9CJrL/vvVFPo0Axw58lglPXXN1aM98lgpO/cuPl/MvDt5zGdZI7Rlq5N1flJbs5MYB5baxnoWjWnU+D1xz317MHj7LnTmzjtyzgSh0TJncM5nErIPoM5+PFdoRz9z3vq6f18rHIA3dnOQbY6QBngXKyjK3MgGYywwALhntxdM55lHyBPEATW8J0WLTkAg/WNFaPmINufw0vzGpMDv36Ps9/3X4cLPLBtWELXaYmKIoMjNCyEOrOPRdGuX+3OnXOsyIbOXZnQzIBku4tsEtwxCVdEUNtmZ39Xrd1aLc5AMhOZUMB5U0S+lz6yIeU2OctsXNCyBMjAveXbxgSbbEVEkwLlIijSD9gliH1pRTAgG2r7fOuRUionWu7QrYR4TxvpHI5dGYhlZ3iUzpULR5LB5AtNKikhnuVmii6qmA9QKioX1E8aZEzvLdbbB8oxnRcpYuQyhobzVmuqhGxF3w/aVkKxyLRNJWSJvTogowfaVELXkQVct2G281dvPpSSjUQDP0IJaiNyDcoz3ZYSUgeCAmhbCc/+nqvth5saLeiDZGd/FwbGgqw3BYlEk0EwzdIGzn2I7AHc12AqGUyywbGPaCSitOHOsR7K5SpZLDu2Ws0ktJYScud0WqqENqQyJoNqSug6742+iodHqRr2U2PsyuWOUe+3h58Mpof+SYnLJiATKIN9TXd6k+nJl1Oj1nWOZxw60b6mues6Tmv9N1QzyPsCgYRcuT4EZ8DlRF65dfEP/YsSGzSoamcAAAAASUVORK5CYII="
+    }
+  ]
+}

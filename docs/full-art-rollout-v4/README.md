@@ -14,8 +14,10 @@ model writers; their source hashes are recorded in `manifest.json`.
 ## Contracts preserved
 
 - Twenty existing equipment-family IDs; native 32px inventory sprites.
-- Worn armour keeps its authored geometry, UV coordinates, open alpha masks and
-  texture dimensions. Vanilla fallback sheets remain their 64×32 UV contract.
+- All twenty worn armour sets use vanilla Netherite-shaped humanoid geometry.
+  Their 40 native 64×32 sheets match the exact 1.21.1 Netherite alpha/UV coverage;
+  original material colours and magitech surface accents are painted on that
+  layout. The former bulky geo shells are inactive, not additional worn layers.
 - Moonsteel handheld geometry, pivot, position, scale and X-axis half-turn remain
   unchanged. The actually wielded 64px atlas is painted separately at its twelve
   fixed material swatches, so the runtime tool does not remain on an old atlas.
@@ -62,7 +64,7 @@ Recall/Group Anchor icons are original 32px sources on existing requested IDs.
 
 ## Evidence and limitations
 
-Final consistency pass: 1,111 native PNGs include 120 shared native 32px item-trim
+Final consistency pass: 1,123 native PNGs include 120 shared native 32px item-trim
 overlays for four armour pieces and thirty material palettes. All 2,400 existing
 item overrides reference their updated base plus an aligned 32px overlay; trim
 material IDs, predicates and worn pattern assets are unchanged. This avoids both
@@ -72,9 +74,18 @@ coloured base sprites. `trim-alignment-audit.json` records each binding.
 Olympium has a selective same-size worn inlay glowmask plus correct GeckoLib
 `glowsections.sections` metadata using inclusive `x1/y1/x2/y2` bounds and alpha.
 The format was checked against the installed GeckoLib serializer, not invented.
-Only Moonsteel and Olympium are currently activated as geo armour by code; other
-sets have prepared geometry and vanilla fallback sheets, not a claim of active
-three-dimensional worn renderers for every set.
+No custom geo armour shell is active after the user's Netherite-shape correction.
+The twenty historical geo atlases and eleven masks remain archived resources;
+the runtime uses the forty standard humanoid sheets, preserving IDs/stats/trims.
+
+Twelve planetary/bee honeycomb sprites now form one connected wax cluster with
+shared cell rims, recessed centres and upper-left highlights. The old separate
+flower-like hexagons are replaced. Each retains its bee-family colour and ID.
+The installed orbital addon was inspected: its comb PNGs are white64px tint masks,
+not shaded examples. Minecraft1.21.1 honeycomb topology and Netherite UV coverage
+were inspected read-only; their PNG colours are not copied into the original art.
+`vanilla-netherite-uv-coverage.json` records source hashes and coverage coordinates.
+`honeycombs-native-01.png` and `worn-native-01.png` show actual exported pixels.
 
 The incoming approved six-tone source ramps from Design `844a6d44` are recorded in
 the manifest. Named Moonsteel, Nullifite, Solvanite, Cerulite, leaf, glow, wood and

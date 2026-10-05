@@ -24,7 +24,6 @@ PROFILES={
 }
 PLANNED={
  'alloy_forge':(['Metal A','Metal B','Catalyst','Alloy output'],3,'Alloy two metals; optional catalyst and tier casing upgrades.'),
- 'combustion_generator':(['Fuel','Residue output'],1,'Burn fuel to generate FE; show fuel burn time and energy buffer.'),
  'solar_array':([],0,'Generate FE from daylight, with output depending on the planet.'),
  'fusion_reactor':(['Fuel A','Fuel B','Catalyst','Residue output'],3,'Combine fusion fuels; monitor energy and reactor stability.'),
  'salvage_station':(['Salvage input']+['Recovered output']*6,1,'Break salvage into recovered materials; show energy and processing.'),
@@ -106,6 +105,7 @@ for id,(roles,start,purpose,pending) in PROFILES.items():
  profiles['aeroapiary:'+id]={'id':id,'namespace':'aeroapiary','slots':roles,'outputStart':start,'purpose':purpose,'pending':pending,'designOnly':False,'positions':slots(roles,start)}
 for id,(roles,start,purpose) in PLANNED.items():
  profiles['zerog_tweaks:'+id]={'id':id,'namespace':'zerog_tweaks','slots':roles,'outputStart':start,'purpose':purpose,'pending':True,'designOnly':True,'positions':slots(roles,start)}
+profiles['zerog_tweaks:combustion_generator']={'id':'combustion_generator','namespace':'zerog_tweaks','slots':['Fuel'],'outputStart':1,'purpose':'Burn supported fuels into FE. Up to three flux modules increase output and storage; no residue output. The dedicated live menu shows fuel, burn progress and FE.','pending':False,'designOnly':False,'positions':[[48,36]]}
 addon=a.code.parent/'zerog-docs-integrated/docs/jars/zerog-binnie-expansion-1.21.1-1.0.0.jar'
 with ZipFile(addon) as jar:
  for path in jar.namelist():

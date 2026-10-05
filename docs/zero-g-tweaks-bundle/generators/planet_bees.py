@@ -74,6 +74,43 @@ def skin(style,frame):
     for y in (1,3,5):
         for x in (26,29,32):d.line((x,y,x,y+1),fill=adjust(base,.4)+(255,))
     return im
+def connected_comb(accent,secondary):
+    """Original native32 connected wax cells, not seven disconnected flowers.
+
+    Vanilla honeycomb topology: staggered cells share rims. Orbital addon
+    combs are white tint masks; their palette is not a shaded art reference.
+    Recess depth, upper-left wax lips and lower-right shadows remain readable
+    at inventory size. No source PNG colours are copied.
+    """
+    im=Image.new('RGBA',(32,32));d=ImageDraw.Draw(im)
+    def tone(k):
+        target=(31,19,58) if k<1 else (255,245,200)
+        mix=min(.65,abs(k-1))
+        return tuple(round(v*(1-mix)+t*mix) for v,t in zip(accent,target))+(255,)
+    # Vanilla inventory footprint, used as a shape contract only. Interior is
+    # freshly drawn at32px (not resized/copied vanilla texture pixels).
+    spans=[(6,7),(5,8),(4,11),(3,12),(2,13),(1,13),(1,13),(1,12),
+           (2,13),(3,13),(2,13),(2,12),(3,11),(4,10),(7,8)]
+    silhouette=Image.new('L',(32,32));md=ImageDraw.Draw(silhouette)
+    for y,(left,right) in enumerate(spans):md.rectangle((left*2,y*2,right*2+1,y*2+1),fill=255)
+    d.rectangle((0,0,31,31),fill=tone(.95))
+    cells=[(15,6),(9,11),(22,11),(15,16),(9,21),(22,21),(15,26)]
+    for x,y in cells:
+        d.polygon([(x,y-5),(x+6,y-3),(x+6,y+3),(x,y+5),(x-6,y+3),(x-6,y-3)],fill=tone(.72))
+    for x,y in cells:
+        d.polygon([(x,y-4),(x+5,y-2),(x+5,y+2),(x,y+4),(x-5,y+2),(x-5,y-2)],fill=tone(1.05))
+        d.line([(x-5,y+1),(x-5,y-2),(x,y-4),(x+4,y-2)],fill=tone(1.35))
+        d.polygon([(x,y-2),(x+3,y-1),(x+3,y+1),(x,y+3),(x-3,y+1),(x-3,y-1)],fill=tone(.48))
+        d.line([(x-2,y+1),(x,y+2),(x+2,y+1)],fill=tone(.88))
+        d.point((x-1,y-3),fill=tone(1.55))
+    im.putalpha(silhouette)
+    for y in range(32):
+        for x in range(32):
+            if not silhouette.getpixel((x,y)):continue
+            if x==0 or y==0 or not silhouette.getpixel((max(0,x-1),y)) or not silhouette.getpixel((x,max(0,y-1))):im.putpixel((x,y),tone(1.35))
+            elif x==31 or y==31 or not silhouette.getpixel((min(31,x+1),y)) or not silhouette.getpixel((x,min(31,y+1))):im.putpixel((x,y),tone(.43))
+    return im
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--code-root',type=Path,required=True);args=p.parse_args()
     res=args.code_root/'src/main/resources';assets=res/'assets/zerog_tweaks';records=[];projects=[]
@@ -172,9 +209,7 @@ def main():
             buf=io.BytesIO();im.save(buf,format='PNG');t=dict(obj['textures'][0]);t.update(name=hive+'_'+label+'.png',id=str(n+1),uuid=str(uuid.uuid5(uuid.NAMESPACE_URL,hive+label)),source='data:image/png;base64,'+base64.b64encode(buf.getvalue()).decode());obj['textures'].append(t)
         for face in ['east','west','south','down']:obj['elements'][0]['faces'][face]['texture']=1
         obj['elements'][0]['faces']['up']['texture']=2;hivepath.write_text(json.dumps(obj,indent=2)+'\n')
-        comb=Image.new('RGBA',(32,32));cd=ImageDraw.Draw(comb)
-        for x,y in [(9,8),(20,8),(4,17),(15,17),(25,17),(10,26),(21,26)]:
-            cd.polygon([(x-4,y-3),(x,y-5),(x+4,y-3),(x+4,y+2),(x,y+4),(x-4,y+2)],fill=adjust(accent,.55)+(255,));cd.polygon([(x-3,y-2),(x,y-4),(x+3,y-2),(x+3,y+1),(x,y+3),(x-3,y+1)],fill=accent+(255,));cd.line((x-2,y-2,x+1,y-3),fill=secondary+(255,))
+        comb=connected_comb(accent,secondary)
         tex('item/'+key+'_honeycomb.png',comb);project(key+'_honeycomb',comb)
         bottle=Image.new('RGBA',(32,32));bd=ImageDraw.Draw(bottle);bd.rectangle((12,2,19,5),fill=(156,118,63,255));bd.rectangle((13,6,18,11),fill=(190,219,231,150));bd.rounded_rectangle((7,10,24,29),radius=3,fill=(179,209,230,140),outline=(230,250,255,255));bd.rectangle((9,16,22,26),fill=accent+(230,));bd.line((10,12,10,24),fill=(255,255,255,210),width=2)
         tex('item/'+key+'_honey_bottle.png',bottle);project(key+'_honey_bottle',bottle)

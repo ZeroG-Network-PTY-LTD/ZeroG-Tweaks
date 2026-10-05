@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "eidolon_honeycomb_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "eidolon_honeycomb",
+      "type": "cube",
+      "uuid": "331f6394-1a14-5fd9-a4d8-f03db9f9b4ac",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "331f6394-1a14-5fd9-a4d8-f03db9f9b4ac"
+  ],
+  "textures": [
+    {
+      "name": "eidolon_honeycomb.png",
+      "id": "0",
+      "uuid": "aeea2e68-ec06-5959-8988-61f97cbfca59",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACh0lEQVR4nLVXPWgUQRSeWddiY5MiFqJl2nRBvCqc6dPY2whnJZhKYuA6V1IlkCIYsPGaNDbpdbkqInapAoeVkCIponC5QsLJt9x3vJ3MzM7++MGwO7P75r1575tvZ/XZ77GqgqVkMpX9y0miVQNEdYwuJ0ne0v5ANYUOzQBXng1Heb+7tlx4ng1HeuXxyv/JwOn3UzrJHaPdnY7V5M5iPs5M4D221jKwZNScToEP6Uf18u2L/D65ubLal3FEhwTAlcM5nLrAYL59/aFQjsP3h6q31fMGEPscz1ag6gBl6G315Dy6Mgey4QgT3CLcxvONwr3sA+QJgsAcvt2iZQlg0F1bLtQcZPsTP5zXmBw4/3WRX48/Hd/igWnDEtp2S+SKDI7QMBHqzj4mRXvw6P7cOcdcNnRuy4RmBiTbQ8lGwoUSdHd7X3XWO+4MZDORCQWcN0Xke+gjG1JukrPMxgYtS4AMPHm6WnjBJJuLaFKgbARF+gFvCZhWNoBke/3mmZdoJKK0kc7hGE35MpD2B7l4AFLPkRU6D1VC2HARJ19OnIoY8wZKReWC+sk0kelVQDkGcHUpYmQzhobzq9ZUCdlc5wdtKqGYZNqmErIUpSTszqKns7aU0FXC2DKWr3xv53NhUJKPK8bVp4Q2GxORbVDu6baUkDoQFEDbSng9vlab715ptKDPcdofwKAVJYRzgM7l9rQGQCAQTopaQglDzoTShis3S+UMQILK2Fnv1FJCbDmA8us6sseuyaQyZhWV0LbfG52KU4uCLdxbKJDu6OCo8LzsNFyaAZkJlkEiubma/jz/OyeaZHiV7RmHvignZTBy1XVPR7rq37H5mZaO6/wbVg7ADKaOU4l/WmIrMFR8rRAAAAAASUVORK5CYII="
+    }
+  ]
+}

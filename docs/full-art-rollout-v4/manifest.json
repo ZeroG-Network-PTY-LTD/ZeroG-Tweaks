@@ -13,6 +13,7 @@
     "worn_glowmasks": 11,
     "vanilla_armor_uvs": 40,
     "native_trim_overlays": 120,
+    "connected_honeycombs": 12,
     "wielded_tool_atlas": 1,
     "dusts": 17,
     "ingots": 22,
@@ -46,10 +47,10 @@
     "planetary_kelp": 12,
     "planetary_kelp_items": 6
   },
-  "changed_bytes_count": 1111,
-  "baseline_changed_count": 1111,
+  "changed_bytes_count": 1123,
+  "baseline_changed_count": 1123,
   "baseline_commit": "dd5776cbbf160a378f97231544a2c176b03cb156",
-  "rerun_changed_count": 1,
+  "rerun_changed_count": 12,
   "canonical_ramps": {
     "moonsteel": [
       "141326",
@@ -816,8 +817,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/nullifite_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "0635f579f1436fb111eedd6ba452a14a5595caa53c817777ef58e26ee2f0af21",
-      "rerun_previous_sha256": "0635f579f1436fb111eedd6ba452a14a5595caa53c817777ef58e26ee2f0af21",
+      "sha256": "c8db63d4ae4d88c26c5abf33eea67649a6c31c810cfb1b51adf081bd7b349dd0",
+      "rerun_previous_sha256": "c8db63d4ae4d88c26c5abf33eea67649a6c31c810cfb1b51adf081bd7b349dd0",
       "size": [
         64,
         32
@@ -975,7 +976,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/nullifite_layer_1.png"
@@ -986,8 +989,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/nullifite_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "cdd6a6372fab4836c3adebf70906aa5971e2ccc117c73e2fa0e96876875358ca",
-      "rerun_previous_sha256": "cdd6a6372fab4836c3adebf70906aa5971e2ccc117c73e2fa0e96876875358ca",
+      "sha256": "97eb4e209c2e86eb4077ff3b19d7d0bc7c8e2b72256aaa531b6c12d73d3aa8f3",
+      "rerun_previous_sha256": "97eb4e209c2e86eb4077ff3b19d7d0bc7c8e2b72256aaa531b6c12d73d3aa8f3",
       "size": [
         64,
         32
@@ -1145,7 +1148,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/nullifite_layer_2.png"
@@ -2375,8 +2380,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/moonsteel_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "316b509b767b5224f79da1f0d162c6db1ffd0fc07c6cbeda4399d18978f08e9a",
-      "rerun_previous_sha256": "316b509b767b5224f79da1f0d162c6db1ffd0fc07c6cbeda4399d18978f08e9a",
+      "sha256": "1c9b8fec8f4e43437aa4106ee90448c01037626c84a4b9287e28b2fda8f3e37f",
+      "rerun_previous_sha256": "1c9b8fec8f4e43437aa4106ee90448c01037626c84a4b9287e28b2fda8f3e37f",
       "size": [
         64,
         32
@@ -2534,7 +2539,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/moonsteel_layer_1.png"
@@ -2545,8 +2552,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/moonsteel_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "b83da6c61e939aa171a7e953d12f8a5f3a214ca240e932360391bf324fc86b64",
-      "rerun_previous_sha256": "b83da6c61e939aa171a7e953d12f8a5f3a214ca240e932360391bf324fc86b64",
+      "sha256": "89dfc8d7a34877d6117136a4cf87e93b4919c7582e5a80f7c4bd05c615164875",
+      "rerun_previous_sha256": "89dfc8d7a34877d6117136a4cf87e93b4919c7582e5a80f7c4bd05c615164875",
       "size": [
         64,
         32
@@ -2704,7 +2711,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/moonsteel_layer_2.png"
@@ -3228,8 +3237,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/ferrox_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "182200bd74715eca155d893acafce11f1863e094bb04b89fbe94624ebde7ee11",
-      "rerun_previous_sha256": "182200bd74715eca155d893acafce11f1863e094bb04b89fbe94624ebde7ee11",
+      "sha256": "247618951a33c6f2cbf6879ac1e89ebc54bd11e1e0bc4d7fa2b182c234f4b5ca",
+      "rerun_previous_sha256": "247618951a33c6f2cbf6879ac1e89ebc54bd11e1e0bc4d7fa2b182c234f4b5ca",
       "size": [
         64,
         32
@@ -3387,7 +3396,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/ferrox_layer_1.png"
@@ -3398,8 +3409,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/ferrox_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "befaef45218f3d47378cb79dbe088196d792720dcf00b50064060c23cf09005b",
-      "rerun_previous_sha256": "befaef45218f3d47378cb79dbe088196d792720dcf00b50064060c23cf09005b",
+      "sha256": "1903208d09bd272bb60ed863bfdeb5c203ab954e88d992e06d26904a67a0e0b9",
+      "rerun_previous_sha256": "1903208d09bd272bb60ed863bfdeb5c203ab954e88d992e06d26904a67a0e0b9",
       "size": [
         64,
         32
@@ -3557,7 +3568,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/ferrox_layer_2.png"
@@ -3766,8 +3779,8 @@
     {
       "path": "assets/zerog_tweaks/textures/item/armor/olympium.png",
       "category": "worn_atlases",
-      "sha256": "ca94b86355cc39552de43308faa41a35cfc4f470f9ea2bd27f58498c2856a4d9",
-      "rerun_previous_sha256": "ca94b86355cc39552de43308faa41a35cfc4f470f9ea2bd27f58498c2856a4d9",
+      "sha256": "b3bcca2958c0d77cfe6a5bdc6cad7bb2fd729018eb74b8fa8dc5d279e62d6f82",
+      "rerun_previous_sha256": "b3bcca2958c0d77cfe6a5bdc6cad7bb2fd729018eb74b8fa8dc5d279e62d6f82",
       "size": [
         128,
         64
@@ -4405,8 +4418,8 @@
     {
       "path": "assets/zerog_tweaks/textures/item/armor/olympium_glowmask.png",
       "category": "worn_glowmasks",
-      "sha256": "909bec957cb9c4e7fbe6e195e81f9eb7d329c9789fe9f41445e5dfb7426bf164",
-      "rerun_previous_sha256": "9d804302bcb741b9bfaf3053023013f73dbfaff49930cb59acb0eed036eb8404",
+      "sha256": "d116b1df9cde766b73310ea6f4e7716c4bdf0e8a52a5f09fee0979e9cd3a2201",
+      "rerun_previous_sha256": "d116b1df9cde766b73310ea6f4e7716c4bdf0e8a52a5f09fee0979e9cd3a2201",
       "size": [
         128,
         64
@@ -4433,8 +4446,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/olympium_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "001eac390f64582e26ffa81ac3455e12ef21e759fb4e6999dce54033c3c6958d",
-      "rerun_previous_sha256": "001eac390f64582e26ffa81ac3455e12ef21e759fb4e6999dce54033c3c6958d",
+      "sha256": "06a633ef6f47e693f1a29399e38e2fdfff6d431ce7a040effd8430886aaf310c",
+      "rerun_previous_sha256": "06a633ef6f47e693f1a29399e38e2fdfff6d431ce7a040effd8430886aaf310c",
       "size": [
         64,
         32
@@ -4592,7 +4605,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/olympium_layer_1.png"
@@ -4603,8 +4618,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/olympium_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "ff79af64750e0e74bab981b488262a2a142bf69af157c990bca9c3b0d97a385d",
-      "rerun_previous_sha256": "ff79af64750e0e74bab981b488262a2a142bf69af157c990bca9c3b0d97a385d",
+      "sha256": "02d1fd96cd1af78cd1fee08f3a13ce39900f97ff257c2744ca7a4743aff9c5e4",
+      "rerun_previous_sha256": "02d1fd96cd1af78cd1fee08f3a13ce39900f97ff257c2744ca7a4743aff9c5e4",
       "size": [
         64,
         32
@@ -4762,7 +4777,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/olympium_layer_2.png"
@@ -5286,8 +5303,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/cobaltium_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "57c22e62842015ac00ab673af32102761920bb437704e78eb436c7e9deef023e",
-      "rerun_previous_sha256": "57c22e62842015ac00ab673af32102761920bb437704e78eb436c7e9deef023e",
+      "sha256": "60695b77827af4f037cc3398b2ee6a186b408a9e40b8fc895668fb294cb22a4d",
+      "rerun_previous_sha256": "60695b77827af4f037cc3398b2ee6a186b408a9e40b8fc895668fb294cb22a4d",
       "size": [
         64,
         32
@@ -5445,7 +5462,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/cobaltium_layer_1.png"
@@ -5456,8 +5475,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/cobaltium_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "caf162592b1a5fdd146602368df6c3af345d168f3eeae7d6badcfa3bf93ddf71",
-      "rerun_previous_sha256": "caf162592b1a5fdd146602368df6c3af345d168f3eeae7d6badcfa3bf93ddf71",
+      "sha256": "2dff64309edd77319b9a8c3e74e7110cd12a1dd63ecebab556159f9549df6ed7",
+      "rerun_previous_sha256": "2dff64309edd77319b9a8c3e74e7110cd12a1dd63ecebab556159f9549df6ed7",
       "size": [
         64,
         32
@@ -5615,7 +5634,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/cobaltium_layer_2.png"
@@ -6305,8 +6326,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/cyrrium_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "7348be9153347cf519c317a7369aacea7d32baca3716a0a8a2a77bab1382bb9b",
-      "rerun_previous_sha256": "7348be9153347cf519c317a7369aacea7d32baca3716a0a8a2a77bab1382bb9b",
+      "sha256": "1be2367c019e0771f40bbfbe5b076df494733f663ab8fe38fc0db12ae1c713c4",
+      "rerun_previous_sha256": "1be2367c019e0771f40bbfbe5b076df494733f663ab8fe38fc0db12ae1c713c4",
       "size": [
         64,
         32
@@ -6464,7 +6485,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/cyrrium_layer_1.png"
@@ -6475,8 +6498,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/cyrrium_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "079a85083ad791f9bac62dda5c4b5d851ed759e39ffa666d4ee9bd8c5a1f88b3",
-      "rerun_previous_sha256": "079a85083ad791f9bac62dda5c4b5d851ed759e39ffa666d4ee9bd8c5a1f88b3",
+      "sha256": "9d9d0f529b1fac317b61c042bb33147fb2079e8d1d8c3b1ffc3a47721b797041",
+      "rerun_previous_sha256": "9d9d0f529b1fac317b61c042bb33147fb2079e8d1d8c3b1ffc3a47721b797041",
       "size": [
         64,
         32
@@ -6634,7 +6657,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/cyrrium_layer_2.png"
@@ -7540,8 +7565,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/aurelion_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "9887bcc8a0d14adc8b9dc1b8f197c9b5e02fd65e23f1df26ef2aaeef617f4e94",
-      "rerun_previous_sha256": "9887bcc8a0d14adc8b9dc1b8f197c9b5e02fd65e23f1df26ef2aaeef617f4e94",
+      "sha256": "38a9d6ccb5bcc302685ddf233daccc06df9f85756bdd177dd3a5b509fb1ca4db",
+      "rerun_previous_sha256": "38a9d6ccb5bcc302685ddf233daccc06df9f85756bdd177dd3a5b509fb1ca4db",
       "size": [
         64,
         32
@@ -7699,7 +7724,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/aurelion_layer_1.png"
@@ -7710,8 +7737,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/aurelion_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "7cedb1d913dbc5e3438aff6dc8d3030ada710dc6d081a0d79f36c475aab933c2",
-      "rerun_previous_sha256": "7cedb1d913dbc5e3438aff6dc8d3030ada710dc6d081a0d79f36c475aab933c2",
+      "sha256": "31be7d73f2994c82f3e4213472ce25c7b67d861e3a610597d54fe66442cc9677",
+      "rerun_previous_sha256": "31be7d73f2994c82f3e4213472ce25c7b67d861e3a610597d54fe66442cc9677",
       "size": [
         64,
         32
@@ -7869,7 +7896,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/aurelion_layer_2.png"
@@ -9135,8 +9164,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/cerulite_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "d449d1896dababf6ce4afdb5785a90b3ee1cc3d73e1fa8838cc7cd6e7088a9c2",
-      "rerun_previous_sha256": "d449d1896dababf6ce4afdb5785a90b3ee1cc3d73e1fa8838cc7cd6e7088a9c2",
+      "sha256": "906f9ac303c7166764fecec9da0a3ed7e8bee80cf50dd72c2a6823a2f46b5fe9",
+      "rerun_previous_sha256": "906f9ac303c7166764fecec9da0a3ed7e8bee80cf50dd72c2a6823a2f46b5fe9",
       "size": [
         64,
         32
@@ -9294,7 +9323,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/cerulite_layer_1.png"
@@ -9305,8 +9336,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/cerulite_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "7609ca13cd52fd74b26307d5bbddadc9020d5e36dd4fe6b907cecf1d326d4bc8",
-      "rerun_previous_sha256": "7609ca13cd52fd74b26307d5bbddadc9020d5e36dd4fe6b907cecf1d326d4bc8",
+      "sha256": "0c810be5911c06763c97b03e08fb2c393291615946ab5cca9bf2c6f1b7add308",
+      "rerun_previous_sha256": "0c810be5911c06763c97b03e08fb2c393291615946ab5cca9bf2c6f1b7add308",
       "size": [
         64,
         32
@@ -9464,7 +9495,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/cerulite_layer_2.png"
@@ -9988,8 +10021,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/ruskite_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "c82369b2969ec8f86d4bdccc956e5f61397a64f25cd9be445fc53639d45c39a3",
-      "rerun_previous_sha256": "c82369b2969ec8f86d4bdccc956e5f61397a64f25cd9be445fc53639d45c39a3",
+      "sha256": "70d83d7edf3792c03cee3c099dd595ff133c910b449182d132ccf4ec89788098",
+      "rerun_previous_sha256": "70d83d7edf3792c03cee3c099dd595ff133c910b449182d132ccf4ec89788098",
       "size": [
         64,
         32
@@ -10147,7 +10180,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/ruskite_layer_1.png"
@@ -10158,8 +10193,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/ruskite_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "1a49acc79ba5eacff6b3eb07f846a1b75967a018669d48c48f998053e438ff52",
-      "rerun_previous_sha256": "1a49acc79ba5eacff6b3eb07f846a1b75967a018669d48c48f998053e438ff52",
+      "sha256": "ba66b058b9a64e34a9c3b46ec4b3aaec693a13a6d70c02590f6943038c3c19b2",
+      "rerun_previous_sha256": "ba66b058b9a64e34a9c3b46ec4b3aaec693a13a6d70c02590f6943038c3c19b2",
       "size": [
         64,
         32
@@ -10317,7 +10352,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/ruskite_layer_2.png"
@@ -10913,8 +10950,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/tectium_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "617e263f7cfecbf325fa3a213a064db0b7db9c1ae0b601b053470a8dff537ac4",
-      "rerun_previous_sha256": "617e263f7cfecbf325fa3a213a064db0b7db9c1ae0b601b053470a8dff537ac4",
+      "sha256": "d25c058106f7f70a2eede748f683495794f9fc1b96305b0190d4632bfade9772",
+      "rerun_previous_sha256": "d25c058106f7f70a2eede748f683495794f9fc1b96305b0190d4632bfade9772",
       "size": [
         64,
         32
@@ -11072,7 +11109,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/tectium_layer_1.png"
@@ -11083,8 +11122,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/tectium_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "f16e16964dbf5c647cc2b510007dcb65a5039c4fafb9a5bcc6952746b002c289",
-      "rerun_previous_sha256": "f16e16964dbf5c647cc2b510007dcb65a5039c4fafb9a5bcc6952746b002c289",
+      "sha256": "28824e7c43159571a6d12ac72d7b477a59e0a139835927fdefadeac68a2e5849",
+      "rerun_previous_sha256": "28824e7c43159571a6d12ac72d7b477a59e0a139835927fdefadeac68a2e5849",
       "size": [
         64,
         32
@@ -11242,7 +11281,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/tectium_layer_2.png"
@@ -12184,8 +12225,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/pyrium_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "10095a5e370ae10bea08a9c9c8d83c01d4f994f63b4e2de0ac52379e6d16fdf1",
-      "rerun_previous_sha256": "10095a5e370ae10bea08a9c9c8d83c01d4f994f63b4e2de0ac52379e6d16fdf1",
+      "sha256": "5b02295dfadba663aa57ea9dedf2bb1bfc23c5416668743c28f3e9fe4ad1f553",
+      "rerun_previous_sha256": "5b02295dfadba663aa57ea9dedf2bb1bfc23c5416668743c28f3e9fe4ad1f553",
       "size": [
         64,
         32
@@ -12343,7 +12384,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/pyrium_layer_1.png"
@@ -12354,8 +12397,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/pyrium_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "86f5aa6112372ab66d5f6663d3f8d99a6695295b73428989169079f1c9314524",
-      "rerun_previous_sha256": "86f5aa6112372ab66d5f6663d3f8d99a6695295b73428989169079f1c9314524",
+      "sha256": "cf4bea09fafc9490881dfb1372b57ec0f8a005c61cd8b225901c8c776117091a",
+      "rerun_previous_sha256": "cf4bea09fafc9490881dfb1372b57ec0f8a005c61cd8b225901c8c776117091a",
       "size": [
         64,
         32
@@ -12513,7 +12556,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/pyrium_layer_2.png"
@@ -13779,8 +13824,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/skarnite_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "f8e0302b60106803b42b9fb37da36bf50106f84a2e8b68dc9b3d7537b4257c41",
-      "rerun_previous_sha256": "f8e0302b60106803b42b9fb37da36bf50106f84a2e8b68dc9b3d7537b4257c41",
+      "sha256": "4f09d0bee10c281111edbf8cddac238526c5a16c1405031420f68ee01316973a",
+      "rerun_previous_sha256": "4f09d0bee10c281111edbf8cddac238526c5a16c1405031420f68ee01316973a",
       "size": [
         64,
         32
@@ -13938,7 +13983,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/skarnite_layer_1.png"
@@ -13949,8 +13996,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/skarnite_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "c3b0e198df31585792b6255c812919db4a46c1b2d619c64584b6e9edaed1908b",
-      "rerun_previous_sha256": "c3b0e198df31585792b6255c812919db4a46c1b2d619c64584b6e9edaed1908b",
+      "sha256": "5e3b417e1b2c661fadaa2d2f1f5a8685252b77909462e6e09ac2afa6c0e05b5f",
+      "rerun_previous_sha256": "5e3b417e1b2c661fadaa2d2f1f5a8685252b77909462e6e09ac2afa6c0e05b5f",
       "size": [
         64,
         32
@@ -14108,7 +14155,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/skarnite_layer_2.png"
@@ -14632,8 +14681,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/salvium_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "f559af7fe6e70b90f2e0a928d3fde78f1f058be165b0feffdaa19e2b1bb0b94c",
-      "rerun_previous_sha256": "f559af7fe6e70b90f2e0a928d3fde78f1f058be165b0feffdaa19e2b1bb0b94c",
+      "sha256": "e09372054e5b7e4e0a5738faaf59bbd39f26ed65c6faa2b19941f6415347f938",
+      "rerun_previous_sha256": "e09372054e5b7e4e0a5738faaf59bbd39f26ed65c6faa2b19941f6415347f938",
       "size": [
         64,
         32
@@ -14791,7 +14840,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/salvium_layer_1.png"
@@ -14802,8 +14853,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/salvium_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "280bd6673916fa61e8b7d664e566a67dd9ee49ad0da62e668edd0f3fd7bd79c3",
-      "rerun_previous_sha256": "280bd6673916fa61e8b7d664e566a67dd9ee49ad0da62e668edd0f3fd7bd79c3",
+      "sha256": "3c5810e172d30dcfdab7d93f292a912dc93c821eb2d9fff1893e3e6876b67149",
+      "rerun_previous_sha256": "3c5810e172d30dcfdab7d93f292a912dc93c821eb2d9fff1893e3e6876b67149",
       "size": [
         64,
         32
@@ -14961,7 +15012,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/salvium_layer_2.png"
@@ -15557,8 +15610,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/wraithsteel_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "9e4e2f23a2c849c3ad05c9926623157420698a5ef089083a25c8fd541c57602a",
-      "rerun_previous_sha256": "9e4e2f23a2c849c3ad05c9926623157420698a5ef089083a25c8fd541c57602a",
+      "sha256": "ab95ee45d8d2c373a83bc4430e974f55bafe25d54e3a599cc4467fa054944d6c",
+      "rerun_previous_sha256": "ab95ee45d8d2c373a83bc4430e974f55bafe25d54e3a599cc4467fa054944d6c",
       "size": [
         64,
         32
@@ -15716,7 +15769,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/wraithsteel_layer_1.png"
@@ -15727,8 +15782,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/wraithsteel_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "08bca8d6596c4a62ee7acd01b1a72025da7e939c03978ee879bbe613013dab38",
-      "rerun_previous_sha256": "08bca8d6596c4a62ee7acd01b1a72025da7e939c03978ee879bbe613013dab38",
+      "sha256": "f986a6f7f94a3fbb004773b50b1449e784697031adf71181bbf74894abc26035",
+      "rerun_previous_sha256": "f986a6f7f94a3fbb004773b50b1449e784697031adf71181bbf74894abc26035",
       "size": [
         64,
         32
@@ -15886,7 +15941,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/wraithsteel_layer_2.png"
@@ -16986,8 +17043,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/palladine_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "2ec89f2234f92d04fa3d19a01affa41a86324c4f8346a90db416c0b37ac7edd7",
-      "rerun_previous_sha256": "2ec89f2234f92d04fa3d19a01affa41a86324c4f8346a90db416c0b37ac7edd7",
+      "sha256": "a5aea22c60fc5623f1d2de44c1f211ff7ddf7157e87addaae7ca69d36b8f0a9f",
+      "rerun_previous_sha256": "a5aea22c60fc5623f1d2de44c1f211ff7ddf7157e87addaae7ca69d36b8f0a9f",
       "size": [
         64,
         32
@@ -17145,7 +17202,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/palladine_layer_1.png"
@@ -17156,8 +17215,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/palladine_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "6c3143dc7c85d935781f377a8e70739c33601d2a17820321c20e581ee21f8e42",
-      "rerun_previous_sha256": "6c3143dc7c85d935781f377a8e70739c33601d2a17820321c20e581ee21f8e42",
+      "sha256": "a9c2b24e817bce5bfd2d61bbe7643d05603d716bfbc72ef4ce39c060cdd52717",
+      "rerun_previous_sha256": "a9c2b24e817bce5bfd2d61bbe7643d05603d716bfbc72ef4ce39c060cdd52717",
       "size": [
         64,
         32
@@ -17315,7 +17374,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/palladine_layer_2.png"
@@ -18509,8 +18570,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/eidolite_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "5a8ffd3dc3ec08846d0cf9f46865b72305fbd4013e78b7dc93d9f7926d110ab9",
-      "rerun_previous_sha256": "5a8ffd3dc3ec08846d0cf9f46865b72305fbd4013e78b7dc93d9f7926d110ab9",
+      "sha256": "1119dcab4acaa235876d6116bc4d244b8b829809ca5920234e49097b44ffee79",
+      "rerun_previous_sha256": "1119dcab4acaa235876d6116bc4d244b8b829809ca5920234e49097b44ffee79",
       "size": [
         64,
         32
@@ -18668,7 +18729,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/eidolite_layer_1.png"
@@ -18679,8 +18742,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/eidolite_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "f37eb8353479639d8863423cc8f3f4bc6ea058e89eb1ee4aa2133df07a486b24",
-      "rerun_previous_sha256": "f37eb8353479639d8863423cc8f3f4bc6ea058e89eb1ee4aa2133df07a486b24",
+      "sha256": "6d69ce70bca63c2a78ad595a9399f9d4792b680b10051b695e93218321bdb646",
+      "rerun_previous_sha256": "6d69ce70bca63c2a78ad595a9399f9d4792b680b10051b695e93218321bdb646",
       "size": [
         64,
         32
@@ -18838,7 +18901,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/eidolite_layer_2.png"
@@ -19362,8 +19427,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/photium_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "d638f4741e3aa0e9f5e602c2c36b1df60a1cba78532ed74c0a921d04aedfe0c3",
-      "rerun_previous_sha256": "d638f4741e3aa0e9f5e602c2c36b1df60a1cba78532ed74c0a921d04aedfe0c3",
+      "sha256": "84faf253dd6f9100ecb2ced88a4e64575c4eb8353757b7d136035c6efaf23878",
+      "rerun_previous_sha256": "84faf253dd6f9100ecb2ced88a4e64575c4eb8353757b7d136035c6efaf23878",
       "size": [
         64,
         32
@@ -19521,7 +19586,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/photium_layer_1.png"
@@ -19532,8 +19599,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/photium_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "4096cfcaee0132e9093a1bfead9e315ae241701e99c2767f42d2820dece5bdec",
-      "rerun_previous_sha256": "4096cfcaee0132e9093a1bfead9e315ae241701e99c2767f42d2820dece5bdec",
+      "sha256": "707303e7d009076cee7b35850f7aab08fe930c42aa899f86cfcf5c66f1cef780",
+      "rerun_previous_sha256": "707303e7d009076cee7b35850f7aab08fe930c42aa899f86cfcf5c66f1cef780",
       "size": [
         64,
         32
@@ -19691,7 +19758,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/photium_layer_2.png"
@@ -20395,8 +20464,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/astrium_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "dbbde96e5f0cce8eb013164a9f726275f326c053878922571f4924aa12151d01",
-      "rerun_previous_sha256": "dbbde96e5f0cce8eb013164a9f726275f326c053878922571f4924aa12151d01",
+      "sha256": "57a7abba323097f32344efcda3136879c66c722b78aef37106fe984e94af597b",
+      "rerun_previous_sha256": "57a7abba323097f32344efcda3136879c66c722b78aef37106fe984e94af597b",
       "size": [
         64,
         32
@@ -20554,7 +20623,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/astrium_layer_1.png"
@@ -20565,8 +20636,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/astrium_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "98810e596ce4683b68442bcb8e71e9e7edf56679ee334af7dc6e3ef8a61e3132",
-      "rerun_previous_sha256": "98810e596ce4683b68442bcb8e71e9e7edf56679ee334af7dc6e3ef8a61e3132",
+      "sha256": "73a4a1edc5a5fa2ff9523fa0d44a448140ddd3be560f11635f63a403aefa96d7",
+      "rerun_previous_sha256": "73a4a1edc5a5fa2ff9523fa0d44a448140ddd3be560f11635f63a403aefa96d7",
       "size": [
         64,
         32
@@ -20724,7 +20795,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/astrium_layer_2.png"
@@ -21990,8 +22063,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/radiantine_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "357fb1a940e3a70d50d3437882724caed61f51c9cf5c52969ceb6ef9ae8f7fa9",
-      "rerun_previous_sha256": "357fb1a940e3a70d50d3437882724caed61f51c9cf5c52969ceb6ef9ae8f7fa9",
+      "sha256": "7c390aeb3fce4382798f0f895a400e05cec6232e4f6d76c47ddc57108d095907",
+      "rerun_previous_sha256": "7c390aeb3fce4382798f0f895a400e05cec6232e4f6d76c47ddc57108d095907",
       "size": [
         64,
         32
@@ -22149,7 +22222,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/radiantine_layer_1.png"
@@ -22160,8 +22235,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/radiantine_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "fdd9e9bffd227a486adc12b538681816635a157c60719244b99ba69a908dd826",
-      "rerun_previous_sha256": "fdd9e9bffd227a486adc12b538681816635a157c60719244b99ba69a908dd826",
+      "sha256": "52dfc0307449784a57716395c1d8f451e1942070d94e987bfbf01a9603702324",
+      "rerun_previous_sha256": "52dfc0307449784a57716395c1d8f451e1942070d94e987bfbf01a9603702324",
       "size": [
         64,
         32
@@ -22319,7 +22394,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/radiantine_layer_2.png"
@@ -23945,8 +24022,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/solvanite_layer_1.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "c3a189a9b17d46ebcca78df4d4e4cb343cebcd07d51e21aca0aa5a32ca694c95",
-      "rerun_previous_sha256": "c3a189a9b17d46ebcca78df4d4e4cb343cebcd07d51e21aca0aa5a32ca694c95",
+      "sha256": "c5875df132604fa9672c5a957f995f783693bb1337b2acb1e271bdf65f83c327",
+      "rerun_previous_sha256": "c5875df132604fa9672c5a957f995f783693bb1337b2acb1e271bdf65f83c327",
       "size": [
         64,
         32
@@ -24104,7 +24181,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "118ec4ea6f7adf31b962ef92cf851e4d569c37120eacd114e5282647139147d5",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/solvanite_layer_1.png"
@@ -24115,8 +24194,8 @@
     {
       "path": "assets/zerog_tweaks/textures/models/armor/solvanite_layer_2.png",
       "category": "vanilla_armor_uvs",
-      "sha256": "3fa80ac4017f0c97de4d99f0f51443464515627dc1cd03c308da98907c3e6394",
-      "rerun_previous_sha256": "3fa80ac4017f0c97de4d99f0f51443464515627dc1cd03c308da98907c3e6394",
+      "sha256": "1a8a91368947ded7f59cedd938ded2bf308d0f8d56aee2b1dcb98091821c60df",
+      "rerun_previous_sha256": "1a8a91368947ded7f59cedd938ded2bf308d0f8d56aee2b1dcb98091821c60df",
       "size": [
         64,
         32
@@ -24274,7 +24353,9 @@
             32
           ]
         ],
-        "alpha_preserved": true
+        "vanilla_netherite_alpha": true,
+        "reference_sha256": "49b55a02eae5dee8c182f52b84060705b72a5fae3e3c624fbbd19b0225510407",
+        "geometry": "vanilla HumanoidArmorModel; no custom shell"
       },
       "layers": [
         "assets/zerog_tweaks/textures/models/armor/solvanite_layer_2.png"
@@ -27401,6 +27482,330 @@
       ],
       "previous_sha256": null,
       "baseline_sha256": null
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/moon_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "7bee2eecc0ad6de04789b10b60913d8c4a1f2edd785df56941503ffc308c4ecf",
+      "rerun_previous_sha256": "7c11e7dc45bc1e4f5054ca3b82043c8c94511012463e6f71271369eb0845546d",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/moon_honeycomb.png"
+      ],
+      "previous_sha256": "92d4a7b75f03b9e3210900a971fc6fd1eb3984d0effa4640eecdfda50875c00e",
+      "baseline_sha256": "92d4a7b75f03b9e3210900a971fc6fd1eb3984d0effa4640eecdfda50875c00e"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/mars_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "4ea1b701fbf90d4754fe82619c30a03edda71eb0d6800c8e8f106817520ea047",
+      "rerun_previous_sha256": "fd3215d9291642febde2145eb08cf1a14aa53ff14b9e3988ce3d501d265eeaa4",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/mars_honeycomb.png"
+      ],
+      "previous_sha256": "a49a5b8ac3b47ef95c0c450b426ded677bcf0527079c7b59dc7460ca0edf6986",
+      "baseline_sha256": "a49a5b8ac3b47ef95c0c450b426ded677bcf0527079c7b59dc7460ca0edf6986"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/cerulon_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "d8b522131fe6a4bba356c8f38b8d802b74eb8c0c4bb374bcfb4050eea9f142f6",
+      "rerun_previous_sha256": "fad24a3990afca72b65a76c51755dd4c1b407d78ffbf04357fb16fed22ba4b2d",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/cerulon_honeycomb.png"
+      ],
+      "previous_sha256": "66784fb998514f76bd5bd26532cda50fe2dc2d3841ec6576534b930be2297b79",
+      "baseline_sha256": "66784fb998514f76bd5bd26532cda50fe2dc2d3841ec6576534b930be2297b79"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/skarn_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "23c941246dff17ccce83a048b3fe4d8694cec499108cb1389638e059d5a1b479",
+      "rerun_previous_sha256": "4d5d203d454cb1845ba06969ef8df235bacd33936d1a6fc8df19b3b69f4c9c03",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/skarn_honeycomb.png"
+      ],
+      "previous_sha256": "1611c52daaa3ea0e5a8c7995ce271730827f692276cb5876a02c09e93e259a23",
+      "baseline_sha256": "1611c52daaa3ea0e5a8c7995ce271730827f692276cb5876a02c09e93e259a23"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/eidolon_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "72c8c549f48b88f2313a04a45b83bf0ed1813b9f5d1a7bbd22be5fb90e23bc9c",
+      "rerun_previous_sha256": "7fffede870eafe553b2ec8e39500c7e15c5714de20b97a967d9950feea55b440",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/eidolon_honeycomb.png"
+      ],
+      "previous_sha256": "7d7722794b1413a82439dd09eda35886fea6795da7000185172fa9f031cbf532",
+      "baseline_sha256": "7d7722794b1413a82439dd09eda35886fea6795da7000185172fa9f031cbf532"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/solvane_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "2c7b29b0656ae7aa9a900f26727c795ce5c8afa4d790dc0fc8a71afd4ed3900c",
+      "rerun_previous_sha256": "8863e0ddfcf41b0e59f2921eefb35fe269cb76002aae2cf3f2f5709032b26b42",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/solvane_honeycomb.png"
+      ],
+      "previous_sha256": "9c8eda6b9f1009561ddb348f943e38e00c6c2b7c820471c0edc0361f17bed12c",
+      "baseline_sha256": "9c8eda6b9f1009561ddb348f943e38e00c6c2b7c820471c0edc0361f17bed12c"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/flora_bee_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "d8b522131fe6a4bba356c8f38b8d802b74eb8c0c4bb374bcfb4050eea9f142f6",
+      "rerun_previous_sha256": "fad24a3990afca72b65a76c51755dd4c1b407d78ffbf04357fb16fed22ba4b2d",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/flora_bee_honeycomb.png"
+      ],
+      "previous_sha256": "66784fb998514f76bd5bd26532cda50fe2dc2d3841ec6576534b930be2297b79",
+      "baseline_sha256": "66784fb998514f76bd5bd26532cda50fe2dc2d3841ec6576534b930be2297b79"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/midnight_bee_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "7bee2eecc0ad6de04789b10b60913d8c4a1f2edd785df56941503ffc308c4ecf",
+      "rerun_previous_sha256": "7c11e7dc45bc1e4f5054ca3b82043c8c94511012463e6f71271369eb0845546d",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/midnight_bee_honeycomb.png"
+      ],
+      "previous_sha256": "92d4a7b75f03b9e3210900a971fc6fd1eb3984d0effa4640eecdfda50875c00e",
+      "baseline_sha256": "92d4a7b75f03b9e3210900a971fc6fd1eb3984d0effa4640eecdfda50875c00e"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/crimson_bee_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "4ea1b701fbf90d4754fe82619c30a03edda71eb0d6800c8e8f106817520ea047",
+      "rerun_previous_sha256": "fd3215d9291642febde2145eb08cf1a14aa53ff14b9e3988ce3d501d265eeaa4",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/crimson_bee_honeycomb.png"
+      ],
+      "previous_sha256": "a49a5b8ac3b47ef95c0c450b426ded677bcf0527079c7b59dc7460ca0edf6986",
+      "baseline_sha256": "a49a5b8ac3b47ef95c0c450b426ded677bcf0527079c7b59dc7460ca0edf6986"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/tropical_bee_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "a527e0ccb8594d6e63ed40f285909a352b6ff12d3a18d4be431d0c01687ebfa9",
+      "rerun_previous_sha256": "2b8287ab223a737d3272449f69865bb9eb73ce100c909f9d4ddd7d2189b872c7",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/tropical_bee_honeycomb.png"
+      ],
+      "previous_sha256": "855241062ab32103e3df3abbfe9d1f0bf109a83c1aa0cabd0bc29f63bbac78c7",
+      "baseline_sha256": "855241062ab32103e3df3abbfe9d1f0bf109a83c1aa0cabd0bc29f63bbac78c7"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/gold_dust_bee_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "2c7b29b0656ae7aa9a900f26727c795ce5c8afa4d790dc0fc8a71afd4ed3900c",
+      "rerun_previous_sha256": "8863e0ddfcf41b0e59f2921eefb35fe269cb76002aae2cf3f2f5709032b26b42",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/gold_dust_bee_honeycomb.png"
+      ],
+      "previous_sha256": "9c8eda6b9f1009561ddb348f943e38e00c6c2b7c820471c0edc0361f17bed12c",
+      "baseline_sha256": "9c8eda6b9f1009561ddb348f943e38e00c6c2b7c820471c0edc0361f17bed12c"
+    },
+    {
+      "path": "assets/zerog_tweaks/textures/item/magma_bee_honeycomb.png",
+      "category": "connected_honeycombs",
+      "sha256": "23c941246dff17ccce83a048b3fe4d8694cec499108cb1389638e059d5a1b479",
+      "rerun_previous_sha256": "4d5d203d454cb1845ba06969ef8df235bacd33936d1a6fc8df19b3b69f4c9c03",
+      "size": [
+        32,
+        32
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        28,
+        30
+      ],
+      "contract": {
+        "native_size": 32,
+        "connected_wax_rims": true,
+        "seven_recessed_cells": true,
+        "ids_unchanged": true
+      },
+      "layers": [
+        "assets/zerog_tweaks/textures/item/magma_bee_honeycomb.png"
+      ],
+      "previous_sha256": "1611c52daaa3ea0e5a8c7995ce271730827f692276cb5876a02c09e93e259a23",
+      "baseline_sha256": "1611c52daaa3ea0e5a8c7995ce271730827f692276cb5876a02c09e93e259a23"
     },
     {
       "path": "assets/zerog_tweaks/textures/item/3d/moonsteel_tools.png",
@@ -57249,6 +57654,13 @@
   ],
   "reused_native_sources": [
     {
+      "generator": "docs/zero-g-tweaks-bundle/generators/planet_bees.py",
+      "sha256": "a86e84bf26b4dd13b8aba7a909f9bfd27e4e90e79aaa4ca56e91d40e1784ef68",
+      "functions": [
+        "connected_comb"
+      ]
+    },
+    {
       "generator": "docs/art-rollout-v3/generate.py",
       "sha256": "4a7eaf1513f5c4550afa1f49a0d6be3d69289ede5448280094381f1192ddab1b",
       "functions": [
@@ -57342,6 +57754,16 @@
     "assets/zerog_tweaks/textures/block/ashfall.png",
     "assets/zerog_tweaks/textures/block/astrium_block.png",
     "assets/zerog_tweaks/textures/block/astrium_casing.png",
+    "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level0.png",
+    "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level1.png",
+    "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level2.png",
+    "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level3.png",
+    "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level4.png",
+    "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level5.png",
+    "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level6.png",
+    "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level7.png",
+    "assets/zerog_tweaks/textures/block/astrium_fluid_tank_level8.png",
+    "assets/zerog_tweaks/textures/block/astrium_fluid_tank_top.png",
     "assets/zerog_tweaks/textures/block/astrium_ore.png",
     "assets/zerog_tweaks/textures/block/aurelion_block.png",
     "assets/zerog_tweaks/textures/block/aurelion_ore.png",
@@ -57403,6 +57825,16 @@
     "assets/zerog_tweaks/textures/block/cerulon_star_sand.png",
     "assets/zerog_tweaks/textures/block/cerulon_tall_blossom_lower.png",
     "assets/zerog_tweaks/textures/block/cerulon_tall_blossom_upper.png",
+    "assets/zerog_tweaks/textures/block/charwood_barrel_front.png",
+    "assets/zerog_tweaks/textures/block/charwood_barrel_front_open.png",
+    "assets/zerog_tweaks/textures/block/charwood_barrel_side.png",
+    "assets/zerog_tweaks/textures/block/charwood_chest_bottom.png",
+    "assets/zerog_tweaks/textures/block/charwood_chest_front.png",
+    "assets/zerog_tweaks/textures/block/charwood_chest_side.png",
+    "assets/zerog_tweaks/textures/block/charwood_chest_top.png",
+    "assets/zerog_tweaks/textures/block/charwood_lattice_trapdoor.png",
+    "assets/zerog_tweaks/textures/block/charwood_panel_door_bottom.png",
+    "assets/zerog_tweaks/textures/block/charwood_panel_door_top.png",
     "assets/zerog_tweaks/textures/block/charwood_trapdoor.png",
     "assets/zerog_tweaks/textures/block/chiseled_abyssal_stone.png",
     "assets/zerog_tweaks/textures/block/chiseled_cerulean_stone.png",
@@ -57469,6 +57901,16 @@
     "assets/zerog_tweaks/textures/block/concord_prism_top_active.png",
     "assets/zerog_tweaks/textures/block/concord_prism_top_defeated.png",
     "assets/zerog_tweaks/textures/block/concord_prism_top_idle.png",
+    "assets/zerog_tweaks/textures/block/copper_fluid_tank_level0.png",
+    "assets/zerog_tweaks/textures/block/copper_fluid_tank_level1.png",
+    "assets/zerog_tweaks/textures/block/copper_fluid_tank_level2.png",
+    "assets/zerog_tweaks/textures/block/copper_fluid_tank_level3.png",
+    "assets/zerog_tweaks/textures/block/copper_fluid_tank_level4.png",
+    "assets/zerog_tweaks/textures/block/copper_fluid_tank_level5.png",
+    "assets/zerog_tweaks/textures/block/copper_fluid_tank_level6.png",
+    "assets/zerog_tweaks/textures/block/copper_fluid_tank_level7.png",
+    "assets/zerog_tweaks/textures/block/copper_fluid_tank_level8.png",
+    "assets/zerog_tweaks/textures/block/copper_fluid_tank_top.png",
     "assets/zerog_tweaks/textures/block/corona_crust.png",
     "assets/zerog_tweaks/textures/block/corona_crust_emissive.png",
     "assets/zerog_tweaks/textures/block/corona_crust_glowmask.png",
@@ -57527,6 +57969,16 @@
     "assets/zerog_tweaks/textures/block/crystal_sand.png",
     "assets/zerog_tweaks/textures/block/cyrrium_block.png",
     "assets/zerog_tweaks/textures/block/cyrrium_casing.png",
+    "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level0.png",
+    "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level1.png",
+    "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level2.png",
+    "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level3.png",
+    "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level4.png",
+    "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level5.png",
+    "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level6.png",
+    "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level7.png",
+    "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_level8.png",
+    "assets/zerog_tweaks/textures/block/cyrrium_fluid_tank_top.png",
     "assets/zerog_tweaks/textures/block/cyrrium_ore.png",
     "assets/zerog_tweaks/textures/block/dawnstone_block.png",
     "assets/zerog_tweaks/textures/block/dawnstone_ore.png",
@@ -58110,6 +58562,16 @@
     "assets/zerog_tweaks/textures/block/ghost_persimmon_buds_stage0.png",
     "assets/zerog_tweaks/textures/block/ghost_persimmon_buds_stage1.png",
     "assets/zerog_tweaks/textures/block/ghost_persimmon_buds_stage2.png",
+    "assets/zerog_tweaks/textures/block/gildwood_barrel_front.png",
+    "assets/zerog_tweaks/textures/block/gildwood_barrel_front_open.png",
+    "assets/zerog_tweaks/textures/block/gildwood_barrel_side.png",
+    "assets/zerog_tweaks/textures/block/gildwood_chest_bottom.png",
+    "assets/zerog_tweaks/textures/block/gildwood_chest_front.png",
+    "assets/zerog_tweaks/textures/block/gildwood_chest_side.png",
+    "assets/zerog_tweaks/textures/block/gildwood_chest_top.png",
+    "assets/zerog_tweaks/textures/block/gildwood_lattice_trapdoor.png",
+    "assets/zerog_tweaks/textures/block/gildwood_panel_door_bottom.png",
+    "assets/zerog_tweaks/textures/block/gildwood_panel_door_top.png",
     "assets/zerog_tweaks/textures/block/gildwood_trapdoor.png",
     "assets/zerog_tweaks/textures/block/glacial_ice.png",
     "assets/zerog_tweaks/textures/block/glassy_obsidian.png",
@@ -58121,6 +58583,16 @@
     "assets/zerog_tweaks/textures/block/gold_dust_bee_honey_still.png",
     "assets/zerog_tweaks/textures/block/helion_block.png",
     "assets/zerog_tweaks/textures/block/helion_ore.png",
+    "assets/zerog_tweaks/textures/block/hoarwood_barrel_front.png",
+    "assets/zerog_tweaks/textures/block/hoarwood_barrel_front_open.png",
+    "assets/zerog_tweaks/textures/block/hoarwood_barrel_side.png",
+    "assets/zerog_tweaks/textures/block/hoarwood_chest_bottom.png",
+    "assets/zerog_tweaks/textures/block/hoarwood_chest_front.png",
+    "assets/zerog_tweaks/textures/block/hoarwood_chest_side.png",
+    "assets/zerog_tweaks/textures/block/hoarwood_chest_top.png",
+    "assets/zerog_tweaks/textures/block/hoarwood_lattice_trapdoor.png",
+    "assets/zerog_tweaks/textures/block/hoarwood_panel_door_bottom.png",
+    "assets/zerog_tweaks/textures/block/hoarwood_panel_door_top.png",
     "assets/zerog_tweaks/textures/block/hoarwood_trapdoor.png",
     "assets/zerog_tweaks/textures/block/hull_bricks.png",
     "assets/zerog_tweaks/textures/block/hull_plating.png",
@@ -58237,6 +58709,16 @@
     "assets/zerog_tweaks/textures/block/nova_pearl_ore_emissive.png",
     "assets/zerog_tweaks/textures/block/nova_pearl_ore_glowmask.png",
     "assets/zerog_tweaks/textures/block/nullifite_block.png",
+    "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level0.png",
+    "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level1.png",
+    "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level2.png",
+    "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level3.png",
+    "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level4.png",
+    "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level5.png",
+    "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level6.png",
+    "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level7.png",
+    "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_level8.png",
+    "assets/zerog_tweaks/textures/block/nullifite_fluid_tank_top.png",
     "assets/zerog_tweaks/textures/block/nullifite_gate_frame.png",
     "assets/zerog_tweaks/textures/block/null_fluid_flow.png",
     "assets/zerog_tweaks/textures/block/null_fluid_still.png",
@@ -58389,6 +58871,16 @@
     "assets/zerog_tweaks/textures/block/selenite_lamp_emissive.png",
     "assets/zerog_tweaks/textures/block/selenite_lamp_glowmask.png",
     "assets/zerog_tweaks/textures/block/selenite_ore.png",
+    "assets/zerog_tweaks/textures/block/shardwood_barrel_front.png",
+    "assets/zerog_tweaks/textures/block/shardwood_barrel_front_open.png",
+    "assets/zerog_tweaks/textures/block/shardwood_barrel_side.png",
+    "assets/zerog_tweaks/textures/block/shardwood_chest_bottom.png",
+    "assets/zerog_tweaks/textures/block/shardwood_chest_front.png",
+    "assets/zerog_tweaks/textures/block/shardwood_chest_side.png",
+    "assets/zerog_tweaks/textures/block/shardwood_chest_top.png",
+    "assets/zerog_tweaks/textures/block/shardwood_lattice_trapdoor.png",
+    "assets/zerog_tweaks/textures/block/shardwood_panel_door_bottom.png",
+    "assets/zerog_tweaks/textures/block/shardwood_panel_door_top.png",
     "assets/zerog_tweaks/textures/block/shardwood_trapdoor.png",
     "assets/zerog_tweaks/textures/block/shimmer_glass.png",
     "assets/zerog_tweaks/textures/block/shimmer_sand.png",
@@ -58524,6 +59016,16 @@
     "assets/zerog_tweaks/textures/block/sunspot_rock.png",
     "assets/zerog_tweaks/textures/block/tectium_block.png",
     "assets/zerog_tweaks/textures/block/tectium_casing.png",
+    "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level0.png",
+    "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level1.png",
+    "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level2.png",
+    "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level3.png",
+    "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level4.png",
+    "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level5.png",
+    "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level6.png",
+    "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level7.png",
+    "assets/zerog_tweaks/textures/block/tectium_fluid_tank_level8.png",
+    "assets/zerog_tweaks/textures/block/tectium_fluid_tank_top.png",
     "assets/zerog_tweaks/textures/block/tectium_ore.png",
     "assets/zerog_tweaks/textures/block/tidal_sapphire_block.png",
     "assets/zerog_tweaks/textures/block/tidal_sapphire_ore.png",
@@ -58549,6 +59051,16 @@
     "assets/zerog_tweaks/textures/block/vent_rock.png",
     "assets/zerog_tweaks/textures/block/wraithsteel_block.png",
     "assets/zerog_tweaks/textures/block/wraithsteel_casing.png",
+    "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level0.png",
+    "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level1.png",
+    "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level2.png",
+    "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level3.png",
+    "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level4.png",
+    "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level5.png",
+    "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level6.png",
+    "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level7.png",
+    "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_level8.png",
+    "assets/zerog_tweaks/textures/block/wraithsteel_fluid_tank_top.png",
     "assets/zerog_tweaks/textures/block/wraithsteel_ore.png",
     "assets/zerog_tweaks/textures/block/wraith_quartz_block.png",
     "assets/zerog_tweaks/textures/block/wraith_quartz_ore.png",
@@ -58811,6 +59323,8 @@
     "assets/zerog_tweaks/textures/environment/universe_v3.png",
     "assets/zerog_tweaks/textures/gui/alveary_controller_runtime.png",
     "assets/zerog_tweaks/textures/gui/alveary_controller_widgets.png",
+    "assets/zerog_tweaks/textures/gui/combustion_generator.png",
+    "assets/zerog_tweaks/textures/gui/fluid_tank.png",
     "assets/zerog_tweaks/textures/gui/ore_refinery.png",
     "assets/zerog_tweaks/textures/item/abyssal_pearl.png",
     "assets/zerog_tweaks/textures/item/acid_bucket.png",
@@ -58839,11 +59353,11 @@
     "assets/zerog_tweaks/textures/item/cerulite.png",
     "assets/zerog_tweaks/textures/item/cerulite_upgrade_smithing_template.png",
     "assets/zerog_tweaks/textures/item/cerulon_cave_berry.png",
-    "assets/zerog_tweaks/textures/item/cerulon_honeycomb.png",
     "assets/zerog_tweaks/textures/item/cerulon_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/cerulon_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/cerulon_pointed_dripstone.png",
     "assets/zerog_tweaks/textures/item/cerulon_vine_fruit.png",
+    "assets/zerog_tweaks/textures/item/charwood_panel_door.png",
     "assets/zerog_tweaks/textures/item/cinder_cap_stew.png",
     "assets/zerog_tweaks/textures/item/cinder_hound_spawn_egg_accent.png",
     "assets/zerog_tweaks/textures/item/cinder_pelt.png",
@@ -58863,7 +59377,6 @@
     "assets/zerog_tweaks/textures/item/crater_armor_trim_smithing_template.png",
     "assets/zerog_tweaks/textures/item/crater_drifter_spawn_egg_accent.png",
     "assets/zerog_tweaks/textures/item/crawler_leg.png",
-    "assets/zerog_tweaks/textures/item/crimson_bee_honeycomb.png",
     "assets/zerog_tweaks/textures/item/crimson_bee_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/crimson_bee_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/crispy_lurker_leg.png",
@@ -58887,7 +59400,6 @@
     "assets/zerog_tweaks/textures/item/eidolite_upgrade_smithing_template.png",
     "assets/zerog_tweaks/textures/item/eidolon_captain_spawn_egg_accent.png",
     "assets/zerog_tweaks/textures/item/eidolon_cave_berry.png",
-    "assets/zerog_tweaks/textures/item/eidolon_honeycomb.png",
     "assets/zerog_tweaks/textures/item/eidolon_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/eidolon_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/eidolon_pointed_dripstone.png",
@@ -58898,7 +59410,6 @@
     "assets/zerog_tweaks/textures/item/ember_wheat_seeds.png",
     "assets/zerog_tweaks/textures/item/ferrox_upgrade_smithing_template.png",
     "assets/zerog_tweaks/textures/item/flare_sprite_spawn_egg_accent.png",
-    "assets/zerog_tweaks/textures/item/flora_bee_honeycomb.png",
     "assets/zerog_tweaks/textures/item/flora_bee_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/flora_bee_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/fowl.png",
@@ -58969,15 +59480,16 @@
     "assets/zerog_tweaks/textures/item/galaxy_3_gate_key.png",
     "assets/zerog_tweaks/textures/item/galaxy_4_gate_key.png",
     "assets/zerog_tweaks/textures/item/galaxy_5_gate_key.png",
+    "assets/zerog_tweaks/textures/item/generator_flux_module.png",
     "assets/zerog_tweaks/textures/item/geode_armor_trim_smithing_template.png",
     "assets/zerog_tweaks/textures/item/gildcrab_meat.png",
     "assets/zerog_tweaks/textures/item/gildcrab_shell.png",
     "assets/zerog_tweaks/textures/item/gildcrab_spawn_egg_accent.png",
+    "assets/zerog_tweaks/textures/item/gildwood_panel_door.png",
     "assets/zerog_tweaks/textures/item/glimmerfish.png",
     "assets/zerog_tweaks/textures/item/glimmerfish_bucket.png",
     "assets/zerog_tweaks/textures/item/glimmerfish_spawn_egg_accent.png",
     "assets/zerog_tweaks/textures/item/glimmer_scale.png",
-    "assets/zerog_tweaks/textures/item/gold_dust_bee_honeycomb.png",
     "assets/zerog_tweaks/textures/item/gold_dust_bee_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/gold_dust_bee_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/grazer_hide.png",
@@ -58985,6 +59497,7 @@
     "assets/zerog_tweaks/textures/item/grilled_scorch_tail.png",
     "assets/zerog_tweaks/textures/item/heart_of_solvane.png",
     "assets/zerog_tweaks/textures/item/heatproof_plating.png",
+    "assets/zerog_tweaks/textures/item/hoarwood_panel_door.png",
     "assets/zerog_tweaks/textures/item/hollow_sentinel_spawn_egg_accent.png",
     "assets/zerog_tweaks/textures/item/hopper_fluff.png",
     "assets/zerog_tweaks/textures/item/hopper_meat.png",
@@ -58996,24 +59509,20 @@
     "assets/zerog_tweaks/textures/item/low_g_jelly.png",
     "assets/zerog_tweaks/textures/item/lumenite.png",
     "assets/zerog_tweaks/textures/item/lurker_leg.png",
-    "assets/zerog_tweaks/textures/item/magma_bee_honeycomb.png",
     "assets/zerog_tweaks/textures/item/magma_bee_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/magma_bee_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/magma_slag_bucket.png",
     "assets/zerog_tweaks/textures/item/mars_cave_berry.png",
-    "assets/zerog_tweaks/textures/item/mars_honeycomb.png",
     "assets/zerog_tweaks/textures/item/mars_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/mars_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/mars_pointed_dripstone.png",
     "assets/zerog_tweaks/textures/item/mars_vine_fruit.png",
     "assets/zerog_tweaks/textures/item/meteor_armor_trim_smithing_template.png",
     "assets/zerog_tweaks/textures/item/meteor_maw_spawn_egg_accent.png",
-    "assets/zerog_tweaks/textures/item/midnight_bee_honeycomb.png",
     "assets/zerog_tweaks/textures/item/midnight_bee_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/midnight_bee_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/moonsteel_upgrade_smithing_template.png",
     "assets/zerog_tweaks/textures/item/moon_cave_berry.png",
-    "assets/zerog_tweaks/textures/item/moon_honeycomb.png",
     "assets/zerog_tweaks/textures/item/moon_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/moon_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/moon_hopper_spawn_egg_accent.png",
@@ -59073,11 +59582,11 @@
     "assets/zerog_tweaks/textures/item/selenite.png",
     "assets/zerog_tweaks/textures/item/sentinel_prism.png",
     "assets/zerog_tweaks/textures/item/shardmother_spawn_egg_accent.png",
+    "assets/zerog_tweaks/textures/item/shardwood_panel_door.png",
     "assets/zerog_tweaks/textures/item/shardwood_syrup.png",
     "assets/zerog_tweaks/textures/item/skarnite.png",
     "assets/zerog_tweaks/textures/item/skarnite_upgrade_smithing_template.png",
     "assets/zerog_tweaks/textures/item/skarn_cave_berry.png",
-    "assets/zerog_tweaks/textures/item/skarn_honeycomb.png",
     "assets/zerog_tweaks/textures/item/skarn_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/skarn_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/skarn_pointed_dripstone.png",
@@ -59094,7 +59603,6 @@
     "assets/zerog_tweaks/textures/item/solar_spark.png",
     "assets/zerog_tweaks/textures/item/solflower_seeds.png",
     "assets/zerog_tweaks/textures/item/solvane_cave_berry.png",
-    "assets/zerog_tweaks/textures/item/solvane_honeycomb.png",
     "assets/zerog_tweaks/textures/item/solvane_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/solvane_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/solvane_pointed_dripstone.png",
@@ -59108,6 +59616,7 @@
     "assets/zerog_tweaks/textures/item/starfall_feast.png",
     "assets/zerog_tweaks/textures/item/starlite.png",
     "assets/zerog_tweaks/textures/item/star_map_fragment.png",
+    "assets/zerog_tweaks/textures/item/storage_expansion_module.png",
     "assets/zerog_tweaks/textures/item/stormbitten_wyvern_spawn_egg_accent.png",
     "assets/zerog_tweaks/textures/item/sunspike.png",
     "assets/zerog_tweaks/textures/item/sunspike_seeds.png",
@@ -59117,7 +59626,6 @@
     "assets/zerog_tweaks/textures/item/tidal_sapphire.png",
     "assets/zerog_tweaks/textures/item/tidewraith_spawn_egg_accent.png",
     "assets/zerog_tweaks/textures/item/toasted_grub.png",
-    "assets/zerog_tweaks/textures/item/tropical_bee_honeycomb.png",
     "assets/zerog_tweaks/textures/item/tropical_bee_honey_bottle.png",
     "assets/zerog_tweaks/textures/item/tropical_bee_honey_bucket.png",
     "assets/zerog_tweaks/textures/item/venom_gland.png",

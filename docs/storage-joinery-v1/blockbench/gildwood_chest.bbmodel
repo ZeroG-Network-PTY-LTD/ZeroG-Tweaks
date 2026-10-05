@@ -1,0 +1,166 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "gildwood_chest",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "gildwood_chest_0",
+      "type": "cube",
+      "uuid": "8724e45c-9028-5c9d-80ea-5622d550766d",
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        14,
+        15
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 3
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 4
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 5
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "8724e45c-9028-5c9d-80ea-5622d550766d"
+  ],
+  "textures": [
+    {
+      "name": "gildwood_chest_front.png",
+      "id": "0",
+      "uuid": "cf7fcf3d-9e6d-5207-94ea-3b81913b29e3",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACD0lEQVR4nGOU52P9zzCAgAVEPDjkCubYBp2BSxxeZ0JVi7CZrWC3m4ERFAIgByxpP8rAq23P0LPgBFgy3fQnQ832b2DHPTx1Cauh9iUvGWB6sQFk/RdeGMHNXlLBxlA18R3D0ce/GZiQNegY6DDQCuAymwmZk1Awh8HbQoEmDsBlNhO6wNYTD2jiAFxmMyFzShIsaGY5LrNZYIyYuRsZNvb1MSDzY6BseRVUTdJSXlAWK4O03QG4+NNn21DUIeu/gGS2fNQSBoaJXggHKNjtZmBg2M0wscQTrkhBCpI1sQNWhmklLigiWT178OrBZTYTwwADJko0g3wNwlQrCTduQkjAxLAB5HhHBvj0oJsdHX0AtSBaglaagfiQtMEALslAGmBsfACkD4aR9SMDZD4TsSVhW74Q2BHyZnpwMVBCRE+Mw78kfIgnCkAhFFNpjVMem9ks6KUVrMbCFQ0wQGrqx2U2EymGgKpQEDjWIwTGrAy/GZ4ecmDo9GQFY7qUA/JIiRAZbL/ym8FTh5V2Dqia+A4lCrABUPzjapwQdMD2K7+J8j2hcoBUwMQwwICFkAJYCYjOBgFrWVaC8hQ7YOlSBwZyAawoJsoBnnhSMCzeQQkR5CAYH71VTE5OYCJJNYGSkOJsqEOgWU4oG46MymjYNcsZYX1DUB5+9J0HLiHH+YWqDsBmNqhJBnYAVW0iEQAAo9vr5Hqlyi4AAAAASUVORK5CYII=",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "gildwood_chest_side.png",
+      "id": "1",
+      "uuid": "afde1a40-a71b-5860-b90b-9e0a89b8fbf8",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABtUlEQVR4nGOU52P9zzCAgAVEPDjkCubYBp2BSxxeZ0JVi7CZrWC3m4ERFAIgByxpP8rAq23P0LPgBFgy3fQnQ832b2DHPTx1Cauh9iUvGWB6sQFk/RdeGMHNXlLBxlA18R3D0ce/GZiQNegY6DDQCuAymwmZk1Awh8HbQoEmDsBlNhO6wNYTD2jiAFxmMyFzShIsaGY5LrNZYIyYuRsZNvb1MSDzY6BseRXshj6IgqnFLo+s/wKS2fJRSxgYJnohHKBgt5uBgWE3w8QST7giBSlI1qQWwGU2E8MAA6aBdgALckm4cRNCAiZGLYBudnT0AdSCaAlaaQbiQ9IGA7gkA2mAsWEYJg9SC5MHsWEYWT8yQOYzEVsStuULgS2RN9Mb4SXhQxwVk6cOKziEYiqtaVcStuULMZALcJnNRIohoCp0wMsBeRyJcPuV3+BooJkDqia+IxgFoPjH1Tgh6IDtV34T5XtciXDIFsVM1DKImGxIkQPaKCwJCTrAk4wUjA2QnQiJBfgSIcXZUIdAs5ySknD4VEbDrlnOCOsbgrLYo+88cAk5zi9UdQA2s0FNMrADqGoTiQAA1SnINAZdcUYAAAAASUVORK5CYII=",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "gildwood_chest_side.png",
+      "id": "2",
+      "uuid": "132c5014-c42f-5627-bfcd-8a461fad2166",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABtUlEQVR4nGOU52P9zzCAgAVEPDjkCubYBp2BSxxeZ0JVi7CZrWC3m4ERFAIgByxpP8rAq23P0LPgBFgy3fQnQ832b2DHPTx1Cauh9iUvGWB6sQFk/RdeGMHNXlLBxlA18R3D0ce/GZiQNegY6DDQCuAymwmZk1Awh8HbQoEmDsBlNhO6wNYTD2jiAFxmMyFzShIsaGY5LrNZYIyYuRsZNvb1MSDzY6BseRXshj6IgqnFLo+s/wKS2fJRSxgYJnohHKBgt5uBgWE3w8QST7giBSlI1qQWwGU2E8MAA6aBdgALckm4cRNCAiZGLYBudnT0AdSCaAlaaQbiQ9IGA7gkA2mAsWEYJg9SC5MHsWEYWT8yQOYzEVsStuULgS2RN9Mb4SXhQxwVk6cOKziEYiqtaVcStuULMZALcJnNRIohoCp0wMsBeRyJcPuV3+BooJkDqia+IxgFoPjH1Tgh6IDtV34T5XtciXDIFsVM1DKImGxIkQPaKCwJCTrAk4wUjA2QnQiJBfgSIcXZUIdAs5ySknD4VEbDrlnOCOsbgrLYo+88cAk5zi9UdQA2s0FNMrADqGoTiQAA1SnINAZdcUYAAAAASUVORK5CYII=",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "gildwood_chest_side.png",
+      "id": "3",
+      "uuid": "64e9f9e6-20f8-507a-a3c5-e9b137998fa7",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABtUlEQVR4nGOU52P9zzCAgAVEPDjkCubYBp2BSxxeZ0JVi7CZrWC3m4ERFAIgByxpP8rAq23P0LPgBFgy3fQnQ832b2DHPTx1Cauh9iUvGWB6sQFk/RdeGMHNXlLBxlA18R3D0ce/GZiQNegY6DDQCuAymwmZk1Awh8HbQoEmDsBlNhO6wNYTD2jiAFxmMyFzShIsaGY5LrNZYIyYuRsZNvb1MSDzY6BseRXshj6IgqnFLo+s/wKS2fJRSxgYJnohHKBgt5uBgWE3w8QST7giBSlI1qQWwGU2E8MAA6aBdgALckm4cRNCAiZGLYBudnT0AdSCaAlaaQbiQ9IGA7gkA2mAsWEYJg9SC5MHsWEYWT8yQOYzEVsStuULgS2RN9Mb4SXhQxwVk6cOKziEYiqtaVcStuULMZALcJnNRIohoCp0wMsBeRyJcPuV3+BooJkDqia+IxgFoPjH1Tgh6IDtV34T5XtciXDIFsVM1DKImGxIkQPaKCwJCTrAk4wUjA2QnQiJBfgSIcXZUIdAs5ySknD4VEbDrlnOCOsbgrLYo+88cAk5zi9UdQA2s0FNMrADqGoTiQAA1SnINAZdcUYAAAAASUVORK5CYII=",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "gildwood_chest_top.png",
+      "id": "4",
+      "uuid": "d52bf03e-d6b6-5522-89ae-ca39cdcf1afd",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABrElEQVR4nGOU52P9zzCAgAVEPDjkOiCWK9jthjgABB6eukRXy6smvgPTLDCBugUcDEEeWnSxfN2Oa3A2C7pEXUUYQ0LBHDBfSYKPKhbiM5MJXTFIobeFAlUsJsZMRlAuACVCWBqI6fgFl1xSwUYVB2AzE5QGjj7+jYgCeTM9MH14HQPVAXYzD4BJFuQsQU9gLcuK6oAWTy66OmD7ld/YEyG9AQuxCmMqrcH0kvajGGIwgE0OWYxsB2y/8pthe/QBBk8dVhRLo6MhCQkECMlR5ABPqAEwh2AzGJ8cVaKAkKHEWojTATFo8UlrAAstlkFTDhzsER+Q6piJYYABEyEFoDoCVk9QQ4ykXFAFDqYDDG35QigGIedxkByx6kh2QBtUE8wCXIYRq45kB5BiECnqkAELjEEorqgPBmt7wDI6G96ATDf9SRXLsJkJaw+wwBTtfiwKbpbDGpBbTzxg4NW2p4oD0M2ENMufoTZK47NugQXuvfgE10itZjk2M/98fIbaKKW2pcSayQJjuMq+xpCExRMpVS6xerZ/RHPAdjSNxBhODCCkB5wGSDaVigAAyCe2eBTkd4AAAAAASUVORK5CYII=",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "gildwood_chest_bottom.png",
+      "id": "5",
+      "uuid": "5010ddce-ae95-55be-8909-8898fb93aa39",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB6UlEQVR4nGOU52P9zzCAgAVEPDjkOiCWK9jthjgABJa0H8VQULP9G9hxD09dwmqAfclLsDw2vYT0V018B6YZQVEAUhSfdYshyEOLgR5g3Y5rDH8+PmM4+vg3IgRgEnUVYQwJBXPAfCUJPqpYiM9MJnTFIIXeFgpUsZgYM1lgDFfZ1wzbr/xmYGDgYdh64gFY7OCVh1RJA7ZBZ+BmNiX8ANNVE9FCYPuV3wyeOqwMh9eZMKSb/gRjXAmHVLCkgg2O0QETMiem0hqnb2BA3kyPgZqAiViFIN+35QvhVQOJQho5AOZ7XOkBORTJcoCnDitDdPQBkg1AT0P4ALY0xMRARUBOGmJCV4DLAFD8g0KI3ESIKw0xIXMIBSGlAFsaYiLVEFyJkJg0BJJHB0ykWE4oGxIDCKYBfIDckhAfYCK1IMGVCInJhkuXOuB3AAjgikNiSkJisiHORLidCB8QUxKSCphI9QG5AFc5wkQtC8gtypmIVUhpSUgwDXhSWBnBAL4oxJaIWdAF7j4yYJh5+gyU9w1DA75EiCsR/5GIgzdK0VtFjOjN8p4FJ8ANSFAbriTBgoEaAN1M5GY5I7IDQODei09wjdRqlmMzE2u/gJqWEmsmC3KznL5dMwjNCIsCbFUlrQE8DdDdZiQAAJb0DDypQt3UAAAAAElFTkSuQmCC",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    },
+    {
+      "name": "gildwood_chest_top.png",
+      "id": "6",
+      "uuid": "49d726ee-74db-51b7-ae11-7f30d4e918c5",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABrElEQVR4nGOU52P9zzCAgAVEPDjkOiCWK9jthjgABB6eukRXy6smvgPTLDCBugUcDEEeWnSxfN2Oa3A2C7pEXUUYQ0LBHDBfSYKPKhbiM5MJXTFIobeFAlUsJsZMRlAuACVCWBqI6fgFl1xSwUYVB2AzE5QGjj7+jYgCeTM9MH14HQPVAXYzD4BJFuQsQU9gLcuK6oAWTy66OmD7ld/YEyG9AQuxCmMqrcH0kvajGGIwgE0OWYxsB2y/8pthe/QBBk8dVhRLo6MhCQkECMlR5ABPqAEwh2AzGJ8cVaKAkKHEWojTATFo8UlrAAstlkFTDhzsER+Q6piJYYABEyEFoDoCVk9QQ4ykXFAFDqYDDG35QigGIedxkByx6kh2QBtUE8wCXIYRq45kB5BiECnqkAELjEEorqgPBmt7wDI6G96ATDf9SRXLsJkJaw+wwBTtfiwKbpbDGpBbTzxg4NW2p4oD0M2ENMufoTZK47NugQXuvfgE10itZjk2M/98fIbaKKW2pcSayQJjuMq+xpCExRMpVS6xerZ/RHPAdjSNxBhODCCkB5wGSDaVigAAyCe2eBTkd4AAAAAASUVORK5CYII=",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32
+    }
+  ]
+}
