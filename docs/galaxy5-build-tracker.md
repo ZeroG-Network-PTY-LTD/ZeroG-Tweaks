@@ -2,13 +2,13 @@
 
 What is left before players can reach Solvane on a T5 gate, survive the heat, climb the Photium → Astrium → Solvanite ladder, defeat the Dying Star, make the ending choice and build the T6 gate.
 
-- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026.
+- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026; updated for `15200c39` (machines and power) on 6 Oct 2026.
 - **Scope:** Solvane, wasteland slots `g5_p1` to `g5_p6`, the moon slot `g5_moons`, the T6 gate, the endgame gear, the Fusion Reactor, and the ending. Reaching Galaxy 5 in survival depends on the Galaxy 2 to 4 blockers.
 - **Live tracker:** the Galaxy 5 Build Tracker artifact (tick items there).
 - **HTML copy:** [`galaxy5-build-tracker.html`](galaxy5-build-tracker.html), a static snapshot. Download it, or open it from a local clone, to view it in a browser.
 - **Rule:** an item is done only when the code exists. Headless tests are not client approval.
 
-**16 open, 9 done.** Solvane's world is built: terrain, eight ores, Solar Plasma, Gildwood trees and the T6 ring. The endgame isn't. There is no Dying Star, no Solar Shrine and no ending, so the Photium, Astrium and Radiantine templates can't be found and the Heart of Solvane does nothing. Solvane's own mobs are missing too, though their models exist.
+**15 open, 10 done.** Solvane's world is built: terrain, eight ores, Solar Plasma, Gildwood trees and the T6 ring. The endgame isn't. There is no Dying Star, no Solar Shrine and no ending, so the Photium, Astrium and Radiantine templates can't be found and the Heart of Solvane does nothing. Solvane's own mobs are missing too, though their models exist.
 
 ## Open: Blockers
 
@@ -36,9 +36,6 @@ What is left before players can reach Solvane on a T5 gate, survive the heat, cl
 - [ ] **3D worn models for Photium, Radiantine and Solvanite armor** (Gear)
   - Astrium uses a GeckoLib shell. The other three, including the endgame Solvanite set, fall back to vanilla layers.
   - Evidence: item/ZGArmorItem.java IMPLEMENTED set
-- [ ] **Fusion Reactor and the Solar Array on Solvane** (Machines)
-  - A T6 jump costs 50M FE. The design powers it with a Fusion Reactor fed with Fusion Dust or Solar Plasma, and a Solar Array that is huge near Solvane. Both are plain blocks. Astrium is the top casing tier.
-  - Evidence: BlockInit.java: FUSION_REACTOR = ZGOrientedBlock; SOLAR_ARRAY = new Block; ZGProgressionConfig tier6FE = 50,000,000
 - [ ] **Play the Galaxy 5 loop and the ending in a real client** (Polish)
   - Arrive on Solvane, survive the heat and Solar Plasma, climb to Solvanite, beat the Dying Star, make the ending choice and build the T6 gate to a moon. Check gravity (1.3) on screen.
   - Evidence: Docs ledger: headless tests only
@@ -69,6 +66,7 @@ What is left before players can reach Solvane on a T5 gate, survive the heat, cl
 
 ## Done
 
+- [x] **Fusion Reactor and the Solar Array on Solvane** (Machines): A T6 jump costs 50M FE. The design powers it with a Fusion Reactor fed with Fusion Dust or Solar Plasma, and a Solar Array that is huge near Solvane. Both are plain blocks. Astrium is the top casing tier. Evidence: 15200c39: power/PowerBlockEntity.java: Fusion Reactor burns Fusion Dust at 1,000 FE/t for 2,000 ticks (2M FE each, so a 50M T6 jump is about 25 dust); Solar Array x8 on Solvane; Astrium casing tier
 - [x] **Solvane dimension** (Worlds): Corona Flats, Sunspot Plateaus and Gildwood Oasis; gravity 1.3. Evidence: dimension/solvane.json; ZGProgressionConfig solvaneGravity
 - [x] **Solvane terrain, plants and decor blocks** (Worlds): Solar Stone, Corona Crust, Sunspot Rock, Slag Glass and Flare Vent are registered and generate. Solflower, Pyrevine, Gildwood trees with a full wood set, Radiant Bricks and the Fusion Lamp. Evidence: registry/BlockInit.java; worldgen flare_vent_scatter, gildwood_trees, patch_solflower, pyrevine
 - [x] **All eight Solvane ores and their mining gates** (Worlds): Coronite, Photium, Astrium, Radiantine, Fusion Dust, Nova Pearl, Solvanite and Dawnstone. Photium needs an Eidolite pick, the others need Photium, and Solvanite needs Astrium. Evidence: tags/block/needs_eidolite_tool, needs_photium_tool, needs_astrium_tool

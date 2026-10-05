@@ -2,7 +2,7 @@
 
 What is left before players can reach Skarn on a T3 gate, climb the Ruskite → Tectium → Skarnite ladder, beat the Rift Tyrant, explore the six wasteland slots and build the T4 gate.
 
-- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026.
+- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026; updated for `15200c39` (machines and power) on 6 Oct 2026.
 - **Scope:** Skarn, wasteland slots `g3_p1` to `g3_p6`, the moon slot `g3_moons`, the T4 gate, and the Galaxy 3 gear. Galaxy 3 can only be reached once the Galaxy 2 blockers are fixed.
 - **Live tracker:** the Galaxy 3 Build Tracker artifact (tick items there).
 - **HTML copy:** [`galaxy3-build-tracker.html`](galaxy3-build-tracker.html), a static snapshot. Download it, or open it from a local clone, to view it in a browser.

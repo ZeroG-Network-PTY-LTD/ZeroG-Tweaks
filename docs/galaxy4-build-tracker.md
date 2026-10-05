@@ -2,13 +2,13 @@
 
 What is left before players can reach Eidolon on a T4 gate, salvage the wrecks, climb the Salvium → Wraithsteel → Eidolite ladder, settle with the Eidolon Captain and build the T5 gate.
 
-- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026.
+- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026; updated for `15200c39` (machines and power) on 6 Oct 2026.
 - **Scope:** Eidolon, wasteland slots `g4_p1` to `g4_p6`, the moon slot `g4_moons`, the T5 gate, and the Galaxy 4 gear. Reaching Galaxy 4 in survival depends on the Galaxy 2 and 3 blockers.
 - **Live tracker:** the Galaxy 4 Build Tracker artifact (tick items there).
 - **HTML copy:** [`galaxy4-build-tracker.html`](galaxy4-build-tracker.html), a static snapshot. Download it, or open it from a local clone, to view it in a browser.
 - **Rule:** an item is done only when the code exists. Headless tests are not client approval.
 
-**15 open, 10 done.** Eidolon's frozen landscape is built: terrain, eight ores, Cryo Fluid, Hoarwood trees and the Frost Yak. The derelict fleet the planet is about is not. No wrecks generate, the wreck blocks do nothing, and the Eidolon Captain doesn't exist, so the Salvium, Wraithsteel and Palladine templates can't be found and the gear ladder stops at Skarnite.
+**14 open, 11 done.** Eidolon's frozen landscape is built: terrain, eight ores, Cryo Fluid, Hoarwood trees and the Frost Yak. The derelict fleet the planet is about is not. No wrecks generate, the wreck blocks do nothing, and the Eidolon Captain doesn't exist, so the Salvium, Wraithsteel and Palladine templates can't be found and the gear ladder stops at Skarnite.
 
 ## Open: Blockers
 
@@ -54,9 +54,6 @@ What is left before players can reach Eidolon on a T4 gate, salvage the wrecks, 
 - [ ] **Codex pages for Act IV (The Frozen Fleet)** (Progression)
   - Add Eidolon arrival pages, Remnant Shard fragments and the Captain's final log.
   - Evidence: item/ConcordCodexItem.java has no Eidolon pages
-- [ ] **Salvage Station for wreck blocks, Wraithsteel casings and the Solar Array on Eidolon** (Machines)
-  - Once the machines exist: the Salvage Station breaks wreck blocks into Salvium and lore items, Wraithsteel is the third casing tier, Cryo Fluid is the machine coolant, and the Solar Array is weak here.
-  - Evidence: Design doc: Machines; BlockInit SALVAGE_STATION = ZGOrientedBlock
 - [ ] **Galaxy 4 wasteland content (shared with Galaxy 2)** (Wastelands)
   - g4_p1 to g4_p6 reuse the shared wasteland biomes, so the Galaxy 2 wasteland tasks cover them. Default order here: barren, ocean, desert, volcanic, frozen, toxic; moons barren.
   - Evidence: dimension/g4_*.json; data-manifest galaxy_slots_default_type
@@ -66,6 +63,7 @@ What is left before players can reach Eidolon on a T4 gate, salvage the wrecks, 
 
 ## Done
 
+- [x] **Salvage Station for wreck blocks, Wraithsteel casings and the Solar Array on Eidolon** (Machines): Once the machines exist: the Salvage Station breaks wreck blocks into Salvium and lore items, Wraithsteel is the third casing tier, Cryo Fluid is the machine coolant, and the Solar Array is weak here. Evidence: 15200c39: Salvage Station recipes for Broken Console, Corroded Hull and Cryo Pod; wraithsteel_casing tier; Solar Array x0.25 on Eidolon
 - [x] **Eidolon dimension** (Worlds): Frozen Graveyard, Phantom Ice Sheets and Hoarwood Taiga, with Permafrost, Frozen Regolith and Phantom Ice in the surface rules; gravity 0.8. Evidence: dimension/eidolon.json; worldgen/noise_settings/planet/eidolon.json; ZGProgressionConfig eidolonGravity
 - [x] **Eidolon terrain, plants and decor blocks** (Worlds): Permafrost, Frozen Regolith, Phantom Ice, Hull Plating, Corroded Hull, Broken Console and Cryo Pod are registered. Frostfern, Ghostbloom (Invisibility stew effect), Hoarwood trees with a full wood set, and the Spectral Lantern. Evidence: registry/BlockInit.java; worldgen hoarwood_trees, patch_frostfern, patch_ghostbloom, phantom_ice_scatter
 - [x] **All eight Eidolon ores and their mining gates** (Worlds): Cryocite, Salvium, Wraithsteel, Palladine, Spectral Dust, Remnant Shard, Eidolite and Rimeglass. Salvium needs a Skarnite pick, the others need Salvium, and Eidolite needs Wraithsteel. Cryocite is a fuel. Evidence: tags/block/needs_skarnite_tool, needs_salvium_tool, needs_wraithsteel_tool; data_maps furnace_fuels; CombustionBlockEntity cryocite

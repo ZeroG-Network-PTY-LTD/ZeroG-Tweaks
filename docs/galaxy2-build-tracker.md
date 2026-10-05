@@ -2,13 +2,13 @@
 
 What is left before players can reach Cerulon on a T2 gate, climb the Cobaltium → Cyrrium → Cerulite ladder, beat the Prism Sentinel, explore the six wasteland slots and build the T3 gate.
 
-- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026.
+- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026; updated for `15200c39` (machines and power) on 6 Oct 2026.
 - **Scope:** Cerulon, wasteland slots `g2_p1` to `g2_p6`, the moon slot `g2_moons`, the T3 gate, and the Galaxy 2 gear and machines.
 - **Live tracker:** the Galaxy 2 Build Tracker artifact (tick items there).
 - **HTML copy:** [`galaxy2-build-tracker.html`](galaxy2-build-tracker.html), a static snapshot. Download it, or open it from a local clone, to view it in a browser.
 - **Rule:** an item is done only when the code exists. Headless tests are not client approval.
 
-**19 open, 13 done.** Cerulon itself is mostly built: dimension, ores, geodes, Liquid Starlight, mobs and the Prism Sentinel. The progression is not. The Cobaltium, Cyrrium and Aurelion templates can't be found, so players can't climb the ladder, and the Sentinel's key doesn't unlock anything. The wasteland slots generate, but their structures, signature mobs and rewards are missing.
+**18 open, 14 done.** Cerulon itself is mostly built: dimension, ores, geodes, Liquid Starlight, mobs and the Prism Sentinel. The progression is not. The Cobaltium, Cyrrium and Aurelion templates can't be found, so players can't climb the ladder, and the Sentinel's key doesn't unlock anything. The wasteland slots generate, but their structures, signature mobs and rewards are missing.
 
 ## Open: Blockers
 
@@ -22,7 +22,7 @@ What is left before players can reach Cerulon on a T2 gate, climb the Cobaltium 
 ## Open: High
 
 - [ ] **Build the seven wasteland structures** (Wastelands)
-  - Sunken Relay (ocean), Buried Observatory (desert), Collapsed Forge (volcanic), Frozen Outpost (frozen), Sunken Lab (toxic), Prism Spire (crystal) and Impact Site (barren). Their loot tables already exist and hold the wasteland rewards (Abyssal Pearl, Heatproof Plating, Neutralizer, Cryo Core, Star Map Fragments, Refracting Lens) plus the Galaxy 2 and 3 templates. Without them, most rewards can't be found. Reuse DryLandJigsawStructure, which the crash site already uses.
+  - Sunken Relay (ocean), Buried Observatory (desert), Collapsed Forge (volcanic), Frozen Outpost (frozen), Sunken Lab (toxic), Prism Spire (crystal) and Impact Site (barren). Their loot tables already exist and hold the Galaxy 2 and 3 templates and Star Map Fragments. Since 15200c39, Abyssal Pearl, Heatproof Plating, Neutralizer and Cryo Core can also be made in the Alloy Forge, so the structures are no longer their only source. Reuse DryLandJigsawStructure, which the crash site already uses.
   - Evidence: loot_table/chests/{sunken_relay,buried_observatory,collapsed_forge,frozen_outpost,sunken_lab,prism_spire,impact_site}.json exist; worldgen/structure has only concord_vault, prism_sentinel_arena and the two Mars structures
 - [ ] **Register the wasteland signature mobs** (Mobs)
   - Ash Strider (volcanic), Rime Stalker (frozen), Bog Lurker (toxic), Amethyst Stalker (crystal) and Crater Drifter (barren) aren't registered. All except the Amethyst Stalker already have GeckoLib models and animations in the repo; the Amethyst Stalker comes from the Shattered Skies library. Tidewraith is registered but never spawns naturally on ocean worlds. Volcanic and toxic slots spawn Rust Beetle as a placeholder. Several of these mobs drop wasteland rewards: Rime Stalker drops the Cryo Core, Bog Lurker the Neutralizer, Ash Strider the Heatproof Plating.
@@ -33,9 +33,6 @@ What is left before players can reach Cerulon on a T2 gate, climb the Cobaltium 
 - [ ] **Seeded galaxy and catalog names on the star chart** (Worlds)
   - The g2_p1 to g2_p6 slot types are fixed (ocean, desert, volcanic, frozen, toxic, crystal; moons barren), not rolled from the world seed. The star chart shows raw ids like "g2 p1" instead of catalog names such as ZG-855 d "Vorrhex".
   - Evidence: dimension/g2_p*.json fixed biome lists; ZGDimensionTerrain.java: 'independent of the future seeded galaxy generator'; client/SurvivalGateScreen.java uses the id as the button label
-- [ ] **Working Alloy Forge, Crystal Growth Chamber and Salvage Station** (Machines)
-  - These are plain blocks. Add block entities, menus and FE, register the alloying, crystal_growth and salvaging recipe types, and move the pending recipe JSONs in. Liquid Starlight is meant to feed the Crystal Growth Chamber. Cyrrium casings should set speed and efficiency.
-  - Evidence: BlockInit.java: ALLOY_FORGE, CRYSTAL_GROWTH_CHAMBER, SALVAGE_STATION = ZGOrientedBlock; Design pending-data/recipe/{alloying,crystal_growth,salvaging}
 - [ ] **Cyrrium, Aurelion and Cerulite set bonuses and Cerulite tool perks** (Gear)
   - Only Cobaltium (Quick Hands) is done. Missing: Cyrrium Tempered (+20% durability), Aurelion Silver Tongue (better alien trader prices), Cerulite Crystal Sight (night vision, nearby ores glow), plus the Cerulite tool perks Ore Sense and Crystal Edge.
   - Evidence: item/ZGArmorSetBonuses.java has no cyrrium, aurelion or cerulite case
@@ -78,6 +75,7 @@ What is left before players can reach Cerulon on a T2 gate, climb the Cobaltium 
 
 ## Done
 
+- [x] **Working Alloy Forge, Crystal Growth Chamber and Salvage Station** (Machines): These are plain blocks. Add block entities, menus and FE, register the alloying, crystal_growth and salvaging recipe types, and move the pending recipe JSONs in. Liquid Starlight is meant to feed the Crystal Growth Chamber. Cyrrium casings should set speed and efficiency. Evidence: 15200c39: machine/ProcessingBlockEntity, ProcessingRecipe, ProcessingRegistry: Alloy Forge, Crystal Growth Chamber and Salvage Station with refining, alloying, crystal_growth and salvaging recipes; casing tiers Cyrrium to Astrium plus a Cryo Core slot
 - [x] **Cerulon dimension with nine biomes** (Worlds): Azure Plains, Cerulean Peaks, Concord Quarries, Crystal Shores, Geode Depths, Glimmer Sea, Shardwood Grove, Starbloom Meadow and Starlight Caverns; gravity 0.9. Evidence: dimension/cerulon.json; ZGProgressionConfig cerulonGravity
 - [x] **Cerulon terrain, plants and decor** (Worlds): Cerulean Stone, Crystal Sand, Azure Moss, Starbloom (light blue dye), Shardwood trees and wood set, Pulsar Lamp, Crystal Glass. Evidence: registry/BlockInit.java; recipe/light_blue_dye_from_starbloom.json
 - [x] **All eight Cerulon ores and their mining gates** (Worlds): Nebulite (a fuel), Cobaltium, Cyrrium, Aurelion, Pulsar Dust, Starlite, Cerulite and Lumenite. Cobaltium needs an Olympium pick and Cerulite a Cyrrium pick. Evidence: worldgen/configured_feature/ore_*.json; tags/block/needs_olympium_tool, needs_cyrrium_tool; data_maps furnace_fuels has nebulite

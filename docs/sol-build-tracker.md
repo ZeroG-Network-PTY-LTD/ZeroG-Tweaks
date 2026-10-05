@@ -2,11 +2,13 @@
 
 What is left before players can play the Overworld prologue, build the T1 gate and explore the Moon and Mars.
 
-- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026 (previous audit: `49561f7`, 4 Oct).
-- **Live tracker:** the Sol Build Tracker artifact (tick items there). **HTML copy:** [`sol-build-tracker.html`](sol-build-tracker.html), the same page as a static snapshot. Download it, or open it from a local clone, to view it in a browser.
-- **Rule:** an item is done only when the code exists. Headless server tests are not client approval. Items that need an in-game look stay open until someone plays them.
+- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026; updated for `15200c39` (machines and power) on 6 Oct 2026.
+- **Scope:** The Overworld prologue, the Moon, Mars, the T1 and T2 gates, and Sol-era power and gear.
+- **Live tracker:** the Sol Build Tracker artifact (tick items there).
+- **HTML copy:** [`sol-build-tracker.html`](sol-build-tracker.html), a static snapshot. Download it, or open it from a local clone, to view it in a browser.
+- **Rule:** an item is done only when the code exists. Headless tests are not client approval.
 
-**8 open, 29 done.** All five blockers and all eight high items from the first audit are now in the code. The biggest gap is a real playthrough in a client.
+**6 open, 31 done.** Every Sol blocker and high item from the first audit is in the code, and the Solar Array and moving pipe contents landed in `15200c39`. What's left is mostly polish, plus the biggest gap: nobody has played the Sol loop in a real client yet.
 
 ## Open: High
 
@@ -28,47 +30,43 @@ What is left before players can play the Overworld prologue, build the T1 gate a
 - [ ] **Give Lunar Highlands its own mob spawns** (Mobs)
   - Regolith Crawler and Moon Hopper only spawn in Lunar Mare and Shadowed Craters, so the Highlands has no Moon mobs. Add one or both there (or a highlands variant).
   - Evidence: neoforge/biome_modifier/sol_regolith_crawler.json, sol_moon_hopper.json
-- [ ] **Working Solar Array (strong on the Moon)** (Power)
-  - The Combustion Generator is the only working Sol power. The Solar Array is still a plain block. Give it a block entity with daylight output scaled per dimension (no atmosphere on the Moon, so it is a good Sol reward; weak on Eidolon, huge on Solvane).
-  - Evidence: registry/BlockInit.java: SOLAR_ARRAY = new Block(props(...)); AGENTS.md M4 unticked
 - [ ] **Cinder Mite adds for the Ironfall Meteor Maw** (Mobs)
   - The Ironfall fight is designed to spawn Cinder Mites, but no Cinder Mite entity exists, so the adds are skipped. Needs a model sheet, entity and a hook in MeteorMaw.
   - Evidence: Docs ledger, Known limits; entity/MeteorMaw.java
-- [ ] **Show items and fluids moving in transport lines** (Systems)
-  - Transport works on the server (six tiers, filters, Null Links), but nothing is drawn moving inside the lines. Add a client renderer, using the Design transport previews.
-  - Evidence: Docs ledger, Known limits; transport/TransportBlockEntity.java has no renderer
 
 ## Done
 
-- [x] **Player-built T1 gate multiblock** (Gate & travel): travel/SurvivalGateLayout.java (tiers 1–6, 5x5 Nullifite ring, 3x3 pad, pylons, port, controller); SurvivalGateBlockEntity.preview() shows the next tier as END_ROD particles; formed tier is re-checked live, so a broken part drops the tier
-- [x] **Gate Controller block entity, menu and star chart** (Gate & travel): travel/SurvivalGateBlockEntity.java + SurvivalGateMenu + client/SurvivalGateScreen: owner lock, FE buffer (2x tier cost), star chart filtered by tier, 4 upgrade slots; costs from config/ZGProgressionConfig.java (500k/1M/3M/8M/20M/50M)
-- [x] **Landing platform on first arrival, and the trip home** (Gate & travel): SurvivalGateBlockEntity: first survival arrival builds a return platform with a crystal_cell (+1,000 FE trickle) routed to the home controller
-- [x] **Mars Crash Site structure** (Progression): worldgen/structure/mars_crash_site.json + structure_set; structure/mars_crash_site/wreck_a.nbt and wreck_b.nbt chests use chests/mars_crash_site
-- [x] **A Sol-era way to make 500k FE** (Power): machine/CombustionBlockEntity.java burns coal/charcoal (1,600 ticks) at 50 FE/t, about 80k FE per coal, so a T1 jump is roughly 6–7 coal
-- [x] **Planet gravity (Moon 0.5, Mars 0.7)** (Worlds): event/PlanetGravity.java; values in ZGProgressionConfig (Moon 0.5, Mars 0.7, configurable); cleared on return
-- [x] **Register Regolith Crawler and Moon Hopper** (Mobs): entity/RegolithCrawler.java, MoonHopper.java; biome_modifier/sol_regolith_crawler.json and sol_moon_hopper.json (Lunar Mare and Shadowed Craters)
-- [x] **Register Dust Grazer on Mars** (Mobs): entity/DustGrazer.java; biome_modifier/sol_dust_grazer.json (Rust Plains, Oxide Badlands, Polar Caps)
-- [x] **Meteor Maw (Ironfall) during Moon meteor events** (Mobs): entity/MeteorMaw.java (Ironfall, leap/slam and heat pulse), spawned by event/DailyPlanetImpacts.java; built into ZeroG Tweaks instead of the Shattered Skies library. Its Cinder Mite adds are a separate open task.
-- [x] **Olympium 3D armor and Dust Shield set bonus** (Gear): Olympium GeckoLib shell; ZGArmorSetBonuses.dustProtected() hides Mars dust and vortex effects. Dust storms are visual only today, so the bonus is visual only too.
-- [x] **Polar Frost hazard** (Worlds): worldgen/PolarFrostBlock.java: Slowness while standing on it, no damage or freezing (matches the agreed non-damaging rule)
-- [x] **Recall Anchor item** (Gate & travel): item/RecallAnchorItem.java, registered in travel/SurvivalGates.java with Group Anchor; recipes recall_anchor.json, group_anchor.json; cooldown in config
-- [x] **Null Fluid pools in the Overworld Deep Dark** (Worlds): neoforge/biome_modifier/deep_dark_null_fluid.json (pools with deepslate lining)
-- [x] **Give each Moon and Mars biome its own features** (Worlds): worldgen/SolBiomeSignatureFeature.java, added to all six Moon and Mars biomes
-- [x] **Lunari and Rustborn signature professions** (Villagers): registry/ZGSolTrades.java: regolith_refiner (Ore Refinery) and rust_mechanic (Combustion Generator) POIs, professions and trades; SettlementAnchorBlockEntity places both job sites
-- [x] **Aresite core shrine in Rustborn villages** (Progression): worldgen/structure/mars_aresite_shrine.json + structure/mars_aresite_shrine/shrine.nbt
-- [x] **T2 gate upgrade (leave Sol)** (Gate & travel): SurvivalGateLayout tier 2: Moonsteel ring, arch, lens housing, Selenite and Aresite blocks; canReach() opens Galaxy 2 at T2
-- [x] **Main config file** (Systems): config/ZGProgressionConfig.java (COMMON): oreRarityMultiplier (used by ConfiguredPlanetOreFeature), tier FE costs, six gravity values, recall cooldown
-- [x] **Codex pages for the Moon and Mars** (Progression): item/ConcordCodexItem.java: zerog_codex_moon and zerog_codex_mars pages unlock on arrival
-- [x] **Update the AGENTS.md milestone checkboxes** (Polish): AGENTS.md M0–M3 ticked in 01ec5d9f; set bonuses, armor upgrades, hazards and Solar Array are correctly still open
-- [x] **Signal prologue: Courier pod, Dormant Wisp, Codex** (Progression): lore/ConcordPrologue.java, structure/concord_courier.nbt
-- [x] **Nullifite ore in deepslate and the Deep Dark** (Worlds): neoforge/biome_modifier/add_nullifite_ore*.json
-- [x] **Sol tool tiers and mining ladder** (Gear): registry/ZGToolTiers.java, ItemInit.java, tags/block/needs_*
-- [x] **Nullifite, Ferrox and Moonsteel armor with set bonuses** (Gear): item/ZGArmorItem.java, ZGArmorSetBonuses.java
-- [x] **Moon and Mars dimensions with ores and surfaces** (Worlds): dimension/moon.json, mars.json; worldgen/noise_settings
-- [x] **Lunari and Rustborn villagers in settlements** (Villagers): registry/ZGPlanetVillagers.java; biome_modifier/planet_settlements.json
-- [x] **Rust Beetle on Mars** (Mobs): entity/RustBeetle.java
-- [x] **Upgrade templates and copy recipes** (Progression): registry/ZGUpgradeTemplates.java
-- [x] **Act I Codex advancements** (Progression): advancement/codex/*.json
+- [x] **Player-built T1 gate multiblock** (Gate & travel): 5x5 Nullifite frame, 3x3 pad, 4 short pylons, 1 energy port and the controller, with formation check and ghost preview of the next tier. Right now the only gate is an admin-built T6 test layout, so survival players cannot leave the Overworld. Evidence: travel/SurvivalGateLayout.java (tiers 1–6, 5x5 Nullifite ring, 3x3 pad, pylons, port, controller); SurvivalGateBlockEntity.preview() shows the next tier as END_ROD particles; formed tier is re-checked live, so a broken part drops the tier
+- [x] **Gate Controller block entity, menu and star chart** (Gate & travel): FE buffer, star-chart screen that lists only what the tier reaches (T1: Moon and Mars by catalog name), upgrade slot. Per-tier costs from the design: T1 500k FE, 25% inside a galaxy, +10% per passenger. The ledger uses a flat 50M FE cost and capacity for every jump. Evidence: travel/SurvivalGateBlockEntity.java + SurvivalGateMenu + client/SurvivalGateScreen: owner lock, FE buffer (2x tier cost), star chart filtered by tier, 4 upgrade slots; costs from config/ZGProgressionConfig.java (500k/1M/3M/8M/20M/50M)
+- [x] **Landing platform on first arrival, and the trip home** (Gate & travel): Generate landing_platform + crystal_cell the first time a player arrives on a planet; it charges slowly and sends everyone on it home. Today platforms are only built by the test hub. Evidence: SurvivalGateBlockEntity: first survival arrival builds a return platform with a crystal_cell (+1,000 FE trickle) routed to the home controller
+- [x] **Mars Crash Site structure** (Progression): The Ferrox, Moonsteel and Olympium upgrade templates only drop from the Mars Crash Site chest, and the structure does not exist, so Sol gear progression stops after Nullifite. Build the jigsaw structure on Mars and point its chests at chests/mars_crash_site. Evidence: worldgen/structure/mars_crash_site.json + structure_set; structure/mars_crash_site/wreck_a.nbt and wreck_b.nbt chests use chests/mars_crash_site
+- [x] **A Sol-era way to make 500k FE** (Power): The T1 jump needs FE, but the Combustion Generator is a plain block with no block entity, and the design's fuels start in Galaxy 2. Either make the Combustion Generator burn coal and charcoal in the Overworld, or decide the pack relies on other mods' generators and say so. Evidence: machine/CombustionBlockEntity.java burns coal/charcoal (1,600 ticks) at 50 FE/t, about 80k FE per coal, so a T1 jump is roughly 6–7 coal
+- [x] **Planet gravity (Moon 0.5, Mars 0.7)** (Worlds): Set the generic.gravity attribute modifier on dimension change from data-manifest planets.<id>.gravity, and clear it on the way home. No gravity code exists yet. Evidence: event/PlanetGravity.java; values in ZGProgressionConfig (Moon 0.5, Mars 0.7, configurable); cleared on return
+- [x] **Register Regolith Crawler and Moon Hopper** (Mobs): The Moon's threat and ambient mob. Models, textures and animations are in the repo; the entity types are not registered. Then replace the Dune Burrower placeholder in the Moon spawn list. Evidence: entity/RegolithCrawler.java, MoonHopper.java; biome_modifier/sol_regolith_crawler.json and sol_moon_hopper.json (Lunar Mare and Shadowed Craters)
+- [x] **Register Dust Grazer on Mars** (Mobs): Mars's passive mob (Rust Beetle is already done). Model is in the repo; add the entity, AI and spawns in Rust Plains and Oxide Badlands. Evidence: entity/DustGrazer.java; biome_modifier/sol_dust_grazer.json (Rust Plains, Oxide Badlands, Polar Caps)
+- [x] **Meteor Maw (Ironfall) during Moon meteor events** (Mobs): Act I has Meteor Maws carrying Concord debris to the Moon. It comes from the Shattered Skies mob library: add that dependency or a biome modifier that references its ids, and hook it to the existing daily impacts. Evidence: entity/MeteorMaw.java (Ironfall, leap/slam and heat pulse), spawned by event/DailyPlanetImpacts.java; built into ZeroG Tweaks instead of the Shattered Skies library. Its Cinder Mite adds are a separate open task.
+- [x] **Olympium 3D armor and Dust Shield set bonus** (Gear): Olympium is the only Sol set without a GeckoLib worn model or its perk (Dust Shield: immune to storm and dust effects). Nullifite, Ferrox and Moonsteel are done. Evidence: Olympium GeckoLib shell; ZGArmorSetBonuses.dustProtected() hides Mars dust and vortex effects. Dust storms are visual only today, so the bonus is visual only too.
+- [x] **Polar Frost hazard** (Worlds): Design: dry-ice caps that slow and chill. It is a plain stone-like block today. Add slowness/freezing like powder snow (no damage), using the polar_frost damage type only for long exposure. Evidence: worldgen/PolarFrostBlock.java: Slowness while standing on it, no damage or freezing (matches the agreed non-damaging rule)
+- [x] **Recall Anchor item** (Gate & travel): Bound to the home gate; pulls the holder home from the home buffer with a cooldown and extra cost. New id. (Group Anchor can wait for a later tier.) Evidence: item/RecallAnchorItem.java, registered in travel/SurvivalGates.java with Group Anchor; recipes recall_anchor.json, group_anchor.json; cooldown in config
+- [x] **Null Fluid pools in the Overworld Deep Dark** (Worlds): The design's early Nullifite hint: small Null Fluid pools near ancient cities. Only the Moon's surface lakes exist. Add a placed feature and a biome modifier for minecraft:deep_dark. Evidence: neoforge/biome_modifier/deep_dark_null_fluid.json (pools with deepslate lining)
+- [x] **Give each Moon and Mars biome its own features** (Worlds): All three Moon biomes share one feature list, and so do all three Mars biomes; only the surface rules differ. Add per-biome features (crater ice pockets in Shadowed Craters, basalt flows on the Mare, frost spires on the Polar Caps, oxide spires in the Badlands). Evidence: worldgen/SolBiomeSignatureFeature.java, added to all six Moon and Mars biomes
+- [x] **Lunari and Rustborn signature professions** (Villagers): Both species spawn in settlements with vanilla professions only. Add Regolith Refiner (job site: Ore Refinery) and Rust Mechanic (job site: Combustion Generator) with the trades from the villager sheets. Evidence: registry/ZGSolTrades.java: regolith_refiner (Ore Refinery) and rust_mechanic (Combustion Generator) POIs, professions and trades; SettlementAnchorBlockEntity places both job sites
+- [x] **Aresite core shrine in Rustborn villages** (Progression): The Mars beat of Act I: a hand-cut Aresite core kept as a shrine, so the Mars advancement has a place to happen. Evidence: worldgen/structure/mars_aresite_shrine.json + structure/mars_aresite_shrine/shrine.nbt
+- [x] **T2 gate upgrade (leave Sol)** (Gate & travel): Moonsteel ring, low arch and Selenite lens on top of the T1 core; unlocks Galaxy 2 on the star chart. Needs the tier logic from the T1 work. Evidence: SurvivalGateLayout tier 2: Moonsteel ring, arch, lens housing, Selenite and Aresite blocks; canReach() opens Galaxy 2 at T2
+- [x] **Main config file** (Systems): ModConfigSpec with the ore rarity multiplier, FE cost per gate tier and gravity overrides. Only weather and ecology configs exist. Evidence: config/ZGProgressionConfig.java (COMMON): oreRarityMultiplier (used by ConfiguredPlanetOreFeature), tier FE costs, six gravity values, recall cooldown
+- [x] **Codex pages for the Moon and Mars** (Progression): The Codex has three prologue pages. Add Act I pages that unlock on arrival (Echo remembers the Moon relay, then the Mars waystation). Evidence: item/ConcordCodexItem.java: zerog_codex_moon and zerog_codex_mars pages unlock on arrival
+- [x] **Update the AGENTS.md milestone checkboxes** (Polish): Several finished items are still unticked (GeckoLib, tool tiers, armor materials, set bonuses), which misleads the next agent. Evidence: AGENTS.md M0–M3 ticked in 01ec5d9f; set bonuses, armor upgrades, hazards and Solar Array are correctly still open
+- [x] **Working Solar Array (strong on the Moon)** (Power): The Combustion Generator is the only working Sol power. The Solar Array is still a plain block. Give it a block entity with daylight output scaled per dimension (no atmosphere on the Moon, so it is a good Sol reward; weak on Eidolon, huge on Solvane). Evidence: 15200c39: power/PowerBlockEntity.java + PowerConfig: 20 FE/t base in daylight, x2 on the Moon, x0.25 on Eidolon, x8 on Solvane, x0.25 in rain
+- [x] **Show items and fluids moving in transport lines** (Systems): Transport works on the server (six tiers, filters, Null Links), but nothing is drawn moving inside the lines. Add a client renderer, using the Design transport previews. Evidence: 15200c39: client/TransportMotionRenderer.java + transport/TransportMotion.java draw content moving along real routes; on-screen check is part of the client playtest
+- [x] **Signal prologue: Courier pod, Dormant Wisp, Codex** (Progression): First Raw Nullifite triggers the Courier; its chest holds the Dormant Wisp and Concord Codex; backup Wisp in loot. Evidence: lore/ConcordPrologue.java, structure/concord_courier.nbt
+- [x] **Nullifite ore in deepslate and the Deep Dark** (Worlds): Biome modifiers add the ore, with extra in the Deep Dark. Evidence: neoforge/biome_modifier/add_nullifite_ore*.json
+- [x] **Sol tool tiers and mining ladder** (Gear): Nullifite, Ferrox, Moonsteel and Olympium tiers; real sword/pickaxe/axe/shovel/hoe classes; needs_ and incorrect_for_ tags. Evidence: registry/ZGToolTiers.java, ItemInit.java, tags/block/needs_*
+- [x] **Nullifite, Ferrox and Moonsteel armor with set bonuses** (Gear): GeckoLib worn models and perks (Null Step, Sturdy, Lunar Stride). Evidence: item/ZGArmorItem.java, ZGArmorSetBonuses.java
+- [x] **Moon and Mars dimensions with ores and surfaces** (Worlds): Three biomes each, planet ores, lichen, Moon Null Fluid lakes, surface blocks via noise rules. Evidence: dimension/moon.json, mars.json; worldgen/noise_settings
+- [x] **Lunari and Rustborn villagers in settlements** (Villagers): Species registered with renderers; settlements placed on Moon and Mars biomes. Evidence: registry/ZGPlanetVillagers.java; biome_modifier/planet_settlements.json
+- [x] **Rust Beetle on Mars** (Mobs): Registered with AI and spawns. Evidence: entity/RustBeetle.java
+- [x] **Upgrade templates and copy recipes** (Progression): Template items and duplication recipes exist (but see the Mars Crash Site blocker). Evidence: registry/ZGUpgradeTemplates.java
+- [x] **Act I Codex advancements** (Progression): Root, Falling Star, Builder's Template, First Gate, The Moon, Mars, Aresite Core, Null Step. Evidence: advancement/codex/*.json
 
 ## Not Sol (left for later galaxies)
 
