@@ -1,10 +1,10 @@
 # ZeroG Tweaks
 
-## Current same-version extension: planetary storage and machine corrections
+## Current same-version extension: faceted armour and machine visual corrections
 
 [Full workflow and field guide](docs/storage-and-machinery-workflow.md) ·
 [Remaining tasks](docs/storage-and-machinery-todo.json) ·
-[Installed build and verification receipt](docs/storage-machinery-delivery-2026-10-05.json) ·
+[Latest build and verification receipt](docs/storage-machinery-art-fix-2026-10-05.json) ·
 [Original native gallery](docs/images/storage-joinery-v1/README.md)
 
 Four wood families gain panel doors, lattice trapdoors and independently expandable
@@ -12,6 +12,21 @@ chests/barrels. Six fluid-tank tiers hold 5,000–5,000,000 mB with buckets, sid
 and conserved upgrades. Crops survive sunless farmland and grow slowly; new village
 doors match the planet's wood. Machine corrections and vanilla-proportioned worn
 armour take priority over adding more machine types. The 1.0.12-dev version is retained.
+The newest worn-art pass paints all 40 vanilla-fit layers at native 128×64:
+faceted plates, beveled highlights and cyan/violet energy accents from the approved
+equipment reference. Face openings and visible hands stay intact. Tanks render
+their real stored fluid and wooden chest lids animate; client visual approval is
+still pending. Transport screens separate actual item buffers from take-only old
+item recovery; unused legacy machine inputs are rejected without losing contents.
+**56 isolated checks passed** for this extension: 50 workflow, four genetics and
+two optional-addon-absent checks. The receipt records source/JAR validation
+separately from pending in-game visual approval.
+
+![Actual exported armour front UV fitting study—not a game screenshot](docs/images/full-art-rollout-v4/worn-front-fit-preview.png)
+
+[Download latest same-version art/visual fix](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-artfix-20261005.jar) ·
+[Previous storage delivery evidence](docs/storage-machinery-delivery-2026-10-05.json)
+
 No Mekanism code or artwork is redistributed, and no additional machine dependency
 is introduced. Historical images/guides below are preserved, not deleted.
 
@@ -93,7 +108,7 @@ is still needed. Existing galleries, IDs and played saves remain intact.
 
 ![Native terminal artwork; source preview, not an in-game capture](docs/images/art-controller-1.0.12/controller-terminals-preview.png)
 
-[Download current same-version hotfix](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev.jar) ·
+[Earlier same-version hotfix (preserved)](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev.jar) ·
 [Checksums](docs/jars/SHA256SUMS.txt) ·
 [GUI design sources](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design/docs/alveary-controller-gui-v1).
 

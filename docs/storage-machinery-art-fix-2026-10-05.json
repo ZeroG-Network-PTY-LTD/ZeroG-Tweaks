@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-05T02:32:11.077292+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev-artfix-20261005.jar",
+  "sha256": "b5580da708c2f9b46f5e442adb20debae32b1a1cbb3b892e187b634d444914fb",
+  "bytes": 25137630,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261005-023109-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": false,
+  "world_regeneration": false,
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261005_021818_runWorkflowTests.log",
+      "sha256": "d69b850aa92394b234f724dc3af73f95dc0ba89056ed46edc8f1753c4b7a41e9",
+      "required_passes": 50,
+      "client_visual_approval": false
+    },
+    {
+      "log": "20261005_022039_runGeneticsTests.log",
+      "sha256": "3898fb475d23b556137957859c8715167dd4aa30b8c586a1afd7659655204930",
+      "required_passes": 4,
+      "client_visual_approval": false
+    },
+    {
+      "log": "20261005_022439_runWorkflowTests.log",
+      "sha256": "0973d0165b4477c3064f69ce9f05746239c5aa9fa645e83b30a907ddaea3caab",
+      "required_passes": 2,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "artfix-native-asset-audit.json",
+      "sha256": "963dde6e760a1f4da5846b4dbd40c1cf66095a6ba3c96e7cd561813578d26363",
+      "checked": {
+        "models": 7933,
+        "blockstates": 1520,
+        "pngs": 3893,
+        "animation_metadata": 96,
+        "source_byte_bindings": 3828
+      },
+      "errors": 0
+    },
+    {
+      "report": "artfix-storage-asset-audit.json",
+      "sha256": "a3bf26c00504584e201e7ddd2138fb2824e3384236dd89c0acbc4641c08140b4",
+      "checked": {
+        "models": 7933,
+        "blockstates": 1520,
+        "pngs": 3893,
+        "animation_metadata": 96,
+        "source_byte_bindings": 264
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261005_022808_clean.log",
+    "sha256": "42a83214e6cc81351c601b37eb7a7b61f120df9c0fd30c77473359fa89b347e3",
+    "clean_production": true
+  },
+  "remaining": [
+    "vanilla-worn-armor",
+    "orbital-comb-style",
+    "alveary-output-gui",
+    "refinery-controls",
+    "blueprint-interaction",
+    "client-acceptance",
+    "dynamic-tank-fluid-renderer",
+    "chest-lid-animation",
+    "transport-moving-renderer",
+    "existing-machine-purpose-audit",
+    "legacy-addon-machine-dispatch",
+    "transport-family-gui",
+    "per-machine-upgrade-contracts",
+    "advanced-alveary-biology",
+    "external-claim-team-adapters",
+    "frost-yak-grazing",
+    "remaining-mob-model-mechanics",
+    "solar-fusion-balance"
+  ],
+  "guide": "storage-and-machinery-workflow.md",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 16,
+  "todo_sha256": "4419567504c4fcf683814dc0e8b17d6a77ca4f62aa3b1f716ac1fa1a03fe3aef",
+  "regression_red": {
+    "log": "20261005_020259_runWorkflowTests.log",
+    "sha256": "09a0b0fc7f4298e1ce5bbc8f31783287cd15c6f483bf3dd0ec8d2dc2dd2927e4",
+    "observed_failures": [
+      "unused legacy machine insertion",
+      "non-item transport incidental storage"
+    ],
+    "centrifuge_dispatch_suspicion_disproved": true
+  }
+}

@@ -1,93 +1,120 @@
-# Native artwork gallery — approved A/C rollout
+# Approved A/C native asset rollout v4
 
-These sheets display the actual exported runtime PNG pixels, at native inventory
-size and enlarged with nearest-neighbour sampling. **They are asset previews, not
-Minecraft client captures or a claim of in-game visual approval.** The illustrated
-item silhouettes are not new registry entries. Equipment uses C magitech accents;
-vegetation combines A natural shading with selective C luminous buds and fruit.
+This source batch applies the approved equipment reference to existing registry
+IDs. Equipment uses C metal bevels, layered armour plates, dark-hued outlines,
+violet crystal channels and pale specular edges. Botanical artwork uses A leaf
+volume with C restricted to buds, fruit and selected luminous features.
 
-The reviewed batch covers 1,123 unique PNGs, including 180 equipment sprites, 20 historical
-armour atlases, 40 vanilla-compatible armour sheets, 17 dusts, 22 ingots and 22 raw
-materials and 120 shared native 32px armour-trim overlays. Botanical coverage includes four wood/leaf families, distinct crop
-growth anatomy, older cereal stages, ground gourd vines, cave/wall vines and six
-planetary kelp families. Transport previews retain their verified 16px UV budget;
-they are not upscaled art advertised as HD.
+Run `python3 docs/full-art-rollout-v4/generate.py --code PATH_TO_1.21.x` **last**
+after older source generators. This renderer is the final authoritative overlay:
+running only an older generator is not the approved rollout. The named earlier
+native drawing functions are loaded without executing their Java, recipe, lang or
+model writers; their source hashes are recorded in `manifest.json`.
 
-The remaining 2,528 runtime PNGs are explicitly retained, not claimed re-authored.
-They include entity art, fluids, GUI components, building blocks and previously
-approved or vanilla-inherited resources. Soil/farmland retain coherent dirt
-textures without ore or gemstone decoration; wet soil remains distinct.
+## Contracts preserved
 
-## Equipment and materials
+- Twenty existing equipment-family IDs; native 32px inventory sprites.
+- All twenty worn armour sets use vanilla Netherite-shaped humanoid geometry.
+  Their 40 native 128×64 sheets preserve the normalized 1.21.1 Netherite alpha/UV coverage;
+  original material colours and magitech surface accents are painted on that
+  layout. The former bulky geo shells are inactive, not additional worn layers.
+  The October 5 faceted pass paints new plates at twice the native density:
+  diagonal metal planes, beveled edges, mirrored breastplate chevrons and recessed
+  cyan/violet sockets. Only the alpha template is expanded; old artwork is not
+  upscaled. Face openings and hand visibility are unchanged. Emissive-looking
+  pixels are shading, not a claim that vanilla armour emits world light.
+  `worn-front-fit-preview.png` maps actual exported front UVs onto a schematic
+  humanoid; it is not a client screenshot or GPU approval.
+- Moonsteel handheld geometry, pivot, position, scale and X-axis half-turn remain
+  unchanged. The actually wielded 64px atlas is painted separately at its twelve
+  fixed material swatches, so the runtime tool does not remain on an old atlas.
+- Dry/wet farmland and dirt retain the previous coherent soil source, with no
+  mineral or crystal decorations added. No ore is added to plant textures.
+- Existing growth-stage model bindings and animation frame counts/timing remain
+  intact. PNG animation changes glistening highlights, not geometric plant sway.
+- Every existing active resource-pack override is updated to the same source
+  bytes. Hash equality is checked by the renderer.
 
-![Equipment, native artwork sheet 1](equipment-native-01.png)
-![Equipment, native artwork sheet 2](equipment-native-02.png)
-![Equipment, native artwork sheet 3](equipment-native-03.png)
-![Equipment and materials, native artwork sheet 4](equipment-native-04.png)
+## Crop anatomy and growth
 
-## Plants, growth stages and environmental vegetation
+The final plant review rejected a shared recoloured fern silhouette. Seven native
+32px anatomical families now have distinct growth sequences: low root rosettes
+(carrots/turnips/onions), thin climbing pea/bean stems with pendant pods, branching
+pepper/okra/tomato bushes with visible hanging fruit, wide leafy cabbage/artichoke
+heads, narrow cereal seedheads, separate asparagus spears, and ground-running
+melon/pumpkin vines. Juvenile foliage precedes pale young fruit and full-colour
+harvest forms; ripe food colours follow the matching inventory sprites. Existing
+age bindings, transparent crossed-plane contracts and harvest IDs are preserved.
+Twenty-four older cereal growth-stage textures and eight gourd stem/attached-stem
+textures are included rather than leaving them on the old template. These painted
+vine silhouettes do not claim new spreading mechanics or a new support/stake item.
 
-Seven crop families have separate silhouettes: low root rosettes, climbing
-pea/bean stems with pendant pods, branching pepper/okra/tomato bushes, wide leafy
-heads, cereal seedheads, asparagus spears and ground-running gourd vines. Visible
-young fruit develops into the matching food-item colour. Growth bindings are
-preserved; a painted vine or stem does not imply an added support-item mechanic.
+Six planetary kelp families include head/body animated textures, matching inventory
+sprites, crossed-plane models, collectible-head loot and dried-kelp cooking data.
+The separate language fragment must be merged by the coordinating code workflow.
 
-![Botanical native artwork sheet 1](environment-native-01.png)
-![Botanical native artwork sheet 2](environment-native-02.png)
-![Botanical native artwork sheet 3](environment-native-03.png)
-![Botanical native artwork sheet 4](environment-native-04.png)
-![Botanical native artwork sheet 5](environment-native-05.png)
-![Botanical native artwork sheet 6](environment-native-06.png)
-![Botanical native artwork sheet 7](environment-native-07.png)
-![Botanical native artwork sheet 8](environment-native-08.png)
+## Transport source boundary
 
-## Transport
+The supplied `docs/transport-next-stage/reference/zerog_transport_assets.zip` is a
+legacy user-supplied Minecraft pack without a canonical Game Development Studio
+package receipt. The required `game-dev` package-admission CLI is unavailable;
+**canonical package vendoring was not performed or claimed**. No loose downloaded
+provider artwork was installed. Instead, the repository's supplied `transport.py`
+project source was retained under `transport-source/`, and reviewed named native
+drawing/model functions generate fresh engine-native resources. The source hash
+and resulting PNG/JSON hashes are recorded.
 
-![Native transport textures, gauges and item sprites](transport-native-01.png)
+Six tier palettes, 4/6/8-unit family widths, transparent glass portions, connection
+mode colours, gauge coordinates and original narrow-pipe 16px UV budget are kept.
+These are verified legacy UV contracts—not upscaled textures advertised as HD.
+Recall/Group Anchor icons are original 32px sources on existing requested IDs.
 
-## Aligned inventory armour trims
+## Evidence and limitations
 
-These sheets show the shared overlay pixels, not stand-alone armour icons. All
-2,400 existing trim item overrides combine the new base sprite with one of 120
-native 32px piece/material overlays. Overlay alpha stays within the corresponding
-helmet/chestplate/leggings/boots silhouette. Material IDs, item predicates and
-worn trim-pattern assets are preserved. No 16px trim template is stretched or
-passed off as native artwork.
+Final consistency pass: 1,123 native PNGs include 120 shared native 32px item-trim
+overlays for four armour pieces and thirty material palettes. All 2,400 existing
+item overrides reference their updated base plus an aligned 32px overlay; trim
+material IDs, predicates and worn pattern assets are unchanged. This avoids both
+vanilla 16px overlays floating across the new silhouettes and 2,400 duplicate
+coloured base sprites. `trim-alignment-audit.json` records each binding.
 
-![Native 32px trim overlay sheet 1](trim-native-01.png)
-![Native 32px trim overlay sheet 2](trim-native-02.png)
+Olympium has a selective same-size worn inlay glowmask plus correct GeckoLib
+`glowsections.sections` metadata using inclusive `x1/y1/x2/y2` bounds and alpha.
+The format was checked against the installed GeckoLib serializer, not invented.
+No custom geo armour shell is active after the user's Netherite-shape correction.
+The twenty historical geo atlases and eleven masks remain archived resources;
+the runtime uses the forty standard humanoid sheets, preserving IDs/stats/trims.
 
-All twenty worn armour sets now use vanilla Netherite-shaped humanoid armour,
-not bulky custom shells. All40 native64×32 layer sheets match vanilla1.21.1
-Netherite alpha coverage exactly. Material palettes, stats, IDs, trims and bonuses
-remain; the historical geo atlases/glowmasks are inactive. Canonical named
-six-tone ramps follow the approved Design style kit; other approved planetary
-palettes retain their identity.
+Twelve planetary/bee honeycomb sprites now form one connected wax cluster with
+shared cell rims, recessed centres and upper-left highlights. The old separate
+flower-like hexagons are replaced. Each retains its bee-family colour and ID.
+The installed orbital addon was inspected: its comb PNGs are white64px tint masks,
+not shaded examples. Minecraft1.21.1 honeycomb topology and Netherite UV coverage
+were inspected read-only; their PNG colours are not copied into the original art.
+`vanilla-netherite-uv-coverage.json` records source hashes and coverage coordinates.
+`honeycombs-native-01.png` and `worn-native-01.png` show actual exported pixels.
 
-![Standard worn-armour UV sheets, no custom shell](worn-native-01.png)
+The incoming approved six-tone source ramps from Design `844a6d44` are recorded in
+the manifest. Named Moonsteel, Nullifite, Solvanite, Cerulite, leaf, glow, wood and
+rock aliases now use exact ramp-index shading; other previously approved planetary
+palettes keep their identities and native forms. Moonsteel's material-cell source
+and runtime remain identical. No grip, blade, pivot or hand-transform changes.
 
-## Connected honeycombs
+`baseline-head-textures.json` is an immutable snapshot of original code HEAD
+`dd5776cbbf160a378f97231544a2c176b03cb156`. Per-file `baseline_sha256` and
+`previous_sha256` mean that pre-work baseline, never the last generator run.
+`baseline_changed_count`/`changed_bytes_count` give the actual baseline delta;
+`rerun_changed_count` separately describes the most recent regeneration.
 
-The twelve previously disconnected hexagon clusters now use vanilla's cohesive
-honeycomb inventory footprint. Native32px original pixels give the wax shared
-rims, shaded recessed cells and directional highlights. Bee-family colours and
-item IDs are preserved. The inspected orbital addon's white64px tint masks do
-not provide shaded examples; no vanilla texture colours were copied.
+`manifest.json` records source/output SHA256, exact coverage, retained texture
+inventory, alpha bounds, atlas face bounds, animation checks and resource layers.
+The `*-native-*.png` contact sheets show real generated runtime PNG pixels at
+inventory size and enlarged with nearest-neighbour sampling. They are **not**
+concept images or in-game captures. Changes still require client visual approval.
 
-![Actual connected honeycomb inventory textures](honeycombs-native-01.png)
-
-## Receipts and editable sources
-
-- [Exact texture coverage, hashes, UV/animation/resource-layer checks](manifest.json)
-- [352 editable two-face sprite-source Blockbench project hashes](blockbench-sprite-source-manifest.json)
-- [Verified vanilla Netherite coverage coordinates and source hashes](vanilla-netherite-uv-coverage.json)
-- [Faithful Ironfall source export receipt](ironfall-export-manifest.json)
-- [All 2,400 inventory trim bindings and alignment](trim-alignment-audit.json)
-- [Immutable original code-HEAD texture hash baseline](baseline-head-textures.json)
-- [Authoritative generator, native sources and limitations on Design](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design/docs/full-art-rollout-v4)
-
-The editable sprite projects are texture sources, not replacements for worn armour
-or held-tool geometry. Moonsteel retains its approved geometry, positions, scales
-and X-axis half-turn; source/runtime atlas and all twenty hand transforms were
-checked. Server/build checks cannot replace a player's client visual inspection.
+This batch does not rewrite entity art, every decorative building block, fluid
+textures, GUI semantics, shader materials, vanilla trim patterns or machine-front
+designs. Their unchanged inventory is explicit. A texture outside this batch is
+not automatically broken: many are already approved source batches or intentional
+vanilla-format inherited artwork. Never describe the entire resource tree as
+re-authored from the texture count alone.

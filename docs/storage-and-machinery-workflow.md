@@ -37,12 +37,20 @@ and recessed cells; source generators and active pack overrides are updated toge
 
 All **80 main armour pieces** now use Minecraft's standard humanoid armour renderer
 and Netherite proportions, not the previous bulky custom Moonsteel/Olympium shells.
-All **40 worn layer textures** use Netherite's exact 64×32 UV/alpha coverage with
-original ZeroG retextures. Material stats, repair ingredients, trims, equipment IDs
+All **40 worn layer textures** now use native 128×64 faceted plate artwork while
+preserving Netherite's normalized UV/alpha coverage. The approved cool/warm C
+direction supplies beveled metallic highlights, shaded planes and recessed
+cyan/violet accents, not flat repeating bands. Material stats, repair ingredients, trims, equipment IDs
 and implemented bonuses remain unchanged. Old shell sources are retained as inactive
 studies, not worn in game. Third-party mod equipment is not secretly overwritten.
 
 ![Corrected worn texture sheets](images/full-art-rollout-v4/worn-native-01.png)
+
+![Actual front UV fitting study, not an in-game screenshot](images/full-art-rollout-v4/worn-front-fit-preview.png)
+
+The fitting study uses the exported textures, not concept artwork. Vanilla armour
+does not emit block light; bright inlays here are painted highlights. Face openings
+and visible hands remain unchanged. Player approval in the client is still pending.
 
 The Alveary audit found a validator that accepted only the addon namespace, rejecting
 otherwise useful ZeroG service blocks, plus a product grid starting in old frame slots.
@@ -71,10 +79,13 @@ screens and port correctness take priority over new machine types.
 
 The client blueprint preview no longer intercepts right-clicks on real block entities.
 The combustion profile describes its actual single fuel input instead of an invented
-residue output. The wider installed-addon audit also found unresolved discrepancies:
-the ordinary `aeroapiary:centrifuge` dispatches infusion instead of comb separation;
-the Starmetal Smelter, Silk Weaver and Frame Infusion Altar have unused/mislabelled
-inputs. Those legacy routines are **not** claimed repaired by this delivery.
+residue output. A direct installed-addon regression disproved the earlier centrifuge
+dispatch suspicion: meteor comb produced its exact registered products in 200 ticks.
+The Starmetal Smelter, Silk Weaver and Frame Infusion Altar now reject their unused
+placeholder input slots in both menus and automation. Existing stacks stay extractable.
+This is a slot-contract correction, not a claim that every legacy recipe/catalyst
+semantic has been reimplemented; the Silk Weaver's older pattern handling still
+needs a dedicated processing audit.
 
 ### Four original wood families
 
@@ -172,13 +183,17 @@ documentation/images/JARs/checksums on `Docs`. Never merge those unrelated histo
 - [x] Refinery filters, catalyst handling, synchronized progress and reload fixes.
 - [ ] Player/client approval: all placed facings, cutout holes, menus, inventory sizing,
   bucket pickup, upgrades, pipe connections and vanilla/shader lighting.
-- [ ] Dynamic stored-fluid tint/rendering inside tank glass rather than a neutral gauge.
-- [ ] Animated chest lids and optional double-chest joining; no fake animation claim.
+- [x] Stored-fluid renderer uses synchronized fluid identity, amount, sprite, tint and light;
+  sub-gauge changes send exact contents. GPU/client transparency approval remains pending.
+- [x] Chest lids interpolate open/closed around the hinge; server-safe bounded interpolation
+  is tested. Optional double-chest joining remains unimplemented.
 - [ ] Transport moving-content client renderer and in-game routing readability review.
-- [ ] Family-specific transport screens: energy/fluid blocks must not show irrelevant
-  item/filter grids. Preserve accidentally stored old items as extraction-only recovery.
-- [ ] Repair the ordinary addon centrifuge's infusion dispatch and validate the alloy,
-  silk and frame-infusion input contracts against their actual recipe functions.
+- [x] Family-specific transport screens hide unrelated grids; energy/fluid items are
+  available only through labelled take-only recovery. New insertion and shift-click
+  bypasses are rejected; item/Null Link buffers keep their operating inventory.
+- [x] Directly test the ordinary centrifuge's actual comb outputs; reject unused smelter,
+  weaver and infusion inputs in both menus and automation without deleting old contents.
+- [ ] Finish the legacy Silk Weaver pattern/catalyst processing audit.
 - [ ] Recipe-driven Ore Refinery, Alloy Forge, Crystal Growth Chamber and Salvage Station
   completion audit; register/validate any still-missing recipe types, output reservation,
   catalysts, FE, sided ports, menus, persistence and independent upgrade support.
@@ -189,7 +204,9 @@ documentation/images/JARs/checksums on `Docs`. Never merge those unrelated histo
 - [ ] Advanced Alveary biology: authoritative lifespan, climate/gravity tolerance,
   rotor/coil simulation, drone breeding and flower territory where real APIs support it.
 - [ ] External claim/team adapters and approved hidden Star Map Fragment world placement.
-- [ ] Meteor Maw Cinder Mite adds and approved sheared Frost Yak body model.
+- [x] Frost Yak sheared-coat animation and snowpack/frozen-regolith grazing regrowth;
+  repeated direct shearing yields no duplicate wool and sheared state survives reload.
+- [ ] Meteor Maw Cinder Mite entity, artwork and authoritative add/phase values.
 - [ ] Remaining boss phases, source-tracker milestones and recipe/mob completion audit.
 - [ ] Planetary client travel, cooperative ready-check, Moonsteel both-hand review and
   sky/weather visual approval; isolated server passes do not complete these.
@@ -202,6 +219,15 @@ new-JAR SHA256 and old-JAR backup. Install the matching ZeroG JAR only with the 
 closed; preserve unrelated mods and all saves. **No world reset is part of this
 extension.** Keep version 1.0.12-dev, install first, then publish separate branches.
 New broad artwork not covered by the approved direction needs a small approval batch.
+
+The [subsequent art/visual fix receipt](storage-machinery-art-fix-2026-10-05.json)
+records the new candidate separately, preserving the previous receipt and JAR.
+This extension passed **50 workflow + 4 genetics + 2 optional-addon-absent checks**;
+its original red checkpoint caught unused-input insertion and incidental non-item
+storage before the repairs. Client rendering remains a separate review step.
+The whole pending-machine processing pipeline is **not installed**: data activation
+and core recipe drafts remain staged work. Solar/fusion configurable conservative
+defaults have user approval but are not yet a functioning generator implementation.
 
 This delivery passed **44 workflow + 4 genetics + 2 optional-addon-absent tests**.
 The clean production JAR contains no GameTest classes/fixtures. Both native-source
