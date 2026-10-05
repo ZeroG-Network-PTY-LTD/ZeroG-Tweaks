@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galaxy 5 Build Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a mission checklist - progress header, priority bands (Blockers > High > Normal > Done), filter chips by system. */
+:root {
+  --bg: #f3f2f7; --panel: #ffffff; --line: #dcd9e6; --fg: #1d1b26; --muted: #6a6680;
+  --accent: #6a4fc4; --accent-soft: #ece6fb; --blocker: #c2362b; --high: #c27a14; --normal: #4f6f8f; --ok: #2f8f57;
+  --chip: #eeecf4; --code: #f1eff7;
+  --display: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111018; --panel: #1a1924; --line: #2e2c3d; --fg: #e9e7f2; --muted: #9a96b0;
+  --accent: #a68cf5; --accent-soft: #2a2342; --blocker: #ff7a6e; --high: #f0b04a; --normal: #8fb2d6; --ok: #6fd498;
+  --chip: #24222f; --code: #221f2e; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111018; --panel: #1a1924; --line: #2e2c3d; --fg: #e9e7f2; --muted: #9a96b0;
+  --accent: #a68cf5; --accent-soft: #2a2342; --blocker: #ff7a6e; --high: #f0b04a; --normal: #8fb2d6; --ok: #6fd498;
+  --chip: #24222f; --code: #221f2e; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font: 15px/1.5 var(--body); margin: 0 }
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 18px; padding-block: 28px 60px }
+.eyebrow { font: 600 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+h1 { font: 700 clamp(28px, 5vw, 40px)/1.1 var(--display); margin: 8px 0 6px; letter-spacing: .01em; text-wrap: balance }
+.sub { color: var(--muted); max-width: 68ch; margin: 0 }
+.summary { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: end; margin-top: 22px; padding: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px }
+.bar { height: 10px; background: var(--chip); border-radius: 6px; overflow: hidden; margin-top: 10px }
+.bar > i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .4s }
+.count { font: 600 22px/1 var(--display); font-variant-numeric: tabular-nums }
+.pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end }
+.pill { font: 600 12px/1 var(--mono); padding: 6px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); white-space: nowrap }
+.pill b { font-variant-numeric: tabular-nums }
+.p-blocker { color: var(--blocker) } .p-high { color: var(--high) } .p-normal { color: var(--normal) } .p-ok { color: var(--ok) }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 22px 0 6px }
+.chipbtn { font: 500 13px/1 var(--body); padding: 7px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); cursor: pointer }
+.chipbtn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff }
+.chipbtn:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.toggle { margin-left: auto; display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px }
+section.band { margin-top: 26px }
+.band h2 { font: 600 14px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; display: flex; gap: 10px; align-items: center; margin: 0 0 10px }
+.band h2 .n { color: var(--muted); font-weight: 500 }
+.band h2::before { content: ""; width: 10px; height: 10px; border-radius: 2px; background: currentColor }
+.list { display: grid; gap: 8px }
+.task { display: grid; grid-template-columns: 26px 1fr; gap: 12px; padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 8px }
+.task.blocker { border-left-color: var(--blocker) } .task.high { border-left-color: var(--high) } .task.normal { border-left-color: var(--normal) }
+.task.done { opacity: .62; border-left-color: var(--ok) }
+.task.done .t-title { text-decoration: line-through; text-decoration-color: var(--muted) }
+.task input[type=checkbox] { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--accent); cursor: pointer }
+.t-head { display: flex; gap: 8px; flex-wrap: wrap; align-items: baseline }
+.t-title { font-weight: 600; min-width: 0 }
+.tag { font: 500 11px/1 var(--mono); padding: 4px 7px; border-radius: 5px; background: var(--chip); color: var(--muted); white-space: nowrap }
+.tag.branch { background: var(--accent-soft); color: var(--accent) }
+.t-detail { color: var(--muted); margin: 6px 0 0; font-size: 14px; max-width: 78ch }
+.t-ev { margin-top: 8px; font: 12px/1.45 var(--mono); background: var(--code); padding: 6px 8px; border-radius: 5px; overflow-x: auto; white-space: nowrap }
+.empty { padding: 28px; text-align: center; color: var(--muted); background: var(--panel); border: 1px dashed var(--line); border-radius: 10px; margin-top: 22px }
+form.add { margin-top: 34px; display: grid; grid-template-columns: 1fr 160px 130px auto; gap: 8px; padding: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px }
+form.add input, form.add select { font: 14px var(--body); padding: 9px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); min-width: 0 }
+form.add button { font: 600 14px var(--body); padding: 9px 14px; border: 0; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer }
+.formnote { grid-column: 1 / -1; font-size: 12px; color: var(--muted); margin: 0 }
+.status { font-size: 12px; color: var(--muted); margin-top: 10px; min-height: 1em }
+@media (max-width: 640px) { .summary { grid-template-columns: 1fr } .pills { justify-content: flex-start } form.add { grid-template-columns: 1fr 1fr } form.add input { grid-column: 1 / -1 } .toggle { margin-left: 0 } }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="eyebrow">ZeroG Tweaks · branch 1.21.x · Galaxy 5 (Solvane)</div>
+  <h1>Galaxy 5 Build Tracker</h1>
+  <p class="sub">What's left before players can reach Solvane on a T5 gate, survive the heat, climb the Photium → Astrium → Solvanite ladder, defeat the Dying Star, make the ending choice and build the T6 gate. Audited against <code>1.21.x</code> at <code>5273b96</code> on 5 Oct 2026. Markdown copy: <code>docs/galaxy5-build-tracker.md</code>. This is a static snapshot of the live Galaxy 5 Build Tracker.</p>
+
+  <div class="summary">
+    <div>
+      <div class="count" id="count">Loading tasks…</div>
+      <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+    </div>
+    <div class="pills" id="pills"></div>
+  </div>
+
+  <div class="filters" id="filters" role="group" aria-label="Filter by area"></div>
+
+  <div id="board"></div>
+
+  
+</div>
+
+<script>
+const AREAS = ["Gate & travel", "Progression", "Worlds", "Wastelands", "Mobs", "Gear", "Machines", "Villagers", "Systems", "Polish"];
+const BANDS = [["blocker", "Blockers", "p-blocker"], ["high", "High", "p-high"], ["normal", "Normal", "p-normal"]];
+let tasks = [{"area": "Progression", "branch": "1.21.x", "priority": "blocker", "order": 1, "done": false, "title": "The Dying Star final boss and arena", "detail": "The final boss doesn't exist in game. Its GeckoLib model and animations are in the repo, and its loot table is ready (Heart of Solvane, Solvanite and the Solvanite template). Missing: the entity, its phases, the arena and how players reach it. Act V, The Last Light: Archon Vael fused with Solvane's dying sun.", "evidence": "assets geo/dying_star.geo.json; loot_table/entities/dying_star.json; not in EntityInit; no arena structure", "id": "b01-dying-star"}, {"area": "Progression", "branch": "1.21.x", "priority": "blocker", "order": 2, "done": false, "title": "Solar Shrine structure (the Photium, Astrium and Radiantine templates)", "detail": "The Photium, Astrium and Radiantine templates only drop from the Solar Shrine chest, and the Solar Shrine doesn't exist, so the gear ladder stops at Eidolite. The Solvanite template also comes from the Shrine, the Dying Star or the Sun Colossus, and none of them exist.", "evidence": "loot_table/chests/solar_shrine.json; entities/dying_star.json, sun_colossus.json; worldgen/structure has no solar_shrine", "id": "b02-solar-shrine"}, {"area": "Progression", "branch": "1.21.x", "priority": "blocker", "order": 3, "done": false, "title": "Heart of Solvane ending choice", "detail": "The Heart of Solvane is a plain item that only the Dying Star drops. Build the per-player choice. Rekindle the star: Solvane burns bright, a radiant T6 gate crown, and Echo stays as a companion. Let it fade: the Concord remnants go free, a void-themed crown, and Echo says goodbye in a final Codex entry.", "evidence": "ItemInit.java: HEART_OF_SOLVANE = registerSimpleItem; advancement/codex/heart_of_solvane.json", "id": "b03-ending"}, {"area": "Mobs", "branch": "1.21.x", "priority": "high", "order": 10, "done": false, "title": "Solvane mobs", "detail": "Solvane has none of its own. Its biomes borrow Cerulon's Azure Fowl and Crystal Stag, plus Nova Blazes and glowbugs. Flare Sprite (flying fire spirit near Flare Vents), Sun Colossus (slow Solar Stone mini-boss, which also drops the Solvanite template) and Gildcrab (passive, pinches when hit) all have models and animations in the repo. Gildcrab's loot and cooking recipes are ready too.", "evidence": "assets geo/flare_sprite, sun_colossus, gildcrab .geo.json; loot_table/entities/gildcrab.json; biome_modifier/expanded_habitat_solvane_*.json spawn azure_fowl and crystal_stag", "id": "h01-solvane-mobs"}, {"area": "Worlds", "branch": "1.21.x", "priority": "high", "order": 11, "done": false, "title": "Corona Crust, Flare Vent and Sunspot Rock (needs your call)", "detail": "The design makes Solvane the most dangerous world: Corona Crust burns, Flare Vents erupt fire geysers on a timer, and Sunspot Rock is the safe ground. All three are plain stone blocks. This sits against the agreed non-damaging rule, so decide whether Solvane is the exception (the design's hazard gate says its heat needs Skarnite gear or Heatproof Plating). Solar Plasma already burns.", "evidence": "registry/BlockInit.java: CORONA_CRUST, FLARE_VENT, SUNSPOT_ROCK = new Block(props(STONE...)); ZGDimensionFluids case solar_plasma", "id": "h02-solvane-hazards"}, {"area": "Gear", "branch": "1.21.x", "priority": "high", "order": 12, "done": false, "title": "Photium, Radiantine and Solvanite set bonuses, and the Solvanite tool perks", "detail": "Astrium (Star Forged, +2 max health) works. Missing: Photium Glow (lights the area), Radiantine Radiant (+20% damage to undead and Splinter creatures), the Solvanite set bonus, and the Solvanite tools: 3x3 mining with auto-smelt, tree-felling axe, 5x5 hoe and the Solar Flare sword cone.", "evidence": "item/ZGArmorSetBonuses.java has astrium only for Galaxy 5", "id": "h03-g5-set-bonuses"}, {"area": "Gear", "branch": "1.21.x", "priority": "high", "order": 13, "done": false, "title": "3D worn models for Photium, Radiantine and Solvanite armor", "detail": "Astrium uses a GeckoLib shell. The other three, including the endgame Solvanite set, fall back to vanilla layers.", "evidence": "item/ZGArmorItem.java IMPLEMENTED set", "id": "h04-g5-armor-models"}, {"area": "Machines", "branch": "1.21.x", "priority": "high", "order": 14, "done": false, "title": "Fusion Reactor and the Solar Array on Solvane", "detail": "A T6 jump costs 50M FE. The design powers it with a Fusion Reactor fed with Fusion Dust or Solar Plasma, and a Solar Array that is huge near Solvane. Both are plain blocks. Astrium is the top casing tier.", "evidence": "BlockInit.java: FUSION_REACTOR = ZGOrientedBlock; SOLAR_ARRAY = new Block; ZGProgressionConfig tier6FE = 50,000,000", "id": "h05-fusion-reactor"}, {"area": "Polish", "branch": "1.21.x", "priority": "high", "order": 15, "done": false, "title": "Play the Galaxy 5 loop and the ending in a real client", "detail": "Arrive on Solvane, survive the heat and Solar Plasma, climb to Solvanite, beat the Dying Star, make the ending choice and build the T6 gate to a moon. Check gravity (1.3) on screen.", "evidence": "Docs ledger: headless tests only", "id": "h06-client-playtest"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 30, "done": false, "title": "Give each Solvane biome its own features", "detail": "Corona Flats, Sunspot Plateaus and Gildwood Oasis share one feature list (Flare Vents, Gildwood trees, plasma lakes, Solflowers, Pyrevine, Slag Glass). Make the Flats dense with Corona Crust and vents, the Plateaus Sunspot Rock, and the Oasis a Gildwood grove. The design also puts the ores near molten flows.", "evidence": "worldgen/biome/corona_flats.json, sunspot_plateaus.json, gildwood_oasis.json", "id": "n01-solvane-biomes"}, {"area": "Gear", "branch": "1.21.x", "priority": "normal", "order": 31, "done": false, "title": "Let every Skarnite-or-better set walk through Solar Plasma", "detail": "The design says Heatproof Plating or Skarnite+ armor. The code exempts Skarnite, Eidolite and Solvanite only, so Photium, Astrium and Radiantine wearers still burn, and Heatproof Plating doesn't exist yet.", "evidence": "registry/ZGDimensionFluids.java heatproofSet()", "id": "n02-plasma-sets"}, {"area": "Villagers", "branch": "1.21.x", "priority": "normal", "order": 32, "done": false, "title": "Sunwarden signature profession and Dawnstone trading", "detail": "Solvane's villagers have vanilla jobs only. Add their signature profession and use Dawnstone as the trade gem.", "evidence": "registry/ZGPlanetVillagers.java THEMES solvane=sunwarden", "id": "n03-sunwarden"}, {"area": "Progression", "branch": "1.21.x", "priority": "normal", "order": 33, "done": false, "title": "Codex pages for Act V (The Last Light) and the finale", "detail": "Add Solvane arrival pages, the Nova Pearl reveal (Vael is the Dying Star; the Splinter creatures are the Concord) and the two ending entries.", "evidence": "item/ConcordCodexItem.java has no Solvane pages", "id": "n04-codex-act5"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 34, "done": false, "title": "Solflower turns toward the sun; Radiant Bricks glow", "detail": "Solflower is a standard flower (Fire Resistance stew) without the sun-facing behaviour. Radiant Bricks should glow softly but use the generic stone props with no light.", "evidence": "BlockInit.java: SOLFLOWER = ZGFlowerBlock; RADIANT_BRICKS = new Block(props(STONE...))", "id": "n05-solflower"}, {"area": "Gate & travel", "branch": "1.21.x", "priority": "normal", "order": 35, "done": false, "title": "T6 standing ring and crown", "detail": "The T6 layout adds the Solvanite ring. The design's full standing ring gate with a crown, and the ending-dependent radiant or void crown, are not built.", "evidence": "travel/SurvivalGateLayout.java", "id": "n06-t6-crown"}, {"area": "Wastelands", "branch": "1.21.x", "priority": "normal", "order": 36, "done": false, "title": "Galaxy 5 wasteland content (shared with Galaxy 2)", "detail": "g5_p1 to g5_p6 reuse the shared wasteland biomes, so the Galaxy 2 wasteland tasks cover them. Default order here: volcanic, frozen, toxic, crystal, barren, ocean; moons barren. T6 can reach every moon.", "evidence": "dimension/g5_*.json; data-manifest galaxy_slots_default_type", "id": "n07-g5-wastelands"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 50, "done": true, "title": "Solvane dimension", "detail": "Corona Flats, Sunspot Plateaus and Gildwood Oasis; gravity 1.3.", "evidence": "dimension/solvane.json; ZGProgressionConfig solvaneGravity", "id": "d01-solvane-dim"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 51, "done": true, "title": "Solvane terrain, plants and decor blocks", "detail": "Solar Stone, Corona Crust, Sunspot Rock, Slag Glass and Flare Vent are registered and generate. Solflower, Pyrevine, Gildwood trees with a full wood set, Radiant Bricks and the Fusion Lamp.", "evidence": "registry/BlockInit.java; worldgen flare_vent_scatter, gildwood_trees, patch_solflower, pyrevine", "id": "d02-solvane-blocks"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 52, "done": true, "title": "All eight Solvane ores and their mining gates", "detail": "Coronite, Photium, Astrium, Radiantine, Fusion Dust, Nova Pearl, Solvanite and Dawnstone. Photium needs an Eidolite pick, the others need Photium, and Solvanite needs Astrium.", "evidence": "tags/block/needs_eidolite_tool, needs_photium_tool, needs_astrium_tool", "id": "d03-solvane-ores"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 53, "done": true, "title": "Solar Plasma", "detail": "Burns and deals plasma damage, except to full Skarnite, Eidolite or Solvanite. Water turns it into Slag Glass and Cryo Fluid into Sunspot Rock. Lakes generate.", "evidence": "registry/ZGDimensionFluids.java case solar_plasma; worldgen lake_solar_plasma_surface", "id": "d04-solar-plasma"}, {"area": "Gear", "branch": "1.21.x", "priority": "normal", "order": 54, "done": true, "title": "Galaxy 5 tool tiers and Astrium armor", "detail": "All four Solvane sets have real tiers and smithing recipes. Astrium has its 3D shell and Star Forged (+2 max health).", "evidence": "registry/ZGToolTiers.java; item/ZGArmorItem.java; ZGArmorSetBonuses.java", "id": "d05-g5-gear"}, {"area": "Gate & travel", "branch": "1.21.x", "priority": "normal", "order": 55, "done": true, "title": "T6 gate ring and cost", "detail": "Solvanite outer ring; 50M FE; reaches every galaxy and the moon slots.", "evidence": "travel/SurvivalGateLayout.java tier 6; SurvivalGateBlockEntity.canReach()", "id": "d06-t6-shape"}, {"area": "Villagers", "branch": "1.21.x", "priority": "normal", "order": 56, "done": true, "title": "Sunwarden villagers on Solvane", "detail": "The species is registered and placed in settlements.", "evidence": "registry/ZGPlanetVillagers.java", "id": "d07-sunwarden"}, {"area": "Mobs", "branch": "1.21.x", "priority": "normal", "order": 57, "done": true, "title": "Gildcrab food chain data", "detail": "Cooked Gildcrab and the Starfall Feast recipes are ready for when the Gildcrab exists.", "evidence": "recipe/cooked_gildcrab*.json, starfall_feast.json", "id": "d08-food"}, {"area": "Wastelands", "branch": "1.21.x", "priority": "normal", "order": 58, "done": true, "title": "Six wasteland slots and a moon", "detail": "g5_p1 to g5_p6 and g5_moons generate with the shared wasteland biomes and the Galaxy 5 tint.", "evidence": "dimension/g5_*.json; client/ZGBlockColors.java", "id": "d09-g5-slots"}], area = "All", hideDone = false;
+const $ = (id) => document.getElementById(id);
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function buildFilters() {
+  const f = $("filters"); f.textContent = "";
+  ["All", ...AREAS].forEach(a => {
+    const b = el("button", "chipbtn", a); b.type = "button"; b.setAttribute("aria-pressed", a === area ? "true" : "false");
+    b.onclick = () => { area = a; buildFilters(); render(); }; f.appendChild(b);
+  });
+  const t = el("label", "toggle"); const cb = document.createElement("input"); cb.type = "checkbox"; cb.id = "hide-done"; cb.checked = hideDone;
+  cb.onchange = () => { hideDone = cb.checked; render(); }; t.appendChild(cb); t.appendChild(document.createTextNode("Hide done")); f.appendChild(t);
+}
+
+function card(t) {
+  const row = el("div", "task " + (t.done ? "done" : t.priority));
+  const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = !!t.done; cb.id = "t-" + t.id;
+  cb.setAttribute("aria-label", "Done: " + t.title);
+  cb.disabled = true;
+  const body = el("div"); body.style.minWidth = "0";
+  const head = el("div", "t-head"); const lab = el("label", "t-title", t.title); lab.htmlFor = cb.id; head.appendChild(lab);
+  if (t.area) head.appendChild(el("span", "tag", t.area));
+  if (t.branch) head.appendChild(el("span", "tag branch", t.branch));
+  body.appendChild(head);
+  if (t.detail) body.appendChild(el("p", "t-detail", t.detail));
+  if (t.evidence) body.appendChild(el("div", "t-ev", t.evidence));
+  row.appendChild(cb); row.appendChild(body); return row;
+}
+
+function render() {
+  const board = $("board"); board.textContent = "";
+  const all = tasks; const done = all.filter(t => t.done).length;
+  $("count").textContent = all.length ? `${done} of ${all.length} done` : "No tasks yet";
+  $("bar").style.width = all.length ? (100 * done / all.length) + "%" : "0";
+  const pills = $("pills"); pills.textContent = "";
+  BANDS.forEach(([k, name, cls]) => { const n = all.filter(t => !t.done && t.priority === k).length; const p = el("span", "pill " + cls); p.append(name + " open: "); const b = el("b", null, String(n)); p.appendChild(b); pills.appendChild(p); });
+  if (!all.length) { const e = el("div", "empty", "No tasks."); board.appendChild(e); return; }
+  const shown = all.filter(t => area === "All" || t.area === area);
+  BANDS.forEach(([k, name, cls]) => {
+    const items = shown.filter(t => !t.done && t.priority === k).sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+    if (!items.length) return;
+    const s = el("section", "band"); const h = el("h2", cls, name); h.appendChild(el("span", "n", items.length + " open")); s.appendChild(h);
+    const l = el("div", "list"); items.forEach(t => l.appendChild(card(t))); s.appendChild(l); board.appendChild(s);
+  });
+  const doneItems = shown.filter(t => t.done).sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+  if (doneItems.length && !hideDone) {
+    const s = el("section", "band"); const h = el("h2", "p-ok", "Done"); h.appendChild(el("span", "n", doneItems.length)); s.appendChild(h);
+    const l = el("div", "list"); doneItems.forEach(t => l.appendChild(card(t))); s.appendChild(l); board.appendChild(s);
+  }
+  if (!board.children.length) board.appendChild(el("div", "empty", "Nothing open in this area."));
+}
+
+
+buildFilters(); render();
+</script>
+
+</body>
+</html>
