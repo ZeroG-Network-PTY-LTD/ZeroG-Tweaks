@@ -62,6 +62,26 @@ def P(img, x, y, c):
 def pipe_texture(kind, t):
     """16 x 16. Band (side view of a run) along the bottom s rows; end cap s x s in the top-left."""
     tid, tname, _, dk, md, lt, gl = TIERS[t]; dk, md, lt, gl = hx(dk), hx(md), hx(lt), hx(gl)
+    if kind == 'item':
+        # Native 32px detail; UV coordinates remain normalized to Minecraft's 0..16.
+        img=Image.new('RGBA',(32,32));d=ImageDraw.Draw(img)
+        shadow=hx('#141326');steel=hx('#454a78');highlight=hx('#9fb6d8');white=hx('#e6f4ff')
+        for y in range(16,32):
+            for x in range(32):
+                c=(159,182,216,28)
+                if y==16:c=highlight
+                elif y==17:c=steel
+                elif y==30:c=steel
+                elif y==31:c=shadow
+                elif y in (19,20) and 4<=x<=27:c=(230,244,255,80 if y==19 else 40)
+                if x in (0,1,30,31):c=shadow if x in (0,31) else md
+                elif x in (2,29):c=lt if y<25 else dk
+                elif x in (3,28):c=steel
+                P(img,x,y,c)
+        d.rectangle((0,0,15,15),fill=shadow);d.rectangle((1,1,14,14),outline=md,width=2)
+        d.rectangle((3,3,12,12),fill=(159,182,216,28));d.line((3,3,12,3),fill=highlight);d.line((3,4,3,12),fill=steel)
+        for x,y in ((2,18),(29,18),(2,29),(29,29),(1,1),(14,14)):P(img,x,y,white)
+        return img
     s = TYPES[kind]['s']; img = Image.new('RGBA', (16, 16), (0, 0, 0, 0)); r = random.Random(kind + tid)
     b0 = 16 - s
     if kind == 'energy':
@@ -185,6 +205,20 @@ def port_face(kind, mode):
 
 def cell_side(t):
     tid, tname, _, dk, md, lt, gl = TIERS[t]; dk, md, lt, gl = hx(dk), hx(md), hx(lt), hx(gl)
+    img=Image.new('RGBA',(32,32),hx('#141326'));d=ImageDraw.Draw(img)
+    d.rectangle((1,1,30,30),fill=hx('#2b2a4a'),outline=hx('#6a7bb0'),width=1)
+    d.line((2,2,29,2),fill=hx('#9fb6d8'));d.line((2,3,2,29),fill=hx('#454a78'))
+    for x,y in ((2,2),(24,2),(2,24),(24,24)):
+        d.rectangle((x,y,x+5,y+5),fill=dk);d.line((x,y,x+5,y),fill=lt);d.line((x,y,x,y+5),fill=md);P(img,x+2,y+2,hx('#e6f4ff'))
+    d.rectangle((7,7,20,24),fill=hx('#0a1a1c'),outline=hx('#1f5e58'))
+    d.rectangle((9,9,18,22),fill=hx('#14383a'));d.rectangle((11,11,16,20),fill=hx('#2f8a78'))
+    for y in (10,15,20):
+        d.line((9,y,16,y),fill=hx('#58b894'),width=2);d.line((16,y,16,y+3),fill=hx('#a8e6c0'))
+    d.line((12,9,12,21),fill=hx('#a8e6c0'));P(img,12,10,hx('#e6f4ff'))
+    # Dedicated eight-segment gauge sits on top of these unlit recesses.
+    d.rectangle((23,6,27,25),fill=hx('#141326'),outline=hx('#6a7bb0'));d.line((24,7,25,7),fill=hx('#9fb6d8'))
+    d.line((8,27,20,27),fill=md);d.line((9,28,19,28),fill=dk)
+    return img
     img = Image.new('RGBA', (16, 16))
     for y in range(16):
         for x in range(16):
@@ -204,6 +238,15 @@ def cell_side(t):
 
 def cell_top(t):
     tid, tname, _, dk, md, lt, gl = TIERS[t]; dk, md, lt, gl = hx(dk), hx(md), hx(lt), hx(gl)
+    img=Image.new('RGBA',(32,32),hx('#141326'));d=ImageDraw.Draw(img)
+    d.rectangle((1,1,30,30),fill=hx('#2b2a4a'),outline=md,width=2);d.line((3,3,28,3),fill=lt)
+    d.rectangle((8,8,23,23),fill=hx('#0a1a1c'),outline=hx('#2f8a78'),width=2)
+    d.rectangle((11,11,20,20),fill=hx('#58b894'),outline=hx('#a8e6c0'),width=1)
+    d.rectangle((14,14,17,17),fill=hx('#e6f4ff'))
+    for x in (5,26):
+        d.line((x,8,x,23),fill=hx('#1fa2c4'),width=2);d.line((x,10,x,20),fill=hx('#5fe0f0'))
+    for x,y in ((4,4),(27,4),(4,27),(27,27)):P(img,x,y,lt)
+    return img
     img = Image.new('RGBA', (16, 16))
     for y in range(16):
         for x in range(16):
@@ -218,12 +261,11 @@ def cell_top(t):
 
 def gauge(level):
     """overlay: 8-segment bar in column 12, rows 4-11; segment lit from the bottom"""
-    img = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+    img = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
     for i in range(8):
-        y = 11 - i
-        c = (60, 220, 90, 255) if i < level else (40, 52, 44, 255)
-        if i < level and i >= 6: c = (240, 220, 80, 255)
-        P(img, 12, y, c)
+        y = 22 - 2*i
+        c = hx('#58b894') if i < level else hx('#14383a')
+        P(img,24,y,c);P(img,25,y,c);P(img,24,y+1,hx('#a8e6c0') if i<level else hx('#0a1a1c'));P(img,25,y+1,c)
     return img
 
 
