@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Latest delivery — machinery and service-port hub, 6 October 2026
+
+Same version **1.0.12-dev**. [Detailed changes and remaining work](docs/machinery-and-hub-update-2026-10-06.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Build receipt](docs/machinery-hub-delivery-2026-10-06.json) · [Archived JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-servicehub-20261006.jar).
+
+Alloy Forge, Crystal Growth Chamber and Salvage Station processing, configurable solar/fusion power, dedicated machine interaction routing and five-port alveary service shells are implemented. The fresh Seed 0 inspection hub includes twelve service-shell exhibits, six supplied machine stations and ten Vault room exhibits. Transport/tank side panels and original item-tube/energy-cell artwork are included. Graphical client approval, larger authored alveary layouts and advanced biology remain pending; server tests do not certify those features.
+
+![Native exported transport and cell artwork—not an in-game screenshot](docs/images/transport-machinery-v2/native-preview.png)
+
+The sections below preserve earlier delivery history; the dated guide and live ledger above supersede their older pending-status statements.
+
 ## Current same-version extension: faceted armour and machine visual corrections
 
 [Full workflow and field guide](docs/storage-and-machinery-workflow.md) ·

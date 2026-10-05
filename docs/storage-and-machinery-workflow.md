@@ -225,9 +225,8 @@ records the new candidate separately, preserving the previous receipt and JAR.
 This extension passed **50 workflow + 4 genetics + 2 optional-addon-absent checks**;
 its original red checkpoint caught unused-input insertion and incidental non-item
 storage before the repairs. Client rendering remains a separate review step.
-The whole pending-machine processing pipeline is **not installed**: data activation
-and core recipe drafts remain staged work. Solar/fusion configurable conservative
-defaults have user approval but are not yet a functioning generator implementation.
+That earlier delivery did not include the pending-machine processing pipeline.
+It is superseded by the [6 October machinery and hub update](machinery-and-hub-update-2026-10-06.md): forge/crystal/salvage processing and configurable solar/fusion now ship. Client approval and additional contracts remain pending in the live TODO ledger.
 
 This delivery passed **44 workflow + 4 genetics + 2 optional-addon-absent tests**.
 The clean production JAR contains no GameTest classes/fixtures. Both native-source
