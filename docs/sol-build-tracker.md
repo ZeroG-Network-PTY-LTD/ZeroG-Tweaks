@@ -3,7 +3,7 @@
 What is left before players can play the Overworld prologue, build the T1 gate and explore the Moon and Mars.
 
 - **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026 (previous audit: `49561f7`, 4 Oct).
-- **Live tracker:** the Sol Build Tracker artifact. It holds the same list, and you can tick items there.
+- **Live tracker:** the Sol Build Tracker artifact (tick items there). **HTML copy:** [`sol-build-tracker.html`](sol-build-tracker.html), the same page as a static snapshot. Download it, or open it from a local clone, to view it in a browser.
 - **Rule:** an item is done only when the code exists. Headless server tests are not client approval. Items that need an in-game look stay open until someone plays them.
 
 **8 open, 29 done.** All five blockers and all eight high items from the first audit are now in the code. The biggest gap is a real playthrough in a client.
