@@ -51,6 +51,9 @@ public final class MachineBlueprintScreen extends Screen {
         @SubscribeEvent public static void click(PlayerInteractEvent.RightClickBlock event) {
             if(!event.getLevel().isClientSide||event.getHand()!=InteractionHand.MAIN_HAND
                     ||!event.getItemStack().isEmpty()||event.getEntity().isShiftKeyDown())return;
+            // A live machine owns its right-click. Stale design profiles must not
+            // cancel the packet that opens its real, server-owned inventory.
+            if(event.getLevel().getBlockEntity(event.getPos())!=null)return;
             var id=BuiltInRegistries.BLOCK.getKey(event.getLevel().getBlockState(event.getPos()).getBlock());
             if(!id.getNamespace().equals("zerog_tweaks")&&!id.getNamespace().equals("aeroapiary"))return;
             MachineGuiProfile.read(id.getNamespace(),id.getPath()).filter(MachineGuiProfile::designOnly).ifPresent(profile->{

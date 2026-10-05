@@ -49,11 +49,13 @@ public final class CreativeTabs {
             tab("liquids", "liquid_starlight_bucket", new String[0], SPAWN_EGGS.getId(), false);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> HONEY_LIQUIDS =
             tab("honey_liquids", "flora_bee_honey_bucket", new String[0], LIQUIDS.getId(), false);
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> STORAGE_AND_TRANSPORT =
+            tab("storage_and_transport", "copper_fluid_tank", new String[0], HONEY_LIQUIDS.getId(), false);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ADMIN_TOOLS =
             TABS.register("admin_tools", () -> CreativeModeTab.builder()
                     .title(Component.literal("Z-Admintools"))
                     .icon(() -> new ItemStack(ItemInit.WEATHER_TESTER.get()))
-                    .withTabsBefore(HONEY_LIQUIDS.getId())
+                    .withTabsBefore(STORAGE_AND_TRANSPORT.getId())
                     .displayItems((params, out) -> out.accept(ItemInit.WEATHER_TESTER.get())).build());
     public static java.util.List<Item> honeyLiquidItems() {
         return liquidItems().stream().filter(it -> ZGPlanetApiary.FAMILIES.values().stream()
@@ -87,6 +89,10 @@ public final class CreativeTabs {
                         listed.add("weather_tester");
                         listed.add("concord_codex");
                         listed.add("recall_anchor");listed.add("group_anchor");
+                        listed.add("storage_expansion_module");listed.add("generator_flux_module");
+                        net.zerog.tweaks.storage.WoodStorageRegistry.CONTAINERS.keySet().forEach(listed::add);
+                        net.zerog.tweaks.storage.WoodStorageRegistry.JOINERY.keySet().forEach(listed::add);
+                        for(var tier:net.zerog.tweaks.transport.TransportTier.ALL) listed.add(tier.name()+"_fluid_tank");
                         for(var tier:net.zerog.tweaks.transport.TransportTier.ALL)
                             for(String suffix:new String[]{"energy_conduit","fluid_pipe","item_tube","energy_cell"})listed.add(tier.name()+"_"+suffix);
                         listed.addAll(java.util.List.of("item_port","fluid_port","energy_port","null_link","flux_wrench","item_filter_card","fluid_filter_card","null_frequency_card"));
@@ -115,6 +121,13 @@ public final class CreativeTabs {
                     if (name.equals("honey_liquids")) honeyLiquidItems().forEach(out::accept);
                     if (name.equals("building_blocks")) {
                         out.accept(item("star_glass_blue"));out.accept(item("star_glass_teal"));
+                        net.zerog.tweaks.storage.WoodStorageRegistry.JOINERY.keySet().forEach(id->out.accept(item(id)));
+                    }
+                    if (name.equals("storage_and_transport")) {
+                        net.zerog.tweaks.storage.WoodStorageRegistry.CONTAINERS.keySet().forEach(id->out.accept(item(id)));
+                        for(var tier:net.zerog.tweaks.transport.TransportTier.ALL)
+                            for(String suffix:new String[]{"fluid_tank","energy_conduit","fluid_pipe","item_tube","energy_cell"})out.accept(item(tier.name()+"_"+suffix));
+                        for(String id:new String[]{"item_port","fluid_port","energy_port","null_link","flux_wrench","item_filter_card","fluid_filter_card","null_frequency_card","storage_expansion_module","generator_flux_module"})out.accept(item(id));
                     }
                     if (name.equals("building_blocks") || name.equals("natural_blocks")) {
                         ZGPlanetMaterials.BLOCK_ITEMS.forEach((id, block) -> {

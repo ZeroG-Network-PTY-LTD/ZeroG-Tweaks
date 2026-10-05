@@ -18,6 +18,8 @@ public final class ZeroGTweaks {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT, net.zerog.tweaks.registry.ZGWeatherConfig.SPEC);
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON, net.zerog.tweaks.config.ZGProgressionConfig.SPEC, "zerog-progression-common.toml");
         net.zerog.tweaks.transport.TransportRegistry.register(modBus);
+        net.zerog.tweaks.storage.WoodStorageRegistry.register(modBus);
+        net.zerog.tweaks.storage.StorageTankRegistry.register(modBus);
         net.zerog.tweaks.transport.TransportMenus.register(modBus);
         net.zerog.tweaks.machine.CombustionRegistry.register(modBus);
         net.zerog.tweaks.travel.SurvivalGates.register(modBus);

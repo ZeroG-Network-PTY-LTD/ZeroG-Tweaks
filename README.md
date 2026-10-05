@@ -1,5 +1,17 @@
 # ZeroG Tweaks — Minecraft 1.21.x development
 
+## Current same-version extension: storage and correctness first
+
+Original wood joinery, 27/54-slot chests/barrels, six fluid tanks (5,000–5,000,000 mB),
+independent generator modules and sunless crop repairs are tracked in the
+[machinery workflow](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/storage-and-machinery-workflow.md).
+The new player direction restores vanilla Netherite-style worn armour proportions,
+cohesive orbital honeycombs, purpose-correct machine screens and explicit Alveary
+power/item/fluid service substitutions. No Mekanism code/art or new dependency is bundled.
+[Original editable art](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design/docs/storage-joinery-v1) ·
+[Tracked outstanding work](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/storage-and-machinery-todo.json).
+Existing historical guides remain below; current corrections supersede older renderer claims.
+
 NeoForge **1.21.1**, Java **21**, GeckoLib **4.9.3**. This is an unfinished
 development build, not a shipped release or proof of modpack compatibility.
 

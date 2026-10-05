@@ -80,12 +80,13 @@ public class OreRefineryBlock extends BaseEntityBlock {
 
     protected void onRemove(BlockState state, net.minecraft.world.level.Level level, BlockPos pos,
             BlockState newState, boolean movedByPiston) {
-        if (!state.is(newState.getBlock()) && level.getBlockEntity(pos) instanceof OreRefineryBlockEntity be) {
+        if (!level.isClientSide && !state.is(newState.getBlock()) && level.getBlockEntity(pos) instanceof OreRefineryBlockEntity be) {
             ItemStackHandler inv = be.inventory();
             for (int i = 0; i < inv.getSlots(); i++) {
                 if (!inv.getStackInSlot(i).isEmpty()) {
+                    var dropped=inv.extractItem(i,inv.getStackInSlot(i).getCount(),false);
                     net.minecraft.world.Containers.dropItemStack(level,
-                            pos.getX(), pos.getY(), pos.getZ(), inv.getStackInSlot(i));
+                            pos.getX(), pos.getY(), pos.getZ(), dropped);
                 }
             }
         }

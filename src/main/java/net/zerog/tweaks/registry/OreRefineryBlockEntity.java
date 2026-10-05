@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
 /**
- * Shared BE for ZeroG-Tweaks machines (ore refinery today; more later).
+ * Existing ore refinery recipes; no unimplemented FE or casing upgrade controls.
  * Slots: 0=input ore, 1=optional catalyst, 2=output (output-only).
  * Mirrors the aeroapiary ZeroGMachineBlockEntity bridge pattern.
  */
@@ -25,7 +25,16 @@ public class OreRefineryBlockEntity extends BaseContainerBlockEntity {
 
     private final ItemStackHandler inventory = new ItemStackHandler(3) {
         @Override
+        public boolean isItemValid(int slot, ItemStack stack) {
+            return switch (slot) {
+                case 0 -> acceptsInput(stack);
+                case 1 -> acceptsCatalyst(stack);
+                default -> false;
+            };
+        }
+        @Override
         protected void onContentsChanged(int slot) {
+            if (slot < 2) progress = 0;
             setChanged();
         }
     };
@@ -47,6 +56,9 @@ public class OreRefineryBlockEntity extends BaseContainerBlockEntity {
         return Math.min(100, this.progress * 100 / PROCESS_TICKS);
     }
 
+    public static boolean acceptsInput(ItemStack stack) { return Recipes.acceptsInput(stack); }
+    public static boolean acceptsCatalyst(ItemStack stack) { return Recipes.isAeroStardust(stack); }
+
     /** Server tick entry (mirrors the aeroapiary machine tick pattern). */
     public static void tick(net.minecraft.world.level.Level level, BlockPos pos,
             BlockState state, OreRefineryBlockEntity be) {
@@ -57,29 +69,28 @@ public class OreRefineryBlockEntity extends BaseContainerBlockEntity {
         ItemStack cat = be.inventory.getStackInSlot(1);
         ItemStack out = be.inventory.getStackInSlot(2);
 
-        ItemStack result = Recipes.resolve(in, cat);
+        RecipeResult recipe = Recipes.resolve(in, cat);
+        ItemStack result = recipe.result();
         boolean slotOk = !result.isEmpty() && (out.isEmpty()
                 || (ItemStack.isSameItemSameComponents(out, result)
                     && out.getCount() + result.getCount() <= out.getMaxStackSize()));
 
         if (!slotOk) {
-            be.progress = 0;
+            if (be.progress != 0) { be.progress = 0; be.setChanged(); }
             return;
         }
+        be.progress++;
         if (be.progress >= PROCESS_TICKS) {
             if (out.isEmpty()) {
                 be.inventory.setStackInSlot(2, result.copy());
             } else {
                 out.grow(result.getCount());
             }
-            in.shrink(1);
-            if (!cat.isEmpty()) {
-                cat.shrink(1);
-            }
+            be.inventory.extractItem(0, 1, false);
+            if (recipe.consumeCatalyst()) be.inventory.extractItem(1, 1, false);
             be.progress = 0;
-        } else {
-            be.progress++;
         }
+        be.setChanged();
     }
 
     // ===== BaseContainerBlockEntity abstracts =====
@@ -157,6 +168,8 @@ public class OreRefineryBlockEntity extends BaseContainerBlockEntity {
     @Override
     public boolean stillValid(Player player) {
         return this.level != null
+                && player.level() == this.level && !this.isRemoved()
+                && this.level.hasChunkAt(this.worldPosition)
                 && this.level.getBlockEntity(this.worldPosition) == this
                 && player.distanceToSqr(
                         this.worldPosition.getX() + 0.5, this.worldPosition.getY() + 0.5,
@@ -183,36 +196,45 @@ public class OreRefineryBlockEntity extends BaseContainerBlockEntity {
         if (tag.contains("Inventory")) {
             this.inventory.deserializeNBT(registries, tag.getCompound("Inventory"));
         }
-        this.progress = tag.getInt("Progress");
+        this.progress = Math.max(0, Math.min(PROCESS_TICKS - 1, tag.getInt("Progress")));
     }
+
+    private record RecipeResult(ItemStack result, boolean consumeCatalyst) {}
 
     /** Recipe tables: vanilla-side always; aeroapiary catalyst when installed. */
     static final class Recipes {
-        static ItemStack resolve(ItemStack in, ItemStack catalyst) {
+        static boolean acceptsInput(ItemStack in) {
+            return in.is(ItemInit.RAW_CYRRIUM.get()) || in.is(ItemInit.CYRRIUM_ORE_ITEM.get())
+                    || in.is(ItemInit.ARESITE_ORE_ITEM.get()) || in.is(ItemInit.RAW_NULLIFITE_BLOCK_ITEM.get())
+                    || in.is(ItemInit.ARESITE.get());
+        }
+
+        static RecipeResult resolve(ItemStack in, ItemStack catalyst) {
             // vanilla-side (no dependency required) — doubled ore output per design doc
             if (in.is(ItemInit.RAW_CYRRIUM.get())) {
-                return new ItemStack(ItemInit.CYRRIUM_INGOT.get(), 2);
+                return new RecipeResult(new ItemStack(ItemInit.CYRRIUM_INGOT.get(), 2), false);
             }
             if (in.is(ItemInit.CYRRIUM_ORE_ITEM.get())) {
-                return new ItemStack(ItemInit.CYRRIUM_INGOT.get(), 3);
+                return new RecipeResult(new ItemStack(ItemInit.CYRRIUM_INGOT.get(), 3), false);
             }
             if (in.is(ItemInit.ARESITE_ORE_ITEM.get())) {
-                return new ItemStack(ItemInit.ARESITE.get(), 3);
+                return new RecipeResult(new ItemStack(ItemInit.ARESITE.get(), 3), false);
             }
             if (in.is(ItemInit.RAW_NULLIFITE_BLOCK_ITEM.get())) {
-                return new ItemStack(ItemInit.NULLIFITE_INGOT.get(), 2);
+                return new RecipeResult(new ItemStack(ItemInit.NULLIFITE_INGOT.get(), 2), false);
             }
             // cross-mod catalyst: aeroapiary bee-industry stardust boosts aresite
             if (in.is(ItemInit.ARESITE.get())
                     && !catalyst.isEmpty()
                     && isAeroStardust(catalyst)) {
-                return new ItemStack(ItemInit.ARESITE.get(), 5);
+                return new RecipeResult(new ItemStack(ItemInit.ARESITE.get(), 5), true);
             }
-            return ItemStack.EMPTY;
+            return new RecipeResult(ItemStack.EMPTY, false);
         }
 
         /** Namespace-safe check for the aeroapiary bee-industry stardust item. */
         static boolean isAeroStardust(ItemStack s) {
+            if (s.isEmpty()) return false;
             var key = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem());
             return key.getNamespace().equals("aeroapiary") && key.getPath().equals("stardust");
         }

@@ -22,6 +22,7 @@ public final class AlvearyRuntimeScreen extends AbstractContainerScreen<AlvearyM
     @Override protected void init(){super.init();addRenderableWidget(Button.builder(Component.literal("?"),b->genome=!genome).bounds(leftPos+19,topPos+76,12,12).build());addRenderableWidget(Button.builder(Component.literal("E"),b->send(0)).bounds(leftPos+139,topPos+79,12,12).build());addRenderableWidget(Button.builder(Component.literal("S"),b->send(1)).bounds(leftPos+181,topPos+79,12,12).build());addRenderableWidget(Button.builder(Component.literal(">"),b->send(2)).bounds(leftPos+167,topPos+79,12,12).build());addRenderableWidget(Button.builder(Component.literal("V"),b->send(hasShiftDown()?4:3)).bounds(leftPos+153,topPos+79,12,12).build());}
     private void sprite(GuiGraphics g,int u,int v,int w,int h,int x,int y){g.blit(ATLAS,leftPos+x,topPos+y,u,v,w,h,256,256);}
     @Override protected void renderBg(GuiGraphics g,float partial,int x,int y){g.blit(BG,leftPos,topPos,0,0,256,250,256,256);
+        if(menu.slots.get(1).getItem().isEmpty())sprite(g,80,82,18,18,16,54);
         for(int i=menu.value(2);i<27;i++)sprite(g,60,82,18,18,11+i%9*18,98+i/9*18);
         sprite(g,80,82,6,62,44,22); // Actual API exposes endurance, not a lifetime counter.
         int cycle=menu.value(4)>0?Math.min(64,menu.value(3)*64/menu.value(4)):0;if(cycle>0)sprite(g,36,64-cycle,4,cycle,55,87-cycle);
@@ -35,7 +36,10 @@ public final class AlvearyRuntimeScreen extends AbstractContainerScreen<AlvearyM
     @Override public void render(GuiGraphics g,int x,int y,float partial){super.render(g,x,y,partial);renderTooltip(g,x,y);
         if(genome&&isHovering(7,16,124,78,x,y)){var lines=new ArrayList<Component>();var specimen=menu.slots.get(0).getItem();var genes=ProductiveBeeGenes.read(specimen);if(genes.isEmpty())lines.add(Component.literal("Orbital species: "+AlvearyRuntime.species(specimen)+" (no genome exposed)"));else genes.forEach((gene,value)->lines.add(Component.literal(gene+": "+value)));lines.add(Component.literal("No native lifespan / temperature allele exposed"));g.renderComponentTooltip(font,lines,x,y);}
         if(isHovering(201,16,48,78,x,y))g.renderTooltip(font,Component.literal("FE "+menu.value(5)*100+" | Honey "+menu.value(6)+"mB | Catalyst "+menu.value(7)+"mB"),x,y);
-        if(isHovering(139,79,54,12,x,y))g.renderTooltip(font,Component.literal("E: eject | S: compact | >: outputs/recovery page | Shift+V: confirm void excess; V: disable"),x,y);
+        if(isHovering(139,79,54,12,x,y))g.renderTooltip(font,Component.literal("Eject "+((menu.value(10)&1)!=0?"ON":"OFF")+" | Void "+((menu.value(10)&2)!=0?"ON":"OFF")+" | "+(menu.recoveryPage()?"Legacy recovery":("Products "+(menu.value(9)+1)+"/"+menu.outputPages()))+" | S: compact; >: page; Shift+V: confirm void"),x,y);
+        if(isHovering(12,22,26,26,x,y))g.renderTooltip(font,Component.literal("Supported orbital bee or captured Productive Bees specimen; one bee"),x,y);
+        if(isHovering(16,54,18,18,x,y))g.renderTooltip(font,Component.literal("Legacy item recovery only; drone breeding is not implemented"),x,y);
+        if(isHovering(139,22,54,54,x,y))g.renderTooltip(font,Component.literal(menu.recoveryPage()?"Recover items from old frame positions; extraction only":"Production outputs only; no manual insertion"),x,y);
     }
     @EventBusSubscriber(modid="zerog_tweaks",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
     public static class Registration {@SubscribeEvent public static void register(RegisterMenuScreensEvent event){event.register(AlvearyRegistry.MENU.get(),AlvearyRuntimeScreen::new);}}

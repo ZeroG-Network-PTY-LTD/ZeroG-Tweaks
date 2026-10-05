@@ -6,6 +6,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
@@ -18,11 +20,18 @@ import net.neoforged.neoforge.items.SlotItemHandler;
 public class OreRefineryMenu extends AbstractContainerMenu {
 
     private final OreRefineryBlockEntity machine;
+    private final ContainerData data;
 
     public OreRefineryMenu(MenuType<?> type, int windowId, Inventory playerInv,
             OreRefineryBlockEntity machine) {
         super(type, windowId);
         this.machine = machine;
+        this.data = playerInv.player.level().isClientSide ? new SimpleContainerData(1) : new ContainerData() {
+            public int get(int index) { return machine.progress(); }
+            public void set(int index, int value) {}
+            public int getCount() { return 1; }
+        };
+        addDataSlots(this.data);
         IItemHandler inv = machine.inventory();
 
         this.addSlot(new SlotItemHandler(inv, 0, 57, 36));     // ore input
@@ -43,6 +52,8 @@ public class OreRefineryMenu extends AbstractContainerMenu {
         return this.machine;
     }
 
+    public int progressPercent() { return Math.max(0, Math.min(100, data.get(0) * 100 / OreRefineryBlockEntity.PROCESS_TICKS)); }
+
     private static class OutputSlot extends SlotItemHandler {
         public OutputSlot(IItemHandler handler, int index, int x, int y) {
             super(handler, index, x, y);
@@ -56,7 +67,18 @@ public class OreRefineryMenu extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
-        return ItemStack.EMPTY; // TODO shift-click routing
+        if (!stillValid(player) || index < 0 || index >= slots.size()) return ItemStack.EMPTY;
+        var slot = slots.get(index);
+        if (!slot.hasItem()) return ItemStack.EMPTY;
+        var stack = slot.getItem(); var original = stack.copy();
+        boolean moved;
+        if (index < 3) moved = moveItemStackTo(stack, 3, slots.size(), true);
+        else if (OreRefineryBlockEntity.acceptsInput(stack)) moved = moveItemStackTo(stack, 0, 1, false);
+        else if (OreRefineryBlockEntity.acceptsCatalyst(stack)) moved = moveItemStackTo(stack, 1, 2, false);
+        else return ItemStack.EMPTY;
+        if (!moved) return ItemStack.EMPTY;
+        if (stack.isEmpty()) slot.setByPlayer(ItemStack.EMPTY); else slot.setChanged();
+        slot.onTake(player, stack); return original;
     }
 
     @Override

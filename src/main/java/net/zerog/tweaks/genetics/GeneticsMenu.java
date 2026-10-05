@@ -55,7 +55,7 @@ public final class GeneticsMenu extends AbstractContainerMenu {
     public int value(int index){return data.get(index);}
     @Override public boolean stillValid(Player player) {
         return !machine.isRemoved()&&player.level()==machine.getLevel()&&player.distanceToSqr(machine.getBlockPos().getCenter())<=64
-            &&player.level().getBlockEntity(machine.getBlockPos())==machine;
+            &&player.level().hasChunkAt(machine.getBlockPos())&&player.level().getBlockEntity(machine.getBlockPos())==machine;
     }
     @Override public boolean clickMenuButton(Player player,int button) {
         if(player.level().isClientSide||!stillValid(player))return false;
@@ -71,7 +71,7 @@ public final class GeneticsMenu extends AbstractContainerMenu {
         state.putBoolean("requested",true);state.putInt("progress",0);state.remove("input");machine.setChanged();broadcastChanges();return true;
     }
     @Override public ItemStack quickMoveStack(Player player,int index) {
-        if(index<0||index>=slots.size())return ItemStack.EMPTY;
+        if(!stillValid(player)||index<0||index>=slots.size())return ItemStack.EMPTY;
         var slot=slots.get(index);if(!slot.hasItem())return ItemStack.EMPTY;
         var source=slot.getItem();var before=source.copy();
         if(index<16){if(!moveItemStackTo(source,16,52,true))return ItemStack.EMPTY;}

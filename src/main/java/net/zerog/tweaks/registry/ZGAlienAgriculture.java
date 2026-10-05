@@ -50,7 +50,7 @@ public final class ZGAlienAgriculture {
             var fruit=BlockInit.BLOCKS.registerSimpleBlock(id,BlockBehaviour.Properties.ofFullCopy(id.endsWith("melon")?Blocks.MELON:Blocks.PUMPKIN));
             GOURDS.put(id,fruit);ItemInit.ITEMS.registerSimpleBlockItem(id,fruit);
             ItemInit.ITEMS.registerSimpleItem(id+"_slice",new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(.3F).build()));
-            var stem=BlockInit.BLOCKS.register(id+"_stem",()->new StemBlock(key(Registries.BLOCK,id),key(Registries.BLOCK,id+"_attached_stem"),key(Registries.ITEM,id+"_seeds"),BlockBehaviour.Properties.ofFullCopy(Blocks.MELON_STEM)));
+            var stem=BlockInit.BLOCKS.<StemBlock>register(id+"_stem",()->new ZGSpaceStemBlock(key(Registries.BLOCK,id),key(Registries.BLOCK,id+"_attached_stem"),key(Registries.ITEM,id+"_seeds"),BlockBehaviour.Properties.ofFullCopy(Blocks.MELON_STEM)));
             STEMS.put(id,stem);
             BlockInit.BLOCKS.register(id+"_attached_stem",()->new AttachedStemBlock(key(Registries.BLOCK,id+"_stem"),key(Registries.BLOCK,id),key(Registries.ITEM,id+"_seeds"),BlockBehaviour.Properties.ofFullCopy(Blocks.ATTACHED_MELON_STEM)));
             ItemInit.ITEMS.register(id+"_seeds",()->new ItemNameBlockItem(stem.get(),new Item.Properties()));

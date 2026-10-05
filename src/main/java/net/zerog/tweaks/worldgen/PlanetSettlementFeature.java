@@ -81,6 +81,12 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
             case "gildwood" -> BlockInit.GILDWOOD_PLANKS.get();
             default -> BlockInit.SHARDWOOD_PLANKS.get();
         };
+        var door=switch(PlanetEcologyProfile.tree(dimension)) {
+            case "charwood" -> BlockInit.CHARWOOD_DOOR.get();
+            case "hoarwood" -> BlockInit.HOARWOOD_DOOR.get();
+            case "gildwood" -> BlockInit.GILDWOOD_DOOR.get();
+            default -> BlockInit.SHARDWOOD_DOOR.get();
+        };
         Block glass=random.nextBoolean()?Blocks.GLASS:switch(PlanetEcologyProfile.theme(dimension)) {
             case "mars" -> BlockInit.RUST_GLASS.get();
             case "eidolon", "moon" -> BlockInit.FROST_GLASS.get();
@@ -120,7 +126,7 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
                     } else level.setBlock(pos,(rib?hull:glass).defaultBlockState(),2);
                 }
             }
-            for(int y=1;y<=2;y++) level.setBlock(at.offset(0,y,4),Blocks.OAK_DOOR.defaultBlockState()
+            for(int y=1;y<=2;y++) level.setBlock(at.offset(0,y,4),door.defaultBlockState()
                     .setValue(DoorBlock.FACING,Direction.SOUTH).setValue(DoorBlock.HALF,y==1?DoubleBlockHalf.LOWER:DoubleBlockHalf.UPPER),2);
             for(int x:new int[]{-2,2}) {
                 level.setBlock(at.offset(x,1,-2),Blocks.WHITE_BED.defaultBlockState().setValue(BedBlock.FACING,Direction.NORTH).setValue(BedBlock.PART,BedPart.FOOT),2);
