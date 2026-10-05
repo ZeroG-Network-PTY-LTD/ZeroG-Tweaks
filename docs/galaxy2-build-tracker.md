@@ -25,8 +25,8 @@ What is left before players can reach Cerulon on a T2 gate, climb the Cobaltium 
   - Sunken Relay (ocean), Buried Observatory (desert), Collapsed Forge (volcanic), Frozen Outpost (frozen), Sunken Lab (toxic), Prism Spire (crystal) and Impact Site (barren). Their loot tables already exist and hold the wasteland rewards (Abyssal Pearl, Heatproof Plating, Neutralizer, Cryo Core, Star Map Fragments, Refracting Lens) plus the Galaxy 2 and 3 templates. Without them, most rewards can't be found. Reuse DryLandJigsawStructure, which the crash site already uses.
   - Evidence: loot_table/chests/{sunken_relay,buried_observatory,collapsed_forge,frozen_outpost,sunken_lab,prism_spire,impact_site}.json exist; worldgen/structure has only concord_vault, prism_sentinel_arena and the two Mars structures
 - [ ] **Register the wasteland signature mobs** (Mobs)
-  - Ash Strider (volcanic), Rime Stalker (frozen), Bog Lurker (toxic), Amethyst Stalker (crystal) and Crater Drifter (barren) don't exist. Tidewraith is registered but never spawns naturally on ocean worlds. Volcanic and toxic slots spawn Rust Beetle as a placeholder. Several of these mobs drop wasteland rewards: Rime Stalker drops the Cryo Core, Bog Lurker the Neutralizer, Ash Strider the Heatproof Plating.
-  - Evidence: registry/EntityInit.java; biome_modifier/planet_ready_skarn_mobs.json spawns rust_beetle in acid swamps and ash plains; no tidewraith add_spawns
+  - Ash Strider (volcanic), Rime Stalker (frozen), Bog Lurker (toxic), Amethyst Stalker (crystal) and Crater Drifter (barren) aren't registered. All except the Amethyst Stalker already have GeckoLib models and animations in the repo; the Amethyst Stalker comes from the Shattered Skies library. Tidewraith is registered but never spawns naturally on ocean worlds. Volcanic and toxic slots spawn Rust Beetle as a placeholder. Several of these mobs drop wasteland rewards: Rime Stalker drops the Cryo Core, Bog Lurker the Neutralizer, Ash Strider the Heatproof Plating.
+  - Evidence: registry/EntityInit.java; assets geo/ash_strider, rime_stalker, bog_lurker, crater_drifter .geo.json; biome_modifier/planet_ready_skarn_mobs.json spawns rust_beetle in acid swamps and ash plains
 - [ ] **Armor upgrade system (Abyssal Pearl, Heatproof Plating, Neutralizer)** (Gear)
   - The upgrade items exist but do nothing. Add the smithing upgrade stored as a new data component (one slot per piece up to Cerulite), with water breathing, fire resistance and poison immunity. Grav Boots isn't registered at all.
   - Evidence: ItemInit.java registers the items as plain items; no data component; AGENTS.md M1 'Armor upgrades' unticked
@@ -51,9 +51,9 @@ What is left before players can reach Cerulon on a T2 gate, climb the Cobaltium 
 - [ ] **Let the T2 gate reach Galaxy 2's moon** (Gate & travel)
   - canReach() only allows *_moons destinations at T6, so Cerulon's moon (Cinder, g2_moons) can't be visited until the end game. Allow a galaxy's moons at that galaxy's gate tier.
   - Evidence: travel/SurvivalGateBlockEntity.canReach(): (!id.endsWith("_moons")||tier==6)
-- [ ] **Wasteland surface effects (non-damaging)** (Wastelands)
-  - Under the agreed non-damaging rule: Glacial Ice slippery (friction 0.98), Vent Rock smoking, and Acid lakes with a visual or slowing effect. All three are plain blocks today, and acid rain is visual only.
-  - Evidence: BlockInit.java: VENT_ROCK and GLACIAL_ICE = new Block(props(STONE...)); no acid contact handling
+- [ ] **Wasteland surface effects, and a Neutralizer exemption for Acid** (Wastelands)
+  - Glacial Ice should be slippery (friction 0.98) and Vent Rock should smoke; both are plain blocks. Acid already works as designed: Poison II, armor wear and dropped items dissolving after 5 seconds. But no armor can resist it until the Neutralizer upgrade exists (see Armor upgrade system).
+  - Evidence: BlockInit.java: VENT_ROCK and GLACIAL_ICE = new Block(props(STONE...)); registry/ZGDimensionFluids.java case "acid"
 - [ ] **Glintfolk signature profession and Lumenite trading** (Villagers)
   - Cerulon's Glintfolk villagers exist with vanilla jobs only. Add their signature profession and use Lumenite as the alien-trader currency (it also makes the Aurelion Silver Tongue perk mean something).
   - Evidence: registry/ZGPlanetVillagers.java THEMES has cerulon=glintfolk; registry/ZGSolTrades.java covers only Lunari and Rustborn
@@ -67,8 +67,8 @@ What is left before players can reach Cerulon on a T2 gate, climb the Cobaltium 
   - The syrup food exists, but there is no way to tap Shardwood logs for it.
   - Evidence: item/ZGFoods.java SHARDWOOD_SYRUP; no interaction in event/ZGInteractions
 - [ ] **Deep Eel (ocean) and Sand Skitter (desert)** (Mobs)
-  - These are the two wasteland food mobs from the design (Eel Fillet and Skin; Skitter Leg, Carapace and Venom Gland). Neither exists.
-  - Evidence: Design doc, Food and utility mobs; not in EntityInit
+  - These are the two wasteland food mobs from the design (Eel Fillet and Skin; Skitter Leg, Carapace and Venom Gland). Their models and animations are in the repo, but the entities aren't registered.
+  - Evidence: assets geo/deep_eel.geo.json, sand_skitter.geo.json; not in EntityInit
 - [ ] **Real block properties for Galaxy 2 blocks** (Systems)
   - Wasteland signature blocks (Vent Rock, Glacial Ice, Ruinstone, Meteorite Fragment, crystals) and many Cerulon families still use the generic stone props (2.5 hardness, stone sound). Give crystals the amethyst sound and ice the glass sound and friction.
   - Evidence: registry/BlockInit.java: props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)

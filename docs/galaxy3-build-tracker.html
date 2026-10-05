@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galaxy 3 Build Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a mission checklist - progress header, priority bands (Blockers > High > Normal > Done), filter chips by system. */
+:root {
+  --bg: #f3f2f7; --panel: #ffffff; --line: #dcd9e6; --fg: #1d1b26; --muted: #6a6680;
+  --accent: #6a4fc4; --accent-soft: #ece6fb; --blocker: #c2362b; --high: #c27a14; --normal: #4f6f8f; --ok: #2f8f57;
+  --chip: #eeecf4; --code: #f1eff7;
+  --display: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111018; --panel: #1a1924; --line: #2e2c3d; --fg: #e9e7f2; --muted: #9a96b0;
+  --accent: #a68cf5; --accent-soft: #2a2342; --blocker: #ff7a6e; --high: #f0b04a; --normal: #8fb2d6; --ok: #6fd498;
+  --chip: #24222f; --code: #221f2e; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111018; --panel: #1a1924; --line: #2e2c3d; --fg: #e9e7f2; --muted: #9a96b0;
+  --accent: #a68cf5; --accent-soft: #2a2342; --blocker: #ff7a6e; --high: #f0b04a; --normal: #8fb2d6; --ok: #6fd498;
+  --chip: #24222f; --code: #221f2e; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font: 15px/1.5 var(--body); margin: 0 }
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 18px; padding-block: 28px 60px }
+.eyebrow { font: 600 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+h1 { font: 700 clamp(28px, 5vw, 40px)/1.1 var(--display); margin: 8px 0 6px; letter-spacing: .01em; text-wrap: balance }
+.sub { color: var(--muted); max-width: 68ch; margin: 0 }
+.summary { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: end; margin-top: 22px; padding: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px }
+.bar { height: 10px; background: var(--chip); border-radius: 6px; overflow: hidden; margin-top: 10px }
+.bar > i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .4s }
+.count { font: 600 22px/1 var(--display); font-variant-numeric: tabular-nums }
+.pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end }
+.pill { font: 600 12px/1 var(--mono); padding: 6px 9px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); white-space: nowrap }
+.pill b { font-variant-numeric: tabular-nums }
+.p-blocker { color: var(--blocker) } .p-high { color: var(--high) } .p-normal { color: var(--normal) } .p-ok { color: var(--ok) }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 22px 0 6px }
+.chipbtn { font: 500 13px/1 var(--body); padding: 7px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); cursor: pointer }
+.chipbtn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff }
+.chipbtn:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.toggle { margin-left: auto; display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px }
+section.band { margin-top: 26px }
+.band h2 { font: 600 14px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; display: flex; gap: 10px; align-items: center; margin: 0 0 10px }
+.band h2 .n { color: var(--muted); font-weight: 500 }
+.band h2::before { content: ""; width: 10px; height: 10px; border-radius: 2px; background: currentColor }
+.list { display: grid; gap: 8px }
+.task { display: grid; grid-template-columns: 26px 1fr; gap: 12px; padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 8px }
+.task.blocker { border-left-color: var(--blocker) } .task.high { border-left-color: var(--high) } .task.normal { border-left-color: var(--normal) }
+.task.done { opacity: .62; border-left-color: var(--ok) }
+.task.done .t-title { text-decoration: line-through; text-decoration-color: var(--muted) }
+.task input[type=checkbox] { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--accent); cursor: pointer }
+.t-head { display: flex; gap: 8px; flex-wrap: wrap; align-items: baseline }
+.t-title { font-weight: 600; min-width: 0 }
+.tag { font: 500 11px/1 var(--mono); padding: 4px 7px; border-radius: 5px; background: var(--chip); color: var(--muted); white-space: nowrap }
+.tag.branch { background: var(--accent-soft); color: var(--accent) }
+.t-detail { color: var(--muted); margin: 6px 0 0; font-size: 14px; max-width: 78ch }
+.t-ev { margin-top: 8px; font: 12px/1.45 var(--mono); background: var(--code); padding: 6px 8px; border-radius: 5px; overflow-x: auto; white-space: nowrap }
+.empty { padding: 28px; text-align: center; color: var(--muted); background: var(--panel); border: 1px dashed var(--line); border-radius: 10px; margin-top: 22px }
+form.add { margin-top: 34px; display: grid; grid-template-columns: 1fr 160px 130px auto; gap: 8px; padding: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px }
+form.add input, form.add select { font: 14px var(--body); padding: 9px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); min-width: 0 }
+form.add button { font: 600 14px var(--body); padding: 9px 14px; border: 0; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer }
+.formnote { grid-column: 1 / -1; font-size: 12px; color: var(--muted); margin: 0 }
+.status { font-size: 12px; color: var(--muted); margin-top: 10px; min-height: 1em }
+@media (max-width: 640px) { .summary { grid-template-columns: 1fr } .pills { justify-content: flex-start } form.add { grid-template-columns: 1fr 1fr } form.add input { grid-column: 1 / -1 } .toggle { margin-left: 0 } }
+@media (prefers-reduced-motion: reduce) { .bar > i { transition: none } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="eyebrow">ZeroG Tweaks · branch 1.21.x · Galaxy 3 (Skarn)</div>
+  <h1>Galaxy 3 Build Tracker</h1>
+  <p class="sub">What's left before players can reach Skarn on a T3 gate, climb the Ruskite → Tectium → Skarnite ladder, beat the Rift Tyrant, explore the six wasteland slots and build the T4 gate. Audited against <code>1.21.x</code> at <code>5273b96</code> on 5 Oct 2026. Markdown copy: <code>docs/galaxy3-build-tracker.md</code>. This is a static snapshot of the live Galaxy 3 Build Tracker.</p>
+
+  <div class="summary">
+    <div>
+      <div class="count" id="count">Loading tasks…</div>
+      <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+    </div>
+    <div class="pills" id="pills"></div>
+  </div>
+
+  <div class="filters" id="filters" role="group" aria-label="Filter by area"></div>
+
+  <div id="board"></div>
+
+  
+</div>
+
+<script>
+const AREAS = ["Gate & travel", "Progression", "Worlds", "Wastelands", "Mobs", "Gear", "Machines", "Villagers", "Systems", "Polish"];
+const BANDS = [["blocker", "Blockers", "p-blocker"], ["high", "High", "p-high"], ["normal", "Normal", "p-normal"]];
+let tasks = [{"area": "Progression", "branch": "1.21.x", "priority": "blocker", "order": 1, "done": false, "title": "Rift Tyrant boss and arena", "detail": "Galaxy 3's guardian doesn't exist in game. Its GeckoLib model, aura and animations are in the repo, and its loot table is ready (galaxy_4_gate_key and the Skarnite template). Missing: the entity, its AI and phases, the arena and how players find it. Act III, The Wound: Vael's lieutenant, fused into the rift, pulls pieces of the arena into the void. The Prism Sentinel's arena and Concord Prism controller are the pattern to follow.", "evidence": "assets geo/rift_tyrant.geo.json and animations; loot_table/entities/rift_tyrant.json; no entity in EntityInit; no arena in worldgen/structure", "id": "b01-rift-tyrant"}, {"area": "Progression", "branch": "1.21.x", "priority": "blocker", "order": 2, "done": false, "title": "Make the Ruskite, Tectium, Pyrium and Skarnite templates obtainable", "detail": "Ruskite, Tectium and Pyrium templates only drop from the Collapsed Forge, which doesn't exist. Skarnite drops from the Collapsed Forge and the Rift Tyrant, and neither exists. Players can't go from Cerulite to Ruskite, can't mine Skarnite (Tectium pick), and can't build the T4 gate. This is the same problem as Galaxy 2. Build the Collapsed Forge (a volcanic-wasteland structure), or add the templates to Skarn loot in the meantime.", "evidence": "loot_table/chests/collapsed_forge.json and entities/rift_tyrant.json are the only sources; tags/block/needs_tectium_tool lists skarnite_ore", "id": "b02-g3-templates"}, {"area": "Gate & travel", "branch": "1.21.x", "priority": "blocker", "order": 3, "done": false, "title": "Make the Rift Tyrant's key unlock the T4 gate", "detail": "Same gap as Galaxy 2: galaxy_4_gate_key is in the Tyrant's loot, but no recipe or gate check uses it. The Skarnite gate frame only needs Skarnite. Fix both keys the same way.", "evidence": "loot_table/entities/rift_tyrant.json; no recipe or Java uses galaxy_4_gate_key", "id": "b03-g4-key"}, {"area": "Mobs", "branch": "1.21.x", "priority": "high", "order": 10, "done": false, "title": "Skarn mobs", "detail": "Skarn has no mobs of its own. Its biomes spawn Rust Beetle as a placeholder, plus Void-C Blazes and glowbugs. Cinder Hound (packs on Ember Crust), Slag Boar (neutral, drops Boar Chop and Tusk) and Scorch Wyrmling (spits fire bolts, drops Scorch Tail and Scale) already have models and animations, so they only need registering, AI and spawns. Slagjaw and Shardmother come from the Shattered Skies library and have no models here yet. The food items already exist.", "evidence": "assets geo/cinder_hound, slag_boar, scorch_wyrmling .geo.json; registry/EntityInit.java has none; biome_modifier/planet_ready_skarn_mobs.json spawns rust_beetle", "id": "h01-skarn-mobs"}, {"area": "Worlds", "branch": "1.21.x", "priority": "high", "order": 11, "done": false, "title": "Ember Crust hazard (needs your call)", "detail": "The design says Ember Crust hurts to stand on, like magma, and Skarnite armor's Ember Walk makes you safe on it. It is a plain stone block today. This clashes with the agreed rule that environmental effects start non-damaging, so decide: real magma-style damage, or something softer such as setting you alight briefly or Slowness. Magma Slag already burns and damages.", "evidence": "BlockInit.java: EMBER_CRUST = new Block(props(STONE...)); ZGDimensionFluids case magma_slag ignites and deals lava damage", "id": "h02-ember-crust"}, {"area": "Gear", "branch": "1.21.x", "priority": "high", "order": 12, "done": false, "title": "Tectium and Pyrium set bonuses, and the Skarnite tool perks", "detail": "Ruskite (Heat Scale, 25% less fire damage) and Skarnite (fire immunity) work. Missing: Tectium Anchored (knockback resistance), Pyrium Kindled (tools auto-smelt ores 20% of the time), and the Skarnite tools' Ember Touch auto-smelt, burning axe and ember crits.", "evidence": "item/ZGArmorSetBonuses.java has ruskite and skarnite only", "id": "h03-g3-set-bonuses"}, {"area": "Gear", "branch": "1.21.x", "priority": "high", "order": 13, "done": false, "title": "3D worn models for Tectium and Pyrium armor", "detail": "Ruskite and Skarnite use GeckoLib shells; Tectium and Pyrium fall back to vanilla layers. Follow the art-direction lock.", "evidence": "item/ZGArmorItem.java IMPLEMENTED set", "id": "h04-g3-armor-models"}, {"area": "Polish", "branch": "1.21.x", "priority": "high", "order": 14, "done": false, "title": "Play the Galaxy 3 loop in a real client", "detail": "Arrive on Skarn with a T3 gate, mine the eight ores, survive Magma Slag lakes, beat the Rift Tyrant (once it exists), then build the T4 gate. Check heat, gravity (1.2) and mob pressure on screen.", "evidence": "Docs ledger: headless tests only", "id": "h05-client-playtest"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 30, "done": false, "title": "Give each Skarn biome its own features", "detail": "Ember Fields, Marble Contact Zone and Charwood Barrens share the same feature list (charwood trees, magma lakes, emberthorn, cinder caps, rift glass). Make them differ: marble outcrops in the contact zone, dense ember crust and vents in the fields, burnt forest in the barrens. The design also says Skarn ores cluster where lava meets stone.", "evidence": "worldgen/biome/ember_fields.json, marble_contact_zone.json, charwood_barrens.json", "id": "n01-skarn-biomes"}, {"area": "Villagers", "branch": "1.21.x", "priority": "normal", "order": 31, "done": false, "title": "Ashwright signature profession and Cinnabrite trading", "detail": "Skarn's Ashwright villagers have vanilla jobs only. Add their signature profession and use Cinnabrite as the trade gem.", "evidence": "registry/ZGPlanetVillagers.java THEMES skarn=ashwright; no Skarn trades", "id": "n02-ashwright"}, {"area": "Progression", "branch": "1.21.x", "priority": "normal", "order": 32, "done": false, "title": "Codex pages for Act III (The Wound)", "detail": "Add Skarn arrival and post-Tyrant pages. After the Tyrant, Echo remembers she plotted the course here.", "evidence": "item/ConcordCodexItem.java has no Skarn pages; advancement/codex/skarn.json exists", "id": "n03-codex-act3"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 33, "done": false, "title": "Make the Tremor Lamp flicker", "detail": "The design calls for flickering light from Tremor Dust; today it is a fixed light-15 block.", "evidence": "BlockInit.java: TREMOR_LAMP lightLevel(s -> 15)", "id": "n04-tremor-lamp"}, {"area": "Wastelands", "branch": "1.21.x", "priority": "normal", "order": 34, "done": false, "title": "Galaxy 3 wasteland content (shared with Galaxy 2)", "detail": "g3_p1 to g3_p6 reuse the same wasteland biomes, so the Galaxy 2 tasks for wasteland structures, signature mobs, armor upgrades, hazards and the moon gate rule fix these slots too. Default order here: frozen, toxic, crystal, barren, ocean, desert; moons barren.", "evidence": "dimension/g3_*.json; data-manifest galaxy_slots_default_type", "id": "n05-g3-wastelands"}, {"area": "Machines", "branch": "1.21.x", "priority": "normal", "order": 35, "done": false, "title": "Tectium casings and Magma Slag heat for the Alloy Forge", "detail": "Once the Galaxy 2 machines exist: Tectium is the second casing tier, and Magma Slag is the Alloy Forge's heat source.", "evidence": "tectium_casing registered as a plain block; design: Liquids and Machines", "id": "n06-g3-machines"}, {"area": "Systems", "branch": "1.21.x", "priority": "normal", "order": 36, "done": false, "title": "Real block properties for Skarn blocks", "detail": "Scorched Marble, Ember Crust and the Skarn Rock families still use the generic stone props. Give Ember Crust its glow (light level) and the marble a calcite-like sound and hardness.", "evidence": "registry/BlockInit.java generic props", "id": "n07-skarn-block-props"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 50, "done": true, "title": "Skarn dimension", "detail": "Three biomes (Ember Fields, Marble Contact Zone, Charwood Barrens), surface rules with Ember Crust, Slag and Scorched Marble, and gravity 1.2.", "evidence": "dimension/skarn.json; worldgen/noise_settings/planet/skarn.json; ZGProgressionConfig skarnGravity", "id": "d01-skarn-dim"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 51, "done": true, "title": "Skarn terrain, plants and decor", "detail": "Skarn Rock, Scorched Marble, Slag (falls like gravel), Ember Crust, Rift Glass and Slag Glass. Emberthorn (slows and pricks like a sweet berry bush), Cinder Cap and Charwood trees with a full wood set. Tremor Lamp.", "evidence": "registry/BlockInit.java; ZGThornBushBlock.java; worldgen charwood_trees, patch_emberthorn, patch_cinder_cap, rift_glass_scatter", "id": "d02-skarn-blocks"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 52, "done": true, "title": "All eight Skarn ores and their mining gates", "detail": "Emberite, Ruskite, Tectium, Pyrium, Tremor Dust, Rift Opal, Skarnite and Cinnabrite. Ruskite needs a Cerulite pick, the other metals and gems need Ruskite, and Skarnite needs Tectium. Emberite burns in furnaces and the Combustion Generator.", "evidence": "tags/block/needs_cerulite_tool, needs_ruskite_tool, needs_tectium_tool; data_maps furnace_fuels; CombustionBlockEntity emberite", "id": "d03-skarn-ores"}, {"area": "Worlds", "branch": "1.21.x", "priority": "normal", "order": 53, "done": true, "title": "Magma Slag liquid", "detail": "Sets you on fire and deals lava damage. Water turns it into Slag and Liquid Starlight into Rift Glass. Lakes generate in all three biomes.", "evidence": "registry/ZGDimensionFluids.java; worldgen lake_magma_slag_surface", "id": "d04-magma-slag"}, {"area": "Gear", "branch": "1.21.x", "priority": "normal", "order": 54, "done": true, "title": "Galaxy 3 tool tiers, Ruskite and Skarnite armor", "detail": "All four Skarn sets have real tiers and smithing recipes. Ruskite and Skarnite have 3D shells; Ruskite takes 25% less fire damage and Skarnite is fire-immune.", "evidence": "registry/ZGToolTiers.java; item/ZGArmorItem.java; ZGArmorSetBonuses.java", "id": "d05-g3-gear"}, {"area": "Gate & travel", "branch": "1.21.x", "priority": "normal", "order": 55, "done": true, "title": "T4 gate shape and cost", "detail": "Skarnite ring with a taller half-arch; 8M FE; reaches Galaxy 4.", "evidence": "travel/SurvivalGateLayout.java tier 4; ZGProgressionConfig tier4FE", "id": "d06-t4-shape"}, {"area": "Villagers", "branch": "1.21.x", "priority": "normal", "order": 56, "done": true, "title": "Ashwright villagers on Skarn", "detail": "The species is registered and placed in settlements.", "evidence": "registry/ZGPlanetVillagers.java", "id": "d07-ashwright"}, {"area": "Wastelands", "branch": "1.21.x", "priority": "normal", "order": 57, "done": true, "title": "Six wasteland slots and a moon", "detail": "g3_p1 to g3_p6 and g3_moons generate with the shared wasteland biomes, signature blocks and Galaxy 3 tint.", "evidence": "dimension/g3_*.json; client/ZGBlockColors.java", "id": "d08-g3-slots"}, {"area": "Progression", "branch": "1.21.x", "priority": "normal", "order": 58, "done": true, "title": "Act III advancements", "detail": "Skarn and Rift Tyrant advancements exist; the Tyrant one can't trigger until the boss exists.", "evidence": "advancement/codex/skarn.json, rift_tyrant.json", "id": "d09-g3-adv"}], area = "All", hideDone = false;
+const $ = (id) => document.getElementById(id);
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function buildFilters() {
+  const f = $("filters"); f.textContent = "";
+  ["All", ...AREAS].forEach(a => {
+    const b = el("button", "chipbtn", a); b.type = "button"; b.setAttribute("aria-pressed", a === area ? "true" : "false");
+    b.onclick = () => { area = a; buildFilters(); render(); }; f.appendChild(b);
+  });
+  const t = el("label", "toggle"); const cb = document.createElement("input"); cb.type = "checkbox"; cb.id = "hide-done"; cb.checked = hideDone;
+  cb.onchange = () => { hideDone = cb.checked; render(); }; t.appendChild(cb); t.appendChild(document.createTextNode("Hide done")); f.appendChild(t);
+}
+
+function card(t) {
+  const row = el("div", "task " + (t.done ? "done" : t.priority));
+  const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = !!t.done; cb.id = "t-" + t.id;
+  cb.setAttribute("aria-label", "Done: " + t.title);
+  cb.disabled = true;
+  const body = el("div"); body.style.minWidth = "0";
+  const head = el("div", "t-head"); const lab = el("label", "t-title", t.title); lab.htmlFor = cb.id; head.appendChild(lab);
+  if (t.area) head.appendChild(el("span", "tag", t.area));
+  if (t.branch) head.appendChild(el("span", "tag branch", t.branch));
+  body.appendChild(head);
+  if (t.detail) body.appendChild(el("p", "t-detail", t.detail));
+  if (t.evidence) body.appendChild(el("div", "t-ev", t.evidence));
+  row.appendChild(cb); row.appendChild(body); return row;
+}
+
+function render() {
+  const board = $("board"); board.textContent = "";
+  const all = tasks; const done = all.filter(t => t.done).length;
+  $("count").textContent = all.length ? `${done} of ${all.length} done` : "No tasks yet";
+  $("bar").style.width = all.length ? (100 * done / all.length) + "%" : "0";
+  const pills = $("pills"); pills.textContent = "";
+  BANDS.forEach(([k, name, cls]) => { const n = all.filter(t => !t.done && t.priority === k).length; const p = el("span", "pill " + cls); p.append(name + " open: "); const b = el("b", null, String(n)); p.appendChild(b); pills.appendChild(p); });
+  if (!all.length) { const e = el("div", "empty", "No tasks."); board.appendChild(e); return; }
+  const shown = all.filter(t => area === "All" || t.area === area);
+  BANDS.forEach(([k, name, cls]) => {
+    const items = shown.filter(t => !t.done && t.priority === k).sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+    if (!items.length) return;
+    const s = el("section", "band"); const h = el("h2", cls, name); h.appendChild(el("span", "n", items.length + " open")); s.appendChild(h);
+    const l = el("div", "list"); items.forEach(t => l.appendChild(card(t))); s.appendChild(l); board.appendChild(s);
+  });
+  const doneItems = shown.filter(t => t.done).sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+  if (doneItems.length && !hideDone) {
+    const s = el("section", "band"); const h = el("h2", "p-ok", "Done"); h.appendChild(el("span", "n", doneItems.length)); s.appendChild(h);
+    const l = el("div", "list"); doneItems.forEach(t => l.appendChild(card(t))); s.appendChild(l); board.appendChild(s);
+  }
+  if (!board.children.length) board.appendChild(el("div", "empty", "Nothing open in this area."));
+}
+
+
+buildFilters(); render();
+</script>
+
+</body>
+</html>
