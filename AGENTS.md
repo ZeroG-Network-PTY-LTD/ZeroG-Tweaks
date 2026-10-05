@@ -35,7 +35,7 @@ Rules:
 
 ## Ground rules
 
-- **Current verified genetics milestone (2026-10-05):** `genetics/` plus optional mixins implement analysis, sampling and single-trait splicing using the installed Productive Bees cage/attachment API. Four isolated integration tests and one no-optional-mod startup test passed. Use `-PgeneticsTests` only for disposable test runs; rebuild normally before distribution so test classes do not ship. Do not reintroduce queen/princess/fertility assumptions. Full alveary progression, transport and the supplied Sol backlog are still separate work; see [the workflow ledger](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/sol-build-workflow-2026-10-05.md). Never mark client visual approval or the selected hub's planetary regeneration complete from a compilation or headless genetics test.
+- **Current runtime workflow (2026-10-05):** `genetics/` implements actual analysis, sampling, research gating, single-trait splicing and registered honey tank support using Productive Bees cage/attachment APIs. Alveary controllers use separate persistent 27-frame storage with tier unlocks, FE/tanks, verified recipe outputs and bounded automation; unavailable native lifespan/mutation/territory alleles are explicitly not invented. `transport/` implements six tiers, conserved loaded-only networks, cells, ports, filters, wrench upgrades and shared-owner Null Links. `travel/SurvivalGate*` implements player-built progression separately from admin hub gates. Disposable workflow/genetics/planet tests are opt-in; rebuild normally before distribution so test classes do not ship. See [the evidence ledger](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/sol-build-workflow-2026-10-05.md). Client visual approval, third-party claim integration and undefined hidden-world coordinates remain distinct from successful server checks. Never imply a preview or compile verifies them.
 
 - **Locked artwork standard (Claude and all contributors):** read [Design/docs/art-direction-lock.md](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/art-direction-lock.md) before creating or changing textures. Equipment/materials use C magitech; vegetation blends A natural shading and C selective luminous buds/fruit. Use centred readable sprites, hue-shifted shadows/highlights, coherent pixel density, and matching inventory/placed artwork. No flat placeholders, no gems in dirt/farmland; update generators and validate active resource-pack layers. Concept previews are not in-game proof.
 
@@ -128,8 +128,8 @@ Tick these off in order; each milestone should leave something testable. Ids ref
 
 ### M0 Foundation
 
-- [ ] Add the GeckoLib 4.x NeoForge dependency to `build.gradle`. The `dependencies {}` block is empty today; the docs Java needs GeckoLib.
-- [ ] Add a `ModConfigSpec` with:
+- [x] Add the GeckoLib 4.x NeoForge dependency to `build.gradle` (verified 4.9.3).
+- [x] Add a `ModConfigSpec` with:
   - a global ore rarity multiplier;
   - FE costs per tier (design: 500k / 1M / 3M / 8M / 20M / 50M; +10% per passenger; 25% within a galaxy);
   - gravity overrides.
@@ -139,16 +139,16 @@ Tick these off in order; each milestone should leave something testable. Ids ref
   - glass `SoundType.GLASS` with `noOcclusion` and a translucent/cutout render type;
   - leaves already use LeavesBlock;
   - wooden fences are already `FenceBlock`, and the sands, Rustsand, Regolith and Slag already fall like sand/gravel.
-- [ ] Make `*_stairs` pass their real base block state, not `Blocks.STONE`.
+- [x] Make all 164 `*_stairs` pass their real base block state, not `Blocks.STONE`; base registrations precede stair suppliers. Design source: `docs/sol-runtime-source/repair_stair_bases.py`.
 
 ### M1 Sol materials and gear
 
-- [ ] **Tool tiers:** tools and armor are plain `Item`s today. Give each of the 20 sets its own `SimpleTier`:
+- [x] **Tool tiers:** all 20 sets use their registered mining tiers:
   - incorrect-for tag `zerog_tweaks:incorrect_for_<set>_tool` (**new** tags);
   - strengths from the design doc Gear table.
-- [ ] **Tool classes:** register `SwordItem`, `PickaxeItem`, `AxeItem`, `ShovelItem` and `HoeItem` with `Item.Properties().attributes(...)`.
-- [ ] **Armor materials:** register an `ArmorMaterial` per set in `Registries.ARMOR_MATERIAL`. Use `docs/.../java/item/ZGGeoArmorItem.java` for the GeckoLib worn models.
-- [ ] **Mining gates:** each planet's rare ore requires the previous tier's pickaxe. The tags `needs_<tier>_tool` already list the ores.
+- [x] **Tool classes:** registered `SwordItem`, `PickaxeItem`, `AxeItem`, `ShovelItem` and `HoeItem` with `Item.Properties().attributes(...)`.
+- [x] **Armor materials:** all 20 real armor materials and wearable items are registered. Moonsteel and Olympium use GeckoLib shells; other sets retain matching vanilla-layer fallback artwork rather than claiming every design shell was approved.
+- [x] **Mining gates:** tier tools use the incorrect-for tags and ore requirements; retain the existing registry IDs.
 - [ ] **Set bonuses:** per the Gear table (Null Step, Dust Shield, Crystal Sight, Ember Walk, Phantom Veil, Starborne and the 14 metal perks). Check each tick or on equipment change.
 - [x] **Armor trims (data + assets done):** 20 trim materials (`data/zerog_tweaks/trim_material/`, one per armor set) and 10 ZeroG trim patterns (`trim_pattern/`) with template items (`registry/ZGTrims.java`, generated by `generators/trims.py`), smithing and duplication recipes, overlay textures, atlas sources (`assets/minecraft/atlases/armor_trims.json`, `blocks.json`) and trimmed icons for all 80 armor pieces. Templates drop from the structure chests. To see trims worn:
   - the armor items must become real `ArmorItem`s (above);
@@ -162,14 +162,14 @@ Tick these off in order; each milestone should leave something testable. Ids ref
   - Part blocks: `gate_controller`, `gate_pad_plate`, `gate_pylon`, `gate_energy_port`, `gate_lens_housing`, `<tier>_gate_frame`.
   - Tier shapes follow the design doc's Multiblock table.
   - Ghost preview of the next tier. Breaking a part drops the gate one tier.
-- [ ] **Controller:** BlockEntity + menu, FE buffer (`IEnergyStorage` capability), star-chart screen, upgrade slots (`refracting_lens`, `cryo_core`, `star_map_fragment`, `capacity_coil`).
-- [ ] **Teleport:** `DimensionTransition` to `zerog_tweaks:*`. Carry players and tamed or leashed pets standing on the pad.
-- [ ] **Landing platform:** generate one on first arrival (`landing_platform` + `crystal_cell`); it sends everyone home.
-- [ ] **Recall and Group Anchors:** these are **new** items.
+- [x] **Controller:** BlockEntity + menu, FE buffer, tiered star chart and upgrade slots; server revalidates destination, ownership, charge and current tier.
+- [x] **Teleport:** `DimensionTransition` with pad passengers, ready countdown and eligible pets; cold home-gate footprint is loaded before return validation.
+- [x] **Landing platform:** created on first survival arrival, crystal-cell trickle charge and home routing; admin hub remains separate.
+- [x] **Recall and Group Anchors:** implemented items, home routing, FE costs and cooldowns.
 
 ### M3 Sol dimensions
 
-- [ ] **Gravity:** on `PlayerEvent.PlayerChangedDimensionEvent`, set the `minecraft:generic.gravity` attribute modifier from `data-manifest.json` → `planets.<id>.gravity`. Wastelands roll 0.6–1.3× from the seed.
+- [x] **Gravity:** transient dimension modifiers and configured six Sol values; seeded wasteland gravity; clears on return and survives player clone correctly.
 - [ ] **Surface hazards** use the damage types above:
   - Ember Crust and Corona Crust hurt like magma blocks;
   - Flare Vent erupts on a timer;

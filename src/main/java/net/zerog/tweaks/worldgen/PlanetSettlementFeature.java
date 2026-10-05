@@ -126,8 +126,7 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
                 level.setBlock(at.offset(x,1,-2),Blocks.WHITE_BED.defaultBlockState().setValue(BedBlock.FACING,Direction.NORTH).setValue(BedBlock.PART,BedPart.FOOT),2);
                 level.setBlock(at.offset(x,1,-3),Blocks.WHITE_BED.defaultBlockState().setValue(BedBlock.FACING,Direction.NORTH).setValue(BedBlock.PART,BedPart.HEAD),2);
             }
-            // Two additional beds for the planetary residents, alongside the
-            // six vanilla villagers rather than displacing their sleeping slots.
+            // Two additional beds for the specialists; every resident is planetary.
             if(index<2) {
                 level.setBlock(at.offset(-2,1,1),Blocks.WHITE_BED.defaultBlockState().setValue(BedBlock.FACING,Direction.NORTH).setValue(BedBlock.PART,BedPart.FOOT),2);
                 level.setBlock(at.offset(-2,1,0),Blocks.WHITE_BED.defaultBlockState().setValue(BedBlock.FACING,Direction.NORTH).setValue(BedBlock.PART,BedPart.HEAD),2);

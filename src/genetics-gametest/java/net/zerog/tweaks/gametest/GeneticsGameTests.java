@@ -40,6 +40,8 @@ public final class GeneticsGameTests {
     @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)
     public static void analysis_sampling_and_pb_attachment_splicing(GameTestHelper h) {
         var be=machine(h,"geno_station");var specimen=bee(h);var traits=ProductiveBeeGenes.read(specimen);
+        inputs(be,specimen,ItemStack.EMPTY,new ItemStack(Items.HONEY_BOTTLE));start(be,0,0);GeneticsRuntime.energy(be).receiveEnergy(10000,false);tick(be,100);
+        specimen=GeneticsRuntime.inventory(be).extractItem(3,1,false);h.assertTrue(!specimen.isEmpty()&&ProductiveBeeGenes.read(specimen).equals(traits),"Actual analysis failed");h.assertTrue(GeneticsRuntime.inventory(be).extractItem(4,1,false).is(Items.GLASS_BOTTLE)&&GeneticsRuntime.energy(be).getEnergyStored()==8000,"Analysis cost/remainder wrong");GeneticsRuntime.energy(be).receiveEnergy(2000,false);
         inputs(be,specimen,GeneticsRuntime.product("serum_vial"),new ItemStack(Items.HONEY_BOTTLE));
         start(be,1,0);GeneticsRuntime.energy(be).receiveEnergy(10000,false);tick(be,300);
         var inv=GeneticsRuntime.inventory(be);var serum=inv.getStackInSlot(4).copy();var returned=inv.getStackInSlot(3).copy();

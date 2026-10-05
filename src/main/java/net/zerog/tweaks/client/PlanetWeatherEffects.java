@@ -127,6 +127,7 @@ public final class PlanetWeatherEffects {
         level.setRainLevel(active==Preview.ACID || active==Preview.ELECTRICAL || active==Preview.BLIZZARD?intensity:0);
         level.setThunderLevel(active==Preview.ELECTRICAL?intensity:0);
         if(active==Preview.CLEAR) return;
+        if((active==Preview.DUST || active==Preview.VORTEX) && net.zerog.tweaks.item.ZGArmorSetBonuses.dustProtected(player))return;
         // Native precipitation is not a particle-quality option, and real bolts
         // are synchronized entities. Do not substitute dust/sparks or duplicate bolts.
         if(active==Preview.ACID || active==Preview.ELECTRICAL || ZGWeatherConfig.QUALITY.get()==0)return;

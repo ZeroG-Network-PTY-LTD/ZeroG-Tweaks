@@ -24,7 +24,8 @@ import net.zerog.tweaks.registry.ItemInit;
  * Frost Yak (Eidolon): shearable wool, 1-2 Yak Wool, regrows after a timer
  * (like sheep). Loot data already ships (yak_meat).
  */
-public class FrostYak extends Animal implements IShearable {
+public class FrostYak extends AnimatedPlanetAnimal implements IShearable {
+    @Override protected String animationId() { return "frost_yak"; }
     private static final net.minecraft.network.syncher.EntityDataAccessor<Boolean> SHEARED =
             net.minecraft.network.syncher.SynchedEntityData.defineId(FrostYak.class,
                     net.minecraft.network.syncher.EntityDataSerializers.BOOLEAN);
@@ -70,6 +71,16 @@ public class FrostYak extends Animal implements IShearable {
             this.entityData.set(SHEARED, false);
             this.regrowTicks = 0;
         }
+    }
+    @Override public void addAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putBoolean("Sheared", entityData.get(SHEARED));
+        tag.putInt("WoolRegrowTicks", regrowTicks);
+    }
+    @Override public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        entityData.set(SHEARED, tag.getBoolean("Sheared"));
+        regrowTicks = Math.max(0, tag.getInt("WoolRegrowTicks"));
     }
 
     @Override

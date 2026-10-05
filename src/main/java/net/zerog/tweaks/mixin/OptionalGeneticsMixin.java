@@ -3,6 +3,7 @@ package net.zerog.tweaks.mixin;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.zerog.tweaks.genetics.GeneticsRuntime;
+import net.zerog.tweaks.genetics.AlvearyRuntime;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,6 +19,7 @@ public abstract class OptionalGeneticsMixin {
     @Inject(method="tick",at=@At("HEAD"),cancellable=true,require=1)
     private static void zeroGGeneticsTick(@Coerce Object machine,Level level,CallbackInfo ci) {
         if(GeneticsRuntime.handles(GeneticsRuntime.id(machine))){GeneticsRuntime.tick(machine);ci.cancel();}
+        else if(machine instanceof net.minecraft.world.level.block.entity.BlockEntity be&&AlvearyRuntime.tier(be)>0){AlvearyRuntime.tick(be);ci.cancel();}
     }
     @Inject(method="mayPlaceIn",at=@At("HEAD"),cancellable=true,require=1)
     private static void zeroGGeneticsFilter(String id,int slot,ItemStack stack,CallbackInfoReturnable<Boolean> ci) {

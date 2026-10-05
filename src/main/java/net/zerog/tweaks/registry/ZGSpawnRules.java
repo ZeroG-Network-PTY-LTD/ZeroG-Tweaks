@@ -33,6 +33,12 @@ public final class ZGSpawnRules {
     @SubscribeEvent
     public static void register(RegisterSpawnPlacementsEvent event) {
         var replace = RegisterSpawnPlacementsEvent.Operation.REPLACE;
+        event.register(EntityInit.MOON_HOPPER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ZGSpawnRules::landAnimal, replace);
+        event.register(EntityInit.DUST_GRAZER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ZGSpawnRules::landAnimal, replace);
+        event.register(EntityInit.REGOLITH_CRAWLER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules, replace);
         ZGPlanetBlazes.TYPES.values().forEach(type->event.register(type.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ZGSpawnRules::rarePlanetBlaze,replace));
         ZGGlowbugs.TYPES.values().forEach(type->event.register(type.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -58,7 +64,8 @@ public final class ZGSpawnRules {
     public static boolean landAnimal(EntityType<?> type, LevelAccessor level, MobSpawnType reason, BlockPos pos, RandomSource random) {
         var ground = level.getBlockState(pos.below());
         boolean grass = ground.is(BlockInit.AZURE_MOSS.get()) || ground.is(BlockTags.ANIMALS_SPAWNABLE_ON);
-        if(type==EntityInit.RUST_BEETLE.get() || type==EntityInit.DUNE_BURROWER.get() || type==EntityInit.FROST_YAK.get())
+        if(type==EntityInit.RUST_BEETLE.get() || type==EntityInit.DUNE_BURROWER.get() || type==EntityInit.FROST_YAK.get()
+                || type==EntityInit.MOON_HOPPER.get() || type==EntityInit.DUST_GRAZER.get())
             grass |= ground.is(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.BLOCK,
                     net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID,"planet_natural_surfaces")))
                     && ground.isFaceSturdy(level,pos.below(),net.minecraft.core.Direction.UP);

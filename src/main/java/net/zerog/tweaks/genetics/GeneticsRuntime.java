@@ -64,6 +64,7 @@ public final class GeneticsRuntime {
     public static int duration(String id,int mode){return id.equals("genetic_splicer")?400:mode==1?300:100;}
     public static int cost(String id){return id.equals("genetic_splicer")?60:20;}
     public static int chance(ItemStack catalyst){return item(catalyst,"cosmic_jelly")?100:item(catalyst,"royal_jelly")?75:0;}
+    public static int chance(BlockEntity be){int itemChance=chance(inventory(be).getStackInSlot(2));if(itemChance>0)return itemChance;var tank=new GeneticsTank(be);return tank.ready()?(tank.kind().equals("cosmic_jelly")?100:75):0;}
     private static boolean fits(ItemStackHandler inv,int slot,ItemStack result) {
         var target=inv.getStackInSlot(slot);
         return !result.isEmpty()&&(target.isEmpty()?result.getCount()<=Math.min(inv.getSlotLimit(slot),result.getMaxStackSize()):
@@ -76,7 +77,8 @@ public final class GeneticsRuntime {
     public static int status(BlockEntity be) {
         String id=id(be);var inv=inventory(be);var state=state(be);
         if(inv.getSlots()<5||!mayPlace(id,0,inv.getStackInSlot(0)))return 1;
-        if(!mayPlace(id,2,inv.getStackInSlot(2)))return 2;
+        if(id.equals("genetic_splicer")||state.getInt("mode")==1){var specimen=inv.getStackInSlot(0).get(DataComponents.CUSTOM_DATA);if(specimen==null||!specimen.copyTag().getBoolean("zerog_tweaks:analysed"))return 6;}
+        if(!mayPlace(id,2,inv.getStackInSlot(2))&&!new GeneticsTank(be).ready())return 2;
         if(id.equals("genetic_splicer")&&!mayPlace(id,1,inv.getStackInSlot(1)))return 3;
         if(id.equals("geno_station")&&state.getInt("mode")==1&&(!mayPlace(id,1,inv.getStackInSlot(1))||state.getInt("gene")<0||state.getInt("gene")>=5))return 3;
         var bee=ProductiveBeeGenes.analyse(inv.getStackInSlot(0));
@@ -109,6 +111,7 @@ public final class GeneticsRuntime {
         var state=state(be);var inv=inventory(be);if(!state.getBoolean("requested"))return;
         // Fingerprint includes all input components. Removal/replacement invalidates the job.
         var input=new CompoundTag();for(int i=0;i<3;i++)if(!inv.getStackInSlot(i).isEmpty())input.put("s"+i,inv.getStackInSlot(i).save(level.registryAccess()));
+        if(!mayPlace(id(be),2,inv.getStackInSlot(2)))input.putString("fluid",state.getString("fluid"));
         if(state.contains("input")&&!state.getCompound("input").equals(input)){cancel(be);return;}
         if(!state.contains("input"))state.put("input",input);
         if(status(be)!=0)return;
@@ -124,13 +127,13 @@ public final class GeneticsRuntime {
             var spliced=ProductiveBeeGenes.splice(original,serum.getString("gene"),serum.getString("value"));
             // Reserve for the changed output too, before rolling/consuming anything.
             if(!fits(inv,3,spliced)){state.putInt("progress",progress-4);return;}
-            boolean success=level.random.nextInt(100)<chance(inv.getStackInSlot(2));
+            boolean success=level.random.nextInt(100)<chance(be);
             bee=success?spliced:original.copyWithCount(1);state.putBoolean("last_success",success);
         }
         ItemStack secondary=secondary(be);if(!fits(inv,3,bee)||(secondary!=null&&!fits(inv,4,secondary)))return;
         put(inv,3,bee);if(secondary!=null)put(inv,4,secondary);
         if(id.equals("geno_station")&&state.getInt("mode")==1&&inv.getStackInSlot(2).is(Items.HONEY_BOTTLE))put(inv,remainderSlot(inv),new ItemStack(Items.GLASS_BOTTLE));
-        inv.extractItem(0,1,false);inv.extractItem(2,1,false);
+        inv.extractItem(0,1,false);if(mayPlace(id,2,inv.getStackInSlot(2)))inv.extractItem(2,1,false);else new GeneticsTank(be).consume();
         if(id.equals("genetic_splicer")||state.getInt("mode")==1)inv.extractItem(1,1,false);
         cancel(be);
     }

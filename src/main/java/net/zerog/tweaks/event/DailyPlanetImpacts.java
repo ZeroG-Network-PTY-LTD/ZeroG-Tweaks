@@ -47,6 +47,13 @@ public final class DailyPlanetImpacts {
                 if(level.players().stream().anyMatch(p->p.distanceToSqr(centre.getX(),centre.getY(),centre.getZ())<64*64)) continue;
                 if(impact(level,centre,radius,dim)) {
                     ledger.days.put(dim,day);ledger.setDirty();
+                    if(dim.equals("moon") && level.random.nextInt(4)==0 && level.getDifficulty()!=net.minecraft.world.Difficulty.PEACEFUL) {
+                        var boss=net.zerog.tweaks.registry.EntityInit.METEOR_MAW.get().create(level);
+                        if(boss!=null) {
+                            boss.moveTo(centre.getX()+.5,centre.getY()+8,centre.getZ()+.5,level.random.nextFloat()*360,0);
+                            boss.setPersistenceRequired();level.addFreshEntity(boss);
+                        }
+                    }
                     for(var nearby:level.players()) nearby.displayClientMessage(Component.literal("A "+(day%2==0?"comet":"asteroid")+" struck "+dim+" at "+x+", "+z+"."),false);
                     break;
                 }

@@ -1288,7 +1288,7 @@ public final class ItemInit {
     }
 
     /** Sets whose armor renders a GeckoLib chunky-shell model instead of the vanilla layers. */
-    private static final java.util.Set<String> GEO_ARMOR_SETS = java.util.Set.of("moonsteel");
+    private static final java.util.Set<String> GEO_ARMOR_SETS = java.util.Set.of("moonsteel", "olympium");
 
     private static DeferredItem<Item> registerArmor(String id, ZGArmorMaterials.Profile profile, ArmorItem.Type type) {
         String set = id.substring(0, id.lastIndexOf('_'));

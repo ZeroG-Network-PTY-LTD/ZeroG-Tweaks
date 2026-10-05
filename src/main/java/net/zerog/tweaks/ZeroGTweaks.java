@@ -16,6 +16,12 @@ public final class ZeroGTweaks {
     public ZeroGTweaks(IEventBus modBus, net.neoforged.fml.ModContainer container) {
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON, net.zerog.tweaks.registry.ZGEcologyConfig.SPEC);
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.CLIENT, net.zerog.tweaks.registry.ZGWeatherConfig.SPEC);
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.COMMON, net.zerog.tweaks.config.ZGProgressionConfig.SPEC, "zerog-progression-common.toml");
+        net.zerog.tweaks.transport.TransportRegistry.register(modBus);
+        net.zerog.tweaks.transport.TransportMenus.register(modBus);
+        net.zerog.tweaks.machine.CombustionRegistry.register(modBus);
+        net.zerog.tweaks.travel.SurvivalGates.register(modBus);
+        net.zerog.tweaks.genetics.AlvearyRegistry.register(modBus);
         ModInit.register(modBus);
         ZGArmorMaterials.register(modBus);
         TidewraithContent.register(modBus);
@@ -25,6 +31,7 @@ public final class ZeroGTweaks {
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::incomingDamage);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::breakSpeed);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::playerTick);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.registry.ZGSolTrades::trades);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.HandheldBeeSmoker::item);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.HandheldBeeSmoker::block);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.HandheldBeeSmoker::tick);
@@ -42,6 +49,10 @@ public final class ZeroGTweaks {
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::tick);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::interact);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::commands);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.SurvivalGates::interact);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.PlanetGravity::changed);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.PlanetGravity::cloned);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.PlanetGravity::tick);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::breaking);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::placing);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::fluid);
@@ -52,8 +63,11 @@ public final class ZeroGTweaks {
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ArrivalProtection::tick);
         modBus.addListener(net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent.class,event ->
                 event.registerBlock(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,
-                    (level,pos,state,be,side) -> level instanceof net.minecraft.server.level.ServerLevel server ?
-                        net.zerog.tweaks.travel.GateLedger.get(server.getServer()).input(server,pos) : null,
+                    (level,pos,state,be,side) -> {
+                        if (!(level instanceof net.minecraft.server.level.ServerLevel server)) return null;
+                        var legacy = net.zerog.tweaks.travel.GateLedger.get(server.getServer()).input(server,pos);
+                        return legacy != null ? legacy : net.zerog.tweaks.travel.SurvivalGates.portEnergy(server,pos);
+                    },
                     net.zerog.tweaks.registry.BlockInit.GATE_ENERGY_PORT.get()));
     }
 }

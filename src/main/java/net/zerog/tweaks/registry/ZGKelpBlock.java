@@ -42,7 +42,7 @@ public class ZGKelpBlock extends GrowingPlantHeadBlock implements LiquidBlockCon
 
     @Override
     protected boolean canGrowInto(BlockState state) {
-        return state.is(Blocks.WATER);
+        return state.is(Blocks.WATER) && state.getFluidState().isSource() && state.getFluidState().getAmount()==8;
     }
 
     @Override

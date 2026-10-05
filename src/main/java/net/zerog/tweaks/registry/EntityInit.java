@@ -25,6 +25,18 @@ import net.zerog.tweaks.entity.TidewraithBoss;
 public final class EntityInit {
     public static final DeferredRegister<EntityType<?>> ENTITIES =
             DeferredRegister.create(Registries.ENTITY_TYPE, ZeroGTweaks.MODID);
+    public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.MeteorMaw>> METEOR_MAW =
+            ENTITIES.register("meteor_maw", () -> EntityType.Builder.<net.zerog.tweaks.entity.MeteorMaw>of(net.zerog.tweaks.entity.MeteorMaw::new, MobCategory.MONSTER)
+                    .sized(2.5F,3F).fireImmune().clientTrackingRange(16).build("zerog_tweaks:meteor_maw"));
+    public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.RegolithCrawler>> REGOLITH_CRAWLER =
+            ENTITIES.register("regolith_crawler", () -> EntityType.Builder.<net.zerog.tweaks.entity.RegolithCrawler>of(net.zerog.tweaks.entity.RegolithCrawler::new, MobCategory.MONSTER)
+                    .sized(.9F, .5F).build("zerog_tweaks:regolith_crawler"));
+    public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.MoonHopper>> MOON_HOPPER =
+            ENTITIES.register("moon_hopper", () -> EntityType.Builder.<net.zerog.tweaks.entity.MoonHopper>of(net.zerog.tweaks.entity.MoonHopper::new, MobCategory.CREATURE)
+                    .sized(.5F, .6F).build("zerog_tweaks:moon_hopper"));
+    public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.DustGrazer>> DUST_GRAZER =
+            ENTITIES.register("dust_grazer", () -> EntityType.Builder.<net.zerog.tweaks.entity.DustGrazer>of(net.zerog.tweaks.entity.DustGrazer::new, MobCategory.CREATURE)
+                    .sized(1.3F, 1.4F).build("zerog_tweaks:dust_grazer"));
 
     public static final DeferredHolder<EntityType<?>, EntityType<CrystalStag>> CRYSTAL_STAG =
             ENTITIES.register("crystal_stag", () -> EntityType.Builder.<CrystalStag>of(CrystalStag::new, MobCategory.CREATURE)
@@ -73,6 +85,10 @@ public final class EntityInit {
     }
 
     private static void attributes(EntityAttributeCreationEvent event) {
+        event.put(METEOR_MAW.get(), net.zerog.tweaks.entity.MeteorMaw.createAttributes().build());
+        event.put(REGOLITH_CRAWLER.get(), net.zerog.tweaks.entity.RegolithCrawler.createAttributes().build());
+        event.put(MOON_HOPPER.get(), net.zerog.tweaks.entity.MoonHopper.createAttributes().build());
+        event.put(DUST_GRAZER.get(), net.zerog.tweaks.entity.DustGrazer.createAttributes().build());
         event.put(TIDEWRAITH.get(), Tidewraith.createAttributes().build());
         event.put(TIDEWRAITH_BOSS.get(), TidewraithBoss.createAttributes().build());
         event.put(PRISM_SENTINEL.get(), PrismSentinel.createAttributes().build());

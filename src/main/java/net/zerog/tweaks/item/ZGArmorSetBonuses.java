@@ -48,6 +48,8 @@ public final class ZGArmorSetBonuses {
             event.setAmount(event.getAmount() * 0.75F);
         }
     }
+    /** Dust Shield filters dust/vortex visuals; acid rain remains visual-only. */
+    public static boolean dustProtected(LivingEntity entity) { return wearsFullSet(entity, "olympium"); }
 
     public static void breakSpeed(PlayerEvent.BreakSpeed event) {
         if (wearsFullSet(event.getEntity(), "cobaltium")) event.setNewSpeed(event.getNewSpeed() * 1.1F);

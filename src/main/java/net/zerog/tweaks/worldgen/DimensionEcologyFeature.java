@@ -21,6 +21,10 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
         var habitat=PlanetEcologyProfile.habitat(dim,biome);
         var origin=context.origin(); var soil=ZGDimensionTerrain.SOILS.get(dim).get(); var grass=ZGDimensionTerrain.GRASS.get(dim).get();
         int radius=3+random.nextInt(3); boolean changed=false;
+        var treeCandidates=new java.util.ArrayList<BlockPos>();
+        boolean treePlanned=random.nextInt(habitat.treeChance())==0;
+        int treeX=(origin.getX()&~15)+Math.max(3,Math.min(12,origin.getX()&15));
+        int treeZ=(origin.getZ()&~15)+Math.max(3,Math.min(12,origin.getZ()&15));
         for (int x=-radius;x<=radius;x++) for (int z=-radius;z<=radius;z++) {
             if (x*x+z*z>radius*radius) continue;
             int y=level.getHeight(Heightmap.Types.WORLD_SURFACE_WG,origin.getX()+x,origin.getZ()+z)-1;
@@ -32,6 +36,12 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
             level.setBlock(pos,grass.defaultBlockState(),2);
             if (level.getBlockState(pos.below()).is(previous.getBlock())) level.setBlock(pos.below(),soil.defaultBlockState(),2);
             changed=true;
+            // Remember the ground before plants change the surface heightmap.
+            int localX=pos.getX()&15,localZ=pos.getZ()&15;
+            if(localX>=3&&localX<=12&&localZ>=3&&localZ<=12)treeCandidates.add(pos.above());
+            // Reserve a tiny natural clearing only when this patch plans a tree.
+            // Do not destroy existing plants or generate a tree above their tips.
+            if(treePlanned&&Math.abs(pos.getX()-treeX)<=1&&Math.abs(pos.getZ()-treeZ)<=1)continue;
             if(random.nextInt(habitat.flowerChance())==0 && level.isEmptyBlock(pos.above())) {
                 var choices=random.nextBoolean()?net.zerog.tweaks.registry.ZGPlanetBotany.FLOWERS.get(theme)
                         :net.zerog.tweaks.registry.ZGPlanetBotany.SHRUBS.get(theme);
@@ -56,14 +66,22 @@ public final class DimensionEcologyFeature extends Feature<NoneFeatureConfigurat
                 if (plant.canSurvive(level,pos.above())) level.setBlock(pos.above(),plant,2);
             }
         }
-        if (changed && random.nextInt(habitat.treeChance())==0) {
+        if (changed && treePlanned) {
             String tree=PlanetEcologyProfile.tree(dim);
             var key=ResourceLocation.fromNamespaceAndPath("zerog_tweaks",tree+"_tree");
             var configured=level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).get(key);
             if(configured!=null) {
-                var pos=level.getHeightmapPos(Heightmap.Types.WORLD_SURFACE_WG,origin);
-                if(level.getBlockState(pos.below()).is(grass) && configured.place(level,context.chunkGenerator(),random,pos))
-                    PlanetCaveEcologyFeature.decorateCanopy(level,random,pos,theme);
+                // Planting at heightmap(origin) after decorating often selects the top
+                // of grass/flowers, not soil, and silently rejects every tree attempt.
+                int candidates=Math.min(12,treeCandidates.size())+1;
+                for(int attempt=0;attempt<candidates;attempt++){
+                    var pos=attempt==0?level.getHeightmapPos(Heightmap.Types.WORLD_SURFACE_WG,new BlockPos(treeX,origin.getY(),treeZ)):treeCandidates.remove(random.nextInt(treeCandidates.size()));
+                    boolean clear=level.getBlockState(pos.below()).is(grass);
+                    for(int dx=-1;dx<=1&&clear;dx++)for(int dz=-1;dz<=1&&clear;dz++)for(int dy=0;dy<3;dy++)if(!level.isEmptyBlock(pos.offset(dx,dy,dz))){clear=false;break;}
+                    if(clear&&configured.place(level,context.chunkGenerator(),random,pos)){
+                        PlanetCaveEcologyFeature.decorateCanopy(level,random,pos,theme);break;
+                    }
+                }
             }
         }
         if(changed && random.nextInt(12)==0 && net.zerog.tweaks.registry.ZGGasVents.AMBIENT_VENTS.containsKey(theme)) {

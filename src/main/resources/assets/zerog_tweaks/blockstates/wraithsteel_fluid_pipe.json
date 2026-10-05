@@ -1,0 +1,221 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "zerog_tweaks:block/transport/wraithsteel_fluid_pipe_core"
+      }
+    },
+    {
+      "when": {
+        "north": "pipe|normal|push|pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/wraithsteel_fluid_pipe_arm"
+      }
+    },
+    {
+      "when": {
+        "north": "normal"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_normal"
+      }
+    },
+    {
+      "when": {
+        "north": "push"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_push"
+      }
+    },
+    {
+      "when": {
+        "north": "pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_pull"
+      }
+    },
+    {
+      "when": {
+        "east": "pipe|normal|push|pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/wraithsteel_fluid_pipe_arm",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "normal"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_normal",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "push"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_push",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_pull",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "pipe|normal|push|pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/wraithsteel_fluid_pipe_arm",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "south": "normal"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_normal",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "south": "push"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_push",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "south": "pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_pull",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "pipe|normal|push|pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/wraithsteel_fluid_pipe_arm",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "normal"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_normal",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "push"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_push",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_pull",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": "pipe|normal|push|pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/wraithsteel_fluid_pipe_arm",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "up": "normal"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_normal",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "up": "push"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_push",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "up": "pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_pull",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "down": "pipe|normal|push|pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/wraithsteel_fluid_pipe_arm",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down": "normal"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_normal",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down": "push"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_push",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down": "pull"
+      },
+      "apply": {
+        "model": "zerog_tweaks:block/transport/connector_fluid_pull",
+        "x": 90
+      }
+    }
+  ]
+}

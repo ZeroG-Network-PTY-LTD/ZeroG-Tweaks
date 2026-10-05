@@ -10,6 +10,7 @@ public final class ModInit {
     public static void register(net.neoforged.bus.api.IEventBus modBus) {
         ZGEcologyFeatures.register(modBus);
         ZGVillagerAttire.register(modBus);
+        ZGSolTrades.register(modBus);
         ZGPlanetVillagers.init(modBus);
         ZGGasVents.init(modBus);
         ZGGlowbugs.init(modBus);
@@ -19,6 +20,7 @@ public final class ModInit {
         ZGPlanetCrops.init();
         ZGAlienAgriculture.init();
         ZGPlanetCaveVariants.init();
+        ZGPlanetAquatic.init();
         ZGAlienVines.init();
         ZGPlanetBotany.init();
         EntityInit.register(modBus);

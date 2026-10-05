@@ -56,6 +56,15 @@ public final class SettlementAnchorBlockEntity extends BlockEntity {
             var villager=net.zerog.tweaks.registry.ZGPlanetVillagers.TYPES.get(species).get().create(server);
             if(villager==null)return;
             villager.setUUID(id);villager.setStyle(id.hashCode());villager.moveTo(at.getX()+.5,at.getY(),at.getZ()+.5,0,0);
+            if(theme.equals("moon") || theme.equals("mars")) {
+                var job=pos.offset(speciesResidents==0?-3:3,1,1);
+                var block=theme.equals("moon")?net.zerog.tweaks.registry.BlockInit.ORE_REFINERY.get():net.zerog.tweaks.registry.BlockInit.COMBUSTION_GENERATOR.get();
+                var profession=theme.equals("moon")?net.zerog.tweaks.registry.ZGSolTrades.REFINER.get():net.zerog.tweaks.registry.ZGSolTrades.MECHANIC.get();
+                if(server.getBlockState(job).isAir())server.setBlockAndUpdate(job,block.defaultBlockState());
+                villager.setVillagerData(villager.getVillagerData().setProfession(profession));
+                villager.getBrain().setMemory(net.minecraft.world.entity.ai.memory.MemoryModuleType.JOB_SITE,
+                    net.minecraft.core.GlobalPos.of(server.dimension(),job));
+            }
             villager.setPersistenceRequired();
             if(!server.addFreshEntity(villager))return;setChanged();
         }

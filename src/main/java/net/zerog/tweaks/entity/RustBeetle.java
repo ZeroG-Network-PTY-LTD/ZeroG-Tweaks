@@ -19,7 +19,18 @@ import net.zerog.tweaks.registry.ItemInit;
  * (damage via Attributes.ATTACK_DAMAGE wired in the goals below), herds.
  * Loot data already ships (beetle_grub).
  */
-public class RustBeetle extends Animal {
+public class RustBeetle extends AnimatedPlanetAnimal {
+    @Override protected String animationId() { return "rust_beetle"; }
+    @Override protected void registerGoals() {
+        super.registerGoals();
+        goalSelector.addGoal(1, new net.minecraft.world.entity.ai.goal.MeleeAttackGoal(this, 1.3, true));
+        targetSelector.addGoal(1, new net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal(this));
+    }
+    @Override public boolean doHurtTarget(net.minecraft.world.entity.Entity target) {
+        boolean hit = super.doHurtTarget(target);
+        if (hit && !level().isClientSide) triggerAnim("action", "attack");
+        return hit;
+    }
     public RustBeetle(EntityType<? extends Animal> type, Level level) {
         super(type, level);
     }

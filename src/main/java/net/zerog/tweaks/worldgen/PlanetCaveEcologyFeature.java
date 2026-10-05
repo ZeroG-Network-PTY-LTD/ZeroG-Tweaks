@@ -67,14 +67,15 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
                         break;
                     }
                 } else if(level.getFluidState(pos).is(FluidTags.WATER) && natural(level,pos.below()) && random.nextInt(7)==0) {
-                    var kelp=BlockInit.GLOWKELP.get().defaultBlockState();
+                    var aquatic=net.zerog.tweaks.registry.ZGPlanetAquatic.FAMILIES.get(theme);
+                    var kelp=aquatic.head().get().defaultBlockState();
                     if(kelp.canSurvive(level,pos)) {
                         int height=2+random.nextInt(5);
                         for(int n=0;n<height;n++) {
                             var p=pos.above(n);
                             if(!level.getBlockState(p).is(Blocks.WATER)) break;
                             var next=n+1<height&&level.getBlockState(p.above()).is(Blocks.WATER)?
-                                    BlockInit.GLOWKELP_PLANT.get().defaultBlockState():kelp;
+                                    aquatic.body().get().defaultBlockState():kelp;
                             level.setBlock(p,next,2);changed=true;
                         }
                     }

@@ -48,6 +48,11 @@ if (providers.gradleProperty('geneticsTests').isPresent()) {
     sourceSets.main.resources.srcDir 'src/genetics-gametest/resources'
     sourceSets.main.resources.srcDir 'src/gametest/resources'
 }
+if (providers.gradleProperty('workflowTests').isPresent()) {
+    sourceSets.main.java.srcDir 'src/workflow-gametest/java'
+    sourceSets.main.resources.srcDir 'src/gametest/resources'
+    sourceSets.main.resources.srcDir 'src/workflow-gametest/resources'
+}
 if (providers.gradleProperty('planetHubTests').isPresent()) {
     sourceSets.main.java.srcDir 'src/planet-hub-gametest/java'
     sourceSets.main.resources.srcDir 'src/planet-hub-gametest/resources'
@@ -63,6 +68,11 @@ neoForge {
     }
 
     runs {
+        workflowTests {
+            type = 'gameTestServer'
+            gameDirectory = file(providers.gradleProperty('workflowTestDirectory').getOrElse('run-local-workflow-20261005'))
+            systemProperty 'neoforge.enabledGameTestNamespaces', providers.gradleProperty('workflowTestNamespaces').getOrElse('zerog_tweaks')
+        }
         geneticsTests {
             type = 'gameTestServer'
             gameDirectory = file(providers.gradleProperty('geneticsTestDirectory').getOrElse('run-local-genetics-20261005'))

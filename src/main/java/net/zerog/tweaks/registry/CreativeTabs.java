@@ -86,6 +86,11 @@ public final class CreativeTabs {
                         Set<String> listed = new HashSet<>(HIDDEN);
                         listed.add("weather_tester");
                         listed.add("concord_codex");
+                        listed.add("recall_anchor");listed.add("group_anchor");
+                        for(var tier:net.zerog.tweaks.transport.TransportTier.ALL)
+                            for(String suffix:new String[]{"energy_conduit","fluid_pipe","item_tube","energy_cell"})listed.add(tier.name()+"_"+suffix);
+                        listed.addAll(java.util.List.of("item_port","fluid_port","energy_port","null_link","flux_wrench","item_filter_card","fluid_filter_card","null_frequency_card"));
+                        ZGPlanetAquatic.FAMILIES.keySet().forEach(theme->listed.add(theme+"_kelp"));
                         listed.addAll(ZGPlanetBotany.PLANTS.keySet());listed.addAll(ZGPlanetBotany.BUDS.keySet());
                         listed.addAll(ZGAlienVines.VINES.keySet());
                         ZGGasVents.AMBIENT_VENTS.keySet().forEach(id->listed.add(id+"_ambient_vent"));
@@ -117,6 +122,13 @@ public final class CreativeTabs {
                         });
                     }
                     if (name.equals("food_and_drinks")) ZGPlanetCrops.PLANET_CROPS.values().stream().sorted().forEach(id -> out.accept(item(id)));
+                    if(name.equals("functional_blocks")) {
+                        for(var tier:net.zerog.tweaks.transport.TransportTier.ALL)
+                            for(String suffix:new String[]{"energy_conduit","fluid_pipe","item_tube","energy_cell"})out.accept(item(tier.name()+"_"+suffix));
+                        for(String id:new String[]{"item_port","fluid_port","energy_port","null_link"})out.accept(item(id));
+                    }
+                    if(name.equals("tools_and_utilities"))
+                        for(String id:new String[]{"flux_wrench","item_filter_card","fluid_filter_card","null_frequency_card","recall_anchor","group_anchor"})out.accept(item(id));
                     if(name.equals("food_and_drinks")) {
                         ZGPlanetBotany.BUDS.keySet().forEach(id->out.accept(item(id)));
                         ZGAlienVines.FRUITS.values().forEach(fruit->out.accept(fruit.get()));
@@ -124,6 +136,7 @@ public final class CreativeTabs {
                         ZGPlanetCaveVariants.FAMILIES.keySet().forEach(id->out.accept(item(id+"_cave_berry")));
                     }
                     if (name.equals("natural_blocks")) {
+                        ZGPlanetAquatic.FAMILIES.values().forEach(family->out.accept(item(net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(family.head().get()).getPath())));
                         ZGPlanetBotany.PLANTS.values().forEach(plant->out.accept(plant.get()));
                         ZGPlanetBotany.BUDS.keySet().forEach(id->out.accept(item(id)));
                         ZGAlienVines.VINES.values().forEach(vine->out.accept(vine.get()));

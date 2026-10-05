@@ -33,7 +33,7 @@ public final class GeneticsMenu extends AbstractContainerMenu {
         }
         for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(playerInv,9+row*9+col,48+col*18,169+row*18));
         for(int col=0;col<9;col++)addSlot(new Slot(playerInv,col,48+col*18,227));
-        data=playerInv.player.level().isClientSide?new SimpleContainerData(10):new ContainerData() {
+        data=playerInv.player.level().isClientSide?new SimpleContainerData(11):new ContainerData() {
             public int get(int index) {
                 var state=GeneticsRuntime.state(machine);
                 return switch(index) {
@@ -44,11 +44,11 @@ public final class GeneticsMenu extends AbstractContainerMenu {
                     case 4->state.getInt("mode");case 5->state.getInt("gene");
                     case 6->state.getBoolean("requested")?1:0;
                     case 7->GeneticsRuntime.status(machine);
-                    case 8->GeneticsRuntime.chance(handler.getStackInSlot(2));
-                    case 9->state.getBoolean("last_success")?1:0;default->0;
+                    case 8->GeneticsRuntime.chance(machine);
+                    case 9->state.getBoolean("last_success")?1:0;case 10->new GeneticsTank(machine).amount();default->0;
                 };
             }
-            public void set(int index,int value){}public int getCount(){return 10;}
+            public void set(int index,int value){}public int getCount(){return 11;}
         };
         addDataSlots(data);
     }
@@ -64,6 +64,7 @@ public final class GeneticsMenu extends AbstractContainerMenu {
         if(state.getBoolean("requested"))return false;
         if(button>=10&&button<15&&machineId.equals("geno_station")){state.putInt("gene",button-10);machine.setChanged();return true;}
         boolean splicer=machineId.equals("genetic_splicer");
+        if(button==1||button==2){var specimen=GeneticsRuntime.inventory(machine).getStackInSlot(0).get(net.minecraft.core.component.DataComponents.CUSTOM_DATA);if(specimen==null||!specimen.copyTag().getBoolean("zerog_tweaks:analysed"))return false;}
         if((splicer&&button!=2)||(!splicer&&button!=0&&button!=1))return false;
         state.putInt("mode",button==1?1:0);
         if(GeneticsRuntime.status(machine)!=0)return false;

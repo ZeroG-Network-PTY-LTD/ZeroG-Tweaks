@@ -58,7 +58,7 @@ public final class GeneticsScreen extends AbstractContainerScreen<GeneticsMenu> 
             g.drawString(font,trait.getString("value").replace('_',' '),leftPos+50,topPos+51,0xffc3b4ff,false);
             g.drawString(font,"Catalyst: "+menu.value(8)+"%",leftPos+50,topPos+68,0xffffd185,false);
         }
-        g.drawString(font,"FE "+menu.value(2)*10+" / "+menu.value(3)*10,leftPos+48,topPos+248,0xff24313e,false);
+        g.drawString(font,"FE "+menu.value(2)*10+" | Fluid "+menu.value(10)+"/4000",leftPos+48,topPos+248,0xff24313e,false);
         g.drawString(font,font.plainSubstrByWidth(status(),236),leftPos+10,topPos+258,0xff24313e,false);
     }
     @Override public void render(GuiGraphics g,int mx,int my,float partial) {
@@ -70,7 +70,7 @@ public final class GeneticsScreen extends AbstractContainerScreen<GeneticsMenu> 
         if(mx>=leftPos+48&&mx<leftPos+214&&my>=topPos+114&&my<topPos+118)g.renderTooltip(font,Component.literal(status()),mx,my);
         if(mx>=leftPos+10&&mx<leftPos+246&&my>=topPos+258&&my<topPos+268)g.renderTooltip(font,Component.literal(status()),mx,my);
     }
-    private String status(){return switch(menu.value(7)){case 1->"Insert a filled Productive Bees cage with saved traits";case 2->"Missing reagent/catalyst";case 3->"Missing vial, selected gene or valid serum";case 4->"Output or bottle-return slots blocked";case 5->"Splicer needs 60 FE per tick";default->menu.value(6)==1?"Processing":"Ready";};}
+    private String status(){return switch(menu.value(7)){case 1->"Insert a filled Productive Bees cage with saved traits";case 2->"Missing reagent/catalyst";case 3->"Missing vial, selected gene or valid serum";case 4->"Output or bottle-return slots blocked";case 5->"Splicer needs 60 FE per tick";case 6->"Analyse this specimen before sampling or splicing";default->menu.value(6)==1?"Processing":"Ready";};}
     @EventBusSubscriber(modid="zerog_tweaks",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
     public static class Registration {
         @SubscribeEvent public static void register(RegisterMenuScreensEvent event){event.register(MenuInit.GENETICS.get(),GeneticsScreen::new);}

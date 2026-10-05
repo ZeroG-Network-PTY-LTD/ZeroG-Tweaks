@@ -15,7 +15,12 @@ def mod_ids(path):
             if name in jar.namelist():return {m['modId'] for m in tomllib.loads(jar.read(name).decode()).get('mods',[])}
     return set()
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--jar',type=Path,required=True);p.add_argument('--mods',type=Path,required=True);p.add_argument('--sha256',required=True);p.add_argument('--install',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--jar',type=Path,required=True);p.add_argument('--mods',type=Path,required=True);p.add_argument('--sha256',required=True);p.add_argument('--install',action='store_true');p.add_argument('--report',type=Path);a=p.parse_args()
+    def emit(report):
+        payload=json.dumps(report,indent=2)
+        if a.report:
+            a.report.parent.mkdir(parents=True,exist_ok=True);a.report.write_text(payload+'\n')
+        print(payload)
     source=a.jar.resolve();mods=a.mods.resolve();assert mods.is_dir() and mods.name=='mods','Existing exact mods directory required'
     assert source.is_file() and source.suffix=='.jar' and source.parent!=mods
     assert sha(source)==a.sha256,'Candidate hash changed';assert mod_ids(source)=={'zerog_tweaks'},'Unexpected candidate mod IDs'
@@ -28,7 +33,7 @@ def main():
     target=mods/source.name;already=target.exists() and sha(target)==a.sha256
     obsolete=[path for path in duplicates if not (already and path==target)]
     report={'candidate':str(source),'target':str(target),'sha256':a.sha256,'installed':False,'conflicts':[path.name for path in obsolete],'preserved_dependencies':preserved}
-    if not a.install:print(json.dumps(report,indent=2));return
+    if not a.install:emit(report);return
     backup=mods.parent/'zerog-mod-backups'/datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S-UTC')
     moved=[];temporary=None
     try:
@@ -50,5 +55,5 @@ def main():
         for original,saved in reversed(moved):
             if saved.exists() and not original.exists():saved.rename(original)
         raise
-    report.update(installed=True,backup=str(backup) if obsolete else None,backed_up=[destination.name for _,destination in moved]);print(json.dumps(report,indent=2))
+    report.update(installed=True,backup=str(backup) if obsolete else None,backed_up=[destination.name for _,destination in moved]);emit(report)
 if __name__=='__main__':main()

@@ -13,7 +13,7 @@ import net.minecraft.world.item.TooltipFlag;
 /** Only advertises abilities actually implemented in this local gameplay pass. */
 public class ZGArmorItem extends ArmorItem {
     private static final Set<String> IMPLEMENTED = Set.of("nullifite", "moonsteel", "ruskite",
-            "skarnite", "eidolite", "cobaltium", "ferrox", "astrium");
+            "skarnite", "eidolite", "cobaltium", "ferrox", "astrium", "olympium");
     private final String materialName;
 
     public ZGArmorItem(String materialName, Holder<ArmorMaterial> material, Type type, Properties properties) {

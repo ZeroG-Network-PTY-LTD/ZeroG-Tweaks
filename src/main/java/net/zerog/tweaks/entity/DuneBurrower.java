@@ -18,7 +18,8 @@ import net.zerog.tweaks.registry.ItemInit;
  * Dune Burrower (Dune/Desert wasteland): burrowing passive mob.
  * Loot data ships (sand_sift).
  */
-public class DuneBurrower extends Animal {
+public class DuneBurrower extends AnimatedPlanetAnimal {
+    @Override protected String animationId() { return "dune_burrower"; }
     public DuneBurrower(EntityType<? extends Animal> type, Level level) {
         super(type, level);
     }

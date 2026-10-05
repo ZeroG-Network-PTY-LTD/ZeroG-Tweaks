@@ -36,6 +36,8 @@ public final class GeneticsIntegration {
             var key=ResourceLocation.fromNamespaceAndPath("aeroapiary",id);
             if(BuiltInRegistries.BLOCK.containsKey(key))event.registerBlock(Capabilities.EnergyStorage.BLOCK,
                 (level,pos,state,be,side)->be!=null&&GeneticsRuntime.handles(GeneticsRuntime.id(be))?GeneticsRuntime.energy(be):null,BuiltInRegistries.BLOCK.get(key));
+            if(BuiltInRegistries.BLOCK.containsKey(key))event.registerBlock(Capabilities.FluidHandler.BLOCK,
+                (level,pos,state,be,side)->be!=null&&GeneticsRuntime.handles(GeneticsRuntime.id(be))?new GeneticsTank(be):null,BuiltInRegistries.BLOCK.get(key));
         }
     }
     private GeneticsIntegration(){}
