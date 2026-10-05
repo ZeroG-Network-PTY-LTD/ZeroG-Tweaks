@@ -26,6 +26,10 @@ def main():
     parser.add_argument('--build-log', required=True, type=Path)
     parser.add_argument('--test-log', required=True, action='append', type=Path)
     parser.add_argument('--asset-report', required=True, action='append', type=Path)
+    parser.add_argument('--receipt-name', default='storage-machinery-delivery-2026-10-05.json')
+    parser.add_argument('--jar-name', help='Optional same-version archive name; preserves earlier published JAR bytes')
+    parser.add_argument('--remaining-file', type=Path, help='Current TODO ledger instead of the historical delivery list')
+    parser.add_argument('--red-test-log', type=Path, help='Observed failing regression before the repaired pass')
     args = parser.parse_args()
     sha = digest(args.jar)
     installation = json.loads(args.installation.read_text())
@@ -52,7 +56,10 @@ def main():
         assert ('version="${file.jarVersion}"' in metadata and
                 re.search(r'^Implementation-Version: 1\.0\.12-dev\s*$', manifest, re.M)) or \
                'version="1.0.12-dev"' in metadata, 'Keep the approved same version'
-    destination = args.docs / 'docs' / 'jars' / args.jar.name
+    archive_name=args.jar_name or args.jar.name
+    assert Path(archive_name).name==archive_name and archive_name.endswith('.jar')
+    assert Path(args.receipt_name).name==args.receipt_name and args.receipt_name.endswith('.json')
+    destination = args.docs / 'docs' / 'jars' / archive_name
     assert destination.parent.is_dir(), 'Existing Docs jar directory required'
     shutil.copyfile(args.jar, destination)
     assert digest(destination) == sha
@@ -62,7 +69,7 @@ def main():
     receipt = {
         'schema': 1, 'created_utc': datetime.now(timezone.utc).isoformat(),
         'version': '1.0.12-dev', 'minecraft': '1.21.1', 'loader': 'NeoForge',
-        'jar': args.jar.name, 'sha256': sha, 'bytes': args.jar.stat().st_size,
+        'jar': archive_name, 'sha256': sha, 'bytes': args.jar.stat().st_size,
         'installed_before_publication': True,
         'old_jar_backup': Path(installation['backup']).name if installation['backup'] else None,
         'backed_up': installation.get('backed_up', []),
@@ -77,9 +84,21 @@ def main():
         'ownership': {'runtime': '1.21.x', 'source_art': 'Design', 'guides_images_jars': 'Docs'},
         'jar_checksums_preserved': len(jars)
     }
-    target = args.docs / 'docs' / 'storage-machinery-delivery-2026-10-05.json'
+    if args.remaining_file:
+        ledger=json.loads(args.remaining_file.read_text())
+        receipt['remaining']=[row['id'] for row in ledger['tasks'] if row['status'] in {'todo','partial','todo_api_and_design','pending_user_review','source_verified_pending_client','server_verified_pending_client'}]
+        receipt['todo_sha256']=digest(args.remaining_file)
+    if args.red_test_log:
+        red=args.red_test_log.read_text(errors='replace')
+        assert 'unused_machine_input_slots_are_not_misleading_inputs failed' in red
+        assert 'energy_and_fluid_buffers_recover_old_items_but_refuse_new_storage failed' in red
+        receipt['regression_red']={'log':args.red_test_log.name,'sha256':digest(args.red_test_log),
+            'observed_failures':['unused legacy machine insertion','non-item transport incidental storage'],
+            'centrifuge_dispatch_suspicion_disproved':True}
+    target = args.docs / 'docs' / args.receipt_name
+    assert not target.exists() or target.name=='storage-machinery-delivery-2026-10-05.json','Use a new receipt name to preserve historical evidence'
     target.write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf-8')
-    print(json.dumps({'receipt': str(target), 'jar': args.jar.name, 'sha256': sha,
+    print(json.dumps({'receipt': str(target), 'jar': archive_name, 'sha256': sha,
                       'tests': sum(row['required_passes'] for row in tests),
                       'checksums': len(jars)}, indent=2))
 

@@ -24,5 +24,8 @@ public abstract class OptionalGeneticsMixin {
     @Inject(method="mayPlaceIn",at=@At("HEAD"),cancellable=true,require=1)
     private static void zeroGGeneticsFilter(String id,int slot,ItemStack stack,CallbackInfoReturnable<Boolean> ci) {
         if(GeneticsRuntime.handles(id))ci.setReturnValue(GeneticsRuntime.mayPlace(id,slot,stack));
+        // The installed recipes never read these legacy placeholder inputs.
+        // Existing stacks remain extractable; no inventory indices are removed.
+        else if(id.equals("starmetal_smelter")&&slot==1||id.equals("silk_weaver")&&slot==1||id.equals("frame_infusion_altar")&&slot==2)ci.setReturnValue(false);
     }
 }

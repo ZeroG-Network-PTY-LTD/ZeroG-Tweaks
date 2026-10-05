@@ -24,6 +24,13 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 public final class WoodStorageBlockEntity extends RandomizableContainerBlockEntity {
     private NonNullList<ItemStack> items = NonNullList.withSize(54, ItemStack.EMPTY);
     private boolean expanded;
+    private float previousLid, lid;
+    /** Client-only visual state follows the synchronized OPEN block property. */
+    public static void clientTick(Level level, BlockPos pos, BlockState state, WoodStorageBlockEntity be) {
+        be.previousLid = be.lid;
+        be.lid = net.minecraft.util.Mth.clamp(be.lid + (state.getValue(BlockStateProperties.OPEN) ? .1F : -.1F), 0, 1);
+    }
+    public float lidOpenness(float partialTick) { return net.minecraft.util.Mth.lerp(partialTick, previousLid, lid); }
     private final ContainerOpenersCounter openers = new ContainerOpenersCounter() {
         @Override protected void onOpen(Level level, BlockPos pos, BlockState state) { setOpen(state, true); }
         @Override protected void onClose(Level level, BlockPos pos, BlockState state) { setOpen(state, false); }

@@ -233,3 +233,20 @@ Never launch Bedrock. Publishing alone does not authorise game launches, install
 jar replacement or world changes. Isolated test evidence is not modpack approval.
 Archived Java drafts are in tools/design-code-archive/, not compiled or under the
 root docs/ directory. Generator implementations live on Design.
+
+## October 5 faceted-armour/visual repair boundaries
+
+Run Design's `docs/full-art-rollout-v4/generate.py` last for native source artwork.
+Forty worn layers are now 128x64 but preserve normalized vanilla Netherite alpha/UV
+coverage; do not restore old flat 64x32 artwork or active custom armour shells.
+Client visual approval is separate from the source/UV and isolated server checks.
+Do not paint fake fluid inside tank textures: the synchronized fluid renderer owns it.
+Transport physical save indices remain nine; energy/fluid families permit only
+labelled legacy take-out recovery, never new incidental item insertion. Ghost controls
+must match supported families and reject forged commands server-side.
+The ordinary addon centrifuge's actual output regression PASSES: the earlier suspected
+infusion dispatch was disproved. Smelter/weaver/infusion unused-input rejection applies
+to menus and capabilities, while old stacks stay recoverable. Silk pattern handling
+and staged generic processing recipes remain separate pending work.
+Keep same-version delivery receipts distinct, preserve earlier published JARs/checksums,
+install the verified JAR with backup before pushing the three owning branches.

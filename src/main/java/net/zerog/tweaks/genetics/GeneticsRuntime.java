@@ -20,6 +20,23 @@ public final class GeneticsRuntime {
         try{return (String)object.getClass().getMethod("getMachineId").invoke(object);}catch(ReflectiveOperationException ex){return "";}
     }
     public static boolean handles(String id){return id.equals("genetic_splicer")||id.equals("geno_station");}
+    public static boolean legacyFiltered(String id){return id.equals("starmetal_smelter")||id.equals("silk_weaver")||id.equals("frame_infusion_altar");}
+    /** The verified addon's inventory lacks filters; apply its menu contract to pipes too. */
+    public static net.neoforged.neoforge.items.IItemHandler legacyAutomation(Object machine) {
+        var inv=inventory(machine);String id=id(machine);
+        return new net.neoforged.neoforge.items.IItemHandler(){
+            public int getSlots(){return inv.getSlots();}
+            public ItemStack getStackInSlot(int slot){return inv.getStackInSlot(slot);}
+            public int getSlotLimit(int slot){return inv.getSlotLimit(slot);}
+            public boolean isItemValid(int slot,ItemStack stack){
+                if(slot<0||slot>=inv.getSlots())return false;
+                try{return (Boolean)Class.forName("com.zerog.aeroapiary.ZeroGMachines").getMethod("mayPlaceIn",String.class,int.class,ItemStack.class).invoke(null,id,slot,stack);}
+                catch(ReflectiveOperationException ex){return false;}
+            }
+            public ItemStack insertItem(int slot,ItemStack stack,boolean simulate){return isItemValid(slot,stack)?inv.insertItem(slot,stack,simulate):stack;}
+            public ItemStack extractItem(int slot,int count,boolean simulate){return inv.extractItem(slot,count,simulate);}
+        };
+    }
     public static ItemStackHandler inventory(Object machine) {
         try{return (ItemStackHandler)machine.getClass().getMethod("getInventory").invoke(machine);}
         catch(ReflectiveOperationException ex){throw new IllegalStateException("Verified addon inventory API changed",ex);}

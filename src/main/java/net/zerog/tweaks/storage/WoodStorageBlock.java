@@ -35,7 +35,10 @@ public abstract class WoodStorageBlock extends BaseEntityBlock {
         return defaultBlockState().setValue(facingProperty(), this instanceof Barrel ? context.getNearestLookingDirection().getOpposite() : context.getHorizontalDirection().getOpposite());
     }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new WoodStorageBlockEntity(pos, state); }
-    @Override protected RenderShape getRenderShape(BlockState state) { return RenderShape.MODEL; }
+    @Override protected RenderShape getRenderShape(BlockState state) { return this instanceof Chest ? RenderShape.ENTITYBLOCK_ANIMATED : RenderShape.MODEL; }
+    @Override public <T extends BlockEntity> net.minecraft.world.level.block.entity.BlockEntityTicker<T> getTicker(Level level, BlockState state, net.minecraft.world.level.block.entity.BlockEntityType<T> type) {
+        return level.isClientSide && this instanceof Chest ? createTickerHelper(type, WoodStorageRegistry.TYPE.get(), WoodStorageBlockEntity::clientTick) : null;
+    }
     @Override protected BlockState rotate(BlockState state, Rotation rotation) { return state.setValue(facingProperty(), rotation.rotate(state.getValue(facingProperty()))); }
     @Override protected BlockState mirror(BlockState state, Mirror mirror) { return rotate(state, mirror.getRotation(state.getValue(facingProperty()))); }
     @Override protected boolean hasAnalogOutputSignal(BlockState state) { return true; }

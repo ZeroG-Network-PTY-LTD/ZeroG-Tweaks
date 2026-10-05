@@ -18,6 +18,7 @@ public abstract class OptionalGeneticsCapabilityMixin {
     @Inject(method="lambda$register$0",at=@At("HEAD"),cancellable=true,require=1)
     private static void zeroGGeneticsItems(@Coerce Object machine,Direction side,CallbackInfoReturnable<IItemHandler> ci) {
         if(GeneticsRuntime.handles(GeneticsRuntime.id(machine)))ci.setReturnValue(GeneticsRuntime.automation(machine));
+        else if(GeneticsRuntime.legacyFiltered(GeneticsRuntime.id(machine)))ci.setReturnValue(GeneticsRuntime.legacyAutomation(machine));
         else if(machine instanceof net.minecraft.world.level.block.entity.BlockEntity be&&AlvearyRuntime.tier(be)>0)ci.setReturnValue(AlvearyRuntime.automation(be));
         else if(machine instanceof net.minecraft.world.level.block.entity.BlockEntity be&&net.zerog.tweaks.genetics.AlvearyPorts.itemPort(GeneticsRuntime.id(be)))ci.setReturnValue(be.getLevel() instanceof net.minecraft.server.level.ServerLevel level?net.zerog.tweaks.genetics.AlvearyPorts.items(level,be.getBlockPos()):null);
     }

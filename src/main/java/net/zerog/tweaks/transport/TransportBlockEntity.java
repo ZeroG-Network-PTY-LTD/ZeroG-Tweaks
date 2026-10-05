@@ -24,7 +24,7 @@ public final class TransportBlockEntity extends BlockEntity {
     public int stored;public int colour=-1;public int redstone;public int routing;public int cursor;
     // 0 normal, 1 push, 2 pull, 3 disabled. Input/output is always relative to the network.
     public final int[] modes=new int[6];public final int[] priorities=new int[6];
-    public final ItemStackHandler items=new ItemStackHandler(9){@Override protected void onContentsChanged(int slot){setChanged();}};
+    public final ItemStackHandler items=new ItemStackHandler(9){@Override public boolean isItemValid(int slot,ItemStack stack){return supports("item");}@Override protected void onContentsChanged(int slot){setChanged();}};
     // These are filter templates only: never extracted, dropped, or transferred as real inventory.
     public final ItemStackHandler ghostItems=new ItemStackHandler(9){@Override protected void onContentsChanged(int slot){setChanged();}};
     public final ItemStackHandler ghostFluids=new ItemStackHandler(3){@Override protected void onContentsChanged(int slot){setChanged();}};
@@ -55,7 +55,7 @@ public final class TransportBlockEntity extends BlockEntity {
     };}
     public IItemHandler itemHandler(Direction side){var owner=owner();if(owner==null)return null;int factor=remoteFactor(owner);return new IItemHandler(){
         public int getSlots(){return owner.items.getSlots();}public ItemStack getStackInSlot(int slot){return owner.items.getStackInSlot(slot);}public int getSlotLimit(int slot){return 64;}
-        public boolean isItemValid(int slot,ItemStack stack){return validOwner(owner)&&input(side)&&permittedItem(stack);}
+        public boolean isItemValid(int slot,ItemStack stack){return supports("item")&&validOwner(owner)&&input(side)&&permittedItem(stack);}
         public ItemStack insertItem(int slot,ItemStack stack,boolean simulate){if(!isItemValid(slot,stack))return stack;int count=Math.min(stack.getCount(),factor==0?stack.getCount():owner.stored/(2*factor));var rest=owner.items.insertItem(slot,stack.copyWithCount(count),simulate);int accepted=count-rest.getCount();if(!simulate&&accepted>0){owner.stored-=accepted*2*factor;owner.setChanged();}return stack.copyWithCount(stack.getCount()-accepted);}
         public ItemStack extractItem(int slot,int amount,boolean simulate){if(!validOwner(owner)||!output(side))return ItemStack.EMPTY;int count=Math.max(0,Math.min(amount,factor==0?amount:owner.stored/(2*factor)));var result=owner.items.extractItem(slot,count,simulate);if(!simulate&&!result.isEmpty()){owner.stored-=result.getCount()*2*factor;owner.setChanged();}return result;}
     };}
