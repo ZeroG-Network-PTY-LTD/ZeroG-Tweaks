@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ruskite_leggings_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "ruskite_leggings",
+      "type": "cube",
+      "uuid": "f41a444b-7044-5146-a273-22f8e9f499a9",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "f41a444b-7044-5146-a273-22f8e9f499a9"
+  ],
+  "textures": [
+    {
+      "name": "ruskite_leggings.png",
+      "id": "0",
+      "uuid": "b8624658-ccb5-5cf1-ba0e-e7b00af336cb",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABPklEQVR4nGNgGAWjYIABIy4JGwXl/9S06MiDu1jtYmIYYMBCSMHh3kC88tGlOgxLu6/glLctXk+ZA+4dOY9TrnZjLMPSu/EM0coLGZr9FzOQA5gYKAAgy1+eZWDoWxUPdgw+gCtNMZFrOchCkM9BYFPTR7JDgIVcB8As/Lp0McOBK7EMzsoMtHHAuUfv4Ozt974x3Hr/B5tzGOKhaS3fmA9FPSHAREhBSIgdQUMoUc/EMMCAaUg74MiDu4y4ilhsailygLO2DCluI1o9Ez7JTXFaDO+v34Mb1uOrxkBN9QQdgMsSaqpnwifpt+ganC3YuImgZaSqJ+gAZPC+3g/DEmqoZ2IgEyCnamJzAllF8d6rT0gqWklVz8RAB4AvhJgYBhiwEFIw8ewnkgwkVT0Tw1AENliaV9Ruxo8CBnoBAGmVcc28dwhFAAAAAElFTkSuQmCC"
+    }
+  ]
+}

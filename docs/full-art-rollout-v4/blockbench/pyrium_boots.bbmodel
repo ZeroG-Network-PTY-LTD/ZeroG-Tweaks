@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "pyrium_boots_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "pyrium_boots",
+      "type": "cube",
+      "uuid": "4beda8ab-3c87-5b75-b42a-f63c409ea7ec",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "4beda8ab-3c87-5b75-b42a-f63c409ea7ec"
+  ],
+  "textures": [
+    {
+      "name": "pyrium_boots.png",
+      "id": "0",
+      "uuid": "ca0d4e5c-eb91-574f-8867-d1826b986698",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAxElEQVR4nGNgGAWjYKQDRlwS7kYK/3HJ7Tz3gGr6mBgGGLDgk9xxxB5DzMPmIEFDSdHHgs+gS7NOErSMUn1MhBR8/nOdLEcQq4+JYYAB06gDGAZ7FPCyaJJlMLH6mBgGGDCNOoBhpEcBCz7JskU/yDKUFH0suOr0Hb1SWDV4FD/DaRg5+piwGYK3qu2VwqqGXH1MuBSTYxg5+pgYyAD4ooFUfSzYFLbPe4nXIHttZoaDV/9SRR8LNoXYDCcGkKtvFIxsAAD78EpA3/wZagAAAABJRU5ErkJggg=="
+    }
+  ]
+}

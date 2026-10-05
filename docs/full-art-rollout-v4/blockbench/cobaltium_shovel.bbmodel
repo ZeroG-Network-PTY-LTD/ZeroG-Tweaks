@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cobaltium_shovel_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "cobaltium_shovel",
+      "type": "cube",
+      "uuid": "44cfbdf0-c634-5492-baf4-50aa000ecfc1",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "44cfbdf0-c634-5492-baf4-50aa000ecfc1"
+  ],
+  "textures": [
+    {
+      "name": "cobaltium_shovel.png",
+      "id": "0",
+      "uuid": "9c6f9025-bf3f-52b4-811a-8ae50c2b8da2",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABXElEQVR4nGNgGAXDGajpef0npIaF1pbvevkVTOe4hqLI37q0jZFmDoBZPmX3aoa9u98wwNgwgOwYFnpYDgLIbGTARA/LCzXkcOphoablgWXTGZxdRTAs77/xCM5f35VJ/RBQI9JybIBpIC0HAapEASRYp5NsOQhQHAKw/AyLW3yWw9TA9IAAnEEuaI8y+z//igicD4oOXBajWw4CTJRajm4peipH9jW65RQ5AGb5B6/VDALbQrFaii3I0QEjtSzfeuIBw5F7rxjRKyB8loMAySFgoySG03KYhTBLCVkOAozU8jmpHiHZAe1oloMsBgFKLAcBJnKDnRqWgwDjQAQ70Q5op1GwExUFNjQMdmTAOBDBjtcB7VFm/y+fyGKQbXKkWbDjjYLLJ7IYlt6NZ3hctx8uRivLsYL/////f3EGgqOUFhBs11MVRCktAFsKsnyW3wf6Wo4O6O57hpEKAC5T+vaXL7LeAAAAAElFTkSuQmCC"
+    }
+  ]
+}

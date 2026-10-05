@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ferrox_nugget_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "ferrox_nugget",
+      "type": "cube",
+      "uuid": "5c252ce4-a701-5e0f-aeca-db384a785e13",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "5c252ce4-a701-5e0f-aeca-db384a785e13"
+  ],
+  "textures": [
+    {
+      "name": "ferrox_nugget.png",
+      "id": "0",
+      "uuid": "50bfe818-e714-52c2-8646-7f96b01edd64",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA3klEQVR4nGNgGAWjYBSMgqEK/HTU/1PDHBZyLZ8frc2QuJQBxRGbrtxkJNUsRnItF1JXYHh38wFcPHHpVQy1xDiIkRqWYwMgBxHjACZaWU4sYKK25ej6KHaAH4mWk+J7EGAk1RcgxxBreYQuH0PU8tOMVM2GiVBLcDkEZClNQ4BUS1dc/oQ3NzAxUAF8+bobjOlWEsKAj9JJMM3D7QqmYY6A8WnqAB+lkwxb7pmjRAO6xYSCHwRILgmJSQcgi2lSFONzCMwBxPiaYgdgcwzIAaRaTlVArfbBKBgFIw8AAAp8blkYC+r4AAAAAElFTkSuQmCC"
+    }
+  ]
+}

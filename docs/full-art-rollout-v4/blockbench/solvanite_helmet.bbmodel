@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "solvanite_helmet_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "solvanite_helmet",
+      "type": "cube",
+      "uuid": "94b830ef-24b7-5896-8432-486796aceba3",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "94b830ef-24b7-5896-8432-486796aceba3"
+  ],
+  "textures": [
+    {
+      "name": "solvanite_helmet.png",
+      "id": "0",
+      "uuid": "c766d619-3184-5914-bd34-63f1d6198ec7",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABhElEQVR4nGNgGAWjgAZAno/1P7FqGSk17MGz3QwKUq5Y5R5++k3QfEZCloMsQAfR5l4MS09uI2Q22GGEHMFIlAPudKGIPzx1iaFq4juGtnwhiLqoJQxLkv3h8jFzNxLtCEZ8loPoFk8uDLmYSmuG6OgDcAcc3vsZbinMIcQ6ghGfAw72iIMNx+YAWCh46rCiyiE5hBhHMOHzPTbLwYa3H2WQN9PDLocUFTA2LJFiS9BMWE1hYGAA+Z5cAPO9rTMvw8NlMXjVMqELILsSZAA2gJwGcKmBAfuSl3jlGfE5ADkNbL/ym4FYAEoXMIfBHABKzDXbv2GkAxZCrodFha0zqhxyNiQEsOUkgiHQAnUxpQDZcpJDoAXN5aQ6CJ/PCeYCEEDOxyAAcj0xGFmPa+kHBrIdQA/AhC6Aq8gkJfixmYFLPxPDAAOmIeOAh0Q0LrCB3d0ClDughgrlAVkOWIJUs9EKsBDyNTGFCZ4o+08o9BjxSSJXTOSkAUr1k9XMpoa+UTCyAABLZ8mc1/hPQQAAAABJRU5ErkJggg=="
+    }
+  ]
+}

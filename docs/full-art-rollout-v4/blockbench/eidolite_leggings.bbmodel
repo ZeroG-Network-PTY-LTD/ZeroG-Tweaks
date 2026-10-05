@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "eidolite_leggings_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "eidolite_leggings",
+      "type": "cube",
+      "uuid": "842e5b01-92d3-59b4-9231-a7a4a33b65f2",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "842e5b01-92d3-59b4-9231-a7a4a33b65f2"
+  ],
+  "textures": [
+    {
+      "name": "eidolite_leggings.png",
+      "id": "0",
+      "uuid": "2810dbe0-3731-5b9f-a8c0-0bb736c95056",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABQElEQVR4nGNgGAWjYIABIy4JRXuf/9S06P7BLVjtYmIYYMBCSEH7nhV45Tepr2HwuxmCU77SJYIyBxz6iTuQPuitYlh6N54hWnkhg8ClMAZyABMDBQBk+cuzDAx9q+LBjsEHcKUpJnItB1kI8jkIbGr6SHYIsJDrAJiFTQzfGT5c2cAgwEAjBzw+dQ7BXrOR4ePV65iKZBkYGLzXgJk69RUo6gkBJkIKQu0MCRpCiXomhgEGTEPaAfcPbmHEVcRiU0uRA7QczElxG9HqmfBJhu1fz3CViQ1umPuUNgZqqifoAFyWUFM9Ez7JVY6BcHYHI+Eyi1T1BB2ADCr+/8GwhBrqmRjIBMipmticgA2wEFJw7cBJkopWUtUzMdAB4AshJoYBBiyEFFxp7CDJQFLVMzEMRaCIpXlF7Wb8KGCgFwAAhShrCkHrwGEAAAAASUVORK5CYII="
+    }
+  ]
+}

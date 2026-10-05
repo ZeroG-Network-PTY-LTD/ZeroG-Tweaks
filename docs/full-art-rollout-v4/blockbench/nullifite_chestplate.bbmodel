@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "nullifite_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "nullifite_chestplate",
+      "type": "cube",
+      "uuid": "b7c4eae7-fef9-5b55-8ff9-eaf11f46a243",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "b7c4eae7-fef9-5b55-8ff9-eaf11f46a243"
+  ],
+  "textures": [
+    {
+      "name": "nullifite_chestplate.png",
+      "id": "0",
+      "uuid": "7e8c86bb-8a23-5a58-b669-0f28c2648efd",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACLUlEQVR4nO1WO0gDQRCdO04UgiJJoaDYxCbYBFKkE2NhSgshKVSClZDOVNEyNlaxi3UKC4OF2IhNIoKfiIEUio0BFQUtDH4QtFJmcY+9dfduLzm7PAi5u8y893ZuZjcAHXSgCF+3//s/4jU3yR9fTa1dcZ7DsCO6qj2b16FIgBCrmqC5mGcHg3+AIjR5bWnLQuhERvPZXN4IvwiDJ0iNFyzCIgGnKiAHhcyI0IBP8O7263mIhzOEiFbBbUPyRkKRgLkIg3eOgjITbiDiQWQhabnX6QVdlZ2Q3asRlV/GgTFUT+MNyKqAqFSqjo2IJY7ForYxj2/X5Btfg6WZZCYwgR9JmTgbM9g3KhSm4vj9p5upCUxmE2hps+tJoRFWHMtcPEyb9ywXP0G6cCmcWwqsSrl0axGdHsqb4ig8P7Mo5RKNr8E/wCB21vmRW91IAEAJzk5O4aXxCZuNFMwGi9Af7IHLuzIsJFfIbzI+Hrroocp2i9VA8acaQL6UImZksOPTQAFsX1Ac7VVhIALEAEUmUYSHrmMYG5k0e8BpMTq0gGhvmohh6RG7uVdyPzU3YcbwE+CJgfjvJlV9L5hiKHxwsSPdOZ22bR1aBDYjNh5+ENgHiPtmHYb9YWUeHTwAFUdTbsQ9M9AOdJUgWSeLzgycADcw3ATjaIm6O7dsPSXPb7bJRwWaqriom6kZ9ghnzwCVDU1rxwBrhD87VP+8aqoGVA2pCnsOXwv/EzvACvwAdxwfHHUaSFwAAAAASUVORK5CYII="
+    }
+  ]
+}

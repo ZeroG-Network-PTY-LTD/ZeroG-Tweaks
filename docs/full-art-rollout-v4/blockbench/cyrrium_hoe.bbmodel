@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cyrrium_hoe_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "cyrrium_hoe",
+      "type": "cube",
+      "uuid": "86494fd3-f9fc-5dcb-9af5-efe5cb6ec20e",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "86494fd3-f9fc-5dcb-9af5-efe5cb6ec20e"
+  ],
+  "textures": [
+    {
+      "name": "cyrrium_hoe.png",
+      "id": "0",
+      "uuid": "bdd0d772-c7e2-54d2-b5bf-5ff62afa202d",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABeklEQVR4nGNgGAWjYKgAfVO3/8/+fMWLQWpINZeFFMVnb33CK7/9+HoGT8vA/xdP72Ik1kwmBiqCErXVYEeQEhqMxBpOyEDtt1EMS+/GM0QrL2SI3OLOYKzGBwoNBkKhwUgtB1w4tZPh5VkIuygM1REgQEq0kAyilBb8B+EXZ/7/n+X3ARz8m689h2N8jmdioAJYdi+BUddiGoN7pjvDgSsbwGI18fEoanA5gokaDmiPMgMbHqH6AewYmDjMES0LF+LUy0Qty8XT5sD5dMuG7UiWv5yVAhbbeuIBihpCocBEbcuP3HsF9j22UMCWDlhoYTk6QE+QyICRVMttlMT+e1soEG05yNf40gQjLX1ODGAk13JYYqPEchBgIjbYkS2HAUotBwHGgQh2oh3QTqNgJyoKbGgY7MiAcSCCHa8D2qPM/l8+kcXgMs+IZsGONwoun8gCt2z2JJ2Di9HKcqzg////4IYFCIMaGQz0BFFoLRu6Wo4O6O57hpEKACSNHNa+2yCdAAAAAElFTkSuQmCC"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "moonsteel_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "moonsteel_chestplate",
+      "type": "cube",
+      "uuid": "7eff50e0-b26b-54aa-93f8-1a3a415c57b9",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "7eff50e0-b26b-54aa-93f8-1a3a415c57b9"
+  ],
+  "textures": [
+    {
+      "name": "moonsteel_chestplate.png",
+      "id": "0",
+      "uuid": "6c2849e4-2541-54f3-961a-01e31e247a81",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACL0lEQVR4nO1WPUjDQBR+CRncFCwUXCr4U6eKCNKtU10cxCWgDnUSB6ciQsWpCIKUTg7iVkGEDlaFDiKCCoI/SLE4tP6ALkJRoW5uyju8cDnvkksbt34QmqTvfd93797dBaCFFhQR6Oz//o94zUvy+8e91qw4z2E4EZVfqtZ9JBQmxKomaC7mOcHgX6AITV5Z3bcRupHRfDaXN8IPwuAJzLk1m7BIwK0KyEEhMyI0EBDM3WlhE2ITs4SIVsFrQ/JGIqGwNQiDd46CMhNeIOJBLKfGbc86vaGjchJymhpR+WUcGEP1NN6ArAqIo6uiayNiieMjY44xtdoj+cVpsDWTzAQm8EtSJs7GBIO9QmEqjr9/upmawGQ2gZaWnUPWCCuOZc5vLFrPLBe/gnThUDi3FFiVw7OqTXS0fckSR+GEmZJyiZavwb/AIHat80sus5AEyGTh+rwC9Z06bD8lYLonBx2THfBQuoCp+Rnyn4yPhy56qbLdYjVQvHYDkM0niBkZnPg0UADbFxTHW0UIDgMxQJE0c/A2UIG+oajVA26D0aEBDH6ZRAxLjzhIf5Ln+HrUiuFXgC8GYr+b1G1b3hJD4ZO7PenO6bZt69AgsBmx8fBCYB8gXp/L0NUdUebRwQdQcTTlRdw3A81AVwmSdbLozMAV4AWGl2BcWqLuThfsp2TpcpdcKtBUxUXdTM2wRzh7BqhsaFozBlgj/Nmh+vGqqRpQNaQq7DsCDXwntoAV+AEFkyJ+p5jSQAAAAABJRU5ErkJggg=="
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ruskite_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "ruskite_chestplate",
+      "type": "cube",
+      "uuid": "764a8923-5a47-5b02-b68b-e2ba533be240",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "764a8923-5a47-5b02-b68b-e2ba533be240"
+  ],
+  "textures": [
+    {
+      "name": "ruskite_chestplate.png",
+      "id": "0",
+      "uuid": "8fbeaced-0eb9-5e6d-838e-94ce47596e34",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACYUlEQVR4nGNgGAWjgEhgo6D8nxbqGUnRfOTBXUZKLUc3gwWfQYd7A+Fs2+L1YIOJdcThSkeIvvb9eNUxoguALIFZfGbbUbi4iZc12BGEHADzfb+zGESfmTaGQ5DNYEE3AKQR2WJsFhByBMxysCdOXcUbIozohiNrBoGV1z4whGsJoIQCIYBuBjIAhQjIETBPsKBrBFmIDpAdQSxYf/MjDgeg8pnQ4w6fRfiihhjfg804dRWsBmYfE7Jk4d5XODWCQsHEzoigA0BqcPkeBEByyPYw4krByFFx4vkvhsONHnC+bf0OrIajq7GTYUeRP/TkJ5wNSwOM6IbAHGEhyQa2GAbg2QopFJAdgmz5mUPnUHwJcgjMcvQcxITVK1BfYwu+rw+foVgqx1QLtxxkceO8Axj6cFmO1QEwRSAam4a2XTfBjgBZFt1oyrD0bjyYBvG33vnEUOupjdM8bB5lwiZITHELCg2Q5S/PMjD0rYpn6N+fjlMtPvOYCFkE0wyK02+//8NDIW8CpISDAZAjbj0uZWjejipOCDCRopiLlRHsiAfPyhiKwhYyRCsvBItvavoI5i9O2wZXayDGSn0HBKrzgx0hJtrJMCthI1gMZPGBKxtQ1C28/J4hXleQqHYBEwMZAOSImq03GAodZ4IxLApA4M33vwwinMxEm8XEQAUAszx/3SWSLCfbAaB0AAoFagAmYhThykbYynxvFT6SHMBCimJQVgQVq+i+fzzdCoW/5+EPMCYGMBJrObbUDKtsQLkD2ZGkFGgsDBQARO32EaWmI9ZyECA7JVHadB/wjssoYIACANarJYVTB7zcAAAAAElFTkSuQmCC"
+    }
+  ]
+}

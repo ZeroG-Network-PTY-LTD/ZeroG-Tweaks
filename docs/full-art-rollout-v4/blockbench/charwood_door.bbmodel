@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "charwood_door_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "charwood_door",
+      "type": "cube",
+      "uuid": "f8d02cf7-f11f-56e3-908c-8647082c43f5",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "f8d02cf7-f11f-56e3-908c-8647082c43f5"
+  ],
+  "textures": [
+    {
+      "name": "charwood_door.png",
+      "id": "0",
+      "uuid": "b772561d-1344-5f58-877e-fdb5d0d7d6a5",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA3UlEQVR4nGNgGOmAEZ+kjZLYf2pYcuTeK5z2sBDS7G2hQLbFW088IKiGiVjDrj94x6CpIUGUOC61FDmAVoCJYYABCymKA+o2oSSm9igzeCKtXHYKRS7IQ+v/kAgBplEHMIxGwUiPAhZSFG9o8vt//cYLrHLIZQKoKB4yIcA0JKIgNMIFztYx0MGqBl38yoUr1HPA6hV7wPEa5KHFgJ4GsInDxKjmAFKAfsVKBn0GBoZfG/KHRhpgGnYOuNgRzrAiw3XgHEAqYGIYYMA06gAGEgCuigibOC61g65rNgoA5ytJ1fz9XyMAAAAASUVORK5CYII="
+    }
+  ]
+}

@@ -18,6 +18,9 @@ for folder in ['planet-botany-v2','wood-dust-art-v2']:
         known['assets/zerog_tweaks/textures/'+row['path']]=row['sha256']
 for row in json.loads((base.parent/'asset-collection-1.21.1/planet-art-refresh-v1/manifest.json').read_text())['files']:
     known.setdefault(row['path'],row['sha256'])
+# Final approved overlay takes precedence over historical source manifests.
+for row in json.loads((base.parent/'full-art-rollout-v4/manifest.json').read_text())['files']:
+    known[row['path']]=row['sha256']
 model_cache={};texture_cache={}
 def resolve(ref,seen=None):
     if ref in model_cache:return dict(model_cache[ref])

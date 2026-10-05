@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "salvium_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "salvium_chestplate",
+      "type": "cube",
+      "uuid": "d788164b-d8b7-5742-9368-a8d99188a1f5",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "d788164b-d8b7-5742-9368-a8d99188a1f5"
+  ],
+  "textures": [
+    {
+      "name": "salvium_chestplate.png",
+      "id": "0",
+      "uuid": "82ff26c2-5282-5d96-87f2-75fab33d5695",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACZklEQVR4nGNgGAWjgEhgZGj/nxbqGUnRfO78QUZKLUc3gwWfQcdPbYWzLc28wQYT64iN21aBaX+vMLzqWNAFQJbALF65dieKY0COINb3+w8eweoQdE+woBtQUJ6HYjE2CwiFAsgMGMDlEKwOMMISd7u372Fw9XQBOwoWCqQmSHSH+HuFwT3Bgu5ykIW4HEEKOLDnIFZxR3sbFD4TjAHzFT6L8EUNtuDHFRIgNTD7mJAlJ3ROwqkRFApeHoRDAaQGl+9BACSHbA8jsiTMVehRcfXSNYZd+zfB+W6OflgNR1djYKyPIn/h7EU4G5YGGNENgTlCW08LbDF60CKHArJDkC3ftmMPii9BDoFZjp6DmLB6BeprbMF3+859FEs1PibCLQdZXF3ZhKEPl+VYHQBTBKKxaZg9Yx7YESDL8ozWMyy9Gw+mQfyjB48xZGSn4DQPm0eZsAkSU9yCQgNk+cuzDAx9q+IZdlR9xqkWn3mMDEQAWLrQ0FZn4ODgAIu1ZUxkEDdmADsABorCFjLwul9msLa3gqcBQp5hYiABgCz/8eMHw499RmDLopUXgsU3NX0E80s3mcPVqqqrEGUmEykOcHCxh4SA1TGG3FUGYDGQxQeubEBRt3XDNgbvAC8wm1CxzcRABgA5YvKEaQwebbxgDAKgdAACH95/YBAQFCDaLCYGKgCY5R0tPSRZTrYDQOkAlhgpBUzEKMKVkrGV+aAcQApgIUUxKGuBilV03++6sw6Ff/rEGTAmBjASazm21AyrbEC5A9mRpBRoLAwUAOTaDZlNrOUgQHQIULvpTnVgREY7cRSAQgAAaF0oPH5GapUAAAAASUVORK5CYII="
+    }
+  ]
+}

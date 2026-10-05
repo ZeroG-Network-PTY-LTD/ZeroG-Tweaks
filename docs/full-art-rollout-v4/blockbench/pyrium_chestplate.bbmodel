@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "pyrium_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "pyrium_chestplate",
+      "type": "cube",
+      "uuid": "fa30e5ca-1e3e-5b41-af25-2a2a73d03d6a",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "fa30e5ca-1e3e-5b41-af25-2a2a73d03d6a"
+  ],
+  "textures": [
+    {
+      "name": "pyrium_chestplate.png",
+      "id": "0",
+      "uuid": "158ec1a3-5fd7-5e1b-9207-41faaf795cca",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACaklEQVR4nGNgGAWjgEjgbqTwnxbqGUnRvPPcA0ZKLUc3gwWfQTtOesDZHuY7wAYT64gduy0g+lxP4FXHiC4AsgRm8e9Nx+HirH6WYEcQcgDM95ur+SH6HDQxHIJsBgu6ASCNyBZjs4CQI2CWgz1x4DreEGFENxxZMwhM2fqVIcebGyUUCAF0M5ABKERAjoB5ggVdI8hCdIDsCGLB7F2Y5oBAlgMqnwk97vBZhC9qiPE92IwD18FqYPYxIUv6tn7EqREUCqyeBgQdAFKDy/cgAJJDtocRVwpGjoqdF/4w7DhiD+d72BzEaji6Gj9T1DS+6fQfhJnQNMCIbgjMEe4GLGCLYQCerZBCAdkhyJb/3n4BxZcgh8AsR89BTFi9AvU1OgAH7Z3nKJYKf2iAWw6yeF7ZUQx9uCzH6gCYIhCNTcO0qffAjgBZFq3jyLD0bjyYBvEX7//KkJSnjtM8bB5lwup7IopbUGiALH95loGhb1U8Q0JpIU61+MxjImQRTDMoTr98/w8PheDU2yjqQI7Yu62GYd6km4SMJM0ByICHkxHsiKO7axiKwhYyRCsvBItvavoI5i/dsRqu1laTmYHqDkh14wY7Qt+mmWHphmVgMZDFB65sQFHXte4LQ1kQD1HtAiYGMgDIEV09dxkWdPeDMSwKQOD5+/8MkoJE1djkOwAdwCxvbbxBkuUgQJYDQOkAFArUAEzEKMKVjbCV+bGOpNWaLKQoBmVFULGK7nuhh6iV1KpjfxhWHcNdsSEDRmItx5aaYZUNKHcgO5KUAo2FgQKAqN2+otR0xFoOAmSnJEqb7gPecRkFDFAAAMepIxcvMFEBAAAAAElFTkSuQmCC"
+    }
+  ]
+}

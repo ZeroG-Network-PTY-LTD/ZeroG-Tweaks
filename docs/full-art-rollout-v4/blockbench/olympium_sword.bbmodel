@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "olympium_sword_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "olympium_sword",
+      "type": "cube",
+      "uuid": "95042e5f-dc7f-5c9e-b2aa-a4a104408b48",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "95042e5f-dc7f-5c9e-b2aa-a4a104408b48"
+  ],
+  "textures": [
+    {
+      "name": "olympium_sword.png",
+      "id": "0",
+      "uuid": "0728c2bb-a2ff-55e3-ac8a-01e65cb92ee2",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB30lEQVR4nGNgGAUDAMzUDP7D2CwDZTEMMNHb8pMrO1HEWeht8bH9x+nnADMky2EWF87YQB8HmKFZfvVAAcOV/zEMdE0DJ9EsD3c0AYufunWBkaYOMENK7ciWg4If2XKaOAA56F/+dWPQdpgAFsdmOVUd0B5l9h/d8ruHGhlW7j8DD3qagXao5SD8//zO/y/O/P8/y+/D/zxfn/9H+xrgDsMGmKhh+fozvxjQsxu+eCcb7Gmv/I9uOcz3IJ+DfAvyPTE+JzkE9kAth9Egi0E0zPcgoGxXz9DW6EuSz5mIsRzkk6r52zEcc/lEFjzoZ9ebgxMdCJAS7EzEKIIZhuwIkOVL78YzqPwpAMc7KLvRPMWbQVM6KARAABTfIByltICkeEcGjMQqRI5zkK9BoG9VPMOmpo8ECxt8gIUYRTZKYmDLDTUdGBgYDjCsPwOx8MrumwwHrqgzKFn+BEcPOdmNkVifgyw/f/0AWGzriQcMv1ikwOy2RE+4WpfKduo6oB3NcpDFIHDk3iuwPlh8U+IIJmKCHeZzZMux5Q6qhUA7jmBHthwZgEKC3OKWEZvloDwel3gNa7BTGzChC8AKmEXzteBitLIcK0AvYBjoCaKUFoAthdXndLUcHdDd9wwjFQAA+NdX1OhmIOEAAAAASUVORK5CYII="
+    }
+  ]
+}

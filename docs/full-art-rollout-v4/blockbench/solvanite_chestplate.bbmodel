@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "solvanite_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "solvanite_chestplate",
+      "type": "cube",
+      "uuid": "dc5e7a6a-e58f-5641-9dab-62ab3c0ebf2b",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "dc5e7a6a-e58f-5641-9dab-62ab3c0ebf2b"
+  ],
+  "textures": [
+    {
+      "name": "solvanite_chestplate.png",
+      "id": "0",
+      "uuid": "15148c9d-e138-5f78-9c44-3861046689eb",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACJUlEQVR4nO1WPUjDQBR+CXFw0EEEoVBScBUXEYciDtKhLm4OTaGDm4sgDlo6iRQRKbi4OBVahw4iDnYQoSIODjo5KrQIgoug4g90UN7JC5fzLrk0desHIbnw3vd99/LuLgA99KAJe7Dv+z/ijTDJrde2EVVc5LD8iJqPp+5zIpZixLomKBfz/GCJL1CEklsHWQ9hEBnl87miEXESlkhwvjPiEZYJBFUBOQgqI1IDtuTb5Xefobg8xIioCmEbUjSSiKXcSViicxRUmQgDGQ+imvGOTXqgWfkJ+X0aWflVHBhDeoZoQFUF5v7qJLARscTO1JxvzOVD+9fMa9vwNJPKBCaIS1Ilzsck431SYRLH+59uJhOYzCdQae1MRWqEF8cyz6w+uWOeS1xBpnQqglsCq8rdtkc0ObzviqNwZXFeySVbvqb4goLwLktwnAYzgWLOeBOq9zl2x/HF2Rtk15NKPtlETdlLne0Wq4HiT9cApVoO8lubylg/PgM0wPcFoVR+h5EJYAYIKwtlSE8uw/TsgNsDQZMxoRN87jExZ7TMhscbL2xcPay5IeIK6IqBIm1S/UuuGAo3bo+UO2fQtm1Ch8BmLK4V2IXAPkDUb9uQHtObfSQDPEgcTYUR75qBKDB1glSdLDszcAWEgRUmGJeWrLu/buKecaH+AYCXBgxdcVk3kxn+COfPAJ0NzYhigDcinh26P6+GrgFdQ7rCXYfdwX9iD1iBH/QGH/iCURENAAAAAElFTkSuQmCC"
+    }
+  ]
+}

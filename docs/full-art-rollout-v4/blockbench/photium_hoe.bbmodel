@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "photium_hoe_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "photium_hoe",
+      "type": "cube",
+      "uuid": "6e35e135-5967-58cc-9669-5c20f7977927",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "6e35e135-5967-58cc-9669-5c20f7977927"
+  ],
+  "textures": [
+    {
+      "name": "photium_hoe.png",
+      "id": "0",
+      "uuid": "10a66305-e1d2-5f21-84b0-9483daff8378",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABXklEQVR4nGNgGAWjYKgAd2eP////fMWLQWpINZeJNNU/8eIdO9eCHUo7BxAA0WqrwY4gJTQYGYgEhAwUvh/BsPRuPEO08kKGpXf8GBj+sTN4uAcz7Ny7g5EuDtixZzvDy7MQdlEYqiNAgJBDKAJRSgv+g/CLM///z/L7AA7+///ewTE+xzMyUAm0R5n9P/BSCBwVbxVXgMV27F4Gpj1co3CGAhO1LAfRDuLvGJbdS4BbArMY5hBsgIlallcsWQTnkxLfTNSyvCMmDiy29cQDFDWEQoGJ2pYfufcK7HtsoYAtMbLQwnJ0AAsFqgAbJbH/IAf8/3cDTIMwSIzc8oORlj6nKmiH+hbmc5Cv8fmcWMBEjCKYRcg+BwFq+JxxRAY7UVFgQ8NgRwaMgzLYo5QW0DTY8UbB5RNZkJaNygm4GF18DgP///8HNyxAGBQSDPQEUWgtG7pajg7o7nuGkQoAOkguvrCUWfEAAAAASUVORK5CYII="
+    }
+  ]
+}

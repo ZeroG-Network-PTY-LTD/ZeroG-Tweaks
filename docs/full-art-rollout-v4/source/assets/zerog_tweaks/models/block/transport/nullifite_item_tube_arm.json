@@ -1,0 +1,72 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "pipe": "zerog_tweaks:block/transport/nullifite_item_tube",
+    "particle": "zerog_tweaks:block/transport/nullifite_item_tube"
+  },
+  "render_type": "translucent",
+  "elements": [
+    {
+      "from": [
+        4,
+        4,
+        0
+      ],
+      "to": [
+        12,
+        12,
+        4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            8,
+            8
+          ],
+          "texture": "#pipe",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            12,
+            8,
+            16,
+            16
+          ],
+          "texture": "#pipe"
+        },
+        "west": {
+          "uv": [
+            12,
+            8,
+            16,
+            16
+          ],
+          "texture": "#pipe"
+        },
+        "up": {
+          "uv": [
+            12,
+            8,
+            16,
+            16
+          ],
+          "texture": "#pipe",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            12,
+            8,
+            16,
+            16
+          ],
+          "texture": "#pipe",
+          "rotation": 90
+        }
+      }
+    }
+  ]
+}

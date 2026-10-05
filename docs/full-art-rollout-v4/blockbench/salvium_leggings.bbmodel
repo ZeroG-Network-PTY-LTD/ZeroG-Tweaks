@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "salvium_leggings_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "salvium_leggings",
+      "type": "cube",
+      "uuid": "f68179fa-26bd-5c7d-b251-e79d43457483",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "f68179fa-26bd-5c7d-b251-e79d43457483"
+  ],
+  "textures": [
+    {
+      "name": "salvium_leggings.png",
+      "id": "0",
+      "uuid": "97dc04ef-9961-55e0-9258-5d25f6240409",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABP0lEQVR4nGNgGAWjYIABIy4JI0P7/9S06Nz5g1jtYmIYYMBCSMHxU1vxyieqr2GYfzMEp7ylmTdlDti19yROueVZjxmW3o1niFZeyBA5TZaBHMDEQAEAWf7yLAND36p4sGPwAVxpiolcy0EWgnwOApuaPpIdAizkOgBm4ek3+xgOXHnMEMlAIwdcvXodzj5x+ATDo4dYgpqfgaG+EsIMiwlFUU8IMBFSkJ2ZSNAQStQzMQwwYBrSDjh3/iAjriIWm1qKHGBlbU6K24hWz4RPcsL0Hobzl67BDSuqyGegpnqCDsBlCTXVM+GTLMgsgbNtzU0IWkaqeoIOQAaHT57BsIQa6pkYyATIqZrYnEBWUXzs6EmSilZS1TMx0AHgCyEmhgEGLIQUrFqymiQDSVXPxDAUgRGW5hW1m/GjgIFeAADFiXFABbGfJQAAAABJRU5ErkJggg=="
+    }
+  ]
+}

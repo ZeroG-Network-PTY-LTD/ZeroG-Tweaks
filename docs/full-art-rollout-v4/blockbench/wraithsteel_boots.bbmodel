@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "wraithsteel_boots_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "wraithsteel_boots",
+      "type": "cube",
+      "uuid": "d2c78ee5-3e6f-5d97-bfa8-2f957947eb5b",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "d2c78ee5-3e6f-5d97-bfa8-2f957947eb5b"
+  ],
+  "textures": [
+    {
+      "name": "wraithsteel_boots.png",
+      "id": "0",
+      "uuid": "b7767a9c-94b5-5c9c-a41e-9a48fa87cae7",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAxklEQVR4nGNgGAWjYKQDRlwSNrbe/3HJHTm8lWr6mBgGGLDgkzy8fzWGmK1jKEFDSdHHgs+gFbuOEbSMUn1MhBTIXnMmyxHE6mNiGGDANOoAhsEeBY+19pJlMLH6mBgGGDCNOoBhpEcBCz7Jqe39ZBlKij4WXHX6wk3LsWqI94vEaRg5+piwGYLTBgYGBpAF2NSQq48Jl2JyDCNHHxMDGQBfNJCqjwWbwgltPXgNMrQwZjh/4ixV9LFgU4jNcGIAufpGwcgGAN1YS+pJ72/5AAAAAElFTkSuQmCC"
+    }
+  ]
+}

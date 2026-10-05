@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "azurium_nugget_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "azurium_nugget",
+      "type": "cube",
+      "uuid": "e6c87f17-0217-5ee5-84b8-292b0ca99ef4",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "e6c87f17-0217-5ee5-84b8-292b0ca99ef4"
+  ],
+  "textures": [
+    {
+      "name": "azurium_nugget.png",
+      "id": "0",
+      "uuid": "4977ef75-389b-51a2-9c3d-b1b02d1b9f10",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA3ElEQVR4nGNgGAWjYBSMgqEKNF3C/lPDHBZyLfefMJGBoYABxRHX96xiJNUsRnIt19DgZ7hx4yNcfGNBPoZaYhzESA3LsQGQg4hxABOtLCcWMFHbcnR9FDtAk0TLSfE9CDCS6gtw6ifSchX/AIbNuVGMVM2GG6GW4HIIyFKahgCplt7ZuAFvbmBioALw3e0FxnQrCWGgkGsWmN7sug1MwxwB49M0Cgq5ZjH0f0vDGw2Egp8oBxDjGHQHgCymSVGMzyEwBxDja4odgM0xIAeQajlVAbXaB6NgFIw8AAAEh28i7D4ZIwAAAABJRU5ErkJggg=="
+    }
+  ]
+}

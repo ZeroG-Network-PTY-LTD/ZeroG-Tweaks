@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ruskite_nugget_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "ruskite_nugget",
+      "type": "cube",
+      "uuid": "ccf38679-9404-5a3a-a1dc-af297ea01af7",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "ccf38679-9404-5a3a-a1dc-af297ea01af7"
+  ],
+  "textures": [
+    {
+      "name": "ruskite_nugget.png",
+      "id": "0",
+      "uuid": "75a5731c-cf55-52dd-b1c6-89587a1522e9",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA4UlEQVR4nGNgGAWjYBSMgqEKfDVU/1PDHBZyLZ8XrMaQtJYBxRGbb9xmJNUsRnItF1FTYHhz6wFcPGntLQy1xDiIkRqWYwMgBxHjACZaWU4sYKK25ej6KHaAL4mWk+J7ECAqF0AMhRgMcgyxloerczNsvkEFB2CzBJdDQJaSAhipEY/4LF158yve3MDEQAXw7f8BMKZbSQgDvmqnwTQXowOYhjkCxqepA3zVTjNsvmWKEg3oFhMKfhAguSQkJh2ALKZJUYzPITAHEONrih2AzTEgB5BqOVUBtdoHo2AUjDwAAMvqbvquJ21HAAAAAElFTkSuQmCC"
+    }
+  ]
+}

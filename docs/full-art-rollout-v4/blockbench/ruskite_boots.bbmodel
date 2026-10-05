@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ruskite_boots_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "ruskite_boots",
+      "type": "cube",
+      "uuid": "5763aca6-ce99-5a06-ac37-7b1d7c66fdc0",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "5763aca6-ce99-5a06-ac37-7b1d7c66fdc0"
+  ],
+  "textures": [
+    {
+      "name": "ruskite_boots.png",
+      "id": "0",
+      "uuid": "cad04286-dd15-5019-9a38-6a7edc200bd8",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAx0lEQVR4nGNgGAWjYKQDRlwSNgrK/3HJHXlwl2r6mBgGGLDgkzzc6IEhZlu/g6ChpOhjwWfQqo1HCVpGqT4mQgqkrc6T5Qhi9TExDDBgGnUAw2CPgqfHDMkymFh9TAwDDJhGHcAw0qOABZ/k5HOfyTKUFH0suOr0xUGKWDXErruP0zBy9DFhMwSnDQwMDCALsKkhVx8TLsXkGEaOPiYGMgC+aCBVHws2hf1Hn+A1yEicleHcy99U0ceCTSE2w4kB5OobBSMbAAC66kk8X2dH+wAAAABJRU5ErkJggg=="
+    }
+  ]
+}

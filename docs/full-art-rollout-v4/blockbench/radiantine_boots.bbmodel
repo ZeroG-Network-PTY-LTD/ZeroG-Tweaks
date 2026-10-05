@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "radiantine_boots_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "radiantine_boots",
+      "type": "cube",
+      "uuid": "7e22fec8-2807-5b20-8921-c332ca0b3f2c",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "7e22fec8-2807-5b20-8921-c332ca0b3f2c"
+  ],
+  "textures": [
+    {
+      "name": "radiantine_boots.png",
+      "id": "0",
+      "uuid": "8ab737fc-e42e-5f9a-8e74-b8e8462d114c",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAxElEQVR4nGNgGAWjYKQDRlwS3rZq/3HJbT18i2r6mBgGGLDgk9yyPxhDzMdxLUFDSdHHgs+g+zsPEbSMUn1MhBQ8u36ELEcQq4+JYYAB06gDGAZ7FEhp2pBlMLH6mBgGGDCNOoBhpEcBCz7J3I7XZBlKij4WXHX6lg3aWDX4BFzFaRg5+piwGYK3qt2gjVUNufqYcCkmxzBy9DExkAHwRQOp+liwKexvu4fXIGczToa9p75TRR8LNoXYDCcGkKtvFIxsAAAGCksy3YOFQgAAAABJRU5ErkJggg=="
+    }
+  ]
+}

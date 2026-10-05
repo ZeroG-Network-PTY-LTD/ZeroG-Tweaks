@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "gildwood_door_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "gildwood_door",
+      "type": "cube",
+      "uuid": "41967f48-9359-5557-bb1b-ab9820b73e29",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "41967f48-9359-5557-bb1b-ab9820b73e29"
+  ],
+  "textures": [
+    {
+      "name": "gildwood_door.png",
+      "id": "0",
+      "uuid": "d9a67294-9bc4-54b2-b3b7-af6da42dd928",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA30lEQVR4nGNgGOmAEZ9kjLvRf2pYsmTnOZz2sBDSnOIrQ7bFczY/IaiGiVjDdp96w2BpqEKUOC61FDmAVoCJYYABCymK2a37UBLTgSl+8ETqkLMJRa4u3eL/kAgBplEHMIxGwUiPAhZSFP88WvT/+Pk7WOWQywRQUTxkQoBpSESBvaMhg70jgo0qhykOEvv14TP1HHBw/3lwvNalWzCgpwFs4jAxqjmAFPDNbiKDtR0DA8PnyUMjDTANOwdwHcpnONoTPXAOIBUwMQwwYBp1AAMJAFdFhE0cl9pB1zUbBQBf1EwulXpWLQAAAABJRU5ErkJggg=="
+    }
+  ]
+}

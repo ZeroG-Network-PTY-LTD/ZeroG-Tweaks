@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "salvium_nugget_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "salvium_nugget",
+      "type": "cube",
+      "uuid": "b3d341d3-c220-513b-96e0-b635e5c5f872",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "b3d341d3-c220-513b-96e0-b635e5c5f872"
+  ],
+  "textures": [
+    {
+      "name": "salvium_nugget.png",
+      "id": "0",
+      "uuid": "c635c9b6-3b55-528a-a080-efab5bdee05d",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA4UlEQVR4nGNgGAWjYBSMgqEK7O19/lPDHBZyLW9orWFoqGZAccTBg1sYSTWLkVzLdXU0GS5fuQ4Xb6huwVBLjIMYqWE5NgByEDEOYKKV5cQCJmpbjq6PYgfYk2g5Kb4HAUZSfQFyDLGWu3g4M9RWFjJSNRs2QC3B5RCQpTQNAVIt3bNjL97cwMRABSB+PBGM6VYSwkA0/xIw/dJyPpiGOQLGp2kURPMvYVj6MQZvNBAKfqIcQIxj0B0AshgEiCkJWUhxAMxAfA4hxtdkOwAGkC1AdgypllMVUKt9MApGwcgDACI6csETM1cOAAAAAElFTkSuQmCC"
+    }
+  ]
+}

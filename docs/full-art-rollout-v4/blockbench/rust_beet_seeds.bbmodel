@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "rust_beet_seeds_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "rust_beet_seeds",
+      "type": "cube",
+      "uuid": "96040acb-33b9-5fbf-bf80-98e09111c020",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "96040acb-33b9-5fbf-bf80-98e09111c020"
+  ],
+  "textures": [
+    {
+      "name": "rust_beet_seeds.png",
+      "id": "0",
+      "uuid": "d51688b2-e605-55d9-9d2a-67e87ae250f0",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACJUlEQVR4nO1Vz0tUURT+7n0zkn9A0brVaFMWRgshCUGaheIiCqFFbYqoZRoRbSJ3rYMW4qZdTUU/QKLCdoEkkc04zzFSQSmnpDLzje/de0/c48KFzhtfU2OL98F7Dx6c833nnHu+C8SIESPGNkPUmoBGLhP8AEgmIDpuRs4nayJ/fonQfhA0s4Cl3Cy8W71UNwEDJzsJhvB9tAgv0NCG+Ok5sJfqIkAKgeXiPBKOgCMFElJAE4EoWhPknwpQSq9V/joHLzDIvvnEHbDC6iLAEKH/3hSTer5GZt8unB7KR+6AQA0409ayxkZAadnn6p+OT4i6rmF3SzMpTXwWnryLRv5foKpienTR7hdABHH89l+vUISS3z9PONqKucFhO2Y0OBK7+7JbEkEPLxCUBrSG6B0Ukbfganc7G83s2DTveTkwfOIz6aaqx5zuniMcakLRXUDOLcG90UORBSitMT/9FeVVhR+ewo6k5H3nVoTgStcR60YYH51hY7JxdoKdzSmKJCDpOGw0jfkPaGxw8GDsMxxZlR9kCHm3BMc6pFjvnKkQKCslKvsBrj/+yNUveQrH0jtx9k6Bk4Vh1fdh7L3wtsjkw++/sGlV8icRluzU4f1k22ix+Ctgo3mWL4TG9GXaaG7xJ6517YGvDP/rz07x92XB3RArQsvB+uzs68XExgSb4URrmmNs5d9WNH9fTU5uGivwj9CRSpG9l+zERtytCY8RA9uB32+bEcw1RjE8AAAAAElFTkSuQmCC"
+    }
+  ]
+}

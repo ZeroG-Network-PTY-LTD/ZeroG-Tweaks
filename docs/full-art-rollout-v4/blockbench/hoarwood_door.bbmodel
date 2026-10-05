@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "hoarwood_door_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "hoarwood_door",
+      "type": "cube",
+      "uuid": "bfe5bcb8-1af7-51be-a3d0-400764f99218",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "bfe5bcb8-1af7-51be-a3d0-400764f99218"
+  ],
+  "textures": [
+    {
+      "name": "hoarwood_door.png",
+      "id": "0",
+      "uuid": "9bbc37b9-9c46-5d36-90a2-b078cac91618",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA2klEQVR4nGNgGOmAEZ9koF/Kf2pYsn7THJz2sBDSHBoWR7bFq1ctIqiGiVjDjh7Zz2BqbEyUOC61FDmAVoCJYYABCymKVTW5URLTsiWH4Ik0KsYORa4gv+T/kAgBplEHMIxGwUiPAhZSFN++/vX/6bNnscohlwmgonjIhADTkIgCNxdTMIax0eXQxUHs9+//Uc8Bu/acBsdrQX4JA3oawCYOE6OaA0gBAnqyDN56cUMnDTANOwd8uPSYYeu0RQPnAFIBE8MAA6ZRBzCQAHBVRNjEcakddF2zUQAAjPJMG6p12L8AAAAASUVORK5CYII="
+    }
+  ]
+}

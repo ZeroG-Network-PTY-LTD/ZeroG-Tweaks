@@ -1,0 +1,59 @@
+{
+  "source": "docs/shattered-skies/blockbench/meteor_maw_ironfall.bbmodel",
+  "source_sha256": "bf6edf18e4e4f673070f4a6187d608a9745d93700b3e2c4828c944c346cb414b",
+  "codec": "docs/zero-g-tweaks-bundle/generators/export_approved_tidewraiths.py",
+  "codec_sha256": "c17c1649fd61cffb88771ee36300cefaab694677111ee5de08486efcae5f7729",
+  "authored_scale_multiplier": 1,
+  "texture_size": [
+    2048,
+    2048
+  ],
+  "bones": [
+    "arm_l",
+    "arm_r",
+    "body",
+    "brow",
+    "core",
+    "eye_36",
+    "eye_37",
+    "fist_l",
+    "fist_r",
+    "foot_l",
+    "foot_r",
+    "forearm_l",
+    "forearm_r",
+    "head",
+    "jaw",
+    "leg_l",
+    "leg_r",
+    "root",
+    "shin_l",
+    "shin_r",
+    "spikes"
+  ],
+  "cube_count": 38,
+  "clips": [
+    "animation.zerog_tweaks.meteor_maw_ironfall.spawn",
+    "animation.zerog_tweaks.meteor_maw_ironfall.idle",
+    "animation.zerog_tweaks.meteor_maw_ironfall.walk",
+    "animation.zerog_tweaks.meteor_maw_ironfall.run",
+    "animation.zerog_tweaks.meteor_maw_ironfall.attack",
+    "animation.zerog_tweaks.meteor_maw_ironfall.hurt",
+    "animation.zerog_tweaks.meteor_maw_ironfall.death",
+    "animation.zerog_tweaks.meteor_maw_ironfall.ability_leap_slam",
+    "animation.zerog_tweaks.meteor_maw_ironfall.ability_effect_pulse",
+    "animation.zerog_tweaks.meteor_maw_ironfall.ability_call_adds",
+    "animation.zerog_tweaks.meteor_maw_ironfall.blink",
+    "animation.zerog_tweaks.meteor_maw_ironfall.look_left",
+    "animation.zerog_tweaks.meteor_maw_ironfall.look_right",
+    "animation.zerog_tweaks.meteor_maw_ironfall.mouth_open"
+  ],
+  "conversion": "Existing codec: X reflection, XY rotation sign conversion, up/down UV-direction reversal; no geometry redesign.",
+  "files": {
+    "assets/zerog_tweaks/geo/meteor_maw_ironfall.geo.json": "6ac96c6fd57c4b021527ed1d50ef5755f989ecc64aa6d0e478861471673ff999",
+    "assets/zerog_tweaks/animations/meteor_maw_ironfall.animation.json": "ac51a74bdc8285caf2c2d58b7b0a9ff3a37d09f21a6747f127dc8f7ccca67884",
+    "assets/zerog_tweaks/textures/entity/meteor_maw_ironfall.png": "8e5d181840067102e70f092a28482ac5c4df4ab58dd9a662f47d5ef235e34208"
+  },
+  "gpu_verified": false,
+  "canonical_package_admission": false
+}

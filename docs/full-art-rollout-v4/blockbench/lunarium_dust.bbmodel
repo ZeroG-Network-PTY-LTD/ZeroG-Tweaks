@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "lunarium_dust_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "lunarium_dust",
+      "type": "cube",
+      "uuid": "8c9a13ab-2d92-5a42-9df4-b74bbf795a7b",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "8c9a13ab-2d92-5a42-9df4-b74bbf795a7b"
+  ],
+  "textures": [
+    {
+      "name": "lunarium_dust.png",
+      "id": "0",
+      "uuid": "d64adcef-08b3-540d-b093-8a4d56e70841",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABr0lEQVR4nGNgGAWjYBSQCP58+Pb/6J4n/xmoBJhI1XDyzDtq2T0KBkd6YaLEAme7sP80TS9/8PgAZPmCGXv/g2hCDsEHWMj1QWxUOpieOWUJw5Fjh0FMuCP2HlrFSBUHWLvIYDUI5mMbK1sGZBoJ/CfWEUzEuhTZcpDv0S3F4giiopOJVAfAgh4dQKMBrgY9XeCKThZSLEcPemyWkxqdjKRYrKykDuaXFdWC6VVrl4PpBw/vgGkrCwcUfYuXzSSYIBkJWQoDoNTe1dcMZivIq6CozU4PB9PrNx3FcADM0bMWNGO1i4mQ5aD4BFkO83l3WzVcnZSkDNHpBVdZwYjPATCLsQFRkX8YvlZVgfgWBm7fuYkSGjCAHC1M2CwHuRyEX756BcagoAdZCMKgBIec6AL9rBmIATAz0QETuuXorsUF0OMb5mNk/Oz5EzCGAWzmMqILoMcVyNXHThyAJzxQvMOCGjmIkUMD5jiQPhD49w8SXfcf3MaIBiZ0B6BnG5irQVmNUKLDBUAWI1tOdDZUVFAly0Jkiwl5kBGfAZRUs4QsJsoB1HAEKVXzKGAYCAAAxXnhzTaugmkAAAAASUVORK5CYII="
+    }
+  ]
+}

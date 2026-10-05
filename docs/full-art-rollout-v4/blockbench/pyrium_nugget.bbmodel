@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "pyrium_nugget_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "pyrium_nugget",
+      "type": "cube",
+      "uuid": "40c2bf99-d375-5fe8-8592-1b910cc9808a",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "40c2bf99-d375-5fe8-8592-1b910cc9808a"
+  ],
+  "textures": [
+    {
+      "name": "pyrium_nugget.png",
+      "id": "0",
+      "uuid": "029b02d0-7ca2-56ca-ac6e-156ff90bb2c9",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA2klEQVR4nGNgGAWjYBSMgqEKYh2U/lPDHBZyLV/UJcfAUMaA4ojFB+4xkmoWI9mW68gzMFx5CBePK3uEoZYYBzFSw3JsAOQgYhzARCvLiQVM1LYcXR/FDogl0XJSfA8CjKT6AuwYIi3P82ZlMC29yUjVbBgHtQSXQ0CW0jQESLV00tbfeHMDEwMVwPnDJ8GYbiUhDNjynQPThrbmYBrmCBifplFgy3eO4fAnI7zRQCj4iXIAMY5BdwDIYpoUxfgcAnMAMb6m2AHYHANyAKmWUxVQq30wCkbByAMAlE5qzAD1+ssAAAAASUVORK5CYII="
+    }
+  ]
+}

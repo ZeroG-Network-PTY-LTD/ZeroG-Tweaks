@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "skarnite_leggings_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "skarnite_leggings",
+      "type": "cube",
+      "uuid": "245d6833-f705-5a0c-973b-b464c7368081",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "245d6833-f705-5a0c-973b-b464c7368081"
+  ],
+  "textures": [
+    {
+      "name": "skarnite_leggings.png",
+      "id": "0",
+      "uuid": "38e88a0c-32a3-591a-a290-dad07bf15207",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABOUlEQVR4nGNgGAWjYIABIy4JVyXZ/9S0aPe9x1jtYmIYYMBCSMGuqbZ45aOz3RiWTt2FU94t+zBlDmA4fAm35StKGJbejWeIVmZgWBrRw0AOYGKgAIAsf3mWgaFvVTzYMfgArjTFRK7lIAujlReC2ZuaPpIdAizkOgBu4boehgNXShhSdRho44BzDz/C2ctvMTBcfItNVS2D2woIq8OSAUU9IcBESIFRuAVhUyhQz8QwwIBpSDtg973HjLiKWGxqKXKAkY4EKW4jWj0TPsldqRIMDFcfwA3rDsJvKKnqCToApyVUVM+ET9Jt9gsEp+IUQctIVU/QASigwwzTEiqoZ2IgEyCnamJzAnlF8ZUXJBWtpKpnYqADwBdCTAwDDFgIKag4TpqBpKpnYhiKwBVL84razfhRwEAvAAAnG2O4nQmtWAAAAABJRU5ErkJggg=="
+    }
+  ]
+}

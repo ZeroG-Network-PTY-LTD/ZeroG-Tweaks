@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "tectium_leggings_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "tectium_leggings",
+      "type": "cube",
+      "uuid": "5529ebc7-dc6f-5ba0-bc79-a2b063486ad6",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "5529ebc7-dc6f-5ba0-bc79-a2b063486ad6"
+  ],
+  "textures": [
+    {
+      "name": "tectium_leggings.png",
+      "id": "0",
+      "uuid": "473a4696-0688-54e1-aac5-1eb88f569c08",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABQElEQVR4nGNgGAWjYIABIy4JHXWj/9S06MrNc1jtYmIYYMBCSMGGFb145euCHzI0rZXHKR8QUUyZA/YePI5T7uAkKYald+MZopUXMtjnPWMgBzAxUABAlr88y8DQtyoe7Bh8AFeaYiLXcpCFIJ+DwKamj2SHAAu5DoBZuPFIO8PBK1IM9k4MtHHArTuP4OxLl+8wPH/xDlMRKwPDpekQprurGYp6QoCJkILk2CCChlCinolhgAHTkHbAlZvnGHEVsdjUUuQAUyNtUtxGtHomfJI15YkMl67ehBuWHO/PQE31BB2AyxJqqmfCJ9nSOR/ODk/MIWgZqeoJOgAZrJw/BcMSaqhnYiATIKdqYnMCWUXx6XNXSSpaSVXPxEAHgC+EmBgGGLAQUrBz9ymSDCRVPRPDUAQ6WJpX1G7GjwIGegEAETxxAOnmarUAAAAASUVORK5CYII="
+    }
+  ]
+}

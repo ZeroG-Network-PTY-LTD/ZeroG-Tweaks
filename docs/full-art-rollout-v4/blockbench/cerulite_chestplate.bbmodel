@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cerulite_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "cerulite_chestplate",
+      "type": "cube",
+      "uuid": "a9124186-bc10-507d-b2c9-3927d2abc137",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "a9124186-bc10-507d-b2c9-3927d2abc137"
+  ],
+  "textures": [
+    {
+      "name": "cerulite_chestplate.png",
+      "id": "0",
+      "uuid": "3193a888-f78b-5788-8caa-ba08af86e14d",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACKElEQVR4nO1WPUjDQBR+CbEIglBUxMmKTl1EBZUWHHTUoYK6FKmLbi7FUcSfUXERcS7SxaVFnARFhDoIKoJ0EEU7iX9IBUFclHf4wuW8Sy5t3fpBSC68933fvby7C0AVVWgi0Nj6/R/xhp/kr5eCUa64yGG5EeWf7+3ncFOIEeuaoFzMc4MlvkARSh7azjkIvcgon88VjYiTsESClvW0Q1gm4FUF5CCojEgNBCTf7m1jDYKzc4yIquC3IUUj4aaQPQlLdI6CKhN+IONhmIw6hiY90KzchNw+jaz8Kg6MIT1DNKCqAuL8NOPZiFji7t5R15jPuwt2x8/gaCaVCUwQl6RKnI+pbeuSCpM43v90M5nAZD6BSnvAfUPeCC+OZX5Ixu0xzyWuIFM6FcEtAauyUig6RMfql2xxFO6fXlVyyZavKb6gILzLEjLjU8wEii20pyB9m2B3HH8cn8Dw/IySTzZRU/ZSZ7vFaqD44xnA+k4Coos3ylg3PgM0wPcF4XorA809wAwQkhMp2B98grqBiN0DXpMxoQSMvMaYWLw9xca7y0U2rjmM2THiCqiIgeDvJrXXkLXFUPjoKqvcOb22bRNKBDZjbrGDXQjsA8TX5QkEOiPaPCZUACSOpvyIV8xAOTB1glSdLDszcAX4geUnGJeWrLv78s5T8j27yS4dGLrism4mM/wRzp8BOhuaUY4B3oh4duj+vBq6BnQN6QpXHIES/hOrwAr8ALHmH0FiKksxAAAAAElFTkSuQmCC"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "pipe": "zerog_tweaks:block/transport/wraithsteel_energy_conduit",
+    "particle": "zerog_tweaks:block/transport/wraithsteel_energy_conduit"
+  },
+  "render_type": "solid",
+  "elements": [
+    {
+      "from": [
+        6,
+        6,
+        0
+      ],
+      "to": [
+        10,
+        10,
+        6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#pipe",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            10,
+            12,
+            16,
+            16
+          ],
+          "texture": "#pipe"
+        },
+        "west": {
+          "uv": [
+            10,
+            12,
+            16,
+            16
+          ],
+          "texture": "#pipe"
+        },
+        "up": {
+          "uv": [
+            10,
+            12,
+            16,
+            16
+          ],
+          "texture": "#pipe",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            10,
+            12,
+            16,
+            16
+          ],
+          "texture": "#pipe",
+          "rotation": 90
+        }
+      }
+    }
+  ]
+}

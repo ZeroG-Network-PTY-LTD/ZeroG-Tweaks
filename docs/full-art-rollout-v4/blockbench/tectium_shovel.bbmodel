@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "tectium_shovel_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "tectium_shovel",
+      "type": "cube",
+      "uuid": "d53d65aa-94e4-5103-8393-0fc9184c0300",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "d53d65aa-94e4-5103-8393-0fc9184c0300"
+  ],
+  "textures": [
+    {
+      "name": "tectium_shovel.png",
+      "id": "0",
+      "uuid": "728da8b1-dd9c-5f3f-a57a-eeb449d60a1e",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABXElEQVR4nGNgGAXDGeioG/0npIaF1pZfO7kLTIfFVaDIX7l5jpFmDoBZvmpRB8Ou/UcZYGwYQHYMCz0sBwFkNjJgooflES4NOPWwUNPylERfBjdHawzLV+xBOGDO/M3UDwEdIi3HBpgG0nIQoEoUoAcrsZaDAMUhAMvPMEfgsxymBqYHBOAMckF7lNn/pWf/wPmg6MBlMbrlFDsAZDmI5tTzRLEE2RHYfE2VKGhHsvz7pe0ocjBLCVkOAozUsnzriQcMR+69YkSvgPBZDgIkh4CNkhhOy2EWwiwlZDkIMFLL56R6hGQHtKNZDrIYBCixHASYyA12algOAowDEexEO6CdRsFOVBTY0DDYkQHjQAQ7Xge0R5n9v3wii8Es7T7Ngh1vFFw+kcWw9G48w6lZinAxWlmOFfz/////izMQHKW0gGC7nqogSmkB2FKQ5bP8PtDXcnRAd98zjFQAAA+s+1IBAwKCAAAAAElFTkSuQmCC"
+    }
+  ]
+}

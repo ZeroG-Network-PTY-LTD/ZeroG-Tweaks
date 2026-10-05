@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "astrium_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "astrium_chestplate",
+      "type": "cube",
+      "uuid": "0f116efb-ece3-5d4e-95a5-311867807960",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "0f116efb-ece3-5d4e-95a5-311867807960"
+  ],
+  "textures": [
+    {
+      "name": "astrium_chestplate.png",
+      "id": "0",
+      "uuid": "f722fc47-69ad-5e91-a5a4-45cce45da745",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACZ0lEQVR4nGNgGAWjgEhgZuDynxbqGUnRfOrCHkZKLUc3gwWfQSePb4CzzS0DwAYT64j9mzaDaUc/X7zqWNAFQJbALN689hyKY0COINb3ew+dxuoQdE+woBtQU1KHYjE2CwiFAsgMGMDlEKwOMMMSd1t2bmbwcfcFOwoWCqQmSHSHOPr5wj3Bgu5ykIW4HEEK2LVvB1ZxZztTFD4TjAHzFT6L8EUNtuDHFRIgNTD7mJAlW3qacGoEhYKvhwlBB4DU4PI9CIDkkO1hRJaEuQo9Ki5cPs9wcs8mON/cxQ+r4ehqzIzMUORPnTuFYEPTACO6ITBHGOgagi1GD1rkUEB2CLLlm3ecQfElyCEwy9FzEBNWr0B9jS34bt35gGKpyqcYuOUgi4uquzD04bIcqwNgikA0Ng2TZ00BOwJkWbTZKoald+PBNIi///A+hoLMPJzmYfMoEzZBYopbUGiALH95loGhb1U8w4q6ezjV4jOPkYEIAEsXupq6DJycnGCxmqxWBnFjBrADYKAobCGDuOsDBkdbJ3gaIOQZJgYSAMjy79+/M7w7oAa2LFp5IVh8U9NHML99HSJRaqppEWUmEykOcHPyADuC0/wiQ/0yN7AYyOIDVxC1Jgis3bSGIdgvBMwmVGwzMZABQI7omtjNENGkBMYgAEoHIPDu/TsGIUEhos1iYqACgFle19ZAkuVkOwCUDmCJkVLARIwiXCkZW5kPygGkABZSFIOyFqhYRff9qRuHUfhHTx4BY2IAI7GWY0vNsMoGlDuQHUlKgcbCQAFAqd2Q2MRaDgJEhwC1m+5UB2ZktBNHASgEABvIKO970FVXAAAAAElFTkSuQmCC"
+    }
+  ]
+}

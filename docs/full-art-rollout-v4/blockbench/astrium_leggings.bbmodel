@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "astrium_leggings_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "astrium_leggings",
+      "type": "cube",
+      "uuid": "64cb2d8f-882e-5bd3-a056-a2edf20f47a6",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "64cb2d8f-882e-5bd3-a056-a2edf20f47a6"
+  ],
+  "textures": [
+    {
+      "name": "astrium_leggings.png",
+      "id": "0",
+      "uuid": "3403d8d7-ec52-54ee-9125-68c9620983e7",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABQElEQVR4nGNgGAWjYIABIy4JMwOX/9S06NSFPVjtYmIYYMBCSMHJ4xvwykdrr2FYejUEp7y5ZQBlDji69x5OuWl55xiW3o1niFZeyJA1yYiBHMDEQAEAWf7yLAND36p4sGPwAVxpiolcy0EWgnwOApuaPpIdAizkOgBm4Z0XlxkOXDnHoMVAIwdcunYFzj54dD/D/Yf3MRXxMTAU1SwBMxOiklDUEwJMhBRkZvgTNIQS9UwMAwyYhrQDTl3Yw4iriMWmliIH2Flak+I2otUz4is45k2eiyGelJuM4StYIYNPPdUqo3lYLKFEPRM+SWTfatvIEbSMVPUEHYAMrh55hGEJNdQzMZAJkOOU2JxAVlF86PhRkopWUtUzMdAB4AshJoYBBiyEFCxYNo8kA0lVz8QwFIEZluYVtZvxo4CBXgAAVMRyvPfdhHkAAAAASUVORK5CYII="
+    }
+  ]
+}

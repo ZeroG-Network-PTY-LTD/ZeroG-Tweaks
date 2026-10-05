@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "pyrium_shovel_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "pyrium_shovel",
+      "type": "cube",
+      "uuid": "0b734a88-8187-55e7-8eee-12756564e68b",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "0b734a88-8187-55e7-8eee-12756564e68b"
+  ],
+  "textures": [
+    {
+      "name": "pyrium_shovel.png",
+      "id": "0",
+      "uuid": "02a94b78-10b9-50f9-a8e2-6d51a1b19fda",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABU0lEQVR4nGNgGAXDGbgbKfwnpIaF1pb//5MCpj3M9qDI7zz3gJFmDoBZvuOUCwPDjvMMcDYUIDuGhR6WQ1yAxEYCTPSw/KXEGZx6WKhp+Y4mYQYGD0MMy8VfmMD5HnVvqR8C7kRajg0wDaTlVHEAPFjJsJwqDoDlZ1jc4rMcpgamBwTgDHJBe5TZ/wM3XsH54OjAYTG65SDARKnl6Jaip3JkX6NbTpEDYJZXRP1l6FjGjNVSbEFOFQe0Y7H864dvKBYRYzlZDrBREsOwfOuJBwxH7r1iRA9qQpaDACOlPke2nBzASK7lIItBgBLLQYCJ3GCnhuUgwDgQwU60A9ppFOxERYENDYMdGTAORLDjBe1RZv+jlBb8/7/F+D+IDQoJWGjQBUSBLP//H+wImAMY6An+/////8UZCAY5gq6WRyktAFsKsnyW3wf6Wo4O6O57hpEKAL9g+9pVyGU+AAAAAElFTkSuQmCC"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "shardwood_door_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "shardwood_door",
+      "type": "cube",
+      "uuid": "c8c8ee2d-aa1e-593d-9291-ed4d222b9640",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "c8c8ee2d-aa1e-593d-9291-ed4d222b9640"
+  ],
+  "textures": [
+    {
+      "name": "shardwood_door.png",
+      "id": "0",
+      "uuid": "3c856ee0-50a4-5452-bf50-d1508437abe1",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA4UlEQVR4nGNgGOmAEZ+kjmfIf2pYcmX7Gpz2sBDSrBroSbbFt9dvJ6iGiVjDnp04y6BlpE+UOC61FDmAVoCJYYABCymKW01MUBJT4Ky58ES6Pi0ZRc4lK+n/kAgBplEHMIxGwUiPAhZSFFefOfP/2rmLWOWQywRQUTxkQoBpSESBpZMtAwMIw9jIAJu4ky3Dxw+fqOeA4/sOg+PVJSuJAT0NYBOHiVHNAaSAVAsnBgYLJ4ajv94OjTTANOwcMPvEPobGCd0D5wBSARPDAAOmUQcwkABwVUTYxHGpHXRds1EAANoDTUdWd2v4AAAAAElFTkSuQmCC"
+    }
+  ]
+}

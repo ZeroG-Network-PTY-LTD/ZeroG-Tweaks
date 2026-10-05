@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "skarnite_shovel_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "skarnite_shovel",
+      "type": "cube",
+      "uuid": "76ba6962-7af8-57a2-b3dd-1902f30e5977",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "76ba6962-7af8-57a2-b3dd-1902f30e5977"
+  ],
+  "textures": [
+    {
+      "name": "skarnite_shovel.png",
+      "id": "0",
+      "uuid": "89825bae-9611-5c92-974d-87843d5c3a24",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABUklEQVR4nGNgGAXDGbgqyf4npIaF1pb/3xQKpt0KTqDI7773mJFmDoBZvmuCBcOfg5cYYGwYQHYMCz0sBwFkNjJgooflbyNv4NTDQk3LtwVyMbDY62FYLrxcA873Wv+N+iHgSqTl2ADTQFpOFQfAgpUcy6niAFh+hsUtPsthamB6QADOIBe0R5n933fiOZwPig5cFqNbDgJMlFqObil6Kkf2NbrlFDkAZnmJ5EeGnuf8WC3FFuRUcUA7Fsu/M/xEsYgYy8lygI2SGIblW088YDhy7xUjelATshwEGCn1ObLl5ABGci0HWQwClFgOAkzkBjs1LAcBxoEIdqId0E6jYCcqCmxoGOzIgHEggh0vaI8y+x+ltOD/72L1/yA2KCRgoUEXEKW04D8IgGiYAxjoCf7/////xRkIBjmCrpZHKS0AWwqyfJbfB/pajg7o7nuGkQoACKwDsD2OunYAAAAASUVORK5CYII="
+    }
+  ]
+}

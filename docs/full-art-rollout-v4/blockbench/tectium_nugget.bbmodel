@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "tectium_nugget_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "tectium_nugget",
+      "type": "cube",
+      "uuid": "22eb93c5-4cf3-55ec-97e7-20ea16522559",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "22eb93c5-4cf3-55ec-97e7-20ea16522559"
+  ],
+  "textures": [
+    {
+      "name": "tectium_nugget.png",
+      "id": "0",
+      "uuid": "22a27dc0-fa13-5ff7-9d36-839c6c6b349b",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA3ElEQVR4nGNgGAWjYBSMgqEKzI2s/1PDHBZyLc/LDGWYNJ0BxREnzx1lJNUsRnIt19ZQZbh64zZcfNL01RhqiXEQIzUsxwZADiLGAUy0spxYwERty9H1UewAcxItJ8X3IEBULkA2FOQYYi23MNMEpQPKHYDNElwOAVlKCmCkRjzis/TEqet4cwMTAxWA9rMeMKZbSQgDyTJbwfRVqRIwDXMEjE/TKEiW2cow94k33mggFPxEOYAYx6A7AGQxTYpifA6BOYAYX1PsAGyOATmAVMupCqjVPhgFo2DkAQCveG+h3GUvJwAAAABJRU5ErkJggg=="
+    }
+  ]
+}

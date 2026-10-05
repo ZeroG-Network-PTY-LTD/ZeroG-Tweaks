@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "radiantine_helmet_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "radiantine_helmet",
+      "type": "cube",
+      "uuid": "e7182d64-5106-5393-9793-fc166038fd92",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "e7182d64-5106-5393-9793-fc166038fd92"
+  ],
+  "textures": [
+    {
+      "name": "radiantine_helmet.png",
+      "id": "0",
+      "uuid": "a7744260-c5a1-5cf7-a22c-d243378c7a60",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABrElEQVR4nGNgGAWjgAbA21btP7FqGSk1bMu+GAYfpyVY5bYevkXQfEZCloMsQAdTatcx5DQHETIb7DBCjmAkygFML1Alnj1kmDL1KUNOtjSEL6nHcHrlfri0aZgX0Y5gwWc5iL60fjuGnF6wIQMDw1M4H2S5abgjnH161Ta4I6BR9B+XIxjxOWDLMlWGS8ffYXcANBTMdTlQ5JAdQkxIMOH1PRbLweJrzzMwSMljlUOOClBIwCxHNpegA0AA5HtyASxKTO2EGRhenMSrlgldANmVepZCWDWBomBK9TFwIgRbggf4RN3GK8+CTyNyKMxa+xEhufYAmMopuY9Vb7wfHwPD80soYjHePAxLtn4h3gHojpiCFhoo2ZAAAFmOC7DgkugsEGYon/AWbxDuOHqbIsvxOgDmCGQAchApgJDlBB2g7W/NcHXjUZLKdvSE7OhylmH/HmOcapkYBhgwoQvg8iUpwY/NDGw5AKsD6A2YhowDthKZANEBvgRItANIzX6kACZ8kshZkO4OKJ/wliKfw6IMlPpx5QAQINgkQzeQFECpfrKa2dTQNwpGFgAAR9i3NRZLCoIAAAAASUVORK5CYII="
+    }
+  ]
+}

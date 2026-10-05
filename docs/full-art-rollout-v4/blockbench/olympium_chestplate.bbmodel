@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "olympium_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "olympium_chestplate",
+      "type": "cube",
+      "uuid": "85ccf176-b476-5faa-abc0-63a022764860",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "85ccf176-b476-5faa-abc0-63a022764860"
+  ],
+  "textures": [
+    {
+      "name": "olympium_chestplate.png",
+      "id": "0",
+      "uuid": "d2d8d11d-000b-5a58-aff8-a81a73c70d80",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACXklEQVR4nGNgGAWjgEhgpmbwnxbqGUnRfOrWBUZKLUc3gwWfQSeXtMDZ5jE1YIOJdcTeCcVg2rmgF686RnQBkCUwizdu3gMX9/d1ATuCkANgvq8Kd4A4wNIYwyHIZrCgGwDSiGwxNgsIOQJmOQjsPX4Wb4gwohuOrBkEtp66weBtpoESCoQAuhnIABQiIEfAPMGCrhFkITpAdgSxYNe5WzgdgAyY0OMOn0X4ooYY38OiBKQGZh8TsmTbygM4NYJCwdfJiqADQGpw+R4EQHLI9jDiSsHIUXHx/guG4zOr4HzL9DashqOrMVGVQpE/c/sZnA1LA4zohsAcoa8oAbYYPWiRQwHZIciWb953DMWXIIfALEfPQUxYvQL1Nbbgu3X/MYqlKn8K4JaDLC6esBhDHy7LsToApghEY9Mwee1esCNAlsUmf2NYejceTIP4By7dZcgPc8NpHjaPMmETJKa4BYUGyPKXZxkY+lbFM6xaaoBTLT7zmAhZBNMMitMfv/7AQ6GucSuKOpAjXl0OZpi4ahchI0lzADLgYGMBO+LD9TCGorCFDNHKC8Him5o+gvmtzZ/hajVkRRio7gA3IzWwIziUlzHU1rwFi4EsPnBlA4q6dceuMARZ6RDVLmBiIAOAHNG9fCdDWPQFMIZFAQi8+/KdQYiHk2izmBioAGCW18/bSJLlZDsAlA5AoUANwESMIlzZCFuZ76CnTJIDWEhRDMqKoGIV3fcnNhai8I9dfwzGxABGYi3HlpphlQ0odyA7kpQCjYWBAoBcuyGzibUcBIgOAWo33Qe84zIKGKAAAAdhJdLfB0A7AAAAAElFTkSuQmCC"
+    }
+  ]
+}

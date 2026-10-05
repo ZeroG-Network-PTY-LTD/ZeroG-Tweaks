@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "aurelion_boots_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "aurelion_boots",
+      "type": "cube",
+      "uuid": "3918dd2d-a7cc-5187-97a0-d0b10b455d14",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "3918dd2d-a7cc-5187-97a0-d0b10b455d14"
+  ],
+  "textures": [
+    {
+      "name": "aurelion_boots.png",
+      "id": "0",
+      "uuid": "4b1ef2b8-8991-58ad-a2cf-5c0ea9d55b83",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAxElEQVR4nGNgGAWjYKQDRlwSzg4u/3HJ7T2wh2r6mBgGGLDgk9yzZxOGmIuLH0FDSdHHgs+gI4fXELSMUn1MhBQwno0lyxHE6mNiGGDANOoAhsEeBf+NF5NlMLH6mBgGGDCNOoBhpEcBCz7JhsZFZBlKij4WXHX6nl19WDW4uBXhNIwcfUzYDMFb1e7qw6qGXH1MuBSTYxg5+pgYyAD4ooFUfSzYFNY3zMFrkLWVFsPRY9eooo8Fm0JshhMDyNU3CkY2AAAqmEwcf006PgAAAABJRU5ErkJggg=="
+    }
+  ]
+}

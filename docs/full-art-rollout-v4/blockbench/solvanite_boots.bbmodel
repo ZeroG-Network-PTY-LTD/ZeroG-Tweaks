@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "solvanite_boots_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "solvanite_boots",
+      "type": "cube",
+      "uuid": "e88ba268-e545-57f4-8dc8-44bc8d69b30c",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "e88ba268-e545-57f4-8dc8-44bc8d69b30c"
+  ],
+  "textures": [
+    {
+      "name": "solvanite_boots.png",
+      "id": "0",
+      "uuid": "c17811a3-7850-54e6-a365-aa3387de83cf",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAvUlEQVR4nGNgGAWjYKQDRlwS8nys/3HJPfz0m2r6mBgGGLDgk3zwbDeGmIKUK0FDSdHHgs+gJcn+BC2jVB8TIQWKph/IcgSx+pgYBhgwjTqAYbBHwf3TAmQZTKw+JoYBBkyjDmAY6VHAONDVMQsuQw72iGM1xL7kJS7zydLHhM0QnDYwMDCALMCmhlx9TLgUk2MYOfqYGMgA+KKBVH2M6AIgF1rLshI07Ojj3yiJilx9LLgUkQPI1TcKRjYAAMK5TTzVlYA2AAAAAElFTkSuQmCC"
+    }
+  ]
+}

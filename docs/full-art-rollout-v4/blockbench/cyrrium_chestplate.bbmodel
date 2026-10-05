@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cyrrium_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "cyrrium_chestplate",
+      "type": "cube",
+      "uuid": "c3d18a5b-e1b4-5ad3-b416-2f4fa9733151",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "c3d18a5b-e1b4-5ad3-b416-2f4fa9733151"
+  ],
+  "textures": [
+    {
+      "name": "cyrrium_chestplate.png",
+      "id": "0",
+      "uuid": "6f80e3c2-0e10-535c-a4d4-27c8e3a44f5a",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACZklEQVR4nGNgGAWjgEigb+r2nxbqGUnRfPH0LkZKLUc3gwWfQXuPrYOzna2CwAYT64jlRzeC6Uhrf7zqWNAFQJbALF699xqKY0COINb3B/ddxuoQdE+woBuQ0dyCYjE2CwiFAsgMGMDlEKwO0McSdwc2rGdwCAgEOwoWCqQmSHSHRFr7wz3Bgu5ykIW4HEEKOLJtK1ZxeyddFD4TjAHzFT6L8EUNtuDHFRIgNTD7mJAlZ9TW4NQICgUPFx2CDgCpweV7EADJIdvDiCwJcxV6VNw4e5Zhw/ENcH6AZQBWw9HV6FhaoshfOX4czoalAUZ0Q2CO0DA2BluMHrTIoYDsEGTLd+y5guJLkENglqPnICasXoH6Glvw3Xn0E8VS7bdRcMtBFjeW92Pow2U5VgfAFIFobBoWTJgAdgTIsmq1VQxL78aDaRD/5O7dDMnFRTjNw+ZRJmyCxBS3oNAAWf7yLAND36p4hsNZuHMIPvMYGYgAsHShqq/PwM7FBRbrjWtgEDdmADsABorCFjKwBT5lMHd1hacBQp5hYiABgCz/+e0bw/8timDLopUXgsU3NX0E8zOPhMPVKukQzrIkO8DGyxvsiF9OVxkS90DKdJDFB64gcgAI7Fq5gsEtPALMJlRsMzGQAUCOmNnWxmA7TQuMQQCUDkDg47u3DPxCwkSbxcRABQCzvK+6miTLyXYAKB3AEiOlgIkYRbhSMrYyH5QDSAEspCgGZS1QsYru+/VvTqPwzx86CMbEAEZiLceWmmGVDSh3IDuSlAKNhYECgFy7IbOJtRwEiA4BajfdqQ70yWgnjgJQCAAA8IQqeuzMjZUAAAAASUVORK5CYII="
+    }
+  ]
+}

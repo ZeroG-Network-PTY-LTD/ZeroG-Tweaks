@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=north,mode=input": {
+      "model": "zerog_tweaks:block/transport/fluid_port_input"
+    },
+    "facing=north,mode=output": {
+      "model": "zerog_tweaks:block/transport/fluid_port_output"
+    },
+    "facing=north,mode=both": {
+      "model": "zerog_tweaks:block/transport/fluid_port_both"
+    },
+    "facing=east,mode=input": {
+      "model": "zerog_tweaks:block/transport/fluid_port_input",
+      "y": 90
+    },
+    "facing=east,mode=output": {
+      "model": "zerog_tweaks:block/transport/fluid_port_output",
+      "y": 90
+    },
+    "facing=east,mode=both": {
+      "model": "zerog_tweaks:block/transport/fluid_port_both",
+      "y": 90
+    },
+    "facing=south,mode=input": {
+      "model": "zerog_tweaks:block/transport/fluid_port_input",
+      "y": 180
+    },
+    "facing=south,mode=output": {
+      "model": "zerog_tweaks:block/transport/fluid_port_output",
+      "y": 180
+    },
+    "facing=south,mode=both": {
+      "model": "zerog_tweaks:block/transport/fluid_port_both",
+      "y": 180
+    },
+    "facing=west,mode=input": {
+      "model": "zerog_tweaks:block/transport/fluid_port_input",
+      "y": 270
+    },
+    "facing=west,mode=output": {
+      "model": "zerog_tweaks:block/transport/fluid_port_output",
+      "y": 270
+    },
+    "facing=west,mode=both": {
+      "model": "zerog_tweaks:block/transport/fluid_port_both",
+      "y": 270
+    }
+  }
+}

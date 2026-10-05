@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "aurelion_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "aurelion_chestplate",
+      "type": "cube",
+      "uuid": "9146bc1a-2e78-5cb4-864d-659308319948",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "9146bc1a-2e78-5cb4-864d-659308319948"
+  ],
+  "textures": [
+    {
+      "name": "aurelion_chestplate.png",
+      "id": "0",
+      "uuid": "6539c7f3-827c-5487-b6da-265de1c264ee",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACZ0lEQVR4nGNgGAWjgEjg7ODynxbqGUnRvPfAHkZKLUc3gwWfQXt2b4CzXVwDwAYT64g9ezZD9Ln44lXHiC4AsgRm8atXZ+DiYmImYEcQcgDM98uW1kD0iZtjOATZDCZ0A0AaQRYjW47NAnwAZjnYEy9PgjEoRGChggwY0Q1H1gwCc+ZsYUhJ8UEJBVIcgA5AIQIKDVgosKBrBFmIDpAdQSxYvHgnVvHiEkiUYESBMzRo8VmEK1qI9T3YjJcnwWpg9jEhS0ZFt+DUCAoFMXEzgg4AqcHlexAAySHbw4grBSNHxb79Fxj27NkE57u4+GE1HF2Np4cpivz2HafhbFgaYEQ3BOYIJ0cDsMUwgMhWZlgdgmz5q5enUHwJcgjMcvRszITVK1BfowNw0DK+Q7FU/FEM3HKQxVMmd2Dow2U5VgfAFIFobBp6u6eCHQGyLFptFcPSu/FgGsRftWofQ05eHk7zsHmUCZsgMcUtKDRAlr88y8DQtyqeodD2AU61+MxjImQRTDMoTr98+Q4PhRiXNhR1IEccn6zEMGXSJEJGkuYAZMDDwwl2xLlZ6gxFYQsZopUXgsU3NX0E85feRpQhFhaaDFR3QGysO9gRalEXGJbedgGLgSw+cAVRa4LApMlrGfJyg4mqO5gYyAAgRzTW9zD0H1YAY1gUgMCLl+8ZJMQFiTaLiYEKAGZ5TXUjSZaT7QBQOgCFAjUAEzGKcGUjbGV+WJgT9R0AA7DiFd33jJIHwRgGNmw8hrdiQ9HLQCTAlpphlQ0od6A7ktgCjYWBAoBcuyGzibUcBIgOAWo33Qe84zIKGKAAAKi5H8qMYjxaAAAAAElFTkSuQmCC"
+    }
+  ]
+}

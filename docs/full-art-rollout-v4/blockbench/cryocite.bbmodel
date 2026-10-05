@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cryocite_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "cryocite",
+      "type": "cube",
+      "uuid": "179917b3-7bf1-5d3d-bcbf-ebc59b6d9893",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "179917b3-7bf1-5d3d-bcbf-ebc59b6d9893"
+  ],
+  "textures": [
+    {
+      "name": "cryocite.png",
+      "id": "0",
+      "uuid": "14c50b4a-82dc-5765-a3cb-4dec98717ecc",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABQUlEQVR4nO2WLRLCMBCFdztxaA6AKgaHRoABjYY74DgCjjsUjaamCDQOAw7PCVBlwhAmLPlvqKFPdUqa923ykgWgUaNGEZUOpqXvNyym+Wi1BljCG+Jy2GItAOnLvNdvA3AIIQlGB4QxzU/Hm3ZcsVwoAZK6zHVKXEyqmNvmYlWCxSsrAOA5JqB6I4BrsKiJCUYlDF1eW2Xn/Qau9xLGk/nHexpEFmJuU77LoDucvZ+5BAifX4ZgvzCXq6YrQIUUQDyHBIuaq0S3AHUAsiiMbf9djL2u4uJlKIJVGCZXFWHqCejazeTlpcHSmdDABQPkDnurg7CJ2Qa4mss3pg8IVvlzwY3o0ZUD6gKCLpSmYInfVCclGoApWBROgIiV8AphiFSrI/cBGwCDyPruA1nZabWwFoDcsw9EBVAd15B7Af5OD4dP5Vqx1z0MAAAAAElFTkSuQmCC"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "c": "zerog_tweaks:block/transport/connector_energy_normal",
+    "particle": "zerog_tweaks:block/transport/connector_energy_normal"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        4,
+        0
+      ],
+      "to": [
+        12,
+        12,
+        2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            12,
+            12
+          ],
+          "texture": "#c",
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            12,
+            12
+          ],
+          "texture": "#c"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            12,
+            2
+          ],
+          "texture": "#c",
+          "rotation": 90
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            12,
+            2
+          ],
+          "texture": "#c",
+          "rotation": 90
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            12,
+            2
+          ],
+          "texture": "#c"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            12,
+            2
+          ],
+          "texture": "#c"
+        }
+      }
+    }
+  ]
+}

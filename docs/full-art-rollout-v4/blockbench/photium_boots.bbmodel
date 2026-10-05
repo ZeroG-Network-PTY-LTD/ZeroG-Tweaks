@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "photium_boots_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "photium_boots",
+      "type": "cube",
+      "uuid": "b2d04e0d-b8db-50bb-a699-9caa94aaa492",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "b2d04e0d-b8db-50bb-a699-9caa94aaa492"
+  ],
+  "textures": [
+    {
+      "name": "photium_boots.png",
+      "id": "0",
+      "uuid": "7f95a5eb-0906-56be-9744-788fc22e30ab",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAwklEQVR4nGNgGAWjYKQDRlwS7s4e/3HJ7dy7g2r6mBgGGLDgk9yxcx2GmId7EEFDSdHHgs+gSxd3EbSMUn1MhBR83u9PliOI1cfEMMCAadQBDIM9CngdN5JlMLH6mBgGGDCNOoBhpEcBCz7JsrIZZBlKrj6UOv3/v8dYMb76nhx9TNgMYcADduyejVUNufqYcCkmxzBy9DExkAE8XFMZqKWPBZvC9pYpeA2yt9dnOHjwIlX0sWBTiM1wYgC5+kbByAYAjAt4sGCGJ5UAAAAASUVORK5CYII="
+    }
+  ]
+}

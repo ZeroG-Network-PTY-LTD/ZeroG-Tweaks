@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "tectium_ingot_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "tectium_ingot",
+      "type": "cube",
+      "uuid": "2fb35166-4650-5f37-ac49-6d31dce10336",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "2fb35166-4650-5f37-ac49-6d31dce10336"
+  ],
+  "textures": [
+    {
+      "name": "tectium_ingot.png",
+      "id": "0",
+      "uuid": "adda897d-d4c3-5252-aec0-cf23ca5e4f1a",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABk0lEQVR4nGNgGAWjYBSQAPS1TP8zUBkwUtPyi9dOM9LEAfpQy4tyIxnsrU2wqvGPKGYgx4GMxFq+cUUvmH/w6Bms6nA5DKanb/JyrI5gIdbX2Cze2S3E4F76Dq/DCAEmci2PyyhkWHo3HuwIYgDILGSzcTpAX8v0P0gxKMhxWQ4C0coLGV6eZWBw0AlgoAQwYrMcn8WUAvS0wIJLAS0txxsF8nLiNLPc2cEIQ5wFm+K1G/cxBPs7Uc1iEEC2HDkrMhHSSE3L9x44h6GGCZdmUFRQ4ghYkGMLdqIKImLTAy5Hwix+scOSQcLjOHkOgFkAypqELAIBaSlROPvps9cMvVNngNnRygw4HcGIzIGVUug+f/joJU6LkAHIUmQA8n3fqniGTU0fGabeccVaFzCiG4LNESAHxEW5g9ln56ngDVJcAJYACVZGF6+dZsRW98ODtBp/kCJbRgxgwSYIcaXpf/SoAJX/oCAFlf83GI4TtIyYBgojPklQSIAcAUsDhHxGkxaRPo6mGDmWDarG6CgYBQxQAABHQrwVs0i6kAAAAABJRU5ErkJggg=="
+    }
+  ]
+}

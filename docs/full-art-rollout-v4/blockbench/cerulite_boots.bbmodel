@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cerulite_boots_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "cerulite_boots",
+      "type": "cube",
+      "uuid": "211bd801-f4cc-52c0-b771-77346b3b126f",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "211bd801-f4cc-52c0-b771-77346b3b126f"
+  ],
+  "textures": [
+    {
+      "name": "cerulite_boots.png",
+      "id": "0",
+      "uuid": "37e18b70-e258-5e42-9e4b-bd8f8704a4dd",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAvElEQVR4nGNgGAWjYKQDRlwSbCLy/3HJ/XrzkGr6mBgGGLDgk7z2+gGGmJaoAkFDSdHHgs8gi9RugpZRqo+JkIINGqVkOYJYfUwMAwyYRh3AMNijIOAGeTmBWH1MDAMMmEYdwDDSo4BxoKtjFlyGSPYtxWrI86JoXOaTpY8JmyE4bWBgYABZgE0NufqYcCkmxzBy9DExkAHwRQOp+hjRBUAu5FA0JGjYj/vnURIVufpYcCkiB5CrbxSMbAAAMI9Mvg+AUVAAAAAASUVORK5CYII="
+    }
+  ]
+}

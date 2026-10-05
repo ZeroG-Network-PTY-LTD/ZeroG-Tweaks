@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "aurelion_leggings_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "aurelion_leggings",
+      "type": "cube",
+      "uuid": "ca708e0e-1a6e-50fc-afbd-a7f19357fa5e",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "ca708e0e-1a6e-50fc-afbd-a7f19357fa5e"
+  ],
+  "textures": [
+    {
+      "name": "aurelion_leggings.png",
+      "id": "0",
+      "uuid": "6854862a-97d2-59b0-9647-6fe8c7209c0b",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABPElEQVR4nGNgGAWjYIABIy4JZweX/9S0aO+BPVjtYmIYYMBCSMGe3Rvwykerr2FYejMEp7yLawBlDvj39w5OuVitCwxL78YzRCsvZFh8zYCBHMDEQAEAWf7yLAND36p4sGPwAVxpiolcy0EWgnwOApuaPpIdAizkOgBh4UWGA1cuMCQz0MgBJ09dgbNXrTrAcPnKA0xFcgwMbh5LwMzmpgQU9YQAEyEFllaBBA2hRD0TwwADpiHtgL0H9jDiKmKxqaXIAZY21qS4jWj1TPgk9+ybzcDA9ApuWP+kagZqqifoAJyWUFE9Ez5JF6dUBIdRgaBlpKon6AAU8P8BpiVUUM/EQCZATtXE5gSyiuLjR46SVLSSqp6JgQ4AXwgxMQwwYCGkoLZuAUkGkqqeiWEoAmcszStqN+NHAQO9AACjgmkas0bLcgAAAABJRU5ErkJggg=="
+    }
+  ]
+}

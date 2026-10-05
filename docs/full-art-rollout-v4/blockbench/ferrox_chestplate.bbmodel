@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "ferrox_chestplate_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "ferrox_chestplate",
+      "type": "cube",
+      "uuid": "2b8edd47-a170-5e76-a894-411ddb98f605",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "2b8edd47-a170-5e76-a894-411ddb98f605"
+  ],
+  "textures": [
+    {
+      "name": "ferrox_chestplate.png",
+      "id": "0",
+      "uuid": "fbf05af8-67a9-5f2d-840d-9b4fb5253a8b",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACYUlEQVR4nGNgGAWjgEhgq6zynxbqGUnRfPjuHUZKLUc3gwWfQYemh8PZdpkrwQYT64hDze4QfbU78apjRBcAWQKz+NyWI3BxIx8bsCMIOQDm+wne0hB9FjoYDkE2gwXdAJBGZIuxWUDIETDLwZ44cQVviDCiG46sGQRWXHzHEKEvhBIKhAC6GcgAFCIgR8A8wYKuEWQhOkB2BLFg3dV3OByAymdCjzt8FuGLGmJ8DzbjxBWwGph9TMiSBVuf4tQICgUjB2OCDgCpweV7EADJIdvDiCsFI0fFiSffGQ51+8H5dqWbsBqOrsZOgRNV/sF3OBuWBhjRDYE5wkKGE2wxDMCzFVIoIDsE2fJzB86i+BLkEJjl6DmICatXoL7GFnzfHzxFsVT2fw3ccpDFTTP2YOjDZTlWB8AUgWhsGlq3XgM7AmRZdIkew9K78WAaxN9y4z1Dnb8+TvOweZQJmyAxxS0oNECWvzzLwNC3Kp6hd0siTrX4zGMiZBFMMyhOv/36Dw+F3M5LKOpAjrh5p4ihaeNFQkaS5gBkwMXGCHbE/fvFDEVhCxmilReCxTc1fQTzlxbvhas1kGBnoLoDgrSFwI4Ql+5hmJOzHSwGsvjAlQ0o6hacfcOQYCxCVLuAiYEMAHJE9fqrDMU+88EYFgUg8ObrXwYRbmaizWJioAKAWZ637BxJlpPtAFA6AIUCNQATMYpwZSNsZb6PhiBJDmAhRTEoK4KKVXTfP13kgMLfc/cbGBMDGIm1HFtqhlU2oNyB7EhSCjQWBgoAonZ7h1LTEWs5CJCdkihtug94x2UUMEABAAeLJiTOeMrCAAAAAElFTkSuQmCC"
+    }
+  ]
+}

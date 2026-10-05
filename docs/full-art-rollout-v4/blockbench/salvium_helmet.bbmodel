@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "salvium_helmet_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "salvium_helmet",
+      "type": "cube",
+      "uuid": "924fcf25-95a3-572b-9092-19e048132a4d",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "924fcf25-95a3-572b-9092-19e048132a4d"
+  ],
+  "textures": [
+    {
+      "name": "salvium_helmet.png",
+      "id": "0",
+      "uuid": "7772a326-bcda-5fc3-8d9a-162310e34aa3",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABlklEQVR4nGNgGAWjgAbAyND+P7FqGSk17PiprQyWZt5Y5c6dP0jQfIKW//z9BQPHxGZgFUfHxIQEIyEHgHx4/9FrFPHLV64zbFyzicE/xA/Md7S3ZujvnwaXr6vJhbNBoYMvJBjxWQ6ifYN8MOQio0IYWho64Q64cO4iQ2FhFpgNcwixjmDE54DKhnKGK5euYnUALBTkleRR5JAdQowjmPD5HpvlILB82RoGXR1NrHLIUdHUMhluObK5BB0AAiDfkwtAjgCFhIGRPsOmbYfwqmVCF0B2pY6eNlZNyGkAZAk+0N7QiVeeEZ8DkNPAsYPHGIgFZtZmcIfBHGBqYcJw+sQZjHTAQsj1sKhADw3kbEgIgCwnOQT8Q/zAllAKkC0nOQT80XxIqoPw+ZwoB6SkxjHMmb2I5LIdOR01Jvcw1M8twamWiWGAARO6AC5fkhL82MwAxT9RDqA3YBoyDjhHZuMCXwIk2gHUKA/IcsAcpCxIdwdsXLOJIp/DogyU+nHlABAg2CRDN5AUQKl+sprZ1NA3CkYWAAAVyuxMq/X19QAAAABJRU5ErkJggg=="
+    }
+  ]
+}

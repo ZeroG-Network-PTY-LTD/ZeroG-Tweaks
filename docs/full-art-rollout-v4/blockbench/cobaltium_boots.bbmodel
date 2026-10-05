@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cobaltium_boots_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "cobaltium_boots",
+      "type": "cube",
+      "uuid": "114ecc66-a989-5227-938e-5a6c57e064fc",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "114ecc66-a989-5227-938e-5a6c57e064fc"
+  ],
+  "textures": [
+    {
+      "name": "cobaltium_boots.png",
+      "id": "0",
+      "uuid": "90ce7e7e-51b5-5f20-afac-4c2be416b7fa",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAxklEQVR4nGNgGAWjYKQDRlwSanpe/3HJ3bq0jWr6mBgGGLDgk+zbugZDrMg7hKChpOhjwWfQyvkHCVpGqT4mQgrSuTzIcgSx+pgYBhgwjTqAYbBHwcxvO8gymFh9TAwDDJhGHcAw0qOABZ/kyTWTyTKUFH0suOr06IbFWDUsbYjFaRg5+piwGYLTBgYGBpAF2NSQq48Jl2JyDCNHHxMDGQBfNJCqjwWbwn3L+vEaJKlmxPD81jmq6GPBphCb4cQAcvWNgpENAIgISj5FY0avAAAAAElFTkSuQmCC"
+    }
+  ]
+}

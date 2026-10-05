@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "salvium_boots_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "salvium_boots",
+      "type": "cube",
+      "uuid": "7519b83d-7dc5-5893-b5d0-42770f6ccbaa",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "7519b83d-7dc5-5893-b5d0-42770f6ccbaa"
+  ],
+  "textures": [
+    {
+      "name": "salvium_boots.png",
+      "id": "0",
+      "uuid": "acdcd7cd-656c-5a82-9131-138299a770e5",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAxUlEQVR4nGNgGAWjYKQDRlwSRob2/3HJnTt/kGr6mBgGGLDgk9y1fxOGmJujH0FDSdHHgs+g2bMXErSMUn1MhBTYMuaS5Qhi9TExDDBgGnUAw2CPgsP/J5NlMLH6mBgGGDCNOoBhpEcBCz7J1cvWkmUoKfpYcNXpTZ0NWDXUlWMXJ1cfEzZDcNrAwMAAsgCbGnL1MeFSTI5h5OhjYiAD4IsGUvWxYFO4dMEyvAapa6ox3Lx+iyr6WLApxGY4MYBcfaNgZAMAl6ZKAMn4jxIAAAAASUVORK5CYII="
+    }
+  ]
+}

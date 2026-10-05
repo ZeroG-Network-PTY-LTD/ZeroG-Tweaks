@@ -15,41 +15,42 @@ C = dict(outline=H('#1d2126'), dark=H('#5b6470'), mid=H('#8a95a3'), light=H('#b8
 MATS = ['light', 'mid', 'dark', 'edge', 'grip', 'wrap', 'glow', 'gem', 'plate', 'trim', 'socket', 'core']
 def lerp(a, b, t): return tuple(int(x + (y - x) * t) for x, y in zip(a, b))
 def swatch(kind, rnd):
-    im = Image.new('RGBA', (16, 16)); p = im.load()
+    """Approved v4 native material cells, identical to the final runtime atlas.
+
+    Keep cells/UVs and every model/display value unchanged. No random RGB noise.
+    """
+    im = Image.new('RGBA', (16, 16)); draw = ImageDraw.Draw(im)
+    metal, accent = (161, 175, 198), (174, 107, 236)
+    def hue(c, level):
+        ramps={'moonsteel':['141326','2b2a4a','454a78','6a7bb0','9fb6d8','e6f4ff'],
+               'glow':['2a0e4a','5a22a0','9a4ef0','c48cff','e8ccff','ffffff'],
+               'cerulite':['06141f','0e3550','14648a','1fa2c4','5fe0f0','dcffff'],
+               'wood':['1a0e0a','3c2216','5e3a24','875a36','b0824e','dcb27a']}
+        name='moonsteel' if c==metal else 'glow' if c==accent else 'cerulite' if c==(101,224,242) else 'wood'
+        index=0 if level<.43 else 1 if level<.7 else 2 if level<.91 else 3 if level<1.15 else 4 if level<1.4 else 5
+        return tuple(bytes.fromhex(ramps[name][index]))+(255,)
     for y in range(16):
         for x in range(16):
-            n = (rnd.random() - .5) * .08
-            if kind in ('light', 'mid', 'dark', 'plate'):       # brushed steel, vertical grain + bevel rim
-                base = {'light': lerp(C['mid'], C['light'], .45), 'mid': lerp(C['dark'], C['mid'], .55), 'dark': lerp(C['outline'], C['dark'], .7), 'plate': C['dark']}[kind]
-                g = .06 * math.sin(x * 1.7 + rnd.random()) + n
-                c = lerp(base, (255, 255, 255) if g > 0 else (0, 0, 0), abs(g))
-                if x == 0 or y == 0: c = lerp(c, C['hi'], .45)
-                if x == 15 or y == 15: c = lerp(c, C['outline'], .35)
-                if kind == 'plate' and (x, y) in [(3, 3), (12, 3), (3, 12), (12, 12)]: c = C['hi']
-                if kind == 'plate' and (x, y) in [(4, 4), (13, 4), (4, 13), (13, 13)]: c = C['dark']
-            elif kind == 'edge':                                  # honed edge: bright, fades inward
-                c = lerp(C['hi'], C['light'], x / 15 * .6 + n)
-            elif kind == 'grip':                                  # dark leather wrap with diagonal bands
-                band = ((x + y) % 6) < 2
-                c = lerp(C['outline'], C['handle'], .55 if band else .25 + n * 2)
-            elif kind == 'wrap':                                  # deep blue cord
-                c = lerp(C['deep'], C['blue'], .5 + .5 * math.sin((x + 2 * y) * .9))
-            elif kind == 'glow':                                  # moon-blue light strip, hot centre line
-                d = abs(x - 7.5) / 7.5
-                c = lerp(C['acc_hi'], C['acc'], min(1, d * 1.4))
-            elif kind == 'gem':                                   # faceted crystal
-                d = max(abs(x - 7.5), abs(y - 7.5)) / 7.5
-                c = lerp(C['acc_hi'], C['blue'], d)
-                if x + y < 9 and d > .4: c = lerp(c, (255, 255, 255), .5)
-            elif kind == 'trim':                                  # thin dark trim between parts
-                c = lerp(C['outline'], C['dark'], .4 + n * 2)
-            elif kind == 'socket':                                # ring collar with rivet line
-                c = lerp(C['dark'], C['light'], .5 + .4 * math.cos(x / 15 * math.pi * 2))
-                if y in (7, 8) and x % 4 == 1: c = C['hi']
-            elif kind == 'core':                                  # moon disc, glows
-                d = math.hypot(x - 7.5, y - 7.5) / 7.5
-                c = lerp(C['acc_hi'], C['acc'], min(1, d)) if d < 1 else C['blue']
-            p[x, y] = tuple(max(0, min(255, int(v))) for v in c) + (255,)
+            if kind in ('glow', 'gem', 'core'):
+                dist = ((abs(x - 7.5) + abs(y - 7.5)) / 15 if kind != 'glow'
+                        else abs(x - 7.5) / 7.5)
+                c = hue((101, 224, 242) if kind == 'glow' else accent,
+                        1.65 if dist < .22 else 1.1 if dist < .6 else .64)
+            elif kind in ('grip', 'wrap'):
+                c = hue((78, 72, 92), .52 if (x + y) % 6 < 2 else 1.1)
+            else:
+                level = {'light': 1.12, 'mid': .91, 'dark': .59, 'edge': 1.25,
+                         'plate': .84, 'trim': .5, 'socket': .83}[kind]
+                level += (.22 if x == 0 or y == 0 else -.23 if x == 15 or y == 15
+                          else .1 if x < 5 else -.09 if x > 11 else 0)
+                c = hue(metal, level)
+            im.putpixel((x, y), c)
+    if kind in ('mid', 'light', 'plate'):
+        draw.line((3, 4, 12, 4), fill=hue(metal, .68))
+        draw.line((3, 5, 11, 5), fill=hue(metal, 1.18))
+    if kind in ('socket', 'plate'):
+        for x, y in [(2, 2), (13, 2), (2, 13), (13, 13)]:
+            draw.point((x, y), fill=hue(metal, 1.57))
     return im
 rnd = random.Random(7)
 TEX = Image.new('RGBA', (64, 64), (0, 0, 0, 0))

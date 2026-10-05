@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "cyrrium_leggings_sprite_source",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "cyrrium_leggings",
+      "type": "cube",
+      "uuid": "abea23db-3d36-53ad-b677-ed30496c95f0",
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            0,
+            32
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "abea23db-3d36-53ad-b677-ed30496c95f0"
+  ],
+  "textures": [
+    {
+      "name": "cyrrium_leggings.png",
+      "id": "0",
+      "uuid": "2ec4fd27-ab3d-5463-a028-1063c235c134",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABQUlEQVR4nGNgGAWjYIABIy4JfVO3/9S06OLpXVjtYmIYYMBCSMHeY+vwyuepr2GYdDMEp7yzVRBlDth97jlOuc2RRxmW3o1niFZeyOC73JqBHMDEQAEAWf7yLAND36p4sGPwAVxpiolcy0EWgnwOApuaPpIdAizkOgBm4f6/dxgOXDnK4MtAIwfcuHQJzj6zdw/Dk7t3MRUJMzBczVkGZgakpaOoJwSYCClIT/QgaAgl6pkYBhgwDWkHXDy9ixFXEYtNLUUOMLezJcVtRKtnwifZvmQJw4W7X+GGZTc2MlBTPUEH4LKEmuqZ8ElWxsTA2Z5qogQtI1U9QQcgg+23XmNYQg31TAxkAuRUTWxOIKsoPnnoMElFK6nqmRjoAPCFEBPDAAMWQgo2zJpJkoGkqmdiGIpAH0vzitrN+FHAQC8AACBbckd3NxwxAAAAAElFTkSuQmCC"
+    }
+  ]
+}
