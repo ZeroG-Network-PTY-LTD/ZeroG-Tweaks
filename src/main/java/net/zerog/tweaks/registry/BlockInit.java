@@ -52,7 +52,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> ABYSSAL_STONE_BRICKS = BLOCKS.register("abyssal_stone_bricks", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> ABYSSAL_STONE_SLAB = BLOCKS.register("abyssal_stone_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> ABYSSAL_STONE_WALL = BLOCKS.register("abyssal_stone_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<ZGOrientedBlock> ALLOY_FORGE = BLOCKS.registerBlock("alloy_forge", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
+    public static final DeferredBlock<net.zerog.tweaks.machine.ProcessingBlock> ALLOY_FORGE = BLOCKS.registerBlock("alloy_forge", net.zerog.tweaks.machine.ProcessingBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<Block> ARESITE_BLOCK = BLOCKS.register("aresite_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> ARESITE_ORE = BLOCKS.register("aresite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<SnowLayerBlock> ASHFALL = BLOCKS.registerBlock("ashfall", SnowLayerBlock::new, props(MapColor.STONE, SoundType.WOOL, 0.5F, 0.5F));
@@ -310,7 +310,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> CRYOCITE_ORE = BLOCKS.register("cryocite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 9)));
     public static final DeferredBlock<Block> CRYSTAL_CELL = BLOCKS.register("crystal_cell", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CRYSTAL_GLASS = BLOCKS.register("crystal_glass", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
-    public static final DeferredBlock<ZGOrientedBlock> CRYSTAL_GROWTH_CHAMBER = BLOCKS.registerBlock("crystal_growth_chamber", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
+    public static final DeferredBlock<net.zerog.tweaks.machine.ProcessingBlock> CRYSTAL_GROWTH_CHAMBER = BLOCKS.registerBlock("crystal_growth_chamber", net.zerog.tweaks.machine.ProcessingBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<Block> CRYSTAL_SAND = BLOCKS.register("crystal_sand", () -> new net.minecraft.world.level.block.ColoredFallingBlock(new net.minecraft.util.ColorRGBA(0xFF6A9AD8), props(MapColor.SAND, SoundType.SAND, 0.5F, 0.5F)));
     public static final DeferredBlock<Block> CYRRIUM_BLOCK = BLOCKS.register("cyrrium_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> CYRRIUM_CASING = BLOCKS.register("cyrrium_casing", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -345,7 +345,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> FUSION_DUST_BLOCK = BLOCKS.register("fusion_dust_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> FUSION_DUST_ORE = BLOCKS.register("fusion_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F).lightLevel(s -> 12)));
     public static final DeferredBlock<Block> FUSION_LAMP = BLOCKS.register("fusion_lamp", () -> new Block(props(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST, 1.0F, 6.0F).lightLevel(s -> 15)));
-    public static final DeferredBlock<ZGOrientedBlock> FUSION_REACTOR = BLOCKS.registerBlock("fusion_reactor", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
+    public static final DeferredBlock<net.zerog.tweaks.power.PowerBlock> FUSION_REACTOR = BLOCKS.registerBlock("fusion_reactor", net.zerog.tweaks.power.PowerBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<ZGOrientedBlock> GATE_CONTROLLER = BLOCKS.registerBlock("gate_controller", net.zerog.tweaks.travel.SurvivalGateBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<Block> GATE_ENERGY_PORT = BLOCKS.register("gate_energy_port", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<ZGOrientedBlock> GATE_LENS_HOUSING = BLOCKS.registerBlock("gate_lens_housing", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
@@ -635,7 +635,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> SALT_CRUST = BLOCKS.register("salt_crust", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SALT_CRUST_SLAB = BLOCKS.register("salt_crust_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SALT_CRUST_WALL = BLOCKS.register("salt_crust_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
-    public static final DeferredBlock<ZGOrientedBlock> SALVAGE_STATION = BLOCKS.registerBlock("salvage_station", ZGOrientedBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
+    public static final DeferredBlock<net.zerog.tweaks.machine.ProcessingBlock> SALVAGE_STATION = BLOCKS.registerBlock("salvage_station", net.zerog.tweaks.machine.ProcessingBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<Block> SALVIUM_BLOCK = BLOCKS.register("salvium_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SALVIUM_ORE = BLOCKS.register("salvium_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, SoundType.STONE, 3.0F, 8.0F)));
     public static final DeferredBlock<Block> SCORCHED_MARBLE = BLOCKS.register("scorched_marble", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
@@ -733,7 +733,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> SMOOTH_SUNBAKED_STONE_SLAB = BLOCKS.register("smooth_sunbaked_stone_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SMOOTH_SUNBAKED_STONE_WALL = BLOCKS.register("smooth_sunbaked_stone_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<SnowLayerBlock> SNOWPACK = BLOCKS.registerBlock("snowpack", SnowLayerBlock::new, props(MapColor.STONE, SoundType.WOOL, 0.5F, 0.5F));
-    public static final DeferredBlock<Block> SOLAR_ARRAY = BLOCKS.register("solar_array", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
+    public static final DeferredBlock<net.zerog.tweaks.power.PowerBlock> SOLAR_ARRAY = BLOCKS.registerBlock("solar_array", net.zerog.tweaks.power.PowerBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
     public static final DeferredBlock<Block> SOLAR_STONE = BLOCKS.register("solar_stone", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SOLAR_STONE_BRICK_SLAB = BLOCKS.register("solar_stone_brick_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> SOLAR_STONE_BRICK_WALL = BLOCKS.register("solar_stone_brick_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));

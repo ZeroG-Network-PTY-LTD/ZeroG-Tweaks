@@ -18,7 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 @EventBusSubscriber(modid="zerog_tweaks")
 public final class GeneticsIntegration {
     @SubscribeEvent public static void open(PlayerInteractEvent.RightClickBlock event) {
-        if(event.getHand()!=InteractionHand.MAIN_HAND||event.getEntity().isShiftKeyDown()||!event.getItemStack().isEmpty())return;
+        if(event.getHand()!=InteractionHand.MAIN_HAND||!event.getItemStack().isEmpty())return;
         var be=event.getLevel().getBlockEntity(event.getPos());String id=GeneticsRuntime.id(be);
         if(!GeneticsRuntime.handles(id))return;
         if(event.getEntity() instanceof ServerPlayer player)player.openMenu(new SimpleMenuProvider(

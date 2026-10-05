@@ -28,7 +28,21 @@ public final class CombustionBlockEntity extends BlockEntity {
         public int getEnergyStored(){return stored;}public int getMaxEnergyStored(){return capacity();}public boolean canExtract(){return true;}public boolean canReceive(){return false;}
     };
     public CombustionBlockEntity(BlockPos pos,BlockState state){super(CombustionRegistry.TYPE.get(),pos,state);}
-    public static int burnTime(ItemStack stack){if(stack.is(Items.COAL)||stack.is(Items.CHARCOAL))return 1600;String id=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();return switch(id){case "nebulite"->2400;case "emberite"->4800;case "cryocite"->7200;case "coronite"->9600;default->0;};}
+    public static int burnTime(ItemStack stack){
+        if(stack.isEmpty())return 0;
+        var id=net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem());
+        if(id.getPath().endsWith("dust")||stack.is(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM,net.minecraft.resources.ResourceLocation.parse("c:dusts"))))return 0;
+        if(stack.is(net.minecraft.tags.ItemTags.COALS))return 1600;
+        if(stack.is(net.minecraft.world.level.block.Blocks.COAL_BLOCK.asItem()))return 16000;
+        if(stack.is(net.minecraft.tags.ItemTags.LOGS)||stack.is(net.minecraft.tags.ItemTags.PLANKS)
+            ||stack.is(net.minecraft.tags.ItemTags.WOODEN_STAIRS)||stack.is(net.minecraft.tags.ItemTags.WOODEN_SLABS)
+            ||stack.is(net.minecraft.tags.ItemTags.WOODEN_FENCES)||stack.is(net.minecraft.tags.ItemTags.FENCE_GATES)
+            ||stack.is(net.minecraft.tags.ItemTags.WOODEN_DOORS)||stack.is(net.minecraft.tags.ItemTags.WOODEN_TRAPDOORS)
+            ||stack.is(net.minecraft.tags.ItemTags.WOODEN_BUTTONS)||stack.is(net.minecraft.tags.ItemTags.WOODEN_PRESSURE_PLATES)
+            ||stack.is(Items.STICK)||stack.is(Items.BOWL))return Math.max(0,stack.getBurnTime(net.minecraft.world.item.crafting.RecipeType.SMELTING));
+        if(!id.getNamespace().equals("zerog_tweaks"))return 0;
+        return switch(id.getPath()){case "nebulite"->2400;case "emberite"->4800;case "cryocite"->7200;case "coronite"->9600;default->0;};
+    }
     public static void tick(Level level,BlockPos pos,BlockState state,CombustionBlockEntity be){
         if(level.isClientSide)return;
         if(be.burn==0&&be.stored<be.capacity()){var stack=be.fuel.getStackInSlot(0);int ticks=burnTime(stack);if(ticks>0){be.burn=be.burnTotal=ticks;be.output=switch(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath()){case "emberite"->100;case "cryocite"->150;case "coronite"->200;default->50;};be.fuel.extractItem(0,1,false);be.setChanged();}}
@@ -38,5 +52,5 @@ public final class CombustionBlockEntity extends BlockEntity {
         int remaining=1000;for(var side:Direction.values()){if(!level.hasChunkAt(pos.relative(side)))continue;var sink=level.getCapability(Capabilities.EnergyStorage.BLOCK,pos.relative(side),side.getOpposite());if(sink==null)continue;int n=sink.receiveEnergy(Math.min(remaining,be.stored),true);n=sink.receiveEnergy(n,false);be.stored-=n;remaining-=n;if(n>0)be.setChanged();if(remaining<=0)break;}
     }
     @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.saveAdditional(tag,lookup);tag.putInt("energy",stored);tag.putInt("burn",burn);tag.putInt("burn_total",burnTotal);tag.putInt("output",output);tag.putInt("flux_modules",upgrades);tag.putInt("quarter_remainder",energyRemainder);tag.put("fuel",fuel.serializeNBT(lookup));}
-    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);upgrades=Math.max(0,Math.min(3,tag.getInt("flux_modules")));energyRemainder=Math.max(0,Math.min(3,tag.getInt("quarter_remainder")));stored=Math.max(0,Math.min(capacity(),tag.getInt("energy")));burn=Math.max(0,Math.min(9600,tag.getInt("burn")));burnTotal=Math.max(burn,Math.min(9600,tag.getInt("burn_total")));output=Math.max(50,Math.min(200,tag.getInt("output")));fuel.deserializeNBT(lookup,tag.getCompound("fuel"));}
+    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);upgrades=Math.max(0,Math.min(3,tag.getInt("flux_modules")));energyRemainder=Math.max(0,Math.min(3,tag.getInt("quarter_remainder")));stored=Math.max(0,Math.min(capacity(),tag.getInt("energy")));burn=Math.max(0,Math.min(1000000,tag.getInt("burn")));burnTotal=Math.max(burn,Math.min(1000000,tag.getInt("burn_total")));output=Math.max(50,Math.min(200,tag.getInt("output")));fuel.deserializeNBT(lookup,tag.getCompound("fuel"));}
 }

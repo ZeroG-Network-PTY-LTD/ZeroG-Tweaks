@@ -1,0 +1,37 @@
+{
+  "type": "zerog_tweaks:alloying",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:tectium_ingot"
+      },
+      "count": 3,
+      "consumed": true
+    },
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:tremor_dust"
+      },
+      "count": 2,
+      "consumed": true
+    },
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:cyrrium_casing"
+      },
+      "count": 1,
+      "consumed": true
+    }
+  ],
+  "outputs": [
+    {
+      "stack": {
+        "id": "zerog_tweaks:tectium_casing",
+        "count": 2
+      },
+      "chance": 1
+    }
+  ],
+  "energy": 8000,
+  "time": 200
+}

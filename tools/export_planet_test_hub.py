@@ -23,6 +23,7 @@ def main():
     assert str(d['WorldGenSettings']['dimensions']['minecraft:overworld']['generator']['settings']['biome'])=='zerog_tweaks:planet_test_hub'
     result={'source':str(source),'destination':str(target),'seed':0,'gates':68,
             'exported':False,'existing_saves_changed':False,
+            'player_travel_tested':report.get('player_travel_tested',False),
             'demonstration_colonies':report.get('demonstration_colonies',True),
             'nearby_inspection_villages':report.get('nearby_inspection_villages',False),
             'inspection_village_count':sum(len(p.get('inspection_village_positions',[])) for p in report['planets']),

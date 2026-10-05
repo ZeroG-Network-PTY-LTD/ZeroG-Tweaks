@@ -1,0 +1,44 @@
+{
+  "type": "zerog_tweaks:alloying",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:tectium_ingot"
+      },
+      "count": 4,
+      "consumed": true
+    },
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:scorch_scale"
+      },
+      "count": 2,
+      "consumed": true
+    },
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:glassy_obsidian"
+      },
+      "count": 1,
+      "consumed": true
+    }
+  ],
+  "outputs": [
+    {
+      "stack": {
+        "id": "zerog_tweaks:heatproof_plating",
+        "count": 1
+      },
+      "chance": 1
+    }
+  ],
+  "energy": 40000,
+  "time": 400,
+  "catalyst": {
+    "ingredient": {
+      "item": "zerog_tweaks:stardust"
+    },
+    "count": 1,
+    "consumed": false
+  }
+}

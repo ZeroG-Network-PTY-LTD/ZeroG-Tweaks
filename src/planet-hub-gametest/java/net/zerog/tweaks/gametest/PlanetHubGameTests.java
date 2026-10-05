@@ -33,7 +33,11 @@ public final class PlanetHubGameTests {
                 report.addProperty("seed",server.overworld().getSeed());
                 report.addProperty("gate_count",ledger.gates.size());
                 var planets=new com.google.gson.JsonArray();report.add("planets",planets);
-                var player=helper.makeMockServerPlayerInLevel();
+                // No login event: Productive Bees correctly rejects unnegotiated mock-client payloads.
+                boolean travelTested=!net.neoforged.fml.ModList.get().isLoaded("productivebees");
+                var player=travelTested?helper.makeMockServerPlayerInLevel():net.neoforged.neoforge.common.util.FakePlayerFactory.get(server.overworld(),
+                    new com.mojang.authlib.GameProfile(java.util.UUID.fromString("21bfe2bd-506b-4a88-823e-38d873e786a1"),"ZeroGHubAudit"));
+                report.addProperty("player_travel_tested",travelTested);
                 var terrainFingerprints=new java.util.HashSet<String>();
                 boolean cleanShowcase=Boolean.getBoolean("zerog.cleanShowcase");
                 report.addProperty("demonstration_colonies",!cleanShowcase);
@@ -50,12 +54,15 @@ public final class PlanetHubGameTests {
                         var arrival=ledger.gates.values().stream().filter(g->g.dimension.equals(id)).findFirst().orElseThrow();
                         PlanetGate.loadLandingChunks(world,arrival.centre);
                         helper.assertTrue(PlanetGate.missing(world,arrival.centre)==null,"Broken return gate "+id+": "+PlanetGate.missing(world,arrival.centre));
+                        // FakePlayer deliberately cannot change dimensions; never count it as a travel test.
+                        if(travelTested){
                         player.teleportTo(server.overworld(),home.getX()+.5,home.getY()+1,home.getZ()-3,0,0);
                         click(player,PlanetGate.controller(home));
                         helper.assertTrue(player.serverLevel()==world,"Outgoing gateway failed "+id);
                         player.teleportTo(world,arrival.centre.getX()+.5,arrival.centre.getY()+1,arrival.centre.getZ()-3,0,0);
                         click(player,PlanetGate.controller(arrival.centre));
                         helper.assertTrue(player.serverLevel()==server.overworld(),"Return gateway failed "+id);
+                        }
                         var entry=new com.google.gson.JsonObject();entry.addProperty("dimension",id);
                         var sites=ledger.inspectionVillages.get(id);
                         helper.assertTrue(sites!=null && sites.size()>=1 && sites.size()<=2,"Expected 1–2 safe nearby villages "+id);
@@ -190,7 +197,7 @@ public final class PlanetHubGameTests {
                         java.nio.file.Files.writeString(server.getWorldPath(net.minecraft.world.level.storage.LevelResource.ROOT).resolve("zerog-hub-report.json"),
                                 new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(report));
                     } catch(java.io.IOException ex) {throw new IllegalStateException("Cannot save hub evidence",ex);}
-                } finally {server.getPlayerList().remove(player);}
+                } finally {if(travelTested)server.getPlayerList().remove(player);else player.discard();}
                 } catch(RuntimeException ex){failure.set(ex);}
             // Do not stop the test server in the same tick as cross-dimension
             // portal tickets and neighbouring generation tasks were created.

@@ -44,32 +44,31 @@ public final class HubExhibitGameTests {
         for(var layout:MultiblockGuides.layouts()) {
             String tier=layout.id().equals("cosmic_alveary")?"tier5":layout.id().substring(0,5);
             var base=HubExhibits.designOrigin(index++);
-            for(var cell:layout.cells()) {
-                var id=BuiltInRegistries.BLOCK.getKey(level.getBlockState(base.offset(cell.x(),cell.y(),cell.z())).getBlock());
-                helper.assertTrue(id.equals(ResourceLocation.fromNamespaceAndPath("aeroapiary",tier+"_"+cell.part())),"Wrong authored block "+layout.id()+" "+cell);
-            }
-            helper.assertTrue(level.getBlockEntity(base.offset(2,0,layout.maxZ()+3)) instanceof SignBlockEntity,"Missing apiary sign");
+            var formed=net.zerog.tweaks.genetics.AlvearyFormation.locate(level,base.offset(2,1,4),Integer.parseInt(tier.substring(4)));
+            helper.assertTrue(formed.formed(),"Rejected ZeroG service ports in hub "+layout.id()+": "+formed.error());
+            for(int x=0;x<5;x++)helper.assertTrue(BuiltInRegistries.BLOCK.getKey(level.getBlockState(base.offset(x,0,4)).getBlock()).getNamespace().equals("zerog_tweaks"),"Missing ZeroG service module");
+            helper.assertTrue(level.getBlockEntity(base.offset(2,0,8)) instanceof SignBlockEntity,"Missing apiary sign");
         }
         index=0;
         for(String tier:HubExhibits.VALIDATED_TIERS) {
             try {
                 var base=HubExhibits.formedOrigin(index++);
-                var validator=Class.forName("com.zerog.aeroapiary.AlvearyStructureValidator");
-                var result=validator.getMethod("validateAt",LevelReader.class,BlockPos.class,String.class).invoke(null,level,base.offset(4,0,4),tier);
+                var validator=net.zerog.tweaks.genetics.AlvearyFormation.class;
+                var result=validator.getMethod("locate",net.minecraft.server.level.ServerLevel.class,BlockPos.class,int.class).invoke(null,level,base.offset(2,1,4),Integer.parseInt(tier.substring(4)));
                 helper.assertTrue((boolean)result.getClass().getMethod("formed").invoke(result),"Bee add-on rejected "+tier+": "+result);
                 // Accepted alternate service positions, without relaxing roof or air requirements.
-                var energy=base;var alternative=base.offset(4,0,0);
+                var energy=base.offset(2,0,4);var alternative=base.offset(0,0,4);
                 var energyState=level.getBlockState(energy);var casingState=level.getBlockState(alternative);
                 level.setBlock(energy,casingState,3);level.setBlock(alternative,energyState,3);
-                var frame=base.offset(2,1,4);var alternateFrame=base.offset(0,1,2);
+                var frame=base.offset(2,1,4);var alternateFrame=base.offset(0,1,4);
                 var frameState=level.getBlockState(frame);var westState=level.getBlockState(alternateFrame);
                 level.setBlock(frame,westState,3);level.setBlock(alternateFrame,frameState,3);
-                var alternateResult=validator.getMethod("validateAt",LevelReader.class,BlockPos.class,String.class).invoke(null,level,base.offset(4,0,4),tier);
+                var alternateResult=validator.getMethod("locate",net.minecraft.server.level.ServerLevel.class,BlockPos.class,int.class).invoke(null,level,alternateFrame,Integer.parseInt(tier.substring(4)));
                 helper.assertTrue((boolean)alternateResult.getClass().getMethod("formed").invoke(alternateResult),"Alternate ports/frame positions rejected "+tier);
                 level.setBlock(energy,energyState,3);level.setBlock(alternative,casingState,3);
                 level.setBlock(frame,frameState,3);level.setBlock(alternateFrame,westState,3);
                 var roof=base.offset(0,4,0);var roofState=level.getBlockState(roof);level.setBlock(roof,casingState,3);
-                var invalid=validator.getMethod("validateAt",LevelReader.class,BlockPos.class,String.class).invoke(null,level,base.offset(4,0,4),tier);
+                var invalid=validator.getMethod("locate",net.minecraft.server.level.ServerLevel.class,BlockPos.class,int.class).invoke(null,level,base.offset(2,1,4),Integer.parseInt(tier.substring(4)));
                 helper.assertTrue(!(boolean)invalid.getClass().getMethod("formed").invoke(invalid),"Wrong roof accepted "+tier);
                 level.setBlock(roof,roofState,3);
             } catch(ReflectiveOperationException failure) {throw new IllegalStateException(failure);}

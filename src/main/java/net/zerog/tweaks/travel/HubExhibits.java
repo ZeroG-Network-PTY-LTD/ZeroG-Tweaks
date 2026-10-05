@@ -39,14 +39,14 @@ public final class HubExhibits {
         var ledger=GateLedger.get(level.getServer());if(ledger.exhibitsBuilt)return "Hub exhibits already built; player edits preserved.";
         // Resolve all optional blocks/templates before any placement. Never substitute air.
         try {
-            for(var layout:MultiblockGuides.layouts())for(var cell:layout.cells())part(prefix(layout.id())+"_"+cell.part());
+            for(var layout:MultiblockGuides.layouts())for(String name:List.of("casing","roof","controller"))part(prefix(layout.id())+"_"+name);
             part("geno_station");part("genetic_splicer");
-            for(var tier:VALIDATED_TIERS)for(String name:List.of("casing","roof","controller","energy_port","frame_housing"))part(tier+"_"+name);
+            for(var tier:VALIDATED_TIERS)for(String name:List.of("casing","roof","controller"))part(tier+"_"+name);
             for(String room:ROOMS)if(level.getStructureManager().get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","concord_vault/rooms/"+room)).isEmpty())
                 return "Missing room template: "+room;
         } catch(IllegalStateException absent) {return absent.getMessage()+"; gallery not placed.";}
         // These previously unused northern plots must be empty above native ground.
-        for(var pos:BlockPos.betweenClosed(new BlockPos(-2,63,-170),new BlockPos(136,77,-15))) {
+        for(var pos:BlockPos.betweenClosed(new BlockPos(-2,63,-245),new BlockPos(136,77,-15))) {
             var state=level.getBlockState(pos);
             if(pos.getY()==63) {
                 if(!state.isAir() && !state.is(Blocks.STONE) && !state.is(BlockInit.LANDING_PLATFORM.get()))
@@ -54,16 +54,16 @@ public final class HubExhibits {
             } else if(!state.isAir())return "Gallery plot occupied at "+pos.toShortString()+"; nothing overwritten.";
         }
         // Raised pads and 360-degree aisles; gates at Z>=17 are outside this district.
-        for(int z=-170;z<=-15;z++)for(int x=-1;x<=1;x++)floor(level,new BlockPos(x,63,z));
+        for(int z=-245;z<=-15;z++)for(int x=-1;x<=1;x++)floor(level,new BlockPos(x,63,z));
         for(int x=0;x<=62;x++)for(int z=-18;z<=-16;z++)floor(level,new BlockPos(x,63,z));
-        sign(level,new BlockPos(62,64,-17),"NORTH: EXHIBITS","8 authored designs","4 formed references","10 Vault rooms");
+        sign(level,new BlockPos(62,64,-17),"NORTH: EXHIBITS","12 working shells","Machine test stations","10 Vault rooms");
         int index=0;
         for(var layout:MultiblockGuides.layouts()) {
             var base=designOrigin(index++);pad(level,base,24,20);
-            for(var cell:layout.cells())level.setBlock(base.offset(cell.x(),cell.y(),cell.z()),part(prefix(layout.id())+"_"+cell.part()),3);
+            buildServiceShell(level,base,prefix(layout.id()));
             String name=layout.id().equals("cosmic_alveary")?"Cosmic Alveary":prefix(layout.id())+" "+layout.id().split("_")[1];
-            sign(level,base.offset(2,0,layout.maxZ()+3),name,"AUTHORED DESIGN",layout.cells().size()+" block cells","G: layer/360 guide");
-            sign(level,base.offset(7,0,layout.maxZ()+3),"Not a 5x5 validator","Front: controller","Frame housing slots","Ports: follow guide");
+            sign(level,base.offset(2,0,8),name,"WORKING 5x5 SHELL","Controller: row 2","Right-click terminal");
+            sign(level,base.offset(7,0,8),"ZEROG SERVICE BASE","2 item / 2 fluid","1 energy; outward","No terminal cables");
             // The earlier approved external-module rule: no invented service sockets.
             level.setBlock(base.offset(15,0,2),part("geno_station"),3);
             level.setBlock(base.offset(17,0,2),part("genetic_splicer"),3);
@@ -74,16 +74,9 @@ public final class HubExhibits {
         index=0;
         for(String tier:VALIDATED_TIERS) {
             var base=formedOrigin(index++);pad(level,base,24,20);
-            for(int y=0;y<5;y++)for(int x=0;x<5;x++)for(int z=0;z<5;z++) {
-                if((y==1||y==2)&&x>0&&x<4&&z>0&&z<4)continue;
-                String name=y==4?"roof":"casing";
-                if(y==0&&x==4&&z==4)name="controller";
-                else if(y==0&&x==0&&z==0)name="energy_port";
-                else if(y==1&&x==2&&z==4)name="frame_housing";
-                level.setBlock(base.offset(x,y,z),part(tier+"_"+name),3);
-            }
-            sign(level,base.offset(2,0,7),tier+" 5x5x5", "FORMATION REFERENCE","Controller: SE base","Not auto-powered");
-            sign(level,base.offset(8,0,7),"107 shell blocks","18 interior air","Energy: NW base","Frames: south wall");
+            buildServiceShell(level,base,tier);
+            sign(level,base.offset(2,0,8),tier+" 5x5x5", "FORMATION REFERENCE","Controller: row 2","Charged cell behind");
+            sign(level,base.offset(8,0,7),"Base: 2 item ports","2 fluid / 1 energy","18 interior air","Terminal: no cable");
         }
         index=0;
         for(String name:ROOMS) {
@@ -101,7 +94,71 @@ public final class HubExhibits {
             sign(level,base.offset(8,0,19),name.replace('_',' '),"CONCORD VAULT ROOM","17 x 9 x 17", "Inspection, not boss");
             sign(level,base.offset(14,0,19),"Original room design","Spawner disabled","Trap launchers empty","No entities placed");
         }
-        ledger.exhibitsBuilt=true;ledger.setDirty();return "Built 8 authored apiaries, 4 formation examples and 10 Vault rooms north of the hub.";
+        buildMachineStations(level);
+        ledger.exhibitsBuilt=true;ledger.setDirty();return "Built 12 service-port apiaries, 10 Vault rooms and machine/transport inspection stations north of the hub.";
+    }
+    public static void buildServiceShell(ServerLevel level,BlockPos base,String tier) {
+        keepLoaded(level,base,base.offset(4,0,6));
+        for(int y=0;y<5;y++)for(int x=0;x<5;x++)for(int z=0;z<5;z++) {
+            var pos=base.offset(x,y,z);
+            if((y==1||y==2)&&x>0&&x<4&&z>0&&z<4){level.setBlock(pos,Blocks.AIR.defaultBlockState(),3);continue;}
+            var state=part(tier+"_"+(y==4?"roof":y==1&&x==2&&z==4?"controller":"casing"));
+            if(y==0&&z==4) {
+                String id=x<2?"item_port":x==2?"energy_port":"fluid_port";
+                var key=ResourceLocation.fromNamespaceAndPath("zerog_tweaks",id);
+                if(!BuiltInRegistries.BLOCK.containsKey(key))throw new IllegalStateException("Missing service port "+key);
+                state=BuiltInRegistries.BLOCK.get(key).defaultBlockState()
+                    .setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH);
+                if(x==1||x==4)state=state.setValue(net.zerog.tweaks.transport.TransportBlock.MODE,
+                    net.zerog.tweaks.transport.TransportBlock.PortMode.OUTPUT);
+            }
+            level.setBlock(pos,state,3);
+        }
+        var controller=base.offset(2,1,4);
+        var result=net.zerog.tweaks.genetics.AlvearyFormation.locate(level,controller,Integer.parseInt(tier.substring(4)));
+        if(!result.formed())throw new IllegalStateException("Hub service shell rejected: "+tier+": "+result.error());
+        var cellPos=base.offset(2,0,6);
+        var cell=BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","astrium_energy_cell"));
+        level.setBlock(cellPos,cell.defaultBlockState(),3);
+        if(level.getBlockEntity(cellPos) instanceof net.zerog.tweaks.transport.TransportBlockEntity be){be.stored=be.capacity();java.util.Arrays.fill(be.modes,1);be.setChanged();}
+        var cable=BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","astrium_energy_conduit"));
+        level.setBlock(base.offset(2,0,5),cable.defaultBlockState(),3);
+    }
+    private static void buildMachineStations(ServerLevel level) {
+        String[] ids={"alloy_forge","crystal_growth_chamber","salvage_station","combustion_generator","solar_array","fusion_reactor"};
+        for(int i=0;i<ids.length;i++) {
+            var base=new BlockPos(8+(i%5)*26,64,-200-(i/5)*26);pad(level,base,23,23);
+            keepLoaded(level,base.offset(0,0,-2),base.offset(4,0,0));
+            var key=ResourceLocation.fromNamespaceAndPath("zerog_tweaks",ids[i]);
+            if(!BuiltInRegistries.BLOCK.containsKey(key))throw new IllegalStateException("Missing inspection machine "+key);
+            var state=BuiltInRegistries.BLOCK.get(key).defaultBlockState();
+            if(state.hasProperty(BlockStateProperties.HORIZONTAL_FACING))state=state.setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH);
+            level.setBlock(base,state,3);
+            for(int z=1;z<=2;z++)level.setBlock(base.offset(0,0,-z),BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks",z==1?"astrium_energy_conduit":"astrium_energy_cell")).defaultBlockState(),3);
+            if(level.getBlockEntity(base.offset(0,0,-2)) instanceof net.zerog.tweaks.transport.TransportBlockEntity be){be.stored=be.capacity();java.util.Arrays.fill(be.modes,0);be.setChanged();}
+            level.setBlock(base.offset(2,0,0),Blocks.CHEST.defaultBlockState(),3);
+            if(level.getBlockEntity(base.offset(2,0,0)) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity chest){
+                chest.setItem(0,new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.COAL,64));
+                chest.setItem(1,new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.OAK_LOG,64));
+                var fuel=ResourceLocation.fromNamespaceAndPath("zerog_tweaks","fusion_dust");
+                if(BuiltInRegistries.ITEM.containsKey(fuel))chest.setItem(2,new net.minecraft.world.item.ItemStack(BuiltInRegistries.ITEM.get(fuel),64));
+            }
+            sign(level,base.offset(1,0,4),ids[i].replace('_',' '),"GUI / SIDE INSPECTION","Charged cell behind","Supply recipe inputs");
+        }
+        for(int i=0;i<6;i++) {
+            var base=new BlockPos(60+i*10,64,-230);
+            keepLoaded(level,base,base.offset(4,0,0));
+            String tier=net.zerog.tweaks.storage.StorageTankRegistry.TIERS[i];
+            for(int x=0;x<8;x++)floor(level,base.offset(x,-1,0));
+            String[] family={"energy_cell","energy_conduit","item_tube","fluid_pipe","fluid_tank"};
+            for(int x=0;x<family.length;x++)level.setBlock(base.offset(x,0,0),BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks",tier+"_"+family[x])).defaultBlockState(),3);
+            floor(level,base.offset(0,-1,3));
+            sign(level,base.offset(0,0,3),tier+" transport","CELL / CABLE / TUBE","PIPE / TANK","Configure real faces");
+        }
+    }
+    private static void keepLoaded(ServerLevel level,BlockPos min,BlockPos max) {
+        if(!PlanetTestHub.isHub(level.getServer()))throw new IllegalStateException("Inspection tickets are test-hub only");
+        for(int x=min.getX()>>4;x<=max.getX()>>4;x++)for(int z=min.getZ()>>4;z<=max.getZ()>>4;z++)level.setChunkForced(x,z,true);
     }
     private static void floor(ServerLevel level,BlockPos pos) {level.setBlock(pos,BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);}
     private static void pad(ServerLevel level,BlockPos origin,int width,int depth) {

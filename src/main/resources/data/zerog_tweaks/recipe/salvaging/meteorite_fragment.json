@@ -1,0 +1,30 @@
+{
+  "type": "zerog_tweaks:salvaging",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:meteorite_fragment"
+      },
+      "count": 1,
+      "consumed": true
+    }
+  ],
+  "outputs": [
+    {
+      "stack": {
+        "id": "zerog_tweaks:stardust",
+        "count": 1
+      },
+      "chance": 1
+    },
+    {
+      "stack": {
+        "id": "minecraft:iron_nugget",
+        "count": 4
+      },
+      "chance": 1
+    }
+  ],
+  "energy": 2000,
+  "time": 100
+}

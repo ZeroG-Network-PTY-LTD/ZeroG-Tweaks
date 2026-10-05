@@ -13,6 +13,7 @@ public final class StorageClientRenderers {
     @SubscribeEvent public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(StorageTankRegistry.TYPE.get(),StorageTankRenderer::new);
         event.registerBlockEntityRenderer(WoodStorageRegistry.TYPE.get(),WoodStorageRenderer::new);
+        event.registerBlockEntityRenderer(net.zerog.tweaks.transport.TransportRegistry.TYPE.get(),TransportMotionRenderer::new);
     }
     private StorageClientRenderers(){}
 }

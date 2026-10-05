@@ -21,6 +21,22 @@ import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 /** Per-node persisted buffers; simulation precedes extraction. Never loads another chunk. */
 public final class TransportBlockEntity extends BlockEntity {
+    public ItemStack motionItem=ItemStack.EMPTY;
+    public FluidStack motionFluid=FluidStack.EMPTY;
+    public long motionTick=-1000;
+    public int motionFrom,motionTo;
+    @Override public CompoundTag getUpdateTag(HolderLookup.Provider lookup){
+        var tag=new CompoundTag();tag.putLong("motion_tick",motionTick);tag.putInt("from",motionFrom);tag.putInt("to",motionTo);
+        if(!motionItem.isEmpty())tag.put("motion_item",motionItem.save(lookup));
+        if(!motionFluid.isEmpty())tag.put("motion_fluid",motionFluid.save(lookup));return tag;
+    }
+    @Override public net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket getUpdatePacket(){return net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket.create(this);}
+    @Override public void handleUpdateTag(CompoundTag tag,HolderLookup.Provider lookup){
+        motionTick=tag.getLong("motion_tick");motionFrom=Math.floorMod(tag.getInt("from"),6);motionTo=Math.floorMod(tag.getInt("to"),6);
+        motionItem=tag.contains("motion_item")?ItemStack.parseOptional(lookup,tag.getCompound("motion_item")):ItemStack.EMPTY;
+        motionFluid=tag.contains("motion_fluid")?FluidStack.parseOptional(lookup,tag.getCompound("motion_fluid")):FluidStack.EMPTY;
+    }
+    @Override public void onDataPacket(net.minecraft.network.Connection connection,net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket packet,HolderLookup.Provider lookup){if(packet.getTag()!=null)handleUpdateTag(packet.getTag(),lookup);}
     public int stored;public int colour=-1;public int redstone;public int routing;public int cursor;
     // 0 normal, 1 push, 2 pull, 3 disabled. Input/output is always relative to the network.
     public final int[] modes=new int[6];public final int[] priorities=new int[6];
@@ -36,6 +52,13 @@ public final class TransportBlockEntity extends BlockEntity {
     public TransportBlockEntity(BlockPos pos,BlockState state){super(TransportRegistry.TYPE.get(),pos,state);if(block().family.equals("energy_cell")){Arrays.fill(modes,2);modes[state.hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.FACING)?state.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.FACING).ordinal():Direction.NORTH.ordinal()]=1;}}
     public TransportBlock block(){return (TransportBlock)getBlockState().getBlock();}
     public TransportTier tier(){return TransportTier.ALL[block().tier];}
+    public int synchronizedLimit(){
+        int minimum=block().tier;
+        if(level instanceof ServerLevel server&&!supports("item")&&(block().family.endsWith("pipe")||block().family.endsWith("conduit"))){
+            var nodes=network(server);if(nodes.isEmpty())return 0;minimum=nodes.stream().mapToInt(n->n.block().tier).min().orElse(minimum);
+        }
+        var common=TransportTier.ALL[minimum];return supports("fluid")?common.fluid():supports("energy")?common.energy():common.items();
+    }
     public boolean supports(String family){return block().family.startsWith(family)||block().family.equals("null_link");}
     public int capacity(){return block().family.equals("energy_cell")?tier().capacity():block().family.equals("null_link")?4000000:block().family.equals("energy_port")?1000000:tier().energy();}
     public boolean input(Direction side){return net.zerog.tweaks.genetics.AlvearyServiceModules.sideAllowed(this,side)&&( !getBlockState().hasProperty(TransportBlock.MODE)||getBlockState().getValue(TransportBlock.MODE)!=TransportBlock.PortMode.OUTPUT)&&(side==null||modes[side.ordinal()]==0||modes[side.ordinal()]==2);}
@@ -122,8 +145,8 @@ public final class TransportBlockEntity extends BlockEntity {
     }
     public int push(ServerLevel level,BlockPos pos,Direction side,String family,int limit){
         if(family.equals("energy")){var to=level.getCapability(Capabilities.EnergyStorage.BLOCK,pos,side.getOpposite());if(to==null)return 0;int n=to.receiveEnergy(Math.min(stored,limit),true);n=to.receiveEnergy(n,false);stored-=n;if(n>0)setChanged();return n;}
-        if(family.equals("fluid")){var to=level.getCapability(Capabilities.FluidHandler.BLOCK,pos,side.getOpposite());if(to==null)return 0;var sample=tank.drain(limit,IFluidHandler.FluidAction.SIMULATE);int n=to.fill(sample,IFluidHandler.FluidAction.SIMULATE);if(n<=0)return 0;n=to.fill(sample.copyWithAmount(n),IFluidHandler.FluidAction.EXECUTE);tank.drain(n,IFluidHandler.FluidAction.EXECUTE);return n;}
-        var to=level.getCapability(Capabilities.ItemHandler.BLOCK,pos,side.getOpposite());if(to==null)return 0;for(int i=0;i<items.getSlots();i++){var sample=items.extractItem(i,limit,true);int n=sample.getCount()-insert(to,sample,true).getCount();if(n<=0)continue;var rest=insert(to,sample.copyWithCount(n),false);n-=rest.getCount();items.extractItem(i,n,false);return n;}return 0;
+        if(family.equals("fluid")){var to=level.getCapability(Capabilities.FluidHandler.BLOCK,pos,side.getOpposite());if(to==null)return 0;var sample=tank.drain(limit,IFluidHandler.FluidAction.SIMULATE);int n=to.fill(sample,IFluidHandler.FluidAction.SIMULATE);if(n<=0)return 0;n=to.fill(sample.copyWithAmount(n),IFluidHandler.FluidAction.EXECUTE);tank.drain(n,IFluidHandler.FluidAction.EXECUTE);if(n>0)TransportMotion.committed(this,level,pos,side,ItemStack.EMPTY,sample);return n;}
+        var to=level.getCapability(Capabilities.ItemHandler.BLOCK,pos,side.getOpposite());if(to==null)return 0;for(int i=0;i<items.getSlots();i++){var sample=items.extractItem(i,limit,true);int n=sample.getCount()-insert(to,sample,true).getCount();if(n<=0)continue;var rest=insert(to,sample.copyWithCount(n),false);n-=rest.getCount();items.extractItem(i,n,false);if(n>0)TransportMotion.committed(this,level,pos,side,sample,FluidStack.EMPTY);return n;}return 0;
     }
     public static ItemStack insert(IItemHandler handler,ItemStack stack,boolean simulate){var remaining=stack.copy();for(int i=0;i<handler.getSlots()&&!remaining.isEmpty();i++)remaining=handler.insertItem(i,remaining,simulate);return remaining;}
     @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.saveAdditional(tag,lookup);tag.putInt("energy",stored);tag.putIntArray("modes",modes);tag.putIntArray("priority",priorities);tag.putInt("colour",colour);tag.putInt("redstone",redstone);tag.putInt("routing",routing);tag.putString("item_filter",itemFilter);tag.putString("fluid_filter",fluidFilter);tag.putBoolean("blacklist",blacklist);tag.putBoolean("match_tags",matchTags);tag.putBoolean("match_components",matchComponents);tag.put("ghost_items",ghostItems.serializeNBT(lookup));tag.put("ghost_fluids",ghostFluids.serializeNBT(lookup));tag.put("items",items.serializeNBT(lookup));tank.writeToNBT(lookup,tag);tag.putString("partner_dimension",partnerDimension);if(partner!=null)tag.putLong("partner",partner.asLong());}

@@ -1,0 +1,30 @@
+{
+  "type": "zerog_tweaks:crystal_growth",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:prism_cluster"
+      },
+      "count": 1,
+      "consumed": false
+    },
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:stardust"
+      },
+      "count": 1,
+      "consumed": true
+    }
+  ],
+  "outputs": [
+    {
+      "stack": {
+        "id": "zerog_tweaks:starlite",
+        "count": 2
+      },
+      "chance": 1
+    }
+  ],
+  "energy": 6000,
+  "time": 1200
+}

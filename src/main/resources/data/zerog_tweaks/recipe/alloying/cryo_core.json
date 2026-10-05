@@ -1,0 +1,44 @@
+{
+  "type": "zerog_tweaks:alloying",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:cryocite"
+      },
+      "count": 4,
+      "consumed": true
+    },
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:frost_crystal"
+      },
+      "count": 2,
+      "consumed": true
+    },
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:wraithsteel_ingot"
+      },
+      "count": 1,
+      "consumed": true
+    }
+  ],
+  "outputs": [
+    {
+      "stack": {
+        "id": "zerog_tweaks:cryo_core",
+        "count": 1
+      },
+      "chance": 1
+    }
+  ],
+  "energy": 40000,
+  "time": 400,
+  "catalyst": {
+    "ingredient": {
+      "item": "zerog_tweaks:stardust"
+    },
+    "count": 1,
+    "consumed": false
+  }
+}

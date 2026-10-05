@@ -1,0 +1,30 @@
+{
+  "type": "zerog_tweaks:crystal_growth",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:brine_crystal"
+      },
+      "count": 1,
+      "consumed": false
+    },
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:pulsar_dust"
+      },
+      "count": 1,
+      "consumed": true
+    }
+  ],
+  "outputs": [
+    {
+      "stack": {
+        "id": "zerog_tweaks:lumenite",
+        "count": 1
+      },
+      "chance": 1
+    }
+  ],
+  "energy": 6000,
+  "time": 1200
+}

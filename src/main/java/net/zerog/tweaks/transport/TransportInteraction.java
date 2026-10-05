@@ -8,13 +8,13 @@ import net.minecraft.network.chat.Component;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
-import net.zerog.tweaks.machine.CombustionBlockEntity;
 
 @EventBusSubscriber(modid="zerog_tweaks")
 public final class TransportInteraction {
     @SubscribeEvent public static void open(PlayerInteractEvent.RightClickBlock event){
         if(event.getHand()!=InteractionHand.MAIN_HAND)return;
-        var be=event.getLevel().getBlockEntity(event.getPos());if(!(be instanceof TransportBlockEntity)&&!(be instanceof CombustionBlockEntity))return;
+        // Generator blocks own their dedicated fuel/power menu; never intercept them as transport.
+        var be=event.getLevel().getBlockEntity(event.getPos());if(!(be instanceof TransportBlockEntity))return;
         if(be instanceof TransportBlockEntity t&&!event.getItemStack().isEmpty()){
             var stack=event.getItemStack();boolean handled=false;
             if(stack.getItem() instanceof net.minecraft.world.item.DyeItem dye){handled=true;if(event.getLevel() instanceof net.minecraft.server.level.ServerLevel level){t.colour=dye.getDyeColor().getId();t.setChanged();level.invalidateCapabilities(event.getPos());if(!event.getEntity().getAbilities().instabuild)stack.shrink(1);}}
@@ -22,8 +22,8 @@ public final class TransportInteraction {
             else if(stack.getItem() instanceof net.minecraft.world.item.BlockItem item&&item.getBlock() instanceof TransportBlock replacement&&replacement.family.equals(t.block().family)&&replacement.tier>t.block().tier){handled=true;if(event.getLevel() instanceof net.minecraft.server.level.ServerLevel level){var old=upgrade(level,event.getPos(),replacement);if(!old.isEmpty()&&!event.getEntity().getAbilities().instabuild){stack.shrink(1);if(!event.getEntity().addItem(old))event.getEntity().drop(old,false);}}}
             if(handled){event.setCanceled(true);event.setCancellationResult(InteractionResult.sidedSuccess(event.getLevel().isClientSide));}return;
         }
-        if(!event.getItemStack().isEmpty()||event.getEntity().isShiftKeyDown())return;
-        if(event.getEntity() instanceof ServerPlayer player)player.openMenu(new SimpleMenuProvider((id,inv,p)->new TransportMenu(id,inv,be),Component.literal(be instanceof CombustionBlockEntity?"Combustion Generator":"Transport Controls")),buf->buf.writeBlockPos(event.getPos()));
+        if(!event.getItemStack().isEmpty())return;
+        if(event.getEntity() instanceof ServerPlayer player)player.openMenu(new SimpleMenuProvider((id,inv,p)->new TransportMenu(id,inv,be),Component.literal("Transport Controls")),buf->buf.writeBlockPos(event.getPos()));
         event.setCanceled(true);event.setCancellationResult(InteractionResult.sidedSuccess(event.getLevel().isClientSide));
     }
     /** Upgrade transaction: new node owns the old saved state, never duplicate loose contents. */

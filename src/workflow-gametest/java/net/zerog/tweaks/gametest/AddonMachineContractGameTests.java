@@ -14,6 +14,24 @@ import net.zerog.tweaks.genetics.GeneticsRuntime;
 @GameTestHolder("zerog_workflow") @PrefixGameTestTemplate(false)
 public final class AddonMachineContractGameTests {
     @GameTest(templateNamespace="zerog_tweaks", template="equipment_empty", timeoutTicks=100)
+    public static void silk_weaver_does_not_consume_ignored_pattern(GameTestHelper h) {
+        try {
+            var pos=new BlockPos(1,1,1);
+            h.setBlock(pos,BuiltInRegistries.BLOCK.get(ResourceLocation.parse("aeroapiary:silk_weaver")));
+            var be=h.getBlockEntity(pos);var inv=GeneticsRuntime.inventory(be);
+            inv.setStackInSlot(0,GeneticsRuntime.product("silk_thread"));
+            inv.setStackInSlot(2,GeneticsRuntime.product("woven_silk").copyWithCount(3));
+            var tick=Class.forName("com.zerog.aeroapiary.ZeroGMachines").getMethod("tick",be.getClass(),net.minecraft.world.level.Level.class);
+            for(int i=0;i<201;i++)tick.invoke(null,be,h.getLevel());
+            h.assertTrue(inv.getStackInSlot(0).isEmpty(),"Weaver failed to process thread");
+            h.assertTrue(inv.getStackInSlot(3).getCount()==1&&GeneticsRuntime.item(inv.getStackInSlot(3),"woven_silk"),"Wrong woven output");
+            h.assertTrue(inv.getStackInSlot(2).getCount()==3,"Ignored pattern was consumed by generic processing");
+            var filter=Class.forName("com.zerog.aeroapiary.ZeroGMachines").getMethod("mayPlaceIn",String.class,int.class,ItemStack.class);
+            h.assertTrue(!(Boolean)filter.invoke(null,"silk_weaver",2,GeneticsRuntime.product("woven_silk")),"Ignored pattern advertised as operating input");
+            h.succeed();
+        } catch(ReflectiveOperationException ex){throw new RuntimeException(ex);}
+    }
+    @GameTest(templateNamespace="zerog_tweaks", template="equipment_empty", timeoutTicks=100)
     public static void unused_machine_input_slots_are_not_misleading_inputs(GameTestHelper h) {
         try {
             var filter=Class.forName("com.zerog.aeroapiary.ZeroGMachines").getMethod("mayPlaceIn",String.class,int.class,ItemStack.class);

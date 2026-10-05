@@ -19,6 +19,7 @@ public abstract class OptionalGeneticsMixin {
     @Inject(method="tick",at=@At("HEAD"),cancellable=true,require=1)
     private static void zeroGGeneticsTick(@Coerce Object machine,Level level,CallbackInfo ci) {
         if(GeneticsRuntime.handles(GeneticsRuntime.id(machine))){GeneticsRuntime.tick(machine);ci.cancel();}
+        else if(GeneticsRuntime.id(machine).equals("silk_weaver")){net.zerog.tweaks.genetics.SilkWeaverRuntime.tick(machine);ci.cancel();}
         else if(machine instanceof net.minecraft.world.level.block.entity.BlockEntity be&&AlvearyRuntime.tier(be)>0){AlvearyRuntime.tick(be);ci.cancel();}
     }
     @Inject(method="mayPlaceIn",at=@At("HEAD"),cancellable=true,require=1)
@@ -26,6 +27,6 @@ public abstract class OptionalGeneticsMixin {
         if(GeneticsRuntime.handles(id))ci.setReturnValue(GeneticsRuntime.mayPlace(id,slot,stack));
         // The installed recipes never read these legacy placeholder inputs.
         // Existing stacks remain extractable; no inventory indices are removed.
-        else if(id.equals("starmetal_smelter")&&slot==1||id.equals("silk_weaver")&&slot==1||id.equals("frame_infusion_altar")&&slot==2)ci.setReturnValue(false);
+        else if(id.equals("starmetal_smelter")&&slot==1||id.equals("silk_weaver")&&(slot==1||slot==2)||id.equals("frame_infusion_altar")&&slot==2)ci.setReturnValue(false);
     }
 }

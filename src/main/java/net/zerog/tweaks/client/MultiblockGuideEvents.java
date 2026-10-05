@@ -31,6 +31,8 @@ public final class MultiblockGuideEvents {
         @SubscribeEvent public static void interact(PlayerInteractEvent.RightClickBlock event) {
             if (!event.getLevel().isClientSide || !event.getEntity().isShiftKeyDown()
                     || event.getHand() != net.minecraft.world.InteractionHand.MAIN_HAND) return;
+            // Live controllers own both click modes. The separate guide remains available on G.
+            if(event.getLevel().getBlockEntity(event.getPos())!=null)return;
             var id = BuiltInRegistries.BLOCK.getKey(event.getLevel().getBlockState(event.getPos()).getBlock());
             // Do not attach apiary plans to the unrelated Tweaks teleporter gate.
             boolean supported = id.getNamespace().equals("aeroapiary") && id.getPath().contains("controller");

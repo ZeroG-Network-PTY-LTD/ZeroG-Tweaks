@@ -21,10 +21,46 @@ import net.zerog.tweaks.storage.*;
 
 @GameTestHolder("zerog_workflow") @PrefixGameTestTemplate(false)
 public final class AlvearyServiceGameTests {
+    @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)
+    public static void controller_is_terminal_not_external_energy_or_fluid_port(GameTestHelper h){
+        var owner=shell(h,3);update(owner);
+        for(var side:Direction.values()){
+            h.assertTrue(h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,owner.getBlockPos(),side)==null,"Cable can bypass energy port by connecting to controller");
+            h.assertTrue(h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,owner.getBlockPos(),side)==null,"Pipe can bypass fluid hatch by connecting to controller");
+            h.assertTrue(h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.ItemHandler.BLOCK,owner.getBlockPos(),side)==null,"Item tube can bypass item hatch by connecting to controller");
+        }h.succeed();
+    }
     private static BlockEntity shell(GameTestHelper h,int tier){return shellAt(h,tier,new BlockPos(4,1,4));}
     private static BlockEntity shellAt(GameTestHelper h,int tier,BlockPos origin){for(int y=0;y<5;y++)for(int x=0;x<5;x++)for(int z=0;z<5;z++){boolean air=(y==1||y==2)&&x>=1&&x<=3&&z>=1&&z<=3;String role=y==4?"roof":x==0&&y==0&&z==0?"controller":x==1&&y==0&&z==0?"energy_port":"casing";if(!BuiltInRegistries.BLOCK.getKey(h.getBlockState(origin.offset(-x,y,-z)).getBlock()).getPath().equals("tier"+tier+"_controller"))h.setBlock(origin.offset(-x,y,-z),air?Blocks.AIR:BuiltInRegistries.BLOCK.get(ResourceLocation.parse("aeroapiary:tier"+tier+"_"+role)));}return h.getBlockEntity(origin);}
     private static TransportBlockEntity port(GameTestHelper h,BlockPos pos,String family,TransportBlock.PortMode mode){var state=BuiltInRegistries.BLOCK.get(ResourceLocation.parse("zerog_tweaks:"+family+"_port")).defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH).setValue(TransportBlock.MODE,mode);h.setBlock(pos,state);return(TransportBlockEntity)h.getBlockEntity(pos);}
     private static void update(BlockEntity be){try{be.getClass().getMethod("updateFormation").invoke(be);}catch(ReflectiveOperationException ex){throw new RuntimeException(ex);}}
+    @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)
+    public static void service_base_accepts_second_row_controller_on_each_wall(GameTestHelper h){
+        var base=new BlockPos(4,1,4);
+        for(int tier=1;tier<=7;tier++)for(var location:new BlockPos[]{new BlockPos(0,1,2),new BlockPos(4,1,2),new BlockPos(2,1,0),new BlockPos(2,1,4),new BlockPos(0,1,0),new BlockPos(4,1,4)}){
+            for(int y=0;y<5;y++)for(int x=0;x<5;x++)for(int z=0;z<5;z++){
+                boolean core=(y==1||y==2)&&x>=1&&x<=3&&z>=1&&z<=3;
+                String part=y==4?"roof":"casing";
+                if(x==location.getX()&&y==1&&z==location.getZ())part="controller";
+                h.setBlock(base.offset(-x,y,-z),core?Blocks.AIR:BuiltInRegistries.BLOCK.get(ResourceLocation.parse("aeroapiary:tier"+tier+"_"+part)));
+            }
+            port(h,base,"energy",TransportBlock.PortMode.INPUT);
+            port(h,base.offset(-1,0,0),"item",TransportBlock.PortMode.INPUT);
+            port(h,base.offset(-2,0,0),"item",TransportBlock.PortMode.OUTPUT);
+            port(h,base.offset(-3,0,0),"fluid",TransportBlock.PortMode.INPUT);
+            port(h,base.offset(-4,0,0),"fluid",TransportBlock.PortMode.OUTPUT);
+            var owner=h.getBlockEntity(base.offset(-location.getX(),1,-location.getZ()));update(owner);
+            h.assertTrue(AlvearyRuntime.formed(owner),"Second-row controller rejected at tier "+tier+" / "+location+": "+AlvearyFormation.locate(h.getLevel(),owner.getBlockPos(),tier).error());
+            h.assertTrue(AlvearyPorts.controller(h.getLevel(),h.absolutePos(base))==owner,"Bottom energy hatch failed to find relocated controller");
+            if(tier>=3){
+                var energy=(TransportBlockEntity)h.getBlockEntity(base);energy.stored=2000;
+                AlvearyServiceModules.tick(owner);
+                h.assertTrue(energy.stored==1000&&AlvearyRuntime.energy(owner).getEnergyStored()==1000,"Relocated controller lost buffered energy transfer");
+            }
+            h.setBlock(base.offset(-1,0,0),BuiltInRegistries.BLOCK.get(ResourceLocation.parse("aeroapiary:tier"+tier+"_casing")));update(owner);
+            h.assertTrue(!AlvearyRuntime.formed(owner),"Missing required second item port still formed");
+        }h.succeed();
+    }
     @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)
     public static void zerog_ports_form_transfer_buffers_and_expose_front_only(GameTestHelper h){var owner=shell(h,3);var energy=port(h,new BlockPos(3,1,4),"energy",TransportBlock.PortMode.INPUT);var item=port(h,new BlockPos(2,1,4),"item",TransportBlock.PortMode.INPUT);var fluid=port(h,new BlockPos(1,1,4),"fluid",TransportBlock.PortMode.OUTPUT);update(owner);h.assertTrue(AlvearyRuntime.formed(owner)&&AlvearyPorts.controller(h.getLevel(),energy.getBlockPos())==owner,"Original ZeroG ports rejected from shell");energy.stored=5000;var honey=BuiltInRegistries.FLUID.get(ResourceLocation.parse("zerog_tweaks:moon_honey"));new AlvearyFluids(owner).fill(new FluidStack(honey,750),FluidAction.EXECUTE);AlvearyServiceModules.tick(owner);h.assertTrue(energy.stored==4000&&AlvearyRuntime.energy(owner).getEnergyStored()==1000,"Buffered power transfer lost/duplicated FE");h.assertTrue(fluid.tank.getFluidAmount()==250&&new AlvearyFluids(owner).getFluidInTank(0).getAmount()==500,"Buffered honey export not conserved");h.assertTrue(energy.energy(Direction.SOUTH).canReceive()&&!energy.energy(Direction.NORTH).canReceive()&&!item.itemHandler(Direction.NORTH).isItemValid(0,new ItemStack(Items.DIAMOND)),"Formed service port exposed inward casing face");item.items.setStackInSlot(0,GeneticsRuntime.product("proven_frame").copyWithCount(3));AlvearyServiceModules.transferItems(owner,item);int frames=0;for(int i=0;i<27;i++)frames+=AlvearyRuntime.frames(owner).getStackInSlot(i).getCount();h.assertTrue(frames==3&&item.items.getStackInSlot(0).isEmpty(),"Frame input did not enter actual housing handler");h.getLevel().setBlock(item.getBlockPos(),item.getBlockState().setValue(TransportBlock.MODE,TransportBlock.PortMode.OUTPUT),3);AlvearyRuntime.state(owner).putBoolean("eject",true);GeneticsRuntime.inventory(owner).setStackInSlot(AlvearyRuntime.outputStart(owner),new ItemStack(Items.DIAMOND,5));AlvearyServiceModules.transferItems(owner,item);h.assertTrue(item.items.getStackInSlot(0).getCount()==4&&GeneticsRuntime.inventory(owner).getStackInSlot(AlvearyRuntime.outputStart(owner)).getCount()==1,"Real products not conserved through output buffer");h.assertTrue(item.itemHandler(Direction.NORTH).extractItem(0,4,false).isEmpty()&&item.itemHandler(Direction.SOUTH).extractItem(0,4,true).getCount()==4,"Output front/inside extraction reversed");h.getLevel().setBlock(energy.getBlockPos(),energy.getBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.NORTH),3);update(owner);h.assertTrue(!AlvearyRuntime.formed(owner),"Inward-facing terminal incorrectly formed");var standalone=port(h,new BlockPos(8,1,8),"energy",TransportBlock.PortMode.BOTH);h.assertTrue(standalone.energy(Direction.EAST).canReceive()&&standalone.energy(Direction.WEST).canExtract(),"Standalone port behavior changed");h.getLevel().setBlock(energy.getBlockPos(),energy.getBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH),3);var second=shellAt(h,3,new BlockPos(8,1,4));var shared=port(h,new BlockPos(4,2,4),"item",TransportBlock.PortMode.OUTPUT);update(owner);update(second);shared.items.setStackInSlot(0,new ItemStack(Items.DIAMOND,2));h.assertTrue(AlvearyRuntime.formed(owner)&&AlvearyRuntime.formed(second)&&AlvearyPorts.controller(h.getLevel(),shared.getBlockPos())==null&&!shared.output(Direction.NORTH)&&shared.output(Direction.SOUTH),"Ambiguous service port exposed inward face or chose an owner");AlvearyServiceModules.transferItems(owner,shared);h.assertTrue(shared.items.getStackInSlot(0).getCount()==2,"Ambiguous buffered service port transferred contents");h.succeed();}
     @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)

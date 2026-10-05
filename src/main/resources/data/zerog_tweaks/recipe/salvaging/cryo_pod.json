@@ -1,0 +1,37 @@
+{
+  "type": "zerog_tweaks:salvaging",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:cryo_pod"
+      },
+      "count": 1,
+      "consumed": true
+    }
+  ],
+  "outputs": [
+    {
+      "stack": {
+        "id": "zerog_tweaks:hull_plating",
+        "count": 3
+      },
+      "chance": 1
+    },
+    {
+      "stack": {
+        "id": "zerog_tweaks:cryocite",
+        "count": 1
+      },
+      "chance": 0.5
+    },
+    {
+      "stack": {
+        "id": "zerog_tweaks:ration_pack",
+        "count": 1
+      },
+      "chance": 0.25
+    }
+  ],
+  "energy": 2000,
+  "time": 100
+}

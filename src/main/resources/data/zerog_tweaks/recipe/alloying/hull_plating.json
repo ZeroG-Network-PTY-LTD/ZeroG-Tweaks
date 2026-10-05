@@ -1,0 +1,30 @@
+{
+  "type": "zerog_tweaks:alloying",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:salvium_ingot"
+      },
+      "count": 2,
+      "consumed": true
+    },
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:ferrox_ingot"
+      },
+      "count": 1,
+      "consumed": true
+    }
+  ],
+  "outputs": [
+    {
+      "stack": {
+        "id": "zerog_tweaks:hull_plating",
+        "count": 6
+      },
+      "chance": 1
+    }
+  ],
+  "energy": 8000,
+  "time": 200
+}
