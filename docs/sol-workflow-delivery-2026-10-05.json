@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-05",
+  "version": "1.0.12-dev",
+  "minecraft": "Java 1.21.1",
+  "candidate": {
+    "file": "zerog-tweaks-1.21.1-1.0.12-dev.jar",
+    "sha256": "21764a8015e16c159c29136efe3047871d4038cbad33a8051710111ab6087c33",
+    "production_tests_excluded": true
+  },
+  "installation": {
+    "installed_hash_verified": true,
+    "old_jar_backed_up_outside_mods": true,
+    "backup_folder": "20261005-001825-UTC",
+    "backed_up": [
+      "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+    ],
+    "preserved_dependencies": [
+      {
+        "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+        "ids": [
+          "geckolib"
+        ],
+        "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+      },
+      {
+        "name": "productivebees-1.21.1-13.14.0.jar",
+        "ids": [
+          "productivebees"
+        ],
+        "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+      },
+      {
+        "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+        "ids": [
+          "aeroapiary"
+        ],
+        "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+      }
+    ]
+  },
+  "tests": [
+    {
+      "log": "20261005_000920_runWorkflowTests.log",
+      "sha256": "9116454a95ec35791b11273bf0bdbe78e28fa56d575a08d1cdf82ac73ed66098",
+      "required_tests_passed": 26
+    },
+    {
+      "log": "20261005_001314_runWorkflowTests.log",
+      "sha256": "55f19ff9b1f86f12b929571a2415acb0101f9d6b14b47e19b9395b9f02069f32",
+      "required_tests_passed": 2
+    },
+    {
+      "log": "20261004_234900_runGeneticsTests.log",
+      "sha256": "c68cfa4720fc7931b522630750a055ac0a36e4aa4f73e2315dc66f9261e49da3",
+      "required_tests_passed": 4
+    },
+    {
+      "log": "20261004_233259_runPlanetHubTests.log",
+      "sha256": "49cdcb95523252de366fc2934b5ead96c74814a3ac1f5d2f252f0fc9ca9ca481",
+      "required_tests_passed": 7
+    }
+  ],
+  "asset_reference_audit": {
+    "scope": "Reference, PNG and animation-grid audit; not GPU or in-game approval",
+    "checked": {
+      "models": 7799,
+      "blockstates": 1498,
+      "pngs": 3785,
+      "animation_metadata": 96,
+      "source_byte_bindings": 3816
+    },
+    "errors": [],
+    "error_count": 0,
+    "external_unverified": []
+  },
+  "selected_world": {
+    "name": "ZeroG_Planet_Showcase_1_0_9_Seed0",
+    "seed": 0,
+    "planetary_dimensions_refreshed": 34,
+    "preserved_hub_routes": 34,
+    "protected_files": 50,
+    "hub_player_other_dimension_bytes_unchanged": true,
+    "full_recoverable_backup": true,
+    "gate_count": 68,
+    "demonstration_colonies": false
+  },
+  "saved_native_terrain_survey": {
+    "scope": "Already-saved full native chunks only; not natural-spawn or client visual approval",
+    "dimensions": 34,
+    "actual_log_blocks": 543,
+    "tree_containing_chunks": 108,
+    "dimensions_with_observed_trees": 21
+  },
+  "client_launched": false,
+  "in_game_visual_approval": "pending human review",
+  "remaining": [
+    "Authoritative bee lifespan/tolerance/module rules unavailable",
+    "Full PB flower/territory/hive-upgrade parity not claimed",
+    "Third-party claims/team adapters",
+    "Hidden Star Map Fragment world pool",
+    "Moving cargo client renderer",
+    "Cinder Mite boss adds need approved registered entity",
+    "Separate Frost Yak shorn model",
+    "Natural ecology coverage outside saved samples and client visual approval"
+  ],
+  "branch_policy": {
+    "code": "1.21.x",
+    "design": "Design",
+    "documentation_jar": "Docs",
+    "Released": "unchanged"
+  }
+}

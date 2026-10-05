@@ -1,6 +1,21 @@
 # Development candidate — not a shipped release
 
-## Current: zerog-tweaks-1.21.1-1.0.6-dev.jar
+## Current: zerog-tweaks-1.21.1-1.0.12-dev.jar
+
+Same-version Sol workflow update; this is still a development candidate, not a
+release. See the [implementation and verification ledger](../sol-build-workflow-2026-10-05.md)
+and [native equipment/environment gallery](../images/full-art-rollout-v4/README.md).
+Adds tiered survival travel, Sol mobs/professions, richer planet/cave ecology,
+working genetics, alveary frame progression and six-tier transport. Unsupported
+biological rules and client visual approval remain explicitly pending.
+
+The normal production build excludes test classes. The delivery receipt records
+the exact candidate hash, isolated test results, protected-save refresh and local
+installation backup. Keep only one Tweaks JAR installed. Productive Bees remains
+optional for base startup, but is required for its trait/product integration;
+GeckoLib is required. No Minecraft client was launched by this workflow.
+
+## Historical: zerog-tweaks-1.21.1-1.0.6-dev.jar
 
 See [the illustrated generation and gate field guide](../planet-generation-1.0.6.md)
 and [all item-model art references](../runtime-item-catalog-1.0.6.md). Independent

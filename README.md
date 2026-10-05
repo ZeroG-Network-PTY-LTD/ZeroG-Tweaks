@@ -7,22 +7,38 @@ economy together. This local work-in-progress also requires GeckoLib for the Tid
 
 Current development build **1.0.12-dev** · NeoForge **21.1.252** · Minecraft **Java 1.21.1** · Java **21**
 
-## Current addition: working optional bee genetics and approved artwork
+## Current addition: Sol progression, working bee machines and native A/C artwork
 
-[Workflow and verification ledger](docs/sol-build-workflow-2026-10-05.md): Geno
-Station analysis/sampling and Genetic Splicer single-trait jobs now have
-server-validated controls, power, jelly catalysts, recovery slots and persistent
-state. Four isolated Productive Bees integration tests and a no-optional-mod
-startup test passed. Full alveary progression and transport remain unfinished;
-client visual approval is still required. Version remains **1.0.12-dev**.
+[Workflow and verification ledger](docs/sol-build-workflow-2026-10-05.md): player-built
+tiered gates, gravity, return platforms, Recall/Group Anchors, coal-fired power,
+Mars wrecks and shrines, new Sol mobs and planet-matched ecology are implemented.
+Genetics has server-validated analysis/sampling/splicing, real trait data, research
+prerequisites, power, catalysts and saved recovery slots. Alvearies now unlock
+3/4/6/8/12/18/27 frame housings, FE/honey/starlight tanks and verified production.
+Six-tier transport adds conduits, pipes, tubes, cells, ports, filters, wrench
+upgrades and shared Null Link storage. Unsupported biological attributes are
+explicitly disclosed rather than simulated. Version remains **1.0.12-dev**.
+
+[Machine and transport controls](docs/sol-machines-and-transport-runtime.md)
+explain specimen research, catalysts, frame progression, filter cards, face rules
+and loaded-only Null Links. The verification ledger also records what still
+needs client review or authoritative gameplay rules.
 
 ![Approved equipment and vegetation concept—not installed textures](docs/images/genetics-runtime-v1/approved-equipment-vegetation-concept.png)
 
-Both equipment palettes and A/C vegetation are approved. This is reference art,
-not a native game-ready texture atlas. The next production pass covers equipment,
-materials, farming, flowers, trees, vines and underwater vegetation. Existing
-galleries are retained. The selected 1.0.9 hub's planetary refresh remains pending
-until terrain, gate records and structure/ecology checks are verified together.
+Both equipment palettes and A/C vegetation are approved. The image above remains
+reference art; the [native texture gallery](docs/images/full-art-rollout-v4/README.md)
+shows the actual new sprites and atlases. Equipment uses readable, hue-shifted
+magitech facets; living plants retain natural shading with selective glowing buds
+and fruit. Dry/wet farmland is distinct and soil contains no gems. The native
+rollout includes varied crop anatomy, woods/leaves, six kelp families and editable
+Blockbench sprite sources. Inventory, placed and worn resource layers match.
+Existing guides and galleries are retained. Automated server/asset checks do not
+replace your in-game visual approval; the ledger separates those results.
+
+![Native equipment sprites—not a client screenshot](docs/images/full-art-rollout-v4/equipment-native-01.png)
+
+![Native vegetation textures—not a client screenshot](docs/images/full-art-rollout-v4/environment-native-01.png)
 
 ## Single-block machines and use-specific interfaces
 
