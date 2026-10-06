@@ -18,6 +18,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.zerog.tweaks.ZeroGTweaks;
 import net.zerog.tweaks.item.ZGFoods;
 import net.zerog.tweaks.item.ZGArmorItem;
+import net.zerog.tweaks.item.ZGGeoArmorItem;
 
 public final class ItemInit {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ZeroGTweaks.MODID);
@@ -1286,12 +1287,20 @@ public final class ItemInit {
         });
     }
 
-    /** All worn equipment follows vanilla/netherite humanoid armor proportions and UVs. */
+    /**
+     * Sets whose armor renders the GeckoLib chunky-shell model (geo/item/armor/&lt;set&gt;.geo.json) instead of the
+     * vanilla layers. Restored 2026-10-06 at the owner's request after f320160c had switched every set to flat
+     * vanilla/netherite layers; all other sets keep vanilla proportions and UVs.
+     */
+    private static final java.util.Set<String> GEO_ARMOR_SETS = java.util.Set.of("moonsteel", "olympium");
+
     private static DeferredItem<Item> registerArmor(String id, ZGArmorMaterials.Profile profile, ArmorItem.Type type) {
         String set = id.substring(0, id.lastIndexOf('_'));
         return ITEMS.<Item>register(id, () -> {
             Item.Properties props = new Item.Properties().durability(type.getDurability(profile.durabilityFactor()));
-            return new ZGArmorItem(set, profile.material(), type, props);
+            return GEO_ARMOR_SETS.contains(set)
+                    ? new ZGGeoArmorItem(set, profile.material(), type, props)
+                    : new ZGArmorItem(set, profile.material(), type, props);
         });
     }
 
