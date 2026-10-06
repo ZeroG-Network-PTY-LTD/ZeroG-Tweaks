@@ -22,7 +22,7 @@ public record OreRefineryMenuProvider(BlockPos pos) implements MenuProvider {
     public AbstractContainerMenu createMenu(int windowId, Inventory inv, Player player) {
         BlockEntity be = player.level().getBlockEntity(pos);
         if (be instanceof OreRefineryBlockEntity refinery) {
-            return new OreRefineryMenu(MenuInit.ORE_REFINERY.get(), windowId, inv, refinery);
+            return new net.zerog.tweaks.machine.ProcessingMenu(windowId, inv, refinery);
         }
         return null;
     }

@@ -61,6 +61,12 @@ public final class TransportBlockEntity extends BlockEntity {
     }
     public boolean supports(String family){return block().family.startsWith(family)||block().family.equals("null_link");}
     public int capacity(){return block().family.equals("energy_cell")?tier().capacity():block().family.equals("null_link")?4000000:block().family.equals("energy_port")?1000000:tier().energy();}
+    /** The routing button configures the connected loaded line, regardless of its leader. */
+    public void setNetworkRouting(int mode){
+        int value=Math.floorMod(mode,3);
+        if(level instanceof ServerLevel server){for(var node:network(server)){node.routing=value;node.cursor=0;node.setChanged();}}
+        routing=value;cursor=0;setChanged();
+    }
     public boolean input(Direction side){return net.zerog.tweaks.genetics.AlvearyServiceModules.sideAllowed(this,side)&&( !getBlockState().hasProperty(TransportBlock.MODE)||getBlockState().getValue(TransportBlock.MODE)!=TransportBlock.PortMode.OUTPUT)&&(side==null||modes[side.ordinal()]==0||modes[side.ordinal()]==2);}
     public boolean output(Direction side){return net.zerog.tweaks.genetics.AlvearyServiceModules.sideAllowed(this,side)&&( !getBlockState().hasProperty(TransportBlock.MODE)||getBlockState().getValue(TransportBlock.MODE)!=TransportBlock.PortMode.INPUT)&&(side==null||modes[side.ordinal()]==0||modes[side.ordinal()]==1);}
     public boolean permitted(String filter,String id){return filter.isEmpty()||blacklist!=Arrays.asList(filter.split(",")).contains(id);}
@@ -84,12 +90,19 @@ public final class TransportBlockEntity extends BlockEntity {
     };}
     public IFluidHandler fluidHandler(Direction side){var owner=owner();if(owner==null)return null;int factor=remoteFactor(owner);return new IFluidHandler(){
         public int getTanks(){return 1;}public FluidStack getFluidInTank(int index){return owner.tank.getFluid();}public int getTankCapacity(int index){return owner.tank.getCapacity();}
-        public boolean isFluidValid(int index,FluidStack stack){var id=BuiltInRegistries.FLUID.getKey(stack.getFluid()).toString();return TransportTier.minimumFluidTier(id)<=block().tier&&permittedFluid(stack);}
+        public boolean isFluidValid(int index,FluidStack stack){return index==0&&!stack.isEmpty()&&safeFluidPath(stack)&&permittedFluid(stack);}
         public int fill(FluidStack stack,FluidAction action){if(!validOwner(owner)||!input(side)||!isFluidValid(0,stack))return 0;if(block().family.equals("fluid_pipe")&&level instanceof ServerLevel server){var nodes=network(server);if(nodes.isEmpty())return 0;for(var node:nodes)if(!node.tank.isEmpty()&&!FluidStack.isSameFluidSameComponents(node.tank.getFluid(),stack))return 0;}int count=Math.min(stack.getAmount(),factor==0?stack.getAmount():owner.stored/factor);int n=owner.tank.fill(stack.copyWithAmount(count),action);if(action.execute()&&n>0){owner.stored-=n*factor;owner.setChanged();}return n;}
         public FluidStack drain(FluidStack stack,FluidAction action){return FluidStack.isSameFluidSameComponents(stack,owner.tank.getFluid())?drain(stack.getAmount(),action):FluidStack.EMPTY;}
         public FluidStack drain(int amount,FluidAction action){if(!validOwner(owner)||!output(side))return FluidStack.EMPTY;int count=Math.max(0,Math.min(amount,factor==0?amount:owner.stored/factor));var result=owner.tank.drain(count,action);if(action.execute()&&!result.isEmpty()){owner.stored-=result.getAmount()*factor;owner.setChanged();}return result;}
     };}
     public boolean enabled(){if(level==null)return false;boolean signal=level.hasNeighborSignal(worldPosition);return redstone==0||redstone==1&&signal||redstone==2&&!signal;}
+    /** The weakest connected segment must support the fluid, including pre-existing buffers. */
+    private boolean safeFluidPath(FluidStack stack){
+        int required=TransportTier.minimumFluidTier(BuiltInRegistries.FLUID.getKey(stack.getFluid()).toString());
+        if(block().tier<required)return false;
+        if(block().family.equals("fluid_pipe")&&level instanceof ServerLevel server){for(var node:network(server))if(node.block().tier<required)return false;}
+        return true;
+    }
     public static void tick(Level level,BlockPos pos,BlockState state,TransportBlockEntity be){
         if(!(level instanceof ServerLevel server)||!be.enabled())return;
         if(server.getGameTime()%10==0)be.updateVisualState(server);
@@ -117,16 +130,37 @@ public final class TransportBlockEntity extends BlockEntity {
             if(be.routing==1&&!endpoints.isEmpty())Collections.rotate(endpoints,-Math.floorMod(be.cursor++,endpoints.size()));
             if(be.routing==2)Collections.shuffle(endpoints,new Random(server.getGameTime()^pos.asLong()));
             int moved=0;
-            for(var source:nodes)for(var endpoint:endpoints){if(moved>= (family.equals("energy")?tier.energy():family.equals("fluid")?tier.fluid():tier.items()))return;var dest=endpoint.getKey();moved+=source.push(server,dest.worldPosition.relative(endpoint.getValue()),endpoint.getValue(),family,(family.equals("energy")?tier.energy():family.equals("fluid")?tier.fluid():tier.items())-moved);}
+            for(var source:nodes){
+                if(family.equals("energy")&&source.stored==0||family.equals("fluid")&&source.tank.isEmpty()||family.equals("item")&&java.util.stream.IntStream.range(0,source.items.getSlots()).allMatch(i->source.items.getStackInSlot(i).isEmpty()))continue;
+                var ordered=endpoints;
+                if(be.routing==0){
+                    var distances=source.pathDistances(nodes);ordered=new ArrayList<>(endpoints);
+                    ordered.sort(Comparator.comparingInt((Map.Entry<TransportBlockEntity,Direction> e)->-e.getKey().priorities[e.getValue().ordinal()])
+                        .thenComparingInt(e->distances.getOrDefault(e.getKey().worldPosition,Integer.MAX_VALUE))
+                        .thenComparingLong(e->e.getKey().worldPosition.asLong()).thenComparingInt(e->e.getValue().ordinal()));
+                }
+                for(var endpoint:ordered){if(moved>= (family.equals("energy")?tier.energy():family.equals("fluid")?tier.fluid():tier.items()))return;var dest=endpoint.getKey();moved+=source.push(server,dest.worldPosition.relative(endpoint.getValue()),endpoint.getValue(),family,(family.equals("energy")?tier.energy():family.equals("fluid")?tier.fluid():tier.items())-moved);}
+            }
         }else{String family=be.supports("energy")?"energy":be.supports("fluid")?"fluid":"item";int budget=be.supports("energy")?be.tier().energy():be.supports("fluid")?be.tier().fluid():be.tier().items();for(var side:Direction.values())if(budget>0&&be.output(side)&&server.hasChunkAt(pos.relative(side)))budget-=be.push(server,pos.relative(side),side,family,budget);}
     }
     private List<TransportBlockEntity> network(ServerLevel level){
         if(topologyTick==level.getGameTime())return topology;
         var found=new ArrayList<TransportBlockEntity>();var seen=new HashSet<BlockPos>();var queue=new ArrayDeque<TransportBlockEntity>();queue.add(this);seen.add(worldPosition);
-        while(!queue.isEmpty()&&found.size()<256){var node=queue.remove();found.add(node);for(var side:Direction.values()){
-            if(node.modes[side.ordinal()]==3)continue;var p=node.worldPosition.relative(side);if(!seen.add(p)||!level.hasChunkAt(p))continue;
-            if(level.getBlockEntity(p) instanceof TransportBlockEntity next&&next.block().family.equals(block().family)&&next.modes[side.getOpposite().ordinal()]!=3&&(next.colour<0||node.colour<0||next.colour==node.colour)&&next.enabled())queue.add(next);
-        }}if(!queue.isEmpty()){for(var node:found){node.topologyTick=level.getGameTime();node.topology=List.of();}return List.of();}found.sort(Comparator.comparingLong(n->n.worldPosition.asLong()));var snapshot=List.copyOf(found);for(var node:found){node.topologyTick=level.getGameTime();node.topology=snapshot;}return snapshot;
+        // Visit each loaded position once; never split a connected graph into partial leaders.
+        while(!queue.isEmpty()){var node=queue.remove();found.add(node);for(var side:Direction.values()){
+            if(node.modes[side.ordinal()]==3)continue;var p=node.worldPosition.relative(side);if(seen.contains(p)||!level.hasChunkAt(p))continue;
+            if(level.getBlockEntity(p) instanceof TransportBlockEntity next&&next.block().family.equals(block().family)&&next.modes[side.getOpposite().ordinal()]!=3&&(next.colour<0||node.colour<0||next.colour==node.colour)&&next.enabled()){seen.add(p);queue.add(next);}
+        }}found.sort(Comparator.comparingLong(n->n.worldPosition.asLong()));var snapshot=List.copyOf(found);for(var node:found){node.topologyTick=level.getGameTime();node.topology=snapshot;}return snapshot;
+    }
+    /** Breadth-first edge distance, not Euclidean distance or leader iteration order. */
+    private Map<BlockPos,Integer> pathDistances(List<TransportBlockEntity> nodes){
+        var lookup=new HashMap<BlockPos,TransportBlockEntity>();for(var node:nodes)lookup.put(node.worldPosition,node);
+        var distances=new HashMap<BlockPos,Integer>();var queue=new ArrayDeque<TransportBlockEntity>();distances.put(worldPosition,0);queue.add(this);
+        while(!queue.isEmpty()){var node=queue.remove();for(var side:Direction.values()){
+            var p=node.worldPosition.relative(side);var next=lookup.get(p);
+            if(next==null||distances.containsKey(p)||node.modes[side.ordinal()]==3||next.modes[side.getOpposite().ordinal()]==3||node.colour>=0&&next.colour>=0&&node.colour!=next.colour)continue;
+            distances.put(p,distances.get(node.worldPosition)+1);queue.add(next);
+        }}return distances;
     }
     private void updateVisualState(ServerLevel level){var original=getBlockState();var next=original;
         if(next.hasProperty(TransportBlock.GAUGE))next=next.setValue(TransportBlock.GAUGE,(int)Math.min(8,(long)stored*8/Math.max(1,capacity())));
@@ -145,7 +179,7 @@ public final class TransportBlockEntity extends BlockEntity {
     }
     public int push(ServerLevel level,BlockPos pos,Direction side,String family,int limit){
         if(family.equals("energy")){var to=level.getCapability(Capabilities.EnergyStorage.BLOCK,pos,side.getOpposite());if(to==null)return 0;int n=to.receiveEnergy(Math.min(stored,limit),true);n=to.receiveEnergy(n,false);stored-=n;if(n>0)setChanged();return n;}
-        if(family.equals("fluid")){var to=level.getCapability(Capabilities.FluidHandler.BLOCK,pos,side.getOpposite());if(to==null)return 0;var sample=tank.drain(limit,IFluidHandler.FluidAction.SIMULATE);int n=to.fill(sample,IFluidHandler.FluidAction.SIMULATE);if(n<=0)return 0;n=to.fill(sample.copyWithAmount(n),IFluidHandler.FluidAction.EXECUTE);tank.drain(n,IFluidHandler.FluidAction.EXECUTE);if(n>0)TransportMotion.committed(this,level,pos,side,ItemStack.EMPTY,sample);return n;}
+        if(family.equals("fluid")){var to=level.getCapability(Capabilities.FluidHandler.BLOCK,pos,side.getOpposite());if(to==null)return 0;var sample=tank.drain(limit,IFluidHandler.FluidAction.SIMULATE);if(sample.isEmpty()||!safeFluidPath(sample))return 0;int n=to.fill(sample,IFluidHandler.FluidAction.SIMULATE);if(n<=0)return 0;n=to.fill(sample.copyWithAmount(n),IFluidHandler.FluidAction.EXECUTE);tank.drain(n,IFluidHandler.FluidAction.EXECUTE);if(n>0)TransportMotion.committed(this,level,pos,side,ItemStack.EMPTY,sample);return n;}
         var to=level.getCapability(Capabilities.ItemHandler.BLOCK,pos,side.getOpposite());if(to==null)return 0;for(int i=0;i<items.getSlots();i++){var sample=items.extractItem(i,limit,true);int n=sample.getCount()-insert(to,sample,true).getCount();if(n<=0)continue;var rest=insert(to,sample.copyWithCount(n),false);n-=rest.getCount();items.extractItem(i,n,false);if(n>0)TransportMotion.committed(this,level,pos,side,sample,FluidStack.EMPTY);return n;}return 0;
     }
     public static ItemStack insert(IItemHandler handler,ItemStack stack,boolean simulate){var remaining=stack.copy();for(int i=0;i<handler.getSlots()&&!remaining.isEmpty();i++)remaining=handler.insertItem(i,remaining,simulate);return remaining;}

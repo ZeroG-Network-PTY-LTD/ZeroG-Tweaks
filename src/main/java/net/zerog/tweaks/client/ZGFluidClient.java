@@ -23,6 +23,15 @@ public final class ZGFluidClient {
 
     @SubscribeEvent
     public static void extensions(RegisterClientExtensionsEvent event) {
+        for(var jelly:net.zerog.tweaks.registry.ZGGeneticsFluids.ALL) {
+            event.registerFluidType(new IClientFluidTypeExtensions(){
+                @Override public ResourceLocation getStillTexture(){return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID,"block/"+jelly.textureFamily+"_honey_still");}
+                @Override public ResourceLocation getFlowingTexture(){return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID,"block/"+jelly.textureFamily+"_honey_flow");}
+                @Override public Vector3f modifyFogColor(Camera camera,float partialTick,ClientLevel level,int renderDistance,float darkenWorldAmount,Vector3f colour){
+                    return new Vector3f(((jelly.fog>>16)&255)/255F,((jelly.fog>>8)&255)/255F,(jelly.fog&255)/255F);
+                }
+            },jelly.type.get());
+        }
         for(var honey:net.zerog.tweaks.registry.ZGPlanetApiary.FAMILIES.values()) {
             event.registerFluidType(new IClientFluidTypeExtensions(){
                 @Override public ResourceLocation getStillTexture(){return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID,"block/"+honey.id+"_honey_still");}
@@ -59,6 +68,10 @@ public final class ZGFluidClient {
     @SuppressWarnings("deprecation")
     public static void setup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            for(var jelly:net.zerog.tweaks.registry.ZGGeneticsFluids.ALL) {
+                ItemBlockRenderTypes.setRenderLayer(jelly.source.get(),RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(jelly.flowing.get(),RenderType.translucent());
+            }
             for(var honey:net.zerog.tweaks.registry.ZGPlanetApiary.FAMILIES.values()) {
                 ItemBlockRenderTypes.setRenderLayer(honey.source.get(),RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(honey.flowing.get(),RenderType.translucent());

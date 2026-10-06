@@ -34,6 +34,8 @@ public final class ProcessingRegistry {
         var pos=buf.readBlockPos();if(inv.player.level().getBlockEntity(pos) instanceof ProcessingBlockEntity be)return new ProcessingMenu(id,inv,be);throw new IllegalStateException("Missing processing machine");}));
     public static void register(IEventBus bus){TYPES.register(bus);SERIALIZERS.register(bus);ENTITIES.register(bus);MENUS.register(bus);bus.addListener(ProcessingRegistry::capabilities);}
     private static void capabilities(RegisterCapabilitiesEvent event){
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,net.zerog.tweaks.registry.BlockEntityInit.ORE_REFINERY.get(),(be,side)->be.energyInput(side));
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,net.zerog.tweaks.registry.BlockEntityInit.ORE_REFINERY.get(),(be,side)->be.itemsFor(side));
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,TYPE.get(),(be,side)->be.energyInput(side));
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,TYPE.get(),(be,side)->be.itemsFor(side));
     }

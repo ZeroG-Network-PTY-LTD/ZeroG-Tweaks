@@ -13,9 +13,8 @@ import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 
 /**
- * Ore refinery menu: 0=input, 1=optional catalyst (aeroapiary stardust),
- * 2=output. Player inventory below; mirrors the aeroapiary zerog_machine
- * menu pattern.
+ * Retained legacy menu registry compatibility. New block interactions use the
+ * shared powered ProcessingMenu, including its three bounded upgrade slots.
  */
 public class OreRefineryMenu extends AbstractContainerMenu {
 
@@ -27,7 +26,7 @@ public class OreRefineryMenu extends AbstractContainerMenu {
         super(type, windowId);
         this.machine = machine;
         this.data = playerInv.player.level().isClientSide ? new SimpleContainerData(1) : new ContainerData() {
-            public int get(int index) { return machine.progress(); }
+            public int get(int index) { return machine.progressPercent(); }
             public void set(int index, int value) {}
             public int getCount() { return 1; }
         };
@@ -52,7 +51,7 @@ public class OreRefineryMenu extends AbstractContainerMenu {
         return this.machine;
     }
 
-    public int progressPercent() { return Math.max(0, Math.min(100, data.get(0) * 100 / OreRefineryBlockEntity.PROCESS_TICKS)); }
+    public int progressPercent() { return Math.max(0, Math.min(100, data.get(0))); }
 
     private static class OutputSlot extends SlotItemHandler {
         public OutputSlot(IItemHandler handler, int index, int x, int y) {
@@ -73,8 +72,8 @@ public class OreRefineryMenu extends AbstractContainerMenu {
         var stack = slot.getItem(); var original = stack.copy();
         boolean moved;
         if (index < 3) moved = moveItemStackTo(stack, 3, slots.size(), true);
-        else if (OreRefineryBlockEntity.acceptsInput(stack)) moved = moveItemStackTo(stack, 0, 1, false);
-        else if (OreRefineryBlockEntity.acceptsCatalyst(stack)) moved = moveItemStackTo(stack, 1, 2, false);
+        else if (machine.inventory().isItemValid(0,stack)) moved = moveItemStackTo(stack, 0, 1, false);
+        else if (machine.inventory().isItemValid(1,stack)) moved = moveItemStackTo(stack, 1, 2, false);
         else return ItemStack.EMPTY;
         if (!moved) return ItemStack.EMPTY;
         if (stack.isEmpty()) slot.setByPlayer(ItemStack.EMPTY); else slot.setChanged();

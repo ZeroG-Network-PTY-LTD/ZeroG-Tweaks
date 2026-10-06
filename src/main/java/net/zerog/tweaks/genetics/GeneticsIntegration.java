@@ -18,9 +18,16 @@ import net.minecraft.resources.ResourceLocation;
 @EventBusSubscriber(modid="zerog_tweaks")
 public final class GeneticsIntegration {
     @SubscribeEvent public static void open(PlayerInteractEvent.RightClickBlock event) {
-        if(event.getHand()!=InteractionHand.MAIN_HAND||!event.getItemStack().isEmpty())return;
+        if(event.getHand()!=InteractionHand.MAIN_HAND)return;
         var be=event.getLevel().getBlockEntity(event.getPos());String id=GeneticsRuntime.id(be);
         if(!GeneticsRuntime.handles(id))return;
+        if(net.neoforged.neoforge.fluids.FluidUtil.getFluidHandler(event.getItemStack()).isPresent()){
+            boolean client=event.getLevel().isClientSide;
+            boolean accepted=client||net.neoforged.neoforge.fluids.FluidUtil.interactWithFluidHandler(event.getEntity(),event.getHand(),event.getLevel(),event.getPos(),event.getFace());
+            event.setCanceled(true);event.setCancellationResult(accepted?InteractionResult.sidedSuccess(client):InteractionResult.FAIL);return;
+        }
+        // Sneak placement and the wrench retain their own behavior; other held items use the modern menu.
+        if(event.getEntity().isShiftKeyDown()&&event.getItemStack().getItem() instanceof net.minecraft.world.item.BlockItem||BuiltInRegistries.ITEM.getKey(event.getItemStack().getItem()).getPath().endsWith("wrench"))return;
         if(event.getEntity() instanceof ServerPlayer player)player.openMenu(new SimpleMenuProvider(
             (window,inv,p)->new GeneticsMenu(window,inv,be),Component.literal(id.equals("geno_station")?"Geno Station":"Genetic Splicer")),buf->buf.writeBlockPos(event.getPos()));
         event.setCanceled(true);event.setCancellationResult(InteractionResult.sidedSuccess(event.getLevel().isClientSide));

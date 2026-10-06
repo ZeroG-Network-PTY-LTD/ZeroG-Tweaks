@@ -1,0 +1,33 @@
+{
+  "type": "zerog_tweaks:refining",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "zerog_tweaks:aresite"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "stack": {
+        "id": "zerog_tweaks:aresite",
+        "count": 5
+      }
+    }
+  ],
+  "energy": 4000,
+  "time": 200,
+  "upgraded_result_count": 5,
+  "catalyst": {
+    "ingredient": {
+      "item": "aeroapiary:stardust"
+    },
+    "consumed": true
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "aeroapiary"
+    }
+  ]
+}
