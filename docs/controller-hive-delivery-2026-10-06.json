@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "date": "2026-10-06",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "code_commit": "8f2015ff",
+  "design_changes": false,
+  "archive": "docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-controller-hivefix-20261006.jar",
+  "sha256": "09d8ebad865d8c40d12e2aafa9f861b9c6da7a39ae58063636d63475c4941d54",
+  "tests": {
+    "required": 76,
+    "passed": 76,
+    "optional_bee_addons_present": true,
+    "transcript": "20261006_155526_runWorkflowTests.log",
+    "reproduced_before_fix": ["held_item_controller_click", "modern_formation_status_bridge", "spawned_bee_hive_discovery"]
+  },
+  "production_build": {"passed": true, "transcript": "20261006_155717_clean.log", "test_classes_and_fixtures_absent": true},
+  "asset_audit": {"errors": 0, "models": 7937, "blockstates": 1522, "pngs": 3893, "animation_metadata": 96, "new_artwork": false},
+  "installation": {
+    "completed_before_publication": true,
+    "installed_filename": "zerog-tweaks-1.21.1-1.0.12-dev.jar",
+    "backup_folder": "zerog-mod-backups/20261006-155959-UTC",
+    "duplicate_tweaks_mod_ids_remaining": false,
+    "other_mods_unchanged": true,
+    "saves_hub_and_dimensions_unchanged": true
+  },
+  "completed": ["ordinary_held_items_modern_alveary_menu", "formation_error_server_sync_and_tooltip", "twelve_planetary_hive_poi_families", "spawned_bee_and_breeding_offspring_discovery"],
+  "pending": ["client_visual_approval", "honey_byproduct_fluid_mapping_and_implementation", "survival_crafting_recipes", "remaining_machine_and_transport_queue", "advanced_biology_and_codex_research", "broader_planet_ecology_and_story_progression"]
+}

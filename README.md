@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Latest repair batch — controller interaction and hive discovery, 6 October 2026
+
+Still **1.0.12-dev**. [Detailed changes and limits](docs/alveary-interaction-and-hive-repairs-2026-10-06.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Delivery receipt](docs/controller-hive-delivery-2026-10-06.json) · [Archived JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-controller-hivefix-20261006.jar).
+
+Ordinary held items use the modern controller, detailed formation reasons reach
+its status tooltip, and all twelve planetary hive families are discoverable by
+vanilla bee AI. **76 isolated server checks passed**, including spawned and
+breeding-offspring hive discovery. Client visual approval, survival recipes and
+normal honey production are still pending. No artwork or hub/save terrain changed.
+
 ## Latest repair batch — mining, refinery, routing and jelly, 6 October 2026
 
 Still **1.0.12-dev**. [Detailed repair guide and next priorities](docs/blocker-repairs-2026-10-06.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Build receipt](docs/blocker-repair-delivery-2026-10-06.json) · [Archived JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-blockerfix-20261006.jar).
