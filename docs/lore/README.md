@@ -104,6 +104,6 @@ Source: design doc, *Delivery*.
 Build the mechanics, but get the words approved before shipping them.
 
 - Echo's transition-screen lines in `docs/gate-transition-screen-v1`. These are placeholders I wrote, not canon.
-- What the **Concord debris** that Meteor Maws carry to the Moon actually is (an item, a drop, a structure).
+- **Concord debris** plan approved7Oct2026: existing Star Map Fragment drops are the interim lore carrier. Small Moon impact wrecks remain pending, using approved crater, meteorite fragments, pod-shell and chest pieces without a Dormant Wisp, Concord Codex or Broken Console. Do not turn the Courier/Eidolon story console into mob loot; this is not a Sol progression blocker. Any later wreck logs still need approval.
 - The Cinder Mite's origin, the Frozen Outpost, Sunken Lab, Prism Spire and Impact Site stories, and the Broken Console log texts for each act.
 - Codex pages for Acts II to V (only the Prologue and Act I pages exist in code).

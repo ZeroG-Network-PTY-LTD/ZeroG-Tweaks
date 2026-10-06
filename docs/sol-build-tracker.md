@@ -9,7 +9,7 @@ What is left before players can play the Overworld prologue, build the T1 gate a
 - **Rule:** an item is done only when the code exists. Headless tests are not client approval.
 - **Lore:** follow [`lore/README.md`](lore/README.md). Items with a **Lore** note must match it; don't invent new canon, flag gaps as "lore needed".
 
-**10 open, 32 done.** Every Sol blocker and high item from the first audit is in the code, the ores need the right pickaxe, and the Prologue and Act I story beats are in the game. Still open: a real-client playthrough, confirming the Moon and Mars mobs no longer render black, polish, and three lore gaps (Concord debris from Meteor Maws, an Aresite shrine in every Rustborn village, and the Act I Codex pages in lang keys).
+**9 open, 33 done.** The new Rustborn village shrine is installed and checked across all four settlement layouts. Still open: a real-client playthrough, confirming Moon/Mars mob rendering, polish and localized Act I Codex pages. Moon impact-wreck debris is deferred by the owner; Star Map Fragments remain the interim lore carrier. Server checks do not certify client appearance.
 
 ## Lore: Prologue: The Signal, and Act I: The Falling Star
 
@@ -59,13 +59,13 @@ Full guide: [`lore/README.md`](lore/README.md). Don't invent new canon; flag gap
   - **Lore:** Act I says Meteor Maws carry Concord debris to the Moon. Cinder Mites have no written origin yet; ask before deciding what they are. Keep them wildlife, not Concord or Splinter creatures.
   - Evidence: Docs ledger, Known limits; entity/MeteorMaw.java
 - [ ] **Meteor Maws should carry Concord debris (lore gap)** (Progression)
-  - The Act I lore says Meteor Maws bring Concord debris to the Moon, but the Meteor Maw only drops Star Map Fragments and the daily impacts leave no Concord material. Decide what the debris is (a salvage item, a drop, or small impact wrecks), then add it.
-  - **Lore:** Act I: Meteor Maws bring Concord debris to the Moon. What the debris is still needs approved lore.
+  - Owner decision7Oct2026: keep the existing Star Map Fragment drop as an interim lore carrier. Future small Moon impact wrecks may use approved crater, meteorite fragments, pod-shell and chest pieces, without a Wisp, Codex or Broken Console. Wreck implementation remains pending and does not block Sol progression.
+  - **Lore:** Preserve Broken Consoles for the Courier and Eidolon story moments; no whole-console mob drop. Act I debris should read as an impact-site remnant.
   - Evidence: loot_table/entities/meteor_maw.json only has star_map_fragment; event/DailyPlanetImpacts.java places no Concord material
-- [ ] **Put an Aresite core shrine in every Rustborn village** (Villagers)
-  - The Mars Aresite shrine exists only as a rare standalone structure (one per 56-chunk grid). The lore says every Rustborn village keeps a hand-cut Aresite core as a shrine. Add a small core shrine to the Rustborn settlement layout; keep the standalone shrine as the big one with the Codex.
+- [x] **Put an Aresite core shrine in every Rustborn village** (Villagers)
+  - Each newly generated Rustborn layout places one hand-cut Aresite core on a low Martian brick pedestal, clear of homes, farms and the resident anchor. The standalone large shrine and its loot remain unchanged; existing villages are not retrofitted.
   - **Lore:** Rustborn are the first people who remember the Concord by name; the hand-cut Aresite core in every village is the first proof the Concord was real.
-  - Evidence: worldgen/structure_set/mars_aresite_shrine.json spacing 56 / separation 28; no aresite in worldgen/PlanetSettlementFeature.java
+  - Evidence: worldgen/PlanetSettlementFeature.java and SolLoreGameTests actual four-layout construction; same-version shrine JAR installed7October2026. Client composition approval remains pending.
 - [ ] **Move the Moon and Mars Codex pages into lang keys** (Progression)
   - The three Prologue pages use lang keys, but the Act I Moon and Mars pages are hardcoded English strings in ConcordCodexItem, so they can't be translated or edited with the rest of the story text.
   - **Lore:** Story text goes in en_us.json. Keep the approved wording: the Lunari relay listened for the Pathfinder's hum for thousands of years; the Rustborn's hand-cut Aresite core is the first proof of the Concord.
