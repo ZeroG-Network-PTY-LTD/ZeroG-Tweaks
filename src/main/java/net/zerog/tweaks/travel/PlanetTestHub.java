@@ -128,6 +128,7 @@ public final class PlanetTestHub {
             player.displayClientMessage(Component.literal("No complete return gate exists at the destination."),false);return;
         }
         var position=arrival.centre;
+        GateLaunchSync.sendDestination(player,target);
         var result=player.changeDimension(new DimensionTransition(target,new Vec3(position.getX()+.5,position.getY()+1,position.getZ()+.5),
                 Vec3.ZERO,180,0,DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET)));
         if(result!=null&&!gate.testPower){gate.energy-=GateLedger.TRAVEL_COST;ledger.setDirty();}
@@ -161,6 +162,17 @@ public final class PlanetTestHub {
                 if(sites==null || index>=sites.size()){c.getSource().sendFailure(Component.literal("This planet has no inspection village at that index."));return 0;}
                 var at=sites.get(index);player.serverLevel().getChunkAt(at);
                 player.teleportTo(player.serverLevel(),at.getX()+.5,at.getY()+1,at.getZ()+.5,0,0);
+                return 1;
+            })))
+            // Preview the gate transition screen: a real jump to the destination's surface, without a gate.
+            .then(Commands.literal("transition").then(Commands.argument("destination",StringArgumentType.greedyString()).executes(c->{
+                var player=c.getSource().getPlayerOrException();var target=planet(c.getSource().getServer(),StringArgumentType.getString(c,"destination"));
+                if(target==null||target==player.level()){c.getSource().sendFailure(Component.literal("Use another existing dimension ID, e.g. zerog_tweaks:moon or minecraft:overworld."));return 0;}
+                var spawn=target.getSharedSpawnPos();target.getChunkAt(spawn);
+                int y=target.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,spawn.getX(),spawn.getZ());
+                GateLaunchSync.sendDestination(player,target);
+                player.changeDimension(new DimensionTransition(target,new Vec3(spawn.getX()+.5,y+1,spawn.getZ()+.5),Vec3.ZERO,player.getYRot(),0,
+                        DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET)));
                 return 1;
             })))
             .then(Commands.literal("gate").then(Commands.literal("bind")

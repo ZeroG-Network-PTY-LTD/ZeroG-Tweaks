@@ -48,7 +48,7 @@ public final class RecallAnchorItem extends Item {
         int fee=(int)Math.ceil(SurvivalGateLayout.cost(ZGProgressionConfig.baseCost(gate.formedTier()),player.level().dimension().location().toString(),home.dimension().location().toString(),passengers.size(),gate.has("refracting_lens"))*1.5);
         if(gate.stored<fee){player.displayClientMessage(Component.literal("Recall needs "+fee+" FE at the home gate."),false);return InteractionResultHolder.fail(stack);}
         gate.stored-=fee;gate.setChanged();
-        for(ServerPlayer p:passengers){p.getPersistentData().putLong("zerog_recall_until",now+ZGProgressionConfig.RECALL_COOLDOWN.get());p.changeDimension(SurvivalGateBlockEntity.transition(home,gate.centre()));}
+        for(ServerPlayer p:passengers){p.getPersistentData().putLong("zerog_recall_until",now+ZGProgressionConfig.RECALL_COOLDOWN.get());net.zerog.tweaks.travel.GateLaunchSync.sendDestination(p,home);p.changeDimension(SurvivalGateBlockEntity.transition(home,gate.centre()));}
         return InteractionResultHolder.success(stack);
     }
     @Override public void appendHoverText(ItemStack stack,TooltipContext context,List<Component> tooltip,TooltipFlag flag){tooltip.add(Component.literal("Bind to your home controller. Recall costs 150% of normal travel FE."));if(group)tooltip.add(Component.literal("Recalls nearby scoreboard teammates within 8 blocks."));}

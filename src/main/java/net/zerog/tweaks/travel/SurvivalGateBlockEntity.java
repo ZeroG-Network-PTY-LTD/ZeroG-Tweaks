@@ -6,12 +6,15 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.TamableAnimal;
@@ -29,6 +32,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.zerog.tweaks.config.ZGProgressionConfig;
 import net.zerog.tweaks.registry.BlockInit;
 import net.zerog.tweaks.registry.ZGDimensionTerrain;
@@ -44,6 +48,11 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     private Set<UUID> expected=Set.of();
     private long receiveTick=Long.MIN_VALUE;
     private int receivedThisTick;
+    /** Launch sequence (design doc): lock-on 0-2s, rift 2-3.5s, lift 3.5-5s over the 100-tick countdown. */
+    private static final int RIFT_AT=40,LIFT_AT=70;
+    private static final DustParticleOptions RIFT=new DustParticleOptions(new org.joml.Vector3f(.32F,.08F,.55F),1.4F);
+    private int litTier,litColumns;
+    private boolean lifting;
     public final ItemStackHandler upgrades=new ItemStackHandler(4){
         @Override public boolean isItemValid(int slot,ItemStack stack){var id=BuiltInRegistries.ITEM.getKey(stack.getItem());return slot<upgradeSlots()&&id.getNamespace().equals("zerog_tweaks")&&List.of("refracting_lens","cryo_core","star_map_fragment","capacity_coil").contains(id.getPath());}
         @Override public int getSlotLimit(int slot){return 1;}
@@ -77,13 +86,32 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         return true;
     }
     public void confirm(ServerPlayer player){if(countdown>0&&expected.contains(player.getUUID())&&pad().contains(player.position()))ready.add(player.getUUID());}
-    public void cancel(){countdown=0;ready.clear();expected=Set.of();setChanged();}
+    public void cancel(){if(lifting&&level instanceof ServerLevel server)stopLift(server);countdown=0;lifting=false;ready.clear();expected=Set.of();setChanged();}
+    /** Drop anyone already floating and clear their white-out. Pylons go dark on the next idle tick. */
+    private void stopLift(ServerLevel server){
+        for(UUID id:expected){var p=server.getServer().getPlayerList().getPlayer(id);if(p!=null){p.removeEffect(MobEffects.LEVITATION);PacketDistributor.sendToPlayer(p,new GateLaunchSync.Lift(0));}}
+        lifting=false;
+    }
+    /** Pylon columns of a tier (world positions, bottom to top), in order around the pad. */
+    private List<List<BlockPos>> pylonColumns(int tier){
+        BlockPos c=centre();var columns=new LinkedHashMap<Long,List<BlockPos>>();
+        for(var part:SurvivalGateLayout.parts(tier))if(part.block()==BlockInit.GATE_PYLON.get()){BlockPos at=c.offset(SurvivalGateLayout.rotate(part.offset(),facing()));columns.computeIfAbsent(BlockPos.asLong(at.getX(),0,at.getZ()),k->new ArrayList<>()).add(at);}
+        var list=new ArrayList<>(columns.values());list.forEach(column->column.sort(Comparator.comparingInt(BlockPos::getY)));
+        list.sort(Comparator.comparingDouble(column->Math.atan2(column.get(0).getZ()-c.getZ(),column.get(0).getX()-c.getX())));
+        return list;
+    }
+    /** Light the first {@code count} pylon columns of {@code tier}; 0 puts them all out. */
+    private void lightPylons(ServerLevel server,int tier,int count){
+        var columns=pylonColumns(tier);
+        for(int i=0;i<columns.size();i++)for(BlockPos at:columns.get(i)){var state=server.getBlockState(at);boolean lit=i<count;if(state.is(BlockInit.GATE_PYLON.get())&&state.getValue(GatePylonBlock.LIT)!=lit)server.setBlock(at,state.setValue(GatePylonBlock.LIT,lit),3);}
+        litTier=count>0?tier:0;litColumns=count;setChanged();
+    }
     public void preview(ServerPlayer player){if(!(level instanceof ServerLevel server)||!mayControl(player))return;int tier=Math.min(6,Math.max(1,formedTier()+1));for(var part:SurvivalGateLayout.parts(tier)){BlockPos at=centre().offset(SurvivalGateLayout.rotate(part.offset(),facing()));if(server.hasChunkAt(at)&&!server.getBlockState(at).is(part.block()))server.sendParticles(player,ParticleTypes.END_ROD,true,at.getX()+.5,at.getY()+.5,at.getZ()+.5,2,.1,.1,.1,0);}}
     public void tick(){
         if(!(level instanceof ServerLevel server))return;
         // Return platforms trickle-charge only with their explicitly built crystal cell.
         if(returnPlatform&&server.getGameTime()%20==0&&server.getBlockState(centre().offset(0,-2,0)).is(BlockInit.CRYSTAL_CELL.get())){stored=Math.min(capacity(),stored+1000);setChanged();}
-        if(countdown<=0)return;
+        if(countdown<=0){if(litTier>0)lightPylons(server,litTier,0);return;}
         var group=passengers();var present=group.stream().map(ServerPlayer::getUUID).collect(java.util.stream.Collectors.toSet());
         int tier=formedTier();
         if(tier==0||group.size()>SurvivalGateLayout.passengers(tier)+(has("capacity_coil")?2:0)||!present.equals(expected)||(!returnPlatform&&(selected<0||selected>=destinations().size()||!canReach(destinations().get(selected))))){cancel();return;}
@@ -93,25 +121,58 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
             for(var part:SurvivalGateLayout.parts(tier))if(part.block()==BlockInit.GATE_PYLON.get()&&part.offset().getY()==tier+1){BlockPos at=c.offset(SurvivalGateLayout.rotate(part.offset(),facing()));server.sendParticles(ParticleTypes.END_ROD,at.getX()+.5,at.getY()+1.05,at.getZ()+.5,2,.12,.08,.12,.005);}
             server.sendParticles(ParticleTypes.END_ROD,c.getX()+.5,c.getY()+1.2,c.getZ()+.5,4,radius,.1,radius,.04);
         }
-        if(--countdown==0){if(ready.containsAll(expected))launch(group);else for(var p:group)p.displayClientMessage(Component.literal("Launch cancelled: not everyone confirmed Ready."),false);ready.clear();expected=Set.of();setChanged();}
+        int elapsed=100-countdown;Vec3 core=new Vec3(c.getX()+.5,c.getY()+1.6,c.getZ()+.5);
+        // Lock-on: pylon columns light one at a time; particle streams spiral from the lit tops into the core.
+        var columns=pylonColumns(tier);int lit=Math.min(columns.size(),1+elapsed*columns.size()/RIFT_AT);
+        if(lit!=litColumns||litTier!=tier)lightPylons(server,tier,lit);
+        if(elapsed%2==0)for(int i=0;i<lit;i++){
+            var column=columns.get(i);Vec3 from=Vec3.atCenterOf(column.get(column.size()-1)).add(0,.6,0);
+            for(int s=0;s<4;s++){double f=((elapsed/2+s*3)%12)/12.0,swirl=phase*2+i+f*Math.PI*2,r=.3*(1-f);Vec3 at=from.lerp(core,f);
+                server.sendParticles(ParticleTypes.END_ROD,at.x+Math.cos(swirl)*r,at.y,at.z+Math.sin(swirl)*r,1,0,0,0,0);}
+        }
+        // Rift: a void crack opens in the core, across the gate's facing.
+        if(elapsed==RIFT_AT)server.playSound(null,c,SoundEvents.RESPAWN_ANCHOR_CHARGE,SoundSource.BLOCKS,1.2F,.6F);
+        if(elapsed>=RIFT_AT&&elapsed%2==0){
+            double open=Math.min(1,(elapsed-RIFT_AT)/(double)(LIFT_AT-RIFT_AT));Direction side=facing().getClockWise();
+            for(int k=-4;k<=4;k++){double jag=Math.sin(k*2.3+elapsed*.05)*.2*open;server.sendParticles(RIFT,core.x+side.getStepX()*jag,core.y+k*.22*open,core.z+side.getStepZ()*jag,1,.02,.02,.02,0);}
+            server.sendParticles(ParticleTypes.REVERSE_PORTAL,core.x,core.y,core.z,3,.15*open,.5*open,.15*open,.02);
+        }
+        // Lift: once everyone is Ready, passengers float up while their clients stretch the view and white out.
+        if(elapsed>=LIFT_AT&&!lifting&&ready.containsAll(expected)){
+            lifting=true;server.playSound(null,c,SoundEvents.BEACON_ACTIVATE,SoundSource.BLOCKS,1.0F,1.4F);
+            for(var p:group){p.addEffect(new MobEffectInstance(MobEffects.LEVITATION,countdown+5,0,false,false));PacketDistributor.sendToPlayer(p,new GateLaunchSync.Lift(countdown));}
+        }
+        if(--countdown==0){
+            if(ready.containsAll(expected)){if(!launch(group)&&lifting)stopLift(server);}
+            else{if(lifting)stopLift(server);for(var p:group)p.displayClientMessage(Component.literal("Launch cancelled: not everyone confirmed Ready."),false);}
+            lifting=false;ready.clear();expected=Set.of();setChanged();
+        }
     }
-    private void launch(List<ServerPlayer> group){
-        if(!(level instanceof ServerLevel source)||group.isEmpty())return;
-        int tier=formedTier();if(tier==0||group.size()>SurvivalGateLayout.passengers(tier)+(has("capacity_coil")?2:0))return;
-        if(!returnPlatform&&(selected<0||selected>=destinations().size()||!canReach(destinations().get(selected))))return;
-        int fee=cost(group.size());if(stored<fee)return;
+    private boolean launch(List<ServerPlayer> group){
+        if(!(level instanceof ServerLevel source)||group.isEmpty())return false;
+        int tier=formedTier();if(tier==0||group.size()>SurvivalGateLayout.passengers(tier)+(has("capacity_coil")?2:0))return false;
+        if(!returnPlatform&&(selected<0||selected>=destinations().size()||!canReach(destinations().get(selected))))return false;
+        int fee=cost(group.size());if(stored<fee)return false;
         String id=returnPlatform?homeDimension:destinations().get(selected);
-        ServerLevel target=PlanetTestHub.planet(source.getServer(),id);if(target==null)return;
+        ServerLevel target=PlanetTestHub.planet(source.getServer(),id);if(target==null)return false;
         SurvivalGateBlockEntity landing;
-        if(returnPlatform){target.getChunkAt(homeController);if(!(target.getBlockEntity(homeController) instanceof SurvivalGateBlockEntity home))return;SurvivalGateLayout.loadFootprint(target,homeController,home.facing());if(home.formedTier()==0)return;landing=home;}
+        if(returnPlatform){target.getChunkAt(homeController);if(!(target.getBlockEntity(homeController) instanceof SurvivalGateBlockEntity home))return false;SurvivalGateLayout.loadFootprint(target,homeController,home.facing());if(home.formedTier()==0)return false;landing=home;}
         else landing=prepareArrival(target,this);
         BlockPos c=landing.centre();var pets=source.getEntitiesOfClass(Mob.class,pad(),mob->(mob instanceof TamableAnimal tame&&tame.isTame()&&group.stream().anyMatch(p->p.getUUID().equals(tame.getOwnerUUID())))||(mob.isLeashed()&&mob.getLeashHolder() instanceof ServerPlayer p&&group.contains(p)));
         // All validation and destination preparation completes before charging or moving anything.
         stored-=fee;setChanged();
-        for(Mob pet:pets){pet.dropLeash(true,false);pet.changeDimension(transition(target,c));}
-        for(ServerPlayer player:group){bindHome(player);var moved=player.changeDimension(transition(target,c));if(moved instanceof LivingEntity living)living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false));}
+        var arrive=arrival(target,c);
+        for(Mob pet:pets){pet.dropLeash(true,false);var moved=pet.changeDimension(arrive);if(moved instanceof LivingEntity living)living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false));}
+        for(ServerPlayer player:group){bindHome(player);player.removeEffect(MobEffects.LEVITATION);GateLaunchSync.sendDestination(player,target);var moved=player.changeDimension(arrive);if(moved instanceof LivingEntity living)living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false));}
         target.sendParticles(ParticleTypes.FLASH,c.getX()+.5,c.getY()+1.5,c.getZ()+.5,1,0,0,0,0);
         target.sendParticles(ParticleTypes.REVERSE_PORTAL,c.getX()+.5,c.getY()+1.5,c.getZ()+.5,24,1,.4,1,.04);
+        return true;
+    }
+    /** Arrive up to four blocks above the pad, as high as the headroom allows, then drift down with Slow Falling. */
+    public static DimensionTransition arrival(ServerLevel target,BlockPos centre){
+        int clear=0;while(clear<5&&target.getBlockState(centre.above(clear+1)).isAir())clear++;
+        int lift=Math.max(1,Math.min(4,clear-1));
+        return new DimensionTransition(target,new Vec3(centre.getX()+.5,centre.getY()+lift,centre.getZ()+.5),Vec3.ZERO,180,0,DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET));
     }
     public void bindHome(ServerPlayer player){if(returnPlatform)return;var tag=player.getPersistentData().getCompound("zerog_home_gate");tag.putString("dimension",level.dimension().location().toString());tag.putLong("controller",worldPosition.asLong());player.getPersistentData().put("zerog_home_gate",tag);}
     public static DimensionTransition transition(ServerLevel target,BlockPos centre){return new DimensionTransition(target,new Vec3(centre.getX()+.5,centre.getY()+1,centre.getZ()+.5),Vec3.ZERO,180,0,DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET));}
@@ -127,6 +188,6 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         target.setBlock(c.offset(0,-2,0),BlockInit.CRYSTAL_CELL.get().defaultBlockState(),3);
         var landing=(SurvivalGateBlockEntity)target.getBlockEntity(controller);landing.returnPlatform=true;landing.owner=home.owner;landing.homeController=home.worldPosition;landing.homeDimension=home.level.dimension().location().toString();landing.stored=0;landing.setChanged();return landing;
     }
-    @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider registries){super.saveAdditional(tag,registries);tag.putInt("FE",stored);tag.putInt("selected",selected);if(owner!=null)tag.putUUID("owner",owner);tag.putBoolean("return",returnPlatform);tag.putString("homeDimension",homeDimension);tag.putLong("homeController",homeController.asLong());tag.put("upgrades",upgrades.serializeNBT(registries));}
-    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider registries){super.loadAdditional(tag,registries);stored=Math.max(0,Math.min(200000000,tag.getInt("FE")));selected=tag.getInt("selected");owner=tag.hasUUID("owner")?tag.getUUID("owner"):null;returnPlatform=tag.getBoolean("return");homeDimension=tag.getString("homeDimension");homeController=BlockPos.of(tag.getLong("homeController"));upgrades.deserializeNBT(registries,tag.getCompound("upgrades"));cancel();}
+    @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider registries){super.saveAdditional(tag,registries);tag.putInt("FE",stored);tag.putInt("selected",selected);if(owner!=null)tag.putUUID("owner",owner);tag.putBoolean("return",returnPlatform);tag.putString("homeDimension",homeDimension);tag.putLong("homeController",homeController.asLong());tag.put("upgrades",upgrades.serializeNBT(registries));tag.putInt("litTier",litTier);}
+    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider registries){super.loadAdditional(tag,registries);stored=Math.max(0,Math.min(200000000,tag.getInt("FE")));selected=tag.getInt("selected");owner=tag.hasUUID("owner")?tag.getUUID("owner"):null;returnPlatform=tag.getBoolean("return");homeDimension=tag.getString("homeDimension");homeController=BlockPos.of(tag.getLong("homeController"));upgrades.deserializeNBT(registries,tag.getCompound("upgrades"));litTier=Math.max(0,Math.min(6,tag.getInt("litTier")));cancel();}
 }
