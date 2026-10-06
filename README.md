@@ -1,5 +1,25 @@
 # ZeroG Tweaks
 
+## Rustborn shrine checkpoint — 7 October 2026
+
+Still **1.0.12-dev**. [Lore workflow and outstanding work](docs/sol-lore-gap-workflow-2026-10-07.md) · [Delivery record](docs/sol-shrine-delivery-2026-10-07.json) · [Installed shrine JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-sol-shrine-20261007.jar).
+
+All four newly generated Rustborn settlement layouts now include one hand-cut
+Aresite core on a low Martian brick pedestal. The standalone large shrine and
+its loot remain unchanged. Original artwork and previous galleries are preserved.
+Client visual approval remains pending; **Codex localization is not completed**.
+
+At the owner's explicit request, the Cardinal Hub save's34 planetary terrain
+folders were reset without backups, and return-gate preparation was reset. The
+Overworld hub, inventories, Nether and End were preserved. Planets and landing
+gates regenerate when the world next loads; this was not an offline pre-generation.
+
+The [TODO ledger](docs/storage-and-machinery-todo.json) retains Compact/Void cards,
+remaining machine controls, transport, Codex research/biology and planetary audits.
+Other machines' recipe/combination adapters are deferred until later; exact
+survival costs remain last. Meteor Maw impact wrecks remain pending, with Star Map
+Fragments as interim lore carriers and **no Broken Console mob loot**.
+
 ## Processor cards and contributor reconciliation — 7 October 2026
 
 Still **1.0.12-dev**. [Card guide](docs/processor-upgrade-cards-2026-10-07.md) · [82-test delivery receipt](docs/processor-cards-delivery-2026-10-07.json) · [Matching JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-processor-cards-20261007.jar).

@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-06T23:40:19.360335+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev-sol-shrine-20261007.jar",
+  "sha256": "1ec1545cc4348dea623fd39f6f5b71338c59852f118e16a6748e7c262ba1eeb2",
+  "bytes": 27018082,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261006-233643-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": true,
+  "world_regeneration": false,
+  "planetary_reset": {
+    "owner_authorized": true,
+    "save": "ZeroG_Planet_Showcase_1_0_12_Cardinal_Hub_Seed0",
+    "dimension_folders_removed": 34,
+    "terrain_backup_created": false,
+    "overworld_hub_and_inventories_preserved": true,
+    "nether_and_end_preserved": true,
+    "planetary_return_gate_preparation_reset": true,
+    "regeneration": "On next world load; not yet pregenerated or client-approved"
+  },
+  "runtime_commit": "e21c82be",
+  "design_commit": "216a5659",
+  "codex_localization": "Pending; initial test world lacked Sol dimensions. No successful arrival assertion or translation change claimed.",
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261006_233803_runWorkflowTests.log",
+      "sha256": "a36f21451170a24bc2e2fff7b5f370b96bb73ebfb789dcb73266ed5f67a2c470",
+      "required_passes": 1,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "sol-shrine-assets-20261007.json",
+      "sha256": "a3274e108471f6cf28001f6edfd03e070d3855206c36afa400b2f4c743cbb2dd",
+      "checked": {
+        "models": 7949,
+        "blockstates": 1522,
+        "pngs": 3932,
+        "animation_metadata": 118,
+        "source_byte_bindings": 0
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261006_233504_clean.log",
+    "sha256": "b249cbac03b7a4d9569d309dbfe3b3beb5d93e1ee0a52ecde3ba4cc46370ee81",
+    "clean_production": true
+  },
+  "remaining": [
+    "alloy-forge-menu-input-catalyst-report",
+    "machine-upgrade-cards-six-tiers",
+    "vanilla-worn-armor",
+    "orbital-comb-style",
+    "alveary-output-gui",
+    "refinery-controls",
+    "large-network-and-nearest-routing",
+    "jelly-fluid-buckets",
+    "planet-hive-discovery",
+    "alveary-held-item-and-errors",
+    "genetics-held-item-bucket-route",
+    "recipe-discovery-guide",
+    "blueprint-interaction",
+    "client-acceptance",
+    "dynamic-tank-fluid-renderer",
+    "chest-lid-animation",
+    "existing-machine-purpose-audit",
+    "legacy-addon-machine-dispatch",
+    "transport-family-gui",
+    "per-machine-upgrade-contracts",
+    "advanced-alveary-biology",
+    "external-claim-team-adapters",
+    "frost-yak-grazing",
+    "remaining-mob-model-mechanics",
+    "duplicate-click-gui-routes",
+    "alveary-five-port-base",
+    "transport-cell-native-art",
+    "all-machine-side-configuration",
+    "power-directional-pulses",
+    "liquid-wave-visuals",
+    "holographic-diagnostics",
+    "planet-ecology-broad-audit",
+    "galaxy-tracker-reconciliation",
+    "sol-codex-localized-pages"
+  ],
+  "guide": "storage-and-machinery-workflow.md",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 31,
+  "todo_sha256": "b3e1aef87882cd1b4a17e5622a73b93f04cadf2d6ddb7f740058986d7feaa4e0"
+}

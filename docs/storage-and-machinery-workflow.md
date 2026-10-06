@@ -10,6 +10,14 @@ those will be reviewed hardest-to-easiest against the storyline after inspection
 
 ## Current TODO reconciliation — 7 October
 
+The [Rustborn shrine checkpoint](sol-lore-gap-workflow-2026-10-07.md) adds one
+Aresite core to all four newly generated village layouts. Codex localization stays
+pending until its planetary-context item test works. Other machine recipe adapters
+are deferred by the owner, with exact survival costs last. The owner separately
+authorized resetting34 Cardinal Hub planetary terrain folders without backups;
+the Overworld hub and player inventories remain preserved, and generation resumes
+on next load. See the checkpoint's delivery record for the installed JAR checksum.
+
 The [independent processor-card batch](processor-upgrade-cards-2026-10-07.md)
 uses the approved six-tier Acceleration/Energy Coil bounds. Compact bulk storage,
 Void filtering and survival costs remain separate. The [contributor reconciliation](contributor-reconciliation-2026-10-07.md)
