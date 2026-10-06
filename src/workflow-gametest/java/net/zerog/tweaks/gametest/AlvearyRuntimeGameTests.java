@@ -40,13 +40,35 @@ public final class AlvearyRuntimeGameTests {
         try {
             var origin=new BlockPos(4,1,4);
             for(int y=0;y<5;y++)for(int x=0;x<5;x++)for(int z=0;z<5;z++){var p=origin.offset(-x,y,-z);boolean core=(y==1||y==2)&&x>=1&&x<=3&&z>=1&&z<=3;String part=y==4?"tier3_roof":x==0&&y==0&&z==0?"tier3_controller":x==1&&y==0&&z==0?"tier3_energy_port":"tier3_casing";h.setBlock(p,core?net.minecraft.world.level.block.Blocks.AIR:BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("aeroapiary",part)));}
+            h.setBlock(new BlockPos(0,1,4),BuiltInRegistries.BLOCK.get(ResourceLocation.parse("aeroapiary:tier3_honey_port")));
             var be=h.getBlockEntity(origin);be.getClass().getMethod("updateFormation").invoke(be);h.assertTrue(AlvearyRuntime.formed(be),"Real shell not formed: "+be.getClass().getMethod("getLastStructureError").invoke(be));
             String pb="cy.jdkdigital.productivebees.";var bee=(net.minecraft.world.entity.animal.Bee)BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.parse("productivebees:configurable_bee")).create(h.getLevel());bee.getClass().getMethod("setBeeType",String.class).invoke(bee,"productivebees:iron");
             Class<?> attr=Class.forName(pb+"util.GeneAttribute"),value=Class.forName(pb+"util.GeneValue");var set=bee.getClass().getMethod("setAttributeValue",attr,value);String[] values={"PRODUCTIVITY_HIGH","ENDURANCE_STRONG","TEMPER_PASSIVE","BEHAVIOR_DIURNAL","WEATHER_TOLERANCE_ANY"};for(int i=0;i<5;i++)set.invoke(bee,attr.getField(ProductiveBeeGenes.GENES[i].toUpperCase(java.util.Locale.ROOT)).get(null),value.getField(values[i]).get(null));
             var cage=new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("productivebees:bee_cage")));Class.forName(pb+"common.item.BeeCage").getMethod("captureEntity",net.minecraft.world.entity.animal.Bee.class,ItemStack.class).invoke(null,bee,cage);var expected=ProductiveBeeProduction.outputs(cage,h.getLevel());h.assertTrue(!expected.isEmpty(),"Installed iron bee recipe not resolved");
             GeneticsRuntime.inventory(be).setStackInSlot(0,cage);AlvearyRuntime.energy(be).receiveEnergy(100000,false);h.getLevel().setDayTime(1000);for(int i=0;i<AlvearyRuntime.cycle(be);i++)AlvearyRuntime.tick(be);
             var inv=GeneticsRuntime.inventory(be);boolean matching=false;for(var product:expected)if(product.chance()==1){int count=0;for(int i=AlvearyRuntime.outputStart(be);i<inv.getSlots();i++)if(ItemStack.isSameItemSameComponents(inv.getStackInSlot(i),product.item()))count+=inv.getStackInSlot(i).getCount();h.assertTrue(count>=ProductiveBeeProduction.productiveQuantity(product.min(),product.productivity())&&count<=product.maximum().getCount(),"PB gene output quantity differs from authoritative hive rule: "+count);matching=true;}h.assertTrue(matching,"Real PB component-bearing recipe output missing");h.assertTrue(ProductiveBeeProduction.productiveQuantity(1,2)==3&&ProductiveBeeProduction.productiveQuantity(2,2)==6&&ProductiveBeeProduction.productiveQuantity(2,0)==2,"PB single/multiple output arithmetic changed");
-            var honey=BuiltInRegistries.FLUID.get(ResourceLocation.parse("zerog_tweaks:moon_honey"));new AlvearyFluids(be).fill(new FluidStack(honey,750),IFluidHandler.FluidAction.EXECUTE);var restored=BlockEntity.loadStatic(be.getBlockPos(),be.getBlockState(),be.saveWithFullMetadata(h.getLevel().registryAccess()),h.getLevel().registryAccess());restored.setLevel(h.getLevel());h.assertTrue(new AlvearyFluids(restored).getFluidInTank(0).getAmount()==750,"Honey tank lost on save/reload");h.succeed();
+            var honey=BuiltInRegistries.FLUID.get(ResourceLocation.parse("zerog_tweaks:moon_honey"));
+            var port=h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.BLOCK,h.absolutePos(new BlockPos(0,1,4)),null);
+            h.assertTrue(port!=null,"Production honey port missing");
+            var preview=port.drain(250,IFluidHandler.FluidAction.SIMULATE);
+            h.assertTrue(preview.getAmount()==250&&preview.getFluid()==honey,"Completed cycle did not supply250mB Moon Honey alongside its combs");
+            h.assertTrue(new AlvearyFluids(be).getFluidInTank(0).getAmount()==250,"Port simulation consumed produced honey");
+            h.assertTrue(port.drain(250,IFluidHandler.FluidAction.EXECUTE).getAmount()==250&&port.drain(1,IFluidHandler.FluidAction.SIMULATE).isEmpty(),"Production honey extraction duplicated/lost fluid");
+            var fluids=new AlvearyFluids(be);
+            h.assertTrue(fluids.fill(new FluidStack(honey,8000),IFluidHandler.FluidAction.EXECUTE)==8000,"Full-tank fixture failed");
+            int energyBefore=AlvearyRuntime.energy(be).getEnergyStored();
+            int progressBefore=AlvearyRuntime.state(be).getInt("progress");
+            for(int i=0;i<10;i++)AlvearyRuntime.tick(be);
+            h.assertTrue(AlvearyRuntime.status(be)==13&&AlvearyRuntime.energy(be).getEnergyStored()==energyBefore&&AlvearyRuntime.state(be).getInt("progress")==progressBefore,"Full honey tank consumed energy or cycle progress");
+            port.drain(8000,IFluidHandler.FluidAction.EXECUTE);
+            var marsHoney=BuiltInRegistries.FLUID.get(ResourceLocation.parse("zerog_tweaks:mars_honey"));
+            h.assertTrue(fluids.fill(new FluidStack(marsHoney,250),IFluidHandler.FluidAction.EXECUTE)==250,"Different-honey fixture failed");
+            AlvearyRuntime.tick(be);
+            h.assertTrue(AlvearyRuntime.status(be)==13&&AlvearyRuntime.energy(be).getEnergyStored()==energyBefore,"Different honey was mixed or charged energy");
+            port.drain(250,IFluidHandler.FluidAction.EXECUTE);
+            AlvearyRuntime.tick(be);
+            h.assertTrue(AlvearyRuntime.energy(be).getEnergyStored()==energyBefore-60&&AlvearyRuntime.state(be).getInt("progress")==progressBefore+1,"Drained tank did not resume paid processing");
+            fluids.fill(new FluidStack(honey,750),IFluidHandler.FluidAction.EXECUTE);var restored=BlockEntity.loadStatic(be.getBlockPos(),be.getBlockState(),be.saveWithFullMetadata(h.getLevel().registryAccess()),h.getLevel().registryAccess());restored.setLevel(h.getLevel());h.assertTrue(new AlvearyFluids(restored).getFluidInTank(0).getAmount()==750,"Honey tank lost on save/reload");h.succeed();
         }catch(ReflectiveOperationException ex){throw new RuntimeException(ex);}
     }
     @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)

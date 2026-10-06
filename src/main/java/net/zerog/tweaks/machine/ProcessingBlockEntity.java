@@ -18,6 +18,9 @@ public class ProcessingBlockEntity extends BlockEntity {
     public int stored, progress, paid;
     private String job="", configuration="";
     public final ItemStackHandler inventory;
+    private final boolean[] disabledFaces=new boolean[6];
+    public boolean faceDisabled(Direction side){return side!=null&&disabledFaces[side.ordinal()];}
+    public void setFaceDisabled(Direction side,boolean disabled){disabledFaces[side.ordinal()]=disabled;setChanged();if(level!=null)level.invalidateCapabilities(worldPosition);}
     public ProcessingBlockEntity(BlockPos pos,BlockState state){
         this(ProcessingRegistry.TYPE.get(),pos,state,null);
     }
@@ -68,9 +71,9 @@ public class ProcessingBlockEntity extends BlockEntity {
         be.setChanged();
     }
     private void clearJob(){if(progress!=0||paid!=0){progress=0;paid=0;setChanged();}job="";configuration="";}
-    public IEnergyStorage energyInput(Direction side){return new IEnergyStorage(){public int receiveEnergy(int n,boolean sim){int a=Math.min(Math.max(0,n),1_000_000-stored);if(!sim&&a>0){stored+=a;setChanged();}return a;}public int extractEnergy(int n,boolean sim){return 0;}public int getEnergyStored(){return stored;}public int getMaxEnergyStored(){return 1_000_000;}public boolean canExtract(){return false;}public boolean canReceive(){return true;}};}
+    public IEnergyStorage energyInput(Direction side){return new IEnergyStorage(){public int receiveEnergy(int n,boolean sim){if(faceDisabled(side)||isRemoved())return 0;int a=Math.min(Math.max(0,n),1_000_000-stored);if(!sim&&a>0){stored+=a;setChanged();}return a;}public int extractEnergy(int n,boolean sim){return 0;}public int getEnergyStored(){return stored;}public int getMaxEnergyStored(){return 1_000_000;}public boolean canExtract(){return false;}public boolean canReceive(){return !faceDisabled(side)&&!isRemoved();}};}
     /** Top = reagents, back = catalyst, bottom/front = output, other sides = reagents. No remote upgrades. */
     public IItemHandler itemsFor(Direction side){Direction front=getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);int start=side==Direction.DOWN||side==front?kind.output():side==front.getOpposite()?kind.catalyst():0;int count=start==kind.output()?kind.outputCount:start==kind.catalyst()?1:kind.inputCount;return new IItemHandler(){public int getSlots(){return count;}public ItemStack getStackInSlot(int n){return inventory.getStackInSlot(start+n);}public ItemStack insertItem(int n,ItemStack s,boolean sim){return start==kind.output()?s:inventory.insertItem(start+n,s,sim);}public ItemStack extractItem(int n,int amount,boolean sim){return start==kind.output()?inventory.extractItem(start+n,amount,sim):ItemStack.EMPTY;}public int getSlotLimit(int n){return inventory.getSlotLimit(start+n);}public boolean isItemValid(int n,ItemStack s){return start!=kind.output()&&inventory.isItemValid(start+n,s);}};}
-    @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.saveAdditional(tag,lookup);tag.put("Inventory",inventory.serializeNBT(lookup));tag.putInt("Energy",stored);tag.putInt("Progress",progress);tag.putInt("Paid",paid);tag.putString("Job",job);tag.putString("Configuration",configuration);}
-    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);inventory.deserializeNBT(lookup,tag.getCompound("Inventory"));stored=Math.clamp(tag.getInt("Energy"),0,1_000_000);progress=Math.clamp(tag.getInt("Progress"),0,72_000);paid=Math.clamp(tag.getInt("Paid"),0,10_000_000);job=tag.getString("Job");configuration=tag.getString("Configuration");}
+    @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.saveAdditional(tag,lookup);int mask=0;for(int i=0;i<6;i++)if(disabledFaces[i])mask|=1<<i;tag.putInt("DisabledFaces",mask);tag.put("Inventory",inventory.serializeNBT(lookup));tag.putInt("Energy",stored);tag.putInt("Progress",progress);tag.putInt("Paid",paid);tag.putString("Job",job);tag.putString("Configuration",configuration);}
+    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);for(int i=0;i<6;i++)disabledFaces[i]=(tag.getInt("DisabledFaces")&(1<<i))!=0;inventory.deserializeNBT(lookup,tag.getCompound("Inventory"));stored=Math.clamp(tag.getInt("Energy"),0,1_000_000);progress=Math.clamp(tag.getInt("Progress"),0,72_000);paid=Math.clamp(tag.getInt("Paid"),0,10_000_000);job=tag.getString("Job");configuration=tag.getString("Configuration");}
 }

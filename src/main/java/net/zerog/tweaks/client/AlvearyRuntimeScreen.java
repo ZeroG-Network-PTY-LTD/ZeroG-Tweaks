@@ -32,9 +32,11 @@ public final class AlvearyRuntimeScreen extends AbstractContainerScreen<AlvearyM
         sprite(g,80,82,10,50,115,31);g.drawString(font,"x"+String.format(java.util.Locale.ROOT,"%.2f",menu.value(8)/100.0),leftPos+191,topPos+102,0xff554321,false);g.drawString(font,"API",leftPos+191,topPos+115,0xff554321,false);g.drawString(font,"--",leftPos+191,topPos+128,0xff554321,false);g.drawString(font,"--",leftPos+191,topPos+141,0xff554321,false);
     }
     @Override protected void renderLabels(GuiGraphics g,int x,int y){g.drawString(font,"Alveary T"+menu.value(0),8,5,0x404040,false);g.drawString(font,font.plainSubstrByWidth(status(),100),142,5,0x404040,false);g.drawString(font,"Inventory",48,158,0x404040,false);}
-    private String status(){return switch(menu.value(1)){case 12->"Structure incomplete";case 11->"Needs FE";case 10->"Outputs full";case 8->"Resting";case 9->"Rain";case 1->"Missing supported bee / recipe";default->"Working";};}
+    private String status(){return switch(menu.value(1)){case 13->"Honey tank blocked";case 12->"Structure incomplete";case 11->"Needs FE";case 10->"Outputs full";case 8->"Resting";case 9->"Rain";case 1->"Missing supported bee / recipe";default->"Working";};}
     @Override public void render(GuiGraphics g,int x,int y,float partial){super.render(g,x,y,partial);renderTooltip(g,x,y);
         var formation=net.zerog.tweaks.event.AlvearyMenuSync.clientState;
+        if(isHovering(142,3,106,12,x,y)&&menu.value(1)==13)
+            g.renderComponentTooltip(font,List.of(Component.literal("Honey tank blocked"),Component.literal("Drain the tank: each cycle needs250mB free for "+AlvearyRuntime.cycleHoney(menu.machine).getHoverName().getString()+". Different honey types cannot mix.")),x,y);
         if(isHovering(142,3,106,12,x,y)&&menu.value(1)==12){
             String reason=formation.menu()==menu.containerId&&!formation.error().isBlank()?formation.error():"Waiting for structure diagnostics";
             g.renderComponentTooltip(font,List.of(Component.literal("Structure incomplete"),Component.literal(reason)),x,y);
