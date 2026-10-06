@@ -261,5 +261,21 @@ and never merge Design/Docs histories into code. Carry approved runtime changes
 and their matching source-generator corrections on their owning branches.
 If a cited commit is not available from the verified origin or local object store,
 record it as pending with its hash; do not fabricate its changes or silently restore
-historical armour shells. The Moonsteel corrections and proposed 3D-armour restore
-are currently deferred by the user pending accessible commits and armour approval.
+historical armour shells. Reconciliation on 2026-10-07 pulled the verified
+95615d89/26b0ae2a Moonsteel corrections and ec74b61c/614864fa four-Sol-set shell
+restoration through d50eaade; the previous accessibility deferral is superseded.
+Keep the sixteen other sets vanilla-fit. Client visual approval remains separate.
+
+## Processor card migration — 7 October
+
+Four native processors accept Acceleration and Energy Coil cards tiers1–6, one
+per family, with server-configurable caps2.5x speed/30% total-job FE saving.
+Physical upgrade save indices are unchanged: acceleration first, legacy cooling
+take-out only second, Energy Coil third. New casing/Cryo/dust upgrade insertion is
+rejected; saved ingredients remain recoverable and retain their old effects only
+while no card is installed. Do not compound legacy bonuses or refinery yield with
+cards. Config/card changes reset paid jobs conservatively; unchanged jobs reload.
+Compact capacities212/360/508/656/804/952 are approved requirements, not implemented
+storage. Never enable them by sending oversized ItemStacks. Void filters and exact
+survival crafting costs remain pending. Card icons temporarily reuse existing
+original filter-card artwork, not a completed unique-art rollout.

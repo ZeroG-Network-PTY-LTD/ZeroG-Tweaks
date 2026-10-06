@@ -25,13 +25,15 @@ public final class ProcessingRecipePanel {
             text(rows,"Installed upgrades");
             for(int i=0;i<3;i++){
                 var stack=machine.inventory.getStackInSlot(machine.kind.upgrades()+i);
-                rows.add(new Row((i==0?"Casing":i==1?"Cooling":"Efficiency")+": "+(stack.isEmpty()?"none":stack.getHoverName().getString()),stack.isEmpty()?List.of():List.of(stack.copy()),List.of()));
+                rows.add(new Row((i==0?"Acceleration":i==1?"Legacy recovery":"Energy Coil")+": "+(stack.isEmpty()?"none":stack.getHoverName().getString()),stack.isEmpty()?List.of():List.of(stack.copy()),List.of()));
             }
-            text(rows,"Cyrrium / Tectium");text(rows,"Wraithsteel / Astrium");text(rows,"Casing: +0.25x per tier");text(rows,"Casing: -5% FE per tier");
-            text(rows,"Cooling: Cryo Core only");text(rows,"Cryo Core: +0.5x speed");
-            text(rows,"Efficiency dust tiers:");text(rows,"Pulsar / Tremor");text(rows,"Spectral / Fusion");text(rows,"Dust: -5% FE per tier");
-            text(rows,"Max 2.5x / 40% saving");text(rows,"One item per socket");
-            text(rows,"New upgrade cards pending");text(rows,"No Void card installed");return rows;
+            text(rows,"Cards: tiers 1 through 6");text(rows,"One card per family");
+            text(rows,"Speed now: "+machine.speedPercent()/100.0+"x");
+            text(rows,"Acceleration cap: 2.5x");text(rows,"Coil saving cap: 30%");
+            text(rows,"Server-configured effects");
+            text(rows,machine.usesCards()?"Legacy bonuses inactive":"Legacy bonuses preserved");
+            text(rows,"Old items remain recoverable");text(rows,"No new casing/dust installs");
+            text(rows,"Compact / Void pending");text(rows,"Crafting costs deferred");return rows;
         }
         var pages=ProcessingRecipeCatalogue.pages(machine,selected);
         if(pages.isEmpty()){text(rows,"No registered recipes");return rows;}

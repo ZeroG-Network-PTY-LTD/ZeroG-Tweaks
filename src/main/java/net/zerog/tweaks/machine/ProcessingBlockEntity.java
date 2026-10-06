@@ -35,7 +35,7 @@ public class ProcessingBlockEntity extends BlockEntity {
         inventory=new ItemStackHandler(kind.slots()){
             @Override public int getSlotLimit(int slot){return slot>=kind.upgrades()?1:64;}
             @Override public boolean isItemValid(int slot,ItemStack stack){
-                if(slot>=kind.upgrades())return upgradeValid(slot-kind.upgrades(),stack);
+                if(slot>=kind.upgrades())return cardValid(slot-kind.upgrades(),stack);
                 if(slot>=kind.output())return false;
                 if(level==null)return false;
                 return level.getRecipeManager().getAllRecipesFor(ProcessingRegistry.TYPES_BY_KIND.get(kind).get()).stream().anyMatch(h->slot==kind.catalyst()?h.value().catalyst().map(c->c.ingredient().test(stack)).orElse(false):h.value().inputs().stream().anyMatch(c->c.ingredient().test(stack)));
@@ -48,17 +48,22 @@ public class ProcessingBlockEntity extends BlockEntity {
     private static final List<String> DUSTS=List.of("pulsar_dust","tremor_dust","spectral_dust","fusion_dust");
     public boolean upgradeValid(int slot,ItemStack s){String v=id(s);return switch(slot){case 0->CASINGS.stream().anyMatch(x->v.equals("zerog_tweaks:"+x));case 1->v.equals("zerog_tweaks:cryo_core");case 2->DUSTS.stream().anyMatch(x->v.equals("zerog_tweaks:"+x));default->false;};}
     public int casingTier(){return Math.max(0,CASINGS.indexOf(id(inventory.getStackInSlot(kind.upgrades())).replace("zerog_tweaks:",""))+1);}
-    public int duration(ProcessingRecipe r){return Math.max(1,(r.time()*4+speedQuarter()-1)/speedQuarter());}
-    public int speedQuarter(){return 4+casingTier()+(upgradeValid(1,inventory.getStackInSlot(kind.upgrades()+1))?2:0);}
-    public int energyCost(ProcessingRecipe r){int dust=Math.max(0,DUSTS.indexOf(id(inventory.getStackInSlot(kind.upgrades()+2)).replace("zerog_tweaks:",""))+1);return Math.max(1,(int)(((long)r.energy()*(100-5*casingTier()-5*dust)+99)/100));}
+    public boolean cardValid(int slot,ItemStack stack){return slot==0?MachineUpgradeCards.tier(stack,MachineUpgradeCards.Family.ACCELERATION)>0:slot==2&&MachineUpgradeCards.tier(stack,MachineUpgradeCards.Family.ENERGY_COIL)>0;}
+    public int accelerationTier(){return MachineUpgradeCards.tier(inventory.getStackInSlot(kind.upgrades()),MachineUpgradeCards.Family.ACCELERATION);}
+    public int coilTier(){return MachineUpgradeCards.tier(inventory.getStackInSlot(kind.upgrades()+2),MachineUpgradeCards.Family.ENERGY_COIL);}
+    public boolean usesCards(){return accelerationTier()>0||coilTier()>0;}
+    public int speedPercent(){return usesCards()?100+Math.min(150,accelerationTier()*MachineUpgradeConfig.SPEED_PERCENT_PER_TIER.get()):speedQuarter()*25;}
+    public int duration(ProcessingRecipe r){return Math.max(1,(int)(((long)r.time()*100+speedPercent()-1)/speedPercent()));}
+    public int speedQuarter(){return usesCards()?(100+Math.min(150,accelerationTier()*MachineUpgradeConfig.SPEED_PERCENT_PER_TIER.get()))/25:4+casingTier()+(upgradeValid(1,inventory.getStackInSlot(kind.upgrades()+1))?2:0);}
+    public int energyCost(ProcessingRecipe r){int dust=Math.max(0,DUSTS.indexOf(id(inventory.getStackInSlot(kind.upgrades()+2)).replace("zerog_tweaks:",""))+1);int saving=usesCards()?Math.min(30,coilTier()*MachineUpgradeConfig.ENERGY_SAVING_PER_TIER.get()):5*casingTier()+5*dust;return Math.max(1,(int)(((long)r.energy()*(100-saving)+99)/100));}
     public ProcessingRecipe.Input input(){var in=new ArrayList<ItemStack>();for(int i=0;i<kind.inputCount;i++)in.add(inventory.getStackInSlot(i));return new ProcessingRecipe.Input(in,inventory.getStackInSlot(kind.catalyst()));}
-    public ItemStack output(ProcessingRecipe r,int index){var out=r.outputs().get(index).stack().copy();if(kind==ProcessingRegistry.Kind.REFINING&&index==0&&casingTier()>0&&r.upgradedCount()>out.getCount())out.setCount(Math.min(out.getMaxStackSize(),r.upgradedCount()));return out;}
+    public ItemStack output(ProcessingRecipe r,int index){var out=r.outputs().get(index).stack().copy();if(!usesCards()&&kind==ProcessingRegistry.Kind.REFINING&&index==0&&casingTier()>0&&r.upgradedCount()>out.getCount())out.setCount(Math.min(out.getMaxStackSize(),r.upgradedCount()));return out;}
     public boolean outputsFit(ProcessingRecipe r){for(int i=0;i<r.outputs().size();i++){var old=inventory.getStackInSlot(kind.output()+i);var add=output(r,i);if(!old.isEmpty()&&(!ItemStack.isSameItemSameComponents(old,add)||old.getCount()+add.getCount()>old.getMaxStackSize()))return false;}return true;}
     public static void tick(Level level,BlockPos pos,BlockState state,ProcessingBlockEntity be){
         if(level.isClientSide)return;
         var holder=level.getRecipeManager().getRecipeFor(ProcessingRegistry.TYPES_BY_KIND.get(be.kind).get(),be.input(),level);
         if(holder.isEmpty()){be.clearJob();return;}
-        var h=holder.get();var r=h.value();String config=be.casingTier()+":"+id(be.inventory.getStackInSlot(be.kind.upgrades()+1))+":"+id(be.inventory.getStackInSlot(be.kind.upgrades()+2));
+        var h=holder.get();var r=h.value();String config=id(be.inventory.getStackInSlot(be.kind.upgrades()))+":"+id(be.inventory.getStackInSlot(be.kind.upgrades()+1))+":"+id(be.inventory.getStackInSlot(be.kind.upgrades()+2))+":"+be.speedPercent()+":"+be.energyCost(r);
         if(!be.job.equals(h.id().toString())||!be.configuration.equals(config)){be.clearJob();be.job=h.id().toString();be.configuration=config;}
         if(!be.outputsFit(r))return;
         int ticks=be.duration(r),next=Math.min(ticks,be.progress+1),target=(int)((long)be.energyCost(r)*next/ticks),cost=Math.max(0,target-be.paid);

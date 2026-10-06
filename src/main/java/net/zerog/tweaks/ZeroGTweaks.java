@@ -23,6 +23,7 @@ public final class ZeroGTweaks {
         net.zerog.tweaks.transport.TransportMenus.register(modBus);
         net.zerog.tweaks.machine.CombustionRegistry.register(modBus);
         net.zerog.tweaks.machine.ProcessingRegistry.register(modBus);
+        container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER, net.zerog.tweaks.machine.MachineUpgradeConfig.SPEC, "zerog-machine-upgrades-server.toml");
         net.zerog.tweaks.power.PowerRegistry.register(modBus);
         container.registerConfig(net.neoforged.fml.config.ModConfig.Type.SERVER, net.zerog.tweaks.power.PowerConfig.SPEC);
         net.zerog.tweaks.travel.SurvivalGates.register(modBus);

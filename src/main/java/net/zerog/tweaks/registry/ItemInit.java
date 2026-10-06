@@ -22,6 +22,7 @@ import net.zerog.tweaks.item.ZGGeoArmorItem;
 
 public final class ItemInit {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ZeroGTweaks.MODID);
+    public static final java.util.Map<String,DeferredItem<Item>> MACHINE_UPGRADE_CARDS = net.zerog.tweaks.machine.MachineUpgradeCards.register(ITEMS);
     /** Administrative visual preview only: no recipe and no survival functionality. */
     public static final DeferredItem<Item> WEATHER_TESTER = ITEMS.register("weather_tester",
             () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));

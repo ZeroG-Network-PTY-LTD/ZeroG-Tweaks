@@ -90,6 +90,7 @@ public final class CreativeTabs {
                         listed.add("concord_codex");
                         listed.add("recall_anchor");listed.add("group_anchor");
                         listed.add("storage_expansion_module");listed.add("generator_flux_module");
+                        ItemInit.MACHINE_UPGRADE_CARDS.keySet().forEach(listed::add);
                         net.zerog.tweaks.storage.WoodStorageRegistry.CONTAINERS.keySet().forEach(listed::add);
                         net.zerog.tweaks.storage.WoodStorageRegistry.JOINERY.keySet().forEach(listed::add);
                         for(var tier:net.zerog.tweaks.transport.TransportTier.ALL) listed.add(tier.name()+"_fluid_tank");
@@ -124,6 +125,7 @@ public final class CreativeTabs {
                         net.zerog.tweaks.storage.WoodStorageRegistry.JOINERY.keySet().forEach(id->out.accept(item(id)));
                     }
                     if (name.equals("storage_and_transport")) {
+                        ItemInit.MACHINE_UPGRADE_CARDS.values().forEach(card->out.accept(card.get()));
                         net.zerog.tweaks.storage.WoodStorageRegistry.CONTAINERS.keySet().forEach(id->out.accept(item(id)));
                         for(var tier:net.zerog.tweaks.transport.TransportTier.ALL)
                             for(String suffix:new String[]{"fluid_tank","energy_conduit","fluid_pipe","item_tube","energy_cell"})out.accept(item(tier.name()+"_"+suffix));
