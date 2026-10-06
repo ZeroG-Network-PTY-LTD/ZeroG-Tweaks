@@ -53,6 +53,8 @@ public final class AlvearyMenuSync {
     }
     static void sort(ServerPlayer player,int id) {
         var menu=player.containerMenu;if(menu.containerId!=id)return;
+        // Modern menus use their own validated output paging/sort button.
+        if(menu instanceof net.zerog.tweaks.genetics.AlvearyMenu)return;
         ApiaryMachineAccess.read(menu).ifPresent(machine->{
             int tier=AlvearyLayout.tier(machine.id());
             if(tier==0 || !menu.stillValid(player) || player.distanceToSqr(machine.entity().getBlockPos().getCenter())>64

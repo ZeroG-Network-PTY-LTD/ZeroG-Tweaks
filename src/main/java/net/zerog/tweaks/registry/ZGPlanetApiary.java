@@ -24,6 +24,8 @@ import net.minecraft.world.level.material.FlowingFluid;
 
 /** Vanilla bee AI and hive storage, with hive-specific products. Not a replacement for Productive Bees. */
 public final class ZGPlanetApiary {
+    private static final DeferredRegister<net.minecraft.world.entity.ai.village.poi.PoiType> HIVE_POIS=
+            DeferredRegister.create(net.minecraft.core.registries.Registries.POINT_OF_INTEREST_TYPE,"zerog_tweaks");
     public static final Map<String,Family> FAMILIES=new LinkedHashMap<>();
     public static final class Family {
         public final String id;
@@ -43,6 +45,8 @@ public final class ZGPlanetApiary {
             f.bottle=ItemInit.ITEMS.register(key+"_honey_bottle",()->new HoneyBottleItem(new Item.Properties()
                     .food(net.minecraft.world.food.Foods.HONEY_BOTTLE).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
             f.hive=BlockInit.BLOCKS.register(key+"_hive",()->new PlanetHive(key,Block.Properties.ofFullCopy(Blocks.BEEHIVE)));
+            HIVE_POIS.register(key+"_hive",()->new net.minecraft.world.entity.ai.village.poi.PoiType(
+                    java.util.Set.copyOf(f.hive.get().getStateDefinition().getPossibleStates()),0,1));
             ItemInit.ITEMS.registerSimpleBlockItem(key+"_hive",f.hive);
             f.type=ZGFluids.TYPES.register(key+"_honey",()->new FluidType(FluidType.Properties.create()
                     .descriptionId("fluid_type.zerog_tweaks."+key+"_honey").density(1400).viscosity(6000)
@@ -55,6 +59,7 @@ public final class ZGPlanetApiary {
             f.bucket=ItemInit.ITEMS.register(key+"_honey_bucket",()->new BucketItem(f.source.get(),new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
         }
         bus.addListener(BlockEntityTypeAddBlocksEvent.class,event->FAMILIES.values().forEach(f->event.modify(BlockEntityType.BEEHIVE,f.hive.get())));
+        HIVE_POIS.register(bus);
     }
     public static final class PlanetHive extends BeehiveBlock {
         public final String variant;
