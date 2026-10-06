@@ -79,13 +79,13 @@ def faces_for(e):
     return out
 
 ROT = -45  # whole tool rotated so it lies on the same diagonal as the flat sprite (handle bottom-left)
-# Hand-facing correction only: a half-turn on X, mirrored for the left hand.
-# Original Z presentation angles are retained; cube geometry stays unchanged.
+# Hand contexts are exactly vanilla item/handheld: the geometry lies on the flat sprite's diagonal, so no extra turn.
+# (2026-10-06: the earlier X half-turn held every tool upside down in game -- by the head, sticking out sideways.)
 # Preserve authored translation/scale and all non-hand presentation contexts.
 DISPLAY = {
     "thirdperson_righthand": {
         "rotation": [
-            180,
+            0,
             -90,
             55
         ],
@@ -102,7 +102,7 @@ DISPLAY = {
     },
     "thirdperson_lefthand": {
         "rotation": [
-            -180,
+            0,
             90,
             -55
         ],
@@ -119,7 +119,7 @@ DISPLAY = {
     },
     "firstperson_righthand": {
         "rotation": [
-            180,
+            0,
             -90,
             25
         ],
@@ -136,7 +136,7 @@ DISPLAY = {
     },
     "firstperson_lefthand": {
         "rotation": [
-            -180,
+            0,
             90,
             -25
         ],
