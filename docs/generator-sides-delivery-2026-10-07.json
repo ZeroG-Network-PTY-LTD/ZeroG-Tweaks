@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-06T20:46:45.968882+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev-generator-sides-20261007.jar",
+  "sha256": "9e5dbf16f0329957a21c3408dc647639af9a318062456fd369f9f1052939eec1",
+  "bytes": 25297610,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261006-204610-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": false,
+  "world_regeneration": false,
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261006_203143_runWorkflowTests.log",
+      "sha256": "4eb24dee6ea94be814973731dae88448e29469be0bf185c1314585af83c1ab4e",
+      "required_passes": 69,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "generator-sides-assets-20261007.json",
+      "sha256": "a39d51642e533b07ad908cc76045acefaee375012483cfb747542d5ea5c5f5ca",
+      "checked": {
+        "models": 7937,
+        "blockstates": 1522,
+        "pngs": 3893,
+        "animation_metadata": 96,
+        "source_byte_bindings": 0
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261006_203752_clean.log",
+    "sha256": "5e079a57d73d31276ee1cbddc5ad29591f0d5ed0ade9b89f8cee893468df6a20",
+    "clean_production": true
+  },
+  "remaining": [
+    "vanilla-worn-armor",
+    "orbital-comb-style",
+    "alveary-output-gui",
+    "refinery-controls",
+    "large-network-and-nearest-routing",
+    "jelly-fluid-buckets",
+    "planet-hive-discovery",
+    "alveary-held-item-and-errors",
+    "genetics-held-item-bucket-route",
+    "recipe-discovery-guide",
+    "blueprint-interaction",
+    "client-acceptance",
+    "dynamic-tank-fluid-renderer",
+    "chest-lid-animation",
+    "existing-machine-purpose-audit",
+    "legacy-addon-machine-dispatch",
+    "transport-family-gui",
+    "advanced-alveary-biology",
+    "external-claim-team-adapters",
+    "frost-yak-grazing",
+    "remaining-mob-model-mechanics",
+    "duplicate-click-gui-routes",
+    "alveary-five-port-base",
+    "transport-cell-native-art",
+    "power-directional-pulses",
+    "liquid-wave-visuals",
+    "holographic-diagnostics",
+    "planet-ecology-broad-audit",
+    "galaxy-tracker-reconciliation"
+  ],
+  "guide": "storage-and-machinery-workflow.md",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 26,
+  "todo_sha256": "855faf1fe88f9961146f81415e02f8c4a837acc63ca21d0bba702fcfadf5f8c0"
+}
