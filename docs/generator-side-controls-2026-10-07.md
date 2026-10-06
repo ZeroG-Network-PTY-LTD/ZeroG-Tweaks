@@ -8,6 +8,11 @@ Verification: the new regression first failed with “Generator disable-output G
 
 Still pending:
 
+Update: fuel and supported genetics/legacy resource faces are implemented by the
+[subsequent batch](fuel-machine-faces-and-upgrades-2026-10-07.md). The list below
+describes this older delivery checkpoint, not a claim that those controls are absent
+from the newer JAR. Preserve this receipt and its checksum as historical evidence.
+
 - Fusion Reactor fuel-face controls and actual hopper/cable routing coverage.
 - Remaining generator, genetics and legacy-machine side controls.
 - Machine-specific upgrade audit, transport animation, advanced alveary research/biology and planetary ecology checks.

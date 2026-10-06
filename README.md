@@ -1,5 +1,17 @@
 # ZeroG Tweaks
 
+## Fuel routing, remaining machine faces and upgrade contracts — 7 October 2026
+
+Still **1.0.12-dev**. [Controls, supported resources and upgrade limits](docs/fuel-machine-faces-and-upgrades-2026-10-07.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [82-test delivery receipt](docs/fuel-machine-faces-delivery-2026-10-07.json) · [Matching JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-fuel-machine-faces-20261007.jar).
+
+Fusion and Combustion have independent fuel/power face controls. Genetics and older
+processing machines have filtered item controls; real power receivers and genetics
+tanks expose only their supported power/fluid modes. Saved settings, server validation
+and vanilla hopper fallback guards protect the same permissions across automation.
+The cooling-slot fix grants speed only for a valid Cryo Core, preserving invalid old
+items for recovery. New legacy upgrade effects and client visual approval remain pending.
+This update does not reset the hub or planetary saves.
+
 ## Cardinal inspection hub and GUI repair — 7 October 2026
 
 Still **1.0.12-dev**. [New hub layout and machine usage](docs/cardinal-hub-2026-10-07.md) · [Current TODO ledger](docs/storage-and-machinery-todo.json).

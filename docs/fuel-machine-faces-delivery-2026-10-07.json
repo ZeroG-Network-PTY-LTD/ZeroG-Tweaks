@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-06T21:30:40.538294+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev-fuel-machine-faces-20261007.jar",
+  "sha256": "c55d00ae75e222fec34831a11cfa9ff261f9a725300d7641ccd7b5692afe4a93",
+  "bytes": 25319782,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261006-212944-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": false,
+  "world_regeneration": false,
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261006_212342_runWorkflowTests.log",
+      "sha256": "f8120f789de970b6b793e2c5188a87e003eacaba2014b6f48132f0b7e8258cda",
+      "required_passes": 76,
+      "client_visual_approval": false
+    },
+    {
+      "log": "20261006_212520_runGeneticsTests.log",
+      "sha256": "d35294ebf04d2f5a196270220b2bc1aa0ea04f2a65b4e8c06024db5f05fae6e6",
+      "required_passes": 4,
+      "client_visual_approval": false
+    },
+    {
+      "log": "20261006_212713_runGeneticsTests.log",
+      "sha256": "c9c52e502946525200b2ea52a30d83ba1b2a5513b0466ee7695a8d3288bcec71",
+      "required_passes": 2,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "fuel-machine-faces-assets-20261007.json",
+      "sha256": "a39d51642e533b07ad908cc76045acefaee375012483cfb747542d5ea5c5f5ca",
+      "checked": {
+        "models": 7937,
+        "blockstates": 1522,
+        "pngs": 3893,
+        "animation_metadata": 96,
+        "source_byte_bindings": 0
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261006_212803_clean.log",
+    "sha256": "f5c5c213ac184fe15c0ab03e41cb023a00a5cd830e018a862f0289cc94c1a3df",
+    "clean_production": true
+  },
+  "remaining": [
+    "vanilla-worn-armor",
+    "orbital-comb-style",
+    "alveary-output-gui",
+    "refinery-controls",
+    "large-network-and-nearest-routing",
+    "jelly-fluid-buckets",
+    "planet-hive-discovery",
+    "alveary-held-item-and-errors",
+    "genetics-held-item-bucket-route",
+    "recipe-discovery-guide",
+    "blueprint-interaction",
+    "client-acceptance",
+    "dynamic-tank-fluid-renderer",
+    "chest-lid-animation",
+    "existing-machine-purpose-audit",
+    "legacy-addon-machine-dispatch",
+    "transport-family-gui",
+    "per-machine-upgrade-contracts",
+    "advanced-alveary-biology",
+    "external-claim-team-adapters",
+    "frost-yak-grazing",
+    "remaining-mob-model-mechanics",
+    "duplicate-click-gui-routes",
+    "alveary-five-port-base",
+    "transport-cell-native-art",
+    "all-machine-side-configuration",
+    "power-directional-pulses",
+    "liquid-wave-visuals",
+    "holographic-diagnostics",
+    "planet-ecology-broad-audit",
+    "galaxy-tracker-reconciliation"
+  ],
+  "guide": "storage-and-machinery-workflow.md",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 27,
+  "todo_sha256": "5382ef51ce61b746c2bcd66704b3a28784eac0ee7d081f1adea1577c7f1a8673"
+}

@@ -240,6 +240,11 @@ documentation/images/JARs/checksums on `Docs`. Never merge those unrelated histo
 
 ## Verification and installation
 
+The [7 October fuel, remaining machine faces and upgrade contracts](fuel-machine-faces-and-upgrades-2026-10-07.md)
+extend the generator work to fuel routing, genetics tanks and older machine inventories.
+Existing unsupported legacy upgrade effects remain explicitly pending approved specifications;
+the absence of an upgrade socket is not a decorative working feature.
+
 The [delivery receipt](storage-machinery-delivery-2026-10-05.json) records tests,
 clean production build, source/JAR asset checks,
 new-JAR SHA256 and old-JAR backup. Install the matching ZeroG JAR only with the client
