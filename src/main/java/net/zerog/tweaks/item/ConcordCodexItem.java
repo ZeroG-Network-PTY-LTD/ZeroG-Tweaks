@@ -31,8 +31,8 @@ public final class ConcordCodexItem extends Item {
             recordArrival(server);
             var pages=new java.util.ArrayList<Filterable<Component>>();
             pages.add(page("codex.zerog_tweaks.signal"));pages.add(page("codex.zerog_tweaks.template"));pages.add(page("codex.zerog_tweaks.coordinates"));
-            if(server.getPersistentData().getBoolean("zerog_codex_moon"))pages.add(Filterable.passThrough(Component.literal("Act I — The Moon Relay\n\nThe Lunari call you the one who answered the signal. Their relay has listened for the Pathfinder's Nullifite hum for thousands of years. Echo remembers this watch station. Meteor Maws still bring Concord debris to the Moon.")));
-            if(server.getPersistentData().getBoolean("zerog_codex_mars"))pages.add(Filterable.passThrough(Component.literal("Act I — The Waystation\n\nThe Rustborn preserve the Concord's old Mars waystation. Their hand-cut Aresite core is the first proof the Concord was real. Moonsteel frames, a Selenite lens and this core are the next step toward the Quiet Mines.")));
+            if(server.getPersistentData().getBoolean("zerog_codex_moon"))pages.add(page("codex.zerog_tweaks.moon_relay"));
+            if(server.getPersistentData().getBoolean("zerog_codex_mars"))pages.add(page("codex.zerog_tweaks.mars_waystation"));
             player.getItemInHand(hand).set(DataComponents.WRITTEN_BOOK_CONTENT,new WrittenBookContent(Filterable.passThrough("Concord Codex"),"The Concord",0,pages,true));
             server.inventoryMenu.broadcastChanges();
             ConcordPrologue.grant(server,"builders_template","read_codex");

@@ -52,6 +52,10 @@ if (providers.gradleProperty('workflowTests').isPresent()) {
     sourceSets.main.java.srcDir 'src/workflow-gametest/java'
     sourceSets.main.resources.srcDir 'src/gametest/resources'
     sourceSets.main.resources.srcDir 'src/workflow-gametest/resources'
+    // Opt-in Moon/Mars levels without duplicate hub fixtures or hub generation.
+    if (providers.gradleProperty('workflowPlanetPreset').isPresent()) {
+        sourceSets.main.resources.srcDir 'src/lore-gametest/resources'
+    }
 }
 if (providers.gradleProperty('planetHubTests').isPresent()) {
     sourceSets.main.java.srcDir 'src/planet-hub-gametest/java'
