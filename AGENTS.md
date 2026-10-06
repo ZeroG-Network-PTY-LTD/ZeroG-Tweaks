@@ -250,3 +250,15 @@ to menus and capabilities, while old stacks stay recoverable. Silk pattern handl
 and staged generic processing recipes remain separate pending work.
 Keep same-version delivery receipts distinct, preserve earlier published JARs/checksums,
 install the verified JAR with backup before pushing the three owning branches.
+
+## Contributor reconciliation before each implementation batch
+
+Fetch the live code, Design and Docs heads before starting; inspect newly published
+contributor commits and compare relevant runtime files with the installed JAR.
+Do not treat Design previews, generators or progress trackers as implemented code,
+and never merge Design/Docs histories into code. Carry approved runtime changes
+and their matching source-generator corrections on their owning branches.
+If a cited commit is not available from the verified origin or local object store,
+record it as pending with its hash; do not fabricate its changes or silently restore
+historical armour shells. The Moonsteel corrections and proposed 3D-armour restore
+are currently deferred by the user pending accessible commits and armour approval.

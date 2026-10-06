@@ -22,6 +22,8 @@ public final class SideConfigurationPanel extends AbstractWidget {
     private final String extra;
     private final boolean powerOnly;
     private final boolean itemOnly;
+    private boolean outputOnly;
+    public SideConfigurationPanel outputOnly(){outputOnly=true;return this;}
     private static final String[] ITEM_MODES={"Auto","Input","Catalyst","Output","Off"};
     private static final int[] ITEM_COLORS={0xffb169e8,0xffdf5059,0xff56cbe1,0xff64cd84,0xff596674};
     private int selected;
@@ -36,12 +38,12 @@ public final class SideConfigurationPanel extends AbstractWidget {
     private int hit(double x,double y){for(int i=0;i<6;i++){int xx=getX()+13+CELLS[i][0]*23,yy=getY()+26+CELLS[i][1]*23;if(x>=xx&&x<xx+21&&y>=yy&&y<yy+21)return i;}return -1;}
     @Override protected void renderWidget(GuiGraphics g,int mouseX,int mouseY,float partial){
         var font=Minecraft.getInstance().font;g.fill(getX(),getY(),getX()+width,getY()+height,0xff172733);
-        g.drawString(font,powerOnly?"Power faces":itemOnly?"Item faces":"Side config",getX()+6,getY()+6,0xffe0eff7,false);
+        g.drawString(font,powerOnly||outputOnly?"Power faces":itemOnly?"Item faces":"Side config",getX()+6,getY()+6,0xffe0eff7,false);
         g.drawString(font,"World faces",getX()+6,getY()+16,0xffa7bdcb,false);
         for(int col=0;col<3;col++)for(int row=0;row<3;row++){int xx=getX()+13+col*23,yy=getY()+26+row*23;g.fill(xx,yy,xx+21,yy+21,0xff263641);}
         int hover=hit(mouseX,mouseY);
         for(int i=0;i<6;i++){int xx=getX()+13+CELLS[i][0]*23,yy=getY()+26+CELLS[i][1]*23;g.fill(xx,yy,xx+21,yy+21,i==hover||isFocused()&&selected==i?0xffedf5ff:0xff0b141e);g.fill(xx+1,yy+1,xx+20,yy+20,color(i));g.drawCenteredString(font,LABELS[i],xx+10,yy+6,0xff101b24);}
-        if(powerOnly){g.drawString(font,"Input",getX()+7,getY()+100,COLORS[1],false);g.drawString(font,"Off",getX()+49,getY()+100,0xffacbac5,false);g.drawString(font,"FE only",getX()+7,getY()+113,0xffa7bdcb,false);}
+        if(powerOnly||outputOnly){g.drawString(font,outputOnly?"Output":"Input",getX()+7,getY()+100,COLORS[outputOnly?2:1],false);g.drawString(font,"Off",getX()+49,getY()+100,0xffacbac5,false);g.drawString(font,"FE only",getX()+7,getY()+113,0xffa7bdcb,false);}
         else if(itemOnly){g.drawString(font,"In",getX()+7,getY()+100,ITEM_COLORS[1],false);g.drawString(font,"Out",getX()+35,getY()+100,ITEM_COLORS[3],false);g.drawString(font,"Cat",getX()+65,getY()+100,ITEM_COLORS[2],false);g.drawString(font,"Auto",getX()+7,getY()+113,ITEM_COLORS[0],false);g.drawString(font,"Off",getX()+49,getY()+113,0xffacbac5,false);}
         else{g.drawString(font,"In",getX()+7,getY()+100,COLORS[1],false);g.drawString(font,"Out",getX()+35,getY()+100,COLORS[2],false);g.drawString(font,"Both",getX()+7,getY()+113,COLORS[0],false);g.drawString(font,"Off",getX()+49,getY()+113,0xffacbac5,false);}
         setTooltip(hover>=0?Tooltip.create(description(hover)):null);

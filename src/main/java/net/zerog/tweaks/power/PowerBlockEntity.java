@@ -15,6 +15,27 @@ import net.zerog.tweaks.registry.ItemInit;
 public final class PowerBlockEntity extends BlockEntity {
     public int stored,burn,burnTotal,rate;
     private int modules,activeFuelRate;
+    private int disabledOutputs;
+    private final int[] outputEpoch=new int[6];
+    public boolean outputDisabled(Direction side){return (disabledOutputs&(1<<side.ordinal()))!=0;}
+    public void setOutputDisabled(Direction side,boolean disabled){
+        if(outputDisabled(side)==disabled)return;
+        disabledOutputs=disabled?disabledOutputs|(1<<side.ordinal()):disabledOutputs&~(1<<side.ordinal());
+        outputEpoch[side.ordinal()]++;setChanged();if(level!=null)level.invalidateCapabilities(worldPosition);
+    }
+    public IEnergyStorage energyFor(Direction side){
+        if(side==null)return energy;
+        int epoch=outputEpoch[side.ordinal()];
+        return new IEnergyStorage(){
+            private boolean valid(){return !isRemoved()&&!outputDisabled(side)&&epoch==outputEpoch[side.ordinal()];}
+            public int receiveEnergy(int n,boolean simulate){return 0;}
+            public int extractEnergy(int n,boolean simulate){return valid()?energy.extractEnergy(n,simulate):0;}
+            public int getEnergyStored(){return valid()?stored:0;}
+            public int getMaxEnergyStored(){return capacity();}
+            public boolean canReceive(){return false;}
+            public boolean canExtract(){return valid();}
+        };
+    }
     public PowerBlockEntity(BlockPos pos,BlockState state){super(PowerRegistry.TYPE.get(),pos,state);}
     public boolean solar(){return getBlockState().is(BlockInit.SOLAR_ARRAY.get());}
     public int modules(){return modules;}
@@ -52,12 +73,13 @@ public final class PowerBlockEntity extends BlockEntity {
         }
         int remaining=PowerConfig.TRANSFER.get();
         for(Direction side:Direction.values()){
+            if(be.outputDisabled(side))continue;
             if(!level.hasChunkAt(pos.relative(side)))continue;
             var sink=level.getCapability(Capabilities.EnergyStorage.BLOCK,pos.relative(side),side.getOpposite());if(sink==null)continue;
             int offered=Math.min(remaining,be.stored),accepted=Math.clamp(sink.receiveEnergy(offered,true),0,offered);
             int n=Math.clamp(sink.receiveEnergy(accepted,false),0,accepted);be.stored-=n;remaining-=n;if(n>0)be.setChanged();if(remaining==0)break;
         }
     }
-    @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.saveAdditional(tag,lookup);tag.putInt("modules",modules);tag.putInt("energy",stored);tag.putInt("burn",burn);tag.putInt("burn_total",burnTotal);tag.putInt("fuel_rate",activeFuelRate);tag.put("fuel",fuel.serializeNBT(lookup));}
-    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);modules=Math.clamp(tag.getInt("modules"),0,3);stored=Math.clamp(tag.getInt("energy"),0,capacity());burn=Math.clamp(tag.getInt("burn"),0,1000000);burnTotal=Math.clamp(tag.getInt("burn_total"),burn,1000000);activeFuelRate=Math.clamp(tag.getInt("fuel_rate"),1,100000);fuel.deserializeNBT(lookup,tag.getCompound("fuel"));}
+    @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.saveAdditional(tag,lookup);tag.putInt("power_disabled",disabledOutputs);tag.putInt("modules",modules);tag.putInt("energy",stored);tag.putInt("burn",burn);tag.putInt("burn_total",burnTotal);tag.putInt("fuel_rate",activeFuelRate);tag.put("fuel",fuel.serializeNBT(lookup));}
+    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);disabledOutputs=tag.getInt("power_disabled")&63;for(int i=0;i<6;i++)outputEpoch[i]++;modules=Math.clamp(tag.getInt("modules"),0,3);stored=Math.clamp(tag.getInt("energy"),0,capacity());burn=Math.clamp(tag.getInt("burn"),0,1000000);burnTotal=Math.clamp(tag.getInt("burn_total"),burn,1000000);activeFuelRate=Math.clamp(tag.getInt("fuel_rate"),1,100000);fuel.deserializeNBT(lookup,tag.getCompound("fuel"));}
 }
