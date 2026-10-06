@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Latest repair batch — processing item faces, 6 October 2026
+
+Still **1.0.12-dev**. [Item/power panel guide and remaining work](docs/processing-item-faces-2026-10-06.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Delivery receipt](docs/item-faces-delivery-2026-10-06.json) · [Archived JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-item-faces-20261006.jar).
+
+Four processing machines gain independent Auto/Input/Catalyst/Output/Off item
+faces beside their power controls. **79 isolated server tests passed**, including
+actual hopper feeding, saved roles and revoked cached handlers. Existing layouts
+default to Auto. Client approval and remaining machine controls are still pending.
+Survival recipes remain last, awaiting exact user costs; saves are untouched.
+
 ## Latest repair batch — honey and processing power faces, 6 October 2026
 
 Still **1.0.12-dev**. [Changes, usage and remaining work](docs/honey-and-processing-power-faces-2026-10-06.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Delivery receipt](docs/honey-power-delivery-2026-10-06.json) · [Archived JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-honey-power-20261006.jar).
