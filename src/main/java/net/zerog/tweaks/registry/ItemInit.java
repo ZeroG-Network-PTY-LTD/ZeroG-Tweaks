@@ -1289,10 +1289,11 @@ public final class ItemInit {
 
     /**
      * Sets whose armor renders the GeckoLib chunky-shell model (geo/item/armor/&lt;set&gt;.geo.json) instead of the
-     * vanilla layers. Restored 2026-10-06 at the owner's request after f320160c had switched every set to flat
-     * vanilla/netherite layers; all other sets keep vanilla proportions and UVs.
+     * vanilla layers: the four Sol sets, at the owner's request (2026-10-06) after f320160c had switched every set
+     * to flat vanilla/netherite layers. Nullifite and Ferrox borrow Moonsteel's shell until they get their own;
+     * Design's generators/armor_shell_retexture.py dresses every shell in its set's worn art. Other sets stay flat.
      */
-    private static final java.util.Set<String> GEO_ARMOR_SETS = java.util.Set.of("moonsteel", "olympium");
+    private static final java.util.Set<String> GEO_ARMOR_SETS = java.util.Set.of("nullifite", "ferrox", "moonsteel", "olympium");
 
     private static DeferredItem<Item> registerArmor(String id, ZGArmorMaterials.Profile profile, ArmorItem.Type type) {
         String set = id.substring(0, id.lastIndexOf('_'));
