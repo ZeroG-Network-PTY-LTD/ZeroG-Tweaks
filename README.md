@@ -1,5 +1,16 @@
 # ZeroG Tweaks
 
+## Latest repair batch — mining, refinery, routing and jelly, 6 October 2026
+
+Still **1.0.12-dev**. [Detailed repair guide and next priorities](docs/blocker-repairs-2026-10-06.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Build receipt](docs/blocker-repair-delivery-2026-10-06.json) · [Archived JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-blockerfix-20261006.jar).
+
+Correct-tool ore drops, powered data-driven refining with 79 recipes, connected
+routing and actual nearest-path selection, large-network traversal, mixed-tier
+hazardous-fluid protection, and collectable Royal/Cosmic Jelly buckets are repaired.
+**73 isolated server checks passed with the optional bee addons.** These are tested
+repairs, not completion of the remaining biology, gas, recipe-guide or ecology queue.
+Existing hub/save terrain is preserved; the version number is not increased.
+
 ## Latest delivery — machinery and service-port hub, 6 October 2026
 
 Same version **1.0.12-dev**. [Detailed changes and remaining work](docs/machinery-and-hub-update-2026-10-06.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Build receipt](docs/machinery-hub-delivery-2026-10-06.json) · [Archived JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-servicehub-20261006.jar).
