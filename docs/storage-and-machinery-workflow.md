@@ -10,6 +10,12 @@ those will be reviewed hardest-to-easiest against the storyline after inspection
 
 ## Current TODO reconciliation — 7 October
 
+The [machine GUI and powered-processing hotfix](machine-gui-power-2026-10-07.md)
+adds conduit charging and configurable processing costs to the centrifuge and
+Starmetal Smelter, left-side accepted-input catalogues and compact genetics slots.
+All 83 required isolated tests passed. Remaining per-face controls and client
+visual approval are not marked complete by this delivery.
+
 See the [reviewed commits and current priorities](commit-review-and-next-tasks-2026-10-07.md)
 and [machine-readable ledger](storage-and-machinery-todo.json). Live branch heads
 still match the supplied-workshop delivery. Historical task lists below are retained
