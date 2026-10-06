@@ -198,16 +198,24 @@ DISPLAY = {
         ]
     }
 }
-def to_json(tool):
+# Heads below are authored with the working end (pick, blade, hoe blade) on the right of the handle, which after ROT
+# ends up lower-right and faces the player in hand. Vanilla sprites put it upper-left, so mirror these across the
+# handle (x=8, before ROT). Faces are solid swatches, so east/west carry the same UVs. (2026-10-06, in-game check.)
+MIRROR = {'pickaxe', 'axe', 'hoe'}
+def to_json(tool, mirror=False):
     els = []
     for e in tool.el:
-        j = {'name': e['name'], 'from': [round(c, 3) for c in e['f']], 'to': [round(c, 3) for c in e['t']],
+        f, t = list(e['f']), list(e['t'])
+        if mirror: f[0], t[0] = 16 - t[0], 16 - f[0]
+        j = {'name': e['name'], 'from': [round(c, 3) for c in f], 'to': [round(c, 3) for c in t],
              'rotation': {'angle': ROT, 'axis': 'z', 'origin': [8, 8, 8]}, 'faces': faces_for(e)}
         if e['mat'] in GLOWMATS:
             j['neoforge_data'] = {'block_light': 15, 'sky_light': 15}
             j['shade'] = False
         els.append(j)
-    return {'credit': 'ZeroG Tweaks - 3D Moonsteel tool (generators/tools3d.py)', 'parent': 'minecraft:item/handheld',
+    # No parent: a parent chain ending at builtin/generated rebuilds the model from layer0 and drops the cubes
+    # (invisible item, no log error) -- see 1.21.x 50e82a8d. DISPLAY spells out the handheld transforms instead.
+    return {'credit': 'ZeroG Tweaks - 3D Moonsteel tool (generators/tools3d.py)', 'gui_light': 'front',
             'texture_size': [64, 64], 'textures': {'0': f'zerog_tweaks:item/3d/{SET}_tools', 'particle': f'zerog_tweaks:item/{SET}_ingot'},
             'elements': els, 'display': DISPLAY}
 
@@ -369,7 +377,7 @@ if __name__ == '__main__':
     TEX.save(f'{OUT}/textures/item/3d/{SET}_tools.png')
     models = {}
     for k, name, fn in TOOLS:
-        m = to_json(fn()); models[k] = m
+        m = to_json(fn(), k in MIRROR); models[k] = m
         json.dump(m, open(f'{OUT}/models/item/{SET}_{k}.json', 'w'), indent=2)
         for tag, (yw, pt) in {'gui': (0, 0), 'angle': (-38, -22), 'side': (-75, -12)}.items():
             render_model(m, TEX, yw, pt).save(f'{OUT}/renders/{SET}_{k}_{tag}.png')
