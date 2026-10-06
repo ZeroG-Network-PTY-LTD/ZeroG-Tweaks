@@ -298,7 +298,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
             boolean open = coreTimer < 100;
             if (open != isCoreOpen()) {
                 entityData.set(CORE_OPEN, open);
-                playSound(open ? SoundEvents.BEACON_ACTIVATE : SoundEvents.BEACON_DEACTIVATE, 2F, 1.4F);
+                playSound(open ? net.zerog.tweaks.registry.ZGSounds.SENTINEL_CORE_OPEN.get() : net.zerog.tweaks.registry.ZGSounds.SENTINEL_CORE_CLOSE.get(), 2F, 1F);
             }
             if (open && tickCount % 4 == 0) {
                 ((ServerLevel) level()).sendParticles(ParticleTypes.END_ROD, getX(), getY() + ORBIT_HEIGHT, getZ(),
@@ -310,7 +310,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
 
     private void enterPhase(int phase) {
         entityData.set(PHASE, phase);
-        playSound(SoundEvents.AMETHYST_BLOCK_BREAK, 4F, 0.6F);
+        playSound(net.zerog.tweaks.registry.ZGSounds.SENTINEL_PHASE.get(), 4F, 1F);
         say(Component.translatable("chat.zerog_tweaks.prism_sentinel.phase" + phase));
         ((ServerLevel) level()).sendParticles(SHARD_DUST, getX(), getY() + ORBIT_HEIGHT, getZ(), 60, 3, 2, 3, 0.1);
     }
@@ -330,7 +330,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
                 if (p.isSpectator() || p.isCreative() || shardHitCooldown.containsKey(p.getUUID())) continue;
                 if (p.hurt(damageSources().mobAttack(this), scaled(SHARD_DAMAGE))) {
                     shardHitCooldown.put(p.getUUID(), 20);
-                    level.playSound(null, p.blockPosition(), SoundEvents.AMETHYST_CLUSTER_BREAK, SoundSource.HOSTILE, 1.5F, 1.2F);
+                    level.playSound(null, p.blockPosition(), net.zerog.tweaks.registry.ZGSounds.SENTINEL_SHARD_HIT.get(), SoundSource.HOSTILE, 1.5F, 1F);
                 }
             }
         }
@@ -378,11 +378,11 @@ public class PrismSentinel extends Monster implements GeoEntity {
     public boolean canChangeDimensions(Level from, Level to) { return false; }
 
     @Override
-    protected SoundEvent getAmbientSound() { return SoundEvents.AMETHYST_BLOCK_CHIME; }
+    protected SoundEvent getAmbientSound() { return net.zerog.tweaks.registry.ZGSounds.SENTINEL_AMBIENT.get(); }
     @Override
-    protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.AMETHYST_CLUSTER_HIT; }
+    protected SoundEvent getHurtSound(DamageSource source) { return net.zerog.tweaks.registry.ZGSounds.SENTINEL_HURT.get(); }
     @Override
-    protected SoundEvent getDeathSound() { return SoundEvents.BEACON_DEACTIVATE; }
+    protected SoundEvent getDeathSound() { return net.zerog.tweaks.registry.ZGSounds.SENTINEL_DEATH.get(); }
     @Override
     protected float getSoundVolume() { return 3F; }
 
@@ -471,7 +471,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
             ((ServerLevel) level()).sendParticles(BEAM_DUST, getX(), getY() + 5, getZ(), 40, 1.5, 4, 1.5, 0);
             double a = Math.atan2(getZ() - c.z, getX() - c.x);
             teleportTo(c.x + Math.cos(a) * PrismArena.SENTINEL_START, floorY() + GLIDE, c.z + Math.sin(a) * PrismArena.SENTINEL_START);
-            playSound(SoundEvents.ENDERMAN_TELEPORT, 2F, 0.6F);
+            playSound(net.zerog.tweaks.registry.ZGSounds.SENTINEL_REFRACT.get(), 2F, 1F);
         }
     }
 
@@ -540,7 +540,7 @@ public class PrismSentinel extends Monster implements GeoEntity {
             cooldown = phase == 1 ? 50 : phase == 2 ? 80 : 35;
             charge = 20;
             shard = random.nextInt(4);
-            playSound(SoundEvents.BEACON_AMBIENT, 3F, 1.8F);
+            playSound(net.zerog.tweaks.registry.ZGSounds.SENTINEL_BEAM_CHARGE.get(), 3F, 1F);
         }
 
         private void fire(ServerLevel level, LivingEntity target, Vec3 shardPos) {
@@ -551,13 +551,13 @@ public class PrismSentinel extends Monster implements GeoEntity {
             var hit = level.clip(new ClipContext(from, aim, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, PrismSentinel.this));
             Vec3 end = hit.getType() == HitResult.Type.MISS ? aim : hit.getLocation();
             drawLine(level, from, end);
-            playSound(SoundEvents.BEACON_POWER_SELECT, 3F, 1.6F);
+            playSound(net.zerog.tweaks.registry.ZGSounds.SENTINEL_BEAM_FIRE.get(), 3F, 1F);
             triggerAnim("attack", "attack");
             if (hit.getType() == HitResult.Type.MISS) {
                 target.hurt(damageSources().mobAttack(PrismSentinel.this), scaled(BEAM_DAMAGE));
             } else if (level.getBlockState(hit.getBlockPos()).is(BEAM_BLOCKING)) {
                 level.sendParticles(ParticleTypes.END_ROD, end.x, end.y, end.z, 14, 0.3, 0.3, 0.3, 0.15);
-                level.playSound(null, hit.getBlockPos(), SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.HOSTILE, 2F, 1.5F);
+                level.playSound(null, hit.getBlockPos(), net.zerog.tweaks.registry.ZGSounds.SENTINEL_BEAM_DEFLECT.get(), SoundSource.HOSTILE, 2F, 1F);
             }
         }
 

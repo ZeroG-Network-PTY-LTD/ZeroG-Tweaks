@@ -33,6 +33,7 @@ public final class ZeroGTweaks {
         modBus.addListener(net.zerog.tweaks.genetics.GeneticsIntegration::capabilities);
         ZGStructures.register(modBus);
         net.zerog.tweaks.registry.ZGFluids.register(modBus);
+        net.zerog.tweaks.registry.ZGSounds.register(modBus);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::incomingDamage);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::breakSpeed);
         NeoForge.EVENT_BUS.addListener(ZGArmorSetBonuses::playerTick);
