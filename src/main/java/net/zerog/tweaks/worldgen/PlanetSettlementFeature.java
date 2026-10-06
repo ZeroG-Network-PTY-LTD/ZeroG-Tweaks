@@ -162,6 +162,15 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
         level.setBlock(centre,BlockInit.SETTLEMENT_ANCHOR.get().defaultBlockState(),2);
         if(level.getBlockEntity(centre) instanceof SettlementAnchorBlockEntity anchor) anchor.configure(layout);
         String theme=PlanetEcologyProfile.theme(dimension);
+        // Every Rustborn layout keeps one hand-cut Aresite core, away from
+        // homes, farms and the central resident anchor. No standalone shrine loot.
+        if(theme.equals("mars")) {
+            var shrine=centre.offset(5,0,3);
+            for(int x=-1;x<=1;x++)for(int z=-1;z<=1;z++)
+                level.setBlock(shrine.offset(x,0,z),BlockInit.MARTIAN_STONE_BRICKS.get().defaultBlockState(),2);
+            level.setBlock(shrine.above(),BlockInit.MARTIAN_STONE_BRICKS.get().defaultBlockState(),2);
+            level.setBlock(shrine.above(2),BlockInit.ARESITE_BLOCK.get().defaultBlockState(),2);
+        }
         var garden=centre.offset(-16,1,5);
         var flower=ZGDimensionTerrain.FLORA.get(theme+"_glow_flower");
         if(flower!=null) for(int z=-2;z<=2;z++) level.setBlock(garden.offset(2,0,z),flower.get().defaultBlockState(),2);
