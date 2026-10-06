@@ -17,7 +17,8 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 /**
  * Ironfall add: the ember Splinter Mite the Meteor Maw spits out (ability_call_adds). Drawn with the Shattered Skies
- * splinter_mite_cinder art; fast, fragile, fire-immune, and its bite sets you alight.
+ * splinter_mite_cinder art; fast, fragile and fire-immune. Its bite is plain melee, so armour along the gear ladder
+ * reduces it like any mob hit (Moonsteel's 22 armour / 4.5 toughness turns a 3-damage bite into about 0.6).
  */
 public final class CinderMite extends Monster implements GeoEntity, ZGGeoMob {
     private static final String ART = "shatteredskies:splinter_mite_cinder", CLIP = "animation.shatteredskies.splinter_mite_cinder.";
@@ -45,9 +46,14 @@ public final class CinderMite extends Monster implements GeoEntity, ZGGeoMob {
         if (!level().isClientSide && tickCount % 90 == 0) triggerAnim("eyes", "blink");
     }
 
+    /** Ember sparks only: no ignition, because fire damage ignores armour and would make the gear ladder meaningless. */
     @Override public boolean doHurtTarget(Entity target) {
         boolean hit = super.doHurtTarget(target);
-        if (hit) { triggerAnim("action", "attack"); target.igniteForSeconds(2); }
+        if (hit) {
+            triggerAnim("action", "attack");
+            if (level() instanceof net.minecraft.server.level.ServerLevel server)
+                server.sendParticles(net.minecraft.core.particles.ParticleTypes.SMALL_FLAME, target.getX(), target.getY() + target.getBbHeight() * .5, target.getZ(), 6, .2, .2, .2, .01);
+        }
         return hit;
     }
 
