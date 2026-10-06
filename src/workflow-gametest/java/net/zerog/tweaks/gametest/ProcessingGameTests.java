@@ -11,6 +11,24 @@ import net.zerog.tweaks.registry.BlockInit;
 @GameTestHolder("zerog_workflow") @PrefixGameTestTemplate(false)
 public final class ProcessingGameTests {
     @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)
+    public static void alloy_menu_routes_recipe_dust_to_inputs_and_accepts_catalyst(GameTestHelper h){
+        var p=new BlockPos(1,1,1);h.setBlock(p,BlockInit.ALLOY_FORGE.get());var be=(ProcessingBlockEntity)h.getBlockEntity(p);
+        var player=h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);player.setPos(be.getBlockPos().getCenter());var menu=new ProcessingMenu(1,player.getInventory(),be);
+        var catalyst=stack("stardust",1);
+        h.assertTrue(menu.slots.get(be.kind.catalyst()).mayPlace(catalyst),"Forge menu rejects its registered Stardust catalyst");
+        h.assertTrue(be.inventory.insertItem(be.kind.catalyst(),catalyst,false).isEmpty(),"Forge handler rejects Stardust catalyst");
+        player.getInventory().setItem(9,stack("pulsar_dust",2));
+        h.assertTrue(!menu.quickMoveStack(player,be.kind.slots()).isEmpty(),"Forge shift-click rejects recipe ingredient");
+        h.assertTrue(be.inventory.getStackInSlot(0).is(stack("pulsar_dust",1).getItem())&&be.inventory.getStackInSlot(0).getCount()==2,"Recipe dust was diverted to an upgrade socket");
+        h.assertTrue(be.inventory.getStackInSlot(be.kind.upgrades()+2).isEmpty(),"Shift-click silently installed ingredient as upgrade");
+        for(int i=0;i<be.kind.inputCount;i++)be.inventory.setStackInSlot(i,stack("pulsar_dust",64));
+        player.getInventory().setItem(9,stack("pulsar_dust",2));
+        h.assertTrue(menu.quickMoveStack(player,be.kind.slots()).isEmpty(),"Full input diverted recipe dust to upgrades");
+        h.assertTrue(player.getInventory().getItem(9).getCount()==2&&be.inventory.getStackInSlot(be.kind.upgrades()+2).isEmpty(),"Full input lost or installed player ingredient");
+        be.inventory.setStackInSlot(be.kind.catalyst(),ItemStack.EMPTY);player.getInventory().setItem(9,stack("stardust",1));
+        h.assertTrue(!menu.quickMoveStack(player,be.kind.slots()).isEmpty()&&be.inventory.getStackInSlot(be.kind.catalyst()).getCount()==1,"Shift-click failed catalyst routing");h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)
     public static void invalid_saved_cooling_item_grants_no_speed_bonus(GameTestHelper h){
         var p=new BlockPos(1,1,1);h.setBlock(p,BlockInit.ALLOY_FORGE.get());var be=(ProcessingBlockEntity)h.getBlockEntity(p);
         be.inventory.setStackInSlot(be.kind.upgrades()+1,new ItemStack(net.minecraft.world.item.Items.DIRT));

@@ -18,5 +18,26 @@ public final class ProcessingMenu extends AbstractContainerMenu {
     public int jobCost(){return(value(6)&65535)|(value(7)<<16);}
     @Override public boolean clickMenuButton(Player player,int id){if(player.level().isClientSide||!stillValid(player))return false;if(id>=100&&id<112)machine.setFaceDisabled(net.minecraft.core.Direction.values()[(id-100)%6],id<106);else if(id>=200&&id<230)machine.setItemMode(net.minecraft.core.Direction.values()[(id-200)/5],(id-200)%5);else return false;broadcastChanges();return true;}
     @Override public boolean stillValid(Player p){return !machine.isRemoved()&&p.level()==machine.getLevel()&&p.level().getBlockEntity(machine.getBlockPos())==machine&&p.distanceToSqr(machine.getBlockPos().getCenter())<=64;}
-    @Override public ItemStack quickMoveStack(Player p,int n){if(!stillValid(p)||n<0||n>=slots.size()||!slots.get(n).hasItem())return ItemStack.EMPTY;var slot=slots.get(n);var s=slot.getItem();var copy=s.copy();int machineSlots=machine.kind.slots();if(n<machineSlots){if(!moveItemStackTo(s,machineSlots,slots.size(),true))return ItemStack.EMPTY;}else{boolean moved=false;for(int i=machine.kind.upgrades();i<machineSlots;i++)if(machine.inventory.isItemValid(i,s)){moved=moveItemStackTo(s,i,i+1,false);break;}if(!moved)moved=moveItemStackTo(s,0,machine.kind.output(),false);if(!moved)return ItemStack.EMPTY;}if(s.isEmpty())slot.setByPlayer(ItemStack.EMPTY);else slot.setChanged();slot.onTake(p,s);return copy;}
+    @Override public ItemStack quickMoveStack(Player p,int n){
+        if(!stillValid(p)||n<0||n>=slots.size()||!slots.get(n).hasItem())return ItemStack.EMPTY;
+        var slot=slots.get(n);var s=slot.getItem();var copy=s.copy();int machineSlots=machine.kind.slots();
+        if(n<machineSlots){if(!moveItemStackTo(s,machineSlots,slots.size(),true))return ItemStack.EMPTY;}
+        else{
+            boolean moved;
+            // Recipe materials can also be legacy upgrades. Never silently install
+            // an ingredient as an upgrade, including when its operating slots are full.
+            if(machine.inventory.isItemValid(machine.kind.catalyst(),s)){
+                moved=moveItemStackTo(s,machine.kind.catalyst(),machine.kind.catalyst()+1,false);
+            }else if(machine.inventory.isItemValid(0,s)){
+                moved=moveItemStackTo(s,0,machine.kind.inputCount,false);
+            }else{
+                moved=false;
+                for(int i=machine.kind.upgrades();i<machineSlots;i++)if(machine.inventory.isItemValid(i,s)){
+                    moved=moveItemStackTo(s,i,i+1,false);break;
+                }
+            }
+            if(!moved)return ItemStack.EMPTY;
+        }
+        if(s.isEmpty())slot.setByPlayer(ItemStack.EMPTY);else slot.setChanged();slot.onTake(p,s);return copy;
+    }
 }
