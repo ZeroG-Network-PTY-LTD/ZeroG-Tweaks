@@ -61,7 +61,17 @@ Also retained: dedicated jelly/port artwork review, holographic diagnostics,
 solar-plasma/cooling quantities, claim/team adapters and unfinished boss mechanics.
 No unsupported gameplay values or APIs are invented to mark these complete.
 
-This update changes documentation only. It does not rebuild or replace the installed
-JAR, change version, launch Minecraft, regenerate dimensions or modify saves.
+The TODO changes are documentation only. Following the user's additional request,
+code and Design were pulled explicitly and were already current. A clean production
+build passed (`20261006_174022_clean.log`); the asset audit checked 7,937 models,
+1,522 blockstates, 3,893 PNGs and 96 animation metadata files with zero errors.
+No gameplay tests were rerun for this unchanged source.
+
+The rebuilt JAR checksum is
+`cc3bc6aedee20d36f52557c20e0ae9508a29752c0ed6ff2357e85498df384610`,
+identical to the installed `zerog-tweaks-1.21.1-1.0.12-dev.jar`. Installation
+verification therefore retained the already-current file without replacing it or
+creating a redundant backup. Existing dependencies and prior backups remain intact.
+No version change, Minecraft launch, dimension regeneration or save modification.
 The [TODO ledger](storage-and-machinery-todo.json) retains individual acceptance
 criteria and distinguishes implementation, server verification and client approval.
