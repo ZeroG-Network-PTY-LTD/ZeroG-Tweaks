@@ -2,31 +2,34 @@
 
 What is left before players can play the Overworld prologue, build the T1 gate and explore the Moon and Mars.
 
-- **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026; updated for `15200c39` (machines and power) on 6 Oct 2026.
+- **Audited against:** `1.21.x` at `ba544335` on 6 Oct 2026 (first audit `5273b965`).
 - **Scope:** The Overworld prologue, the Moon, Mars, the T1 and T2 gates, and Sol-era power and gear.
 - **Live tracker:** the Sol Build Tracker artifact (tick items there).
 - **HTML copy:** [`sol-build-tracker.html`](sol-build-tracker.html), a static snapshot. Download it, or open it from a local clone, to view it in a browser.
 - **Rule:** an item is done only when the code exists. Headless tests are not client approval.
 
-**6 open, 31 done.** Every Sol blocker and high item from the first audit is in the code, and the Solar Array and moving pipe contents landed in `15200c39`. What's left is mostly polish, plus the biggest gap: nobody has played the Sol loop in a real client yet.
+**7 open, 31 done.** Every Sol blocker and high item from the first audit is in the code, and since `d659d926` the ores need the right pickaxe, so the mining ladder now holds. Two things need a real client: a full Sol playthrough, and confirming that the Moon and Mars mobs no longer render solid black after the `ba544335` fix. The rest is polish.
 
 ## Open: High
 
 - [ ] **Play the whole Sol loop in a real client** (Polish)
   - Every Sol system now exists and passed headless server tests, but nothing has been checked on screen. In a fresh survival world: mine Nullifite, find the Courier, craft and build the T1 gate, power it with a combustion generator, go to the Moon, then Mars, loot a crash site, come home on the landing platform and with a Recall Anchor. Check menus, shift-click, worn armor, particles and gravity feel.
   - Evidence: Docs: sol-build-workflow-2026-10-05.md says client approval is pending for menus, armor fit, particles and hand models
+- [ ] **Confirm Moon and Mars mobs no longer render solid black** (Mobs)
+  - Rust Beetles, Dune Burrowers, Dust Grazers and the Moon Hopper showed up as solid-black silhouettes in a real client. The likely cause (a glow pass on mobs that have no glow texture) was patched in ba544335 and the fixed JAR is installed, but nobody has looked yet. Restart the client and check those four with shaders off and on, adults and babies, plus one mob that should glow.
+  - Evidence: 1.21.x ba544335 client/OptionalGlowingGeoLayer.java; Docs: black-mob-rendering-hotfix-2026-10-07.md (client confirmation pending)
 
 ## Open: Normal
 
 - [ ] **Real block properties for the rest of the Sol blocks** (Systems)
-  - Base Sol terrain (lunar stone, regolith, rustsand, polar frost, ice) and all 164 stair bases are fixed. 571 blocks still use the generic stone props. For Sol, fix: metal and storage blocks (Nullifite, Ferrox, Moonsteel, Olympium, Aresite, raw blocks) with SoundType.METAL; gate parts, landing platform and crystal cell; Olympium plating slab/wall; oxide crust slab/wall. Decorative stone families (polished, bricks, chiseled, cobbled) can keep stone sound but need vanilla-like hardness (1.5 / 2.0).
-  - Evidence: registry/BlockInit.java: 571 x props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F); 0 stairs on Blocks.STONE
+  - Base Sol terrain (lunar stone, regolith, rustsand, polar frost, ice), all 164 stair bases and the ores are fixed. Still on the generic stone props (2.5 hardness, stone sound): the Nullifite, Ferrox, Moonsteel, Olympium and Aresite blocks and raw blocks (should be metal sound), gate parts, landing platform and crystal cell, Olympium plating slab/wall, oxide crust slab/wall, and the decorative stone families (polished, bricks, chiseled, cobbled), which need vanilla-like hardness.
+  - Evidence: registry/BlockInit.java at ba544335: 570 x props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F), e.g. MOONSTEEL_BLOCK, GATE_PYLON, LANDING_PLATFORM, CRYSTAL_CELL, LUNAR_STONE_BRICKS
 - [ ] **Check Moonsteel 3D tools in hand** (Gear)
   - Still needs an in-game look: first person, third person and item frame, both hands. The ledger lists this as client approval pending; no capture exists yet.
   - Evidence: Docs: sol-build-workflow-2026-10-05.md, Known limits
 - [ ] **Launch animation and transition screen** (Polish)
-  - Done: ready countdown with a ready check for everyone on the pad, and a short purple edge fade on arrival. Still missing: pylons lighting up while charging, the rift opening, players floating, the white-out and the galaxy zoom transition screen.
-  - Evidence: client/GateArrivalEffects.java (32 lines, edge fade only); SurvivalGateBlockEntity countdown + ready set
+  - Done: ready countdown with a ready check for everyone on the pad, and a short purple edge fade on arrival. Still missing in code: pylons lighting up while charging, the rift opening, players floating, the white-out and the galaxy-to-planet transition screen. The transition screen's design and art are ready on Design (docs/gate-transition-screen-v1): spec, timings, layout, sprites and previews.
+  - Evidence: client/GateArrivalEffects.java (edge fade only); Design: docs/gate-transition-screen-v1/README.md
 - [ ] **Give Lunar Highlands its own mob spawns** (Mobs)
   - Regolith Crawler and Moon Hopper only spawn in Lunar Mare and Shadowed Craters, so the Highlands has no Moon mobs. Add one or both there (or a highlands variant).
   - Evidence: neoforge/biome_modifier/sol_regolith_crawler.json, sol_moon_hopper.json
@@ -60,7 +63,7 @@ What is left before players can play the Overworld prologue, build the T1 gate a
 - [x] **Show items and fluids moving in transport lines** (Systems): Transport works on the server (six tiers, filters, Null Links), but nothing is drawn moving inside the lines. Add a client renderer, using the Design transport previews. Evidence: 15200c39: client/TransportMotionRenderer.java + transport/TransportMotion.java draw content moving along real routes; on-screen check is part of the client playtest
 - [x] **Signal prologue: Courier pod, Dormant Wisp, Codex** (Progression): First Raw Nullifite triggers the Courier; its chest holds the Dormant Wisp and Concord Codex; backup Wisp in loot. Evidence: lore/ConcordPrologue.java, structure/concord_courier.nbt
 - [x] **Nullifite ore in deepslate and the Deep Dark** (Worlds): Biome modifiers add the ore, with extra in the Deep Dark. Evidence: neoforge/biome_modifier/add_nullifite_ore*.json
-- [x] **Sol tool tiers and mining ladder** (Gear): Nullifite, Ferrox, Moonsteel and Olympium tiers; real sword/pickaxe/axe/shovel/hoe classes; needs_ and incorrect_for_ tags. Evidence: registry/ZGToolTiers.java, ItemInit.java, tags/block/needs_*
+- [x] **Sol tool tiers and mining ladder** (Gear): Nullifite, Ferrox, Moonsteel and Olympium tiers; real sword/pickaxe/axe/shovel/hoe classes; needs_ and incorrect_for_ tags. Since d659d926 all 39 ores require the correct tool, so the wrong pick no longer drops Moonsteel, Olympium, Aresite or Selenite. Evidence: registry/ZGToolTiers.java, ItemInit.java, tags/block/needs_*; BlockInit.java ores use requiresCorrectToolForDrops() (d659d926)
 - [x] **Nullifite, Ferrox and Moonsteel armor with set bonuses** (Gear): GeckoLib worn models and perks (Null Step, Sturdy, Lunar Stride). Evidence: item/ZGArmorItem.java, ZGArmorSetBonuses.java
 - [x] **Moon and Mars dimensions with ores and surfaces** (Worlds): Three biomes each, planet ores, lichen, Moon Null Fluid lakes, surface blocks via noise rules. Evidence: dimension/moon.json, mars.json; worldgen/noise_settings
 - [x] **Lunari and Rustborn villagers in settlements** (Villagers): Species registered with renderers; settlements placed on Moon and Mars biomes. Evidence: registry/ZGPlanetVillagers.java; biome_modifier/planet_settlements.json
