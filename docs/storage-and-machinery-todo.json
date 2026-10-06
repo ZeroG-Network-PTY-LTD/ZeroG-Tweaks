@@ -2,6 +2,30 @@
   "schema": 1,
   "updated": "2026-10-07",
   "candidate_version": "1.0.12-dev",
+  "commit_review": {
+    "date": "2026-10-07",
+    "runtime": "9a58cea2e18666d0fba16ceac27648f3affb47e3",
+    "design": "d37440fb751ac4f9101ff8156ebe03dc78b767bc",
+    "docs_reviewed": "b2475cddda35ddd38b06c22bb725419bea8effba",
+    "result": "Live branch heads match the last delivery; no newer remote implementation commits found. Documentation reconciliation only; no new build, installation or save changes.",
+    "guide": "commit-review-and-next-tasks-2026-10-07.md"
+  },
+  "next_priority_order": [
+    "client-acceptance",
+    "all-machine-side-configuration",
+    "per-machine-upgrade-contracts",
+    "transport-moving-renderer",
+    "power-directional-pulses",
+    "liquid-wave-visuals",
+    "gas-registry-and-networks",
+    "concord-codex-research-gates",
+    "advanced-alveary-biology",
+    "larger-authored-alveary-layouts",
+    "recipe-discovery-guide",
+    "galaxy-tracker-reconciliation",
+    "planet-ecology-broad-audit",
+    "bee-survival-crafting"
+  ],
   "branch_ownership": {"runtime": "1.21.x", "artwork": "Design", "guides_jars_images": "Docs"},
   "rules": ["Install backed-up JAR before publishing", "Do not reset player saves", "No Mekanism code or assets copied", "No new machine types before existing GUI/port audit", "Static asset/server checks are not client visual approval"],
   "tasks": [

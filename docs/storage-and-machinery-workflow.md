@@ -8,6 +8,17 @@ The [7 October supplied hub workshop](supplied-hub-workshop-2026-10-07.md) adds
 player's existing hub. It does not reset planetary terrain or change survival costs;
 those will be reviewed hardest-to-easiest against the storyline after inspection.
 
+## Current TODO reconciliation — 7 October
+
+See the [reviewed commits and current priorities](commit-review-and-next-tasks-2026-10-07.md)
+and [machine-readable ledger](storage-and-machinery-todo.json). Live branch heads
+still match the supplied-workshop delivery. Historical task lists below are retained
+as context, not a statement that their subsequently repaired bugs remain open.
+Honey alongside combs and four processing machines' item/power side controls are
+server-verified; remaining machine families, advanced biology and client approval
+are separate outstanding tasks. Survival recipe costs remain paused until the
+supplied workshop is inspected and exact story-aligned costs are agreed.
+
 ## Original ZeroG machinery, not a bundled Mekanism fork
 
 The six locally installed Mekanism/example JARs were inventoried read-only: core
