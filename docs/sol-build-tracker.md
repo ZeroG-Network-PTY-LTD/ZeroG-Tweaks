@@ -9,7 +9,7 @@ What is left before players can play the Overworld prologue, build the T1 gate a
 - **Rule:** an item is done only when the code exists. Headless tests are not client approval.
 - **Lore:** follow [`lore/README.md`](lore/README.md). Items with a **Lore** note must match it; don't invent new canon, flag gaps as "lore needed".
 
-**8 open, 31 done.** Every Sol blocker and high item from the first audit is in the code, and since `d659d926` the ores need the right pickaxe, so the mining ladder now holds. Two things need a real client: a full Sol playthrough, and confirming that the Moon and Mars mobs no longer render solid black after the `ba544335` fix. The rest is polish.
+**10 open, 32 done.** Every Sol blocker and high item from the first audit is in the code, the ores need the right pickaxe, and the Prologue and Act I story beats are in the game. Still open: a real-client playthrough, confirming the Moon and Mars mobs no longer render black, polish, and three lore gaps (Concord debris from Meteor Maws, an Aresite shrine in every Rustborn village, and the Act I Codex pages in lang keys).
 
 ## Lore: Prologue: The Signal, and Act I: The Falling Star
 
@@ -62,6 +62,14 @@ Full guide: [`lore/README.md`](lore/README.md). Don't invent new canon; flag gap
   - The Act I lore says Meteor Maws bring Concord debris to the Moon, but the Meteor Maw only drops Star Map Fragments and the daily impacts leave no Concord material. Decide what the debris is (a salvage item, a drop, or small impact wrecks), then add it.
   - **Lore:** Act I: Meteor Maws bring Concord debris to the Moon. What the debris is still needs approved lore.
   - Evidence: loot_table/entities/meteor_maw.json only has star_map_fragment; event/DailyPlanetImpacts.java places no Concord material
+- [ ] **Put an Aresite core shrine in every Rustborn village** (Villagers)
+  - The Mars Aresite shrine exists only as a rare standalone structure (one per 56-chunk grid). The lore says every Rustborn village keeps a hand-cut Aresite core as a shrine. Add a small core shrine to the Rustborn settlement layout; keep the standalone shrine as the big one with the Codex.
+  - **Lore:** Rustborn are the first people who remember the Concord by name; the hand-cut Aresite core in every village is the first proof the Concord was real.
+  - Evidence: worldgen/structure_set/mars_aresite_shrine.json spacing 56 / separation 28; no aresite in worldgen/PlanetSettlementFeature.java
+- [ ] **Move the Moon and Mars Codex pages into lang keys** (Progression)
+  - The three Prologue pages use lang keys, but the Act I Moon and Mars pages are hardcoded English strings in ConcordCodexItem, so they can't be translated or edited with the rest of the story text.
+  - **Lore:** Story text goes in en_us.json. Keep the approved wording: the Lunari relay listened for the Pathfinder's hum for thousands of years; the Rustborn's hand-cut Aresite core is the first proof of the Concord.
+  - Evidence: item/ConcordCodexItem.java uses Component.literal for 'Act I: The Moon Relay' and 'Act I: The Waystation'; codex.zerog_tweaks.signal/template/coordinates are lang keys
 
 ## Done
 
@@ -96,6 +104,7 @@ Full guide: [`lore/README.md`](lore/README.md). Don't invent new canon; flag gap
 - [x] **Rust Beetle on Mars** (Mobs): Registered with AI and spawns. Evidence: entity/RustBeetle.java
 - [x] **Upgrade templates and copy recipes** (Progression): Template items and duplication recipes exist (but see the Mars Crash Site blocker). Evidence: registry/ZGUpgradeTemplates.java
 - [x] **Act I Codex advancements** (Progression): Root, Falling Star, Builder's Template, First Gate, The Moon, Mars, Aresite Core, Null Step. Evidence: advancement/codex/*.json
+- [x] **Sol story beats in the game** (Progression): Checked against the approved Prologue and Act I: first Raw Nullifite schedules the Courier for the next night, with a second pod after 7 days and a Dormant Wisp backup in ancient-city chests. The console says 'Rebuild the gate. We are waiting.' The Gate Controller needs the Dormant Wisp, and Echo asks 'How long have I been asleep?'. T1 only reaches the Moon and Mars. The Lunari greet 'the one who answered the signal' on arrival, and the Codex has the Signal, Builder's Template and Awaiting Coordinates pages. Lore: Matches briefs/prologue_the_signal.md and the Act I lore. Evidence: lore/ConcordPrologue.java (RECOVERY_TICKS=7*24000, ancient_city backup pool, lunari_signal_greeting); recipe/gate_controller.json needs dormant_wisp; lang codex.zerog_tweaks.*
 
 ## Not Sol (left for later galaxies)
 
