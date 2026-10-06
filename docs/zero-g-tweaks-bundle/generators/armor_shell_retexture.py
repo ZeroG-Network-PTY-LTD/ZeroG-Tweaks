@@ -22,8 +22,11 @@ import sys
 from PIL import Image
 
 ASSETS = sys.argv[1]
-SETS = sys.argv[2:] or ['moonsteel', 'olympium']
+SETS = sys.argv[2:] or ['nullifite', 'ferrox', 'moonsteel', 'olympium']
 L2 = 32  # layer 2 sits below layer 1 in UV units
+# Sets without a designed chunky shell borrow another set's geometry (owner's call, 2026-10-06) until a designer
+# shell exists: Ferrox's shell is only the eight vanilla boxes and Nullifite's adds four small pieces.
+SHELL_FROM = {'nullifite': 'moonsteel', 'ferrox': 'moonsteel'}
 
 # Vanilla HumanoidArmorModel boxes per shell bone: (origin, size, texOffs, mirrored)
 PARTS = {
@@ -123,7 +126,9 @@ for s in SETS:
     except FileNotFoundError:
         pass
     path = f'{ASSETS}/geo/item/armor/{s}.geo.json'
-    geo = json.load(open(path, encoding='utf-8')); g = geo['minecraft:geometry'][0]
+    geo = json.load(open(f'{ASSETS}/geo/item/armor/{SHELL_FROM.get(s, s)}.geo.json', encoding='utf-8'))
+    g = geo['minecraft:geometry'][0]
+    if s in SHELL_FROM: g['description']['identifier'] = g['description']['identifier'].replace(SHELL_FROM[s], s)
     g['description']['texture_width'] = g['description']['texture_height'] = 64
     n = 0
     for bone in g['bones']:

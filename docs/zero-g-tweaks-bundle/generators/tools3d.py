@@ -1,12 +1,22 @@
 """3D (Draconic-Evolution-style) item models for a ZeroG tool set.
 Builds Java item models with elements (opens directly in Blockbench as a Java Block/Item model), a 64x64 HD
 material texture, glowing inlays (NeoForge per-element light), preview renders and a sheet.
-Usage: python3 tools3d.py <out_dir> [flat_sprite_dir]"""
+Usage: python3 tools3d.py <out_dir> [flat_sprite_dir] [--set moonsteel|nullifite|ferrox|olympium]"""
 import json, math, os, sys, random
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-OUT = sys.argv[1]; SPR = sys.argv[2] if len(sys.argv) > 2 else None
-SET = 'moonsteel'
+ARGS = [a for a in sys.argv[1:] if not a.startswith('--set')]
+SET = next((a.split('=', 1)[1] for a in sys.argv[1:] if a.startswith('--set=')), None) \
+    or (sys.argv[sys.argv.index('--set') + 1] if '--set' in sys.argv else 'moonsteel')
+if SET in ARGS: ARGS.remove(SET)
+OUT = ARGS[0]; SPR = ARGS[1] if len(ARGS) > 1 else None
+# Six-tone metal ramp per set (dark to bright). Moonsteel is the approved v4 ramp; the others are the six evenly
+# spaced head tones of the colleague's flat tool sprites (textures/item/<set>_<tool>.png), excluding the shared
+# wood, violet-glow and cyan-inlay ramps, so each 3D set wears its own sprite colours. (2026-10-06)
+METAL_RAMPS = {'moonsteel': ['141326', '2b2a4a', '454a78', '6a7bb0', '9fb6d8', 'e6f4ff'],
+               'nullifite': ['0b0712', '231536', '3f2766', '6a45a8', 'a07ee0', 'e2d4ff'],
+               'ferrox': ['3d2324', '753f2d', '7f452e', 'd37343', 'ff955d', 'ffbe7f'],
+               'olympium': ['362630', '654748', 'b27e71', 'b88376', 'dfa593', 'ffcfb9']}
 H = lambda h: tuple(int(h[i:i + 2], 16) for i in (1, 3, 5))
 C = dict(outline=H('#1d2126'), dark=H('#5b6470'), mid=H('#8a95a3'), light=H('#b8c3cf'), hi=H('#eef4fa'),
          acc=H('#a8d8ff'), acc_hi=H('#eef8ff'), handle=H('#56606e'), deep=H('#2a4a66'), blue=H('#5a8ab0'))
@@ -22,7 +32,7 @@ def swatch(kind, rnd):
     im = Image.new('RGBA', (16, 16)); draw = ImageDraw.Draw(im)
     metal, accent = (161, 175, 198), (174, 107, 236)
     def hue(c, level):
-        ramps={'moonsteel':['141326','2b2a4a','454a78','6a7bb0','9fb6d8','e6f4ff'],
+        ramps={'moonsteel':METAL_RAMPS[SET],
                'glow':['2a0e4a','5a22a0','9a4ef0','c48cff','e8ccff','ffffff'],
                'cerulite':['06141f','0e3550','14648a','1fa2c4','5fe0f0','dcffff'],
                'wood':['1a0e0a','3c2216','5e3a24','875a36','b0824e','dcb27a']}
@@ -215,7 +225,7 @@ def to_json(tool, mirror=False):
         els.append(j)
     # No parent: a parent chain ending at builtin/generated rebuilds the model from layer0 and drops the cubes
     # (invisible item, no log error) -- see 1.21.x 50e82a8d. DISPLAY spells out the handheld transforms instead.
-    return {'credit': 'ZeroG Tweaks - 3D Moonsteel tool (generators/tools3d.py)', 'gui_light': 'front',
+    return {'credit': f'ZeroG Tweaks - 3D {SET.capitalize()} tool (generators/tools3d.py)', 'gui_light': 'front',
             'texture_size': [64, 64], 'textures': {'0': f'zerog_tweaks:item/3d/{SET}_tools', 'particle': f'zerog_tweaks:item/{SET}_ingot'},
             'elements': els, 'display': DISPLAY}
 
