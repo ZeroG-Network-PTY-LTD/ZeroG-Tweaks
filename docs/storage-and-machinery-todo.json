@@ -4,14 +4,13 @@
   "candidate_version": "1.0.12-dev",
   "commit_review": {
     "date": "2026-10-07",
-    "runtime": "e21c82be",
-    "design": "216a5659",
+    "runtime": "120c2552",
+    "design": "d9b9d2d7",
     "docs_reviewed": "c8e8982882366ca265131254cfa2cb263d63172f",
-    "result": "Reviewed current1.21.x/Design/Docs heads; no newer contributor commits at publication. Published Rustborn Aresite shrine in all four newly generated settlement layouts with independent required test passed in20261006_233803, production build20261006_233504 and zero-error asset audit. Installed1ec1545cc4348dea623fd39f6f5b71338c59852f118e16a6748e7c262ba1eeb2 before publication, same1.0.12-dev version with old-JAR backup. Prior82-test card checkpoint preserved separately, not rerun or claimed as current84-test pass. Owner explicitly authorized no-backup reset of34 Cardinal Hub planetary folders; Overworld/player data preserved, regeneration pending next load. Codex localization and its planetary-context test remain pending. Compact/Void and remaining adapters remain tracked; exact survival costs last.",
-    "guide": "sol-lore-gap-workflow-2026-10-07.md"
+    "result": "Act I Codex pages localized without English wording changes. Test world loads actual Moon/Mars; observed missing language-key regression then all2 required lore checks passed20261006_234711, covering arrival, return, player save/reload and four village layouts. Clean production build20261006_234840 and zero-error asset audit passed. Installed bee2dd722b116f8b82ca9adc30c4a71cc7425585bd2530e054d08ca31d5988b5 before publication, same1.0.12-dev with predecessor backup. Test preset/classes excluded from JAR. This batch leaves player saves untouched; earlier authorized planetary reset remains documented separately. Prior82-test processor-card checkpoint is historical, not rerun here. Next Compact/Void tests approved for menu/pipe transfers, processing, card removal, reload and block breaking. Other queue items remain outstanding; exact survival costs last.",
+    "guide": "codex-localization-2026-10-07.md"
   },
   "next_priority_order": [
-    "sol-codex-localized-pages",
     "machine-upgrade-cards-six-tiers",
     "machine-void-card-upgrades-tab",
     "client-acceptance",
@@ -100,7 +99,7 @@
     {"id": "wasteland-structures-and-signature-mobs", "status": "todo_reaudit_tracker", "acceptance": "Audit Sunken Relay, Buried Observatory, Collapsed Forge, Frozen Outpost, Sunken Lab, Prism Spire, Impact Site and corresponding natural mobs/rewards"},
     {"id": "frozen-fleet-and-endgame", "status": "todo_reaudit_tracker", "acceptance": "Audit Eidolon wrecks/Captain peaceful route, Skarn Rift Tyrant, Solvane Dying Star/Solar Shrine/ending against current code; models or loot files alone do not count"},
     {"id": "sol-rustborn-aresite-shrine", "status": "installed_targeted_server_verified_pending_client", "acceptance": "Every newly generated Rustborn layout places one hand-cut Aresite core on Martian brick pedestal; actual construction check covers all four layouts and preserves resident anchor. Standalone shrine/loot unchanged; existing villages not retrofitted. Same1.0.12-dev shrine JAR installed7October; build and asset audit passed. Client appearance still needs approval."},
-    {"id": "sol-codex-localized-pages", "status": "todo", "acceptance": "Move hardcoded Moon/Mars pages into en_us keys without changing approved English story. Initial disposable arrival test failed because Sol dimensions were absent, not because localization was verified. Load planetary preset, then test actual Codex use before/after each arrival, return and reload. Existing literal pages and arrival gating remain unchanged in installed shrine JAR."},
+    {"id": "sol-codex-localized-pages", "status": "installed_targeted_server_verified_pending_client", "acceptance": "Moon/Mars bodies moved to en_us language keys with exact approved English text. Opt-in planetary test preset loads both real dimensions. Actual item use checks three initial pages, Mars-only arrival, both visits, return and player save/load. All2 required lore tests passed20261006_234711 after missing-key regression; clean build and assets passed, installed same-version bee2dd72 JAR with backup. Mock connection/real level-context check is not physical portal or client book layout approval."},
     {"id": "sol-meteor-maw-concord-debris", "status": "deferred_impact_wreck", "acceptance": "Owner7Oct: keep Star Map Fragment drops as interim lore carriers; no Broken Console mob loot. Future small Moon impact wreck uses approved crater, meteorite fragments, pod shell and chest, excluding Wisp, Codex and console. Wreck not implemented; no new story logs or IDs invented; not a Sol progression blocker."},
     {"id": "galaxy-trades-codex-gear-perks", "status": "todo_reaudit_tracker", "acceptance": "Check signature professions, currencies, Act II-V Codex pages and material perks. Latest contributor code restores owner-approved 3D shells for four Sol sets only; retain vanilla-fit geometry for other sets."},
     {"id": "seeded-galaxy-catalogue", "status": "todo_reaudit_tracker", "acceptance": "Verify seeded slot diversity and readable star-chart catalog names; fixed dimension IDs do not establish seeded galaxy generation"}

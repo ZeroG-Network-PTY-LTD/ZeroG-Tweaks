@@ -1,5 +1,22 @@
 # ZeroG Tweaks
 
+## Act I Codex localization — 7 October 2026
+
+Still **1.0.12-dev**. [Codex checks and next storage slice](docs/codex-localization-2026-10-07.md) · [Delivery receipt](docs/codex-localization-delivery-2026-10-07.json) · [Installed JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-codex-localization-20261007.jar).
+
+Moon and Mars pages now use language files, with the approved English wording
+unchanged. Tests in loaded planetary server levels confirm no premature pages,
+Mars-only unlocking, both visits, return and player save/reload. Both required
+lore checks passed; clean build and zero-error asset audit passed. The installed
+JAR excludes test classes/presets and leaves your saves unchanged in this batch.
+Client book layout and physical portal travel remain separate approval checks.
+
+Sol tracker:34/42 authored entries complete. Next: Compact storage and Void filtering,
+with owner-approved conservation/recovery tests. Other machine/transport/biology
+and ecology tasks remain in the [TODO ledger](docs/storage-and-machinery-todo.json).
+The shrine checkpoint below describes the earlier installed artifact; its pending
+Codex entry is superseded here. Previous images, galleries and JARs are preserved.
+
 ## Rustborn shrine checkpoint — 7 October 2026
 
 Still **1.0.12-dev**. [Lore workflow and outstanding work](docs/sol-lore-gap-workflow-2026-10-07.md) · [Delivery record](docs/sol-shrine-delivery-2026-10-07.json) · [Installed shrine JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-sol-shrine-20261007.jar).

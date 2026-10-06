@@ -10,6 +10,13 @@ those will be reviewed hardest-to-easiest against the storyline after inspection
 
 ## Current TODO reconciliation — 7 October
 
+Latest: [Codex localization](codex-localization-2026-10-07.md) is installed and
+server-verified in loaded Moon/Mars levels, superseding the earlier pending entry.
+Compact and Void are next; owner-approved tests cover menu/pipe transfers,
+processing, card removal, save/reload and block breaking without loss or oversized
+ItemStacks. This checkpoint does not claim storage cards or the rest of the queue
+implemented, and it does not perform another planetary reset.
+
 The [Rustborn shrine checkpoint](sol-lore-gap-workflow-2026-10-07.md) adds one
 Aresite core to all four newly generated village layouts. Codex localization stays
 pending until its planetary-context item test works. Other machine recipe adapters
