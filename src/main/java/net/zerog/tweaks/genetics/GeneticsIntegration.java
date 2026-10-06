@@ -42,14 +42,14 @@ public final class GeneticsIntegration {
         for(String id:new String[]{"centrifuge","starmetal_smelter"}) {
             var key=ResourceLocation.fromNamespaceAndPath("aeroapiary",id);
             if(BuiltInRegistries.BLOCK.containsKey(key))event.registerBlock(Capabilities.EnergyStorage.BLOCK,
-                (level,pos,state,be,side)->be!=null&&GeneticsRuntime.legacyPowered(GeneticsRuntime.id(be))?GeneticsRuntime.energy(be):null,BuiltInRegistries.BLOCK.get(key));
+                (level,pos,state,be,side)->be!=null&&GeneticsRuntime.legacyPowered(GeneticsRuntime.id(be))?net.zerog.tweaks.machine.LegacyMachineSides.energy(be,side):null,BuiltInRegistries.BLOCK.get(key));
         }
         for(String id:new String[]{"genetic_splicer","geno_station"}) {
             var key=ResourceLocation.fromNamespaceAndPath("aeroapiary",id);
             if(BuiltInRegistries.BLOCK.containsKey(key))event.registerBlock(Capabilities.EnergyStorage.BLOCK,
-                (level,pos,state,be,side)->be!=null&&GeneticsRuntime.handles(GeneticsRuntime.id(be))?GeneticsRuntime.energy(be):null,BuiltInRegistries.BLOCK.get(key));
+                (level,pos,state,be,side)->be!=null&&GeneticsRuntime.handles(GeneticsRuntime.id(be))?net.zerog.tweaks.machine.LegacyMachineSides.energy(be,side):null,BuiltInRegistries.BLOCK.get(key));
             if(BuiltInRegistries.BLOCK.containsKey(key))event.registerBlock(Capabilities.FluidHandler.BLOCK,
-                (level,pos,state,be,side)->be!=null&&GeneticsRuntime.handles(GeneticsRuntime.id(be))?new GeneticsTank(be):null,BuiltInRegistries.BLOCK.get(key));
+                (level,pos,state,be,side)->be!=null&&GeneticsRuntime.handles(GeneticsRuntime.id(be))?net.zerog.tweaks.machine.LegacyMachineSides.fluids(be,side):null,BuiltInRegistries.BLOCK.get(key));
         }
     }
     private GeneticsIntegration(){}

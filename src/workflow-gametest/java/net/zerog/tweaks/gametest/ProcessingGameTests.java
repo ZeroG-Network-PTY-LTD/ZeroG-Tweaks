@@ -10,6 +10,15 @@ import net.zerog.tweaks.machine.*;
 import net.zerog.tweaks.registry.BlockInit;
 @GameTestHolder("zerog_workflow") @PrefixGameTestTemplate(false)
 public final class ProcessingGameTests {
+    @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)
+    public static void invalid_saved_cooling_item_grants_no_speed_bonus(GameTestHelper h){
+        var p=new BlockPos(1,1,1);h.setBlock(p,BlockInit.ALLOY_FORGE.get());var be=(ProcessingBlockEntity)h.getBlockEntity(p);
+        be.inventory.setStackInSlot(be.kind.upgrades()+1,new ItemStack(net.minecraft.world.item.Items.DIRT));
+        var player=h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var menu=new ProcessingMenu(1,player.getInventory(),be);
+        h.assertTrue(menu.value(4)==4,"Invalid saved cooling item grants a speed bonus");
+        h.assertTrue(be.inventory.getStackInSlot(be.kind.upgrades()+1).is(net.minecraft.world.item.Items.DIRT),"Invalid old item must remain recoverable");h.succeed();
+    }
     private static ItemStack stack(String id,int n){return new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("zerog_tweaks:"+id)),n);}
     private static void tick(GameTestHelper h,ProcessingBlockEntity be,int n){for(int i=0;i<n;i++)ProcessingBlockEntity.tick(h.getLevel(),be.getBlockPos(),be.getBlockState(),be);}
     @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)

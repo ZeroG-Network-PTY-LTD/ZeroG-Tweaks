@@ -19,6 +19,6 @@ public final class CombustionRegistry {
     public static final DeferredRegister.Items ITEMS=DeferredRegister.createItems("zerog_tweaks");
     public static final net.neoforged.neoforge.registries.DeferredItem<Item> FLUX_MODULE=ITEMS.registerSimpleItem("generator_flux_module",new Item.Properties());
     public static void register(IEventBus bus){TYPES.register(bus);MENUS.register(bus);ITEMS.register(bus);bus.addListener(CombustionRegistry::capabilities);}
-    public static void capabilities(RegisterCapabilitiesEvent event){event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,TYPE.get(),(be,side)->be.energy);event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,TYPE.get(),(be,side)->be.fuel);}
+    public static void capabilities(RegisterCapabilitiesEvent event){event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,TYPE.get(),(be,side)->be.energyFor(side));event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,TYPE.get(),(be,side)->be.fuelFor(side));}
     private CombustionRegistry(){}
 }

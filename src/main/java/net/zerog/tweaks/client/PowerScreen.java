@@ -12,9 +12,21 @@ import net.zerog.tweaks.power.*;
 
 public final class PowerScreen extends AbstractContainerScreen<PowerMenu> {
     private boolean showInputs;
+    private boolean fuelFaces;
     private MachineItemCatalog inputs;
     public PowerScreen(PowerMenu m,Inventory inv,Component title){super(m,inv,title);imageWidth=278;imageHeight=194;inventoryLabelY=101;}
-    @Override protected void init(){super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showInputs);inputs=new MachineItemCatalog(s->!menu.solar()&&menu.slots.getFirst().mayPlace(s));if(!menu.solar())addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Fuel"),b->{showInputs=!showInputs;rebuildWidgets();}).bounds(leftPos+119,topPos+3,49,16).build());addRenderableWidget(new SideConfigurationPanel(leftPos+180,topPos+18,s->menu.outputDisabled(s)?3:2,s->{if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,(menu.outputDisabled(s)?106:100)+s);}," (generator output)").outputOnly());}
+    @Override protected void init(){
+        super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showInputs);
+        inputs=new MachineItemCatalog(s->!menu.solar()&&menu.slots.getFirst().mayPlace(s));
+        if(!menu.solar()){
+            addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Fuel"),b->{showInputs=!showInputs;rebuildWidgets();}).bounds(leftPos+119,topPos+3,49,16).build());
+            addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal(fuelFaces?"Show power":"Show fuel"),b->{fuelFaces=!fuelFaces;rebuildWidgets();}).bounds(leftPos+180,topPos+148,94,18).build());
+        }
+        var panel=fuelFaces&&!menu.solar()?new SideConfigurationPanel(leftPos+180,topPos+18,s->menu.fuelDisabled(s)?3:1,s->send(200+s*2+(menu.fuelDisabled(s)?0:1))," (Fusion Dust only)",true).labels("Fuel faces","Items only"):
+            new SideConfigurationPanel(leftPos+180,topPos+18,s->menu.outputDisabled(s)?3:2,s->send((menu.outputDisabled(s)?106:100)+s)," (generator output)").outputOnly();
+        addRenderableWidget(panel);
+    }
+    private void send(int button){if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,button);}
     @Override protected void renderBg(GuiGraphics g,float partial,int x,int y){
         g.fill(leftPos,topPos,leftPos+176,topPos+194,0xff101b2b);g.fill(leftPos+6,topPos+18,leftPos+170,topPos+98,0xff24354b);
         if(!menu.solar()){g.fill(leftPos+25,topPos+43,leftPos+43,topPos+61,0xff08111d);g.drawString(font,"Fuel",leftPos+8,topPos+26,0xffe0eeff,false);}

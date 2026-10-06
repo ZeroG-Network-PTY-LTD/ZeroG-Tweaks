@@ -12,7 +12,7 @@ import net.neoforged.neoforge.items.SlotItemHandler;
 import net.zerog.tweaks.registry.MenuInit;
 
 /** Five operational slots plus eleven take-only legacy recovery slots. */
-public final class GeneticsMenu extends AbstractContainerMenu {
+public final class GeneticsMenu extends AbstractContainerMenu implements net.zerog.tweaks.machine.MachineSideMenu {
     public final BlockEntity machine;
     public final String machineId;
     private final ContainerData data;
@@ -33,8 +33,9 @@ public final class GeneticsMenu extends AbstractContainerMenu {
         }
         for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(playerInv,9+row*9+col,48+col*18,159+row*18));
         for(int col=0;col<9;col++)addSlot(new Slot(playerInv,col,48+col*18,217));
-        data=playerInv.player.level().isClientSide?new SimpleContainerData(11):new ContainerData() {
+        data=playerInv.player.level().isClientSide?new SimpleContainerData(29):new ContainerData() {
             public int get(int index) {
+                if(index>=11&&index<29)return net.zerog.tweaks.machine.LegacyMachineSides.mode(machine,index-11);
                 var state=GeneticsRuntime.state(machine);
                 return switch(index) {
                     case 0->state.getInt("progress")/4;
@@ -48,17 +49,20 @@ public final class GeneticsMenu extends AbstractContainerMenu {
                     case 9->state.getBoolean("last_success")?1:0;case 10->new GeneticsTank(machine).amount();default->0;
                 };
             }
-            public void set(int index,int value){}public int getCount(){return 11;}
+            public void set(int index,int value){}public int getCount(){return 29;}
         };
         addDataSlots(data);
     }
     public int value(int index){return data.get(index);}
+    public BlockEntity sideMachine(){return machine;}
+    public int sideMode(int face){return value(11+face);}
     @Override public boolean stillValid(Player player) {
         return !machine.isRemoved()&&player.level()==machine.getLevel()&&player.distanceToSqr(machine.getBlockPos().getCenter())<=64
             &&player.level().hasChunkAt(machine.getBlockPos())&&player.level().getBlockEntity(machine.getBlockPos())==machine;
     }
     @Override public boolean clickMenuButton(Player player,int button) {
         if(player.level().isClientSide||!stillValid(player))return false;
+        if(net.zerog.tweaks.machine.LegacyMachineSides.command(machine,player,button)){broadcastChanges();return true;}
         var state=GeneticsRuntime.state(machine);
         if(button==3){GeneticsRuntime.cancel(machine);return true;}
         if(state.getBoolean("requested"))return false;

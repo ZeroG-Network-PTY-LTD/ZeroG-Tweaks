@@ -17,14 +17,18 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
     private final List<Slot> original;
     private boolean showInputs;
     private MachineItemCatalog inputs;
+    private final MachineFaceControls faceControls=new MachineFaceControls();
     public MachineWorkbenchScreen(AbstractContainerMenu menu,Inventory inventory,Component title,MachineGuiProfile profile) {
         super(menu,inventory,title);this.profile=profile;original=List.copyOf(menu.slots);
         imageWidth=256;imageHeight=236;inventoryLabelX=47;inventoryLabelY=143;
+        if(menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides&&net.zerog.tweaks.machine.LegacyMachineSides.supports(sides.sideMachine()))imageWidth=358;
         AlvearyMenuSync.clientState=new AlvearyMenuSync.State(-1,0,false,"");
     }
     @Override protected void init() {
         super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showInputs);int n=profile.roles().size();
         inputs=new MachineItemCatalog(stack->original.stream().limit(profile.outputStart()).anyMatch(slot->slot.mayPlace(stack)));
+        if(imageWidth>256&&menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides)
+            faceControls.add(leftPos+260,topPos+18,sides,w->addRenderableWidget(w),command->{if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,command);});
         addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Inputs"),b->{showInputs=!showInputs;rebuildWidgets();}).bounds(leftPos+196,topPos+3,52,16).build());
         for(int i=0;i<original.size();i++) {
             int x,y;

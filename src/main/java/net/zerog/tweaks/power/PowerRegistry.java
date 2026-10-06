@@ -18,7 +18,7 @@ public final class PowerRegistry {
     public static void register(IEventBus bus){TYPES.register(bus);MENUS.register(bus);bus.addListener(PowerRegistry::capabilities);}
     private static void capabilities(RegisterCapabilitiesEvent event){
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,TYPE.get(),(be,side)->be.energyFor(side));
-        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,TYPE.get(),(be,side)->be.solar()||side!=null&&side!=net.minecraft.core.Direction.UP?null:be.fuel);
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,TYPE.get(),(be,side)->be.fuelFor(side));
     }
     private PowerRegistry(){}
 }

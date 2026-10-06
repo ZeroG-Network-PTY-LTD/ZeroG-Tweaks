@@ -22,14 +22,16 @@ public final class GeneticsScreen extends AbstractContainerScreen<GeneticsMenu> 
     private final java.util.List<Button> geneButtons=new java.util.ArrayList<>();
     private boolean showInputs;
     private MachineItemCatalog inputs;
+    private final MachineFaceControls faceControls=new MachineFaceControls();
     public GeneticsScreen(GeneticsMenu menu,Inventory inv,Component title) {
-        super(menu,inv,title);imageWidth=256;imageHeight=240;inventoryLabelX=48;inventoryLabelY=148;
+        super(menu,inv,title);imageWidth=358;imageHeight=240;inventoryLabelX=48;inventoryLabelY=148;
         splicer=menu.machineId.equals("genetic_splicer");
     }
     private void send(int button){if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,button);}
     @Override protected void init() {
         super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showInputs);jobButtons.clear();geneButtons.clear();
         inputs=new MachineItemCatalog(stack->java.util.stream.IntStream.range(0,3).anyMatch(i->menu.slots.get(i).mayPlace(stack)));
+        faceControls.add(leftPos+260,topPos+18,menu,w->addRenderableWidget(w),this::send);
         addRenderableWidget(Button.builder(Component.literal("Inputs"),b->{showInputs=!showInputs;rebuildWidgets();}).bounds(leftPos+196,topPos+1,52,16).build());
         if(!splicer)for(int i=0;i<5;i++){final int gene=i;
             geneButtons.add(addRenderableWidget(Button.builder(Component.literal(ProductiveBeeGenes.GENES[i].replace('_',' ')),b->send(10+gene)).bounds(leftPos+48,topPos+20+i*14,166,14).build()));

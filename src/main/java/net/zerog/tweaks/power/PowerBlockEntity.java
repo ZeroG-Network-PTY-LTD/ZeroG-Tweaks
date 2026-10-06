@@ -16,6 +16,27 @@ public final class PowerBlockEntity extends BlockEntity {
     public int stored,burn,burnTotal,rate;
     private int modules,activeFuelRate;
     private int disabledOutputs;
+    private int disabledFuel=63&~(1<<Direction.UP.ordinal());
+    private final int[] fuelEpoch=new int[6];
+    public boolean fuelDisabled(Direction side){return solar()||side!=null&&(disabledFuel&(1<<side.ordinal()))!=0;}
+    public void setFuelDisabled(Direction side,boolean disabled){
+        if(solar()||side==null||fuelDisabled(side)==disabled)return;
+        disabledFuel=disabled?disabledFuel|(1<<side.ordinal()):disabledFuel&~(1<<side.ordinal());
+        fuelEpoch[side.ordinal()]++;setChanged();if(level!=null)level.invalidateCapabilities(worldPosition);
+    }
+    public net.neoforged.neoforge.items.IItemHandler fuelFor(Direction side){
+        if(fuelDisabled(side))return null;
+        int epoch=side==null?0:fuelEpoch[side.ordinal()];
+        return new net.neoforged.neoforge.items.IItemHandler(){
+            private boolean valid(int slot){return slot==0&&!isRemoved()&&!fuelDisabled(side)&&(side==null||fuelEpoch[side.ordinal()]==epoch);}
+            public int getSlots(){return 1;}
+            public ItemStack getStackInSlot(int slot){return valid(slot)?fuel.getStackInSlot(slot):ItemStack.EMPTY;}
+            public int getSlotLimit(int slot){return valid(slot)?fuel.getSlotLimit(slot):0;}
+            public boolean isItemValid(int slot,ItemStack stack){return valid(slot)&&fuel.isItemValid(slot,stack);}
+            public ItemStack insertItem(int slot,ItemStack stack,boolean simulate){return isItemValid(slot,stack)?fuel.insertItem(slot,stack,simulate):stack;}
+            public ItemStack extractItem(int slot,int count,boolean simulate){return ItemStack.EMPTY;}
+        };
+    }
     private final int[] outputEpoch=new int[6];
     public boolean outputDisabled(Direction side){return (disabledOutputs&(1<<side.ordinal()))!=0;}
     public void setOutputDisabled(Direction side,boolean disabled){
@@ -80,6 +101,6 @@ public final class PowerBlockEntity extends BlockEntity {
             int n=Math.clamp(sink.receiveEnergy(accepted,false),0,accepted);be.stored-=n;remaining-=n;if(n>0)be.setChanged();if(remaining==0)break;
         }
     }
-    @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.saveAdditional(tag,lookup);tag.putInt("power_disabled",disabledOutputs);tag.putInt("modules",modules);tag.putInt("energy",stored);tag.putInt("burn",burn);tag.putInt("burn_total",burnTotal);tag.putInt("fuel_rate",activeFuelRate);tag.put("fuel",fuel.serializeNBT(lookup));}
-    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);disabledOutputs=tag.getInt("power_disabled")&63;for(int i=0;i<6;i++)outputEpoch[i]++;modules=Math.clamp(tag.getInt("modules"),0,3);stored=Math.clamp(tag.getInt("energy"),0,capacity());burn=Math.clamp(tag.getInt("burn"),0,1000000);burnTotal=Math.clamp(tag.getInt("burn_total"),burn,1000000);activeFuelRate=Math.clamp(tag.getInt("fuel_rate"),1,100000);fuel.deserializeNBT(lookup,tag.getCompound("fuel"));}
+    @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.saveAdditional(tag,lookup);tag.putInt("fuel_disabled",disabledFuel);tag.putInt("power_disabled",disabledOutputs);tag.putInt("modules",modules);tag.putInt("energy",stored);tag.putInt("burn",burn);tag.putInt("burn_total",burnTotal);tag.putInt("fuel_rate",activeFuelRate);tag.put("fuel",fuel.serializeNBT(lookup));}
+    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);disabledFuel=tag.contains("fuel_disabled")?tag.getInt("fuel_disabled")&63:63&~(1<<Direction.UP.ordinal());for(int i=0;i<6;i++)fuelEpoch[i]++;disabledOutputs=tag.getInt("power_disabled")&63;for(int i=0;i<6;i++)outputEpoch[i]++;modules=Math.clamp(tag.getInt("modules"),0,3);stored=Math.clamp(tag.getInt("energy"),0,capacity());burn=Math.clamp(tag.getInt("burn"),0,1000000);burnTotal=Math.clamp(tag.getInt("burn_total"),burn,1000000);activeFuelRate=Math.clamp(tag.getInt("fuel_rate"),1,100000);fuel.deserializeNBT(lookup,tag.getCompound("fuel"));}
 }

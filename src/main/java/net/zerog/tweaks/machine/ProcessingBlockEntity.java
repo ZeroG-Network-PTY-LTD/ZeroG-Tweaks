@@ -49,7 +49,7 @@ public class ProcessingBlockEntity extends BlockEntity {
     public boolean upgradeValid(int slot,ItemStack s){String v=id(s);return switch(slot){case 0->CASINGS.stream().anyMatch(x->v.equals("zerog_tweaks:"+x));case 1->v.equals("zerog_tweaks:cryo_core");case 2->DUSTS.stream().anyMatch(x->v.equals("zerog_tweaks:"+x));default->false;};}
     public int casingTier(){return Math.max(0,CASINGS.indexOf(id(inventory.getStackInSlot(kind.upgrades())).replace("zerog_tweaks:",""))+1);}
     public int duration(ProcessingRecipe r){return Math.max(1,(r.time()*4+speedQuarter()-1)/speedQuarter());}
-    public int speedQuarter(){return 4+casingTier()+(inventory.getStackInSlot(kind.upgrades()+1).isEmpty()?0:2);}
+    public int speedQuarter(){return 4+casingTier()+(upgradeValid(1,inventory.getStackInSlot(kind.upgrades()+1))?2:0);}
     public int energyCost(ProcessingRecipe r){int dust=Math.max(0,DUSTS.indexOf(id(inventory.getStackInSlot(kind.upgrades()+2)).replace("zerog_tweaks:",""))+1);return Math.max(1,(int)(((long)r.energy()*(100-5*casingTier()-5*dust)+99)/100));}
     public ProcessingRecipe.Input input(){var in=new ArrayList<ItemStack>();for(int i=0;i<kind.inputCount;i++)in.add(inventory.getStackInSlot(i));return new ProcessingRecipe.Input(in,inventory.getStackInSlot(kind.catalyst()));}
     public ItemStack output(ProcessingRecipe r,int index){var out=r.outputs().get(index).stack().copy();if(kind==ProcessingRegistry.Kind.REFINING&&index==0&&casingTier()>0&&r.upgradedCount()>out.getCount())out.setCount(Math.min(out.getMaxStackSize(),r.upgradedCount()));return out;}
