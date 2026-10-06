@@ -2,41 +2,54 @@
 
 Everything that isn't tied to one galaxy: transport pipes and cells, Orbital Bees genetics and the Alveary, machines and power, storage, and mod-wide systems.
 
-- **Audited against:** `1.21.x` at `15200c39` on 6 Oct 2026.
+- **Audited against:** `1.21.x` at `d659d926` on 6 Oct 2026.
 - **Scope:** `transport/`, `genetics/` and the aeroapiary integration, `machine/`, `power/`, `storage/`, mining rules and block properties, guide, test hub, weather, ecology, trims and compat. Per-galaxy content is in the Sol and Galaxy 2–5 trackers.
 - **Live tracker:** the Shared Systems Tracker artifact (tick items there).
 - **HTML copy:** [`shared-systems-tracker.html`](shared-systems-tracker.html), a static snapshot. Download it, or open it from a local clone, to view it in a browser.
 - **Rule:** an item is done only when the code exists. Headless tests are not client approval.
 
-**33 open, 13 done.** Transport, storage, the three processing machines, power and the core genetics and Alveary runtime all work on the server. Three things block survival play: ores drop for any tool so the mining ladder isn't enforced, the bee machines and consumables have no recipes in ZeroG Tweaks, and the Ore Refinery still runs a 5-item hardcoded table. Several bee features wait on design decisions because Productive Bees doesn't expose them.
+**27 open, 19 done.** Transport, storage, the three processing machines, power and the core genetics and Alveary runtime all work on the server. The six repaired items below are now server-verified. Bee-machine/consumable survival recipes remain a blocker. Several bee features wait on design decisions because Productive Bees doesn't expose them.
+
+## Verified repair update — 6 October 2026
+
+73 addon-present tests passed;11 overlapping blocker tests also passed without addons. Detailed historical audit descriptions below explain the original defects; the checked status and this update supersede them.
+
+- 39 BlockInit ore registrations and Cerulite Cluster require correct tools. Survival wrong/right-pick eligibility and all tier-tagged blocks passed.
+- Powered shared processing terminal,79 recipes, bounded casing upgrades, upgraded output reservation and safe legacy inventory migration. Raw blocks yield18/27 ingots with proportionate FE. Paid jobs survive reload.
+- Loaded networks traverse beyond256 nodes with one leader/budget.257-node transfer conservation passed; no remote chunk loading.
+- Route changes propagate from any connected loaded terminal. Nearest uses port priority then breadth-first distance from buffered source. Disabled-face alternate paths remain reachable.
+- Every connected pipe must meet hazardous-fluid tier. Simulation/fill and buffered delivery reject unsafe mixed networks without deleting contents.
+- Royal/Cosmic source,flowing,blocks and collectable buckets registered. Actual bucket-to-splicer interaction passes. Four addon items per1000mB preserves250mB job dose; dedicated art/standalone synthesis pending.
+
+Concord Codex advancements are the approved research mechanism, but research gates are not implemented. Dedicated jelly artwork, standalone synthesis, client approval and the remaining queue stay pending.
 
 ## Open: Blockers
 
-- [ ] **Ores drop for any tool, so the mining ladder isn't enforced** (Mining & blocks)
+- [x] **Ores drop for any tool, so the mining ladder isn't enforced** (Mining & blocks)
   - None of the blocks in BlockInit call requiresCorrectToolForDrops(), and the ore loot tables only check for Silk Touch. The needs_<tier>_tool tags make the wrong pick slow, but it still drops the ore, even by hand. That bypasses the whole Nullifite-to-Solvanite ladder in every galaxy. Add requiresCorrectToolForDrops() to the ore properties (and to stone-like blocks that should need a pickaxe). The planet mineral blocks in ZGPlanetMaterials already do this correctly.
   - Evidence: registry/BlockInit.java: props() has no requiresCorrectToolForDrops (0 uses in the file); loot_table/blocks/cerulite_ore.json only checks silk_touch; registry/ZGPlanetMaterials.java line 27 does call it
 - [ ] **No crafting recipes for the bee machines, Alveary parts or genetics consumables (please confirm)** (Bees & genetics)
   - Nothing in ZeroG Tweaks has a recipe for the Genetic Splicer, Geno Station, Alveary controllers and tier parts, the Zero-G Hive, Serum Vials, Royal or Cosmic Jelly, Honey Drops or frames, and the copy of the aeroapiary addon jar available here only has Productive Bees recipes. If the current addon or the modpack adds them, tick this off; otherwise none of the bee systems can be built in survival.
   - Evidence: data/zerog_tweaks has no aeroapiary: recipes; checked addon jar data has only PB bee, breeding, produce and centrifuge recipes; current addon repo not available to check
-- [ ] **Rebuild the Ore Refinery on the refining recipe type** (Machines & power)
+- [x] **Rebuild the Ore Refinery on the refining recipe type** (Machines & power)
   - The Ore Refinery is a hardcoded table of 5 inputs with no FE use, no casing or upgrade slots and no upgraded output count. The refining recipe type is registered, but the refinery doesn't use it, and the 38 refining recipe files are still in pending-data in the old format. Move it onto ProcessingBlockEntity like the other three machines and bring the recipes in.
   - Evidence: registry/OreRefineryBlockEntity.Recipes.resolve (fixed 200 ticks); no data/zerog_tweaks/recipe/refining/; Design pending-data/recipe/refining/ (38 files)
 
 ## Open: High
 
-- [ ] **Large transport networks silently stop at 256 nodes** (Transport)
+- [x] **Large transport networks silently stop at 256 nodes** (Transport)
   - When a network passes 256 pipes and cells, the network search returns nothing, so items, fluids and power stop moving and the screen shows a 0 limit, with no warning. Raise or remove the cap, and warn the player if one is kept.
   - Evidence: transport/TransportBlockEntity.network(): found.size()<256 then return List.of()
-- [ ] **Routing: setting only works on one node, and 'Nearest' isn't nearest** (Transport)
+- [x] **Routing: setting only works on one node, and 'Nearest' isn't nearest** (Transport)
   - Only the node with the lowest position runs the network and uses its own routing setting, so changing Route on any other pipe does nothing. Nearest routing sorts by priority then position, not by path length as the spec says.
   - Evidence: TransportBlockEntity.tick (nodes.get(0)!=be; be.routing); endpoints.sort by priority only
 - [ ] **Items jump straight to the destination and can jam a tube** (Transport)
   - Items move instantly from a tube buffer to an endpoint rather than travelling at tier speed. If nothing accepts them they sit in that tube's 9-slot buffer and can block it; the spec says they return to the source or drop. The movement renderer is a 10-tick visual pulse only.
   - Evidence: TransportBlockEntity.push()/tick; client/TransportMotionRenderer.java
-- [ ] **Dangerous-fluid tier rule is only checked where fluid enters** (Transport)
+- [x] **Dangerous-fluid tier rule is only checked where fluid enters** (Transport)
   - A high-tier pull pipe can send Acid or Solar Plasma through low-tier pipes in the same network, because only the entry pipe's tier is checked. The 'can't carry this fluid' tooltip is missing too.
   - Evidence: fluidHandler().isFluidValid uses the entering block's tier; push() has no tier check; no tooltip.zerog_tweaks.transport.* in en_us.json
-- [ ] **The Genetic Splicer's jelly tank can never fill** (Bees & genetics)
+- [x] **The Genetic Splicer's jelly tank can never fill** (Bees & genetics)
   - The tank only accepts fluids named *royal_jelly or *cosmic_jelly, and neither ZeroG nor the addon registers such a fluid. Either register jelly fluids or remove the tank and keep item catalysts.
   - Evidence: genetics/GeneticsTank.java; no jelly fluid registered
 - [ ] **The Alveary honey tank and honey port never fill** (Bees & genetics)
