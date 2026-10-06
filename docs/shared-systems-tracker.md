@@ -7,8 +7,25 @@ Everything that isn't tied to one galaxy: transport pipes and cells, Orbital Bee
 - **Live tracker:** the Shared Systems Tracker artifact (tick items there).
 - **HTML copy:** [`shared-systems-tracker.html`](shared-systems-tracker.html), a static snapshot. Download it, or open it from a local clone, to view it in a browser.
 - **Rule:** an item is done only when the code exists. Headless tests are not client approval.
+- **Lore:** follow [`lore/README.md`](lore/README.md). Items with a **Lore** note must match it; don't invent new canon, flag gaps as "lore needed".
 
 **22 open, 24 done.** The first audit's blockers are mostly gone: ores need the right pickaxe, and the Ore Refinery runs on the shared processing machine with its refining recipes. Large pipe networks, routing, hazardous-fluid rules, jelly fluids, Alveary honey, structure errors and planet hive homes are fixed too. One blocker is left: the bee machines and consumables still have no crafting recipes in ZeroG Tweaks. Research is decided (Concord Codex advancements) but not built, and several bee features still wait on rules Productive Bees can't supply.
+
+## Lore: The Splintered Concord, across all five acts
+
+- Story delivery is shared: the Codex fills one chapter per galaxy, unlocked through advancements, and Echo's lines appear as Codex pages and advancement toasts.
+- Starlite, Remnant Shards, Broken Consoles, Star Map Fragments and the Nova Pearl carry the story entries.
+- Names and descriptions of shared systems (pipes, bees, machines) must not contradict the acts or the Prologue.
+
+Rules for everything on this list:
+
+- Keep the approved Prologue and the five acts. Don't invent new coordinates, factions, characters or registry IDs.
+- Echo remembers a world only after the player reaches it. Her lines arrive as Codex pages and advancement toasts; there is no dialogue system.
+- Archon Vael is the villain, always one world ahead: he appears in logs and rift whispers, and is only revealed as the Dying Star in Act V.
+- The Keepers are guardian constructs still following Concord orders. Don't reveal that the Splinter creatures are the Concord before Act V.
+- Put player-facing story text in lang keys (en_us.json), not hardcoded strings.
+
+Full guide: [`lore/README.md`](lore/README.md). Don't invent new canon; flag gaps as "lore needed".
 
 ## Open: Blockers
 
@@ -23,6 +40,7 @@ Everything that isn't tied to one galaxy: transport pipes and cells, Orbital Bee
   - Evidence: TransportBlockEntity.push()/tick; client/TransportMotionRenderer.java
 - [ ] **Genetics research gating (needs a decision)** (Bees & genetics)
   - Decided: Concord Codex advancements are the research mechanism. Not built yet: the only gate is still 'analyse before you sample or splice', and trait caps are not tied to Codex progress.
+  - **Lore:** Approved: research uses Concord Codex advancements, so genetics unlocks should follow the player's Codex chapters.
   - Evidence: Design shared-systems-tracker.md (d37440fb) note; no research gate in src/main/java at ba544335
 - [ ] **Every Alveary tier needs ZeroG ports, even T1 (confirm intended)** (Bees & genetics)
   - Formation requires exactly 2 item, 2 fluid and 1 energy port on the bottom ring at every tier. The addon has no matching ports at T1, T2 or T4, so those shells depend on ZeroG transport blocks, and the spec says T1 and T2 have no power.
@@ -32,6 +50,7 @@ Everything that isn't tied to one galaxy: transport pipes and cells, Orbital Bee
   - Evidence: genetics/AlvearyInteraction.open now on RightClickBlock (8f2015ff); GeneticsIntegration changed in d659d926/00cd70c9, client check pending
 - [ ] **Bee features blocked by the Productive Bees API (needs design decisions)** (Bees & genetics)
   - Productive Bees doesn't expose these, so they need our own rules: queen lifespan, temperature, humidity and gravity tolerances, the T2 heater/fan/humidifier/dryer and T4 to T7 special parts (they count as plain shell blocks today), mutation and territory, drone breeding and fertility, and flower requirements. The screens show these as sealed or '--'.
+  - **Lore:** If any new bee rules mention the Concord or the galaxies, check them against lore/README.md first.
   - Evidence: AGENTS.md known limits; AlvearyRuntime; genetics-runtime-v1 boundaries
 - [ ] **Machine recipes can't be seen anywhere** (Compat)
   - Machine screens now have an item catalogue (MachineItemCatalog, 00cd70c9), but processing recipes are still marked special, so they don't show in the recipe book, and there's no JEI or EMI plugin. Players still can't look up what a machine makes outside its screen.
@@ -71,6 +90,7 @@ Everything that isn't tied to one galaxy: transport pipes and cells, Orbital Bee
   - Evidence: registry/BlockInit.java props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)
 - [ ] **Hook up villager attire** (Systems)
   - 24 villager attire types and their textures are registered, but nothing assigns them to villagers.
+  - **Lore:** Per the villager design, the attire overlays are for vanilla villagers who travel through a gate. The six planet peoples have their own looks.
   - Evidence: registry/ZGVillagerAttire.TYPES is never referenced
 - [ ] **Multiblock guide and test hub gaps** (Systems)
   - The multiblock guide only has Alveary layouts; add the teleporter gate tiers. The test hub aborts its whole district without the aeroapiary addon, leaves out the Ore Refinery, and its chests have nothing to test alloying, crystal growth or salvaging.
