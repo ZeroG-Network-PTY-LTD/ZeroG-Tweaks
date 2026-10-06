@@ -11,7 +11,6 @@ import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.animation.AnimationState;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
-import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 /**
  * GeckoLib renderer for ZeroG mobs whose art is geo/<id>.geo.json, animations/<id>.animation.json and
@@ -22,7 +21,7 @@ public class ZGGeoMobRenderer<T extends LivingEntity & GeoEntity & ZGGeoMob> ext
     public ZGGeoMobRenderer(EntityRendererProvider.Context context, String assetId, float shadowRadius) {
         super(context, new Model<T>(assetId));
         this.shadowRadius = shadowRadius;
-        addRenderLayer(new AutoGlowingGeoLayer<>(this));
+        addRenderLayer(new OptionalGlowingGeoLayer<>(this));
     }
 
     @Override
