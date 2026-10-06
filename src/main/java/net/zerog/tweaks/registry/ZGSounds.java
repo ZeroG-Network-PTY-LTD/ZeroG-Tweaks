@@ -27,6 +27,23 @@ public final class ZGSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> SENTINEL_BEAM_FIRE = event("sentinel.beam_fire");
     public static final DeferredHolder<SoundEvent, SoundEvent> SENTINEL_BEAM_DEFLECT = event("sentinel.beam_deflect");
 
+    // Ore blocks: three families (Design docs/ore-sfx-v1/ore_sfx.py). Place reuses break, fall reuses step, like stone.
+    public static final DeferredHolder<SoundEvent, SoundEvent> ORE_METAL_BREAK = event("ore.metal.break");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ORE_METAL_STEP = event("ore.metal.step");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ORE_METAL_HIT = event("ore.metal.hit");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ORE_GEM_BREAK = event("ore.gem.break");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ORE_GEM_STEP = event("ore.gem.step");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ORE_GEM_HIT = event("ore.gem.hit");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ORE_DUST_BREAK = event("ore.dust.break");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ORE_DUST_STEP = event("ore.dust.step");
+    public static final DeferredHolder<SoundEvent, SoundEvent> ORE_DUST_HIT = event("ore.dust.hit");
+    public static final net.neoforged.neoforge.common.util.DeferredSoundType METAL_ORE = new net.neoforged.neoforge.common.util.DeferredSoundType(1F, 1F,
+            ORE_METAL_BREAK, ORE_METAL_STEP, ORE_METAL_BREAK, ORE_METAL_HIT, ORE_METAL_STEP);
+    public static final net.neoforged.neoforge.common.util.DeferredSoundType GEM_ORE = new net.neoforged.neoforge.common.util.DeferredSoundType(1F, 1F,
+            ORE_GEM_BREAK, ORE_GEM_STEP, ORE_GEM_BREAK, ORE_GEM_HIT, ORE_GEM_STEP);
+    public static final net.neoforged.neoforge.common.util.DeferredSoundType DUST_ORE = new net.neoforged.neoforge.common.util.DeferredSoundType(1F, 1F,
+            ORE_DUST_BREAK, ORE_DUST_STEP, ORE_DUST_BREAK, ORE_DUST_HIT, ORE_DUST_STEP);
+
     private static DeferredHolder<SoundEvent, SoundEvent> event(String id) {
         return SOUNDS.register(id, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID, id)));
     }
