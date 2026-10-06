@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-06T23:04:50.125238+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev-processor-cards-20261007.jar",
+  "sha256": "d17fec3191ab529806ab62e21c6b3902a414151d89e3bb7c908ec8e478c3740b",
+  "bytes": 27017960,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261006-230408-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": false,
+  "world_regeneration": false,
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261006_230110_runWorkflowTests.log",
+      "sha256": "07a493357d4d3625d22d49bf4738456f8190a6c20958da3ba5f1f74392192d2b",
+      "required_passes": 82,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "processor-cards-assets-20261007.json",
+      "sha256": "a3274e108471f6cf28001f6edfd03e070d3855206c36afa400b2f4c743cbb2dd",
+      "checked": {
+        "models": 7949,
+        "blockstates": 1522,
+        "pngs": 3932,
+        "animation_metadata": 118,
+        "source_byte_bindings": 0
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261006_230228_clean.log",
+    "sha256": "a303eebb3257d517e9945fc661e7af9830318d9e9cad34f6f395f0269b30b490",
+    "clean_production": true
+  },
+  "remaining": [
+    "alloy-forge-menu-input-catalyst-report",
+    "machine-upgrade-cards-six-tiers",
+    "vanilla-worn-armor",
+    "orbital-comb-style",
+    "alveary-output-gui",
+    "refinery-controls",
+    "large-network-and-nearest-routing",
+    "jelly-fluid-buckets",
+    "planet-hive-discovery",
+    "alveary-held-item-and-errors",
+    "genetics-held-item-bucket-route",
+    "recipe-discovery-guide",
+    "recipe-discovery-remaining-machines",
+    "blueprint-interaction",
+    "client-acceptance",
+    "dynamic-tank-fluid-renderer",
+    "chest-lid-animation",
+    "existing-machine-purpose-audit",
+    "legacy-addon-machine-dispatch",
+    "transport-family-gui",
+    "per-machine-upgrade-contracts",
+    "advanced-alveary-biology",
+    "external-claim-team-adapters",
+    "frost-yak-grazing",
+    "remaining-mob-model-mechanics",
+    "duplicate-click-gui-routes",
+    "alveary-five-port-base",
+    "transport-cell-native-art",
+    "all-machine-side-configuration",
+    "power-directional-pulses",
+    "liquid-wave-visuals",
+    "holographic-diagnostics",
+    "planet-ecology-broad-audit",
+    "galaxy-tracker-reconciliation",
+    "sol-rustborn-aresite-shrine",
+    "sol-codex-localized-pages"
+  ],
+  "guide": "storage-and-machinery-workflow.md",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 30,
+  "todo_sha256": "846989c52387a132524364da20039b7e587d8e61b025e91cdf765c77ab0d42c7"
+}

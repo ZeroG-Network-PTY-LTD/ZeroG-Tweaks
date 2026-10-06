@@ -10,6 +10,12 @@ those will be reviewed hardest-to-easiest against the storyline after inspection
 
 ## Current TODO reconciliation — 7 October
 
+The [independent processor-card batch](processor-upgrade-cards-2026-10-07.md)
+uses the approved six-tier Acceleration/Energy Coil bounds. Compact bulk storage,
+Void filtering and survival costs remain separate. The [contributor reconciliation](contributor-reconciliation-2026-10-07.md)
+also records the fourteen newly pulled runtime commits and two new Sol lore tasks;
+the existing Design HTML and its history are preserved.
+
 The [exact processor recipe panel](processor-recipe-discovery-2026-10-07.md)
 adds clickable recipe combinations and current upgrade information for four
 recipe-driven machines. Other machine adapters and the requested new upgrade

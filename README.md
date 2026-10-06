@@ -1,5 +1,28 @@
 # ZeroG Tweaks
 
+## Processor cards and contributor reconciliation — 7 October 2026
+
+Still **1.0.12-dev**. [Card guide](docs/processor-upgrade-cards-2026-10-07.md) · [82-test delivery receipt](docs/processor-cards-delivery-2026-10-07.json) · [Matching JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-processor-cards-20261007.jar).
+
+Alloy Forge, Ore Refinery, Crystal Growth Chamber and Salvage Station accept
+six-tier Acceleration and Energy Coil cards: configurable caps of2.5x speed and
+30% total-job FE saving, one per family. Old installed ingredients remain
+recoverable, but their bonuses cannot stack with cards. New card names and tiers
+currently reuse the original filter-card icon; dedicated artwork is pending.
+
+[Fourteen newly pulled runtime commits](docs/contributor-reconciliation-2026-10-07.md)
+include Moonsteel facing, four Sol 3D armour sets, new Sol tools, mob-render repairs,
+Cinder Mites, gate launch/transition effects, stripping and sounds. The original
+[Sol HTML tracker](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/sol-build-tracker.html)
+and all previous galleries are preserved. Aresite shrines in Rustborn villages and
+localized Moon/Mars Codex pages are newly tracked lore gaps.
+
+All82 isolated tests and clean production build passed; asset audit found zero
+errors. Installed with old-JAR backup before publication; hub and planets unchanged.
+Compact storage, Void filters, remaining machine adapters and survival costs are
+not completed by this batch. Client visual approval—including the previous recipe
+panel—remains pending in the [TODO ledger](docs/storage-and-machinery-todo.json).
+
 ## Clickable processor recipes — 7 October 2026
 
 Still **1.0.12-dev**. [Recipe-panel guide](docs/processor-recipe-discovery-2026-10-07.md) · [79-test receipt](docs/recipe-discovery-delivery-2026-10-07.json) · [Matching JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-recipe-discovery-20261007.jar).

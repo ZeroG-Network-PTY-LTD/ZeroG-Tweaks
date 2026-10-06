@@ -2,6 +2,11 @@
 
 Minecraft Java 1.21.1 / NeoForge; candidate remains **1.0.12-dev**.
 
+Later checkpoint: the [processor-card batch](processor-upgrade-cards-2026-10-07.md)
+replaces new legacy-material insertion with Acceleration/Energy Coil cards and
+updates this panel's Upgrades guidance. Historical evidence below describes the
+original recipe-browser delivery, not today's full upgrade queue.
+
 ## Supported machines
 
 Alloy Forge (10 authored recipes), Ore Refinery (79), Crystal Growth Chamber (4)

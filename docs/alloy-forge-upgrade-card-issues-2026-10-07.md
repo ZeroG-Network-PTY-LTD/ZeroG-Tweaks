@@ -3,6 +3,12 @@
 Reported 7 October 2026. Candidate version remains **1.0.12-dev**.
 This report separates player-reported defects from requested, unimplemented features.
 
+**Later approved checkpoint:** +25% acceleration per tier capped2.5x; -5% total
+job FE per coil tier capped30%; one card per family; Compact capacities
+212/360/508/656/804/952. See [the processor-card implementation](processor-upgrade-cards-2026-10-07.md).
+The older approval requests below are historical. Compact/Void behaviour and exact
+survival crafting costs remain pending; the player's catalyst symptom remains open.
+
 ## AF-01 — Ingredient and catalyst insertion
 
 **Reported:** recipe inputs are problematic and no catalyst can be placed.

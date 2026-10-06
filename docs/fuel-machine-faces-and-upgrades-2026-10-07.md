@@ -28,7 +28,7 @@ The installed NeoForge hopper hook falls back to vanilla container insertion whe
 
 | Family | Accepted upgrades | Bounds and actual effect |
 | --- | --- | --- |
-| Forge, Refinery, Growth Chamber, Salvage | One Cyrrium/Tectium/Wraithsteel/Astrium casing; one Cryo Core; one Pulsar/Tremor/Spectral/Fusion Dust in the corresponding sockets | Casing tiers add 0.25x speed each and reduce job FE by 5% each. A valid Cryo Core adds 0.5x speed. Dust tiers reduce job FE by 5% each. Maximum 2.5x speed, 40% FE saving; duration rounds up and job FE never becomes zero. |
+| Forge, Refinery, Growth Chamber, Salvage | New Acceleration and Energy Coil cards, one per family, tiers1–6; old saved casing/Cryo/dust items remain recoverable | [Card checkpoint](processor-upgrade-cards-2026-10-07.md): configurable cap2.5x speed/30% total-job FE saving. Legacy bonuses apply only with no new cards installed. No new direct-material upgrade insertion. Compact/Void pending. |
 | Solar, Fusion, Combustion | Generator Flux Module | Maximum three. Each adds 25% configured generation and one base buffer increment; maximum 1.75x output and 4x capacity. Solar sky/weather restrictions and fuel conservation remain in force. |
 | Genetics and older addon processing machines | No supported upgrade sockets | Specimens, trait serums, jelly, recipe flux and fuel are reagents, not upgrades. The menu explicitly identifies the absence of supported upgrades. New legacy upgrade effects require approved contracts before implementation. |
 | Storage and transport | Existing family-specific contracts | This batch does not reinterpret storage-expansion modules as processing upgrades or change tier capacities/rates. |
