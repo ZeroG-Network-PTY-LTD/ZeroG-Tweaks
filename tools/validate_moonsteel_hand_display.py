@@ -1,4 +1,8 @@
-"""Check the approved X half-turn in runtime, design and generator displays."""
+"""Check the vanilla item/handheld hand rotations in runtime, design and generator displays.
+
+2026-10-06: the earlier X half-turn ([180,-90,55] etc.) held every Moonsteel tool upside down in game; the geometry
+already lies on the flat sprite's diagonal (handle bottom-left), so the hand contexts are exactly vanilla handheld.
+"""
 import argparse
 import ast
 import json
@@ -11,10 +15,10 @@ parser.add_argument('--jar', type=Path)
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 expected = {
-    'thirdperson_righthand': [180, -90, 55],
-    'thirdperson_lefthand': [-180, 90, -55],
-    'firstperson_righthand': [180, -90, 25],
-    'firstperson_lefthand': [-180, 90, -25],
+    'thirdperson_righthand': [0, -90, 55],
+    'thirdperson_lefthand': [0, 90, -55],
+    'firstperson_righthand': [0, -90, 25],
+    'firstperson_lefthand': [0, 90, -25],
 }
 generator = args.design_root / 'docs/zero-g-tweaks-bundle/generators/tools3d.py'
 tree = ast.parse(generator.read_text())
@@ -41,4 +45,4 @@ try:
 finally:
     if archive:
         archive.close()
-print('PASS: five Moonsteel tools; mirrored X half-turn; runtime/design/generator/JAR consistency.')
+print('PASS: five Moonsteel tools; vanilla handheld hand rotations; runtime/design/generator/JAR consistency.')
