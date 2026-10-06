@@ -39,6 +39,11 @@ public final class GeneticsIntegration {
         if(data!=null&&data.copyTag().getBoolean("zerog_tweaks:analysed"))ProductiveBeeGenes.read(event.getItemStack()).forEach((gene,value)->event.getToolTip().add(Component.literal(gene.replace('_',' ')+": "+value.replace('_',' '))));
     }
     public static void capabilities(RegisterCapabilitiesEvent event) {
+        for(String id:new String[]{"centrifuge","starmetal_smelter"}) {
+            var key=ResourceLocation.fromNamespaceAndPath("aeroapiary",id);
+            if(BuiltInRegistries.BLOCK.containsKey(key))event.registerBlock(Capabilities.EnergyStorage.BLOCK,
+                (level,pos,state,be,side)->be!=null&&GeneticsRuntime.legacyPowered(GeneticsRuntime.id(be))?GeneticsRuntime.energy(be):null,BuiltInRegistries.BLOCK.get(key));
+        }
         for(String id:new String[]{"genetic_splicer","geno_station"}) {
             var key=ResourceLocation.fromNamespaceAndPath("aeroapiary",id);
             if(BuiltInRegistries.BLOCK.containsKey(key))event.registerBlock(Capabilities.EnergyStorage.BLOCK,

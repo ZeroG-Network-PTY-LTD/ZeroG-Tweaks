@@ -18,9 +18,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class OptionalGeneticsMixin {
     @Inject(method="tick",at=@At("HEAD"),cancellable=true,require=1)
     private static void zeroGGeneticsTick(@Coerce Object machine,Level level,CallbackInfo ci) {
+        if(machine instanceof net.minecraft.world.level.block.entity.BlockEntity be&&GeneticsRuntime.legacyPowered(GeneticsRuntime.id(be))) {
+            if(level.isClientSide||!net.zerog.tweaks.genetics.LegacyMachinePower.before(be))ci.cancel();
+            return;
+        }
         if(GeneticsRuntime.handles(GeneticsRuntime.id(machine))){GeneticsRuntime.tick(machine);ci.cancel();}
         else if(GeneticsRuntime.id(machine).equals("silk_weaver")){net.zerog.tweaks.genetics.SilkWeaverRuntime.tick(machine);ci.cancel();}
         else if(machine instanceof net.minecraft.world.level.block.entity.BlockEntity be&&AlvearyRuntime.tier(be)>0){AlvearyRuntime.tick(be);ci.cancel();}
+    }
+    @Inject(method="tick",at=@At("RETURN"),require=1)
+    private static void zeroGLegacyCharge(@Coerce Object machine,Level level,CallbackInfo ci){
+        if(!level.isClientSide&&machine instanceof net.minecraft.world.level.block.entity.BlockEntity be&&GeneticsRuntime.legacyPowered(GeneticsRuntime.id(be)))net.zerog.tweaks.genetics.LegacyMachinePower.after(be);
     }
     @Inject(method="mayPlaceIn",at=@At("HEAD"),cancellable=true,require=1)
     private static void zeroGGeneticsFilter(String id,int slot,ItemStack stack,CallbackInfoReturnable<Boolean> ci) {

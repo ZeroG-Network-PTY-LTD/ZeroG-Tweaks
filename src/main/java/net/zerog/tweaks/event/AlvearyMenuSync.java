@@ -21,11 +21,12 @@ import net.zerog.tweaks.guide.ApiaryMachineAccess;
 @EventBusSubscriber(modid="zerog_tweaks")
 public final class AlvearyMenuSync {
     public static volatile State clientState=new State(-1,0,false,"");
-    public record State(int menu,int progress,boolean formed,String error) implements CustomPacketPayload {
+    public record State(int menu,int progress,boolean formed,String error,int energy,int capacity) implements CustomPacketPayload {
+        public State(int menu,int progress,boolean formed,String error){this(menu,progress,formed,error,0,0);}
         public static final Type<State> TYPE=new Type<>(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","alveary_status"));
         public static final StreamCodec<RegistryFriendlyByteBuf,State> CODEC=StreamCodec.of(
-            (buf,value)->{buf.writeVarInt(value.menu);buf.writeVarInt(value.progress);buf.writeBoolean(value.formed);buf.writeUtf(value.error,1024);},
-            buf->new State(buf.readVarInt(),buf.readVarInt(),buf.readBoolean(),buf.readUtf(1024)));
+            (buf,value)->{buf.writeVarInt(value.menu);buf.writeVarInt(value.progress);buf.writeBoolean(value.formed);buf.writeUtf(value.error,1024);buf.writeVarInt(value.energy);buf.writeVarInt(value.capacity);},
+            buf->new State(buf.readVarInt(),buf.readVarInt(),buf.readBoolean(),buf.readUtf(1024),buf.readVarInt(),buf.readVarInt()));
         @Override public Type<State> type(){return TYPE;}
     }
     public record Sort(int menu) implements CustomPacketPayload {
@@ -48,7 +49,10 @@ public final class AlvearyMenuSync {
         ApiaryMachineAccess.read(player.containerMenu).ifPresent(machine->{
             // All verified addon machine menus can receive the same read-only cycle status.
             String error=machine.error();if(error.length()>1024)error=error.substring(0,1024);
-            PacketDistributor.sendToPlayer(player,new State(player.containerMenu.containerId,machine.progress(),machine.formed(),error));
+            boolean powered=net.zerog.tweaks.genetics.GeneticsRuntime.legacyPowered(machine.id());
+            var energy=powered?net.zerog.tweaks.genetics.GeneticsRuntime.energy(machine.entity()):null;
+            PacketDistributor.sendToPlayer(player,new State(player.containerMenu.containerId,machine.progress(),machine.formed(),error,
+                energy==null?0:energy.getEnergyStored(),energy==null?0:energy.getMaxEnergyStored()));
         });
     }
     static void sort(ServerPlayer player,int id) {

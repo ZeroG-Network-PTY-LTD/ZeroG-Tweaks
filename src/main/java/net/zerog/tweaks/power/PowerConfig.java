@@ -6,6 +6,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public final class PowerConfig {
     public static final ModConfigSpec SPEC;
     public static final ModConfigSpec.IntValue SOLAR_RATE, FUSION_RATE, FUSION_TICKS, BUFFER, TRANSFER;
+    public static final ModConfigSpec.IntValue CENTRIFUGE_COST, STARMETAL_COST;
     public static final ModConfigSpec.DoubleValue MOON, EIDOLON, SOLVANE, RAIN;
     static {
         var b=new ModConfigSpec.Builder();
@@ -14,6 +15,8 @@ public final class PowerConfig {
         FUSION_TICKS=b.defineInRange("fusionDustTicks",2000,1,1000000);
         BUFFER=b.defineInRange("baseBufferFE",1000000,100000,100000000);
         TRANSFER=b.defineInRange("transferFEPerTick",10000,1,1000000);
+        CENTRIFUGE_COST=b.defineInRange("centrifugeFEPerWorkTick",20,1,40000);
+        STARMETAL_COST=b.defineInRange("starmetalSmelterFEPerWorkTick",80,1,40000);
         EIDOLON=b.defineInRange("eidolonSolarMultiplier",0.25,0.0,100.0);
         MOON=b.defineInRange("moonSolarMultiplier",2.0,0.0,100.0);
         SOLVANE=b.defineInRange("solvaneSolarMultiplier",8.0,0.0,100.0);

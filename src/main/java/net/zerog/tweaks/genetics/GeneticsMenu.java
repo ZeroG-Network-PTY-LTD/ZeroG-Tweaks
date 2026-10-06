@@ -23,16 +23,16 @@ public final class GeneticsMenu extends AbstractContainerMenu {
         if(handler.getSlots()!=16)throw new IllegalStateException("Unsupported addon inventory size; refusing unsafe migration");
         for(int i=0;i<16;i++) {
             final int slot=i;
-            int x=i<3?18:i<5?220:48+(i-5)%9*18;
-            int y=i<3?22+i*24:i<5?22+(i-3)*48:130+(i-5)/9*18;
+            int x=i<3?18:i<5?220:28+(i-5)*18;
+            int y=i<3?22+i*24:i<5?22+(i-3)*48:130;
             addSlot(new SlotItemHandler(handler,i,x,y) {
                 @Override public boolean mayPlace(ItemStack stack){return slot<3&&GeneticsRuntime.mayPlace(machineId,slot,stack);}
                 @Override public int getMaxStackSize(){return slot==0?1:super.getMaxStackSize();}
                 @Override public void setChanged(){super.setChanged();machine.setChanged();}
             });
         }
-        for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(playerInv,9+row*9+col,48+col*18,169+row*18));
-        for(int col=0;col<9;col++)addSlot(new Slot(playerInv,col,48+col*18,227));
+        for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(playerInv,9+row*9+col,48+col*18,159+row*18));
+        for(int col=0;col<9;col++)addSlot(new Slot(playerInv,col,48+col*18,217));
         data=playerInv.player.level().isClientSide?new SimpleContainerData(11):new ContainerData() {
             public int get(int index) {
                 var state=GeneticsRuntime.state(machine);
