@@ -19,7 +19,7 @@ public final class HubWorkshop {
     public static final List<String> MACHINES=List.of("ore_refinery","alloy_forge","crystal_growth_chamber","salvage_station",
         "combustion_generator","solar_array","fusion_reactor","geno_station","genetic_splicer","centrifuge",
         "starmetal_smelter","silk_weaver","frame_infusion_altar");
-    public static BlockPos origin(int i){return new BlockPos(-100+(i%4)*24,64,-20-(i/4)*26);}
+    public static BlockPos origin(int i){return new BlockPos(-190+(i%4)*24,64,-20-(i/4)*26);}
     private static ResourceLocation key(String id){return ResourceLocation.fromNamespaceAndPath("zerog_tweaks",id);}
     private static ItemStack stack(String id,int n){var k=ResourceLocation.parse(id);return BuiltInRegistries.ITEM.containsKey(k)?new ItemStack(BuiltInRegistries.ITEM.get(k),n):ItemStack.EMPTY;}
     private static void add(Map<String,ItemStack> kit,ItemStack stack){if(!stack.isEmpty())kit.merge(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString(),stack,(old,next)->old.getCount()>=next.getCount()?old:next);}
@@ -77,11 +77,11 @@ public final class HubWorkshop {
         for(String tier:net.zerog.tweaks.storage.StorageTankRegistry.TIERS)for(String family:List.of("energy_cell","energy_conduit","item_tube","fluid_pipe","fluid_tank"))add(serviceKit,stack("zerog_tweaks:"+tier+"_"+family,1));
         if(serviceKit.size()>108)return "Alveary kit exceeds four chests; workshop not placed.";
         // All plots checked before any modification. Native flat ground is the only replaceable floor.
-        for(var p:BlockPos.betweenClosed(new BlockPos(-103,63,-102),new BlockPos(-10,69,-1))){
+        for(var p:BlockPos.betweenClosed(new BlockPos(-193,63,-102),new BlockPos(-77,69,-1))){
             var state=level.getBlockState(p);
             if(p.getY()==63? !state.isAir()&&!state.is(Blocks.STONE)&&!state.is(BlockInit.LANDING_PLATFORM.get()):!state.isAir())return "Workshop plot occupied at "+p.toShortString()+"; nothing overwritten.";
         }
-        for(int x=-100;x<=0;x++)for(int z=-6;z<=-4;z++){
+        for(int x=-190;x<=0;x++)for(int z=-6;z<=-4;z++){
             var pos=new BlockPos(x,63,z);var state=level.getBlockState(pos);
             if(!state.isAir()&&!state.is(Blocks.STONE)&&!state.is(BlockInit.LANDING_PLATFORM.get()))return "Workshop access floor occupied at "+pos.toShortString()+"; nothing overwritten.";
         }
@@ -92,7 +92,7 @@ public final class HubWorkshop {
             if(level.getBlockEntity(pos) instanceof ChestBlockEntity chest){for(int s=0;s<27&&c*27+s<supplies.size();s++)chest.setItem(s,supplies.get(c*27+s).copy());chest.setChanged();}
         }
         sign(level,serviceBase.offset(0,0,4),"ALVEARY SERVICE KIT","Bees / frames / buckets","Ports / six-tier lines","Load tier slots manually");
-        sign(level,serviceBase.offset(5,0,4),"SHELLS IN NORTH GALLERY","Charged cell at each","Honey alongside combs","Client review remains");
+        sign(level,serviceBase.offset(5,0,4),"SHELLS: SOUTH DISTRICT","Charged cell at each","Honey alongside combs","Client review remains");
         for(int i=0;i<MACHINES.size();i++){
             var base=origin(i);for(int x=-2;x<=18;x++)for(int z=-3;z<=9;z++)level.setBlock(base.offset(x,-1,z),BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);
             for(int x=base.getX()>>4;x<=base.offset(18,0,0).getX()>>4;x++)for(int z=base.offset(0,0,-3).getZ()>>4;z<=base.offset(0,0,9).getZ()>>4;z++)level.setChunkForced(x,z,true);
@@ -109,10 +109,18 @@ public final class HubWorkshop {
             sign(level,base.offset(0,0,4),MACHINES.get(i).replace('_',' '),generator?"OUTPUT TO EMPTY CELL":"CHARGED CELL INPUT",i==5?"Daylight / open sky":"Ingredients in chests","No recipe costs changed");
             sign(level,base.offset(5,0,4),"SUPPLIES: MANUAL LOAD","Recipe inputs + catalysts","Outputs stay in machine","No automatic restocking");
         }
-        for(int x=-100;x<=0;x++)for(int z=-6;z<=-4;z++)level.setBlock(new BlockPos(x,63,z),BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);
+        for(int x=-190;x<=0;x++)for(int z=-6;z<=-4;z++)level.setBlock(new BlockPos(x,63,z),BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);
+        connectPaths(level);
         sign(level,new BlockPos(-12,64,-5),"WEST: WORKSHOP","13 machine stations","Test materials / power","Recipes balanced later");
         ledger.workshopBuilt=true;ledger.setDirty();return "Built supplied workshop west of hub; original exhibits and gates preserved.";
     }
+    public static void connectPaths(ServerLevel level){
+        if(!PlanetTestHub.isHub(level.getServer())||level!=level.getServer().overworld())throw new IllegalStateException("Hub-only paths");
+        for(int z=-102;z<=-4;z++)for(int x=-82;x<=-80;x++)pathFloor(level,new BlockPos(x,63,z));
+        for(int row=0;row<4;row++)for(int x=-190;x<=-80;x++)for(int z=-13-row*26;z<=-11-row*26;z++)pathFloor(level,new BlockPos(x,63,z));
+        for(int z=0;z<=154;z++)for(int x=-2;x<=2;x++)pathFloor(level,new BlockPos(x,63,z));
+    }
+    private static void pathFloor(ServerLevel level,BlockPos pos){var state=level.getBlockState(pos);if(state.isAir()||state.is(Blocks.STONE)||state.is(BlockInit.LANDING_PLATFORM.get()))level.setBlock(pos,BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);}
     private static ItemStack sampleBee(ServerLevel level){
         var type=ResourceLocation.parse("productivebees:configurable_bee");if(!BuiltInRegistries.ENTITY_TYPE.containsKey(type))return ItemStack.EMPTY;
         try {

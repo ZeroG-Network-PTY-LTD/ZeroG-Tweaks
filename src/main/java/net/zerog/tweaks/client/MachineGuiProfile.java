@@ -26,7 +26,8 @@ public record MachineGuiProfile(String id,String namespace,List<String> roles,Li
             var metrics=new ArrayList<String>();obj.getAsJsonArray("metrics").forEach(v->metrics.add(v.getAsString()));
             int output=obj.get("outputStart").getAsInt();
             if(roles.size()!=positions.size()||roles.size()>9||output<0||output>roles.size())return Optional.empty();
-            for(var xy:positions)if(xy[0]<1||xy[0]+16>255||xy[1]<19||xy[1]+16>75)return Optional.empty();
+            // The lower input row ends at Y=78; the processing indicator begins at Y=81.
+            for(var xy:positions)if(xy[0]<1||xy[0]+16>255||xy[1]<19||xy[1]+16>80)return Optional.empty();
             return Optional.of(new MachineGuiProfile(id,namespace,List.copyOf(roles),List.copyOf(positions),List.copyOf(metrics),
                 output,obj.get("purpose").getAsString(),obj.get("pending").getAsBoolean(),obj.get("designOnly").getAsBoolean()));
         } catch(Exception ex) {return Optional.empty();} // Bad optional pack keeps the original screen.

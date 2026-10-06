@@ -62,7 +62,7 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
         for(int i=0;i<profile.positions().size();i++) {
             var xy=profile.positions().get(i);
             if(isHovering(xy[0],xy[1],16,16,mouseX,mouseY)&&!menu.slots.get(i).hasItem())
-                g.renderTooltip(font,Component.literal((profile.id().equals("silk_weaver")&&(i==1||i==2)||profile.id().equals("starmetal_smelter")&&i==1)?"Recovery only / no operating input":profile.roles().get(i)),mouseX,mouseY);
+                g.renderTooltip(font,Component.literal((profile.id().equals("silk_weaver")&&(i==1||i==2)||profile.id().equals("starmetal_smelter")&&i==1)?"Recovery only / no operating input":profile.id().equals("starmetal_smelter")?(i==0?"Starmetal recipe input":i==2?"Redstone flux":"Starmetal output"):profile.roles().get(i)),mouseX,mouseY);
         }
     }
     @Override public boolean mouseClicked(double x,double y,int button){if(showInputs&&inputs.click(x,y,leftPos,topPos,width,imageWidth))return true;return super.mouseClicked(x,y,button);}

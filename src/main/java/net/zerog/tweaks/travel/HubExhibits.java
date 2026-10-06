@@ -18,14 +18,14 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.zerog.tweaks.guide.MultiblockGuides;
 import net.zerog.tweaks.registry.BlockInit;
 
-/** Bounded inspection district north of the explicit hub. Never clears player builds. */
+/** Cardinal inspection districts in the explicit hub. Never clears player builds. */
 public final class HubExhibits {
     public static final List<String> ROOMS=List.of("collapsed_mine","concord_shrine","crystal_garden","forge","observatory",
             "prismling_nest","star_library","starlight_pool","storage_hall","trap_hall");
     public static final List<String> VALIDATED_TIERS=List.of("tier3","tier5","tier6","tier7");
-    public static BlockPos designOrigin(int index) {return new BlockPos(8+(index%4)*32,64,-42-(index/4)*32);}
-    public static BlockPos formedOrigin(int index) {return new BlockPos(8+index*32,64,-102);}
-    public static BlockPos roomOrigin(int index) {return new BlockPos(8+(index%5)*26,64,-134-(index/5)*30);}
+    public static BlockPos designOrigin(int index) {return new BlockPos(-62+(index%4)*32,64,40+(index/4)*32);}
+    public static BlockPos formedOrigin(int index) {return new BlockPos(-62+index*32,64,110);}
+    public static BlockPos roomOrigin(int index) {return new BlockPos(80+(index%5)*26,64,-25+(index/5)*30);}
     private static String prefix(String layout) {return layout.equals("cosmic_alveary")?"tier5":layout.substring(0,5);}
     private static BlockState part(String id) {
         var key=ResourceLocation.fromNamespaceAndPath("aeroapiary",id);
@@ -45,18 +45,24 @@ public final class HubExhibits {
             for(String room:ROOMS)if(level.getStructureManager().get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","concord_vault/rooms/"+room)).isEmpty())
                 return "Missing room template: "+room;
         } catch(IllegalStateException absent) {return absent.getMessage()+"; gallery not placed.";}
-        // These previously unused northern plots must be empty above native ground.
-        for(var pos:BlockPos.betweenClosed(new BlockPos(-2,63,-245),new BlockPos(136,77,-15))) {
+        // All new district plots must be empty above native ground.
+        var plots=new java.util.ArrayList<BlockPos>();
+        for(int i=0;i<MultiblockGuides.layouts().size();i++)plots.add(designOrigin(i));
+        for(int i=0;i<VALIDATED_TIERS.size();i++)plots.add(formedOrigin(i));
+        for(int i=0;i<ROOMS.size();i++)plots.add(roomOrigin(i));
+        for(var plot:plots)for(var pos:BlockPos.betweenClosed(plot.offset(-3,-1,-3),plot.offset(24,13,23))) {
             var state=level.getBlockState(pos);
             if(pos.getY()==63) {
                 if(!state.isAir() && !state.is(Blocks.STONE) && !state.is(BlockInit.LANDING_PLATFORM.get()))
                     return "Gallery floor occupied at "+pos.toShortString()+"; nothing overwritten.";
             } else if(!state.isAir())return "Gallery plot occupied at "+pos.toShortString()+"; nothing overwritten.";
         }
-        // Raised pads and 360-degree aisles; gates at Z>=17 are outside this district.
-        for(int z=-245;z<=-15;z++)for(int x=-1;x<=1;x++)floor(level,new BlockPos(x,63,z));
-        for(int x=0;x<=62;x++)for(int z=-18;z<=-16;z++)floor(level,new BlockPos(x,63,z));
-        sign(level,new BlockPos(62,64,-17),"NORTH: EXHIBITS","12 working shells","Machine test stations","10 Vault rooms");
+        // Raised pads and 360-degree aisles; northern gate pads are separate.
+        for(int z=0;z<=154;z++)for(int x=-2;x<=2;x++)floor(level,new BlockPos(x,63,z));
+        for(int x=0;x<=210;x++)for(int z=-2;z<=2;z++)floor(level,new BlockPos(x,63,z));
+        sign(level,new BlockPos(3,64,12),"SOUTH: BEE SYSTEMS","12 working shells","Ports face outward","Walk around all sides");
+        sign(level,new BlockPos(12,64,3),"EAST: SCHEMATICS","10 Vault room designs","Inspection structures","Not active boss arenas");
+        sign(level,new BlockPos(-3,64,-12),"NORTH: ALL GATES","34 destinations","Protected return pads","Test power enabled");
         int index=0;
         for(var layout:MultiblockGuides.layouts()) {
             var base=designOrigin(index++);pad(level,base,24,20);
@@ -94,8 +100,8 @@ public final class HubExhibits {
             sign(level,base.offset(8,0,19),name.replace('_',' '),"CONCORD VAULT ROOM","17 x 9 x 17", "Inspection, not boss");
             sign(level,base.offset(14,0,19),"Original room design","Spawner disabled","Trap launchers empty","No entities placed");
         }
-        buildMachineStations(level);
-        ledger.exhibitsBuilt=true;ledger.setDirty();return "Built 12 service-port apiaries, 10 Vault rooms and machine/transport inspection stations north of the hub.";
+        HubTransportShowcase.build(level);
+        ledger.exhibitsBuilt=true;ledger.setDirty();return "Built southern bee shells, eastern Vault schematics and western isolated transport lanes.";
     }
     public static void buildServiceShell(ServerLevel level,BlockPos base,String tier) {
         keepLoaded(level,base,base.offset(4,0,6));
@@ -163,7 +169,7 @@ public final class HubExhibits {
     private static void floor(ServerLevel level,BlockPos pos) {level.setBlock(pos,BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);}
     private static void pad(ServerLevel level,BlockPos origin,int width,int depth) {
         for(int x=-3;x<width;x++)for(int z=-3;z<depth;z++)floor(level,origin.offset(x,-1,z));
-        for(int x=0;x<=origin.getX();x++)for(int z=depth-2;z<depth;z++)floor(level,new BlockPos(x,63,origin.getZ()+z));
+        for(int x=Math.min(0,origin.getX());x<=Math.max(0,origin.getX());x++)for(int z=depth-2;z<depth;z++)floor(level,new BlockPos(x,63,origin.getZ()+z));
         for(int x:List.of(-2,width-2))level.setBlock(origin.offset(x,0,depth-2),Blocks.END_ROD.defaultBlockState(),3);
     }
     private static void sign(ServerLevel level,BlockPos pos,String... lines) {

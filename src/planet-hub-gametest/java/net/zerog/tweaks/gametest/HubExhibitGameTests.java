@@ -19,6 +19,29 @@ import net.zerog.tweaks.guide.MultiblockGuides;
 @PrefixGameTestTemplate(false)
 public final class HubExhibitGameTests {
     @GameTest(templateNamespace="zerog_hub_exhibits",template="equipment_empty",timeoutTicks=100)
+    public static void cardinal_hub_has_separated_working_transport_lanes(GameTestHelper helper){
+        var level=helper.getLevel().getServer().overworld();
+        HubWorkshop.connectPaths(level);
+        helper.assertTrue(level.getBlockState(new BlockPos(-81,63,-98)).is(net.zerog.tweaks.registry.BlockInit.LANDING_PLATFORM.get()),"Missing workshop spine");
+        helper.assertTrue(level.getBlockState(new BlockPos(0,63,154)).is(net.zerog.tweaks.registry.BlockInit.LANDING_PLATFORM.get()),"Last transport lane is disconnected");
+        for(int i=0;i<34;i++)helper.assertTrue(PlanetTestHub.hubCentre(i).getZ()<0,"Gate must be north of central spawn");
+        for(int i=0;i<MultiblockGuides.layouts().size();i++)helper.assertTrue(HubExhibits.designOrigin(i).getZ()>0,"Bee shell must be south");
+        for(int i=0;i<HubExhibits.ROOMS.size();i++)helper.assertTrue(HubExhibits.roomOrigin(i).getX()>0,"Schematics must be east");
+        for(int tier=0;tier<6;tier++)for(int z=0;z<=8;z+=4){
+            var base=HubTransportShowcase.origin(tier).offset(0,0,z);
+            helper.assertTrue(base.getX()<0,"Transport must be west");
+            var source=(net.zerog.tweaks.transport.TransportBlockEntity)level.getBlockEntity(base);
+            var sink=(net.zerog.tweaks.transport.TransportBlockEntity)level.getBlockEntity(base.offset(8,0,0));
+            helper.assertTrue(source!=null&&sink!=null,"Missing lane endpoints");
+            int before=z==0?source.stored+sink.stored:z==4?source.items.getStackInSlot(0).getCount()+sink.items.getStackInSlot(0).getCount():source.tank.getFluidAmount()+sink.tank.getFluidAmount();
+            for(int t=0;t<12;t++)for(int x=1;x<8;x++){var pos=base.offset(x,0,0);var node=(net.zerog.tweaks.transport.TransportBlockEntity)level.getBlockEntity(pos);net.zerog.tweaks.transport.TransportBlockEntity.tick(level,pos,node.getBlockState(),node);}
+            int after=z==0?source.stored+sink.stored:z==4?source.items.getStackInSlot(0).getCount()+sink.items.getStackInSlot(0).getCount():source.tank.getFluidAmount()+sink.tank.getFluidAmount();
+            int received=z==0?sink.stored:z==4?sink.items.getStackInSlot(0).getCount():sink.tank.getFluidAmount();
+            helper.assertTrue(before==after&&received>0,"Transport demonstration did not transfer conservatively tier="+tier+" lane="+z);
+        }
+        helper.succeed();
+    }
+    @GameTest(templateNamespace="zerog_hub_exhibits",template="equipment_empty",timeoutTicks=100)
     public static void supplied_alveary_kit_contains_real_bees_frames_and_tank_materials(GameTestHelper helper){
         var level=helper.getLevel().getServer().overworld();
         level.getServer().getCommands().performPrefixedCommand(level.getServer().createCommandSourceStack(),"zerog hub workshop");
@@ -81,7 +104,7 @@ public final class HubExhibitGameTests {
     public static void supplied_workshop_processes_real_materials_and_preserves_player_edits(GameTestHelper helper) {
         var level=helper.getLevel().getServer().overworld();
         level.getServer().getCommands().performPrefixedCommand(level.getServer().createCommandSourceStack(),"zerog hub workshop");
-        var base=new BlockPos(-100,64,-20);
+        var base=HubWorkshop.origin(0);
         helper.assertTrue(BuiltInRegistries.BLOCK.getKey(level.getBlockState(base).getBlock()).toString().equals("zerog_tweaks:ore_refinery"),"Supplied workshop refinery absent");
         var chest=(net.minecraft.world.level.block.entity.ChestBlockEntity)level.getBlockEntity(base.offset(3,0,0));
         helper.assertTrue(chest!=null&&!chest.isEmpty(),"Refinery has no working materials");

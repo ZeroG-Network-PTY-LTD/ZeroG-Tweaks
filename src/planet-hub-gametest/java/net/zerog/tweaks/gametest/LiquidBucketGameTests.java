@@ -24,7 +24,7 @@ public final class LiquidBucketGameTests {
         var sources = BuiltInRegistries.FLUID.stream().filter(fluid ->
                 BuiltInRegistries.FLUID.getKey(fluid).getNamespace().equals("zerog_tweaks")
                 && fluid instanceof FlowingFluid && fluid.defaultFluidState().isSource()).toList();
-        helper.assertTrue(sources.size()==18,"Expected all 18 distinct colour/family source fluids");
+        helper.assertTrue(sources.size()==20,"Expected 18 planetary/honey fluids plus Royal and Cosmic Jelly");
         var buckets = new HashSet<net.minecraft.world.item.Item>();
         for (var fluid : sources) {
             String id = BuiltInRegistries.FLUID.getKey(fluid).toString();
@@ -49,11 +49,11 @@ public final class LiquidBucketGameTests {
             helper.assertTrue(((BucketPickup)current.getBlock()).pickupBlock(null,level,pos,current).isEmpty(),"Flowing liquid incorrectly collectable: "+id);
             level.setBlock(pos,Blocks.AIR.defaultBlockState(),3);
         }
-        helper.assertTrue(CreativeTabs.planetaryLiquidItems().size()==6,"Planetary tab must contain six buckets");
+        helper.assertTrue(CreativeTabs.planetaryLiquidItems().size()==8,"Liquid tab must contain six planetary and two jelly buckets");
         helper.assertTrue(CreativeTabs.honeyLiquidItems().size()==12,"Honey tab must contain twelve buckets");
         var listed = new HashSet<>(CreativeTabs.planetaryLiquidItems());
         helper.assertTrue(listed.addAll(CreativeTabs.honeyLiquidItems()),"Honey category empty");
-        helper.assertTrue(listed.equals(buckets) && CreativeTabs.liquidItems().size()==18,"Creative categories omit a bucket");
+        helper.assertTrue(listed.equals(buckets) && CreativeTabs.liquidItems().size()==20,"Creative categories omit a bucket");
         helper.succeed();
     }
 }

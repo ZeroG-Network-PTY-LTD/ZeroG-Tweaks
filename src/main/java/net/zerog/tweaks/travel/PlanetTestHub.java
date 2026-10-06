@@ -32,7 +32,7 @@ public final class PlanetTestHub {
         return server.overworld().getChunkSource().getGenerator().getBiomeSource().possibleBiomes().stream()
                 .anyMatch(b->b.unwrapKey().map(k->k.location().equals(BIOME)).orElse(false));
     }
-    public static BlockPos hubCentre(int index) {return new BlockPos((index%6)*25,64,25+(index/6)*25);}
+    public static BlockPos hubCentre(int index) {return new BlockPos(-62+(index%6)*25,64,-40-(index/6)*25);}
     public static ServerLevel planet(MinecraftServer server,String id) {
         return server.getLevel(ResourceKey.create(Registries.DIMENSION,ResourceLocation.parse(id)));
     }
@@ -42,7 +42,7 @@ public final class PlanetTestHub {
             com.mojang.logging.LogUtils.getLogger().info("ZeroG hub exhibits: {}",HubExhibits.build(server.overworld()));return;
         }
         var level=server.overworld();
-        for(int x=-12;x<=137;x++) for(int z=-12;z<=162;z++)
+        for(int x=-76;x<=76;x++) for(int z=-182;z<=12;z++)
             level.setBlock(new BlockPos(x,63,z),BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);
         var dimensions=ZGDimensionTerrain.dimensions();
         for(int i=0;i<dimensions.size();i++) {
@@ -51,9 +51,10 @@ public final class PlanetTestHub {
             ledger.add(new GateLedger.Gate("minecraft:overworld",centre,destination,true));
             label(level,centre,dimensions.get(i),"TEST POWER","Right-click gate","Stand on pad");
         }
-        level.setDefaultSpawnPos(new BlockPos(62,65,0),0);
+        level.setDefaultSpawnPos(new BlockPos(0,65,0),180);
         ledger.hubBuilt=true;ledger.inspectionEnabled=true;ledger.setDirty();
         com.mojang.logging.LogUtils.getLogger().info("ZeroG hub exhibits: {}",HubExhibits.build(level));
+        com.mojang.logging.LogUtils.getLogger().info("ZeroG supplied workshop: {}",HubWorkshop.build(level));
     }
     public static void tick(ServerTickEvent.Post event) {
         var server=event.getServer();
