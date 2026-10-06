@@ -79,7 +79,8 @@ public final class FoodInteractionGameTests {
     @GameTest(template="equipment_empty",timeoutTicks=100)
     public static void liquid_tab_and_layered_comet_are_complete(GameTestHelper helper) {
         var liquids=net.zerog.tweaks.registry.CreativeTabs.liquidItems();
-        helper.assertTrue(liquids.size()==18,"Expected all eighteen liquid buckets");
+        // 18 planetary/honey liquids + Royal and Cosmic Jelly (d659d926).
+        helper.assertTrue(liquids.size()==20,"Expected all twenty liquid buckets");
         helper.assertTrue(liquids.stream().allMatch(i->i instanceof net.minecraft.world.item.BucketItem),"Non-bucket liquid entry");
         var cells=net.zerog.tweaks.event.CometRemnant.cells();
         for(var cell:cells) {
