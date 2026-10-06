@@ -9,7 +9,7 @@ What is left before players can play the Overworld prologue, build the T1 gate a
 - **Rule:** an item is done only when the code exists. Headless tests are not client approval.
 - **Lore:** follow [`lore/README.md`](lore/README.md). Items with a **Lore** note must match it; don't invent new canon, flag gaps as "lore needed".
 
-**9 open, 33 done.** The new Rustborn village shrine is installed and checked across all four settlement layouts. Still open: a real-client playthrough, confirming Moon/Mars mob rendering, polish and localized Act I Codex pages. Moon impact-wreck debris is deferred by the owner; Star Map Fragments remain the interim lore carrier. Server checks do not certify client appearance.
+**8 open, 34 done.** The Rustborn shrine is checked across all four settlement layouts. Moon/Mars Codex localization preserves approved wording and passes item-use arrival, return and player save/reload checks in loaded planetary levels. Still open: real-client playthrough, mob rendering and polish. Moon impact-wreck debris remains deferred; Star Map Fragments are the interim lore carrier. Server checks do not certify client appearance or physical portal travel.
 
 ## Lore: Prologue: The Signal, and Act I: The Falling Star
 
@@ -66,10 +66,10 @@ Full guide: [`lore/README.md`](lore/README.md). Don't invent new canon; flag gap
   - Each newly generated Rustborn layout places one hand-cut Aresite core on a low Martian brick pedestal, clear of homes, farms and the resident anchor. The standalone large shrine and its loot remain unchanged; existing villages are not retrofitted.
   - **Lore:** Rustborn are the first people who remember the Concord by name; the hand-cut Aresite core in every village is the first proof the Concord was real.
   - Evidence: worldgen/PlanetSettlementFeature.java and SolLoreGameTests actual four-layout construction; same-version shrine JAR installed7October2026. Client composition approval remains pending.
-- [ ] **Move the Moon and Mars Codex pages into lang keys** (Progression)
-  - The three Prologue pages use lang keys, but the Act I Moon and Mars pages are hardcoded English strings in ConcordCodexItem, so they can't be translated or edited with the rest of the story text.
+- [x] **Move the Moon and Mars Codex pages into lang keys** (Progression)
+  - Act I Moon and Mars pages now use language keys alongside the three Prologue pages. The approved English wording is unchanged.
   - **Lore:** Story text goes in en_us.json. Keep the approved wording: the Lunari relay listened for the Pathfinder's hum for thousands of years; the Rustborn's hand-cut Aresite core is the first proof of the Concord.
-  - Evidence: item/ConcordCodexItem.java uses Component.literal for 'Act I: The Moon Relay' and 'Act I: The Waystation'; codex.zerog_tweaks.signal/template/coordinates are lang keys
+  - Evidence: item/ConcordCodexItem.java uses codex.zerog_tweaks.moon_relay/mars_waystation from lang/en_us.json; all2 required lore tests passed20261006_234711 in actual loaded Moon/Mars levels, including no premature pages, Mars-first unlock, return and player save/reload.
 
 ## Done
 
