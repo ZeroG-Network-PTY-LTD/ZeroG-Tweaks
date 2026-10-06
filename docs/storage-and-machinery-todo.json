@@ -1,10 +1,11 @@
 {
   "schema": 1,
-  "updated": "2026-10-06",
+  "updated": "2026-10-07",
   "candidate_version": "1.0.12-dev",
   "branch_ownership": {"runtime": "1.21.x", "artwork": "Design", "guides_jars_images": "Docs"},
   "rules": ["Install backed-up JAR before publishing", "Do not reset player saves", "No Mekanism code or assets copied", "No new machine types before existing GUI/port audit", "Static asset/server checks are not client visual approval"],
   "tasks": [
+    {"id": "supplied-hub-workshop", "status": "installed_targeted_server_verified_pending_client", "acceptance": "New ServicePorts-derived save copy with 13 machine stations and alveary kits; loaded recipe materials, real PB cages, valid catalysts, fuel and configured power. Five required checks passed in 20261006_171606, including registered block tickers, preserved stock/player edits and existing shell/room checks. Original save hashes unchanged; only workshop region imported, not distant tests. Survival costs unchanged; review hardest-to-easiest against Concord milestones after player inspection. Unattended distant ticking and full client/optional-addon recipe approval remain unverified."},
     {"id": "reference-audit", "status": "implemented", "acceptance": "Six local JAR inventories and original-design boundary recorded"},
     {"id": "four-wood-joinery", "status": "implemented", "acceptance": "16 registered blocks, recipes/loot, native artwork and editable sources"},
     {"id": "wood-storage-expansion", "status": "server_verified", "acceptance": "Eight containers, 27/54 slots, persistence, automation, break conservation"},

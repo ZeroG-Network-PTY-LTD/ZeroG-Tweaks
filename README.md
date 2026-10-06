@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Supplied inspection hub — 7 October 2026
+
+Still **1.0.12-dev**. [Workshop locations, supplies and limits](docs/supplied-hub-workshop-2026-10-07.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Archived workshop JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-supplied-workshop-20261006.jar).
+
+A new copy of the local Seed 0 hub adds **13 machine stations and an alveary service
+supply area**, with recipe-derived materials, real bee cages, catalysts, fuel and
+configured power cells. **Five targeted isolated checks passed**; client inspection
+remains pending. Original saves and planetary terrain are preserved. Survival costs
+will be reviewed afterward, hardest to easiest, against the Concord storyline.
+
 ## Latest repair batch — processing item faces, 6 October 2026
 
 Still **1.0.12-dev**. [Item/power panel guide and remaining work](docs/processing-item-faces-2026-10-06.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Delivery receipt](docs/item-faces-delivery-2026-10-06.json) · [Archived JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-item-faces-20261006.jar).

@@ -3,6 +3,11 @@
 Minecraft Java **1.21.1 / NeoForge**, candidate **1.0.12-dev**. This extension keeps
 the version unchanged. Its installation receipt identifies the exact JAR by SHA256.
 
+The [7 October supplied hub workshop](supplied-hub-workshop-2026-10-07.md) adds
+13 stocked machine stations and alveary service supplies in a new copy of the
+player's existing hub. It does not reset planetary terrain or change survival costs;
+those will be reviewed hardest-to-easiest against the storyline after inspection.
+
 ## Original ZeroG machinery, not a bundled Mekanism fork
 
 The six locally installed Mekanism/example JARs were inventoried read-only: core
