@@ -23,6 +23,8 @@ public final class EntityInitHooks {
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(EntityInit.METEOR_MAW.get(),
                 c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c,"meteor_maw_ironfall",1.25F));
+        event.registerEntityRenderer(EntityInit.CINDER_MITE.get(),
+                c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c, "shatteredskies:splinter_mite_cinder", .35F));
         event.registerEntityRenderer(EntityInit.REGOLITH_CRAWLER.get(),
                 c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c, "regolith_crawler", .45F));
         event.registerEntityRenderer(EntityInit.CRYSTAL_STAG.get(),

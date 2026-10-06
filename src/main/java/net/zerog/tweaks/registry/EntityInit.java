@@ -28,6 +28,10 @@ public final class EntityInit {
     public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.MeteorMaw>> METEOR_MAW =
             ENTITIES.register("meteor_maw", () -> EntityType.Builder.<net.zerog.tweaks.entity.MeteorMaw>of(net.zerog.tweaks.entity.MeteorMaw::new, MobCategory.MONSTER)
                     .sized(2.5F,3F).fireImmune().clientTrackingRange(16).build("zerog_tweaks:meteor_maw"));
+    /** Ironfall add spat out by the Meteor Maw (Shattered Skies splinter_mite_cinder art). */
+    public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.CinderMite>> CINDER_MITE =
+            ENTITIES.register("cinder_mite", () -> EntityType.Builder.<net.zerog.tweaks.entity.CinderMite>of(net.zerog.tweaks.entity.CinderMite::new, MobCategory.MONSTER)
+                    .sized(.6F,.45F).fireImmune().build("zerog_tweaks:cinder_mite"));
     public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.RegolithCrawler>> REGOLITH_CRAWLER =
             ENTITIES.register("regolith_crawler", () -> EntityType.Builder.<net.zerog.tweaks.entity.RegolithCrawler>of(net.zerog.tweaks.entity.RegolithCrawler::new, MobCategory.MONSTER)
                     .sized(.9F, .5F).build("zerog_tweaks:regolith_crawler"));
@@ -86,6 +90,7 @@ public final class EntityInit {
 
     private static void attributes(EntityAttributeCreationEvent event) {
         event.put(METEOR_MAW.get(), net.zerog.tweaks.entity.MeteorMaw.createAttributes().build());
+        event.put(CINDER_MITE.get(), net.zerog.tweaks.entity.CinderMite.createAttributes().build());
         event.put(REGOLITH_CRAWLER.get(), net.zerog.tweaks.entity.RegolithCrawler.createAttributes().build());
         event.put(MOON_HOPPER.get(), net.zerog.tweaks.entity.MoonHopper.createAttributes().build());
         event.put(DUST_GRAZER.get(), net.zerog.tweaks.entity.DustGrazer.createAttributes().build());

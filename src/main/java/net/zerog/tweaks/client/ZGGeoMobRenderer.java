@@ -40,14 +40,18 @@ public class ZGGeoMobRenderer<T extends LivingEntity & GeoEntity & ZGGeoMob> ext
             this.base = id;
         }
 
-        /** [model, animations, texture] for the mob's current art set. */
+        /** [model, animations, texture] for the mob's current art set; "namespace:id" draws from another namespace. */
         private ResourceLocation[] set(T mob) {
-            return sets.computeIfAbsent(mob.assetId(base), id -> new ResourceLocation[] {rl("geo/" + id + ".geo.json"),
-                    rl("animations/" + id + ".animation.json"), rl("textures/entity/" + id + ".png")});
+            return sets.computeIfAbsent(mob.assetId(base), key -> {
+                int colon = key.indexOf(':');
+                String ns = colon < 0 ? ZeroGTweaks.MODID : key.substring(0, colon), id = key.substring(colon + 1);
+                return new ResourceLocation[] {rl(ns, "geo/" + id + ".geo.json"),
+                        rl(ns, "animations/" + id + ".animation.json"), rl(ns, "textures/entity/" + id + ".png")};
+            });
         }
 
-        private static ResourceLocation rl(String path) {
-            return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID, path);
+        private static ResourceLocation rl(String namespace, String path) {
+            return ResourceLocation.fromNamespaceAndPath(namespace, path);
         }
 
         @Override public ResourceLocation getModelResource(T mob) { return set(mob)[0]; }
