@@ -15,6 +15,8 @@ public final class MachineItemCatalog {
     private final List<Entry> entries;
     private final java.util.function.Function<ItemStack,String> detail;
     private int page;
+    private java.util.function.Consumer<ItemStack> selection;
+    public MachineItemCatalog onSelect(java.util.function.Consumer<ItemStack> callback){selection=callback;return this;}
     public MachineItemCatalog(Predicate<ItemStack> accepted) {
         this(accepted,stack->category(stack));
     }
@@ -55,6 +57,13 @@ public final class MachineItemCatalog {
     }
     public boolean click(double x,double y,int left,int top,int viewport,int machineWidth){
         int width=panelWidth(viewport,machineWidth);if(width<32||x<left-width-4||x>=left-4||y<top||y>=top+184)return false;
+        if(selection!=null){
+            int row=(int)(y-top-23)/24;
+            if(y>=top+23&&row>=0&&row<6&&y<top+23+row*24+20){
+                int index=page*6+row;if(index<entries.size())selection.accept(entries.get(index).stack().copy());return true;
+            }
+            if(y<top+168)return true;
+        }
         page=(page+1)%Math.max(1,(entries.size()+5)/6);return true;
     }
 }

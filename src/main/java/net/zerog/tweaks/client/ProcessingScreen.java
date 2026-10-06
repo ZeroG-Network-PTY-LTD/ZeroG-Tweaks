@@ -12,13 +12,13 @@ public final class ProcessingScreen extends AbstractContainerScreen<ProcessingMe
     public ProcessingScreen(ProcessingMenu m,Inventory i,Component t){super(m,i,t);imageWidth=294;imageHeight=208;inventoryLabelX=16;inventoryLabelY=114;}
     private boolean showItems;
     private boolean showRecipes;
-    private MachineItemCatalog inputs;
+    private ProcessingRecipePanel inputs;
     @Override protected void init(){
         super.init();
         leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showRecipes);
-        inputs=new MachineItemCatalog(stack->minecraft!=null&&minecraft.level!=null&&minecraft.level.getRecipeManager().getAllRecipesFor(ProcessingRegistry.TYPES_BY_KIND.get(menu.machine.kind).get()).stream().anyMatch(holder->holder.value().inputs().stream().anyMatch(input->input.ingredient().test(stack))||holder.value().catalyst().map(c->c.ingredient().test(stack)).orElse(false)));
+        if(inputs==null)inputs=new ProcessingRecipePanel(menu.machine);
         var catalog=addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Inputs"),b->{showRecipes=!showRecipes;rebuildWidgets();}).bounds(leftPos+145,topPos+3,49,18).build());
-        catalog.active=MachineItemCatalog.panelWidth(width,imageWidth)>=32;
+        catalog.active=MachineItemCatalog.panelWidth(width,imageWidth)>=120;
         if(!catalog.active)catalog.setTooltip(net.minecraft.client.gui.components.Tooltip.create(Component.literal("Reduce GUI scale to make room for the input catalogue.")));
         var power=addRenderableWidget(new SideConfigurationPanel(leftPos+198,topPos+24,face->menu.value(8+face)==1?3:1,face->{if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,(menu.value(8+face)==1?106:100)+face);}," (power only)",true));
         var items=addRenderableWidget(new SideConfigurationPanel(leftPos+198,topPos+24,face->menu.value(14+face),face->{if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,200+face*5+(menu.value(14+face)+1)%5);}," (items only; Auto preserves original routing)",false,true));
@@ -27,10 +27,11 @@ public final class ProcessingScreen extends AbstractContainerScreen<ProcessingMe
     }
     @Override protected void renderBg(GuiGraphics g,float p,int x,int y){g.fill(leftPos,topPos,leftPos+imageWidth,topPos+imageHeight,0xFF152432);for(var slot:menu.slots){g.fill(leftPos+slot.x-1,topPos+slot.y-1,leftPos+slot.x+17,topPos+slot.y+17,0xFF536578);g.fill(leftPos+slot.x,topPos+slot.y,leftPos+slot.x+16,topPos+slot.y+16,0xFF08131F);}int ticks=Math.max(1,menu.value(5));g.fill(leftPos+80,topPos+40,leftPos+80+Math.min(26,menu.value(2)*26/ticks),topPos+48,0xFF79D6E7);}
     @Override protected void renderLabels(GuiGraphics g,int x,int y){g.drawString(font,font.plainSubstrByWidth(title.getString(),133),8,7,0xE1EDF7,false);g.drawString(font,menu.machine.kind==ProcessingRegistry.Kind.CRYSTAL?"Seed / Feed":"Inputs",16,24,0xB8D6E5,false);g.drawString(font,"Outputs",120,24,0xB8D6E5,false);g.drawString(font,"Catalyst",16,59,0xB8D6E5,false);g.drawString(font,"Upgrades",120,59,0xB8D6E5,false);g.drawString(font,font.plainSubstrByWidth(menu.energy()+" / 1,000,000 FE",176),16,96,0x8BE3D9,false);g.drawString(font,font.plainSubstrByWidth((menu.value(4)/4.0)+"x  Job: "+menu.jobCost()+" FE",176),16,106,0xB8D6E5,false);g.drawString(font,"Inventory",16,116,0xB8D6E5,false);}
-    @Override public void render(GuiGraphics g,int x,int y,float p){renderBackground(g,x,y,p);super.render(g,x,y,p);renderTooltip(g,x,y);if(showRecipes)inputs.render(g,font,leftPos,topPos,width,imageWidth,x,y,"Recipe inputs");
+    @Override public void render(GuiGraphics g,int x,int y,float p){renderBackground(g,x,y,p);super.render(g,x,y,p);renderTooltip(g,x,y);if(showRecipes)inputs.render(g,font,leftPos,topPos,width,imageWidth,x,y);
         for(int i=0;i<3;i++)if(isHovering(120+i*20,72,16,16,x,y))g.renderComponentTooltip(font,java.util.List.of(Component.literal(i==0?"Casing: Cyrrium / Tectium / Wraithsteel / Astrium":i==1?"Cooling: Cryo Core only":"Efficiency: Pulsar / Tremor / Spectral / Fusion Dust"),Component.literal(i==0?"Each tier: +0.25x speed, -5% job FE.":i==1?"Adds 0.5x speed; invalid old items grant no bonus.":"Each tier: -5% job FE."),Component.literal("One per socket. Maximum 2.5x speed and 40% FE saving.")),x,y);
     }
-    @Override public boolean mouseClicked(double x,double y,int button){if(showRecipes&&inputs.click(x,y,leftPos,topPos,width,imageWidth))return true;return super.mouseClicked(x,y,button);}
+    @Override public boolean mouseClicked(double x,double y,int button){if(showRecipes&&inputs.click(x,y,button,leftPos,topPos,width,imageWidth))return true;return super.mouseClicked(x,y,button);}
+    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(showRecipes&&inputs.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
     @EventBusSubscriber(modid="zerog_tweaks",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
     public static final class Registration{@SubscribeEvent public static void screens(RegisterMenuScreensEvent e){e.register(ProcessingRegistry.MENU.get(),ProcessingScreen::new);}}
 }
