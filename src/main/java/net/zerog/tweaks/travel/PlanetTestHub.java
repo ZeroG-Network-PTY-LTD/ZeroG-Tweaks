@@ -134,6 +134,11 @@ public final class PlanetTestHub {
     public static void commands(RegisterCommandsEvent event) {
         event.getDispatcher().register(Commands.literal("zerog").requires(s->s.hasPermission(2))
             .then(Commands.literal("hub")
+                .then(Commands.literal("workshop").executes(c->{
+                    String result=HubWorkshop.build(c.getSource().getServer().overworld());
+                    c.getSource().sendSuccess(()->Component.literal(result),false);
+                    return GateLedger.get(c.getSource().getServer()).workshopBuilt?1:0;
+                }))
                 .then(Commands.literal("exhibits").executes(c->{
                     String result=HubExhibits.build(c.getSource().getServer().overworld());
                     c.getSource().sendSuccess(()->Component.literal(result),false);return GateLedger.get(c.getSource().getServer()).exhibitsBuilt?1:0;
