@@ -10,6 +10,11 @@ those will be reviewed hardest-to-easiest against the storyline after inspection
 
 ## Current TODO reconciliation — 7 October
 
+The [cardinal inspection hub](cardinal-hub-2026-10-07.md) reorganizes the new
+Seed 0 world into north gates, south bee shells, west machinery/transport and
+east schematics. It also repairs the profile-boundary fallback responsible for
+the Silk Weaver and Starmetal screenshots; no inventory slots are discarded.
+
 The [machine GUI and powered-processing hotfix](machine-gui-power-2026-10-07.md)
 adds conduit charging and configurable processing costs to the centrifuge and
 Starmetal Smelter, left-side accepted-input catalogues and compact genetics slots.

@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Cardinal inspection hub and GUI repair — 7 October 2026
+
+Still **1.0.12-dev**. [New hub layout and machine usage](docs/cardinal-hub-2026-10-07.md) · [Current TODO ledger](docs/storage-and-machinery-todo.json).
+
+The fresh Seed 0 hub places all gates north, apiary/alveary shells south, supplied
+machines and isolated transport lanes west, and Concord room schematics east.
+The four approved older hub worlds are recoverably archived outside the saves
+folder after verification. Silk Weaver and Starmetal Smelter's silent fallback to
+misaligned legacy screens is repaired; client visual approval remains separate.
+
 ## Supplied inspection hub — 7 October 2026
 
 Still **1.0.12-dev**. [Workshop locations, supplies and limits](docs/supplied-hub-workshop-2026-10-07.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Archived workshop JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-supplied-workshop-20261006.jar).
