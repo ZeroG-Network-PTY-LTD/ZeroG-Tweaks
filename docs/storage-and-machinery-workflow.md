@@ -10,6 +10,12 @@ those will be reviewed hardest-to-easiest against the storyline after inspection
 
 ## Current TODO reconciliation — 7 October
 
+The [Alloy Forge bug report and upgrade-card requirements](alloy-forge-upgrade-card-issues-2026-10-07.md)
+track the newly reported ingredient/catalyst problem separately from requested
+six-tier acceleration, Energy Coil, compact-input and selective Void cards.
+Capacity interpretation, bounded effects and exact crafting costs are not silently
+assumed. Existing installed materials must remain recoverable during migration.
+
 The [cardinal inspection hub](cardinal-hub-2026-10-07.md) reorganizes the new
 Seed 0 world into north gates, south bee shells, west machinery/transport and
 east schematics. It also repairs the profile-boundary fallback responsible for

@@ -1,5 +1,16 @@
 # ZeroG Tweaks
 
+## Alloy Forge input-routing repair and upgrade-card queue — 7 October 2026
+
+Still **1.0.12-dev**. [Bug report and card requirements](docs/alloy-forge-upgrade-card-issues-2026-10-07.md) · [77-test delivery receipt](docs/alloy-menu-delivery-2026-10-07.json) · [Matching JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-alloy-menu-20261007.jar).
+
+Shift-click now puts recipe ingredients into operating slots instead of silently
+installing them as legacy upgrades. Full inputs leave items with the player.
+Stardust insertion passed; the reported client-specific catalyst rejection remains
+under investigation. Six-tier acceleration, Energy Coil, compact-input and selective
+Void cards are requested follow-ups, **not implemented features**. See the report
+for pending capacity/balance decisions. Existing guides and archived builds remain.
+
 ## Fuel routing, remaining machine faces and upgrade contracts — 7 October 2026
 
 Still **1.0.12-dev**. [Controls, supported resources and upgrade limits](docs/fuel-machine-faces-and-upgrades-2026-10-07.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [82-test delivery receipt](docs/fuel-machine-faces-delivery-2026-10-07.json) · [Matching JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-fuel-machine-faces-20261007.jar).
