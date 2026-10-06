@@ -1,5 +1,14 @@
 # ZeroG Tweaks
 
+## Latest repair batch — honey and processing power faces, 6 October 2026
+
+Still **1.0.12-dev**. [Changes, usage and remaining work](docs/honey-and-processing-power-faces-2026-10-06.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Delivery receipt](docs/honey-power-delivery-2026-10-06.json) · [Archived JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-honey-power-20261006.jar).
+
+T3+ alvearies produce honey alongside combs, with blocked-tank protection. Four
+processing machines gain persistent colour-coded power-face controls. **77 isolated
+server checks passed**; client approval and broader item/fluid side modes remain
+pending. Survival recipes wait for exact user costs. No hub or saves are reset.
+
 ## Latest repair batch — controller interaction and hive discovery, 6 October 2026
 
 Still **1.0.12-dev**. [Detailed changes and limits](docs/alveary-interaction-and-hive-repairs-2026-10-06.md) · [Live TODO ledger](docs/storage-and-machinery-todo.json) · [Delivery receipt](docs/controller-hive-delivery-2026-10-06.json) · [Archived JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-controller-hivefix-20261006.jar).
