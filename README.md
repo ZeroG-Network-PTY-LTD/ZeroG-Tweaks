@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Clickable processor recipes — 7 October 2026
+
+Still **1.0.12-dev**. [Recipe-panel guide](docs/processor-recipe-discovery-2026-10-07.md) · [79-test receipt](docs/recipe-discovery-delivery-2026-10-07.json) · [Matching JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-recipe-discovery-20261007.jar).
+
+Alloy Forge, Ore Refinery, Crystal Growth Chamber and Salvage Station now have
+Items/Recipes/Upgrades pages: click an item to see its live combinations, required
+counts, reusable/consumed catalysts, products, chances and upgrade-adjusted FE/time.
+The current upgrade guide does not imply the requested new cards are implemented.
+Other machine adapters and client visual approval remain pending; saves unchanged.
+
 ## Alloy Forge input-routing repair and upgrade-card queue — 7 October 2026
 
 Still **1.0.12-dev**. [Bug report and card requirements](docs/alloy-forge-upgrade-card-issues-2026-10-07.md) · [77-test delivery receipt](docs/alloy-menu-delivery-2026-10-07.json) · [Matching JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-alloy-menu-20261007.jar).

@@ -4,13 +4,16 @@
   "candidate_version": "1.0.12-dev",
   "commit_review": {
     "date": "2026-10-07",
-    "runtime": "ea5d3563",
+    "runtime": "48271c1f",
     "design": "d37440fb751ac4f9101ff8156ebe03dc78b767bc",
     "docs_reviewed": "c8e8982882366ca265131254cfa2cb263d63172f",
-    "result": "Actual Forge menu reproduced ingredient dust being shift-clicked into an upgrade socket. Repaired operating-slot priority and full-input preservation; all77 workflow tests pass. Actual Stardust insertion passes but player-specific catalyst rejection remains open. Clean same-version production build and zero-error asset audit passed. Installed SHA256 faa4a3fb18a4ee5d150daec83fa023d36114cceb6f731e15e181cdd5abc2f45f with predecessor backup. New six-tier upgrade-card requirements recorded, not implemented; capacity/effect definitions pending. Dependencies and saves preserved. Previous fuel/genetics delivery evidence remains in its original receipt.",
-    "guide": "alloy-forge-upgrade-card-issues-2026-10-07.md"
+    "result": "Exact clickable recipe panel implemented for four native processors, covering their live combinations, counts, catalyst consumption, output chances and installed-upgrade FE/time/yield. All79 required workflow tests pass; clean production build and zero-error asset audit passed. Installed f3455e9bf22bde4bb82014321304f26ea13e6ddfc2abbc007b48f8eb43e33ed4 with predecessor backup before publishing. Version1.0.12-dev and saves preserved. Other machine recipe adapters, new upgrade cards, Void filtering and visual approval remain pending. Previous Forge, fuel and genetics evidence preserved in their receipts.",
+    "guide": "processor-recipe-discovery-2026-10-07.md"
   },
   "next_priority_order": [
+    "recipe-discovery-remaining-machines",
+    "machine-upgrade-cards-six-tiers",
+    "machine-void-card-upgrades-tab",
     "client-acceptance",
     "all-machine-side-configuration",
     "per-machine-upgrade-contracts",
@@ -59,7 +62,8 @@
     {"id": "alveary-held-item-and-errors", "status": "server_verified_pending_client", "acceptance": "Ordinary held items route modern controller menu; wrench and sneak-placement preserved. Modern menus receive server formation reasons through existing status payload; full reason tooltip on title status. Regression reproduced before fix; client readability approval remains"},
     {"id": "genetics-held-item-bucket-route", "status": "server_verified_pending_client", "acceptance": "Actual survival bucket transfer to splicer; ordinary items route modern menu; wrench and sneak placement preserved"},
     {"id": "concord-codex-research-gates", "status": "todo_approved_mechanism", "acceptance": "User chose Concord Codex advancements; per-trait unlock mapping/caps remain specification work, not claimed implemented"},
-    {"id": "recipe-discovery-guide", "status": "todo", "acceptance": "In-game discovery for real refining/genetics/machine recipes or optional JEI/EMI integration"},
+    {"id": "recipe-discovery-guide", "status": "partial", "acceptance": "Clickable Items/Recipes/Upgrades panel implemented for Alloy Forge, Ore Refinery, Crystal Growth Chamber and Salvage Station. Live recipe IDs, ingredient quantities/OR alternatives, consumed/reusable catalysts, output counts/chances and upgrade-adjusted FE/time/yield. Read-only; no autofill. Shared catalogue tests pass; final delivery/client visual evidence in processor-recipe-discovery-2026-10-07.md. Legacy/genetics/generator/alveary adapters remain pending."},
+    {"id": "recipe-discovery-remaining-machines", "status": "todo", "acceptance": "Implement verified complete recipe/fuel pages for legacy machines, genetics, generators and alvearies; do not infer combinations from union-of-accepted-items lists. Preserve current operating slots and server contracts. Actual click/layout approval remains separate from catalogue tests."},
     {"id": "blueprint-interaction", "status": "source_verified_pending_client", "acceptance": "Real block entities bypass decorative preview interception; combustion profile matches fuel-only live terminal"},
     {"id": "client-acceptance", "status": "pending_user_review", "acceptance": "Actual worn armor, GUI sizing, all placed facings and lighting in CurseForge client"},
     {"id": "dynamic-tank-fluid-renderer", "status": "server_verified_pending_client", "acceptance": "Actual synced fluid identity/amount drives sprite, tint, light and height; exact sub-gauge packet regression passes; GPU approval pending"},
