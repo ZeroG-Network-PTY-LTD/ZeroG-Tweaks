@@ -20,7 +20,8 @@ public final class ProcessingRegistry {
         public int catalyst(){return inputCount;}
         public int output(){return inputCount+1;}
         public int upgrades(){return output()+outputCount;}
-        public int slots(){return upgrades()+3;}
+        // Append Void; never shift legacy inputs, outputs or the three older cards.
+        public int slots(){return upgrades()+4;}
     }
     private static final DeferredRegister<RecipeType<?>> TYPES=DeferredRegister.create(Registries.RECIPE_TYPE,"zerog_tweaks");
     private static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS=DeferredRegister.create(Registries.RECIPE_SERIALIZER,"zerog_tweaks");

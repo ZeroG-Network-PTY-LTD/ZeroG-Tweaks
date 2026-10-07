@@ -270,12 +270,21 @@ Keep the sixteen other sets vanilla-fit. Client visual approval remains separate
 
 Four native processors accept Acceleration and Energy Coil cards tiers1–6, one
 per family, with server-configurable caps2.5x speed/30% total-job FE saving.
-Physical upgrade save indices are unchanged: acceleration first, legacy cooling
-take-out only second, Energy Coil third. New casing/Cryo/dust upgrade insertion is
+The original upgrade save indices are unchanged: Acceleration first, Item Compact
+second (old cooling items take-out only), Energy Coil third. Void is appended as
+the fourth socket; normalize saved handler Size on load without moving old slots.
+New casing/Cryo/dust upgrade insertion is
 rejected; saved ingredients remain recoverable and retain their old effects only
 while no card is installed. Do not compound legacy bonuses or refinery yield with
 cards. Config/card changes reset paid jobs conservatively; unchanged jobs reload.
-Compact capacities212/360/508/656/804/952 are approved requirements, not implemented
-storage. Never enable them by sending oversized ItemStacks. Void filters and exact
-survival crafting costs remain pending. Card icons temporarily reuse existing
+Compact capacities212/360/508/656/804/952 use separate component-aware reserves.
+Never expose oversized ItemStacks. Void filters are36 saved item-type ghost
+entries over four pages; only newly produced selected outputs are suppressed,
+with the card installed. Existing output stacks, inputs, catalysts, fluids and
+player cursor stacks are never voided. Empty/nonmatching filters still obey output
+capacity. Require a live nearby menu, open Upgrades view and installed card to edit.
+New external panels must override outside-click/drop handling and cancel quick-craft
+distribution before copying a ghost selection. Client appearance is a separate check.
+Exact survival crafting costs and additional machine contracts remain pending.
+Card icons temporarily reuse existing
 original filter-card artwork, not a completed unique-art rollout.

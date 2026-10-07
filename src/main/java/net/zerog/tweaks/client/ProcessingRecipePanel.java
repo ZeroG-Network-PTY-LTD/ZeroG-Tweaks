@@ -23,9 +23,9 @@ public final class ProcessingRecipePanel {
         var rows=new ArrayList<Row>();
         if(tab==2){
             text(rows,"Installed upgrades");
-            for(int i=0;i<3;i++){
+            for(int i=0;i<4;i++){
                 var stack=machine.inventory.getStackInSlot(machine.kind.upgrades()+i);
-                rows.add(new Row((i==0?"Acceleration":i==1?"Legacy recovery":"Energy Coil")+": "+(stack.isEmpty()?"none":stack.getHoverName().getString()),stack.isEmpty()?List.of():List.of(stack.copy()),List.of()));
+                rows.add(new Row((i==0?"Acceleration":i==1?"Item Compact":i==2?"Energy Coil":"Void")+": "+(stack.isEmpty()?"none":stack.getHoverName().getString()),stack.isEmpty()?List.of():List.of(stack.copy()),List.of()));
             }
             text(rows,"Cards: tiers 1 through 6");text(rows,"One card per family");
             text(rows,"Speed now: "+machine.speedPercent()/100.0+"x");
@@ -33,7 +33,7 @@ public final class ProcessingRecipePanel {
             text(rows,"Server-configured effects");
             text(rows,machine.usesCards()?"Legacy bonuses inactive":"Legacy bonuses preserved");
             text(rows,"Old items remain recoverable");text(rows,"No new casing/dust installs");
-            text(rows,"Compact / Void pending");text(rows,"Crafting costs deferred");return rows;
+            text(rows,"Compact: safe input reserves");text(rows,"Void: selected new outputs");text(rows,"Upgrades button edits filter");text(rows,"Crafting costs deferred");return rows;
         }
         var pages=ProcessingRecipeCatalogue.pages(machine,selected);
         if(pages.isEmpty()){text(rows,"No registered recipes");return rows;}

@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 /** Typed, independent upgrade families; legacy ingredients are never new cards. */
 public final class MachineUpgradeCards {
-    public enum Family { ACCELERATION, ENERGY_COIL, ITEM_COMPACT }
+    public enum Family { ACCELERATION, ENERGY_COIL, ITEM_COMPACT, VOID }
     public static final class Card extends Item {
         public final Family family;
         public final int tier;
@@ -17,9 +17,9 @@ public final class MachineUpgradeCards {
     }
     public static Map<String,DeferredItem<Item>> register(DeferredRegister.Items registry){
         var cards=new LinkedHashMap<String,DeferredItem<Item>>();
-        for(var family:Family.values())for(int tier=1;tier<=6;tier++){
+        for(var family:Family.values())for(int tier=1;tier<=(family==Family.VOID?1:6);tier++){
             int selected=tier;
-            String id=switch(family){case ACCELERATION->"acceleration";case ENERGY_COIL->"energy_coil";case ITEM_COMPACT->"item_compact";}+"_upgrade_card_t"+tier;
+            String id=family==Family.VOID?"void_upgrade_card":switch(family){case ACCELERATION->"acceleration";case ENERGY_COIL->"energy_coil";case ITEM_COMPACT->"item_compact";case VOID->throw new IllegalStateException();}+"_upgrade_card_t"+tier;
             cards.put(id,registry.register(id,()->new Card(family,selected)));
         }
         return cards;
