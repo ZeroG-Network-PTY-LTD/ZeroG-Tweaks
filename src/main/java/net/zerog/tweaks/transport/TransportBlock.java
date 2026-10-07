@@ -19,7 +19,34 @@ public class TransportBlock extends BaseEntityBlock {
     static{for(var direction:net.minecraft.core.Direction.values())SIDES.put(direction,net.minecraft.world.level.block.state.properties.EnumProperty.create(direction.getName(),Connection.class));}
     public final String family;public final int tier;
     public TransportBlock(Properties props,String family,int tier){super(props);this.family=family;this.tier=tier;var state=stateDefinition.any();for(var property:SIDES.values())if(state.hasProperty(property))state=state.setValue(property,Connection.NONE);if(state.hasProperty(GAUGE))state=state.setValue(GAUGE,0);if(state.hasProperty(MODE))state=state.setValue(MODE,PortMode.BOTH);if(state.hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING))state=state.setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING,net.minecraft.core.Direction.NORTH);registerDefaultState(state);}
-    public static final class Wire extends TransportBlock {public Wire(Properties p,String f,int t){super(p,f,t);}@Override protected void createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder<net.minecraft.world.level.block.Block,BlockState> b){for(var prop:SIDES.values())b.add(prop);}}
+    public static final class Wire extends TransportBlock {
+        private final java.util.Map<BlockState,net.minecraft.world.phys.shapes.VoxelShape> shapes=new java.util.concurrent.ConcurrentHashMap<>();
+        public Wire(Properties p,String f,int t){super(p,f,t);}
+        @Override protected void createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder<net.minecraft.world.level.block.Block,BlockState> b){for(var prop:SIDES.values())b.add(prop);}
+        @Override protected net.minecraft.world.phys.shapes.VoxelShape getShape(BlockState state,net.minecraft.world.level.BlockGetter level,BlockPos pos,net.minecraft.world.phys.shapes.CollisionContext context){return shapes.computeIfAbsent(state,this::shape);}
+        /** Matches the models: core and arms of the family's pipe width, plus the 8x8 connector plate on machine faces. */
+        private net.minecraft.world.phys.shapes.VoxelShape shape(BlockState state){
+            double lo=family.startsWith("energy")?6:family.startsWith("item")?4:5,hi=16-lo;
+            var shape=net.minecraft.world.level.block.Block.box(lo,lo,lo,hi,hi,hi);
+            for(var side:net.minecraft.core.Direction.values()){
+                var connection=state.getValue(SIDES.get(side));if(connection==Connection.NONE)continue;
+                shape=net.minecraft.world.phys.shapes.Shapes.or(shape,face(side,lo,hi,0,lo));
+                if(connection!=Connection.PIPE)shape=net.minecraft.world.phys.shapes.Shapes.or(shape,face(side,4,12,0,2));
+            }
+            return shape.optimize();
+        }
+        /** A box spanning [min,max] across the face and [near,far] pixels in from the given side. */
+        private static net.minecraft.world.phys.shapes.VoxelShape face(net.minecraft.core.Direction side,double min,double max,double near,double far){
+            return switch(side){
+                case NORTH->net.minecraft.world.level.block.Block.box(min,min,near,max,max,far);
+                case SOUTH->net.minecraft.world.level.block.Block.box(min,min,16-far,max,max,16-near);
+                case WEST->net.minecraft.world.level.block.Block.box(near,min,min,far,max,max);
+                case EAST->net.minecraft.world.level.block.Block.box(16-far,min,min,16-near,max,max);
+                case DOWN->net.minecraft.world.level.block.Block.box(min,near,min,max,far,max);
+                case UP->net.minecraft.world.level.block.Block.box(min,16-far,min,max,16-near,max);
+            };
+        }
+    }
     public static final class Cell extends TransportBlock {public Cell(Properties p,String f,int t){super(p,f,t);}@Override protected void createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder<net.minecraft.world.level.block.Block,BlockState> b){b.add(GAUGE,net.minecraft.world.level.block.state.properties.BlockStateProperties.FACING);}}
     public static final class Port extends TransportBlock {public Port(Properties p,String f,int t){super(p,f,t);}@Override protected void createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder<net.minecraft.world.level.block.Block,BlockState> b){b.add(MODE,net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING);}}
     @Override public BlockState getStateForPlacement(net.minecraft.world.item.context.BlockPlaceContext context){var state=defaultBlockState();if(state.hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.FACING))return state.setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.FACING,context.getClickedFace().getOpposite());return state.hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING)?state.setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING,context.getHorizontalDirection().getOpposite()):state;}

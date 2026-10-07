@@ -13,19 +13,35 @@ import net.minecraft.server.level.ServerLevel;
 public final class TransportToolItem extends Item {
     private final String kind;
     public TransportToolItem(Properties props,String kind){super(props);this.kind=kind;}
+    public String kind(){return kind;}
+    @Override public Component getName(ItemStack stack){var name=super.getName(stack);return kind.equals("flux_wrench")?Component.empty().append(name).append(" (").append(WrenchModes.modeName(WrenchModes.mode(stack))).append(")"):name;}
+    @Override public void appendHoverText(ItemStack stack,TooltipContext context,java.util.List<Component> tooltip,net.minecraft.world.item.TooltipFlag flag){
+        if(!kind.equals("flux_wrench"))return;
+        tooltip.add(Component.literal("Shift + scroll: switch Configure / Wrench mode").withStyle(net.minecraft.ChatFormatting.GRAY));
+        tooltip.add(Component.literal(WrenchModes.mode(stack)==WrenchModes.WRENCH?"Shift + right-click: pick up with contents":"Right-click: read a side. Shift + right-click: Normal / Push / Pull / None").withStyle(net.minecraft.ChatFormatting.GRAY));
+    }
     @Override public net.minecraft.world.InteractionResultHolder<ItemStack> use(net.minecraft.world.level.Level level,net.minecraft.world.entity.player.Player player,net.minecraft.world.InteractionHand hand){if(!kind.endsWith("filter_card"))return super.use(level,player,hand);if(player instanceof net.minecraft.server.level.ServerPlayer server)server.openMenu(new net.minecraft.world.SimpleMenuProvider((id,inv,p)->new TransportFilterMenu(id,inv,hand),Component.literal("Transport Filter")),buf->buf.writeEnum(hand));return net.minecraft.world.InteractionResultHolder.sidedSuccess(player.getItemInHand(hand),level.isClientSide);}
     @Override public InteractionResult useOn(UseOnContext context){
         if(!(context.getLevel().getBlockEntity(context.getClickedPos()) instanceof TransportBlockEntity be))return InteractionResult.PASS;
         if(!(context.getLevel() instanceof ServerLevel level)||context.getPlayer()==null)return InteractionResult.SUCCESS;
         var player=context.getPlayer();int face=context.getClickedFace().ordinal();
         if(kind.equals("flux_wrench")){
-            if(player.isShiftKeyDown()){
+            var side=WrenchModes.targetSide(be.getBlockPos(),context.getClickLocation(),context.getClickedFace());face=side.ordinal();
+            boolean port=be.getBlockState().hasProperty(TransportBlock.MODE);
+            if(WrenchModes.mode(context.getItemInHand())==WrenchModes.CONFIGURE){
+                if(player.isShiftKeyDown())be.cycleFace(side);
+                player.displayClientMessage(port?Component.literal("Port: "+be.getBlockState().getValue(TransportBlock.MODE).getSerializedName())
+                    :Component.literal(side.getName()+": "+WrenchModes.FACE_NAMES[be.modes[face]]),true);
+                return InteractionResult.CONSUME;
+            }
+            if(!player.isShiftKeyDown()){player.displayClientMessage(Component.literal("Wrench mode: shift + right-click to pick up"),true);return InteractionResult.CONSUME;}
+            {
                 if(be.block().family.equals("null_link"))be.unlink();
                 var drop=new ItemStack(be.getBlockState().getBlock());drop.set(DataComponents.BLOCK_ENTITY_DATA,CustomData.of(be.saveWithFullMetadata(level.registryAccess())));
                 // Clear before replacement: the saved item owns contents, preventing double drops.
                 for(int i=0;i<be.items.getSlots();i++)be.items.setStackInSlot(i,ItemStack.EMPTY);be.tank.setFluid(net.neoforged.neoforge.fluids.FluidStack.EMPTY);be.stored=0;
                 level.removeBlock(be.getBlockPos(),false);net.minecraft.world.Containers.dropItemStack(level,be.getBlockPos().getX()+.5,be.getBlockPos().getY()+.5,be.getBlockPos().getZ()+.5,drop);
-            }else{be.cycleFace(context.getClickedFace());player.displayClientMessage(Component.literal(be.getBlockState().hasProperty(TransportBlock.MODE)?"Port: "+be.getBlockState().getValue(TransportBlock.MODE).getSerializedName():"Face: "+new String[]{"Normal","Push / output","Pull / input","Disabled"}[be.modes[face]]),true);}
+            }
         }else if(kind.equals("null_frequency_card")){
             if(!be.block().family.equals("null_link"))return InteractionResult.FAIL;
             var data=context.getItemInHand().getOrDefault(DataComponents.CUSTOM_DATA,CustomData.EMPTY).copyTag();
