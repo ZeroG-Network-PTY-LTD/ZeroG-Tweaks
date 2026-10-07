@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "zerog_tweaks:item/gas_canister"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "zerog_tweaks:gas": 1
+      },
+      "model": "zerog_tweaks:item/oxygen_canister"
+    },
+    {
+      "predicate": {
+        "zerog_tweaks:gas": 2
+      },
+      "model": "zerog_tweaks:item/hydrogen_canister"
+    }
+  ]
+}

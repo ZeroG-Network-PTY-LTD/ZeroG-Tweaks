@@ -24,15 +24,16 @@ public final class TransportBlockEntity extends BlockEntity {
     public ItemStack motionItem=ItemStack.EMPTY;
     public FluidStack motionFluid=FluidStack.EMPTY;
     public long motionTick=-1000;
-    public int motionFrom,motionTo;
+    public int motionFrom,motionTo,motionEnergy;
     @Override public CompoundTag getUpdateTag(HolderLookup.Provider lookup){
-        var tag=new CompoundTag();tag.putLong("motion_tick",motionTick);tag.putInt("from",motionFrom);tag.putInt("to",motionTo);
+        var tag=new CompoundTag();tag.putLong("motion_tick",motionTick);tag.putInt("from",motionFrom);tag.putInt("to",motionTo);tag.putInt("motion_energy",motionEnergy);
         if(!motionItem.isEmpty())tag.put("motion_item",motionItem.save(lookup));
         if(!motionFluid.isEmpty())tag.put("motion_fluid",motionFluid.save(lookup));return tag;
     }
     @Override public net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket getUpdatePacket(){return net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket.create(this);}
     @Override public void handleUpdateTag(CompoundTag tag,HolderLookup.Provider lookup){
         motionTick=tag.getLong("motion_tick");motionFrom=Math.floorMod(tag.getInt("from"),6);motionTo=Math.floorMod(tag.getInt("to"),6);
+        motionEnergy=Math.max(0,tag.getInt("motion_energy"));
         motionItem=tag.contains("motion_item")?ItemStack.parseOptional(lookup,tag.getCompound("motion_item")):ItemStack.EMPTY;
         motionFluid=tag.contains("motion_fluid")?FluidStack.parseOptional(lookup,tag.getCompound("motion_fluid")):FluidStack.EMPTY;
     }
@@ -54,12 +55,12 @@ public final class TransportBlockEntity extends BlockEntity {
     public TransportTier tier(){return TransportTier.ALL[block().tier];}
     public int synchronizedLimit(){
         int minimum=block().tier;
-        if(level instanceof ServerLevel server&&!supports("item")&&(block().family.endsWith("pipe")||block().family.endsWith("conduit"))){
+        if(level instanceof ServerLevel server&&!supports("item")&&(block().family.endsWith("pipe")||block().family.endsWith("conduit")||block().family.equals("gas_tube"))){
             var nodes=network(server);if(nodes.isEmpty())return 0;minimum=nodes.stream().mapToInt(n->n.block().tier).min().orElse(minimum);
         }
         var common=TransportTier.ALL[minimum];return supports("fluid")?common.fluid():supports("energy")?common.energy():common.items();
     }
-    public boolean supports(String family){return block().family.startsWith(family)||block().family.equals("null_link");}
+    public boolean supports(String family){return block().family.startsWith(family)||family.equals("fluid")&&block().family.equals("gas_tube")||block().family.equals("null_link");}
     public int capacity(){return block().family.equals("energy_cell")?tier().capacity():block().family.equals("null_link")?4000000:block().family.equals("energy_port")?1000000:tier().energy();}
     /** The routing button configures the connected loaded line, regardless of its leader. */
     public void setNetworkRouting(int mode){
@@ -91,13 +92,15 @@ public final class TransportBlockEntity extends BlockEntity {
     public IFluidHandler fluidHandler(Direction side){var owner=owner();if(owner==null)return null;int factor=remoteFactor(owner);return new IFluidHandler(){
         public int getTanks(){return 1;}public FluidStack getFluidInTank(int index){return owner.tank.getFluid();}public int getTankCapacity(int index){return owner.tank.getCapacity();}
         public boolean isFluidValid(int index,FluidStack stack){return index==0&&!stack.isEmpty()&&safeFluidPath(stack)&&permittedFluid(stack);}
-        public int fill(FluidStack stack,FluidAction action){if(!validOwner(owner)||!input(side)||!isFluidValid(0,stack))return 0;if(block().family.equals("fluid_pipe")&&level instanceof ServerLevel server){var nodes=network(server);if(nodes.isEmpty())return 0;for(var node:nodes)if(!node.tank.isEmpty()&&!FluidStack.isSameFluidSameComponents(node.tank.getFluid(),stack))return 0;}int count=Math.min(stack.getAmount(),factor==0?stack.getAmount():owner.stored/factor);int n=owner.tank.fill(stack.copyWithAmount(count),action);if(action.execute()&&n>0){owner.stored-=n*factor;owner.setChanged();}return n;}
+        public int fill(FluidStack stack,FluidAction action){if(!validOwner(owner)||!input(side)||!isFluidValid(0,stack))return 0;if((block().family.equals("fluid_pipe")||block().family.equals("gas_tube"))&&level instanceof ServerLevel server){var nodes=network(server);if(nodes.isEmpty())return 0;for(var node:nodes)if(!node.tank.isEmpty()&&!FluidStack.isSameFluidSameComponents(node.tank.getFluid(),stack))return 0;}int count=Math.min(stack.getAmount(),factor==0?stack.getAmount():owner.stored/factor);int n=owner.tank.fill(stack.copyWithAmount(count),action);if(action.execute()&&n>0){owner.stored-=n*factor;owner.setChanged();}return n;}
         public FluidStack drain(FluidStack stack,FluidAction action){return FluidStack.isSameFluidSameComponents(stack,owner.tank.getFluid())?drain(stack.getAmount(),action):FluidStack.EMPTY;}
         public FluidStack drain(int amount,FluidAction action){if(!validOwner(owner)||!output(side))return FluidStack.EMPTY;int count=Math.max(0,Math.min(amount,factor==0?amount:owner.stored/factor));var result=owner.tank.drain(count,action);if(action.execute()&&!result.isEmpty()){owner.stored-=result.getAmount()*factor;owner.setChanged();}return result;}
     };}
     public boolean enabled(){if(level==null)return false;boolean signal=level.hasNeighborSignal(worldPosition);return redstone==0||redstone==1&&signal||redstone==2&&!signal;}
     /** The weakest connected segment must support the fluid, including pre-existing buffers. */
     private boolean safeFluidPath(FluidStack stack){
+        boolean gas=net.zerog.tweaks.registry.ZGGases.isGas(stack.getFluid());
+        if(block().family.equals("gas_tube")&&!gas||block().family.equals("fluid_pipe")&&gas)return false;
         int required=TransportTier.minimumFluidTier(BuiltInRegistries.FLUID.getKey(stack.getFluid()).toString());
         if(block().tier<required)return false;
         if(block().family.equals("fluid_pipe")&&level instanceof ServerLevel server){for(var node:network(server))if(node.block().tier<required)return false;}
@@ -166,6 +169,10 @@ public final class TransportBlockEntity extends BlockEntity {
         if(next.hasProperty(TransportBlock.GAUGE))next=next.setValue(TransportBlock.GAUGE,(int)Math.min(8,(long)stored*8/Math.max(1,capacity())));
         for(var side:Direction.values()){var property=TransportBlock.SIDES.get(side);if(!next.hasProperty(property))continue;var neighbor=worldPosition.relative(side);var connection=TransportBlock.Connection.NONE;
             if(modes[side.ordinal()]!=3&&level.hasChunkAt(neighbor)){
+                if(level.getBlockEntity(neighbor) instanceof TransportBlockEntity other&&
+                    (block().family.equals("gas_tube")&&other.block().family.equals("fluid_pipe")||block().family.equals("fluid_pipe")&&other.block().family.equals("gas_tube"))) {
+                    next=next.setValue(property,TransportBlock.Connection.NONE);continue;
+                }
                 if(level.getBlockEntity(neighbor) instanceof TransportBlockEntity other&&other.block().family.equals(block().family)&&other.modes[side.getOpposite().ordinal()]!=3&&(colour<0||other.colour<0||colour==other.colour))connection=TransportBlock.Connection.PIPE;
                 else if(supports("energy")&&level.getCapability(Capabilities.EnergyStorage.BLOCK,neighbor,side.getOpposite())!=null||supports("fluid")&&level.getCapability(Capabilities.FluidHandler.BLOCK,neighbor,side.getOpposite())!=null||supports("item")&&level.getCapability(Capabilities.ItemHandler.BLOCK,neighbor,side.getOpposite())!=null)connection=modes[side.ordinal()]==1?TransportBlock.Connection.PUSH:modes[side.ordinal()]==2?TransportBlock.Connection.PULL:TransportBlock.Connection.NORMAL;
             }next=next.setValue(property,connection);
@@ -178,7 +185,7 @@ public final class TransportBlockEntity extends BlockEntity {
         var from=level.getCapability(Capabilities.ItemHandler.BLOCK,pos,side.getOpposite());if(from==null)return 0;for(int i=0;i<from.getSlots();i++){var sample=from.extractItem(i,limit,true);int n=sample.getCount()-insert(items,sample,true).getCount();if(n<=0||!permittedItem(sample))continue;var actual=from.extractItem(i,n,false);var rest=insert(items,actual,false);if(!rest.isEmpty())from.insertItem(i,rest,false);return actual.getCount()-rest.getCount();}return 0;
     }
     public int push(ServerLevel level,BlockPos pos,Direction side,String family,int limit){
-        if(family.equals("energy")){var to=level.getCapability(Capabilities.EnergyStorage.BLOCK,pos,side.getOpposite());if(to==null)return 0;int n=to.receiveEnergy(Math.min(stored,limit),true);n=to.receiveEnergy(n,false);stored-=n;if(n>0)setChanged();return n;}
+        if(family.equals("energy")){var to=level.getCapability(Capabilities.EnergyStorage.BLOCK,pos,side.getOpposite());if(to==null)return 0;int n=to.receiveEnergy(Math.min(stored,limit),true);n=to.receiveEnergy(n,false);stored-=n;if(n>0){setChanged();TransportMotion.committed(this,level,pos,side,ItemStack.EMPTY,FluidStack.EMPTY,n);}return n;}
         if(family.equals("fluid")){var to=level.getCapability(Capabilities.FluidHandler.BLOCK,pos,side.getOpposite());if(to==null)return 0;var sample=tank.drain(limit,IFluidHandler.FluidAction.SIMULATE);if(sample.isEmpty()||!safeFluidPath(sample))return 0;int n=to.fill(sample,IFluidHandler.FluidAction.SIMULATE);if(n<=0)return 0;n=to.fill(sample.copyWithAmount(n),IFluidHandler.FluidAction.EXECUTE);tank.drain(n,IFluidHandler.FluidAction.EXECUTE);if(n>0)TransportMotion.committed(this,level,pos,side,ItemStack.EMPTY,sample);return n;}
         var to=level.getCapability(Capabilities.ItemHandler.BLOCK,pos,side.getOpposite());if(to==null)return 0;for(int i=0;i<items.getSlots();i++){var sample=items.extractItem(i,limit,true);int n=sample.getCount()-insert(to,sample,true).getCount();if(n<=0)continue;var rest=insert(to,sample.copyWithCount(n),false);n-=rest.getCount();items.extractItem(i,n,false);if(n>0)TransportMotion.committed(this,level,pos,side,sample,FluidStack.EMPTY);return n;}return 0;
     }

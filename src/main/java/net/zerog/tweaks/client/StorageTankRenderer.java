@@ -28,6 +28,10 @@ public final class StorageTankRenderer implements BlockEntityRenderer<StorageTan
         light=LightTexture.pack(Math.max(LightTexture.block(light),emitted),LightTexture.sky(light));
         float fill=Math.max(0,Math.min(1,(float)stack.getAmount()/be.capacity()));
         float bottom=.125F,top=bottom+.75F*fill;
+        if(net.zerog.tweaks.registry.ZGGases.isGas(stack.getFluid())) {
+            // Contained gas occupies the chamber, not a falsely depicted liquid pool.
+            top=.875F;tint=(tint&0x00ffffff)|((int)(32+96*fill)<<24);
+        }
         var out=buffers.getBuffer(RenderType.entityTranslucent(InventoryMenu.BLOCK_ATLAS));
         for(int f=0;f<6;f++){
             var n=StorageRenderGeometry.NORMALS[f];

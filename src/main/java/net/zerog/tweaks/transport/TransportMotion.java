@@ -11,13 +11,17 @@ import net.neoforged.neoforge.fluids.FluidStack;
 public final class TransportMotion {
     public static void committed(TransportBlockEntity source,ServerLevel level,BlockPos destination,
                                  Direction exit,ItemStack item,FluidStack fluid) {
-        if(item.isEmpty()&&fluid.isEmpty())return;
+        committed(source,level,destination,exit,item,fluid,0);
+    }
+    public static void committed(TransportBlockEntity source,ServerLevel level,BlockPos destination,
+                                 Direction exit,ItemStack item,FluidStack fluid,int energy) {
+        if(item.isEmpty()&&fluid.isEmpty()&&energy<=0)return;
         var endpoint=destination.relative(exit.getOpposite());
         var previous=new HashMap<BlockPos,BlockPos>();var queue=new ArrayDeque<BlockPos>();
         var start=source.getBlockPos();previous.put(start,start);queue.add(start);
-        while(!queue.isEmpty()&&previous.size()<=256&&!previous.containsKey(endpoint)) {
-            var pos=queue.remove();var node=(TransportBlockEntity)level.getBlockEntity(pos);
-            if(node==null)continue;
+        while(!queue.isEmpty()&&!previous.containsKey(endpoint)) {
+            var pos=queue.remove();
+            if(!(level.getBlockEntity(pos) instanceof TransportBlockEntity node))continue;
             for(var side:Direction.values()) {
                 var nextPos=pos.relative(side);
                 if(node.modes[side.ordinal()]==3||previous.containsKey(nextPos)||!level.hasChunkAt(nextPos))continue;
@@ -33,14 +37,18 @@ public final class TransportMotion {
         var route=new ArrayList<BlockPos>();var pos=endpoint;
         while(true){route.add(pos);if(pos.equals(start))break;pos=previous.get(pos);}
         Collections.reverse(route);
+        // Bound visual packets, not the physical route or conserved transfer.
+        int stride=Math.max(1,(route.size()+127)/128);
         for(int i=0;i<route.size();i++) {
+            if(i%stride!=0&&i!=route.size()-1)continue;
             if(!(level.getBlockEntity(route.get(i)) instanceof TransportBlockEntity node))return;
             // At most one representative packet per node per ten ticks; dense networks stay bounded.
             if(level.getGameTime()-node.motionTick<10)continue;
-            Direction incoming=i==0?exit.getOpposite():direction(route.get(i),route.get(i-1));
             Direction outgoing=i==route.size()-1?exit:direction(route.get(i),route.get(i+1));
+            Direction incoming=i==0?outgoing.getOpposite():direction(route.get(i),route.get(i-1));
             node.motionItem=item.copyWithCount(item.isEmpty()?0:1);node.motionFluid=fluid.copyWithAmount(fluid.isEmpty()?0:1);
             node.motionFrom=incoming.ordinal();node.motionTo=outgoing.ordinal();node.motionTick=level.getGameTime();
+            node.motionEnergy=Math.max(0,energy);
             level.sendBlockUpdated(node.getBlockPos(),node.getBlockState(),node.getBlockState(),2);
         }
     }

@@ -13,13 +13,15 @@ import net.zerog.tweaks.registry.*;
 @GameTestHolder("zerog_blockers") @PrefixGameTestTemplate(false)
 public final class RefineryBoundaryGameTests {
     @GameTest(templateNamespace="zerog_blockers",template="equipment_empty",timeoutTicks=100)
-    public static void upgraded_yield_reserves_capacity_and_reloads_paid_job(GameTestHelper h) {
+    public static void legacy_yield_reserves_capacity_and_reloads_paid_job(GameTestHelper h) {
         var local=new BlockPos(1,1,1);h.setBlock(local,BlockInit.ORE_REFINERY.get());
         var be=(OreRefineryBlockEntity)h.getBlockEntity(local);
         var energy=h.getLevel().getCapability(Capabilities.EnergyStorage.BLOCK,be.getBlockPos(),Direction.UP);
         h.assertTrue(energy!=null,"Missing refinery energy port");energy.receiveEnergy(100_000,false);
         var remainder=be.inventory().insertItem(3,new ItemStack(BlockInit.CYRRIUM_CASING.get(),2),false);
-        h.assertTrue(remainder.getCount()==1&&be.inventory().getStackInSlot(3).getCount()==1,"Upgrade count is not independently bounded");
+        h.assertTrue(remainder.getCount()==2&&be.inventory().getStackInSlot(3).isEmpty(),"New casing upgrades bypass the approved card-only migration");
+        // Fixture represents an already-installed pre-card casing, not new player insertion.
+        be.inventory().setStackInSlot(3,new ItemStack(BlockInit.CYRRIUM_CASING.get()));
         be.inventory().setStackInSlot(0,new ItemStack(ItemInit.RAW_NULLIFITE_BLOCK_ITEM.get()));
         be.inventory().setStackInSlot(2,new ItemStack(ItemInit.NULLIFITE_INGOT.get(),40));
         for(int i=0;i<200;i++)OreRefineryBlockEntity.tick(h.getLevel(),be.getBlockPos(),be.getBlockState(),be);

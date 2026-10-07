@@ -21,7 +21,7 @@ public final class TransportRegistry {
     public static final DeferredRegister<BlockEntityType<?>> TYPES=DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE,"zerog_tweaks");
     public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<TransportBlockEntity>> TYPE=TYPES.register("transport",()->BlockEntityType.Builder.of(TransportBlockEntity::new,BLOCKS.stream().map(DeferredHolder::get).toArray(Block[]::new)).build(null));
     static {
-        for(int tier=0;tier<6;tier++)for(String suffix:new String[]{"energy_conduit","fluid_pipe","item_tube","energy_cell"})add(TransportTier.ALL[tier].name()+"_"+suffix,suffix,tier);
+        for(int tier=0;tier<6;tier++)for(String suffix:new String[]{"energy_conduit","fluid_pipe","gas_tube","item_tube","energy_cell"})add(TransportTier.ALL[tier].name()+"_"+suffix,suffix,tier);
         for(String family:new String[]{"item","fluid","energy"})add(family+"_port",family+"_port",0);
         add("null_link","null_link",5);
         for(String id:new String[]{"flux_wrench","item_filter_card","fluid_filter_card","null_frequency_card"})ItemInit.ITEMS.registerItem(id,p->new TransportToolItem(p,id),new Item.Properties().stacksTo(1));

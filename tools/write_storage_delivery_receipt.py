@@ -86,7 +86,9 @@ def main():
     }
     if args.remaining_file:
         ledger=json.loads(args.remaining_file.read_text())
-        receipt['remaining']=[row['id'] for row in ledger['tasks'] if row['status'] in {'todo','partial','todo_api_and_design','pending_user_review','source_verified_pending_client','server_verified_pending_client'}]
+        # Preserve specification, deferred and installed-but-client-pending states too.
+        # A selective status whitelist used to silently omit unfinished roadmap items.
+        receipt['remaining']=[row['id'] for row in ledger['tasks'] if row['status'] not in {'complete','completed','done','closed'}]
         receipt['todo_sha256']=digest(args.remaining_file)
     if args.red_test_log:
         red=args.red_test_log.read_text(errors='replace')

@@ -23,6 +23,12 @@ public final class ZGFluidClient {
 
     @SubscribeEvent
     public static void extensions(RegisterClientExtensionsEvent event) {
+        for(var gas:net.zerog.tweaks.registry.ZGGases.ALL) {
+            event.registerFluidType(new IClientFluidTypeExtensions(){
+                @Override public ResourceLocation getStillTexture(){return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID,"block/transport/"+gas.id()+"_wisp");}
+                @Override public ResourceLocation getFlowingTexture(){return getStillTexture();}
+            },gas.type().get());
+        }
         for(var jelly:net.zerog.tweaks.registry.ZGGeneticsFluids.ALL) {
             event.registerFluidType(new IClientFluidTypeExtensions(){
                 @Override public ResourceLocation getStillTexture(){return ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID,"block/"+jelly.textureFamily+"_honey_still");}
@@ -68,6 +74,12 @@ public final class ZGFluidClient {
     @SuppressWarnings("deprecation")
     public static void setup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            net.minecraft.client.renderer.item.ItemProperties.register(net.zerog.tweaks.registry.ZGGases.CANISTER.get(),
+                ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID,"gas"),(stack,level,entity,seed)->{
+                    var contents=stack.getOrDefault(net.zerog.tweaks.registry.ZGGases.CONTENT.get(),net.neoforged.neoforge.fluids.SimpleFluidContent.EMPTY);
+                    return contents.is(net.zerog.tweaks.registry.ZGGases.HYDROGEN.fluid().get())?2:
+                        contents.is(net.zerog.tweaks.registry.ZGGases.OXYGEN.fluid().get())?1:0;
+                });
             for(var jelly:net.zerog.tweaks.registry.ZGGeneticsFluids.ALL) {
                 ItemBlockRenderTypes.setRenderLayer(jelly.source.get(),RenderType.translucent());
                 ItemBlockRenderTypes.setRenderLayer(jelly.flowing.get(),RenderType.translucent());
