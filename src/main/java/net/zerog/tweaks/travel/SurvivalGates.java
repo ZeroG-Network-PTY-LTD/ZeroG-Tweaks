@@ -33,7 +33,24 @@ public final class SurvivalGates {
     public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<SurvivalGateBlockEntity>> CONTROLLER=ENTITIES.register("survival_gate_controller",()->BlockEntityType.Builder.of(SurvivalGateBlockEntity::new,BlockInit.GATE_CONTROLLER.get()).build(null));
     public static final DeferredHolder<MenuType<?>,MenuType<SurvivalGateMenu>> MENU=MENUS.register("survival_gate",()->IMenuTypeExtension.create((id,inventory,buf)->new SurvivalGateMenu(id,inventory,inventory.player.level().getBlockEntity(buf.readBlockPos()))));
     public static void register(IEventBus bus){ENTITIES.register(bus);MENUS.register(bus);ITEMS.register(bus);bus.addListener(SurvivalGates::capabilities);}
-    public static void capabilities(RegisterCapabilitiesEvent event){event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,CONTROLLER.get(),(gate,direction)->gate.energy());}
+    public static void capabilities(RegisterCapabilitiesEvent event){
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,CONTROLLER.get(),(gate,direction)->gate.energy());
+        event.registerBlock(Capabilities.EnergyStorage.BLOCK,(level,pos,state,entity,side)->{
+            if(!(level instanceof ServerLevel server))return null;
+            BlockPos port=pos.immutable();
+            // Resolve the formed controller on every access: cached handlers must not
+            // retain a removed controller or stay disconnected after gate formation.
+            return new IEnergyStorage(){
+                private IEnergyStorage target(){return portEnergy(server,port);}
+                public int receiveEnergy(int amount,boolean simulate){var energy=target();return energy==null?0:energy.receiveEnergy(amount,simulate);}
+                public int extractEnergy(int amount,boolean simulate){return 0;}
+                public int getEnergyStored(){var energy=target();return energy==null?0:energy.getEnergyStored();}
+                public int getMaxEnergyStored(){var energy=target();return energy==null?0:energy.getMaxEnergyStored();}
+                public boolean canExtract(){return false;}
+                public boolean canReceive(){var energy=target();return energy!=null&&energy.canReceive();}
+            };
+        },BlockInit.GATE_ENERGY_PORT.get());
+    }
     public static void interact(PlayerInteractEvent.RightClickBlock event){
         if(event.getHand()!=InteractionHand.MAIN_HAND||!(event.getEntity() instanceof ServerPlayer player)||!(event.getLevel() instanceof ServerLevel level))return;
         if(!(level.getBlockEntity(event.getPos()) instanceof SurvivalGateBlockEntity gate))return;
