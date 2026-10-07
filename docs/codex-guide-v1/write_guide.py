@@ -59,6 +59,13 @@ Click any item name to jump to its page. Recipes shown here are always the live,
 
 **Sneak and right-click** the Codex to read Echo's story pages instead. New pages appear as you reach new worlds.
 
+## Your task journal
+
+Sneak and right-click also opens your personal task list first: **[x]** is a recorded
+milestone and **[ ]** is outstanding. Reopen the book to refresh it. Later planetary
+task pages remain sealed until you have arrived there; reading this guide never grants
+progress. Follow the chapter links below for the diagrams and practical steps.
+
 <SubPages />
 """)
 
@@ -114,7 +121,10 @@ The gate is a multiblock. This is the whole Tier 1 build. Drag to rotate, scroll
 | {link("gate_energy_port")} | 1 | Middle of a side edge next to the front, one block above the pad |
 
 **Tip:** once the controller is placed, open it and press **Preview**. Every missing block of the
-next tier sparkles where it belongs.
+next tier sparkles where it belongs. For an incomplete gate, Preview reports exact missing
+block coordinates and the closest matching direction. **Align** turns only your controller
+to that direction; it never replaces missing blocks. The Gate Energy Port is required even
+if you connect a cable directly to the controller.
 
 ## Recipes
 
@@ -142,6 +152,8 @@ Gates run on **FE**. The simplest source is a {link("combustion_generator")}.
 <RecipeFor id="zerog_tweaks:combustion_generator" />
 
 1. Place the generator **touching the Gate Energy Port**. It pushes power into the blocks next to it.
+   Alternatively, connect it with ZeroG energy conduits: generator output to the port.
+   The port charges the controller's shared buffer; it has no separate battery.
 2. Fuel it. Coal-type fuels give **50 FE/t**; {link("emberite")} gives 100, {link("cryocite")} 150
    and {link("coronite")} 200.
 
