@@ -27,5 +27,8 @@ that map. The three Vault fallback templates use the tracker's explicit temporar
 fallback option; natural encounter testing and higher-galaxy first-template
 acquisition remain unfinished.
 
-Current work is staged, not proof that a player's installed JAR contains it.
-See Docs `usage-window-workflow-2026-10-07.md` and its eventual delivery receipt.
+The7October checkpoint was installed once at the owner's10% usage threshold,
+after a clean production build, zero-error asset audit and26 required checks.
+See Docs `usage-window-workflow-2026-10-07.md` and
+`usage-window-delivery-2026-10-07.json` for the installed checksum and remaining
+boundaries. Models/generators being present alone never prove local installation.
