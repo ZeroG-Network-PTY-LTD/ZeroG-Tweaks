@@ -13,5 +13,5 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Pseudo @Mixin(targets="com.zerog.aeroapiary.ZeroGMachineBlockEntity",remap=false)
 public abstract class OptionalAlvearyDropMixin {
     @Inject(method="dropInventory",at=@At("HEAD"),require=1)
-    private void zeroGDropAdditionalFrames(CallbackInfo ci){var be=(BlockEntity)(Object)this;if(AlvearyRuntime.tier(be)==0||be.getLevel()==null||be.getLevel().isClientSide)return;var frames=AlvearyRuntime.frames(be);for(int i=0;i<27;i++){var stack=frames.getStackInSlot(i);if(!stack.isEmpty()){net.minecraft.world.Containers.dropItemStack(be.getLevel(),be.getBlockPos().getX()+.5,be.getBlockPos().getY()+.5,be.getBlockPos().getZ()+.5,stack);frames.setStackInSlot(i,ItemStack.EMPTY);}}}
+    private void zeroGDropAdditionalFrames(CallbackInfo ci){var be=(BlockEntity)(Object)this;net.zerog.tweaks.genetics.LegacyMachineCards.drop(be);if(AlvearyRuntime.tier(be)==0||be.getLevel()==null||be.getLevel().isClientSide)return;var frames=AlvearyRuntime.frames(be);for(int i=0;i<27;i++){var stack=frames.getStackInSlot(i);if(!stack.isEmpty()){net.minecraft.world.Containers.dropItemStack(be.getLevel(),be.getBlockPos().getX()+.5,be.getBlockPos().getY()+.5,be.getBlockPos().getZ()+.5,stack);frames.setStackInSlot(i,ItemStack.EMPTY);}}}
 }

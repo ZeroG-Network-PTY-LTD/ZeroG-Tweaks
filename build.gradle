@@ -34,7 +34,7 @@ java {
 // Local opt-in tests; never package test classes in a normal release jar.
 if (providers.gradleProperty('zeroGTests').isPresent()) {
     sourceSets.main.java.srcDir 'src/gametest/java'
-    sourceSets.main.resources.srcDir 'src/gametest/resources'
+    if (!providers.gradleProperty('workflowTests').isPresent()) sourceSets.main.resources.srcDir 'src/gametest/resources'
 }
 if (providers.gradleProperty('tidewraithTests').isPresent()) {
     sourceSets.main.java.srcDir 'src/tidewraith-gametest/java'
@@ -46,7 +46,7 @@ if (providers.gradleProperty('clientReview').isPresent()) {
 if (providers.gradleProperty('geneticsTests').isPresent()) {
     sourceSets.main.java.srcDir 'src/genetics-gametest/java'
     sourceSets.main.resources.srcDir 'src/genetics-gametest/resources'
-    sourceSets.main.resources.srcDir 'src/gametest/resources'
+    if (!providers.gradleProperty('workflowTests').isPresent() && !providers.gradleProperty('zeroGTests').isPresent()) sourceSets.main.resources.srcDir 'src/gametest/resources'
 }
 if (providers.gradleProperty('workflowTests').isPresent()) {
     sourceSets.main.java.srcDir 'src/workflow-gametest/java'

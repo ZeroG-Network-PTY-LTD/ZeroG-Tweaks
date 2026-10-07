@@ -33,6 +33,7 @@ public final class GeneticsMenu extends AbstractContainerMenu implements net.zer
         }
         for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(playerInv,9+row*9+col,48+col*18,159+row*18));
         for(int col=0;col<9;col++)addSlot(new Slot(playerInv,col,48+col*18,217));
+        for(var slot:LegacyMachineCards.slots(machine))addSlot(slot);
         data=playerInv.player.level().isClientSide?new SimpleContainerData(29):new ContainerData() {
             public int get(int index) {
                 if(index>=11&&index<29)return net.zerog.tweaks.machine.LegacyMachineSides.mode(machine,index-11);
@@ -76,6 +77,7 @@ public final class GeneticsMenu extends AbstractContainerMenu implements net.zer
     }
     @Override public ItemStack quickMoveStack(Player player,int index) {
         if(!stillValid(player)||index<0||index>=slots.size())return ItemStack.EMPTY;
+        var cardMove=LegacyMachineCards.quickMove(this,machine,player,index);if(cardMove!=null)return cardMove;
         var slot=slots.get(index);if(!slot.hasItem())return ItemStack.EMPTY;
         var source=slot.getItem();var before=source.copy();
         if(index<16){if(!moveItemStackTo(source,16,52,true))return ItemStack.EMPTY;}

@@ -81,6 +81,14 @@ public final class GeneticsRuntime {
     public static int capacity(String id){return id.equals("geno_station")?10000:40000;}
     public static int duration(String id,int mode){return id.equals("genetic_splicer")?400:mode==1?300:100;}
     public static int cost(String id){return id.equals("genetic_splicer")?60:20;}
+    private static int poweredStep(BlockEntity be){var data=state(be);return Math.min(duration(id(be),data.getInt("mode"))*4-data.getInt("progress"),(LegacyMachineCards.speed(be)*4+data.getInt("card_carry"))/100);}
+    public static int nextPowerCost(BlockEntity be){
+        if(!LegacyMachineCards.installed(be))return cost(id(be));
+        var data=state(be);int units=duration(id(be),data.getInt("mode"))*4;
+        long total=((long)duration(id(be),data.getInt("mode"))*cost(id(be))*(100-LegacyMachineCards.saving(be))+99)/100;
+        int target=(int)((total*(data.getInt("card_units")+poweredStep(be))+units-1)/units);
+        return Math.max(0,target-data.getInt("card_paid"));
+    }
     public static int chance(ItemStack catalyst){return item(catalyst,"cosmic_jelly")?100:item(catalyst,"royal_jelly")?75:0;}
     public static int chance(BlockEntity be){int itemChance=chance(inventory(be).getStackInSlot(2));if(itemChance>0)return itemChance;var tank=new GeneticsTank(be);return tank.ready()?(tank.kind().equals("cosmic_jelly")?100:75):0;}
     private static boolean fits(ItemStackHandler inv,int slot,ItemStack result) {
@@ -110,7 +118,7 @@ public final class GeneticsRuntime {
         var secondary=secondary(be);
         if(!fits(inv,3,bee)||(secondary!=null&&!fits(inv,4,secondary)))return 4;
         if(id.equals("geno_station")&&state.getInt("mode")==1&&inv.getStackInSlot(2).is(Items.HONEY_BOTTLE)&&remainderSlot(inv)<0)return 4;
-        if(id.equals("genetic_splicer")&&state.getInt("energy")<cost(id))return 5;
+        if(id.equals("genetic_splicer")&&state.getInt("energy")<nextPowerCost(be))return 5;
         return 0;
     }
     private static ItemStack secondary(BlockEntity be) {
@@ -130,14 +138,22 @@ public final class GeneticsRuntime {
         // Fingerprint includes all input components. Removal/replacement invalidates the job.
         var input=new CompoundTag();for(int i=0;i<3;i++)if(!inv.getStackInSlot(i).isEmpty())input.put("s"+i,inv.getStackInSlot(i).save(level.registryAccess()));
         if(!mayPlace(id(be),2,inv.getStackInSlot(2)))input.putString("fluid",state.getString("fluid"));
+        input.putInt("speed",LegacyMachineCards.speed(be));input.putInt("saving",LegacyMachineCards.saving(be));
         if(state.contains("input")&&!state.getCompound("input").equals(input)){cancel(be);return;}
         if(!state.contains("input"))state.put("input",input);
         if(status(be)!=0)return;
         String id=id(be);int energy=state.getInt("energy");
-        int step=4;if(energy>=cost(id)){state.putInt("energy",energy-cost(id));step=1;}
         int progress=state.getInt("progress");
+        int charge=nextPowerCost(be),delta=1;
+        if(energy>=charge){
+            state.putInt("energy",energy-charge);delta=4;
+            if(LegacyMachineCards.installed(be)){
+                delta=poweredStep(be);state.putInt("card_units",state.getInt("card_units")+delta);state.putInt("card_paid",state.getInt("card_paid")+charge);
+                state.putInt("card_carry",(LegacyMachineCards.speed(be)*4+state.getInt("card_carry"))%100);
+            }
+        }
         // Store fixed quarter-tick units so power changes never shorten already-earned progress.
-        progress+=step==1?4:1;state.putInt("progress",progress);be.setChanged();
+        progress+=delta;state.putInt("progress",progress);be.setChanged();
         if(progress<duration(id,state.getInt("mode"))*4)return;
         var original=inv.getStackInSlot(0);ItemStack bee=ProductiveBeeGenes.analyse(original);
         if(id.equals("genetic_splicer")) {
@@ -155,7 +171,7 @@ public final class GeneticsRuntime {
         if(id.equals("genetic_splicer")||state.getInt("mode")==1)inv.extractItem(1,1,false);
         cancel(be);
     }
-    public static void cancel(BlockEntity be){var data=state(be);data.putBoolean("requested",false);data.putInt("progress",0);data.remove("input");be.setChanged();}
+    public static void cancel(BlockEntity be){var data=state(be);data.putBoolean("requested",false);data.putInt("progress",0);data.remove("input");data.remove("card_units");data.remove("card_paid");data.remove("card_carry");be.setChanged();}
     private static int remainderSlot(ItemStackHandler inv){for(int i=5;i<inv.getSlots();i++)if(fits(inv,i,new ItemStack(Items.GLASS_BOTTLE)))return i;return -1;}
     public static IEnergyStorage energy(BlockEntity be) {
         return new IEnergyStorage() {

@@ -63,6 +63,7 @@ public final class GeneticsScreen extends AbstractContainerScreen<GeneticsMenu> 
             g.drawString(font,"Catalyst: "+menu.value(8)+"%",leftPos+50,topPos+68,0xffffd185,false);
         }
         g.drawString(font,font.plainSubstrByWidth("FE "+menu.value(2)*10,80),leftPos+110,topPos+5,0xff24313e,false);
+        g.drawString(font,"A",leftPos+218,topPos+163,0xff24313e,false);g.drawString(font,"E",leftPos+218,topPos+199,0xff24313e,false);
     }
     @Override protected void renderLabels(GuiGraphics g,int mx,int my){g.drawString(font,font.plainSubstrByWidth(title.getString(),98),8,5,0xff34303d,false);g.drawString(font,playerInventoryTitle,inventoryLabelX,inventoryLabelY,0xff34303d,false);}
     @Override public void render(GuiGraphics g,int mx,int my,float partial) {
@@ -76,7 +77,7 @@ public final class GeneticsScreen extends AbstractContainerScreen<GeneticsMenu> 
         if(isHovering(8,1,180,14,mx,my))g.renderComponentTooltip(font,java.util.List.of(Component.literal(status()),Component.literal("FE "+menu.value(2)*10+" / "+menu.value(3)*10+" | Fluid "+menu.value(10)+" / 4000mB"),Component.literal("Specimens need saved bee traits; serum needs a valid gene/value.")),mx,my);
     }
     @Override public boolean mouseClicked(double x,double y,int button){if(showInputs&&inputs.click(x,y,leftPos,topPos,width,imageWidth))return true;return super.mouseClicked(x,y,button);}
-    private String status(){return switch(menu.value(7)){case 1->"Insert a filled Productive Bees cage with saved traits";case 2->"Missing reagent/catalyst";case 3->"Missing vial, selected gene or valid serum";case 4->"Output or bottle-return slots blocked";case 5->"Splicer needs 60 FE per tick";case 6->"Analyse this specimen before sampling or splicing";default->menu.value(6)==1?"Processing":"Ready";};}
+    private String status(){return switch(menu.value(7)){case 1->"Insert a filled Productive Bees cage with saved traits";case 2->"Missing reagent/catalyst";case 3->"Missing vial, selected gene or valid serum";case 4->"Output or bottle-return slots blocked";case 5->"Splicer needs power for the next work step";case 6->"Analyse this specimen before sampling or splicing";default->menu.value(6)==1?"Processing":"Ready";};}
     @EventBusSubscriber(modid="zerog_tweaks",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
     public static class Registration {
         @SubscribeEvent public static void register(RegisterMenuScreensEvent event){event.register(MenuInit.GENETICS.get(),GeneticsScreen::new);}

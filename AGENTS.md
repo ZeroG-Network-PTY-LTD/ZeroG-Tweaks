@@ -288,3 +288,18 @@ distribution before copying a ghost selection. Client appearance is a separate c
 Exact survival crafting costs and additional machine contracts remain pending.
 Card icons temporarily reuse existing
 original filter-card artwork, not a completed unique-art rollout.
+
+## Genetics and legacy cards — 7 October
+
+Geno Station, Genetic Splicer, Centrifuge and Starmetal Smelter append two separate
+Acceleration/Energy Coil sockets after the original machine and 36 player slots.
+Never assume all addon menus have sixteen visible slots: centrifuge has seven,
+smelter four. Preserve original indices, recipe dispatch and genetics outcomes.
+LegacyCardJobs schedules 201 authoritative addon work calls with cumulative exact
+FE rounding; its guarded recursive dispatch must bypass normal per-call charging.
+Genetics uses base quarter-work units, preserves unpowered slow Geno mode and
+tracks only powered units for card-adjusted FE. Card/input/config changes reset
+paid progress conservatively; unchanged jobs persist. Break refunds are separate
+from the sixteen original inventory slots. Compact/Void remain unsupported here.
+Optional test source sets must share the common fixture directory only once.
+Client socket/layout approval, dedicated icons and survival costs remain pending.

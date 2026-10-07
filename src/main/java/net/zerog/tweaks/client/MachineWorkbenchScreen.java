@@ -31,6 +31,7 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
             faceControls.add(leftPos+260,topPos+18,sides,w->addRenderableWidget(w),command->{if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,command);});
         addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Inputs"),b->{showInputs=!showInputs;rebuildWidgets();}).bounds(leftPos+196,topPos+3,52,16).build());
         for(int i=0;i<original.size();i++) {
+            if(menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides&&net.zerog.tweaks.genetics.LegacyMachineCards.supports(sides.sideMachine())&&i>=original.size()-2)continue;
             int x,y;
             if(i<n) {var xy=profile.positions().get(i);x=xy[0];y=xy[1];}
             else {int j=i-n;x=47+j%9*18;y=j<27?154+j/9*18:212;}
@@ -57,6 +58,9 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
         g.drawString(font,Component.literal("Cycle: "+suffix),14,125,0xff9edbda,false);
         if(state.menu()==menu.containerId&&state.capacity()>0)g.drawString(font,font.plainSubstrByWidth("FE "+state.energy()+"/"+state.capacity(),130),110,125,0xff9edbda,false);
         g.drawString(font,playerInventoryTitle,inventoryLabelX,inventoryLabelY,0xffe1edf7,false);
+        if(menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides&&net.zerog.tweaks.genetics.LegacyMachineCards.supports(sides.sideMachine())){
+            g.drawString(font,"A",218,163,0xff9edbda,false);g.drawString(font,"E",218,199,0xff9edbda,false);
+        }
     }
     @Override public void render(GuiGraphics g,int mouseX,int mouseY,float partial) {
         super.render(g,mouseX,mouseY,partial);renderTooltip(g,mouseX,mouseY);
