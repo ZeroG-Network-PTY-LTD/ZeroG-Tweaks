@@ -1,4 +1,4 @@
-# Gate power transfer — reported regression, pending reproduction
+# Gate power transfer — port hotfix, awaiting owner testing
 
 Owner reports that combustion generator → energy conduits → controller and
 combustion generator → conduits → formed Gate Energy Port both fail in game.
@@ -33,7 +33,21 @@ their display/ledger also need separate checks; no cause is invented for them.
 6. Clean same-version build, asset checks and backed-up installation only after
    passing tests; publish code and Docs separately. Preserve hub/player saves.
 
-## Current delivery and limits
+## Owner-requested hotfix
+
+The owner requested a same-version JAR now and will test it in game. The runtime
+now registers Gate Energy Port blocks with the public energy capability used by
+conduits. Its receive-only handler resolves the current formed gate on every
+access, rather than retaining a removed controller or caching an unformed gate.
+Controller energy registration is preserved. No saves or hub layouts are changed.
+
+This is a focused source repair, not evidence that the separately reported
+controller failure is resolved. Isolated generator/conduit gameplay reproduction
+and the acceptance cases above remain pending. Test an ordinary formed gate with
+space in its energy buffer; admin hub gates refill automatically and a full buffer
+cannot accept additional power.
+
+## Previous inspection delivery and limits
 
 No runtime fix, new JAR or isolated launch in this inspection-only turn.
 Installed Prism Spire build remains SHA256
