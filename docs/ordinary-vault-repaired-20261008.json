@@ -1,0 +1,108 @@
+{
+  "seed": 0,
+  "dimension": "zerog_tweaks:cerulon",
+  "chunk": [
+    -2,
+    -20
+  ],
+  "ordinary_server": true,
+  "structure_generation_enabled": true,
+  "scope": "Saved natural structure starts; not complete room/chest or village coverage",
+  "status": "minecraft:full",
+  "saved_full_chunks": 361,
+  "observed_blocks": {
+    "zerog_tweaks:vault_key_altar": 4,
+    "zerog_tweaks:concord_lock": 1
+  },
+  "unopened_chest_loot_tables": {
+    "zerog_tweaks:chests/buried_observatory": 11,
+    "zerog_tweaks:chests/concord_vault/rare": 5,
+    "zerog_tweaks:chests/concord_vault/common": 7,
+    "zerog_tweaks:chests/concord_vault/uncommon": 3
+  },
+  "settlement_anchors": [],
+  "planned_key_altars": [
+    {
+      "position": [
+        -149,
+        80,
+        -282
+      ],
+      "chunk": [
+        -10,
+        -18
+      ],
+      "observed_block": "zerog_tweaks:vault_key_altar",
+      "observed_properties": {
+        "has_key": "true"
+      },
+      "references": [
+        "zerog_tweaks:concord_vault"
+      ]
+    },
+    {
+      "position": [
+        27,
+        80,
+        -252
+      ],
+      "chunk": [
+        1,
+        -16
+      ],
+      "observed_block": "zerog_tweaks:vault_key_altar",
+      "observed_properties": {
+        "has_key": "true"
+      },
+      "references": [
+        "zerog_tweaks:concord_vault"
+      ]
+    },
+    {
+      "position": [
+        -87,
+        80,
+        -218
+      ],
+      "chunk": [
+        -6,
+        -14
+      ],
+      "observed_block": "zerog_tweaks:vault_key_altar",
+      "observed_properties": {
+        "has_key": "true"
+      },
+      "references": [
+        "zerog_tweaks:concord_vault"
+      ]
+    },
+    {
+      "position": [
+        -38,
+        80,
+        -369
+      ],
+      "chunk": [
+        -3,
+        -24
+      ],
+      "observed_block": "zerog_tweaks:vault_key_altar",
+      "observed_properties": {
+        "has_key": "true"
+      },
+      "references": [
+        "zerog_tweaks:concord_vault"
+      ]
+    }
+  ],
+  "starts": {
+    "zerog_tweaks:concord_vault": {
+      "id": "zerog_tweaks:concord_vault",
+      "pieces": 84,
+      "piece_types": [
+        "minecraft:jigsaw",
+        "zerog_tweaks:vault_key_altar"
+      ]
+    }
+  }
+}
