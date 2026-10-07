@@ -1,5 +1,16 @@
 # Galaxy 2 (Cerulon) build tracker
 
+> 8October reconciliation: this tracker retains its older full audit below;
+> do not interpret every historical open entry as the current runtime state.
+> The earlier Concord Vault uncommon-loot fallback already includes Cobaltium,
+> Cyrrium and Aurelion templates and has a loaded-loot regression.
+> Prism Spire is now the first authored wasteland ruin: editable generator and
+> layout in [wasteland-ruins](wasteland-ruins/README.md). Its isolated/natural
+> verification and delivery are recorded separately in
+> [Docs](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/prism-spire-2026-10-08.md).
+> Six other wasteland ruins and the missing signature mobs remain pending.
+> Story text and hidden coordinates are not invented to close tracker gaps.
+
 What is left before players can reach Cerulon on a T2 gate, climb the Cobaltium → Cyrrium → Cerulite ladder, beat the Prism Sentinel, explore the six wasteland slots and build the T3 gate.
 
 - **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026; updated for `15200c39` (machines and power) on 6 Oct 2026.
