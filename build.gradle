@@ -126,6 +126,7 @@ neoForge {
 
 dependencies {
     implementation 'maven.modrinth:geckolib:Grwn5rUB' // NeoForge 1.21.1, GeckoLib 4.9.3
+    implementation 'org.appliedenergistics:guideme:21.1.19' // Concord Codex guidebook (assets/zerog_tweaks/guides)
 }
 
 tasks.named('jar', Jar).configure {

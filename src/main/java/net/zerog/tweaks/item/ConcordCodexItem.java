@@ -13,8 +13,12 @@ import net.minecraft.world.item.component.WrittenBookContent;
 import net.minecraft.world.level.Level;
 import net.zerog.tweaks.lore.ConcordPrologue;
 
-/** Native book component/viewer; custom item IDs do not pass vanilla's WRITTEN_BOOK identity check. */
+/**
+ * Opens the GuideME walkthrough (assets/zerog_tweaks/guides/zerog_tweaks/concord_codex); sneaking opens the story
+ * pages in the native book viewer. Custom item IDs do not pass vanilla's WRITTEN_BOOK identity check.
+ */
 public final class ConcordCodexItem extends Item {
+    public static final net.minecraft.resources.ResourceLocation GUIDE=net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","concord_codex");
     public ConcordCodexItem(Properties properties) {
         super(properties.stacksTo(1).component(DataComponents.WRITTEN_BOOK_CONTENT,new WrittenBookContent(
             Filterable.passThrough("Concord Codex"),"The Concord",0,List.of(
@@ -36,7 +40,9 @@ public final class ConcordCodexItem extends Item {
             player.getItemInHand(hand).set(DataComponents.WRITTEN_BOOK_CONTENT,new WrittenBookContent(Filterable.passThrough("Concord Codex"),"The Concord",0,pages,true));
             server.inventoryMenu.broadcastChanges();
             ConcordPrologue.grant(server,"builders_template","read_codex");
-            server.connection.send(new ClientboundOpenBookPacket(hand));
+            // Right-click: the GuideME walkthrough. Sneak + right-click: Echo's story pages (unlocked per world visited).
+            if(player.isShiftKeyDown())server.connection.send(new ClientboundOpenBookPacket(hand));
+            else guideme.GuidesCommon.openGuide(server,GUIDE);
         }return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand),level.isClientSide());
     }
 }
