@@ -1,5 +1,20 @@
 # ZeroG Tweaks
 
+## Safe Compact storage — 7 October 2026
+
+Still **1.0.12-dev**. [Storage guide](docs/compact-storage-2026-10-07.md) · [Delivery receipt](docs/compact-storage-delivery-2026-10-07.json) · [Matching JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-compact-storage-20261007.jar).
+
+The four native processors accept Item Compact cards, tiers 1–6, with reagent
+capacities of 212 / 360 / 508 / 656 / 804 / 952. Component-aware reserves keep all
+visible and transferred stacks normal-sized. Input tooltips show stored totals;
+card removal preserves materials. Menu transfers, processing, reload and block
+breaking are covered by four focused tests; all 82 broader regressions passed.
+
+Void filtering is next. Dedicated card artwork awaits a reference; the approved
+existing icon is retained temporarily. Client visual approval, other machine
+contracts and exact survival costs remain pending. Previous galleries and JAR
+archives are preserved; this batch does not reset any save.
+
 ## Act I Codex localization — 7 October 2026
 
 Still **1.0.12-dev**. [Codex checks and next storage slice](docs/codex-localization-2026-10-07.md) · [Delivery receipt](docs/codex-localization-delivery-2026-10-07.json) · [Installed JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-codex-localization-20261007.jar).

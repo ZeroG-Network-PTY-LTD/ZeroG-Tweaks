@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-07T00:12:47.269736+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev-compact-storage-20261007.jar",
+  "sha256": "fc9abe7936d251b143769305a11fca0bfc7ac27813de3bc67b62c3c87234e017",
+  "bytes": 27023596,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261007-001220-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": false,
+  "world_regeneration": false,
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261007_000918_runWorkflowTests.log",
+      "sha256": "839763bf5776a6aa9e916d3ddc33acdb903a2ab92915b2a0d27c1d0ebf811d70",
+      "required_passes": 4,
+      "client_visual_approval": false
+    },
+    {
+      "log": "20261007_001008_runWorkflowTests.log",
+      "sha256": "ef852790688326aaa074774e2c6fcfd271fe334decfce6b6ec0bb0353790be50",
+      "required_passes": 82,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "compact-assets-20261007.json",
+      "sha256": "911957b80427d6c4875d34a127974ffae413657e2574502307658ee7f7a88c49",
+      "checked": {
+        "models": 7955,
+        "blockstates": 1522,
+        "pngs": 3932,
+        "animation_metadata": 118,
+        "source_byte_bindings": 0
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261007_001105_clean.log",
+    "sha256": "3bc788263d3c02c172557f15ce52a72060baceb6265f28f626234392a0547b27",
+    "clean_production": true
+  },
+  "remaining": [
+    "machine-void-card-upgrades-tab",
+    "gas-registry-and-networks",
+    "larger-authored-alveary-layouts",
+    "distinct-hatch-state-artwork",
+    "solar-plasma-and-cooling",
+    "recipe-discovery-remaining-machines",
+    "bee-survival-crafting",
+    "sol-meteor-maw-concord-debris",
+    "alloy-forge-menu-input-catalyst-report",
+    "machine-upgrade-cards-six-tiers",
+    "vanilla-worn-armor",
+    "orbital-comb-style",
+    "alveary-output-gui",
+    "refinery-controls",
+    "large-network-and-nearest-routing",
+    "jelly-fluid-buckets",
+    "planet-hive-discovery",
+    "alveary-held-item-and-errors",
+    "genetics-held-item-bucket-route",
+    "recipe-discovery-guide",
+    "blueprint-interaction",
+    "client-acceptance",
+    "dynamic-tank-fluid-renderer",
+    "chest-lid-animation",
+    "existing-machine-purpose-audit",
+    "legacy-addon-machine-dispatch",
+    "transport-family-gui",
+    "per-machine-upgrade-contracts",
+    "advanced-alveary-biology",
+    "external-claim-team-adapters",
+    "frost-yak-grazing",
+    "remaining-mob-model-mechanics",
+    "duplicate-click-gui-routes",
+    "alveary-five-port-base",
+    "transport-cell-native-art",
+    "all-machine-side-configuration",
+    "power-directional-pulses",
+    "liquid-wave-visuals",
+    "holographic-diagnostics",
+    "planet-ecology-broad-audit",
+    "galaxy-tracker-reconciliation"
+  ],
+  "guide": "compact-storage-2026-10-07.md",
+  "runtime_commit": "d0d4c6ce",
+  "design_commit": "dd7f701e",
+  "scope": "Four native processors only; separate reserves, normal-sized stacks. Void filtering and dedicated artwork not implemented. Full authoritative remaining status is in the TODO ledger.",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 33,
+  "todo_sha256": "11bdf2802ecee5861878a20cf9b97f48d018cfafdc4cf9feff05eebbcc94cbfc"
+}
