@@ -32,7 +32,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.network.PacketDistributor;
 import net.zerog.tweaks.config.ZGProgressionConfig;
 import net.zerog.tweaks.registry.BlockInit;
 import net.zerog.tweaks.registry.ZGDimensionTerrain;
@@ -71,12 +70,13 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     };}
     public boolean isPort(BlockPos pos){for(var part:SurvivalGateLayout.parts(Math.max(1,formedTier())))if(part.block()==BlockInit.GATE_ENERGY_PORT.get()&&centre().offset(SurvivalGateLayout.rotate(part.offset(),facing())).equals(pos))return true;return false;}
     public void claim(ServerPlayer player){if(owner==null){owner=player.getUUID();setChanged();}}
-    public boolean mayControl(ServerPlayer player){return owner!=null&&owner.equals(player.getUUID());}
+    public boolean adminTest(){return level instanceof ServerLevel server&&getPersistentData().getBoolean(HubTieredGates.ADMIN)&&PlanetTestHub.isHub(server.getServer())&&(!returnPlatform?server==server.getServer().overworld()&&HubTieredGates.controllerPosition(worldPosition):homeDimension.equals("minecraft:overworld")&&HubTieredGates.controllerPosition(homeController));}
+    public boolean mayControl(ServerPlayer player){return adminTest()||owner!=null&&owner.equals(player.getUUID());}
     public static List<String> destinations(){var list=new ArrayList<String>();list.add("minecraft:overworld");for(String name:ZGDimensionTerrain.dimensions())list.add("zerog_tweaks:"+name);return List.copyOf(list);}
-    public boolean canReach(String id){int tier=formedTier(),galaxy=SurvivalGateLayout.galaxy(id);return tier>0&&galaxy>0&&galaxy<=Math.min(5,tier)&&(!id.endsWith("_moons")||tier==6)&&!id.equals(level.dimension().location().toString());}
+    public boolean canReach(String id){int tier=formedTier(),galaxy=SurvivalGateLayout.galaxy(id);return tier>0&&galaxy>0&&(adminTest()||galaxy<=Math.min(5,tier)&&(!id.endsWith("_moons")||tier==6))&&!id.equals(level.dimension().location().toString());}
     public AABB pad(){int r=SurvivalGateLayout.padRadius(Math.max(1,formedTier()));BlockPos c=centre();return new AABB(Vec3.atLowerCornerOf(c.offset(-r,1,-r)),Vec3.atLowerCornerOf(c.offset(r+1,4,r+1)));}
     public List<ServerPlayer> passengers(){if(!(level instanceof ServerLevel server))return List.of();return server.getEntitiesOfClass(ServerPlayer.class,pad(),p->p.isAlive()&&!p.isSpectator());}
-    public int cost(int passengers){String target=returnPlatform?homeDimension:selected>=0&&selected<destinations().size()?destinations().get(selected):"";return SurvivalGateLayout.cost(ZGProgressionConfig.baseCost(Math.max(1,formedTier())),level.dimension().location().toString(),target,passengers,has("refracting_lens"));}
+    public int cost(int passengers){if(adminTest())return 0;String target=returnPlatform?homeDimension:selected>=0&&selected<destinations().size()?destinations().get(selected):"";return SurvivalGateLayout.cost(ZGProgressionConfig.baseCost(Math.max(1,formedTier())),level.dimension().location().toString(),target,passengers,has("refracting_lens"));}
     public boolean engage(ServerPlayer player){
         if(!mayControl(player)||countdown>0||formedTier()==0)return false;
         var group=passengers();if(!group.contains(player)||group.size()>SurvivalGateLayout.passengers(formedTier())+(has("capacity_coil")?2:0)||stored<cost(group.size()))return false;
@@ -89,7 +89,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     public void cancel(){if(lifting&&level instanceof ServerLevel server)stopLift(server);countdown=0;lifting=false;ready.clear();expected=Set.of();setChanged();}
     /** Drop anyone already floating and clear their white-out. Pylons go dark on the next idle tick. */
     private void stopLift(ServerLevel server){
-        for(UUID id:expected){var p=server.getServer().getPlayerList().getPlayer(id);if(p!=null){p.removeEffect(MobEffects.LEVITATION);PacketDistributor.sendToPlayer(p,new GateLaunchSync.Lift(0));}}
+        for(UUID id:expected){var p=server.getServer().getPlayerList().getPlayer(id);if(p!=null){p.removeEffect(MobEffects.LEVITATION);GateLaunchSync.sendLift(p,0);}}
         lifting=false;
     }
     /** Pylon columns of a tier (world positions, bottom to top), in order around the pad. */
@@ -109,6 +109,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     public void preview(ServerPlayer player){if(!(level instanceof ServerLevel server)||!mayControl(player))return;int tier=Math.min(6,Math.max(1,formedTier()+1));for(var part:SurvivalGateLayout.parts(tier)){BlockPos at=centre().offset(SurvivalGateLayout.rotate(part.offset(),facing()));if(server.hasChunkAt(at)&&!server.getBlockState(at).is(part.block()))server.sendParticles(player,ParticleTypes.END_ROD,true,at.getX()+.5,at.getY()+.5,at.getZ()+.5,2,.1,.1,.1,0);}}
     public void tick(){
         if(!(level instanceof ServerLevel server))return;
+        if(adminTest())stored=capacity();
         // Return platforms trickle-charge only with their explicitly built crystal cell.
         if(returnPlatform&&server.getGameTime()%20==0&&server.getBlockState(centre().offset(0,-2,0)).is(BlockInit.CRYSTAL_CELL.get())){stored=Math.min(capacity(),stored+1000);setChanged();}
         if(countdown<=0){if(litTier>0)lightPylons(server,litTier,0);return;}
@@ -140,7 +141,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         // Lift: once everyone is Ready, passengers float up while their clients stretch the view and white out.
         if(elapsed>=LIFT_AT&&!lifting&&ready.containsAll(expected)){
             lifting=true;server.playSound(null,c,SoundEvents.BEACON_ACTIVATE,SoundSource.BLOCKS,1.0F,1.4F);
-            for(var p:group){p.addEffect(new MobEffectInstance(MobEffects.LEVITATION,countdown+5,0,false,false));PacketDistributor.sendToPlayer(p,new GateLaunchSync.Lift(countdown));}
+            for(var p:group){p.addEffect(new MobEffectInstance(MobEffects.LEVITATION,countdown+5,0,false,false));GateLaunchSync.sendLift(p,countdown);}
         }
         if(--countdown==0){
             if(ready.containsAll(expected)){if(!launch(group)&&lifting)stopLift(server);}
@@ -182,11 +183,15 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         target.getChunk(x>>4,z>>4);int y=Math.min(target.getMaxBuildHeight()-10,Math.max(target.getSeaLevel()+4,target.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,x,z)+3));
         BlockPos c=new BlockPos(x,y,z),controller=c.offset(0,1,-2);
         // Locate persisted platforms in the loaded column instead of rebuilding above the old one.
-        for(int scan=target.getMinBuildHeight();scan<target.getMaxBuildHeight();scan++)if(target.getBlockEntity(new BlockPos(x,scan,z-2)) instanceof SurvivalGateBlockEntity existing&&existing.returnPlatform&&existing.homeController.equals(home.worldPosition)&&existing.homeDimension.equals(home.level.dimension().location().toString()))return existing;
+        for(int scan=target.getMinBuildHeight();scan<target.getMaxBuildHeight();scan++)if(target.getBlockEntity(new BlockPos(x,scan,z-2)) instanceof SurvivalGateBlockEntity existing&&existing.returnPlatform&&existing.homeController.equals(home.worldPosition)&&existing.homeDimension.equals(home.level.dimension().location().toString())){
+            SurvivalGateLayout.loadFootprint(target,existing.worldPosition,existing.facing());
+            if(home.adminTest()){existing.getPersistentData().putBoolean(HubTieredGates.ADMIN,true);existing.setChanged();}
+            return existing;
+        }
         for(var p:BlockPos.betweenClosed(c.offset(-3,-2,-3),c.offset(3,-1,3)))target.setBlock(p,BlockInit.LANDING_PLATFORM.get().defaultBlockState(),3);
         for(var part:SurvivalGateLayout.parts(1))target.setBlock(c.offset(part.offset()),part.block().defaultBlockState(),3);
         target.setBlock(c.offset(0,-2,0),BlockInit.CRYSTAL_CELL.get().defaultBlockState(),3);
-        var landing=(SurvivalGateBlockEntity)target.getBlockEntity(controller);landing.returnPlatform=true;landing.owner=home.owner;landing.homeController=home.worldPosition;landing.homeDimension=home.level.dimension().location().toString();landing.stored=0;landing.setChanged();return landing;
+        var landing=(SurvivalGateBlockEntity)target.getBlockEntity(controller);landing.returnPlatform=true;landing.owner=home.owner;landing.homeController=home.worldPosition;landing.homeDimension=home.level.dimension().location().toString();landing.getPersistentData().putBoolean(HubTieredGates.ADMIN,home.adminTest());landing.stored=0;landing.setChanged();return landing;
     }
     @Override protected void saveAdditional(CompoundTag tag,HolderLookup.Provider registries){super.saveAdditional(tag,registries);tag.putInt("FE",stored);tag.putInt("selected",selected);if(owner!=null)tag.putUUID("owner",owner);tag.putBoolean("return",returnPlatform);tag.putString("homeDimension",homeDimension);tag.putLong("homeController",homeController.asLong());tag.put("upgrades",upgrades.serializeNBT(registries));tag.putInt("litTier",litTier);}
     @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider registries){super.loadAdditional(tag,registries);stored=Math.max(0,Math.min(200000000,tag.getInt("FE")));selected=tag.getInt("selected");owner=tag.hasUUID("owner")?tag.getUUID("owner"):null;returnPlatform=tag.getBoolean("return");homeDimension=tag.getString("homeDimension");homeController=BlockPos.of(tag.getLong("homeController"));upgrades.deserializeNBT(registries,tag.getCompound("upgrades"));litTier=Math.max(0,Math.min(6,tag.getInt("litTier")));cancel();}

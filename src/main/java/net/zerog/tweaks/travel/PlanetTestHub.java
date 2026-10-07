@@ -39,6 +39,7 @@ public final class PlanetTestHub {
     public static void started(ServerStartedEvent event) {
         var server=event.getServer();if(!isHub(server))return;
         var ledger=GateLedger.get(server);if(ledger.hubBuilt) {
+            HubTieredGates.build(server.overworld());
             com.mojang.logging.LogUtils.getLogger().info("ZeroG hub exhibits: {}",HubExhibits.build(server.overworld()));return;
         }
         var level=server.overworld();
@@ -53,6 +54,7 @@ public final class PlanetTestHub {
         }
         level.setDefaultSpawnPos(new BlockPos(0,65,0),180);
         ledger.hubBuilt=true;ledger.inspectionEnabled=true;ledger.setDirty();
+        HubTieredGates.build(level);
         com.mojang.logging.LogUtils.getLogger().info("ZeroG hub exhibits: {}",HubExhibits.build(level));
         com.mojang.logging.LogUtils.getLogger().info("ZeroG supplied workshop: {}",HubWorkshop.build(level));
     }
@@ -119,12 +121,14 @@ public final class PlanetTestHub {
         GateLedger.Gate arrival;
         if(gate.target.equals("minecraft:overworld")) {
             arrival=ledger.gates.values().stream().filter(g->g.dimension.equals(gate.target)&&g.target.equals(gate.dimension)).findFirst().orElse(null);
+            if(arrival==null&&ledger.tieredHubBuilt){int tier=Math.max(1,Math.min(6,gate.dimension.endsWith("_moons")?6:SurvivalGateLayout.galaxy(gate.dimension)));arrival=new GateLedger.Gate("minecraft:overworld",HubTieredGates.centre(tier),gate.dimension,true);}
         } else {
             arrival=ledger.gates.values().stream().filter(g->g.dimension.equals(gate.target)&&g.target.equals(gate.dimension)).findFirst().orElse(null);
             if(arrival==null&&gate.testPower&&isHub(level.getServer()))arrival=prepareLanding(target,gate.centre,ledger);
         }
         if(arrival!=null)PlanetGate.loadLandingChunks(target,arrival.centre);
-        if(arrival==null||PlanetGate.missing(target,arrival.centre)!=null) {
+        boolean tieredArrival=arrival!=null&&gate.target.equals("minecraft:overworld")&&ledger.tieredHubBuilt&&target.getBlockEntity(arrival.centre.offset(0,1,-2)) instanceof SurvivalGateBlockEntity home&&home.formedTier()>0;
+        if(arrival==null||!tieredArrival&&PlanetGate.missing(target,arrival.centre)!=null) {
             player.displayClientMessage(Component.literal("No complete return gate exists at the destination."),false);return;
         }
         var position=arrival.centre;

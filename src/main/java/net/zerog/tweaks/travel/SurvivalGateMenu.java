@@ -20,9 +20,9 @@ public final class SurvivalGateMenu extends AbstractContainerMenu {
         });}
         for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inventory,9+row*9+col,46+col*18,170+row*18));
         for(int col=0;col<9;col++)addSlot(new Slot(inventory,col,46+col*18,228));
-        data=inventory.player.level().isClientSide?new SimpleContainerData(7):new ContainerData(){
-            public int get(int i){return switch(i){case 0->gate.formedTier();case 1->gate.stored/10000;case 2->gate.capacity()/10000;case 3->gate.selected;case 4->gate.countdown;case 5->inventory.player instanceof ServerPlayer p&&gate.mayControl(p)?1:0;case 6->gate.returnPlatform?1:0;default->0;};}
-            public void set(int i,int value){}public int getCount(){return 7;}
+        data=inventory.player.level().isClientSide?new SimpleContainerData(8):new ContainerData(){
+            public int get(int i){return switch(i){case 0->gate.formedTier();case 1->gate.stored/10000;case 2->gate.capacity()/10000;case 3->gate.selected;case 4->gate.countdown;case 5->inventory.player instanceof ServerPlayer p&&gate.mayControl(p)?1:0;case 6->gate.returnPlatform?1:0;case 7->gate.adminTest()?1:0;default->0;};}
+            public void set(int i,int value){}public int getCount(){return 8;}
         };addDataSlots(data);
     }
     public int value(int index){return data.get(index);}

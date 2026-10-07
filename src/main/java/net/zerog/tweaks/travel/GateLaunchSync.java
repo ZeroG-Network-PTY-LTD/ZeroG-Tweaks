@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.network.registration.NetworkRegistry;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.zerog.tweaks.event.PlanetGravity;
 
@@ -37,7 +38,9 @@ public final class GateLaunchSync {
     private static volatile Destination clientDestination;
     private static volatile long clientDestinationAt;
     /** Call right before a ZeroG teleport moves {@code player} into {@code target}. */
-    public static void sendDestination(ServerPlayer player,ServerLevel target){if(player.level()!=target)PacketDistributor.sendToPlayer(player,describe(player,target));}
+    public static void sendDestination(ServerPlayer player,ServerLevel target){if(player.level()!=target&&NetworkRegistry.hasChannel(player.connection,Destination.TYPE.id()))PacketDistributor.sendToPlayer(player,describe(player,target));}
+    /** Visual-only packets require a negotiated receiver; travel itself is unaffected. */
+    public static void sendLift(ServerPlayer player,int ticks){if(NetworkRegistry.hasChannel(player.connection,Lift.TYPE.id()))PacketDistributor.sendToPlayer(player,new Lift(ticks));}
     static Destination describe(ServerPlayer player,ServerLevel target){
         var key=target.dimension().location();String id=key.toString(),path=key.getPath(),planet;
         if(id.equals("minecraft:overworld"))planet="earth";

@@ -30,6 +30,7 @@ def main():
     parser.add_argument('--jar-name', help='Optional same-version archive name; preserves earlier published JAR bytes')
     parser.add_argument('--remaining-file', type=Path, help='Current TODO ledger instead of the historical delivery list')
     parser.add_argument('--red-test-log', type=Path, help='Observed failing regression before the repaired pass')
+    parser.add_argument('--hub-installation', type=Path, help='Verified scoped hub migration receipt')
     args = parser.parse_args()
     sha = digest(args.jar)
     installation = json.loads(args.installation.read_text())
@@ -90,6 +91,12 @@ def main():
         # A selective status whitelist used to silently omit unfinished roadmap items.
         receipt['remaining']=[row['id'] for row in ledger['tasks'] if row['status'] not in {'complete','completed','done','closed'}]
         receipt['todo_sha256']=digest(args.remaining_file)
+    if args.hub_installation:
+        hub=json.loads(args.hub_installation.read_text())
+        assert hub['installed'] and hub['files'], 'Hub installation did not complete'
+        receipt['save_changes']=True
+        receipt['hub_migration']={'save':Path(hub['save']).name,'backup':Path(hub['backup']).name,
+            'files':hub['files'],'scope':'north gate exhibits and six prepared return regions; player data unchanged'}
     if args.red_test_log:
         red=args.red_test_log.read_text(errors='replace')
         assert 'unused_machine_input_slots_are_not_misleading_inputs failed' in red

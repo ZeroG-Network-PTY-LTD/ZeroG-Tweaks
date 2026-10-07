@@ -303,3 +303,26 @@ paid progress conservatively; unchanged jobs persist. Break refunds are separate
 from the sixteen original inventory slots. Compact/Void remain unsupported here.
 Optional test source sets must share the common fixture directory only once.
 Client socket/layout approval, dedicated icons and survival costs remain pending.
+
+## Dedicated card artwork — 7 October
+
+The19 upgrade-card icons now bind distinct transparent32x32 textures under
+textures/item/upgrade_cards. Regenerate from Design's
+docs/upgrade-card-icons/generate.py AFTER full-art-rollout-v4 and old card/model
+generators; those older generators must not restore shared filter-card parents.
+Tier colours copper/verdant/cyan/azure/violet/gold and six rank positions identify
+tier; centre speed/coil/stack/vortex symbols identify family. Void remains un-tiered.
+Do not change item IDs/effects to match artwork. Client visual approval remains separate.
+
+## Tiered admin hub gates — 7 October
+
+The designated planet-test-hub preset now migrates northern fixed-T6 exhibits once
+to real SurvivalGateLayout tiers1–6. HubTieredGates.ADMIN is accepted only at the
+six fixed Overworld controllers or their bound return platforms in that hub.
+Final user choice is free ADMIN travel, not a survival progression demonstration.
+Keep ordinary ownership, energy and destination restrictions outside this scope.
+Use workflowHubPreset with zerog_hub_tiers for the focused test; the older full
+planet audit/export assumes34 fixed outbound gates and needs topology migration
+before it can certify this six-gate hub. Do not claim that legacy audit passed.
+install_tiered_hub.py copies only scoped gate regions and merges the original
+ledger; never replace level.dat/playerdata or test-server preparation counters.

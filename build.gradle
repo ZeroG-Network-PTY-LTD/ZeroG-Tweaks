@@ -56,6 +56,9 @@ if (providers.gradleProperty('workflowTests').isPresent()) {
     if (providers.gradleProperty('workflowPlanetPreset').isPresent()) {
         sourceSets.main.resources.srcDir 'src/lore-gametest/resources'
     }
+    if (providers.gradleProperty('workflowHubPreset').isPresent()) {
+        sourceSets.main.resources.srcDir 'src/tiered-hub-gametest/resources'
+    }
 }
 if (providers.gradleProperty('planetHubTests').isPresent()) {
     sourceSets.main.java.srcDir 'src/planet-hub-gametest/java'
