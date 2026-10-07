@@ -72,20 +72,47 @@ public class ConcordVaultStructure extends Structure {
                     DimensionPadding.ZERO, LiquidSettings.IGNORE_WATERLOGGING);
             if (stub.isEmpty()) continue;
             StructurePiecesBuilder pieces = stub.get().getPiecesBuilder();
+            // Vanilla createReferences only discovers starts within eight chunks.
+            // Jigsaw's own radius is centred on its rotated start template instead
+            // of the start chunk, so an intact layout can otherwise escape it.
+            var shift = fitToReferenceWindow(pieces, chunk);
+            if (shift.isEmpty()) continue;
             List<BoundingBox> rooms = rooms(pieces);
             if (best == null || rooms.size() > bestRooms.size()) {
-                best = new GenerationStub(stub.get().position(), Either.right(pieces));
+                best = new GenerationStub(stub.get().position().offset(shift.get()), Either.right(pieces));
                 bestRooms = rooms;
             }
             if (rooms.size() >= minRooms) break;
         }
-        if (best == null) return Optional.empty();
+        if (best == null || bestRooms.size() < keyRooms) return Optional.empty();
         StructurePiecesBuilder pieces = best.getPiecesBuilder();
         BlockPos chamber = chamberCentre(pieces);
         for (BlockPos altar : pickKeyRooms(bestRooms, chamber, keyRooms, context.random())) {
             pieces.addPiece(new KeyAltarPiece(altar));
         }
         return Optional.of(best);
+    }
+
+    /** Translate the whole connected jigsaw, before adding keyed pieces. Never crop rooms. */
+    private static Optional<BlockPos> fitToReferenceWindow(StructurePiecesBuilder pieces, net.minecraft.world.level.ChunkPos chunk) {
+        var bounds = pieces.build().calculateBoundingBox();
+        int minX = chunk.getMinBlockX() - 128, maxX = chunk.getMaxBlockX() + 128;
+        int minZ = chunk.getMinBlockZ() - 128, maxZ = chunk.getMaxBlockZ() + 128;
+        if (bounds.getXSpan() > maxX - minX + 1 || bounds.getZSpan() > maxZ - minZ + 1) return Optional.empty();
+        int dx = bounds.minX() < minX ? minX - bounds.minX() : bounds.maxX() > maxX ? maxX - bounds.maxX() : 0;
+        int dz = bounds.minZ() < minZ ? minZ - bounds.minZ() : bounds.maxZ() > maxZ ? maxZ - bounds.maxZ() : 0;
+        if (dx != 0 || dz != 0) {
+            for (var piece : pieces.build().pieces()) {
+                piece.move(dx, 0, dz);
+                if (piece instanceof PoolElementStructurePiece pool) {
+                    // PoolElement.move shifts boxes and template position, but not
+                    // junction metadata. Keep that metadata in the same world space.
+                    pool.getJunctions().replaceAll(j -> new net.minecraft.world.level.levelgen.structure.pools.JigsawJunction(
+                            j.getSourceX() + dx, j.getSourceGroundY(), j.getSourceZ() + dz, j.getDeltaY(), j.getDestProjection()));
+                }
+            }
+        }
+        return Optional.of(new BlockPos(dx, 0, dz));
     }
 
     /**

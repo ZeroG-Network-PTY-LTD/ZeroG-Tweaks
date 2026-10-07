@@ -19,6 +19,7 @@ p.add_argument('--chunk-x',type=int)
 p.add_argument('--chunk-z',type=int)
 p.add_argument('--radius',type=int,default=0)
 p.add_argument('--report',type=Path)
+p.add_argument('--require-vault-keys',action='store_true',help='Fail unless all four planned natural altars are actually present')
 a=p.parse_args();run=a.run.resolve()
 assert run.parent==ROOT and run.name.startswith('run-local-ordinary-'), 'Exact isolated project directory required'
 if a.action=='prepare':
@@ -61,13 +62,20 @@ else:
             if piece.get('id')!='zerog_tweaks:vault_key_altar':continue
             bb=piece['BB'];x,y,z=bb[0],bb[4],bb[2]
             c=worldscan.chunk(str(run/'world/dimensions'/ns/dim),x>>4,z>>4)
-            observed=None
+            observed=None;properties={}
             if c:
                 for section in c.get('sections',[]):
                     for index,name,yy in worldscan.section_blocks(section):
-                        if yy==y and index&15==x&15 and (index>>4)&15==z&15:observed=name
+                        if yy==y and index&15==x&15 and (index>>4)&15==z&15:
+                            observed=name
+                            states=section['block_states'];palette=states['palette']
+                            if len(palette)==1:selected=palette[0]
+                            else:
+                                bits=max(4,(len(palette)-1).bit_length());per=64//bits
+                                selected=palette[((states['data'][index//per]&0xffffffffffffffff)>>((index%per)*bits))&((1<<bits)-1)]
+                            properties=selected.get('Properties',{})
             planned_altars.append({'position':[x,y,z],'chunk':[x>>4,z>>4],
-                'observed_block':observed,'references':sorted((c or {}).get('structures',{}).get('References',{}))})
+                'observed_block':observed,'observed_properties':properties,'references':sorted((c or {}).get('structures',{}).get('References',{}))})
     assert 0<=a.radius<=9,'Bounded saved-chunk inspection only'
     blocks=Counter();loot=Counter();anchors=[];saved=0
     for cx in range(a.chunk_x-a.radius,a.chunk_x+a.radius+1):
@@ -91,3 +99,5 @@ else:
             for key,value in starts.items()}}
     a.report.parent.mkdir(parents=True,exist_ok=True)
     a.report.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+    if a.require_vault_keys:
+        assert len(planned_altars)==4 and all(v['observed_block']=='zerog_tweaks:vault_key_altar' and v['observed_properties'].get('has_key')=='true' for v in planned_altars), 'Natural Vault does not supply all four planned key altars'
