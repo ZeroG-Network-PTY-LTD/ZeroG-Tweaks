@@ -1,5 +1,9 @@
 # ZeroG Tweaks
 
+## Machine GUI and animated cell repair — 7 October 2026
+
+[Screenshot faults, module controls and charge-art previews](docs/machine-gui-and-activity-2026-10-07.md). Same **1.0.12-dev**; hub/saves unchanged. Centrifuge and Smelter use the corrected replacement menu, combustion controls clear the title, and Solar/Fusion expose their Flux-module slot. Charge indicators animate actual stored levels. Bespoke moving machinery and client visual/sound approval remain pending.
+
 ## Compact hub and exact gate-building plans — 7 October 2026
 
 Same **1.0.12-dev**. [Compact save and performance evidence](docs/compact-hub-2026-10-07.md) · [Build every gate tier: counts and layer diagrams](docs/gate-building-tiers-1.21.1.md) · [Codex-ready coordinates](docs/gate-build-layouts-1.21.1.json) · [Delivery receipt](docs/compact-hub-delivery-2026-10-07.json).
