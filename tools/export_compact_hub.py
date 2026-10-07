@@ -1,7 +1,7 @@
 """Export a verified compact Overworld hub; planets generate on first visit.
 
 Never copies GameTest regions, planetary terrain, forced chunks or test players.
-Only the named former Cardinal Hub may be recoverably archived.
+Only explicitly named hub saves may be recoverably archived.
 """
 import argparse
 import hashlib
@@ -19,11 +19,16 @@ p.add_argument('--nbt-library', type=Path, required=True)
 p.add_argument('--verification-log', type=Path, required=True)
 p.add_argument('--report', type=Path, required=True)
 p.add_argument('--archive-cardinal', action='store_true')
+p.add_argument('--replace-compact', action='store_true',help='Archive the existing exact compact save after staging a validated clean export')
 a = p.parse_args()
 tested, saves = a.tested.resolve(), a.saves.resolve()
 assert saves.is_dir() and saves.name == 'saves'
-destination = saves / 'ZeroG_Planet_Showcase_1_0_12_Compact_Hub_Seed0'
-assert not destination.exists(), 'Refuse to overwrite an existing save'
+final_destination = saves / 'ZeroG_Planet_Showcase_1_0_12_Compact_Hub_Seed0'
+assert not final_destination.exists() or a.replace_compact, 'Existing save requires explicit --replace-compact'
+destination = final_destination
+if final_destination.exists():
+    destination=saves.parent/'zerog-hub-staging'/datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S-UTC')/final_destination.name
+    destination.parent.mkdir(parents=True,exist_ok=False)
 log = a.verification_log.read_text(encoding='utf-8')
 assert re.search(r'All [2-9]\d* required tests passed', log) and 'BUILD SUCCESSFUL' in log
 sys.path.insert(0, str(a.nbt_library.resolve()))
@@ -65,6 +70,17 @@ for name, value in {'doDaylightCycle': 'true', 'doWeatherCycle': 'true', 'doMobS
 level.save(destination / 'level.dat')
 assert not (destination / 'dimensions').exists()
 assert not (destination / 'data/chunks.dat').exists()
+archived_compact=None
+if destination!=final_destination:
+    archived_compact=saves.parent/'zerog-hub-archives'/datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S-UTC')/final_destination.name
+    archived_compact.parent.mkdir(parents=True,exist_ok=False)
+    shutil.move(str(final_destination),str(archived_compact))
+    try:
+        shutil.move(str(destination),str(final_destination))
+    except Exception:
+        shutil.move(str(archived_compact),str(final_destination))
+        raise
+    destination=final_destination
 archive = None
 old = saves / 'ZeroG_Planet_Showcase_1_0_12_Cardinal_Hub_Seed0'
 if a.archive_cardinal and old.exists():
@@ -72,6 +88,7 @@ if a.archive_cardinal and old.exists():
     archive.parent.mkdir(parents=True, exist_ok=False)
     shutil.move(str(old), str(archive))
 report = {'installed': True, 'destination': str(destination), 'archived_cardinal': str(archive) if archive else None,
+          'archived_compact':str(archived_compact) if archived_compact else None,
           'seed': 0, 'gate_tiers': list(range(1, 7)), 'admin_travel': True,
           'planetary_terrain_copied': False, 'planetary_generation': 'on first visit',
           'forced_chunks_copied': False, 'copied_overworld_files': copied,

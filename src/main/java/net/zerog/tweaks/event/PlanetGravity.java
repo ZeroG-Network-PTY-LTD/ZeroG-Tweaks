@@ -31,7 +31,7 @@ public final class PlanetGravity {
     public static void tick(PlayerTickEvent.Post event){if(event.getEntity() instanceof ServerPlayer p&&p.tickCount%20==0)apply(p);}
     public static void cloned(PlayerEvent.Clone event){
         var old=event.getOriginal().getPersistentData();var data=event.getEntity().getPersistentData();
-        for(String key:new String[]{"zerog_codex_moon","zerog_codex_mars"})if(old.getBoolean(key))data.putBoolean(key,true);
+        for(String world:net.zerog.tweaks.item.ConcordCodexItem.WORLDS){String key="zerog_codex_"+world;if(old.getBoolean(key))data.putBoolean(key,true);}
         if(old.contains("zerog_home_gate"))data.put("zerog_home_gate",old.getCompound("zerog_home_gate").copy());
         if(old.contains("zerog_recall_until"))data.putLong("zerog_recall_until",old.getLong("zerog_recall_until"));
     }

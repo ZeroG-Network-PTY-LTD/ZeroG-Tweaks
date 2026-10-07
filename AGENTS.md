@@ -361,3 +361,19 @@ layout must be reviewed whenever SurvivalGateLayout.parts changes. Keep survival
 crafting costs and unverified guardian-key activation separate from real formation.
 Headless save timing is not installed-client performance approval. Measure the
 next client save with tools/measure_shutdown.py and retain the 66.536-second baseline.
+
+## Step-by-step Concord Codex — 7 October
+
+ConcordCodexItem rebuilds localized pages for the current reader on each use.
+Keep existing advancement IDs and legacy Moon/Mars arrival flags. Six fixed-world
+arrival memories persist across logout and player clone. Later reward milestones
+require that world's recorded arrival; Nova Pearl/Heart pages must not reveal Act V
+to players who merely acquired those items before reaching Solvane. Do not claim
+that explanatory pages implement pending Captain dialogue, endings or research.
+Mock server-book readers cannot complete Productive Bees' client handshake: run
+zerog_lore/zerog_codex_steps in a no-PB workflowPlanetPreset world, and verify
+zerog_hub_tiers separately with the optional addon and workflowHubPreset.
+The isolated flat Solvane fixture proves book gating, not ecological generation.
+export_compact_hub.py --replace-compact stages a validated clean hub before moving
+only the exact current compact save to its recoverable archive. Do not reset or
+archive unrelated worlds. Player exploration/inventory start fresh in this reset.

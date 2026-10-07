@@ -106,7 +106,7 @@ def main():
         receipt['guide']='compact-hub-2026-10-07.md'
         receipt['gate_building_guide']='gate-building-tiers-1.21.1.md'
         receipt['hub_rebuild']={'save':Path(hub['destination']).name,
-            'archived_save':Path(hub['archived_cardinal']).name if hub['archived_cardinal'] else None,
+            'archived_save':Path(hub.get('archived_compact') or hub.get('archived_cardinal')).name if hub.get('archived_compact') or hub.get('archived_cardinal') else None,
             'files':hub['files'],'planetary_generation':'fresh terrain on first visit',
             'forced_chunks_copied':False,'scope':'new compact Overworld hub; unrelated saves untouched'}
     if args.red_test_log:
