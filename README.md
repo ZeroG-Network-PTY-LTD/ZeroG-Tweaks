@@ -1,5 +1,19 @@
 # ZeroG Tweaks
 
+## Original gas transport — 7 October 2026
+
+Same **1.0.12-dev**. [Gas and visual guide](docs/gas-transport-2026-10-07.md) · [TODO ledger](docs/storage-and-machinery-todo.json).
+
+Oxygen and hydrogen now have refillable 1,000 mB canisters, six original gas-tube
+tiers and standard tank/port compatibility. Mixed gases and liquid-pipe insertion
+are rejected; connected tubes share the weakest tier's transfer budget. Committed
+power pulses and flowing-fluid ribbons are implemented with bounded visual packets.
+Client appearance/shader approval and survival gas production remain pending.
+The guide links the final delivery evidence; previous guides, galleries and JARs
+are preserved below. This batch leaves the hub and saves untouched.
+
+![Original gas sprites and tube atlases—not an in-game screenshot](docs/images/gas-transport-v1/native-preview.png)
+
 ## Original Void card — 7 October 2026
 
 [Completed work and next TODOs](docs/completed-and-next-2026-10-07.md) · [Full task ledger](docs/storage-and-machinery-todo.json).

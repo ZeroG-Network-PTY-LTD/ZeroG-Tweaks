@@ -10,6 +10,15 @@ those will be reviewed hardest-to-easiest against the storyline after inspection
 
 ## Current TODO reconciliation — 7 October
 
+Latest gas extension: [oxygen/hydrogen and transport visuals](gas-transport-2026-10-07.md).
+Original gas tubes and refillable canisters now have runtime bindings, conserved mB
+capabilities and targeted server evidence. Directional power pulses and flowing-fluid
+ribbon rendering are implemented, with graphical approval still pending. This does
+not complete a survival gas-production chain, advanced alveary biology or progression.
+The final delivery receipt records the installed same-version checksum and test counts.
+Existing Compact/Void and machine-side verification remain in force; historical lists
+below must not be mistaken for their current status.
+
 Latest: [Codex localization](codex-localization-2026-10-07.md) is installed and
 server-verified in loaded Moon/Mars levels, superseding the earlier pending entry.
 Compact and Void are next; owner-approved tests cover menu/pipe transfers,
