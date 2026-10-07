@@ -10,11 +10,14 @@ those will be reviewed hardest-to-easiest against the storyline after inspection
 
 ## Current TODO reconciliation — 7 October
 
-The [processor power-face repair](processor-power-revocation-2026-10-07.md) closes
-the cached-handler revival gap in the four native processors. The owner approved
-Acceleration/Energy Coil expansion to the Geno Station, Genetic Splicer,
-Centrifuge and Starmetal Smelter at existing bounds; implementation is next,
-not a completed feature of this repair.
+The [genetics/legacy card extension](genetics-legacy-cards-2026-10-07.md) is now
+installed: separate Acceleration/Energy Coil sockets on Geno Station, Genetic
+Splicer, Centrifuge and Starmetal Smelter, bounded2.5x speed/30% total-job FE saving.
+All118 combined and2 optional-absence tests passed; exact energy, reload and real
+block-break refund are checked. Inputs, outputs, splice odds and unpowered Geno
+mode remain intact. Client layout/artwork review and Compact/Void contracts here
+remain pending. The [processor power-face repair](processor-power-revocation-2026-10-07.md)
+and installed Compact/Void on the four native processors remain in force.
 
 Latest gas extension: [oxygen/hydrogen and transport visuals](gas-transport-2026-10-07.md).
 Original gas tubes and refillable canisters now have runtime bindings, conserved mB

@@ -1,5 +1,18 @@
 # ZeroG Tweaks
 
+## Genetics and legacy upgrade cards — 7 October 2026
+
+Same **1.0.12-dev**. [Card support and exact processing costs](docs/genetics-legacy-cards-2026-10-07.md) · [Current TODO ledger](docs/storage-and-machinery-todo.json).
+
+Geno Station, Genetic Splicer, Centrifuge and Starmetal Smelter now have separate
+Acceleration and Energy Coil sockets. Existing recipes, catalysts, bee traits and
+splicing odds stay unchanged; effects are capped at 2.5× speed / 30% total-job FE
+saving. Geno Station retains slow unpowered operation. **118** combined server
+tests and **2** optional-absence tests passed. Client appearance remains for review.
+The delivery receipt records the installed same-version JAR, backup and checksums.
+No hub, saves or source artwork change. Compact/Void on these machines and exact
+survival costs remain deferred; older guides and published archives are preserved.
+
 ## Processor power-face repair — 7 October 2026
 
 Same **1.0.12-dev**. [Repair and approved next card contract](docs/processor-power-revocation-2026-10-07.md) · [TODO ledger](docs/storage-and-machinery-todo.json).

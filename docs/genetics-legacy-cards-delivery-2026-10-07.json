@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-07T02:11:41.473818+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev-genetics-legacy-cards-20261007.jar",
+  "sha256": "0a23b7be2a217045ca9757724c174501bc7472404ded1cc9a7c4c3350a56bce1",
+  "bytes": 27074418,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261007-021117-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": false,
+  "world_regeneration": false,
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261007_020802_runWorkflowTests.log",
+      "sha256": "77ef3f058662fe81a4d7961a0d2ce1ae82cc2942a802a20ae7c6f86aa2d59e2b",
+      "required_passes": 118,
+      "client_visual_approval": false
+    },
+    {
+      "log": "20261007_020620_runGeneticsTests.log",
+      "sha256": "71ba66d00c283909d4f241f8a59f8071e8b6e0a51b48c6dfce28d0f6bf523a1e",
+      "required_passes": 2,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "genetics-legacy-cards-assets-20261007.json",
+      "sha256": "afa653e87fde7fdbdd7b45434435a958a96656d10fb57b0dfd1e3215833678ef",
+      "checked": {
+        "models": 7977,
+        "blockstates": 1528,
+        "pngs": 3943,
+        "animation_metadata": 120,
+        "source_byte_bindings": 0
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261007_020945_clean.log",
+    "sha256": "e7fe31a41ada23b4cf958d6ea0816b61d9d59b9d881ceb03477778ff524f12a9",
+    "clean_production": true
+  },
+  "remaining": [
+    "genetics-legacy-upgrade-cards",
+    "alloy-forge-menu-input-catalyst-report",
+    "machine-upgrade-cards-six-tiers",
+    "machine-void-card-upgrades-tab",
+    "solar-fusion-output-face-controls",
+    "cardinal-hub-and-legacy-gui-fallback",
+    "machine-gui-and-legacy-power-hotfix",
+    "supplied-hub-workshop",
+    "reference-audit",
+    "four-wood-joinery",
+    "wood-storage-expansion",
+    "six-fluid-tanks",
+    "generator-flux-modules",
+    "sunless-agriculture",
+    "themed-village-doors",
+    "vanilla-worn-armor",
+    "orbital-comb-style",
+    "alveary-role-substitutions",
+    "alveary-output-gui",
+    "refinery-controls",
+    "mining-correct-tool-gates",
+    "large-network-and-nearest-routing",
+    "mixed-tier-hazardous-fluid-safety",
+    "jelly-fluid-buckets",
+    "jelly-original-art-and-standalone-recipes",
+    "bee-survival-crafting",
+    "alveary-honey-production-route",
+    "planet-hive-discovery",
+    "alveary-held-item-and-errors",
+    "genetics-held-item-bucket-route",
+    "concord-codex-research-gates",
+    "recipe-discovery-guide",
+    "recipe-discovery-remaining-machines",
+    "blueprint-interaction",
+    "client-acceptance",
+    "dynamic-tank-fluid-renderer",
+    "chest-lid-animation",
+    "transport-moving-renderer",
+    "existing-machine-purpose-audit",
+    "legacy-addon-machine-dispatch",
+    "transport-family-gui",
+    "per-machine-upgrade-contracts",
+    "advanced-alveary-biology",
+    "external-claim-team-adapters",
+    "frost-yak-grazing",
+    "remaining-mob-model-mechanics",
+    "solar-fusion-balance",
+    "duplicate-click-gui-routes",
+    "alveary-five-port-base",
+    "transport-tank-six-face-panel",
+    "transport-cell-native-art",
+    "service-hub-rebuild",
+    "larger-authored-alveary-layouts",
+    "all-machine-side-configuration",
+    "distinct-hatch-state-artwork",
+    "power-directional-pulses",
+    "gas-registry-and-networks",
+    "liquid-wave-visuals",
+    "holographic-diagnostics",
+    "solar-plasma-and-cooling",
+    "planet-ecology-broad-audit",
+    "galaxy-tracker-reconciliation",
+    "galaxy-template-loot-progression",
+    "galaxy-guardian-key-gates",
+    "wasteland-structures-and-signature-mobs",
+    "frozen-fleet-and-endgame",
+    "sol-rustborn-aresite-shrine",
+    "sol-codex-localized-pages",
+    "sol-meteor-maw-concord-debris",
+    "galaxy-trades-codex-gear-perks",
+    "seeded-galaxy-catalogue"
+  ],
+  "guide": "storage-and-machinery-workflow.md",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 37,
+  "todo_sha256": "4526bdac6cb28c8276b5c781f40c324a32aabed78a2b7b96ffc688e4f958db54"
+}
