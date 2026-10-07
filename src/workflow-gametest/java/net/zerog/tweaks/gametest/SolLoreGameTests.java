@@ -37,6 +37,7 @@ public final class SolLoreGameTests {
         var mars=server.getLevel(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.DIMENSION,net.minecraft.resources.ResourceLocation.parse("zerog_tweaks:mars")));
         h.assertTrue(moon!=null&&mars!=null,"Use planetary test preset: Moon/Mars levels must exist");
         var player=h.makeMockServerPlayerInLevel();
+        player.setShiftKeyDown(true);
         var codex=net.zerog.tweaks.registry.ItemInit.CONCORD_CODEX.get();
         var book=new net.minecraft.world.item.ItemStack(codex);
         player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,book);
