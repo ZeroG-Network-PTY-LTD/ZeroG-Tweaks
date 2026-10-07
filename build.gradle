@@ -107,7 +107,7 @@ neoForge {
         server {
             server()
             programArgument '--nogui'
-            gameDirectory = file('run-server')
+            gameDirectory = file(providers.gradleProperty('ordinaryAuditDirectory').getOrElse('run-server'))
         }
         data {
             data()
