@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Original Void card — 7 October 2026
+
+Same **1.0.12-dev**. [Void filter guide](docs/void-card-2026-10-07.md) · [Verified JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-void-card-20261007.jar) · [Delivery receipt](docs/void-card-delivery-2026-10-07.json).
+Alloy Forge, Ore Refinery, Crystal Growth Chamber and Salvage Station now have
+a fourth upgrade socket and a saved, paged36-item output filter. Only selected
+new products are discarded; existing storage and reusable catalysts are protected.
+All90 combined server tests passed. Client layout approval and dedicated card art
+remain pending. Original future upgrade concepts are documented on Design—not
+implemented or copied from Mekanism. Previous guides and galleries remain below.
+
 ## Safe Compact storage — 7 October 2026
 
 Still **1.0.12-dev**. [Storage guide](docs/compact-storage-2026-10-07.md) · [Delivery receipt](docs/compact-storage-delivery-2026-10-07.json) · [Matching JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-compact-storage-20261007.jar).
