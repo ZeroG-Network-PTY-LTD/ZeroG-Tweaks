@@ -1,5 +1,10 @@
 # Alien weather — experimental client effects
 
+**8 October 2026: custom weather is paused in the next same-version build at the
+owner's request.** The controls described below are historical, not active.
+See [the weather pause and loading investigation](weather-pause-and-client-loading-2026-10-08.md).
+Vanilla weather remains available; shaders are off for the diagnostic launch.
+
 [Latest 1.0.9 atmosphere and creative weather tester](planet-atmosphere-1.0.9.md)
 extends this prototype with fog/blizzards, visual acid rain, safe ambient vents
 and a Creative-only **Z-Admintools** preview screen. The following description
