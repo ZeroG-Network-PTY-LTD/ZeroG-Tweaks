@@ -106,4 +106,8 @@ Build the mechanics, but get the words approved before shipping them.
 - Echo's transition-screen lines in `docs/gate-transition-screen-v1`. These are placeholders I wrote, not canon.
 - **Concord debris** plan approved7Oct2026: existing Star Map Fragment drops are the interim lore carrier. Small Moon impact wrecks remain pending, using approved crater, meteorite fragments, pod-shell and chest pieces without a Dormant Wisp, Concord Codex or Broken Console. Do not turn the Courier/Eidolon story console into mob loot; this is not a Sol progression blocker. Any later wreck logs still need approval.
 - The Cinder Mite's origin, the Frozen Outpost, Sunken Lab, Prism Spire and Impact Site stories, and the Broken Console log texts for each act.
-- Codex pages for Acts II to V (only the Prologue and Act I pages exist in code).
+- Bespoke Echo dialogue for Acts II to V still needs wording approval. The owner's
+  7 October step-by-step Codex request now ships localized factual summaries of
+  the approved acts, gated by arrivals and existing milestones; see
+  [step-unlock design](codex-step-unlocks.md). These pages do not implement pending
+  Captain talk-down or final ending mechanics.
