@@ -17,7 +17,7 @@ public class ProcessingBlockEntity extends BlockEntity {
     public final ProcessingRegistry.Kind kind;
     public int stored, progress, paid;
     private String job="", configuration="";
-    public final ItemStackHandler inventory;
+    public final CompactInventory inventory;
     private final boolean[] disabledFaces=new boolean[6];
     // 0 Auto, 1 reagents, 2 catalyst, 3 products, 4 Off. Independent from FE faces.
     private final int[] itemModes=new int[6],itemEpochs=new int[6];
@@ -32,11 +32,12 @@ public class ProcessingBlockEntity extends BlockEntity {
         super(type,pos,state);
         String id=BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
         kind=selected!=null?selected:id.equals("alloy_forge")?ProcessingRegistry.Kind.ALLOYING:id.equals("crystal_growth_chamber")?ProcessingRegistry.Kind.CRYSTAL:ProcessingRegistry.Kind.SALVAGING;
-        inventory=new ItemStackHandler(kind.slots()){
+        inventory=new CompactInventory(kind.slots(),kind.inputCount,this::compactTier){
             @Override public int getSlotLimit(int slot){return slot>=kind.upgrades()?1:64;}
             @Override public boolean isItemValid(int slot,ItemStack stack){
                 if(slot>=kind.upgrades())return cardValid(slot-kind.upgrades(),stack);
                 if(slot>=kind.output())return false;
+                if(slot<kind.inputCount&&!acceptsStoredType(slot,stack))return false;
                 if(level==null)return false;
                 return level.getRecipeManager().getAllRecipesFor(ProcessingRegistry.TYPES_BY_KIND.get(kind).get()).stream().anyMatch(h->slot==kind.catalyst()?h.value().catalyst().map(c->c.ingredient().test(stack)).orElse(false):h.value().inputs().stream().anyMatch(c->c.ingredient().test(stack)));
             }
@@ -48,10 +49,19 @@ public class ProcessingBlockEntity extends BlockEntity {
     private static final List<String> DUSTS=List.of("pulsar_dust","tremor_dust","spectral_dust","fusion_dust");
     public boolean upgradeValid(int slot,ItemStack s){String v=id(s);return switch(slot){case 0->CASINGS.stream().anyMatch(x->v.equals("zerog_tweaks:"+x));case 1->v.equals("zerog_tweaks:cryo_core");case 2->DUSTS.stream().anyMatch(x->v.equals("zerog_tweaks:"+x));default->false;};}
     public int casingTier(){return Math.max(0,CASINGS.indexOf(id(inventory.getStackInSlot(kind.upgrades())).replace("zerog_tweaks:",""))+1);}
-    public boolean cardValid(int slot,ItemStack stack){return slot==0?MachineUpgradeCards.tier(stack,MachineUpgradeCards.Family.ACCELERATION)>0:slot==2&&MachineUpgradeCards.tier(stack,MachineUpgradeCards.Family.ENERGY_COIL)>0;}
+    public boolean cardValid(int slot,ItemStack stack){return switch(slot){case 0->MachineUpgradeCards.tier(stack,MachineUpgradeCards.Family.ACCELERATION)>0;case 1->MachineUpgradeCards.tier(stack,MachineUpgradeCards.Family.ITEM_COMPACT)>0;case 2->MachineUpgradeCards.tier(stack,MachineUpgradeCards.Family.ENERGY_COIL)>0;default->false;};}
+    public int compactTier(){return MachineUpgradeCards.tier(inventory.getStackInSlot(kind.upgrades()+1),MachineUpgradeCards.Family.ITEM_COMPACT);}
+    public void dropContents(){
+        if(level==null||level.isClientSide)return;
+        for(int slot=0;slot<inventory.getSlots();slot++){
+            ItemStack recovered;
+            while(!(recovered=inventory.extractItem(slot,64,false)).isEmpty())
+                net.minecraft.world.Containers.dropItemStack(level,worldPosition.getX()+.5,worldPosition.getY()+.5,worldPosition.getZ()+.5,recovered);
+        }
+    }
     public int accelerationTier(){return MachineUpgradeCards.tier(inventory.getStackInSlot(kind.upgrades()),MachineUpgradeCards.Family.ACCELERATION);}
     public int coilTier(){return MachineUpgradeCards.tier(inventory.getStackInSlot(kind.upgrades()+2),MachineUpgradeCards.Family.ENERGY_COIL);}
-    public boolean usesCards(){return accelerationTier()>0||coilTier()>0;}
+    public boolean usesCards(){return accelerationTier()>0||coilTier()>0||compactTier()>0;}
     public int speedPercent(){return usesCards()?100+Math.min(150,accelerationTier()*MachineUpgradeConfig.SPEED_PERCENT_PER_TIER.get()):speedQuarter()*25;}
     public int duration(ProcessingRecipe r){return Math.max(1,(int)(((long)r.time()*100+speedPercent()-1)/speedPercent()));}
     public int speedQuarter(){return usesCards()?(100+Math.min(150,accelerationTier()*MachineUpgradeConfig.SPEED_PERCENT_PER_TIER.get()))/25:4+casingTier()+(upgradeValid(1,inventory.getStackInSlot(kind.upgrades()+1))?2:0);}
