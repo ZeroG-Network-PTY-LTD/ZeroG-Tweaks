@@ -1,0 +1,286 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-07T02:38:23.279450+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev-tiered-hub-card-icons-20261007.jar",
+  "sha256": "e4af973f275799d479d8e80c07483a406798b1d2e93a7ba6027f9e5900e308a4",
+  "bytes": 27093457,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261007-023755-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": true,
+  "world_regeneration": false,
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261007_023034_runWorkflowTests.log",
+      "sha256": "10fcd9db6a9434e792116b0fb6f2874635c2d678b27088cbd37ead77f8294d2c",
+      "required_passes": 1,
+      "client_visual_approval": false
+    },
+    {
+      "log": "20261007_023458_runWorkflowTests.log",
+      "sha256": "0b278efeef1aa83712bab5f4bc9c010772ab9bc4543f1070f0f462caa4d138ae",
+      "required_passes": 2,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "tiered-hub-cards-assets-20261007.json",
+      "sha256": "572004ea32a8ed3e847fd1e94ae7e8201528e73c586c09148b664e26ff103d2d",
+      "checked": {
+        "models": 7977,
+        "blockstates": 1528,
+        "pngs": 3962,
+        "animation_metadata": 120,
+        "source_byte_bindings": 19
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261007_023615_clean.log",
+    "sha256": "077edd23f03043a0e3188b5aff0d6c436cdcdcdaeb55f9414099f765dd9ad510",
+    "clean_production": true
+  },
+  "remaining": [
+    "legacy-hub-audit-topology-migration",
+    "hub-six-tier-admin-gates",
+    "dedicated-upgrade-card-icons",
+    "genetics-legacy-upgrade-cards",
+    "alloy-forge-menu-input-catalyst-report",
+    "machine-upgrade-cards-six-tiers",
+    "machine-void-card-upgrades-tab",
+    "solar-fusion-output-face-controls",
+    "cardinal-hub-and-legacy-gui-fallback",
+    "machine-gui-and-legacy-power-hotfix",
+    "supplied-hub-workshop",
+    "reference-audit",
+    "four-wood-joinery",
+    "wood-storage-expansion",
+    "six-fluid-tanks",
+    "generator-flux-modules",
+    "sunless-agriculture",
+    "themed-village-doors",
+    "vanilla-worn-armor",
+    "orbital-comb-style",
+    "alveary-role-substitutions",
+    "alveary-output-gui",
+    "refinery-controls",
+    "mining-correct-tool-gates",
+    "large-network-and-nearest-routing",
+    "mixed-tier-hazardous-fluid-safety",
+    "jelly-fluid-buckets",
+    "jelly-original-art-and-standalone-recipes",
+    "bee-survival-crafting",
+    "alveary-honey-production-route",
+    "planet-hive-discovery",
+    "alveary-held-item-and-errors",
+    "genetics-held-item-bucket-route",
+    "concord-codex-research-gates",
+    "recipe-discovery-guide",
+    "recipe-discovery-remaining-machines",
+    "blueprint-interaction",
+    "client-acceptance",
+    "dynamic-tank-fluid-renderer",
+    "chest-lid-animation",
+    "transport-moving-renderer",
+    "existing-machine-purpose-audit",
+    "legacy-addon-machine-dispatch",
+    "transport-family-gui",
+    "per-machine-upgrade-contracts",
+    "advanced-alveary-biology",
+    "external-claim-team-adapters",
+    "frost-yak-grazing",
+    "remaining-mob-model-mechanics",
+    "solar-fusion-balance",
+    "duplicate-click-gui-routes",
+    "alveary-five-port-base",
+    "transport-tank-six-face-panel",
+    "transport-cell-native-art",
+    "service-hub-rebuild",
+    "larger-authored-alveary-layouts",
+    "all-machine-side-configuration",
+    "distinct-hatch-state-artwork",
+    "power-directional-pulses",
+    "gas-registry-and-networks",
+    "liquid-wave-visuals",
+    "holographic-diagnostics",
+    "solar-plasma-and-cooling",
+    "planet-ecology-broad-audit",
+    "galaxy-tracker-reconciliation",
+    "galaxy-template-loot-progression",
+    "galaxy-guardian-key-gates",
+    "wasteland-structures-and-signature-mobs",
+    "frozen-fleet-and-endgame",
+    "sol-rustborn-aresite-shrine",
+    "sol-codex-localized-pages",
+    "sol-meteor-maw-concord-debris",
+    "galaxy-trades-codex-gear-perks",
+    "seeded-galaxy-catalogue"
+  ],
+  "guide": "storage-and-machinery-workflow.md",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 38,
+  "todo_sha256": "ced5a778bc243fa4829c4e10ab89b4506a3020276d5da6454ecfe3b0cad70f3e",
+  "hub_migration": {
+    "save": "ZeroG_Planet_Showcase_1_0_12_Cardinal_Hub_Seed0",
+    "backup": "20261007-023800-UTC",
+    "files": [
+      {
+        "file": "data/zerog_planet_gates.dat",
+        "before": "aa8ac1da758b8d8a561de028b80b9b0efec211d83fc4059a5c8c53e65245b217",
+        "after": "71063861f3538d5e3c97e16d4f4fa67fdf1822c056daff0f86878cb87cf5d291"
+      },
+      {
+        "file": "region/r.-1.-1.mca",
+        "before": "aa6184317d16123f26714c1172932281283402df1e4902b2d2e76a88ea5e2511",
+        "after": "e65ca4780a9d6420c2981f3936756ecd9f5b356330a39fc122bf70a8c1635744"
+      },
+      {
+        "file": "region/r.0.-1.mca",
+        "before": "74db4bffcc1b25408c126f33c4752b7bd0cd50f85c839017ccfd0c81eb901262",
+        "after": "4e1c5b9040f6e1a935e6a8c52e3a6f3e2bd9a0e789c6f5595049e0be1e59e4ba"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/moon/region/r.1.1.mca",
+        "before": null,
+        "after": "c6c61e87ac67970684df6bd5417ae74cc7874d072d61b86991a3198b7ec38370"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/cerulon/region/r.1.1.mca",
+        "before": null,
+        "after": "a34a2795641297dca2bd0364b60c843d5a2f816ce041485d6bb86b1e65e7e484"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/skarn/region/r.1.1.mca",
+        "before": null,
+        "after": "b28fa8b29bb0e7038042fd15c434d11ada120b2f93abe30b237da719082296f7"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/eidolon/region/r.1.1.mca",
+        "before": null,
+        "after": "b1726ebcccdfa39ffb65fd3888e0ccadd36a2a036ecc203e69e5abb51de17316"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/solvane/region/r.1.1.mca",
+        "before": null,
+        "after": "537126b1ee63f92adb6ba55cbedcab9aaf9540479246f27cc3d7ce921aa26039"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/g5_moons/region/r.1.1.mca",
+        "before": null,
+        "after": "e4690936e554f143dfc8ed890958d3e27ca3d7eedd80516cde9631625cac494f"
+      },
+      {
+        "file": "poi/r.-1.-1.mca",
+        "before": "51b98bea319c98f8771fc777e0a7468c3ba27da7c2c537cf13b9ab18abe017af",
+        "after": "51b98bea319c98f8771fc777e0a7468c3ba27da7c2c537cf13b9ab18abe017af"
+      },
+      {
+        "file": "poi/r.0.-1.mca",
+        "before": "31c3f0171a534c2313c845e09b24d8928d030882defda2650625ce9373c024a1",
+        "after": "31c3f0171a534c2313c845e09b24d8928d030882defda2650625ce9373c024a1"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/moon/poi/r.1.1.mca",
+        "before": null,
+        "after": "54155baa2ea7c8ab44119716302c36d0216048839c4a437cfff8b24407d93b02"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/cerulon/poi/r.1.1.mca",
+        "before": null,
+        "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/skarn/poi/r.1.1.mca",
+        "before": null,
+        "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/eidolon/poi/r.1.1.mca",
+        "before": null,
+        "after": "f75ea58845137ecec6d00e198197117ed31bca835621fb957dc2a8834805bd70"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/solvane/poi/r.1.1.mca",
+        "before": null,
+        "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "entities/r.-1.-1.mca",
+        "before": "6cd4b62cf886b9d4afbbc0f9b4b590a4c18cacda4919760ab10cc2e6c00c0c2f",
+        "after": "6cd4b62cf886b9d4afbbc0f9b4b590a4c18cacda4919760ab10cc2e6c00c0c2f"
+      },
+      {
+        "file": "entities/r.0.-1.mca",
+        "before": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/moon/entities/r.1.1.mca",
+        "before": null,
+        "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/cerulon/entities/r.1.1.mca",
+        "before": null,
+        "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/skarn/entities/r.1.1.mca",
+        "before": null,
+        "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/eidolon/entities/r.1.1.mca",
+        "before": null,
+        "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/solvane/entities/r.1.1.mca",
+        "before": null,
+        "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "dimensions/zerog_tweaks/g5_moons/entities/r.1.1.mca",
+        "before": null,
+        "after": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "scope": "north gate exhibits and six prepared return regions; player data unchanged"
+  }
+}

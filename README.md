@@ -1,5 +1,17 @@
 # ZeroG Tweaks
 
+## Six tiered hub gates and original card icons — 7 October 2026
+
+Same **1.0.12-dev**. [Gate locations and testing steps](docs/hub-tier-gates-2026-10-07.md) · [Actual card artwork](docs/upgrade-card-icons-2026-10-07.md) · [Delivery evidence](docs/hub-tier-gates-and-card-icons-delivery-2026-10-07.json).
+
+The Cardinal Hub's north section has one real gate of each tier1–6, with free
+admin travel as requested. Normal survival restrictions elsewhere stay unchanged.
+Six representative return platforms are prepared. Other hub sectors and player
+data remain intact; only scoped gate regions and the gate ledger are updated.
+Nineteen original32×32 card icons now identify purpose and tier through colour,
+symbols and rank segments. Actual client appearance and travel await your review.
+Earlier guides, galleries and JAR archives below are preserved.
+
 ## Genetics and legacy upgrade cards — 7 October 2026
 
 Same **1.0.12-dev**. [Card support and exact processing costs](docs/genetics-legacy-cards-2026-10-07.md) · [Current TODO ledger](docs/storage-and-machinery-todo.json).
