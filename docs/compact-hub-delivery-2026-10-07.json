@@ -1,0 +1,179 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-07T03:11:32.958591+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev-compact-hub-20261007.jar",
+  "sha256": "7e0082f907b23d849c864dd5bf6343ab63f7f2120bc6015f5e04c4e4841aa78f",
+  "bytes": 27093344,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261007-031121-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": true,
+  "world_regeneration": true,
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261007_030513_runWorkflowTests.log",
+      "sha256": "a4e1461b81b5fad1f4322ea81a608ed6114e9bc485d534f9ab6a61bcde2135de",
+      "required_passes": 2,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "compact-hub-assets-20261007.json",
+      "sha256": "572004ea32a8ed3e847fd1e94ae7e8201528e73c586c09148b664e26ff103d2d",
+      "checked": {
+        "models": 7977,
+        "blockstates": 1528,
+        "pngs": 3962,
+        "animation_metadata": 120,
+        "source_byte_bindings": 19
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261007_030809_clean.log",
+    "sha256": "4dc9dac097c99a2677b2f80ccb34b932d390cf671cf0573644ce55c9ceb2a874",
+    "clean_production": true
+  },
+  "remaining": [
+    "compact-hub-client-save-timing",
+    "legacy-hub-audit-topology-migration",
+    "legacy-hub-audit-topology-migration",
+    "hub-six-tier-admin-gates",
+    "dedicated-upgrade-card-icons",
+    "genetics-legacy-upgrade-cards",
+    "alloy-forge-menu-input-catalyst-report",
+    "machine-upgrade-cards-six-tiers",
+    "machine-void-card-upgrades-tab",
+    "solar-fusion-output-face-controls",
+    "cardinal-hub-and-legacy-gui-fallback",
+    "machine-gui-and-legacy-power-hotfix",
+    "supplied-hub-workshop",
+    "reference-audit",
+    "four-wood-joinery",
+    "wood-storage-expansion",
+    "six-fluid-tanks",
+    "generator-flux-modules",
+    "sunless-agriculture",
+    "themed-village-doors",
+    "vanilla-worn-armor",
+    "orbital-comb-style",
+    "alveary-role-substitutions",
+    "alveary-output-gui",
+    "refinery-controls",
+    "mining-correct-tool-gates",
+    "large-network-and-nearest-routing",
+    "mixed-tier-hazardous-fluid-safety",
+    "jelly-fluid-buckets",
+    "jelly-original-art-and-standalone-recipes",
+    "bee-survival-crafting",
+    "alveary-honey-production-route",
+    "planet-hive-discovery",
+    "alveary-held-item-and-errors",
+    "genetics-held-item-bucket-route",
+    "concord-codex-research-gates",
+    "recipe-discovery-guide",
+    "recipe-discovery-remaining-machines",
+    "blueprint-interaction",
+    "client-acceptance",
+    "dynamic-tank-fluid-renderer",
+    "chest-lid-animation",
+    "transport-moving-renderer",
+    "existing-machine-purpose-audit",
+    "legacy-addon-machine-dispatch",
+    "transport-family-gui",
+    "per-machine-upgrade-contracts",
+    "advanced-alveary-biology",
+    "external-claim-team-adapters",
+    "frost-yak-grazing",
+    "remaining-mob-model-mechanics",
+    "solar-fusion-balance",
+    "duplicate-click-gui-routes",
+    "alveary-five-port-base",
+    "transport-tank-six-face-panel",
+    "transport-cell-native-art",
+    "service-hub-rebuild",
+    "larger-authored-alveary-layouts",
+    "all-machine-side-configuration",
+    "distinct-hatch-state-artwork",
+    "power-directional-pulses",
+    "gas-registry-and-networks",
+    "liquid-wave-visuals",
+    "holographic-diagnostics",
+    "solar-plasma-and-cooling",
+    "planet-ecology-broad-audit",
+    "galaxy-tracker-reconciliation",
+    "galaxy-template-loot-progression",
+    "galaxy-guardian-key-gates",
+    "wasteland-structures-and-signature-mobs",
+    "frozen-fleet-and-endgame",
+    "sol-rustborn-aresite-shrine",
+    "sol-codex-localized-pages",
+    "sol-meteor-maw-concord-debris",
+    "galaxy-trades-codex-gear-perks",
+    "seeded-galaxy-catalogue"
+  ],
+  "guide": "compact-hub-2026-10-07.md",
+  "gate_building_guide": "gate-building-tiers-1.21.1.md",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 39,
+  "todo_sha256": "bf322ea611b177f3011558ad48c1dd7d061fc3400d07379c58a15587553143d1",
+  "hub_rebuild": {
+    "save": "ZeroG_Planet_Showcase_1_0_12_Compact_Hub_Seed0",
+    "archived_save": "ZeroG_Planet_Showcase_1_0_12_Cardinal_Hub_Seed0",
+    "files": {
+      "level.dat": "a85262d6cf063a379813f81fb28f99da18631e86b74b75e97bdec8b2f4faba8c",
+      "data\\zerog_planet_gates.dat": "cc081dfe8700248f9b3897dbcf347a0db737fe6330430456b91e5470bbe45e8f",
+      "entities\\r.-1.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "entities\\r.-1.0.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "entities\\r.0.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "entities\\r.0.0.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "poi\\r.-1.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "poi\\r.-1.0.mca": "60cd5a1b184169d7e5f784a4ed9dd6164f2c53f69a3d33adb45bc1dd45e6cb95",
+      "poi\\r.0.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "poi\\r.0.0.mca": "c18d72bdf3b5a8b5147a77968faf6c063e360e25feb47dc0df2088634dc179a4",
+      "region\\r.-1.-1.mca": "6aaf06d5e51ae6bf3a659424346955c8289cd3e6ccbc3505a839b3f4c990e572",
+      "region\\r.-1.0.mca": "0d1dbca1c2a663bcb65d3a63bcbd84db83dd309e150c0b73021ecbc54f37de27",
+      "region\\r.0.-1.mca": "ea6a56e59c1d6b27388752824af139b8d6464b2448050882fb7772e7e7f00f96",
+      "region\\r.0.0.mca": "ac57c0c815c84518b4e1dabc82d10023080b12d96af1e96ad7f4a68921536e4a"
+    },
+    "planetary_generation": "fresh terrain on first visit",
+    "forced_chunks_copied": false,
+    "scope": "new compact Overworld hub; unrelated saves untouched"
+  }
+}

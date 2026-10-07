@@ -3,10 +3,11 @@
   "updated": "2026-10-07",
   "candidate_version": "1.0.12-dev",
   "latest_delivery": {
-    "guide": "hub-tier-gates-2026-10-07.md",
+    "guide": "compact-hub-2026-10-07.md",
     "artwork": "upgrade-card-icons-2026-10-07.md",
-    "receipt": "hub-tier-gates-and-card-icons-delivery-2026-10-07.json",
-    "scope": "Six real northern hub tiers with admin travel, six representative return platforms and19 original card icons; no terrain-wide regeneration. Client approval pending. Earlier gameplay and deferred cost work retained."
+    "receipt": "compact-hub-delivery-2026-10-07.json",
+    "gate_building": "gate-building-tiers-1.21.1.md",
+    "scope": "New compact hub with six admin tiers, supplied cardinal showcases, gate-only landing floors, no forced showcase chunks and no automatic34-world sweep. Fresh planetary terrain generates on first visit; former Cardinal Hub recoverably archived. Exact tier1–6 layers/counts/coordinates published for Codex. Client timing and visual approval remain pending."
   },
   "commit_review": {
     "date": "2026-10-07",
@@ -38,6 +39,10 @@
   "branch_ownership": {"runtime": "1.21.x", "artwork": "Design", "guides_jars_images": "Docs"},
   "rules": ["Install backed-up JAR before publishing", "No save resets without exact owner authorization; Cardinal Hub planetary-only no-backup reset explicitly authorized7October", "No Mekanism code or assets copied", "No new machine types before existing GUI/port audit", "Static asset/server checks are not client visual approval"],
   "tasks": [
+    {"id":"compact-hub-lazy-generation","status":"complete","details":"Compact preset persists compactHub, supplies all13workshop stations, keeps LandingPlatform within six gate footprints and removes permanent showcase/workshop/transport chunk tickets. Two focused server tests passed; fresh hub exported without planetary terrain and old Cardinal Hub archived."},
+    {"id":"compact-hub-client-save-timing","status":"pending-client-review","details":"Previous client shutdown66.536seconds; isolated compact test3seconds at1second resolution is not an equivalent benchmark. Measure next actual client save/quit and inspect all sectors/gate travel."},
+    {"id":"gate-build-guide-codex-handoff","status":"complete","details":"Six exact tier block lists, all y-layer diagrams, orientation rotations, controller/port coordinates, power/passenger limits and runtime-vs-lore distinctions; coordinate manifest retained for later localized Codex integration."},
+    {"id":"legacy-hub-audit-topology-migration","status":"pending","details":"Old full planet audits/exporters assume34outbound/68total gates and pre-generated destinations. Migrate before claiming those broad checks certify the compact six-gate hub."},
     {"id":"legacy-hub-audit-topology-migration","status":"todo","acceptance":"Update the older whole-planet audit/export's68 fixed-gate assumption to six real tiered hub gates plus planetary returns. Focused six-tier formation/routing/persistence checks are separate evidence, not certification of the old full ecology/export suite."},
     {"id":"hub-six-tier-admin-gates","status":"server_verified_pending_client","acceptance":"Six authored survival layouts replace old fixed-T6 north exhibits. Final user choice Admin: free destinations/power in designated hub only; ordinary survival gates unchanged. Representative return platforms, persistence and one-time migration checked. Actual controller clicks/travel and appearance require client review. See hub-tier-gates-2026-10-07.md."},
     {"id":"dedicated-upgrade-card-icons","status":"implemented_pending_client","acceptance":"19 original32x32 sprites: Acceleration/Energy Coil/Item Compact tiers1–6 plus untiered Void. Colour ramps, distinct use symbols and rank segments; runtime item models match source hashes. Regenerate after older full-art generators. Exact crafting costs and machine expansion are separate TODOs."},

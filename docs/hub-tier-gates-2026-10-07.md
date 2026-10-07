@@ -1,5 +1,9 @@
 # Six tiered hub gates
 
+**Historical layout:** this records the earlier Cardinal Hub. The [compact hub guide](compact-hub-2026-10-07.md)
+supersedes its locations/save preparation. Use the [full tier construction guide](gate-building-tiers-1.21.1.md)
+for exact current block counts and every layer. Original delivery evidence is retained below.
+
 The Cardinal Hub now has one correctly formed gate of each tier, replacing its old northern array of fixed T6 exhibits. These use the real survival gate layouts, controllers, destination menu, ready check and return-platform logic—not a decorative imitation.
 
 Your final selection was **Admin**: every hub gate has unlimited test power and unlocked destinations. Its physical tier still displays correctly. This does **not** test survival key/progression costs, and ordinary gates outside the designated test hub keep their normal restrictions.

@@ -1,5 +1,17 @@
 # ZeroG Tweaks
 
+## Compact hub and exact gate-building plans — 7 October 2026
+
+Same **1.0.12-dev**. [Compact save and performance evidence](docs/compact-hub-2026-10-07.md) · [Build every gate tier: counts and layer diagrams](docs/gate-building-tiers-1.21.1.md) · [Codex-ready coordinates](docs/gate-build-layouts-1.21.1.json) · [Delivery receipt](docs/compact-hub-delivery-2026-10-07.json).
+
+Open **ZeroG Compact Hub 1.0.12 — Seed 0**. Six admin gates are north;
+supplied machines/transport west, bee structures south and ten exhibits east.
+Landing-pad blocks are gate-only, showcase chunks are not permanently forced,
+and planets generate on first visit instead of a background sweep through all34.
+The former Cardinal Hub is recoverably archived. Client save/quit timing and
+visual approval still need the next playtest; isolated tests are not that approval.
+All earlier guides, artwork and JAR archives below remain available.
+
 ## Six tiered hub gates and original card icons — 7 October 2026
 
 Same **1.0.12-dev**. [Gate locations and testing steps](docs/hub-tier-gates-2026-10-07.md) · [Actual card artwork](docs/upgrade-card-icons-2026-10-07.md) · [Delivery evidence](docs/hub-tier-gates-and-card-icons-delivery-2026-10-07.json).
