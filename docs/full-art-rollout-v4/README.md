@@ -1,5 +1,11 @@
 # Approved A/C native asset rollout v4
 
+**7 October cell amendment:** after this rollout, run
+`docs/energy-cell-refresh/generate.py CODE_CHECKOUT`. Its targeted original
+32px cell casings and charge-driven animated gauges supersede this batch's cell
+textures only. Preserve its PNG animation metadata in both runtime resource layers;
+do not restore the old static gauge by rerunning this renderer alone.
+
 This source batch applies the approved equipment reference to existing registry
 IDs. Equipment uses C metal bevels, layered armour plates, dark-hued outlines,
 violet crystal channels and pale specular edges. Botanical artwork uses A leaf
