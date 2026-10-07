@@ -69,6 +69,14 @@ Preserve input slots and server contracts; leave client layout approval separate
 
 ## Following this lore batch
 
+### Owner-confirmed pending rule map — 7 October 2026
+
+Advanced alveary research stays on the TODO list. The owner explicitly deferred
+mapping productivity, endurance, temper, behavior and weather-tolerance upgrades
+to particular Concord Codex milestones. Do not invent milestone assignments or
+claim the trait unlocks implemented. Continue independently verified work while
+awaiting that specification.
+
 Continue safe Compact storage, selective Void filtering, remaining machine
 contracts, transport visuals, Codex research/biology and ecology in verified slices.
 Deferred impact-wreck design, remaining recipe adapters and exact survival costs

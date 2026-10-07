@@ -1,5 +1,13 @@
 # ZeroG Tweaks
 
+## Usage-window progression and ecology work — 7 October 2026
+
+[Current repairs, test limits and pending specifications](docs/usage-window-workflow-2026-10-07.md).
+This batch follows the owner's deferred-install policy: repository work and built
+candidates are not automatically the installed JAR. Moon routing, temporary Vault
+template sources, ice/vent behavior and transport junction visuals are documented
+with isolated evidence. Earlier galleries, guides and delivery receipts remain.
+
 ## Step-by-step story Codex and clean hub — 7 October 2026
 
 [Task unlocks and reset details](docs/codex-story-and-clean-hub-2026-10-07.md). The Concord Codex adds instructions as advancements finish and worlds are visited, with later-act spoilers gated. The accidentally modified compact hub is replaced by a clean seed-0 copy; the affected save is recoverably archived. Earlier guides, previews and JAR archives remain intact.

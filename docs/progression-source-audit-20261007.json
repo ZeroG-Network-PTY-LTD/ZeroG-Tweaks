@@ -1,0 +1,449 @@
+{
+  "schema": 1,
+  "scope": "Static shipped-source provenance, not natural generation or client approval",
+  "items": [
+    {
+      "item": "zerog_tweaks:astrium_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/solar_shrine",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/solar_shrine": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:aurelion_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/concord_vault/uncommon",
+          "weight": 3,
+          "entry_conditions": []
+        },
+        {
+          "loot_table": "zerog_tweaks:chests/prism_spire",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/concord_vault/uncommon": [
+          "zerog_tweaks:concord_vault/rooms/crystal_garden",
+          "zerog_tweaks:concord_vault/rooms/forge",
+          "zerog_tweaks:concord_vault/rooms/prismling_nest",
+          "zerog_tweaks:concord_vault/rooms/star_library"
+        ],
+        "zerog_tweaks:chests/prism_spire": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:cerulite_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/concord_vault/rare",
+          "weight": 1,
+          "entry_conditions": []
+        },
+        {
+          "loot_table": "zerog_tweaks:chests/prism_spire",
+          "weight": 1,
+          "entry_conditions": []
+        },
+        {
+          "loot_table": "zerog_tweaks:entities/prism_sentinel",
+          "weight": 1,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/concord_vault/rare": [
+          "zerog_tweaks:concord_vault/rooms/concord_shrine",
+          "zerog_tweaks:concord_vault/rooms/observatory",
+          "zerog_tweaks:concord_vault/rooms/starlight_pool",
+          "zerog_tweaks:concord_vault/rooms/trap_hall"
+        ],
+        "zerog_tweaks:chests/prism_spire": [],
+        "zerog_tweaks:entities/prism_sentinel": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:cobaltium_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/concord_vault/uncommon",
+          "weight": 3,
+          "entry_conditions": []
+        },
+        {
+          "loot_table": "zerog_tweaks:chests/prism_spire",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/concord_vault/uncommon": [
+          "zerog_tweaks:concord_vault/rooms/crystal_garden",
+          "zerog_tweaks:concord_vault/rooms/forge",
+          "zerog_tweaks:concord_vault/rooms/prismling_nest",
+          "zerog_tweaks:concord_vault/rooms/star_library"
+        ],
+        "zerog_tweaks:chests/prism_spire": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:cyrrium_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/concord_vault/uncommon",
+          "weight": 3,
+          "entry_conditions": []
+        },
+        {
+          "loot_table": "zerog_tweaks:chests/prism_spire",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/concord_vault/uncommon": [
+          "zerog_tweaks:concord_vault/rooms/crystal_garden",
+          "zerog_tweaks:concord_vault/rooms/forge",
+          "zerog_tweaks:concord_vault/rooms/prismling_nest",
+          "zerog_tweaks:concord_vault/rooms/star_library"
+        ],
+        "zerog_tweaks:chests/prism_spire": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:eidolite_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/derelict_wreck",
+          "weight": 1,
+          "entry_conditions": []
+        },
+        {
+          "loot_table": "zerog_tweaks:entities/eidolon_captain",
+          "weight": 1,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/derelict_wreck": [],
+        "zerog_tweaks:entities/eidolon_captain": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:ferrox_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/mars_crash_site",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/mars_crash_site": [
+          "zerog_tweaks:mars_crash_site/wreck_a",
+          "zerog_tweaks:mars_crash_site/wreck_b"
+        ]
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:galaxy_3_gate_key",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:entities/prism_sentinel",
+          "weight": 1,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:entities/prism_sentinel": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:galaxy_4_gate_key",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:entities/rift_tyrant",
+          "weight": 1,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:entities/rift_tyrant": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:galaxy_5_gate_key",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:entities/eidolon_captain",
+          "weight": 1,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:entities/eidolon_captain": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:moonsteel_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/mars_crash_site",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/mars_crash_site": [
+          "zerog_tweaks:mars_crash_site/wreck_a",
+          "zerog_tweaks:mars_crash_site/wreck_b"
+        ]
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:olympium_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/mars_crash_site",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/mars_crash_site": [
+          "zerog_tweaks:mars_crash_site/wreck_a",
+          "zerog_tweaks:mars_crash_site/wreck_b"
+        ]
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:palladine_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/derelict_wreck",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/derelict_wreck": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:photium_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/solar_shrine",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/solar_shrine": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:pyrium_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/collapsed_forge",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/collapsed_forge": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:radiantine_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/solar_shrine",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/solar_shrine": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:ruskite_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/collapsed_forge",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/collapsed_forge": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:salvium_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/derelict_wreck",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/derelict_wreck": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:skarnite_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/collapsed_forge",
+          "weight": 1,
+          "entry_conditions": []
+        },
+        {
+          "loot_table": "zerog_tweaks:entities/rift_tyrant",
+          "weight": 1,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/collapsed_forge": [],
+        "zerog_tweaks:entities/rift_tyrant": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:solvanite_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/solar_shrine",
+          "weight": 2,
+          "entry_conditions": []
+        },
+        {
+          "loot_table": "zerog_tweaks:entities/dying_star",
+          "weight": 1,
+          "entry_conditions": []
+        },
+        {
+          "loot_table": "zerog_tweaks:entities/sun_colossus",
+          "weight": 1,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/solar_shrine": [],
+        "zerog_tweaks:entities/dying_star": [],
+        "zerog_tweaks:entities/sun_colossus": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:tectium_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/collapsed_forge",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/collapsed_forge": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    },
+    {
+      "item": "zerog_tweaks:wraithsteel_upgrade_smithing_template",
+      "loot_sources": [
+        {
+          "loot_table": "zerog_tweaks:chests/derelict_wreck",
+          "weight": 3,
+          "entry_conditions": []
+        }
+      ],
+      "authored_chest_bindings": {
+        "zerog_tweaks:chests/derelict_wreck": []
+      },
+      "natural_obtainability": "Not established by this static audit; requires generated structure/entity gameplay checks"
+    }
+  ],
+  "configured_structures": {
+    "concord_vault": {
+      "type": "zerog_tweaks:concord_vault",
+      "start_pool": "zerog_tweaks:concord_vault/start",
+      "biomes": "#zerog_tweaks:is_cerulon"
+    },
+    "mars_aresite_shrine": {
+      "type": "zerog_tweaks:dry_land_jigsaw",
+      "start_pool": "zerog_tweaks:mars_aresite_shrine/start",
+      "biomes": "#zerog_tweaks:has_structure/mars_aresite_shrine"
+    },
+    "mars_crash_site": {
+      "type": "zerog_tweaks:dry_land_jigsaw",
+      "start_pool": "zerog_tweaks:mars_crash_site/start",
+      "biomes": "#zerog_tweaks:has_structure/mars_crash_site"
+    },
+    "prism_sentinel_arena": {
+      "type": "zerog_tweaks:dry_land_jigsaw",
+      "start_pool": "zerog_tweaks:prism_sentinel_arena/start",
+      "biomes": "#zerog_tweaks:has_structure/prism_sentinel_arena"
+    }
+  },
+  "java_chest_hooks": [
+    {
+      "file": "net/zerog/tweaks/lore/ConcordPrologue.java",
+      "line": 177,
+      "literal_tables": [
+        "chests/ancient_city"
+      ],
+      "scope": "Source reference only; review call site and placement conditions"
+    },
+    {
+      "file": "net/zerog/tweaks/worldgen/PlanetMineshaftFeature.java",
+      "line": 49,
+      "literal_tables": [
+        "chests/buried_observatory"
+      ],
+      "scope": "Source reference only; review call site and placement conditions"
+    }
+  ],
+  "unbound_chest_sources": [
+    "zerog_tweaks:chests/collapsed_forge",
+    "zerog_tweaks:chests/derelict_wreck",
+    "zerog_tweaks:chests/prism_spire",
+    "zerog_tweaks:chests/solar_shrine"
+  ],
+  "boundaries": [
+    "Crafting/template duplication is not a first-acquisition source.",
+    "An authored chest template is not proof that its jigsaw pool generates.",
+    "Entity loot is not proof that the entity naturally spawns or can be defeated.",
+    "Nested loot-table references and datapack overrides require separate runtime inspection."
+  ]
+}
