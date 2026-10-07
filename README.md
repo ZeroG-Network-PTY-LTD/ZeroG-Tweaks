@@ -1,5 +1,14 @@
 # ZeroG Tweaks
 
+## First crystal-wasteland ruin — 8 October 2026
+
+[Prism Spire layout, habitat and verification scope](docs/prism-spire-2026-10-08.md).
+The new climbable Concord ruin uses existing Prismstone artwork and its approved
+loot: a guaranteed Refracting Lens and possible Galaxy2 upgrade templates.
+No new story text is invented. Other missing ruins remain on the
+[current TODO ledger](docs/storage-and-machinery-todo.json); earlier galleries,
+guides and JAR archives are preserved below.
+
 ## Usage-window progression and ecology work — 7 October 2026
 
 [Current repairs, test limits and pending specifications](docs/usage-window-workflow-2026-10-07.md).
