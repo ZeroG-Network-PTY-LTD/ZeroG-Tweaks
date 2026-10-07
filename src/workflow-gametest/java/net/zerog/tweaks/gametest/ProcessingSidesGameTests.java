@@ -93,9 +93,11 @@ public final class ProcessingSidesGameTests {
         player.setPos(be.getBlockPos().getCenter().add(100,0,0));
         h.assertTrue(!menu.clickMenuButton(player,106+face.ordinal()),"Distant player re-enabled power face");
         player.setPos(be.getBlockPos().getCenter());
-        h.assertTrue(menu.clickMenuButton(player,106+face.ordinal())&&power.receiveEnergy(100,false)==100,"Re-enabled face did not resume power");
+        h.assertTrue(menu.clickMenuButton(player,106+face.ordinal())&&power.receiveEnergy(100,false)==0&&!power.canReceive(),"Re-enabled face revived revoked power access");
+        var fresh=h.getLevel().getCapability(Capabilities.EnergyStorage.BLOCK,be.getBlockPos(),face);
+        h.assertTrue(fresh!=null&&fresh.receiveEnergy(100,false)==100,"Fresh connection did not resume power");
         h.setBlock(pos,net.minecraft.world.level.block.Blocks.AIR);
-        h.assertTrue(power.receiveEnergy(100,false)==0&&!menu.clickMenuButton(player,100+face.ordinal()),"Replaced machine retained cached/menu authority");
+        h.assertTrue(power.receiveEnergy(100,false)==0&&fresh.receiveEnergy(100,false)==0&&!menu.clickMenuButton(player,100+face.ordinal()),"Replaced machine retained cached/menu authority");
         }
         }
         h.succeed();

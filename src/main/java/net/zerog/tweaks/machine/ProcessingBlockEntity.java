@@ -35,12 +35,13 @@ public class ProcessingBlockEntity extends BlockEntity {
         return false;
     }
     private final boolean[] disabledFaces=new boolean[6];
+    private final int[] powerEpochs=new int[6];
     // 0 Auto, 1 reagents, 2 catalyst, 3 products, 4 Off. Independent from FE faces.
     private final int[] itemModes=new int[6],itemEpochs=new int[6];
     public int itemMode(Direction side){return side==null?0:itemModes[side.ordinal()];}
     public void setItemMode(Direction side,int mode){if(side==null||mode<0||mode>4)return;int face=side.ordinal();if(itemModes[face]==mode)return;itemModes[face]=mode;itemEpochs[face]++;setChanged();if(level!=null)level.invalidateCapabilities(worldPosition);}
     public boolean faceDisabled(Direction side){return side!=null&&disabledFaces[side.ordinal()];}
-    public void setFaceDisabled(Direction side,boolean disabled){disabledFaces[side.ordinal()]=disabled;setChanged();if(level!=null)level.invalidateCapabilities(worldPosition);}
+    public void setFaceDisabled(Direction side,boolean disabled){if(side==null||disabledFaces[side.ordinal()]==disabled)return;disabledFaces[side.ordinal()]=disabled;powerEpochs[side.ordinal()]++;setChanged();if(level!=null)level.invalidateCapabilities(worldPosition);}
     public ProcessingBlockEntity(BlockPos pos,BlockState state){
         this(ProcessingRegistry.TYPE.get(),pos,state,null);
     }
@@ -106,7 +107,7 @@ public class ProcessingBlockEntity extends BlockEntity {
         be.setChanged();
     }
     private void clearJob(){if(progress!=0||paid!=0){progress=0;paid=0;setChanged();}job="";configuration="";}
-    public IEnergyStorage energyInput(Direction side){return new IEnergyStorage(){public int receiveEnergy(int n,boolean sim){if(faceDisabled(side)||isRemoved())return 0;int a=Math.min(Math.max(0,n),1_000_000-stored);if(!sim&&a>0){stored+=a;setChanged();}return a;}public int extractEnergy(int n,boolean sim){return 0;}public int getEnergyStored(){return stored;}public int getMaxEnergyStored(){return 1_000_000;}public boolean canExtract(){return false;}public boolean canReceive(){return !faceDisabled(side)&&!isRemoved();}};}
+    public IEnergyStorage energyInput(Direction side){int epoch=side==null?0:powerEpochs[side.ordinal()];return new IEnergyStorage(){private boolean live(){return !faceDisabled(side)&&!isRemoved()&&(side==null||epoch==powerEpochs[side.ordinal()]);}public int receiveEnergy(int n,boolean sim){if(!live())return 0;int a=Math.min(Math.max(0,n),1_000_000-stored);if(!sim&&a>0){stored+=a;setChanged();}return a;}public int extractEnergy(int n,boolean sim){return 0;}public int getEnergyStored(){return live()?stored:0;}public int getMaxEnergyStored(){return 1_000_000;}public boolean canExtract(){return false;}public boolean canReceive(){return live();}};}
     /** Top = reagents, back = catalyst, bottom/front = output, other sides = reagents. No remote upgrades. */
     public IItemHandler itemsFor(Direction side){
         Direction front=getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
@@ -131,7 +132,7 @@ public class ProcessingBlockEntity extends BlockEntity {
         }
         tag.put("VoidFilter",entries);tag.putInt("VoidRevision",voidRevision);
     }
-    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);int[] modes=tag.getIntArray("ItemFaces");for(int i=0;i<6;i++){itemModes[i]=i<modes.length&&modes[i]>=0&&modes[i]<=4?modes[i]:0;itemEpochs[i]++;disabledFaces[i]=(tag.getInt("DisabledFaces")&(1<<i))!=0;}
+    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);int[] modes=tag.getIntArray("ItemFaces");for(int i=0;i<6;i++){itemModes[i]=i<modes.length&&modes[i]>=0&&modes[i]<=4?modes[i]:0;itemEpochs[i]++;powerEpochs[i]++;disabledFaces[i]=(tag.getInt("DisabledFaces")&(1<<i))!=0;}
         var savedInventory=tag.getCompound("Inventory").copy();savedInventory.putInt("Size",kind.slots());
         inventory.deserializeNBT(lookup,savedInventory);stored=Math.clamp(tag.getInt("Energy"),0,1_000_000);progress=Math.clamp(tag.getInt("Progress"),0,72_000);paid=Math.clamp(tag.getInt("Paid"),0,10_000_000);job=tag.getString("Job");configuration=tag.getString("Configuration");
         Arrays.fill(voidTemplates,null);voidRevision=Math.max(0,tag.getInt("VoidRevision"));
