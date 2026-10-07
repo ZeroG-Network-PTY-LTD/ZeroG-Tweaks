@@ -17,13 +17,13 @@ import net.zerog.tweaks.transport.*;
 
 /** Separated, conserved demonstration lanes. Finite supplies; no automatic refill. */
 public final class HubTransportShowcase {
-    public static BlockPos origin(int tier){return new BlockPos(-190,64,40+tier*20);}
+    public static BlockPos origin(int tier){return new BlockPos(-108+(tier%2)*24,64,-62+(tier/2)*16);}
     private static ResourceLocation id(String name){return ResourceLocation.fromNamespaceAndPath("zerog_tweaks",name);}
     public static void build(ServerLevel level){
         if(!PlanetTestHub.isHub(level.getServer()))throw new IllegalStateException("Hub-only transport exhibition");
         for(int tier=0;tier<6;tier++){
             var base=origin(tier);String metal=StorageTankRegistry.TIERS[tier];
-            for(int x=-3;x<=18;x++)for(int z=-2;z<=12;z++)level.setBlock(base.offset(x,-1,z),BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);
+            for(int x=-1;x<=13;x++)for(int z=-1;z<=12;z++)level.setBlock(base.offset(x,-1,z),Blocks.STONE_BRICKS.defaultBlockState(),2);
             for(int z=0;z<=8;z+=4){
                 String family=z==0?"energy":z==4?"item":"fluid";
                 String line=family.equals("energy")?"energy_conduit":family.equals("item")?"item_tube":"fluid_pipe";
@@ -42,19 +42,18 @@ public final class HubTransportShowcase {
                     if(x==0){if(family.equals("energy"))node.stored=64000;
                         else if(family.equals("item"))node.items.setStackInSlot(0,new ItemStack(Items.IRON_INGOT,64));
                         else node.tank.setFluid(new FluidStack(BuiltInRegistries.FLUID.get(id("liquid_starlight")),8000));}
-                    node.setChanged();level.setChunkForced(pos.getX()>>4,pos.getZ()>>4,true);
+                    node.setChanged();
                 }
             }
             var tankPos=base.offset(12,0,8);
             level.setBlock(tankPos,BuiltInRegistries.BLOCK.get(id(metal+"_fluid_tank")).defaultBlockState(),3);
             var tank=(StorageTankBlockEntity)level.getBlockEntity(tankPos);
             tank.tank.setFluid(new FluidStack(BuiltInRegistries.FLUID.get(id("liquid_starlight")),Math.min(4000,tank.capacity())));
-            level.setChunkForced(tankPos.getX()>>4,tankPos.getZ()>>4,true);
             var signPos=base.offset(1,0,11);level.setBlock(signPos,Blocks.OAK_SIGN.defaultBlockState(),3);
             if(level.getBlockEntity(signPos) instanceof SignBlockEntity sign){var text=sign.getFrontText();
                 String[] lines={metal+" TRANSFER LANES","Left OUT -> right IN","Power / items / fluid","Tank: bucket example"};
                 for(int i=0;i<4;i++)text=text.setMessage(i,Component.literal(lines[i]));sign.setText(text,true);sign.setText(text,false);sign.setChanged();}
-            for(int x=-190;x<=0;x++)for(int z=base.getZ()+11;z<=base.getZ()+12;z++)level.setBlock(new BlockPos(x,63,z),BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);
+            for(int x=-108;x<=-44;x++)for(int z=base.getZ()+11;z<=base.getZ()+12;z++)level.setBlock(new BlockPos(x,63,z),Blocks.STONE_BRICKS.defaultBlockState(),2);
         }
     }
     private HubTransportShowcase(){}

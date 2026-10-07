@@ -43,17 +43,10 @@ public final class PlanetTestHub {
             com.mojang.logging.LogUtils.getLogger().info("ZeroG hub exhibits: {}",HubExhibits.build(server.overworld()));return;
         }
         var level=server.overworld();
-        for(int x=-76;x<=76;x++) for(int z=-182;z<=12;z++)
-            level.setBlock(new BlockPos(x,63,z),BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);
-        var dimensions=ZGDimensionTerrain.dimensions();
-        for(int i=0;i<dimensions.size();i++) {
-            var centre=hubCentre(i);PlanetGate.build(level,centre);
-            String destination="zerog_tweaks:"+dimensions.get(i);
-            ledger.add(new GateLedger.Gate("minecraft:overworld",centre,destination,true));
-            label(level,centre,dimensions.get(i),"TEST POWER","Right-click gate","Stand on pad");
-        }
+        ledger.compactHub=true;
+        for(int z=-54;z<=0;z++)for(int x=-1;x<=1;x++)level.setBlock(new BlockPos(x,63,z),Blocks.STONE_BRICKS.defaultBlockState(),2);
         level.setDefaultSpawnPos(new BlockPos(0,65,0),180);
-        ledger.hubBuilt=true;ledger.inspectionEnabled=true;ledger.setDirty();
+        ledger.hubBuilt=true;ledger.inspectionEnabled=false;ledger.setDirty();
         HubTieredGates.build(level);
         com.mojang.logging.LogUtils.getLogger().info("ZeroG hub exhibits: {}",HubExhibits.build(level));
         com.mojang.logging.LogUtils.getLogger().info("ZeroG supplied workshop: {}",HubWorkshop.build(level));
@@ -62,6 +55,8 @@ public final class PlanetTestHub {
         var server=event.getServer();
         if(!isHub(server)||server.getTickCount()%20!=0)return;
         var ledger=GateLedger.get(server);if(!ledger.hubBuilt)return;
+        // Compact hubs generate only the destination actually requested by travel.
+        if(ledger.compactHub)return;
         var ids=ZGDimensionTerrain.dimensions();
         if(ledger.prepared>=ids.size()) {
             if(ledger.inspectionEnabled && ledger.inspectionPrepared<ids.size()) {

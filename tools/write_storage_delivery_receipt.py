@@ -31,6 +31,7 @@ def main():
     parser.add_argument('--remaining-file', type=Path, help='Current TODO ledger instead of the historical delivery list')
     parser.add_argument('--red-test-log', type=Path, help='Observed failing regression before the repaired pass')
     parser.add_argument('--hub-installation', type=Path, help='Verified scoped hub migration receipt')
+    parser.add_argument('--hub-rebuild', type=Path, help='Verified fresh compact hub export receipt')
     args = parser.parse_args()
     sha = digest(args.jar)
     installation = json.loads(args.installation.read_text())
@@ -97,6 +98,17 @@ def main():
         receipt['save_changes']=True
         receipt['hub_migration']={'save':Path(hub['save']).name,'backup':Path(hub['backup']).name,
             'files':hub['files'],'scope':'north gate exhibits and six prepared return regions; player data unchanged'}
+    if args.hub_rebuild:
+        hub=json.loads(args.hub_rebuild.read_text())
+        assert hub['installed'] and hub['files'] and not hub['planetary_terrain_copied']
+        receipt['save_changes']=True
+        receipt['world_regeneration']=True
+        receipt['guide']='compact-hub-2026-10-07.md'
+        receipt['gate_building_guide']='gate-building-tiers-1.21.1.md'
+        receipt['hub_rebuild']={'save':Path(hub['destination']).name,
+            'archived_save':Path(hub['archived_cardinal']).name if hub['archived_cardinal'] else None,
+            'files':hub['files'],'planetary_generation':'fresh terrain on first visit',
+            'forced_chunks_copied':False,'scope':'new compact Overworld hub; unrelated saves untouched'}
     if args.red_test_log:
         red=args.red_test_log.read_text(errors='replace')
         assert 'unused_machine_input_slots_are_not_misleading_inputs failed' in red

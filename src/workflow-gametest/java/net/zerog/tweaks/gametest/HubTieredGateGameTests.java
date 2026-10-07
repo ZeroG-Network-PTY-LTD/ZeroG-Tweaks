@@ -27,8 +27,29 @@ public final class HubTieredGateGameTests {
             var restored=BlockEntity.loadStatic(gate.getBlockPos(),gate.getBlockState(),gate.saveWithFullMetadata(level.registryAccess()),level.registryAccess());restored.setLevel(level);
             h.assertTrue(((SurvivalGateBlockEntity)restored).adminTest(),"Admin mode lost on reload");
         }
-        var edit=PlanetTestHub.hubCentre(33).above(5);level.setBlock(edit,Blocks.STONE.defaultBlockState(),3);HubTieredGates.build(level);
+        var edit=HubTieredGates.centre(6).above(10);level.setBlock(edit,Blocks.STONE.defaultBlockState(),3);HubTieredGates.build(level);
         h.assertTrue(level.getBlockState(edit).is(Blocks.STONE),"Repeated migration destroyed player edits");level.removeBlock(edit,false);
         h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_hub_tiers",template="equipment_empty",timeoutTicks=1000)
+    public static void compact_hub_is_supplied_unforced_and_does_not_sweep_planets(GameTestHelper h){
+        var server=h.getLevel().getServer();var level=server.overworld();var ledger=GateLedger.get(server);
+        h.assertTrue(ledger.compactHub&&ledger.exhibitsBuilt&&ledger.workshopBuilt,"Compact hub or supplied districts not completed");
+        for(long packed:level.getForcedChunks()){
+            var chunk=new net.minecraft.world.level.ChunkPos(packed);
+            // The test runner forces its distant test templates; only inspect the hub.
+            h.assertTrue(chunk.x < -8 || chunk.x > 8 || chunk.z < -5 || chunk.z > 6,"Showcase permanently forces hub chunks");
+        }
+        int landing=0;
+        for(int x=-112;x<=120;x++)for(int z=-64;z<=94;z++){
+            var pos=new net.minecraft.core.BlockPos(x,63,z);
+            if(!level.getBlockState(pos).is(net.zerog.tweaks.registry.BlockInit.LANDING_PLATFORM.get()))continue;
+            landing++;boolean gateFloor=false;
+            for(int tier=1;tier<=6;tier++){var c=HubTieredGates.centre(tier);int r=tier+1;if(Math.abs(x-c.getX())<=r&&Math.abs(z-c.getZ())<=r)gateFloor=true;}
+            h.assertTrue(gateFloor,"Landing pad outside a gate footprint at "+pos);
+        }
+        h.assertTrue(landing>0&&landing<=670,"Unexpected landing-pad count "+landing);
+        for(int i=0;i<HubWorkshop.MACHINES.size();i++)h.assertTrue(level.getBlockEntity(HubWorkshop.origin(i))!=null,"Missing workshop machine "+i);
+        h.runAfterDelay(100,()->{h.assertTrue(ledger.prepared==0&&ledger.inspectionPrepared==0&&!ledger.inspectionEnabled,"Background world/village generation resumed");h.succeed();});
     }
 }

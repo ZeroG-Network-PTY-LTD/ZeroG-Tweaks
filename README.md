@@ -1,5 +1,9 @@
 # ZeroG Tweaks — Minecraft 1.21.x development
 
+[Compact hub and lazy planetary generation](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/compact-hub-2026-10-07.md) ·
+[Exact tier 1–6 gate construction guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/gate-building-tiers-1.21.1.md).
+Same1.0.12-dev; admin travel is hub-only. Client save-time approval remains pending.
+
 ## Current same-version extension: storage and correctness first
 
 Original wood joinery, 27/54-slot chests/barrels, six fluid tanks (5,000–5,000,000 mB),

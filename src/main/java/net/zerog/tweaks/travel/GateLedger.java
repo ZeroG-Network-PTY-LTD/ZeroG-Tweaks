@@ -18,6 +18,7 @@ public final class GateLedger extends SavedData {
     public final Map<String,Gate> gates=new LinkedHashMap<>();
     public boolean hubBuilt;
     public boolean tieredHubBuilt;
+    public boolean compactHub;
     public boolean exhibitsBuilt;
     public boolean workshopBuilt;
     public int prepared;
@@ -40,6 +41,7 @@ public final class GateLedger extends SavedData {
     public static GateLedger load(CompoundTag tag,HolderLookup.Provider registries) {
         var ledger=new GateLedger();ledger.hubBuilt=tag.getBoolean("hubBuilt");ledger.prepared=tag.getInt("prepared");
         ledger.tieredHubBuilt=tag.getBoolean("tieredHubBuilt");
+        ledger.compactHub=tag.getBoolean("compactHub");
         ledger.exhibitsBuilt=tag.getBoolean("exhibitsBuilt");
         ledger.workshopBuilt=tag.getBoolean("workshopBuilt");
         ledger.inspectionEnabled=tag.getBoolean("inspectionEnabled");ledger.inspectionPrepared=tag.getInt("inspectionPrepared");
@@ -57,6 +59,7 @@ public final class GateLedger extends SavedData {
     @Override public CompoundTag save(CompoundTag tag,HolderLookup.Provider registries) {
         tag.putBoolean("hubBuilt",hubBuilt);tag.putInt("prepared",prepared);var list=new ListTag();
         tag.putBoolean("tieredHubBuilt",tieredHubBuilt);
+        tag.putBoolean("compactHub",compactHub);
         tag.putBoolean("exhibitsBuilt",exhibitsBuilt);
         tag.putBoolean("workshopBuilt",workshopBuilt);
         tag.putBoolean("inspectionEnabled",inspectionEnabled);tag.putInt("inspectionPrepared",inspectionPrepared);

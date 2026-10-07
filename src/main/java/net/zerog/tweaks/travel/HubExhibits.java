@@ -23,9 +23,9 @@ public final class HubExhibits {
     public static final List<String> ROOMS=List.of("collapsed_mine","concord_shrine","crystal_garden","forge","observatory",
             "prismling_nest","star_library","starlight_pool","storage_hall","trap_hall");
     public static final List<String> VALIDATED_TIERS=List.of("tier3","tier5","tier6","tier7");
-    public static BlockPos designOrigin(int index) {return new BlockPos(-62+(index%4)*32,64,40+(index/4)*32);}
-    public static BlockPos formedOrigin(int index) {return new BlockPos(-62+index*32,64,110);}
-    public static BlockPos roomOrigin(int index) {return new BlockPos(80+(index%5)*26,64,-25+(index/5)*30);}
+    public static BlockPos designOrigin(int index) {return new BlockPos(-44+(index%4)*22,64,18+(index/4)*24);}
+    public static BlockPos formedOrigin(int index) {return new BlockPos(-44+index*22,64,68);}
+    public static BlockPos roomOrigin(int index) {return new BlockPos(56+(index%3)*20,64,8+(index/3)*22);}
     private static String prefix(String layout) {return layout.equals("cosmic_alveary")?"tier5":layout.substring(0,5);}
     private static BlockState part(String id) {
         var key=ResourceLocation.fromNamespaceAndPath("aeroapiary",id);
@@ -58,14 +58,14 @@ public final class HubExhibits {
             } else if(!state.isAir())return "Gallery plot occupied at "+pos.toShortString()+"; nothing overwritten.";
         }
         // Raised pads and 360-degree aisles; northern gate pads are separate.
-        for(int z=0;z<=154;z++)for(int x=-2;x<=2;x++)floor(level,new BlockPos(x,63,z));
-        for(int x=0;x<=210;x++)for(int z=-2;z<=2;z++)floor(level,new BlockPos(x,63,z));
+        for(int z=0;z<=90;z++)for(int x=-1;x<=1;x++)floor(level,new BlockPos(x,63,z));
+        for(int x=0;x<=114;x++)for(int z=-1;z<=1;z++)floor(level,new BlockPos(x,63,z));
         sign(level,new BlockPos(3,64,12),"SOUTH: BEE SYSTEMS","12 working shells","Ports face outward","Walk around all sides");
         sign(level,new BlockPos(12,64,3),"EAST: SCHEMATICS","10 Vault room designs","Inspection structures","Not active boss arenas");
-        sign(level,new BlockPos(-3,64,-12),"NORTH: ALL GATES","34 destinations","Protected return pads","Test power enabled");
+        sign(level,new BlockPos(-3,64,-12),"NORTH: SIX TIERS","Choose34 destinations","Generate on arrival","Admin travel enabled");
         int index=0;
         for(var layout:MultiblockGuides.layouts()) {
-            var base=designOrigin(index++);pad(level,base,24,20);
+            var base=designOrigin(index++);pad(level,base,20,16);
             buildServiceShell(level,base,prefix(layout.id()));
             String name=layout.id().equals("cosmic_alveary")?"Cosmic Alveary":prefix(layout.id())+" "+layout.id().split("_")[1];
             sign(level,base.offset(2,0,8),name,"WORKING 5x5 SHELL","Controller: row 2","Right-click terminal");
@@ -79,14 +79,14 @@ public final class HubExhibits {
         }
         index=0;
         for(String tier:VALIDATED_TIERS) {
-            var base=formedOrigin(index++);pad(level,base,24,20);
+            var base=formedOrigin(index++);pad(level,base,9,9);
             buildServiceShell(level,base,tier);
             sign(level,base.offset(2,0,8),tier+" 5x5x5", "FORMATION REFERENCE","Controller: row 2","Charged cell behind");
             sign(level,base.offset(8,0,7),"Base: 2 item ports","2 fluid / 1 energy","18 interior air","Terminal: no cable");
         }
         index=0;
         for(String name:ROOMS) {
-            var base=roomOrigin(index++);pad(level,base,23,23);
+            var base=roomOrigin(index++);pad(level,base,17,21);
             var template=level.getStructureManager().get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","concord_vault/rooms/"+name)).orElseThrow();
             var settings=new StructurePlaceSettings().setIgnoreEntities(true).addProcessor(JigsawReplacementProcessor.INSTANCE);
             template.placeInWorld(level,base,base,settings,level.random,3);
@@ -164,9 +164,9 @@ public final class HubExhibits {
     }
     private static void keepLoaded(ServerLevel level,BlockPos min,BlockPos max) {
         if(!PlanetTestHub.isHub(level.getServer()))throw new IllegalStateException("Inspection tickets are test-hub only");
-        for(int x=min.getX()>>4;x<=max.getX()>>4;x++)for(int z=min.getZ()>>4;z<=max.getZ()>>4;z++)level.setChunkForced(x,z,true);
+        // Nearby players activate displays; no permanent inspection tickets.
     }
-    private static void floor(ServerLevel level,BlockPos pos) {level.setBlock(pos,BlockInit.LANDING_PLATFORM.get().defaultBlockState(),2);}
+    private static void floor(ServerLevel level,BlockPos pos) {level.setBlock(pos,Blocks.STONE_BRICKS.defaultBlockState(),2);}
     private static void pad(ServerLevel level,BlockPos origin,int width,int depth) {
         for(int x=-3;x<width;x++)for(int z=-3;z<depth;z++)floor(level,origin.offset(x,-1,z));
         for(int x=Math.min(0,origin.getX());x<=Math.max(0,origin.getX());x++)for(int z=depth-2;z<depth;z++)floor(level,new BlockPos(x,63,origin.getZ()+z));

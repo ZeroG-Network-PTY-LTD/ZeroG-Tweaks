@@ -326,3 +326,21 @@ planet audit/export assumes34 fixed outbound gates and needs topology migration
 before it can certify this six-gate hub. Do not claim that legacy audit passed.
 install_tiered_hub.py copies only scoped gate regions and merges the original
 ledger; never replace level.dat/playerdata or test-server preparation counters.
+
+## Compact hub / lazy planets — 7 October
+
+New hub saves persist GateLedger.compactHub. They do not run the old 34-world
+arrival/village sweep and do not force showcase/workshop/transport chunks.
+Six admin gate centres are (-22/0/22,64,-22) and (-22/0/22,64,-44).
+LandingPlatform is gate-footprint-only; ordinary paths and exhibit floors use
+stone bricks. Do not restore giant floors or permanent chunk tickets.
+Use export_compact_hub.py after the zerog_hub_tiers tests pass: export only four
+bounded Overworld regions, omit all planetary terrain/test players/forced tickets,
+and archive only the explicitly named former Cardinal Hub. Planets regenerate
+on first actual gate visit; this is not pre-generation of all 34 destinations.
+Legacy hub exports are not compatible with this contract.
+Generate Docs layer plans with tools/generate_gate_build_guide.py; its mirrored
+layout must be reviewed whenever SurvivalGateLayout.parts changes. Keep survival
+crafting costs and unverified guardian-key activation separate from real formation.
+Headless save timing is not installed-client performance approval. Measure the
+next client save with tools/measure_shutdown.py and retain the 66.536-second baseline.
