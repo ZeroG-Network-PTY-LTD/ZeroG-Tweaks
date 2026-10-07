@@ -1,5 +1,9 @@
 # ZeroG Tweaks
 
+## Step-by-step story Codex and clean hub — 7 October 2026
+
+[Task unlocks and reset details](docs/codex-story-and-clean-hub-2026-10-07.md). The Concord Codex adds instructions as advancements finish and worlds are visited, with later-act spoilers gated. The accidentally modified compact hub is replaced by a clean seed-0 copy; the affected save is recoverably archived. Earlier guides, previews and JAR archives remain intact.
+
 ## Machine GUI and animated cell repair — 7 October 2026
 
 [Screenshot faults, module controls and charge-art previews](docs/machine-gui-and-activity-2026-10-07.md). Same **1.0.12-dev**; hub/saves unchanged. Centrifuge and Smelter use the corrected replacement menu, combustion controls clear the title, and Solar/Fusion expose their Flux-module slot. Charge indicators animate actual stored levels. Bespoke moving machinery and client visual/sound approval remain pending.
