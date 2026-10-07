@@ -42,21 +42,21 @@ public final class SolLoreGameTests {
         var book=new net.minecraft.world.item.ItemStack(codex);
         player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,book);
         codex.use(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND);
-        h.assertTrue(book.get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT).pages().size()==4,"Unvisited Act I pages revealed or builder instructions missing");
+        h.assertTrue(book.get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT).pages().size()==5,"Unvisited Act I pages revealed or builder instructions missing");
         // Real level context and real item use; this is not a portal/network test.
         player.setServerLevel(mars);codex.use(mars,player,net.minecraft.world.InteractionHand.MAIN_HAND);
         var pages=book.get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT).pages();
-        h.assertTrue(pages.size()==6,"Mars arrival must unlock its story and task pages only");
-        h.assertTrue(pages.get(4).raw().getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents c&&c.getKey().equals("codex.zerog_tweaks.mars_waystation"),"Mars page must use its language key");
+        h.assertTrue(pages.size()==8,"Mars arrival must unlock its story and task pages only");
+        h.assertTrue(pages.get(6).raw().getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents c&&c.getKey().equals("codex.zerog_tweaks.mars_waystation"),"Mars page must use its language key");
         player.setServerLevel(moon);codex.use(moon,player,net.minecraft.world.InteractionHand.MAIN_HAND);
         pages=book.get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT).pages();
-        h.assertTrue(pages.size()==8,"Both visits must unlock both story/task pairs");
-        h.assertTrue(pages.get(4).raw().getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents c&&c.getKey().equals("codex.zerog_tweaks.moon_relay"),"Moon page must use its language key");
+        h.assertTrue(pages.size()==10,"Both visits must unlock both story/task pairs");
+        h.assertTrue(pages.get(6).raw().getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents c&&c.getKey().equals("codex.zerog_tweaks.moon_relay"),"Moon page must use its language key");
         player.setServerLevel(h.getLevel());codex.use(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND);
-        h.assertTrue(book.get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT).pages().size()==8,"Return to Overworld lost unlocked pages");
+        h.assertTrue(book.get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT).pages().size()==10,"Return to Overworld lost unlocked pages");
         var saved=player.saveWithoutId(new net.minecraft.nbt.CompoundTag());
         player.load(saved);codex.use(h.getLevel(),player,net.minecraft.world.InteractionHand.MAIN_HAND);
-        h.assertTrue(player.getItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND).get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT).pages().size()==8,"Saved player lost arrival unlocks");
+        h.assertTrue(player.getItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND).get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT).pages().size()==10,"Saved player lost arrival unlocks");
         h.succeed();
     }
 }

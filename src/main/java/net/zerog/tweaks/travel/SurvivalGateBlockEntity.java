@@ -106,7 +106,27 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         for(int i=0;i<columns.size();i++)for(BlockPos at:columns.get(i)){var state=server.getBlockState(at);boolean lit=i<count;if(state.is(BlockInit.GATE_PYLON.get())&&state.getValue(GatePylonBlock.LIT)!=lit)server.setBlock(at,state.setValue(GatePylonBlock.LIT,lit),3);}
         litTier=count>0?tier:0;litColumns=count;setChanged();
     }
-    public void preview(ServerPlayer player){if(!(level instanceof ServerLevel server)||!mayControl(player))return;int tier=Math.min(6,Math.max(1,formedTier()+1));for(var part:SurvivalGateLayout.parts(tier)){BlockPos at=centre().offset(SurvivalGateLayout.rotate(part.offset(),facing()));if(server.hasChunkAt(at)&&!server.getBlockState(at).is(part.block()))server.sendParticles(player,ParticleTypes.END_ROD,true,at.getX()+.5,at.getY()+.5,at.getZ()+.5,2,.1,.1,.1,0);}}
+    public boolean align(ServerPlayer player){
+        if(!(level instanceof ServerLevel server)||!mayControl(player)||countdown>0||formedTier()>0)return false;
+        var best=SurvivalGateLayout.closestFacing(server,worldPosition,facing());
+        if(best!=facing()){
+            server.setBlock(worldPosition,getBlockState().setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING,best),3);
+            setChanged();server.invalidateCapabilities(worldPosition);
+        }
+        preview(player);return true;
+    }
+    public void preview(ServerPlayer player){
+        if(!(level instanceof ServerLevel server)||!mayControl(player))return;
+        int formed=formedTier(),tier=Math.min(6,Math.max(1,formed+1));
+        var orientation=formed==0?SurvivalGateLayout.closestFacing(server,worldPosition,facing()):facing();
+        if(formed==0&&orientation!=facing())player.sendSystemMessage(Component.literal("Controller faces "+facing().getName()+"; the closest matching gate faces "+orientation.getName()+". Use Align."));
+        var missing=SurvivalGateLayout.missingParts(server,worldPosition,orientation,tier);
+        player.sendSystemMessage(Component.literal("Gate tier "+formed+"; "+missing.size()+" missing/mismatched parts for tier "+tier+"."));
+        for(int i=0;i<Math.min(4,missing.size());i++){
+            var part=missing.get(i);player.sendSystemMessage(Component.empty().append(part.expected().getName()).append(" required at "+part.pos().getX()+", "+part.pos().getY()+", "+part.pos().getZ()));
+        }
+        for(var part:missing)if(server.hasChunkAt(part.pos()))server.sendParticles(player,ParticleTypes.END_ROD,true,part.pos().getX()+.5,part.pos().getY()+.5,part.pos().getZ()+.5,2,.1,.1,.1,0);
+    }
     public void tick(){
         if(!(level instanceof ServerLevel server))return;
         if(adminTest())stored=capacity();

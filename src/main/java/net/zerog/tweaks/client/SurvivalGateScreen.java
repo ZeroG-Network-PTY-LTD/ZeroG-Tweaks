@@ -29,7 +29,8 @@ public final class SurvivalGateScreen extends AbstractContainerScreen<SurvivalGa
         }
         addRenderableWidget(Button.builder(Component.literal("<"),b->{page=Math.max(0,page-1);buttons();}).bounds(leftPos+18,topPos+116,22,18).build());
         addRenderableWidget(Button.builder(Component.literal(">"),b->{page=Math.min((ids.size()-1)/4,page+1);buttons();}).bounds(leftPos+43,topPos+116,22,18).build());
-        addRenderableWidget(Button.builder(Component.literal("Engage"),b->send(100)).bounds(leftPos+110,topPos+137,65,18).build()).active=menu.value(5)==1&&menu.value(4)==0;
+        boolean incomplete=menu.value(0)==0;
+        addRenderableWidget(Button.builder(Component.literal(incomplete?"Align":"Engage"),b->send(incomplete?104:100)).bounds(leftPos+110,topPos+137,65,18).build()).active=menu.value(5)==1&&menu.value(4)==0;
         addRenderableWidget(Button.builder(Component.literal("Ready"),b->send(101)).bounds(leftPos+178,topPos+137,60,18).build()).active=menu.value(4)>0;
         addRenderableWidget(Button.builder(Component.literal("Preview"),b->send(102)).bounds(leftPos+110,topPos+116,65,18).build()).active=menu.value(5)==1;
         addRenderableWidget(Button.builder(Component.literal("Cancel"),b->send(103)).bounds(leftPos+178,topPos+116,60,18).build()).active=menu.value(5)==1&&menu.value(4)>0;
@@ -38,11 +39,12 @@ public final class SurvivalGateScreen extends AbstractContainerScreen<SurvivalGa
     @Override protected void renderBg(GuiGraphics g,float partial,int mouseX,int mouseY){
         g.fill(leftPos,topPos,leftPos+imageWidth,topPos+imageHeight,0xff17232f);g.fill(leftPos+2,topPos+2,leftPos+254,topPos+250,0xffd3d9de);
         int countdown=menu.value(4);
-        g.drawString(font,countdown>0?"Tier "+menu.value(0)+" | Ready check: "+(countdown+19)/20+"s":menu.value(7)==1?"Tier "+menu.value(0)+" | ADMIN - FREE TRAVEL":"Tier "+menu.value(0)+" | "+menu.value(1)*10000+" / "+menu.value(2)*10000+" FE",leftPos+18,topPos+21,0xff243747,false);
+        String status=countdown>0?"Tier "+menu.value(0)+" | Ready check: "+(countdown+19)/20+"s":menu.value(7)==1?"Tier "+menu.value(0)+" | ADMIN - FREE TRAVEL":"Tier "+menu.value(0)+" | "+menu.energy()+" / "+menu.energyCapacity()+" FE";
+        g.drawString(font,font.plainSubstrByWidth(status,220),leftPos+18,topPos+21,0xff243747,false);
         if(countdown>0){g.fill(leftPos+18,topPos+31,leftPos+238,topPos+33,0xff38435a);g.fill(leftPos+18,topPos+31,leftPos+18+(100-countdown)*220/100,topPos+33,0xff966ad6);}
         for(var slot:menu.slots){g.fill(leftPos+slot.x-1,topPos+slot.y-1,leftPos+slot.x+17,topPos+slot.y+17,0xff46535c);g.fill(leftPos+slot.x,topPos+slot.y,leftPos+slot.x+16,topPos+slot.y+16,0xff87929a);}
     }
-    @Override public void render(GuiGraphics g,int x,int y,float partial){super.render(g,x,y,partial);renderTooltip(g,x,y);}
+    @Override public void render(GuiGraphics g,int x,int y,float partial){super.render(g,x,y,partial);renderTooltip(g,x,y);if(x>=leftPos+18&&x<leftPos+238&&y>=topPos+20&&y<topPos+32)g.renderTooltip(font,Component.literal(menu.energy()+" / "+menu.energyCapacity()+" FE"),x,y);}
     @EventBusSubscriber(modid="zerog_tweaks",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
     public static final class Registration{@SubscribeEvent public static void screens(RegisterMenuScreensEvent event){event.register(SurvivalGates.MENU.get(),SurvivalGateScreen::new);}}
 }

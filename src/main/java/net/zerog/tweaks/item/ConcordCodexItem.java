@@ -35,6 +35,15 @@ public final class ConcordCodexItem extends Item {
         return holder!=null&&player.getAdvancements().getOrStartProgress(holder).isDone();
     }
     private static boolean visited(ServerPlayer player,String world){return player.getPersistentData().getBoolean("zerog_codex_"+world)||complete(player,world.equals("moon")?"the_moon":world);}
+    private static String mark(boolean done){return done?"[x]":"[ ]";}
+    public static List<Filterable<Component>> checklistPages(ServerPlayer player){
+        var pages=new java.util.ArrayList<Filterable<Component>>();
+        pages.add(Filterable.passThrough(Component.translatable("codex.zerog_tweaks.tasks.prologue",mark(complete(player,"root")),mark(complete(player,"falling_star")),mark(complete(player,"builders_template")),mark(complete(player,"first_gate")))));
+        if(complete(player,"first_gate")||visited(player,"moon")||visited(player,"mars"))pages.add(Filterable.passThrough(Component.translatable("codex.zerog_tweaks.tasks.sol",mark(visited(player,"moon")),mark(visited(player,"mars")),mark(complete(player,"aresite_core")))));
+        for(String[] task:new String[][]{{"cerulon","prism_sentinel"},{"skarn","rift_tyrant"},{"eidolon","remnants"},{"solvane","nova_pearl"}})
+            if(visited(player,task[0]))pages.add(Filterable.passThrough(Component.translatable("codex.zerog_tweaks.tasks."+task[0],mark(complete(player,task[1])))));
+        return pages;
+    }
     /** Rebuilt for the reader on every open: another player's book cannot reveal locked lore. */
     public static List<String> pageKeys(ServerPlayer player){
         var keys=new java.util.ArrayList<String>(List.of("signal","template","coordinates"));
@@ -54,7 +63,8 @@ public final class ConcordCodexItem extends Item {
         if(player instanceof ServerPlayer server) {
             recordArrival(server);
             ConcordPrologue.grant(server,"builders_template","read_codex");
-            var pages=pageKeys(server).stream().map(ConcordCodexItem::page).toList();
+            var pages=new java.util.ArrayList<Filterable<Component>>(checklistPages(server));
+            pages.addAll(pageKeys(server).stream().map(ConcordCodexItem::page).toList());
             player.getItemInHand(hand).set(DataComponents.WRITTEN_BOOK_CONTENT,new WrittenBookContent(Filterable.passThrough("Concord Codex"),"The Concord",0,pages,true));
             server.inventoryMenu.broadcastChanges();
             // Right-click: the GuideME walkthrough. Sneak + right-click: Echo's story pages (unlocked per world visited).

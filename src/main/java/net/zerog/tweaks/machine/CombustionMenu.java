@@ -13,8 +13,8 @@ public final class CombustionMenu extends AbstractContainerMenu {
     public CombustionMenu(int id,Inventory inventory,BlockEntity block){
         super(CombustionRegistry.MENU.get(),id);if(!(block instanceof CombustionBlockEntity be))throw new IllegalArgumentException("Missing combustion generator");generator=be;
         addSlot(new SlotItemHandler(be.fuel,0,48,36));
-        for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inventory,9+row*9+col,8+col*18,102+row*18));
-        for(int col=0;col<9;col++)addSlot(new Slot(inventory,col,8+col*18,160));
+        for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inventory,9+row*9+col,8+col*18,128+row*18));
+        for(int col=0;col<9;col++)addSlot(new Slot(inventory,col,8+col*18,186));
         data=inventory.player.level().isClientSide?new SimpleContainerData(19):new ContainerData(){
             public int get(int i){if(i>=13)return be.fuelDisabled(net.minecraft.core.Direction.from3DDataValue(i-13))?1:0;if(i>=7)return be.outputDisabled(net.minecraft.core.Direction.from3DDataValue(i-7))?1:0;return switch(i){case 0->be.stored&65535;case 1->be.stored>>>16;case 2->be.burn;case 3->be.burnTotal;case 4->be.upgrades();case 5->be.outputQuarterFE();case 6->be.capacity()/1000;default->0;};}
             public void set(int i,int v){}public int getCount(){return 19;}

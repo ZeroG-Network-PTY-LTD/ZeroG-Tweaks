@@ -70,7 +70,10 @@ The gate is a multiblock. This is the whole Tier 1 build. Drag to rotate, scroll
 | <ItemLink id="zerog_tweaks:gate_energy_port" /> | 1 | Middle of a side edge next to the front, one block above the pad |
 
 **Tip:** once the controller is placed, open it and press **Preview**. Every missing block of the
-next tier sparkles where it belongs.
+next tier sparkles where it belongs. For an incomplete gate, Preview reports exact missing
+block coordinates and the closest matching direction. **Align** turns only your controller
+to that direction; it never replaces missing blocks. The Gate Energy Port is required even
+if you connect a cable directly to the controller.
 
 ## Recipes
 

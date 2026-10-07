@@ -54,6 +54,21 @@ public final class SurvivalGateLayout {
         }
         return formed;
     }
+    public record MissingPart(BlockPos pos,Block expected){}
+    public static List<MissingPart> missingParts(ServerLevel level,BlockPos controller,Direction facing,int tier){
+        BlockPos origin=centre(controller,facing);
+        return parts(tier).stream().map(p->new MissingPart(origin.offset(rotate(p.offset(),facing)),p.block()))
+            .filter(p->!level.hasChunkAt(p.pos())||!level.getBlockState(p.pos()).is(p.expected())).toList();
+    }
+    /** Prefer the current facing on ties; hints never relax required blocks. */
+    public static Direction closestFacing(ServerLevel level,BlockPos controller,Direction current){
+        Direction best=current;int count=missingParts(level,controller,current,1).size();
+        for(Direction candidate:new Direction[]{Direction.NORTH,Direction.EAST,Direction.SOUTH,Direction.WEST}){
+            int missing=missingParts(level,controller,candidate,1).size();
+            if(missing<count){count=missing;best=candidate;}
+        }
+        return best;
+    }
     /** Load only the maximum gate footprint before validating a remote, unloaded home. */
     public static void loadFootprint(ServerLevel level,BlockPos controller,Direction facing){
         BlockPos centre=centre(controller,facing);

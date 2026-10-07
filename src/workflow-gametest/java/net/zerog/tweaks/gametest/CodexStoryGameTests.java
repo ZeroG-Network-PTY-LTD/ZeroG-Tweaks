@@ -27,7 +27,7 @@ public final class CodexStoryGameTests {
         h.assertTrue(ConcordCodexItem.pageKeys(player).contains("codex.zerog_tweaks.act5_revelation")&&ConcordCodexItem.pageKeys(player).contains("codex.zerog_tweaks.act5_heart"),"Actual arrival plus milestones did not unlock final pages");
         var other=h.makeMockServerPlayerInLevel();other.setShiftKeyDown(true);other.setItemInHand(hand,book.copy());item.use(h.getLevel(),other,hand);
         var pages=other.getItemInHand(hand).get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT).pages();
-        h.assertTrue(pages.size()==4,"Borrowed book exposed another player's completed chapters");
+        h.assertTrue(pages.size()==4+ConcordCodexItem.checklistPages(other).size(),"Borrowed book exposed another player's completed chapters");
         player.setServerLevel(h.getLevel());var saved=player.saveWithoutId(new net.minecraft.nbt.CompoundTag());player.load(saved);item.use(h.getLevel(),player,hand);
         h.assertTrue(ConcordCodexItem.pageKeys(player).contains("codex.zerog_tweaks.act5_revelation"),"Reload lost completed story pages");h.succeed();
     }

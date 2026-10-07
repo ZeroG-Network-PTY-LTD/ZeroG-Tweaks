@@ -15,4 +15,11 @@ Click any item name to jump to its page. Recipes shown here are always the live,
 
 **Sneak and right-click** the Codex to read Echo's story pages instead. New pages appear as you reach new worlds.
 
+## Your task journal
+
+Sneak and right-click also opens your personal task list first: **[x]** is a recorded
+milestone and **[ ]** is outstanding. Reopen the book to refresh it. Later planetary
+task pages remain sealed until you have arrived there; reading this guide never grants
+progress. Follow the chapter links below for the diagrams and practical steps.
+
 <SubPages />

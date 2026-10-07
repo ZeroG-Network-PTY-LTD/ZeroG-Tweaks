@@ -20,12 +20,14 @@ public final class SurvivalGateMenu extends AbstractContainerMenu {
         });}
         for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inventory,9+row*9+col,46+col*18,170+row*18));
         for(int col=0;col<9;col++)addSlot(new Slot(inventory,col,46+col*18,228));
-        data=inventory.player.level().isClientSide?new SimpleContainerData(8):new ContainerData(){
-            public int get(int i){return switch(i){case 0->gate.formedTier();case 1->gate.stored/10000;case 2->gate.capacity()/10000;case 3->gate.selected;case 4->gate.countdown;case 5->inventory.player instanceof ServerPlayer p&&gate.mayControl(p)?1:0;case 6->gate.returnPlatform?1:0;case 7->gate.adminTest()?1:0;default->0;};}
-            public void set(int i,int value){}public int getCount(){return 8;}
+        data=inventory.player.level().isClientSide?new SimpleContainerData(12):new ContainerData(){
+            public int get(int i){return switch(i){case 0->gate.formedTier();case 1->gate.stored/10000;case 2->gate.capacity()/10000;case 3->gate.selected;case 4->gate.countdown;case 5->inventory.player instanceof ServerPlayer p&&gate.mayControl(p)?1:0;case 6->gate.returnPlatform?1:0;case 7->gate.adminTest()?1:0;case 8->gate.stored&65535;case 9->gate.stored>>>16;case 10->gate.capacity()&65535;case 11->gate.capacity()>>>16;default->0;};}
+            public void set(int i,int value){}public int getCount(){return 12;}
         };addDataSlots(data);
     }
     public int value(int index){return data.get(index);}
+    public int energy(){return (value(8)&65535)|((value(9)&65535)<<16);}
+    public int energyCapacity(){return (value(10)&65535)|((value(11)&65535)<<16);}
     @Override public boolean stillValid(Player player){return !gate.isRemoved()&&player.level()==gate.getLevel()&&player.distanceToSqr(gate.getBlockPos().getX()+.5,gate.getBlockPos().getY()+.5,gate.getBlockPos().getZ()+.5)<=64;}
     @Override public boolean clickMenuButton(Player player,int button){
         if(!(player instanceof ServerPlayer server)||!stillValid(player))return false;
@@ -34,6 +36,7 @@ public final class SurvivalGateMenu extends AbstractContainerMenu {
         if(button==100)return gate.engage(server);
         if(button==102){gate.preview(server);return true;}
         if(button==103){gate.cancel();return true;}
+        if(button==104)return gate.align(server);
         if(button>=0&&button<SurvivalGateBlockEntity.destinations().size()&&gate.countdown==0&&gate.canReach(SurvivalGateBlockEntity.destinations().get(button))){gate.selected=button;gate.setChanged();return true;}return false;
     }
     @Override public ItemStack quickMoveStack(Player player,int index){

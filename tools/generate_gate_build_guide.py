@@ -96,9 +96,9 @@ def main():
         x=-22+((t-1)%3)*22; z=-22-((t-1)//3)*22
         text.append(f'| {t} | `{x},64,{z}` | `{x},65,{z-2}` |')
     text.extend(['', '## Troubleshooting and Codex handoff', '',
-        '- Tier reads zero: check buried core, ring material, pylon height, arch top, lens location and controller facing. Chunks containing the full footprint must be loaded.',
+        '- Tier reads zero: press Preview for missing-block coordinates and the closest matching facing. Align turns only an unformed owner-controlled controller; it never supplies blocks. Check buried core, ring material, pylon height, arch top, lens location and required ports. Chunks containing the full footprint must be loaded.',
         '- Higher tier not detected: compare **all** layers; earlier pylons must reach the new height and new ports replace specific pad/air positions.',
-        '- No charging: use Gate Energy Ports and a formed structure; check cable output faces and available generation.',
+        '- No charging: the Gate Energy Port must remain in its required position even when powering the controller directly. A formed port and controller share one buffer. Check cable/generator output faces and available generation. Exact stored FE is synchronized; full admin buffers do not accept extra charge.',
         '- Cannot launch: inspect ownership, reachable tier, energy cost, passenger limit and Ready confirmations.',
         '- A normal survival gate showing free travel is not expected. Only designated compact-hub controllers and their bound returns are admin.', '',
         'The companion [coordinate manifest](gate-build-layouts-1.21.1.json) records every required block once, exact IDs/counts and the audited source hash for future localized Codex pages. Re-run the generator and review it whenever the layout source changes. This does not finalize deferred survival crafting ingredient costs.', ''])
