@@ -20,7 +20,7 @@ public final class CombustionScreen extends AbstractContainerScreen<CombustionMe
     @Override protected void init(){
         super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showFuels);
         fuels=new MachineItemCatalog(s->CombustionBlockEntity.burnTime(s)>0,s->CombustionBlockEntity.burnTime(s)+" ticks/item");
-        addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Fuels"),b->{showFuels=!showFuels;rebuildWidgets();}).bounds(leftPos+115,topPos+3,53,16).build());
+        addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Fuels"),b->{showFuels=!showFuels;rebuildWidgets();}).bounds(leftPos+180,topPos+170,94,16).build());
         addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal(fuelFaces?"Show power":"Show fuel"),b->{fuelFaces=!fuelFaces;rebuildWidgets();}).bounds(leftPos+180,topPos+148,94,18).build());
         addRenderableWidget(fuelFaces?new SideConfigurationPanel(leftPos+180,topPos+18,s->menu.fuelDisabled(s)?3:1,s->send(200+s*2+(menu.fuelDisabled(s)?0:1))," (fuel only)",true).labels("Fuel faces","Items only"):
             new SideConfigurationPanel(leftPos+180,topPos+18,s->menu.outputDisabled(s)?3:2,s->send((menu.outputDisabled(s)?106:100)+s)," (generator output)").outputOnly());
@@ -40,7 +40,7 @@ public final class CombustionScreen extends AbstractContainerScreen<CombustionMe
         g.drawString(font,Component.translatable("gui.zerog_tweaks.generator_output",rate),leftPos+8,topPos+78,0xffe6f4ff,false);
     }
     @Override public boolean mouseClicked(double x,double y,int button){if(showFuels&&fuels.click(x,y,leftPos,topPos,width,imageWidth))return true;return super.mouseClicked(x,y,button);}
-    @Override protected void renderLabels(GuiGraphics g,int x,int y){g.drawString(font,font.plainSubstrByWidth(title.getString(),103),titleLabelX,titleLabelY,0xffe6f4ff,false);g.drawString(font,playerInventoryTitle,inventoryLabelX,inventoryLabelY,0xffe6f4ff,false);}
+    @Override protected void renderLabels(GuiGraphics g,int x,int y){g.drawString(font,font.plainSubstrByWidth(title.getString(),160),titleLabelX,titleLabelY,0xffe6f4ff,false);g.drawString(font,playerInventoryTitle,inventoryLabelX,inventoryLabelY,0xffe6f4ff,false);}
     @Override public void render(GuiGraphics g,int x,int y,float partial){super.render(g,x,y,partial);renderTooltip(g,x,y);if(showFuels)fuels.render(g,font,leftPos,topPos,width,imageWidth,x,y,"Fuels / no dust");if(x>=leftPos+128&&x<leftPos+140&&y>=topPos+22&&y<topPos+78)g.renderTooltip(font,Component.literal(menu.energy()+" / "+menu.capacity()+" FE"),x,y);}
     @EventBusSubscriber(modid="zerog_tweaks",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
     public static final class Registration {@SubscribeEvent public static void screens(RegisterMenuScreensEvent event){event.register(CombustionRegistry.MENU.get(),CombustionScreen::new);}}

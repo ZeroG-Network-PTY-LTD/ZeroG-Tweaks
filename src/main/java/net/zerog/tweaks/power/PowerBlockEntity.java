@@ -63,6 +63,28 @@ public final class PowerBlockEntity extends BlockEntity {
     public int capacity(){return (int)Math.min(Integer.MAX_VALUE,(long)PowerConfig.BUFFER.get()*(1+modules));}
     public boolean installModule(){if(modules>=3)return false;modules++;setChanged();return true;}
     public int takeModules(){int n=modules;modules=0;return n;}
+    /** GUI view of the existing module count: no second inventory or duplicated refunds. */
+    public final ItemStackHandler moduleInput=new ItemStackHandler(1){
+        @Override public int getSlotLimit(int slot){return 3;}
+        @Override public ItemStack getStackInSlot(int slot){return modules==0?ItemStack.EMPTY:new ItemStack(net.zerog.tweaks.machine.CombustionRegistry.FLUX_MODULE.get(),modules);}
+        @Override public boolean isItemValid(int slot,ItemStack stack){return slot==0&&stack.is(net.zerog.tweaks.machine.CombustionRegistry.FLUX_MODULE.get());}
+        private boolean canReduceTo(int count){return stored<=(long)PowerConfig.BUFFER.get()*(1+count);}
+        @Override public void setStackInSlot(int slot,ItemStack stack){
+            if(slot!=0||!stack.isEmpty()&&!isItemValid(slot,stack)||stack.getCount()>3)return;
+            int count=stack.isEmpty()?0:stack.getCount();if(!canReduceTo(count))return;
+            modules=count;setChanged();
+        }
+        @Override public ItemStack insertItem(int slot,ItemStack stack,boolean simulate){
+            if(!isItemValid(slot,stack))return stack;int n=Math.min(3-modules,stack.getCount());
+            if(!simulate&&n>0){modules+=n;setChanged();}return stack.copyWithCount(stack.getCount()-n);
+        }
+        @Override public ItemStack extractItem(int slot,int count,boolean simulate){
+            if(slot!=0||count<=0)return ItemStack.EMPTY;int n=Math.min(count,modules);
+            while(n>0&&!canReduceTo(modules-n))n--;
+            if(n==0)return ItemStack.EMPTY;if(!simulate){modules-=n;setChanged();}
+            return new ItemStack(net.zerog.tweaks.machine.CombustionRegistry.FLUX_MODULE.get(),n);
+        }
+    };
     public final ItemStackHandler fuel=new ItemStackHandler(1){
         @Override public boolean isItemValid(int slot,ItemStack stack){return !solar()&&stack.is(ItemInit.FUSION_DUST.get());}
         @Override protected void onContentsChanged(int slot){setChanged();}
@@ -83,14 +105,14 @@ public final class PowerBlockEntity extends BlockEntity {
     }
     public static void tick(Level level,BlockPos pos,BlockState state,PowerBlockEntity be){
         if(level.isClientSide)return;
-        if(be.solar()){be.rate=be.solarRate(level);int n=Math.min(be.rate,Math.max(0,be.capacity()-be.stored));if(n>0){be.stored+=n;be.setChanged();}}
+        if(be.solar()){be.rate=be.solarRate(level);int n=Math.min(be.rate,Math.max(0,be.capacity()-be.stored));if(n>0){be.stored+=n;be.setChanged();net.zerog.tweaks.machine.MachineActivity.work(level,pos,"solar_array");}}
         else {
             if(be.burn==0&&be.stored<be.capacity()&&be.fuel.getStackInSlot(0).is(ItemInit.FUSION_DUST.get())){
                 be.activeFuelRate=PowerConfig.FUSION_RATE.get();be.burn=be.burnTotal=PowerConfig.FUSION_TICKS.get();be.fuel.extractItem(0,1,false);be.setChanged();
             }
             be.rate=be.burn>0?(int)Math.min(be.capacity(),(long)be.activeFuelRate*(4+be.modules)/4):0;
             // Pause rather than destroy paid-for fuel while output storage is blocked.
-            if(be.burn>0&&be.stored<=be.capacity()-be.rate){be.stored+=be.rate;be.burn--;be.setChanged();}
+            if(be.burn>0&&be.stored<=be.capacity()-be.rate){be.stored+=be.rate;be.burn--;be.setChanged();net.zerog.tweaks.machine.MachineActivity.work(level,pos,"fusion_reactor");}
         }
         int remaining=PowerConfig.TRANSFER.get();
         for(Direction side:Direction.values()){

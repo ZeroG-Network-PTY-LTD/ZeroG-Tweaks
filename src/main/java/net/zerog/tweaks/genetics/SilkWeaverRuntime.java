@@ -17,6 +17,7 @@ public final class SilkWeaverRuntime {
                 reset.invoke(be);return;
             }
             int progress=(Integer)be.getClass().getMethod("getProgress").invoke(be);
+            net.zerog.tweaks.machine.MachineActivity.work(be.getLevel(),be.getBlockPos(),"silk_weaver");
             if(progress<199){be.getClass().getMethod("tickProgress").invoke(be);return;}
             inv.extractItem(0,1,false);
             inv.setStackInSlot(3,recipe.copyWithCount(output.getCount()+1));reset.invoke(be);be.setChanged();

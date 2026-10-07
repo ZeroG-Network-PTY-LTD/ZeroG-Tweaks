@@ -96,6 +96,7 @@ public class ProcessingBlockEntity extends BlockEntity {
         int ticks=be.duration(r),next=Math.min(ticks,be.progress+1),target=(int)((long)be.energyCost(r)*next/ticks),cost=Math.max(0,target-be.paid);
         if(be.stored<cost)return;
         be.stored-=cost;be.paid=target;be.progress=next;
+        MachineActivity.work(level,pos,net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath());
         if(next==ticks){
             int[] slots=r.assignment(be.input());if(slots==null){be.clearJob();return;}
             for(int i=0;i<r.outputs().size();i++)if(r.outputs().get(i).chance()>=1||level.random.nextDouble()<r.outputs().get(i).chance()){

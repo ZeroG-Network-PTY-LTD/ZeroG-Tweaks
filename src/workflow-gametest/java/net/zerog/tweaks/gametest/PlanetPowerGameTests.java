@@ -35,6 +35,13 @@ public final class PlanetPowerGameTests {
         h.assertTrue(PowerBlockEntity.dimensionMultiplier("zerog_tweaks:eidolon")<PowerBlockEntity.dimensionMultiplier("minecraft:overworld")&&PowerBlockEntity.dimensionMultiplier("zerog_tweaks:solvane")>1,"Solar dimension balance failed");
         h.assertTrue(h.getLevel().getCapability(Capabilities.ItemHandler.BLOCK,be.getBlockPos(),Direction.UP)==null&&be.fuel.insertItem(0,new ItemStack(ItemInit.FUSION_DUST.get()),false).getCount()==1,"Solar exposed irrelevant fuel storage");
         h.setBlock(p.above(),net.minecraft.world.level.block.Blocks.STONE);h.assertTrue(be.solarRate(h.getLevel())==0,"Solar generated through roof");
-        var player=h.makeMockPlayer(GameType.SURVIVAL);player.setPos(be.getBlockPos().getCenter());var menu=new PowerMenu(1,player.getInventory(),be);h.assertTrue(menu.slots.size()==36&&menu.solar(),"Solar menu has invented input slot");h.succeed();
+        var player=h.makeMockPlayer(GameType.SURVIVAL);player.setPos(be.getBlockPos().getCenter());var menu=new PowerMenu(1,player.getInventory(),be);h.assertTrue(menu.slots.size()==37&&menu.solar(),"Solar module slot missing");
+        var module=new ItemStack(net.zerog.tweaks.machine.CombustionRegistry.FLUX_MODULE.get(),3);
+        h.assertTrue(menu.getSlot(0).mayPlace(module)&&!menu.getSlot(0).mayPlace(new ItemStack(Items.COAL)),"Solar module filter wrong");
+        be.moduleInput.insertItem(0,module.copyWithCount(1),false);
+        player.getInventory().setItem(9,module.copyWithCount(2));menu.quickMoveStack(player,1);
+        h.assertTrue(be.modules()==3&&player.getInventory().getItem(9).isEmpty(),"Shift-click failed to install modules");
+        be.stored=be.capacity();h.assertTrue(be.moduleInput.extractItem(0,3,false).isEmpty()&&be.modules()==3,"Module removal lost stored energy");
+        be.stored=0;menu.quickMoveStack(player,0);h.assertTrue(be.modules()==0&&player.getInventory().countItem(net.zerog.tweaks.machine.CombustionRegistry.FLUX_MODULE.get())==3,"Module removal duplicated/lost items");h.succeed();
     }
 }

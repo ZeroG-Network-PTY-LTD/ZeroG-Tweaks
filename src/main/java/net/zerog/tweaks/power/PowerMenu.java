@@ -9,8 +9,11 @@ import net.neoforged.neoforge.items.SlotItemHandler;
 public final class PowerMenu extends AbstractContainerMenu {
     private final PowerBlockEntity generator;private final ContainerData data;private final int machineSlots;
     public PowerMenu(int id,Inventory inv,BlockEntity block){
-        super(PowerRegistry.MENU.get(),id);if(!(block instanceof PowerBlockEntity be))throw new IllegalArgumentException("Missing power generator");generator=be;machineSlots=be.solar()?0:1;
-        if(machineSlots>0)addSlot(new SlotItemHandler(be.fuel,0,26,44));
+        super(PowerRegistry.MENU.get(),id);if(!(block instanceof PowerBlockEntity be))throw new IllegalArgumentException("Missing power generator");generator=be;machineSlots=be.solar()?1:2;
+        if(!be.solar())addSlot(new SlotItemHandler(be.fuel,0,26,44));
+        addSlot(new SlotItemHandler(be.moduleInput,0,be.solar()?26:48,44){
+            @Override public boolean mayPickup(Player player){int n=getItem().getCount();return n>0&&be.moduleInput.extractItem(0,n,true).getCount()==n;}
+        });
         for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(inv,9+row*9+col,8+col*18,112+row*18));
         for(int col=0;col<9;col++)addSlot(new Slot(inv,col,8+col*18,170));
         data=inv.player.level().isClientSide?new SimpleContainerData(24):new ContainerData(){
@@ -19,7 +22,7 @@ public final class PowerMenu extends AbstractContainerMenu {
         };addDataSlots(data);
     }
     public int value(int i){return(data.get(i*2)&65535)|((data.get(i*2+1)&65535)<<16);}
-    public boolean solar(){return machineSlots==0;}
+    public boolean solar(){return generator.solar();}
     public boolean outputDisabled(int face){return face>=0&&face<6&&data.get(12+face)!=0;}
     public boolean fuelDisabled(int face){return face>=0&&face<6&&data.get(18+face)!=0;}
     @Override public boolean clickMenuButton(Player player,int id){
@@ -30,5 +33,13 @@ public final class PowerMenu extends AbstractContainerMenu {
         broadcastChanges();return true;
     }
     @Override public boolean stillValid(Player p){return !generator.isRemoved()&&p.level()==generator.getLevel()&&p.level().getBlockEntity(generator.getBlockPos())==generator&&p.distanceToSqr(generator.getBlockPos().getCenter())<=64;}
-    @Override public ItemStack quickMoveStack(Player p,int index){if(!stillValid(p)||index<0||index>=slots.size())return ItemStack.EMPTY;var slot=slots.get(index);if(!slot.hasItem())return ItemStack.EMPTY;var stack=slot.getItem();var copy=stack.copy();if(index<machineSlots){if(!moveItemStackTo(stack,machineSlots,slots.size(),true))return ItemStack.EMPTY;}else if(machineSlots==0||!moveItemStackTo(stack,0,machineSlots,false))return ItemStack.EMPTY;if(stack.isEmpty())slot.setByPlayer(ItemStack.EMPTY);else slot.setChanged();slot.onTake(p,stack);return copy;}
+    @Override public ItemStack quickMoveStack(Player p,int index){if(!stillValid(p)||index<0||index>=slots.size())return ItemStack.EMPTY;var slot=slots.get(index);if(!slot.hasItem()||index<machineSlots&&!slot.mayPickup(p))return ItemStack.EMPTY;var stack=slot.getItem();var copy=stack.copy();
+        if(index>=machineSlots&&generator.moduleInput.isItemValid(0,stack)){
+            var remainder=generator.moduleInput.insertItem(0,stack,false);
+            if(remainder.getCount()==stack.getCount())return ItemStack.EMPTY;
+            slot.setByPlayer(remainder);slot.onTake(p,remainder);return copy;
+        }
+        if(index<machineSlots){if(!moveItemStackTo(stack,machineSlots,slots.size(),true))return ItemStack.EMPTY;slot.setByPlayer(stack.isEmpty()?ItemStack.EMPTY:stack);}
+        else if(!moveItemStackTo(stack,0,machineSlots,false))return ItemStack.EMPTY;
+        if(stack.isEmpty())slot.setByPlayer(ItemStack.EMPTY);else slot.setChanged();slot.onTake(p,stack);return copy;}
 }

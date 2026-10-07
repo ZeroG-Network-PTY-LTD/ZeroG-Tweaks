@@ -82,7 +82,7 @@ public final class CombustionBlockEntity extends BlockEntity {
         if(level.isClientSide)return;
         if(be.burn==0&&be.stored<be.capacity()){var stack=be.fuel.getStackInSlot(0);int ticks=burnTime(stack);if(ticks>0){be.burn=be.burnTotal=ticks;be.output=switch(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath()){case "emberite"->100;case "cryocite"->150;case "coronite"->200;default->50;};be.fuel.extractItem(0,1,false);be.setChanged();}}
         int numerator=be.outputQuarterFE()+be.energyRemainder,next=numerator/4;
-        if(be.burn>0&&be.stored<=be.capacity()-next){be.burn--;be.stored+=next;be.energyRemainder=numerator%4;be.setChanged();}
+        if(be.burn>0&&be.stored<=be.capacity()-next){be.burn--;be.stored+=next;be.energyRemainder=numerator%4;be.setChanged();MachineActivity.work(level,pos,"combustion_generator");}
         boolean lit=be.burn>0;if(state.getValue(BlockStateProperties.LIT)!=lit)level.setBlock(pos,state.setValue(BlockStateProperties.LIT,lit),3);
         int remaining=1000;for(var side:Direction.values()){if(be.outputDisabled(side)||!level.hasChunkAt(pos.relative(side)))continue;var sink=level.getCapability(Capabilities.EnergyStorage.BLOCK,pos.relative(side),side.getOpposite());if(sink==null)continue;int offered=Math.min(remaining,be.stored),accepted=Math.clamp(sink.receiveEnergy(offered,true),0,offered);int n=Math.clamp(sink.receiveEnergy(accepted,false),0,accepted);be.stored-=n;remaining-=n;if(n>0)be.setChanged();if(remaining<=0)break;}
     }

@@ -7,6 +7,10 @@ root = Path(__file__).resolve().parents[1]
 loader = (root / 'src/main/java/net/zerog/tweaks/client/MachineGuiProfile.java').read_text()
 limit = int(re.search(r'xy\[1\]\+16>(\d+)', loader).group(1))
 profiles = json.loads((root / 'src/main/resources/assets/zerog_tweaks/gui/machine_profiles.json').read_text())
+opening=(root/'src/main/java/net/zerog/tweaks/client/AlvearyControllerScreen.java').read_text()
+if re.search(r'menu\.slots\.size\(\)==profile\.roles\(\)\.size\(\)\+36\)',opening):
+    raise AssertionError('Centrifuge/Smelter with appended two card slots fall back to broken addon screens: 7+36+2 != 7+36; 4+36+2 != 4+36')
+assert 'LegacyMachineCards.supports(sides.sideMachine())?2:0' in opening, 'Missing verified card-slot allowance'
 for name, profile in profiles.items():
     positions, roles = profile['positions'], profile['slots']
     assert len(positions) == len(roles) <= 9, name

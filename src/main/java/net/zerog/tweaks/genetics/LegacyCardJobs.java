@@ -31,6 +31,7 @@ public final class LegacyCardJobs {
             if(after==before&&inv.getStackInSlot(0).getCount()==count)return;
             state.putInt("energy",state.getInt("energy")-charge);
             state.putInt("card_elapsed",next);state.putInt("card_paid",paid);be.setChanged();
+            net.zerog.tweaks.machine.MachineActivity.work(level,be.getBlockPos(),GeneticsRuntime.id(be));
             if(next>=duration)LegacyMachineCards.resetJob(be);
         }catch(ReflectiveOperationException ex){throw new IllegalStateException("Verified addon recipe tick API changed",ex);}
         finally{state.remove("card_dispatch");}

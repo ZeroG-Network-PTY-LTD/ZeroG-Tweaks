@@ -179,7 +179,8 @@ public final class AlvearyControllerScreen extends AbstractContainerScreen<Abstr
                     event.setNewScreen(new AlvearyControllerScreen(menu,player.getInventory(),screen.getTitle(),tier));
                 else if(tier==0 && player!=null)
                     MachineGuiProfile.read("aeroapiary",machine.id()).filter(profile->!profile.designOnly()
-                        &&menu.slots.size()==profile.roles().size()+36).ifPresent(profile->
+                        &&menu.slots.size()==profile.roles().size()+36+
+                            (menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides&&net.zerog.tweaks.genetics.LegacyMachineCards.supports(sides.sideMachine())?2:0)).ifPresent(profile->
                             event.setNewScreen(new MachineWorkbenchScreen(menu,player.getInventory(),screen.getTitle(),profile)));
             });
         }

@@ -154,6 +154,7 @@ public final class GeneticsRuntime {
         }
         // Store fixed quarter-tick units so power changes never shorten already-earned progress.
         progress+=delta;state.putInt("progress",progress);be.setChanged();
+        net.zerog.tweaks.machine.MachineActivity.work(be.getLevel(),be.getBlockPos(),id);
         if(progress<duration(id,state.getInt("mode"))*4)return;
         var original=inv.getStackInSlot(0);ItemStack bee=ProductiveBeeGenes.analyse(original);
         if(id.equals("genetic_splicer")) {

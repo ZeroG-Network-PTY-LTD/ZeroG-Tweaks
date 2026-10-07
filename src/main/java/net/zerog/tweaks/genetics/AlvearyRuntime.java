@@ -74,6 +74,7 @@ public final class AlvearyRuntime {
         if(tier(be)>=3)state.putInt("energy",state.getInt("energy")-20*tier(be));int progress=state.getInt("progress")+1;
         if(progress>=cycle(be)){var rolled=products(be).stream().map(p->p.roll(level)).filter(s->!s.isEmpty()).toList();for(var product:rolled)deposit(be,product);var fluids=new AlvearyFluids(be);if(tier(be)>=3)fluids.fill(cycleHoney(be),net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE);if(fluids.getFluidInTank(1).getAmount()>=25)fluids.drainTank(1,25,net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE);progress=0;}
         state.putInt("progress",progress);be.setChanged();
+        net.zerog.tweaks.machine.MachineActivity.work(level,be.getBlockPos(),GeneticsRuntime.id(be));
     }
     public static IEnergyStorage energy(BlockEntity be){return new IEnergyStorage(){public int receiveEnergy(int amount,boolean simulate){int n=Math.max(0,Math.min(amount,feCapacity(be)-getEnergyStored()));if(!simulate&&n>0){state(be).putInt("energy",getEnergyStored()+n);be.setChanged();}return n;}public int extractEnergy(int n,boolean s){return 0;}public int getEnergyStored(){return Math.max(0,Math.min(feCapacity(be),state(be).getInt("energy")));}public int getMaxEnergyStored(){return feCapacity(be);}public boolean canReceive(){return feCapacity(be)>0;}public boolean canExtract(){return false;}};}
     public static IItemHandler automation(BlockEntity be){var inv=GeneticsRuntime.inventory(be);var frames=frames(be);return new IItemHandler(){

@@ -25,6 +25,7 @@ public final class LegacyMachinePower {
             int progress=(Integer)be.getClass().getMethod("getProgress").invoke(be);
             if(progress>state.getInt("before_progress")||GeneticsRuntime.inventory(be).getStackInSlot(0).getCount()<state.getInt("before_input_count")){
                 state.putInt("energy",Math.max(0,state.getInt("energy")-cost));be.setChanged();
+                net.zerog.tweaks.machine.MachineActivity.work(be.getLevel(),be.getBlockPos(),GeneticsRuntime.id(be));
             }
         }catch(ReflectiveOperationException ex){throw new IllegalStateException("Verified addon progress API changed",ex);}
         finally{state.remove("paid_tick_cost");state.remove("before_progress");state.remove("before_input_count");}
