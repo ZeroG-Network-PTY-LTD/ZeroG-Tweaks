@@ -26,8 +26,25 @@ public class TransportBlock extends BaseEntityBlock {
     @Override protected MapCodec<? extends BaseEntityBlock> codec(){return simpleCodec(p->new TransportBlock(p,"energy",0));}
     @Override protected RenderShape getRenderShape(BlockState state){return RenderShape.MODEL;}
     @Override public BlockEntity newBlockEntity(BlockPos pos,BlockState state){return new TransportBlockEntity(pos,state);}
+    private static void invalidateAround(Level level,BlockPos pos){
+        if(level.isClientSide)return;
+        if(level.getBlockEntity(pos) instanceof TransportBlockEntity be)be.invalidateTopology();
+        for(var side:net.minecraft.core.Direction.values()){
+            var next=pos.relative(side);
+            if(level.hasChunkAt(next)&&level.getBlockEntity(next) instanceof TransportBlockEntity be)be.invalidateTopology();
+        }
+    }
+    @Override protected void onPlace(BlockState state,Level level,BlockPos pos,BlockState previous,boolean moving){
+        super.onPlace(state,level,pos,previous,moving);
+        if(!state.is(previous.getBlock()))invalidateAround(level,pos);
+    }
+    @Override protected void neighborChanged(BlockState state,Level level,BlockPos pos,net.minecraft.world.level.block.Block neighbor,BlockPos neighborPos,boolean moving){
+        invalidateAround(level,pos);
+        super.neighborChanged(state,level,pos,neighbor,neighborPos,moving);
+    }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level,BlockState state,BlockEntityType<T> type){return level.isClientSide?null:createTickerHelper(type,TransportRegistry.TYPE.get(),TransportBlockEntity::tick);}
     @Override protected void onRemove(BlockState state,Level level,BlockPos pos,BlockState next,boolean moving){
+        if(!state.is(next.getBlock()))invalidateAround(level,pos);
         if(!state.is(next.getBlock())&&level.getBlockEntity(pos) instanceof TransportBlockEntity be){if(be.block().family.equals("null_link"))be.unlink();for(int i=0;i<be.items.getSlots();i++)net.minecraft.world.Containers.dropItemStack(level,pos.getX()+.5,pos.getY()+.5,pos.getZ()+.5,be.items.getStackInSlot(i));}
         super.onRemove(state,level,pos,next,moving);
     }

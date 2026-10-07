@@ -12,6 +12,14 @@ import net.zerog.tweaks.transport.TransportBlockEntity;
 
 @GameTestHolder("zerog_transport_visual") @PrefixGameTestTemplate(false)
 public final class TransportVisualGameTests {
+    @GameTest(templateNamespace="zerog_transport_visual",template="equipment_empty",timeoutTicks=100)
+    public static void wave_axis_tracks_both_legs_of_every_junction(GameTestHelper h) {
+        for(var incoming:Direction.values())for(var outgoing:Direction.values()) {
+            h.assertTrue(net.zerog.tweaks.transport.TransportMotion.ribbonAxis(incoming,outgoing,.25F)==incoming.getAxis(),"Incoming wave follows wrong junction axis");
+            h.assertTrue(net.zerog.tweaks.transport.TransportMotion.ribbonAxis(incoming,outgoing,.75F)==outgoing.getAxis(),"Outgoing wave follows wrong junction axis");
+        }
+        h.succeed();
+    }
     private static TransportBlockEntity place(GameTestHelper h, int x, String id) {
         var p=new BlockPos(x,1,1);
         h.setBlock(p,BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks",id)));

@@ -18,6 +18,20 @@ A Tier 2 gate is built **around** your Tier 1 gate. Keep everything and add:
 
 Press **Preview** on the controller to see exactly where each new block goes.
 
+## Reach Galaxy 2
+
+A formed Tier 2 survival gate reaches Cerulon, Galaxy 2's wasteland slots and its
+moon slot. Each later galaxy's moon opens at that galaxy's tier too; Tier 6 is not
+required for moons. Lower-tier gates cannot reach higher galaxies. Charge and
+ownership checks still apply, unlike the unrestricted admin test-hub gates.
+
+In Cerulon's Concord Vault, uncommon chests can hold the
+<ItemLink id="zerog_tweaks:cobaltium_upgrade_smithing_template" />,
+<ItemLink id="zerog_tweaks:cyrrium_upgrade_smithing_template" /> and
+<ItemLink id="zerog_tweaks:aurelion_upgrade_smithing_template" />. This provides a first-template source
+while the Prism Spire is unfinished. A template is not guaranteed in every chest;
+the existing duplication recipes let you copy one after finding it.
+
 ## Controller upgrades
 
 The controller has upgrade slots (one at Tier 1):

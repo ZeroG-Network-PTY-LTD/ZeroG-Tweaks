@@ -12,6 +12,44 @@ import net.zerog.tweaks.transport.TransportBlockEntity;
 @GameTestHolder("zerog_blockers") @PrefixGameTestTemplate(false)
 public final class TransportBlockerGameTests {
     @GameTest(templateNamespace="zerog_blockers",template="equipment_empty",timeoutTicks=100)
+    public static void disabled_and_rejoined_edge_revokes_both_cached_graphs(GameTestHelper h){
+        h.setBlock(new BlockPos(1,1,1),BuiltInRegistries.BLOCK.get(ResourceLocation.parse("zerog_tweaks:astrium_fluid_pipe")));
+        h.setBlock(new BlockPos(2,1,1),BuiltInRegistries.BLOCK.get(ResourceLocation.parse("zerog_tweaks:copper_fluid_pipe")));
+        var high=(TransportBlockEntity)h.getBlockEntity(new BlockPos(1,1,1));
+        var low=(TransportBlockEntity)h.getBlockEntity(new BlockPos(2,1,1));
+        var acid=new net.neoforged.neoforge.fluids.FluidStack(BuiltInRegistries.FLUID.get(ResourceLocation.parse("zerog_tweaks:acid")),100);
+        var simulate=net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.SIMULATE;
+        h.assertTrue(high.fluidHandler(null).fill(acid,simulate)==0,"Weak connected pipe accepted acid");
+        for(int n=0;n<3;n++)low.cycleFace(net.minecraft.core.Direction.WEST);
+        h.assertTrue(high.fluidHandler(null).fill(acid,simulate)==100,"Disconnected copper remained in cached graph");
+        low.cycleFace(net.minecraft.core.Direction.WEST);
+        h.assertTrue(high.fluidHandler(null).fill(acid,simulate)==0&&high.tank.isEmpty(),"Same-tick rejoin bypassed acid safety or mutated simulation");
+        h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_blockers",template="equipment_empty",timeoutTicks=100)
+    public static void all_dangerous_fluids_respect_each_connected_tier(GameTestHelper h){
+        var execute=net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE;
+        var simulate=net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.SIMULATE;
+        for(String id:new String[]{"null_fluid","acid","magma_slag","cryo_fluid","solar_plasma"}){
+            var fluid=BuiltInRegistries.FLUID.get(ResourceLocation.parse("zerog_tweaks:"+id));
+            h.assertTrue(fluid!=net.minecraft.world.level.material.Fluids.EMPTY,"Missing hazardous fluid "+id);
+            int required=net.zerog.tweaks.transport.TransportTier.minimumFluidTier(id);
+            // Descending includes a same-tick strong-to-weak replacement safety check.
+            for(int tier=5;tier>=0;tier--){
+                h.setBlock(new BlockPos(1,1,1),BuiltInRegistries.BLOCK.get(ResourceLocation.parse("zerog_tweaks:astrium_fluid_pipe")));
+                h.setBlock(new BlockPos(2,1,1),BuiltInRegistries.BLOCK.get(ResourceLocation.parse("zerog_tweaks:"+net.zerog.tweaks.transport.TransportTier.ALL[tier].name()+"_fluid_pipe")));
+                var high=(TransportBlockEntity)h.getBlockEntity(new BlockPos(1,1,1));
+                high.tank.setFluid(net.neoforged.neoforge.fluids.FluidStack.EMPTY);
+                var handler=high.fluidHandler(null);
+                var sample=new net.neoforged.neoforge.fluids.FluidStack(fluid,100);
+                int expected=tier>=required?100:0;
+                h.assertTrue(handler.fill(sample,simulate)==expected&&high.tank.isEmpty(),"Simulation bypassed tier or mutated "+id+" tier"+tier);
+                h.assertTrue(handler.fill(sample,execute)==expected&&high.tank.getFluidAmount()==expected,"Connected weak segment accepted unsafe "+id+" tier"+tier);
+            }
+        }
+        h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_blockers",template="equipment_empty",timeoutTicks=100)
     public static void alternate_path_includes_segment_with_one_disabled_face(GameTestHelper h){
         var high=BuiltInRegistries.BLOCK.get(ResourceLocation.parse("zerog_tweaks:astrium_fluid_pipe"));
         for(var pos:new BlockPos[]{new BlockPos(1,1,1),new BlockPos(1,1,0),new BlockPos(2,1,0)})h.setBlock(pos,high);

@@ -9,6 +9,10 @@ import net.neoforged.neoforge.fluids.FluidStack;
 
 /** A bounded representative pulse for a committed transfer, never a second inventory. */
 public final class TransportMotion {
+    /** A ribbon follows its current junction leg, not the exit axis for the whole trip. */
+    public static Direction.Axis ribbonAxis(Direction incoming,Direction outgoing,float progress) {
+        return (progress<0.5F?incoming:outgoing).getAxis();
+    }
     public static void committed(TransportBlockEntity source,ServerLevel level,BlockPos destination,
                                  Direction exit,ItemStack item,FluidStack fluid) {
         committed(source,level,destination,exit,item,fluid,0);

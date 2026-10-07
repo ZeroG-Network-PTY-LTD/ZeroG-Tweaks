@@ -365,7 +365,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> GILDWOOD_SLAB = BLOCKS.register("gildwood_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> GILDWOOD_TRAPDOOR = BLOCKS.register("gildwood_trapdoor", () -> new net.minecraft.world.level.block.TrapDoorBlock(BlockSetType.OAK, props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
     public static final DeferredBlock<Block> GILDWOOD_WOOD = BLOCKS.register("gildwood_wood", () -> new net.minecraft.world.level.block.RotatedPillarBlock(props(MapColor.WOOD, SoundType.WOOD, 2.0F, 6.0F)));
-    public static final DeferredBlock<Block> GLACIAL_ICE = BLOCKS.register("glacial_ice", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
+    public static final DeferredBlock<Block> GLACIAL_ICE = BLOCKS.register("glacial_ice", () -> new Block(props(MapColor.ICE, SoundType.GLASS, 2.5F, 7.0F).friction(0.98F)));
     public static final DeferredBlock<Block> GLASSY_OBSIDIAN = BLOCKS.register("glassy_obsidian", () -> new Block(props(MapColor.NONE, SoundType.GLASS, 0.4F, 0.6F).noOcclusion()));
     public static final DeferredBlock<ZGKelpBlock> GLOWKELP = BLOCKS.registerBlock("glowkelp", ZGKelpBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WATER).noCollission().randomTicks().instabreak().lightLevel(s -> 8).sound(SoundType.WET_GRASS).pushReaction(PushReaction.DESTROY));
     public static final DeferredBlock<ZGKelpPlantBlock> GLOWKELP_PLANT = BLOCKS.registerBlock("glowkelp_plant", ZGKelpPlantBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WATER).noCollission().instabreak().lightLevel(s -> 8).sound(SoundType.WET_GRASS).pushReaction(PushReaction.DESTROY));
@@ -777,7 +777,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> TREMOR_DUST_BLOCK = BLOCKS.register("tremor_dust_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> TREMOR_DUST_ORE = BLOCKS.register("tremor_dust_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, ZGSounds.DUST_ORE, 3.0F, 8.0F).requiresCorrectToolForDrops().lightLevel(s -> 7)));
     public static final DeferredBlock<Block> TREMOR_LAMP = BLOCKS.register("tremor_lamp", () -> new Block(props(MapColor.COLOR_LIGHT_GRAY, SoundType.AMETHYST, 1.0F, 6.0F).lightLevel(s -> 15)));
-    public static final DeferredBlock<Block> VENT_ROCK = BLOCKS.register("vent_rock", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
+    public static final DeferredBlock<Block> VENT_ROCK = BLOCKS.register("vent_rock", () -> new VentRockBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> WRAITHSTEEL_BLOCK = BLOCKS.register("wraithsteel_block", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> WRAITHSTEEL_CASING = BLOCKS.register("wraithsteel_casing", () -> new Block(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> WRAITHSTEEL_ORE = BLOCKS.register("wraithsteel_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, ZGSounds.METAL_ORE, 3.0F, 8.0F).requiresCorrectToolForDrops()));

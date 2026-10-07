@@ -40,12 +40,13 @@ public final class TransportMotionRenderer implements BlockEntityRenderer<Transp
                 light=LightTexture.pack(Math.max(LightTexture.block(light),fluid.getFluid().getFluidType().getLightLevel(fluid)),LightTexture.sky(light));
                 var out=buffers.getBuffer(RenderType.entityTranslucent(InventoryMenu.BLOCK_ATLAS));
                 // Short, independently undulating ribbons retain the actual fluid's flowing texture.
+                var axis=net.zerog.tweaks.transport.TransportMotion.ribbonAxis(from,to,t);
                 for(int band=0;band<3;band++){
                     float wave=.018F*(float)Math.sin((t*2+band*.35F)*Math.PI*2);
                     float offset=(band-1)*.055F;
                     float minX=-.025F,minY=-.05F+wave,minZ=-.09F,maxX=.025F,maxY=.025F+wave,maxZ=.09F;
-                    if(to.getAxis()==Direction.Axis.X){minX=-.09F;maxX=.09F;minZ=offset-.025F;maxZ=offset+.025F;}
-                    else if(to.getAxis()==Direction.Axis.Z){minX=offset-.025F;maxX=offset+.025F;}
+                    if(axis==Direction.Axis.X){minX=-.09F;maxX=.09F;minZ=offset-.025F;maxZ=offset+.025F;}
+                    else if(axis==Direction.Axis.Z){minX=offset-.025F;maxX=offset+.025F;}
                     else {minX=offset-.025F;maxX=offset+.025F;minY=-.09F;maxY=.09F;minZ=-.025F;maxZ=.025F;}
                     for(int f=0;f<6;f++){var n=StorageRenderGeometry.NORMALS[f];StorageRenderGeometry.quad(out,poses.last(),StorageRenderGeometry.face(f,minX,minY,minZ,maxX,maxY,maxZ),sprite.getU0(),sprite.getV0(),sprite.getU1(),sprite.getV1(),tint,light,n[0],n[1],n[2]);}
                 }
