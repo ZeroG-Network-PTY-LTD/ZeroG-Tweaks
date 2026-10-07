@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "date": "2026-10-08",
+  "timezone": "Asia/Bangkok",
+  "runtime_base": "8fe807fa",
+  "scope": "Disposable fixture interactions and shipped-source graph; no client or player saves",
+  "game_tests": {
+    "passing_log": "20261007_173420_runWorkflowTests.log",
+    "passing_log_sha256": "2fe3bc4822ed3771061ed1593db705a5c4e1d859c1847a216c7534545f3949a9",
+    "required_passes": 7,
+    "new_test_methods": 2,
+    "previous_regression_methods": 5,
+    "altar_claims": 4,
+    "guardians_per_claim": 3,
+    "chamber_orientations": 4,
+    "keys_consumed_per_chamber": 4,
+    "summon_delay_work": "Direct registered ticker invocation, not real-time combat",
+    "server_stopped_cleanly": true,
+    "earlier_passing_revision_log": "20261007_172909_runWorkflowTests.log",
+    "non_test_launch": "20261007_172253_runWorkflowTests.log",
+    "non_test_launch_reason": "No test functions selected; Gradle success was not accepted as gameplay evidence"
+  },
+  "source_graph": {
+    "report": "structure-routes-20261008.json",
+    "report_sha256": "7a6e0b8d7d872b9fc46542f08f70bdd548c864e32fb41639f262173e85be11f7",
+    "configured_jigsaw_structures": 4,
+    "missing_references_in_existing_routes": 0,
+    "unit_test_count": 3,
+    "natural_generation_proof": false
+  },
+  "production_build": {
+    "log": "20261007_173907_clean.log",
+    "log_sha256": "b95c6dbd22aff8a46d74dd2fcd9b5761127de12279bbcde5f5f78bb467351088",
+    "successful": true,
+    "test_classes_shipped": false,
+    "byte_identical_to_installed_jar": true,
+    "asset_errors": 0,
+    "checked_models": 7977,
+    "checked_blockstates": 1528,
+    "checked_pngs": 3962,
+    "checked_animation_metadata": 129
+  },
+  "local_installation_changed": false,
+  "client_saves_changed": false,
+  "installed_version": "1.0.12-dev",
+  "installed_sha256": "ccea0e94cf91e1adc9ff1c74a9978de07f599caf5bbc50a806f26e9c61313295",
+  "pending": [
+    "Natural traversal, chest reward rolls, combat and active-fight save/reload",
+    "Missing later ruins, signature wildlife and guardian progression",
+    "Broader village/ecology sampling and client visual approval",
+    "Undefined biology, seven-wide layouts and exact survival costs"
+  ]
+}
