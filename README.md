@@ -2,6 +2,8 @@
 
 ## Original Void card — 7 October 2026
 
+[Completed work and next TODOs](docs/completed-and-next-2026-10-07.md) · [Full task ledger](docs/storage-and-machinery-todo.json).
+
 Same **1.0.12-dev**. [Void filter guide](docs/void-card-2026-10-07.md) · [Verified JAR](docs/jars/zerog-tweaks-1.21.1-1.0.12-dev-void-card-20261007.jar) · [Delivery receipt](docs/void-card-delivery-2026-10-07.json).
 Alloy Forge, Ore Refinery, Crystal Growth Chamber and Salvage Station now have
 a fourth upgrade socket and a saved, paged36-item output filter. Only selected
