@@ -13,6 +13,29 @@ import net.zerog.tweaks.transport.TransportBlockEntity;
 @GameTestHolder("zerog_transport_visual") @PrefixGameTestTemplate(false)
 public final class TransportVisualGameTests {
     @GameTest(templateNamespace="zerog_transport_visual",template="equipment_empty",timeoutTicks=100)
+    public static void wrench_targets_all_six_arms_and_pipe_shapes_match_connections(GameTestHelper h) {
+        var origin=new BlockPos(10,20,30);
+        for(var side:Direction.values()) {
+            var hit=net.minecraft.world.phys.Vec3.atCenterOf(origin).add(side.getStepX()*.45,side.getStepY()*.45,side.getStepZ()*.45);
+            h.assertTrue(net.zerog.tweaks.transport.WrenchModes.targetSide(origin,hit,side.getOpposite())==side,"Arm targeting chose clicked face instead of arm "+side);
+        }
+        h.assertTrue(net.zerog.tweaks.transport.WrenchModes.targetSide(origin,net.minecraft.world.phys.Vec3.atCenterOf(origin),Direction.UP)==Direction.UP,"Centre targeting lost clicked face");
+        for(String family:new String[]{"energy_conduit","fluid_pipe","gas_tube","item_tube"}) {
+            var block=BuiltInRegistries.BLOCK.get(ResourceLocation.parse("zerog_tweaks:copper_"+family));
+            h.assertTrue(block instanceof net.zerog.tweaks.transport.TransportBlock.Wire,"Missing wire family "+family);
+            var state=block.defaultBlockState();
+            var shape=state.getShape(h.getLevel(),h.absolutePos(BlockPos.ZERO));
+            h.assertTrue(shape.min(Direction.Axis.X)>0&&shape.max(Direction.Axis.X)<1,"Unconnected pipe still has full-block hitbox "+family);
+            for(var side:Direction.values()) {
+                var connected=state.setValue(net.zerog.tweaks.transport.TransportBlock.SIDES.get(side),net.zerog.tweaks.transport.TransportBlock.Connection.PIPE);
+                var arm=connected.getShape(h.getLevel(),h.absolutePos(BlockPos.ZERO));
+                double edge=side.getAxisDirection()==Direction.AxisDirection.POSITIVE?arm.max(side.getAxis()):arm.min(side.getAxis());
+                h.assertTrue(edge==(side.getAxisDirection()==Direction.AxisDirection.POSITIVE?1:0),"Connected arm misses block boundary "+family+" "+side);
+            }
+        }
+        h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_transport_visual",template="equipment_empty",timeoutTicks=100)
     public static void wave_axis_tracks_both_legs_of_every_junction(GameTestHelper h) {
         for(var incoming:Direction.values())for(var outgoing:Direction.values()) {
             h.assertTrue(net.zerog.tweaks.transport.TransportMotion.ribbonAxis(incoming,outgoing,.25F)==incoming.getAxis(),"Incoming wave follows wrong junction axis");
