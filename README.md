@@ -1,5 +1,16 @@
 # ZeroG Tweaks
 
+## Processor power-face repair — 7 October 2026
+
+Same **1.0.12-dev**. [Repair and approved next card contract](docs/processor-power-revocation-2026-10-07.md) · [TODO ledger](docs/storage-and-machinery-todo.json).
+
+Disabling then re-enabling a native processor's power face no longer revives its
+old cached connection. Fresh cable handlers resume normal charging. All **110**
+isolated regressions passed. The delivery receipt records the production build,
+installed JAR and checksums; no artwork, hub or saves change in this repair.
+Acceleration/Energy Coil expansion to four genetics/legacy machines is approved
+and next for implementation—not included here.
+
 ## Original gas transport — 7 October 2026
 
 Same **1.0.12-dev**. [Gas and visual guide](docs/gas-transport-2026-10-07.md) · [TODO ledger](docs/storage-and-machinery-todo.json).

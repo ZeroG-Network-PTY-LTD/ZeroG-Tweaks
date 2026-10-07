@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "created_utc": "2026-10-07T01:40:32.585003+00:00",
+  "version": "1.0.12-dev",
+  "minecraft": "1.21.1",
+  "loader": "NeoForge",
+  "jar": "zerog-tweaks-1.21.1-1.0.12-dev-power-revocation-20261007.jar",
+  "sha256": "730f70911b1c5eb62ff5035849bd4dd0e469d52c3a131839d0b398b77c810fd5",
+  "bytes": 27064622,
+  "installed_before_publication": true,
+  "old_jar_backup": "20261007-014011-UTC",
+  "backed_up": [
+    "zerog-tweaks-1.21.1-1.0.12-dev.jar"
+  ],
+  "preserved_dependencies": [
+    {
+      "name": "geckolib-neoforge-1.21.1-4.9.3.jar",
+      "ids": [
+        "geckolib"
+      ],
+      "sha256": "20a1995e4074f387ff549e2c57ea79dd7d41ee83c6afb9dd6a6e840e592d1c47"
+    },
+    {
+      "name": "productivebees-1.21.1-13.14.0.jar",
+      "ids": [
+        "productivebees"
+      ],
+      "sha256": "2a7ecbcebb8bb91eca141261addfcdbc112f0be160b618ed47960c3b20ff0bf4"
+    },
+    {
+      "name": "zerog-binnie-expansion-1.21.1-1.0.0.jar",
+      "ids": [
+        "aeroapiary"
+      ],
+      "sha256": "30d286d27140c57f8c742ab4fbb81f88b4b0d9332fe7bcd789aa0d7587b2695a"
+    }
+  ],
+  "save_changes": false,
+  "world_regeneration": false,
+  "client_launched": false,
+  "tests": [
+    {
+      "log": "20261007_013737_runWorkflowTests.log",
+      "sha256": "37906a473a2e19114013a41c6c18b626fcd6038704e5939fd09a3a2f2dea107f",
+      "required_passes": 110,
+      "client_visual_approval": false
+    }
+  ],
+  "asset_audits": [
+    {
+      "report": "power-revocation-assets-20261007.json",
+      "sha256": "afa653e87fde7fdbdd7b45434435a958a96656d10fb57b0dfd1e3215833678ef",
+      "checked": {
+        "models": 7977,
+        "blockstates": 1528,
+        "pngs": 3943,
+        "animation_metadata": 120,
+        "source_byte_bindings": 0
+      },
+      "errors": 0
+    }
+  ],
+  "build": {
+    "log": "20261007_013851_clean.log",
+    "sha256": "68752d0513ab83c526b53599d392f49d843f14d2936b1e246702d3035edc71fe",
+    "clean_production": true
+  },
+  "remaining": [
+    "genetics-legacy-upgrade-cards",
+    "alloy-forge-menu-input-catalyst-report",
+    "machine-upgrade-cards-six-tiers",
+    "machine-void-card-upgrades-tab",
+    "solar-fusion-output-face-controls",
+    "cardinal-hub-and-legacy-gui-fallback",
+    "machine-gui-and-legacy-power-hotfix",
+    "supplied-hub-workshop",
+    "reference-audit",
+    "four-wood-joinery",
+    "wood-storage-expansion",
+    "six-fluid-tanks",
+    "generator-flux-modules",
+    "sunless-agriculture",
+    "themed-village-doors",
+    "vanilla-worn-armor",
+    "orbital-comb-style",
+    "alveary-role-substitutions",
+    "alveary-output-gui",
+    "refinery-controls",
+    "mining-correct-tool-gates",
+    "large-network-and-nearest-routing",
+    "mixed-tier-hazardous-fluid-safety",
+    "jelly-fluid-buckets",
+    "jelly-original-art-and-standalone-recipes",
+    "bee-survival-crafting",
+    "alveary-honey-production-route",
+    "planet-hive-discovery",
+    "alveary-held-item-and-errors",
+    "genetics-held-item-bucket-route",
+    "concord-codex-research-gates",
+    "recipe-discovery-guide",
+    "recipe-discovery-remaining-machines",
+    "blueprint-interaction",
+    "client-acceptance",
+    "dynamic-tank-fluid-renderer",
+    "chest-lid-animation",
+    "transport-moving-renderer",
+    "existing-machine-purpose-audit",
+    "legacy-addon-machine-dispatch",
+    "transport-family-gui",
+    "per-machine-upgrade-contracts",
+    "advanced-alveary-biology",
+    "external-claim-team-adapters",
+    "frost-yak-grazing",
+    "remaining-mob-model-mechanics",
+    "solar-fusion-balance",
+    "duplicate-click-gui-routes",
+    "alveary-five-port-base",
+    "transport-tank-six-face-panel",
+    "transport-cell-native-art",
+    "service-hub-rebuild",
+    "larger-authored-alveary-layouts",
+    "all-machine-side-configuration",
+    "distinct-hatch-state-artwork",
+    "power-directional-pulses",
+    "gas-registry-and-networks",
+    "liquid-wave-visuals",
+    "holographic-diagnostics",
+    "solar-plasma-and-cooling",
+    "planet-ecology-broad-audit",
+    "galaxy-tracker-reconciliation",
+    "galaxy-template-loot-progression",
+    "galaxy-guardian-key-gates",
+    "wasteland-structures-and-signature-mobs",
+    "frozen-fleet-and-endgame",
+    "sol-rustborn-aresite-shrine",
+    "sol-codex-localized-pages",
+    "sol-meteor-maw-concord-debris",
+    "galaxy-trades-codex-gear-perks",
+    "seeded-galaxy-catalogue"
+  ],
+  "guide": "storage-and-machinery-workflow.md",
+  "todo": "storage-and-machinery-todo.json",
+  "ownership": {
+    "runtime": "1.21.x",
+    "source_art": "Design",
+    "guides_images_jars": "Docs"
+  },
+  "jar_checksums_preserved": 36,
+  "todo_sha256": "bbf64219587cfb44e591771334a3c5298c0afca95a54679fd881c2cef0abdf50"
+}

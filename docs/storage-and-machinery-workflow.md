@@ -10,6 +10,12 @@ those will be reviewed hardest-to-easiest against the storyline after inspection
 
 ## Current TODO reconciliation — 7 October
 
+The [processor power-face repair](processor-power-revocation-2026-10-07.md) closes
+the cached-handler revival gap in the four native processors. The owner approved
+Acceleration/Energy Coil expansion to the Geno Station, Genetic Splicer,
+Centrifuge and Starmetal Smelter at existing bounds; implementation is next,
+not a completed feature of this repair.
+
 Latest gas extension: [oxygen/hydrogen and transport visuals](gas-transport-2026-10-07.md).
 Original gas tubes and refillable canisters now have runtime bindings, conserved mB
 capabilities and targeted server evidence. Directional power pulses and flowing-fluid
