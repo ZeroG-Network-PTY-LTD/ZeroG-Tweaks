@@ -17,6 +17,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
  */
 public final class PlanetPrecipitation {
     public static boolean tick(ClientLevel level,int ticks,net.minecraft.client.Camera camera) {
+        if(!net.zerog.tweaks.event.PlanetStorms.enabled())return false;
         var mode=PlanetWeatherEffects.activeWeather();
         if(mode!=PlanetWeatherEffects.Preview.ACID && mode!=PlanetWeatherEffects.Preview.ELECTRICAL)return true;
         if(PlanetWeatherEffects.strength()<.1F)return true;
@@ -44,6 +45,7 @@ public final class PlanetPrecipitation {
         return true;
     }
     public static boolean render(ClientLevel level,int ticks,float partial,LightTexture light,double cx,double cy,double cz) {
+        if(!net.zerog.tweaks.event.PlanetStorms.enabled())return false;
         var mode=PlanetWeatherEffects.activeWeather();
         boolean snow=mode==PlanetWeatherEffects.Preview.BLIZZARD;
         if(!snow && mode!=PlanetWeatherEffects.Preview.ACID && mode!=PlanetWeatherEffects.Preview.ELECTRICAL)return true;

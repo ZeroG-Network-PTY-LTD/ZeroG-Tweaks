@@ -28,6 +28,8 @@ import net.zerog.tweaks.worldgen.PlanetEcologyProfile;
 /** Server-owned storms. No client thread accesses a server level or its RNG. */
 @EventBusSubscriber(modid="zerog_tweaks")
 public final class PlanetStorms {
+    /** Owner-requested build pause. Old configuration and admin tools cannot re-enable it. */
+    public static boolean enabled() { return false; }
     public enum Mode {
         AUTO, CLEAR, FOG, BLIZZARD, STEAM, ASH, GEYSER, DUST, VORTEX, ACID, ELECTRICAL;
         public boolean rain() { return this==ACID || this==ELECTRICAL || this==BLIZZARD; }
@@ -54,6 +56,7 @@ public final class PlanetStorms {
                 && ZGDimensionTerrain.SOILS.containsKey(level.dimension().location().getPath());
     }
     public static Mode automatic(String name,long time,String biome) {
+        if(!enabled())return Mode.CLEAR;
         long offset=Math.floorMod(name.hashCode(),7200);
         if(Math.floorMod(time+offset,7200)>=1800 || name.equals("moon") || name.endsWith("_moons"))return Mode.CLEAR;
         if(biome.contains("acid")||biome.contains("toxic")||biome.contains("mud_flats"))return Mode.ACID;
@@ -68,12 +71,17 @@ public final class PlanetStorms {
     }
     public static void override(ServerLevel level,Mode mode) {
         if(!level.getServer().isSameThread())throw new IllegalStateException("Weather requires server thread");
+        if(!enabled())return;
         OVERRIDES.put(level,mode); apply(level,mode==Mode.AUTO?Mode.CLEAR:mode);
     }
     @SubscribeEvent public static void commands(RegisterCommandsEvent event) {
         event.getDispatcher().register(Commands.literal("zgweather").requires(source->source.hasPermission(2)
                 || source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player && player.getAbilities().instabuild)
             .then(Commands.argument("mode",StringArgumentType.word()).executes(context->{
+                if(!enabled()){
+                    context.getSource().sendFailure(net.minecraft.network.chat.Component.literal("Custom ZeroG weather is disabled in this build; vanilla weather is unchanged."));
+                    return 0;
+                }
                 var level=context.getSource().getLevel(); if(!planet(level))return 0;
                 Mode mode;try {mode=Mode.valueOf(StringArgumentType.getString(context,"mode").toUpperCase(Locale.ROOT));}
                 catch(IllegalArgumentException ex){return 0;}
@@ -87,6 +95,7 @@ public final class PlanetStorms {
         if(level.getGameTime()%20==0)PacketDistributor.sendToPlayersInDimension(level,new State(level.dimension().location().toString(),mode.ordinal()));
     }
     @SubscribeEvent public static void tick(LevelTickEvent.Post event) {
+        if(!enabled())return;
         if(!(event.getLevel() instanceof ServerLevel level) || !planet(level) || level.players().isEmpty()
                 )return;
         String biome=level.getBiome(level.players().getFirst().blockPosition()).unwrapKey().map(k->k.location().getPath()).orElse("");
@@ -109,12 +118,14 @@ public final class PlanetStorms {
     }
     public static boolean strike(ServerLevel level,BlockPos pos) {
         if(!level.getServer().isSameThread())throw new IllegalStateException("Lightning requires server thread");
+        if(!enabled())return false;
         if(!planet(level)||!level.hasChunkAt(pos)||!level.canSeeSky(pos)||!safeStrike(level,pos))return false;
         var bolt=EntityType.LIGHTNING_BOLT.create(level);if(bolt==null)return false;
         bolt.moveTo(pos.getX()+.5,pos.getY(),pos.getZ()+.5);bolt.setVisualOnly(false);
         return level.addFreshEntity(bolt);
     }
     @SubscribeEvent public static void protectNativeStrikes(EntityJoinLevelEvent event) {
+        if(!enabled())return;
         if(event.getEntity() instanceof LightningBolt && event.getLevel() instanceof ServerLevel level
                 && planet(level) && !safeStrike(level,event.getEntity().blockPosition()))event.setCanceled(true);
     }

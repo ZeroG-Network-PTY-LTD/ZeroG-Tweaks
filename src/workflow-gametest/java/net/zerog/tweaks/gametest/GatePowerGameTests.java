@@ -20,6 +20,40 @@ import net.zerog.tweaks.travel.SurvivalGateLayout;
 @GameTestHolder("zerog_gate_power")
 @PrefixGameTestTemplate(false)
 public final class GatePowerGameTests {
+    @GameTest(templateNamespace="zerog_gate_power",template="equipment_empty",timeoutTicks=1000)
+    public static void all_six_tiers_in_four_facings_share_port_energy_and_revoke_removed_handlers(GameTestHelper h){
+        var level=h.getLevel();int checked=0;
+        for(int tier=1;tier<=6;tier++)for(Direction facing:new Direction[]{Direction.NORTH,Direction.EAST,Direction.SOUTH,Direction.WEST}){
+            BlockPos centre=h.absolutePos(new BlockPos(128+tier*24,10,128+facing.get2DDataValue()*24));
+            SurvivalGateLayout.loadFootprint(level,centre.offset(SurvivalGateLayout.rotate(new BlockPos(0,1,-2),facing)),facing);
+            for(var part:SurvivalGateLayout.parts(tier))level.setBlock(centre.offset(SurvivalGateLayout.rotate(part.offset(),facing)),part.block().defaultBlockState(),3);
+            BlockPos controller=centre.offset(SurvivalGateLayout.rotate(new BlockPos(0,1,-2),facing));
+            level.setBlock(controller,BlockInit.GATE_CONTROLLER.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,facing),3);
+            var gate=(SurvivalGateBlockEntity)level.getBlockEntity(controller);
+            h.assertTrue(gate!=null&&gate.formedTier()==tier,"Wrong formed tier: "+tier+" "+facing);
+            int ports=0;
+            for(var part:SurvivalGateLayout.parts(tier))if(part.block()==BlockInit.GATE_ENERGY_PORT.get()){
+                BlockPos pos=centre.offset(SurvivalGateLayout.rotate(part.offset(),facing));
+                for(Direction side:Direction.values()){
+                    var energy=level.getCapability(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,pos,side);
+                    h.assertTrue(energy!=null&&energy.canReceive()&&!energy.canExtract(),"Missing receive-only port: "+tier+" "+facing+" "+side);
+                    int before=gate.stored;
+                    h.assertTrue(energy.receiveEnergy(7,true)==7&&gate.stored==before,"Simulation changed shared FE");
+                    h.assertTrue(energy.receiveEnergy(7,false)==7&&gate.stored==before+7&&energy.getEnergyStored()==gate.stored,"Port/controller buffer diverged");
+                    h.assertTrue(energy.extractEnergy(7,false)==0,"Gate port exported stored launch FE");
+                }
+                ports++;
+            }
+            h.assertTrue(ports==(tier<3?1:tier<5?2:4)&&gate.stored==ports*6*7,"Wrong number of ports or non-conserved FE");
+            BlockPos removed=centre.offset(SurvivalGateLayout.rotate(new BlockPos(2,1,0),facing));
+            var cached=level.getCapability(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,removed,Direction.UP);
+            int before=gate.stored;level.setBlock(removed,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
+            h.assertTrue(gate.formedTier()==0&&cached.receiveEnergy(7,false)==0&&gate.stored==before,"Removed required port retained cached charging");
+            for(var part:SurvivalGateLayout.parts(tier))level.setBlock(centre.offset(SurvivalGateLayout.rotate(part.offset(),facing)),net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
+            checked++;
+        }
+        h.assertTrue(checked==24,"Incomplete gate rotation matrix");h.succeed();
+    }
     private static void transfer(GameTestHelper h, boolean port, boolean configured) {
         var level=h.getLevel();
         BlockPos centre=h.absolutePos(new BlockPos(8,4,8));

@@ -1,5 +1,21 @@
 # AGENTS.md: build guide for ZeroG Tweaks
 
+## Owner weather pause — 8 October 2026
+
+Custom planetary weather is paused by `PlanetStorms.enabled() == false` in this
+build. Do not re-enable automatic storms, admin previews, custom precipitation,
+lightning, storm fog or ambient vent smoke without new owner approval. Delegate
+native rain/snow rendering and sound to Minecraft; do not force vanilla clear.
+Keep all weather registry/packet IDs for saved-world compatibility. Coloured
+stars, machine activity, fluid fog and bee-smoker particles are separate systems.
+Client improvement awaits next launch, but an isolated no-Iris registry-freeze
+pause was attributed by two live thread snapshots to per-state pipe voxel joins.
+Wire caches must use shared normalized geometric keys, never all375,000 full
+states across tiers. Preserve slim cores, arms and plates; shape equivalence and
+cache-identity checks cover every state. Shaders-off alone is not this repair.
+Use `tools/audit_client_startup.py` and scoped thread capture, never launcher
+argument dumps or unrelated process termination. Keep approved artwork intact.
+
 This file is for the AI coding agent (or human) turning this repo into a working mod. Read it top to bottom before writing code. The **design doc** is the source of truth for gameplay: `docs/zero-g-tweaks-bundle/ZeroG_Tweaks_Design_Doc.md`. (The `docs/` design bundle lives on the `Design` branch; player docs, images and release jars on the `Docs` branch.) This file tells you what already exists, what data expects from Java, and what is left to build.
 
 ## Branch layout — read before committing

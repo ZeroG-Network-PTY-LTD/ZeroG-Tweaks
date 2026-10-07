@@ -43,14 +43,16 @@ public final class PlanetWeatherEffects {
     private static Preview preview=Preview.AUTO;
     private static Preview active=Preview.CLEAR;
     private static float intensity;
-    public static Preview activeWeather() { return active; }
-    public static float strength() { return intensity; }
+    public static Preview activeWeather() { return net.zerog.tweaks.event.PlanetStorms.enabled()?active:Preview.CLEAR; }
+    public static float strength() { return net.zerog.tweaks.event.PlanetStorms.enabled()?intensity:0; }
     @SubscribeEvent public static void thunder(net.neoforged.neoforge.client.event.sound.PlaySoundEvent event) {
+        if(!net.zerog.tweaks.event.PlanetStorms.enabled())return;
         if(planet(Minecraft.getInstance().level) && !ZGWeatherConfig.THUNDER.get()
                 && event.getOriginalSound().getLocation().equals(net.minecraft.sounds.SoundEvents.LIGHTNING_BOLT_THUNDER.getLocation()))
             event.setSound(null);
     }
     public static void setPreview(Preview mode) {
+        if(!net.zerog.tweaks.event.PlanetStorms.enabled())return;
         var client=Minecraft.getInstance();
         if(client.player==null || !client.player.getAbilities().instabuild || !planet(client.level)) return;
         preview=mode;
@@ -66,6 +68,10 @@ public final class PlanetWeatherEffects {
     @SubscribeEvent public static void tester(PlayerInteractEvent.RightClickItem event) {
         if(!event.getLevel().isClientSide()) return;
         if(!event.getItemStack().is(ItemInit.WEATHER_TESTER.get())) return;
+        if(!net.zerog.tweaks.event.PlanetStorms.enabled()) {
+            event.getEntity().displayClientMessage(Component.literal("Custom ZeroG weather is disabled in this build."),true);
+            event.setCanceled(true); event.setCancellationResult(InteractionResult.SUCCESS); return;
+        }
         if(!event.getEntity().getAbilities().instabuild) {
             event.getEntity().displayClientMessage(Component.literal("Weather tester requires Creative mode."),true);
             event.setCanceled(true); event.setCancellationResult(InteractionResult.FAIL); return;
@@ -76,6 +82,7 @@ public final class PlanetWeatherEffects {
         event.setCanceled(true); event.setCancellationResult(InteractionResult.SUCCESS);
     }
     @SubscribeEvent public static void fog(ViewportEvent.RenderFog event) {
+        if(!net.zerog.tweaks.event.PlanetStorms.enabled())return;
         if(!planet(Minecraft.getInstance().level) || intensity<=.01F || event.getType()!=FogType.NONE
                 || event.getMode()!=FogRenderer.FogMode.FOG_TERRAIN) return;
         float distance=switch(active) {case FOG->50; case BLIZZARD->38; case DUST,VORTEX,ASH->72; case ACID->100; default->0;};
@@ -86,6 +93,7 @@ public final class PlanetWeatherEffects {
     }
 
     @SubscribeEvent public static void menu(ScreenEvent.Init.Post event) {
+        if(!net.zerog.tweaks.event.PlanetStorms.enabled())return;
         if (event.getScreen() instanceof TitleScreen screen) {
             event.addListener(Button.builder(Component.literal("ZeroG Weather"), button ->
                     Minecraft.getInstance().setScreen(new PlanetWeatherScreen(screen)))
@@ -94,6 +102,9 @@ public final class PlanetWeatherEffects {
     }
 
     @SubscribeEvent public static void tick(ClientTickEvent.Post event) {
+        if(!net.zerog.tweaks.event.PlanetStorms.enabled()) {
+            preview=Preview.AUTO;active=Preview.CLEAR;intensity=0;return;
+        }
         var client = Minecraft.getInstance(); var level = client.level; var player = client.player;
         if (level != previousLevel) { previousLevel=level; lastTick=Long.MIN_VALUE; preview=Preview.AUTO; active=Preview.CLEAR; intensity=0; }
         if (level==null || player==null || client.isPaused()) return;

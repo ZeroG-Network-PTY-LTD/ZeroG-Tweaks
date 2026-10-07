@@ -9,6 +9,10 @@ import net.minecraft.network.chat.Component;
 public final class WeatherTestScreen extends Screen {
     public WeatherTestScreen() { super(Component.literal("Z-Admintools — Weather tester")); }
     @Override protected void init() {
+        if(!net.zerog.tweaks.event.PlanetStorms.enabled()) {
+            addRenderableWidget(Button.builder(Component.literal("Close"),button->onClose()).bounds(width/2-74,height/2,148,20).build());
+            return;
+        }
         var modes=PlanetWeatherEffects.Preview.values();
         int top=Math.max(48,height/2-100);
         for(int i=0;i<modes.length;i++) {
@@ -27,6 +31,6 @@ public final class WeatherTestScreen extends Screen {
     @Override public void render(GuiGraphics graphics,int mouseX,int mouseY,float tick) {
         super.render(graphics,mouseX,mouseY,tick);
         graphics.drawCenteredString(font,title,width/2,18,0xFFFFFF);
-        graphics.drawCenteredString(font,"Creative • planet weather • real lightning; acid is harmless",width/2,32,0xA8CBDF);
+        graphics.drawCenteredString(font,net.zerog.tweaks.event.PlanetStorms.enabled()?"Creative • planet weather • real lightning; acid is harmless":"Custom weather disabled in this build • vanilla weather unchanged",width/2,32,0xA8CBDF);
     }
 }

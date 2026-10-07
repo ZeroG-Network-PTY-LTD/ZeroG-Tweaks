@@ -12,6 +12,10 @@ public final class PlanetWeatherScreen extends Screen {
     public PlanetWeatherScreen(Screen parent) { super(Component.literal("ZeroG Alien Weather")); this.parent=parent; }
     @Override protected void init() {
         int x=width/2-110, y=Math.max(55,height/2-45);
+        if(!net.zerog.tweaks.event.PlanetStorms.enabled()) {
+            addRenderableWidget(Button.builder(Component.literal("Done"),b -> onClose()).bounds(x,y,220,20).build());
+            return;
+        }
         addRenderableWidget(Button.builder(qualityLabel(),b -> {
             ZGWeatherConfig.QUALITY.set((ZGWeatherConfig.QUALITY.get()+1)%3);
             ZGWeatherConfig.SPEC.save();b.setMessage(qualityLabel());
@@ -31,6 +35,6 @@ public final class PlanetWeatherScreen extends Screen {
     @Override public void render(GuiGraphics graphics,int mouseX,int mouseY,float tick) {
         super.render(graphics,mouseX,mouseY,tick);
         graphics.drawCenteredString(font,title,width/2,22,0xFFFFFF);
-        graphics.drawCenteredString(font,"Acid is harmless • native lightning can damage and ignite",width/2,37,0xAAAAAA);
+        graphics.drawCenteredString(font,net.zerog.tweaks.event.PlanetStorms.enabled()?"Acid is harmless • native lightning can damage and ignite":"Custom weather disabled in this build • vanilla weather unchanged",width/2,37,0xAAAAAA);
     }
 }

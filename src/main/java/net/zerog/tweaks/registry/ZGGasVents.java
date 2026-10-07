@@ -44,6 +44,7 @@ public final class ZGGasVents {
         GasVentBlock(String planet,Properties properties){this(planet,properties,false);}
         GasVentBlock(String planet,Properties properties,boolean ambientOnly){super(properties);this.planet=planet;this.ambientOnly=ambientOnly;}
         @Override public void animateTick(BlockState state,Level level,BlockPos pos,RandomSource random) {
+            if(ambientOnly&&!net.zerog.tweaks.event.PlanetStorms.enabled())return;
             if(!level.getBlockState(pos.above()).isAir()) return;
             for(int i=0;i<(ambientOnly?4:2);i++) level.addParticle(SMOKE.get(planet).get(),pos.getX()+.5+random.nextGaussian()*.12,pos.getY()+1.1,pos.getZ()+.5+random.nextGaussian()*.12,0,ambientOnly?.10:.04,0);
         }

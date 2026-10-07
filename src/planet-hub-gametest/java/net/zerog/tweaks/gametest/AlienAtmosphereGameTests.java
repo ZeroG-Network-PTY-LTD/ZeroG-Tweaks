@@ -23,45 +23,26 @@ import net.zerog.tweaks.registry.*;
 @GameTestHolder("zerog_tweaks")
 @PrefixGameTestTemplate(false)
 public final class AlienAtmosphereGameTests {
-    // A fresh hub must generate all 34 landing sites before this test can
-    // inspect protected gates. The old 200-tick budget only worked on warm saves.
-    @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=20000)
-    public static void native_storms_strike_and_protect_arrivals(GameTestHelper helper) {
+    // Weather pause must not wait for or force preparation of the old 34-world hub.
+    @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=100)
+    public static void custom_storms_remain_disabled_and_native_weather_is_unchanged(GameTestHelper helper) {
         var server=helper.getLevel().getServer();
         var mars=server.getLevel(ResourceKey.create(Registries.DIMENSION,ResourceLocation.fromNamespaceAndPath("zerog_tweaks","mars")));
         helper.assertTrue(mars!=null,"Missing Mars");
-        var centre=new BlockPos(5672,mars.getMaxBuildHeight()-12,5608);
-        boolean alreadyForced=mars.getForcedChunks().contains(net.minecraft.world.level.ChunkPos.asLong(354,350));
-        mars.setChunkForced(354,350,true);mars.getChunk(354,350);
-        var ledger=net.zerog.tweaks.travel.GateLedger.get(server);
-        var cow=EntityType.COW.create(mars);
-        cow.moveTo(centre,0,0);cow.setNoAi(true);cow.setNoGravity(true);mars.addFreshEntity(cow);
-        // Wait for entity ticking, not merely a generated/full chunk.
-        helper.startSequence().thenWaitUntil(()->helper.assertTrue(cow.tickCount>0 && ledger.prepared==34,"Waiting for lightning fixture and gates"))
-        .thenExecute(()->{
+        float rain=mars.getRainLevel(1),thunder=mars.getThunderLevel(1);
         try {
-            var gate=ledger.gates.values().stream().filter(g->g.dimension.equals("zerog_tweaks:mars") && g.testPower).findFirst().orElseThrow();
-            helper.assertTrue(!net.zerog.tweaks.event.PlanetStorms.strike(mars,gate.centre.above()),"Lightning struck protected arrival");
-            helper.assertTrue(mars.canSeeSky(centre),"Lightning fixture is under a roof");
+            mars.setRainLevel(.4F);mars.setThunderLevel(.2F);
+            float expectedRain=mars.getRainLevel(1),expectedThunder=mars.getThunderLevel(1);
             net.zerog.tweaks.event.PlanetStorms.override(mars,net.zerog.tweaks.event.PlanetStorms.Mode.ACID);
-            helper.assertTrue(mars.getRainLevel(1)==1 && mars.getThunderLevel(1)==0,"Acid rain is not real rain/non-thunder state");
             net.zerog.tweaks.event.PlanetStorms.override(mars,net.zerog.tweaks.event.PlanetStorms.Mode.ELECTRICAL);
-            helper.assertTrue(mars.getRainLevel(1)==1 && mars.getThunderLevel(1)==1,"Electrical weather not a thunderstorm");
-            helper.assertTrue(net.zerog.tweaks.event.PlanetStorms.strike(mars,centre),"Native bolt failed to spawn");
-            var bolts=mars.getEntitiesOfClass(net.minecraft.world.entity.LightningBolt.class,new net.minecraft.world.phys.AABB(centre).inflate(3));
-            helper.assertTrue(bolts.size()==1,"Missing/duplicate native bolt");
-            bolts.getFirst().tick();
-            helper.assertTrue(cow.getHealth()<cow.getMaxHealth(),"Bolt is only cosmetic: no vanilla strike damage");
-            bolts.forEach(net.minecraft.world.entity.Entity::discard);
-            helper.assertTrue(net.zerog.tweaks.event.PlanetStorms.automatic("moon",0,"")==net.zerog.tweaks.event.PlanetStorms.Mode.CLEAR,"Airless Moon gained automatic rain");
+            helper.assertTrue(Math.abs(mars.getRainLevel(1)-expectedRain)<.001F&&Math.abs(mars.getThunderLevel(1)-expectedThunder)<.001F,"Disabled storms changed native weather");
+            helper.assertTrue(!net.zerog.tweaks.event.PlanetStorms.strike(mars,new BlockPos(0,mars.getMaxBuildHeight()-1,0)),"Disabled storm spawned lightning");
+            helper.assertTrue(net.zerog.tweaks.event.PlanetStorms.automatic("mars",0,"toxic")==net.zerog.tweaks.event.PlanetStorms.Mode.CLEAR,"Custom automatic weather remained active");
             helper.assertTrue(!net.zerog.tweaks.event.PlanetStorms.planet(helper.getLevel()),"Overworld weather was captured");
             helper.succeed();
         } finally {
-            cow.discard();
-            net.zerog.tweaks.event.PlanetStorms.override(mars,net.zerog.tweaks.event.PlanetStorms.Mode.AUTO);
-            if(!alreadyForced)mars.setChunkForced(354,350,false);
+            mars.setRainLevel(rain);mars.setThunderLevel(rain>0?thunder/rain:0);
         }
-        });
     }
     @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=200)
     public static void alien_vines_support_fruit_and_safe_vents(GameTestHelper helper) {
