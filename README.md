@@ -1,5 +1,14 @@
 # ZeroG Tweaks
 
+## Flexible gate terminals and service ports — 9 October 2026
+
+[Placement rules, diagnostics and test evidence](docs/gate-flexible-placement-2026-10-09.md).
+Gate controllers and energy ports can use legal service positions on any horizontal
+side without changing the tier's required structure. Preview groups missing blocks
+by section; Ghost provides a temporary construction wireframe. Terminal facing is
+cosmetic. This same-version candidate is repository-only, **not installed**; the
+existing hub and saves remain unchanged. Client visual/travel approval is pending.
+
 ## Compact player/admin gate pairs — 8 October 2026
 
 [Twelve gate locations, power setup and 50-chunk reset scope](docs/dual-gates-and-pregen50-2026-10-08.md).

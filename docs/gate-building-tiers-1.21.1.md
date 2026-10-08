@@ -4,9 +4,9 @@ Minecraft 1.21.1 · same 1.0.12-dev · runtime construction, not proposed concep
 
 ## Reading the plans
 
-Choose a centre **(X, Y, Z)**. Y is the pad-block level, not the foundation. All positions below are relative to that centre. For a north-facing gate, front is −Z; build the controller at **(0, +1, −2)** facing NORTH. Foundations occupy y=−1; tier 2+ also has Aresite at y=−2. Reserve a square `(2×tier+3)` blocks wide, from x/z `−(tier+1)` to `+(tier+1)`. Highest required layer: tier 1 y=2; tier 2 y=6; tiers 3–6 y=`2×tier+1`.
+Choose a centre **(X, Y, Z)**. Y is the pad-block level, not the foundation. All positions below are relative to that centre. For a north-facing structural example, front is −Z and the example controller is at **(0, +1, −2)**. Foundations occupy y=−1; tier 2+ also has Aresite at y=−2. Reserve a square `(2×tier+3)` blocks wide, from x/z `−(tier+1)` to `+(tier+1)`. Highest required layer: tier 1 y=2; tier 2 y=6; tiers 3–6 y=`2×tier+1`.
 
-Rotate **every** coordinate for another facing: EAST `(−z,y,x)`, SOUTH `(−x,y,−z)`, WEST `(z,y,−x)`. Set the controller to the matching direction. Do not rotate only the controller.
+Rotate structural coordinates for another orientation: EAST `(−z,y,x)`, SOUTH `(−x,y,−z)`, WEST `(z,y,−x)`. The controller front does not rotate or determine the structure. Choose service positions independently under the rule below.
 
 Layer diagrams are viewed from above: north/−Z at the top; X increases to the right. Each character represents one block at that layer. `.` means no required part, not an instruction to fill it. Keep the passenger area unobstructed.
 
@@ -20,7 +20,7 @@ Legend: `1` Nullifite Frame; `2` Moonsteel Frame; `3` Cerulite Frame; `4` Skarni
 2. Place the pad plates at y=0, retaining the four omitted `(±2,0,±2)` positions where the tier plan omits them.
 3. Build the four pylon columns for each active pylon ring. Existing inner columns grow taller when upgrading.
 4. Add the rear frame arches, their lens housings, and tier-2+ Selenite/Aresite blocks exactly as drawn.
-5. Install energy ports and the correctly facing controller. Connect power to a **Gate Energy Port**, not a generic alveary port.
+5. Install exactly one controller and at least 1/1/2/2/4/4 Gate Energy Ports for tiers 1–6. Service blocks may occupy any horizontal side at y=1 where max(abs(x),abs(z)) is between 2 and tier+1, without replacing a structural part. Controller facing is cosmetic. C/E positions in these diagrams are valid examples, not mandatory sockets. Connect power to a **Gate Energy Port**, not a generic alveary port.
 6. Open the controller, check its formed tier, choose a reachable destination and supply FE for survival travel. Preview can highlight missing next-tier blocks.
 
 A higher tier retains earlier rings/arches but changes pylon heights and pad/port positions. Use the full target-tier plan; simply adding an outer ring is insufficient. Counts below describe the complete final structure, not additive shopping lists.
@@ -1213,9 +1213,9 @@ The six showcase gates have admin/free travel as requested. They still use real 
 
 ## Troubleshooting and Codex handoff
 
-- Tier reads zero: press Preview for missing-block coordinates and the closest matching facing. Align turns only an unformed owner-controlled controller; it never supplies blocks. Check buried core, ring material, pylon height, arch top, lens location and required ports. Chunks containing the full footprint must be loaded.
-- Higher tier not detected: compare **all** layers; earlier pylons must reach the new height and new ports replace specific pad/air positions.
-- No charging: the Gate Energy Port must remain in its required position even when powering the controller directly. A formed port and controller share one buffer. Check cable/generator output faces and available generation. Exact stored FE is synchronized; full admin buffers do not accept extra charge.
+- Tier reads zero: press Preview for missing blocks grouped by section, or Ghost for a temporary wireframe. Align rechecks without rotating the terminal or supplying blocks. Check buried core, ring material, pylon height, arch top, lens location and legal service-block counts. Chunks containing the full footprint must be loaded.
+- Higher tier not detected: compare **all** layers; earlier pylons must reach the new height and the target tier needs its minimum number of legal ports.
+- No charging: required Gate Energy Ports must occupy legal service positions even when powering the controller directly. A formed port and controller share one buffer; duplicate controllers and ports shared between complete gates are rejected. Check cable/generator output faces and available generation. Exact stored FE is synchronized; full admin buffers do not accept extra charge.
 - Cannot launch: inspect ownership, reachable tier, energy cost, passenger limit and Ready confirmations.
 - A normal survival gate showing free travel is not expected. Only designated compact-hub controllers and their bound returns are admin.
 

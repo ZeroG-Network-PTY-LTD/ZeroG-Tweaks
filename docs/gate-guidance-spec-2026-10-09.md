@@ -26,6 +26,20 @@ players whose current gate is complete. Preserve existing builds and saved IDs.
 - FR5: Centre/orientation changes apply to passengers, energy ports, launch
   effects, remote return checks, Codex instructions and source generators.
 
+### Service-placement contract for FR1/FR2
+
+The service row is pad level +1. Legal local positions have square-ring distance
+`max(abs(x), abs(z))` between2and`tier+1`, and are not mandatory structural
+positions in that tier's complete plan. These positions include all four sides;
+the default diagram remains a valid example, not a required service arrangement.
+Every gate MUST have exactly one controller in its service-row footprint and at
+least1/1/2/2/4/4legal energy ports. Additional legal ports MAY join the same buffer
+but MUST NOT increase the shared intake limit. Ports claimed by multiple complete
+structures MUST NOT charge either structure. Controller fronts are cosmetic and
+MUST NOT determine passenger-pad location or force a particular arch orientation.
+Discovered geometry is always revalidated against actual loaded blocks; breaking
+or replacing the controller MUST revoke its old direct energy handler too.
+
 ## 4. Non-functional requirements
 
 - Scans inspect loaded chunks only and have a fixed maximum tier-six footprint.
@@ -57,6 +71,9 @@ players whose current gate is complete. Preserve existing builds and saved IDs.
 Duplicate controllers, overlapping valid gates, unloaded neighbours, missing
 ports, extra nonessential decoration, tier upgrades/downgrades, controller-facing
 changes, stale handlers, broken parts during countdown and disconnected viewers.
+Tests MUST also cover shared ports between adjacent structures, retained direct
+controller handlers after replacement, every service side independently, and a
+return platform whose controller moved from the original arrival column.
 
 ## 7. API contract
 
