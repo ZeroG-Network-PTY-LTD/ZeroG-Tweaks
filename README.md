@@ -46,6 +46,10 @@ with isolated evidence. Earlier galleries, guides and delivery receipts remain.
 
 ## Compact hub and exact gate-building plans — 7 October 2026
 
+**9 October gate update:** [Tier1–6 standing schematics, galaxy/planet charging hologram,
+fixed jump tariffs and the creative gold GFE cell](docs/gate-hologram-and-creative-cell-2026-10-09.md).
+Repository candidate; installed JAR and saves remain unchanged.
+
 Same **1.0.12-dev**. [Compact save and performance evidence](docs/compact-hub-2026-10-07.md) · [Build every gate tier: counts and layer diagrams](docs/gate-building-tiers-1.21.1.md) · [Codex-ready coordinates](docs/gate-build-layouts-1.21.1.json) · [Delivery receipt](docs/compact-hub-delivery-2026-10-07.json).
 
 Open **ZeroG Compact Hub 1.0.12 — Seed 0**. Six admin gates are north;

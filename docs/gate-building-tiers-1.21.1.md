@@ -1190,9 +1190,11 @@ Footprint **15×15**; required blocks **484**. Default base travel budget **50,0
 | 5 | Galaxy 5, including Solvane; grouped moon destinations excluded | 8 | 4 | 3 | 16,000 | 40,000,000 |
 | 6 | Galaxy 5 plus grouped `g*_moons` destinations | 8 | 4 | 4 | 32,000 | 100,000,000 |
 
-The displayed launch cost is authoritative. Default cost is rounded up from `base × (0.25 for same galaxy, otherwise 1.0) × (1 + 0.1×extra passengers) × (0.8 with Refracting Lens, otherwise 1.0)`. Server configuration can change the six base budgets. Same-galaxy travel still costs energy in survival.
+Player jumps cost exactly **100,000 / 200,000 / 400,000 / 800,000 / 1,600,000 / 3,200,000 FE** at tiers1–6. One successful group jump is charged once; no intra-galaxy, passenger or lens factor applies. Cancelled/invalid launches do not consume FE. Existing stored energy is preserved. Recall item fees remain separate.
 
-Gate upgrades: **Refracting Lens** reduces launch cost 20%; **Cryo Core** doubles intake rate; **Capacity Coil** adds two passengers; **Star Map Fragment** is accepted in a gate upgrade socket, but this guide does not claim an additional undocumented effect. These are gate-specific items, not general machine Acceleration cards.
+Gate upgrades: **Refracting Lens** remains recoverable but does not discount the fixed jump tariff; **Cryo Core** doubles intake rate; **Capacity Coil** adds two passengers; **Star Map Fragment** is accepted in a gate upgrade socket, but this guide does not claim an additional undocumented effect. These are gate-specific items, not general machine Acceleration cards.
+
+Open the controller, choose **Plans**, then Tier1–6. The standing wireframe is anchored to this controller: green correct, cyan missing, red mismatched. Choosing a preview never builds blocks or changes the formed tier. Above the terminal, a transient galaxy/planet hologram shows live FE and countdown; gate dimension travel activates the existing transition artwork.
 
 The first interaction claims a normal controller for its owner. Stand above the pad, choose the destination, launch, and have each passenger confirm Ready. The sequence lasts 100 ticks (~5 seconds). Leaving the pad, excessive passengers, an invalid destination or broken formation cancels it. Real travel builds/reuses a bound return platform at the destination; there is no need to pre-build every planetary gate.
 
