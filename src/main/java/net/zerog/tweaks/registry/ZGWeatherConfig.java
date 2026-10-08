@@ -21,7 +21,7 @@ public final class ZGWeatherConfig {
                 .define("reducedFlash", true);
         builder.pop();
         builder.push("gateTravel");
-        TRANSITION_SCREEN = builder.comment("Gate transition screen: FULL galaxy-to-planet zoom, SHORT (planet only, about 1.2 s), or OFF (vanilla loading screen).")
+        TRANSITION_SCREEN = builder.comment("Gate transition: FULL galaxy-to-planet zoom or SHORT planet-only. Legacy OFF is treated as FULL for owner-enabled gate jumps; unrelated travel stays vanilla.")
                 .defineEnum("transitionScreen", TransitionScreen.FULL);
         builder.pop(); SPEC = builder.build();
     }

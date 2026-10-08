@@ -37,6 +37,19 @@ the existing duplication recipes let you copy one after finding it.
 
 The controller has upgrade slots (one at Tier 1):
 
-* <ItemLink id="zerog_tweaks:refracting_lens" />: trips cost less.
+* <ItemLink id="zerog_tweaks:refracting_lens" />: retained for compatibility; no discount on the fixed gate-jump tariff.
 * <ItemLink id="zerog_tweaks:cryo_core" />: the gate charges twice as fast.
 * <ItemLink id="zerog_tweaks:capacity_coil" />: 2 more passengers fit on the pad.
+
+## Jump budget and standing plans
+
+Player gate jumps cost exactly **100,000 / 200,000 / 400,000 / 800,000 /
+1,600,000 / 3,200,000 FE** at tiers 1–6. A successful group jump pays once;
+passenger count, same-galaxy travel and lenses do not change this tariff.
+Cancelled or invalid launches do not charge. Admin showcase gates remain free.
+
+Open the controller and choose **Plans**, then **Tier 1–6** to show a standing
+wireframe anchored to that controller. Green means correct, cyan missing and red
+wrong block. A selected plan does not upgrade or construct the actual gate.
+The hologram above the terminal shows the selected galaxy/planet and charging
+countdown. Dimension jumps use the galaxy-to-planet transition artwork.

@@ -29,11 +29,13 @@ public final class SurvivalGateMenu extends AbstractContainerMenu {
     public int value(int index){return data.get(index);}
     public int energy(){return (value(8)&65535)|((value(9)&65535)<<16);}
     public int energyCapacity(){return (value(10)&65535)|((value(11)&65535)<<16);}
+    public int jumpCost(){return value(7)==1?0:SurvivalGateLayout.jumpCost(value(0));}
     @Override public boolean stillValid(Player player){return !gate.isRemoved()&&player.level()==gate.getLevel()&&player.distanceToSqr(gate.getBlockPos().getX()+.5,gate.getBlockPos().getY()+.5,gate.getBlockPos().getZ()+.5)<=64;}
     @Override public boolean clickMenuButton(Player player,int button){
         if(!(player instanceof ServerPlayer server)||!stillValid(player))return false;
         if(button==101){gate.confirm(server);return true;}
         if(!gate.mayControl(server))return false;
+        if(button>=111&&button<=116){GateSchematicSync.send(server,gate,button-110);server.sendSystemMessage(Component.literal("Standing Tier "+(button-110)+" plan: green correct, cyan missing, red wrong. Preview only; no blocks placed."));return true;}
         if(button==100)return gate.engage(server);
         if(button==102){gate.preview(server);return true;}
         if(button==103){gate.cancel();return true;}

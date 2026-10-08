@@ -82,7 +82,8 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     public boolean canReach(String id){int tier=formedTier(),galaxy=SurvivalGateLayout.galaxy(id);return tier>0&&galaxy>0&&(adminTest()||galaxy<=Math.min(5,tier))&&!id.equals(level.dimension().location().toString());}
     public AABB pad(){int r=SurvivalGateLayout.padRadius(Math.max(1,formedTier()));BlockPos c=centre();return new AABB(Vec3.atLowerCornerOf(c.offset(-r,1,-r)),Vec3.atLowerCornerOf(c.offset(r+1,4,r+1)));}
     public List<ServerPlayer> passengers(){if(!(level instanceof ServerLevel server))return List.of();return server.getEntitiesOfClass(ServerPlayer.class,pad(),p->p.isAlive()&&!p.isSpectator());}
-    public int cost(int passengers){if(adminTest())return 0;String target=returnPlatform?homeDimension:selected>=0&&selected<destinations().size()?destinations().get(selected):"";return SurvivalGateLayout.cost(ZGProgressionConfig.baseCost(Math.max(1,formedTier())),level.dimension().location().toString(),target,passengers,has("refracting_lens"));}
+    public String selectedDestination(){return returnPlatform?homeDimension:selected>=0&&selected<destinations().size()?destinations().get(selected):"";}
+    public int cost(int passengers){return adminTest()?0:SurvivalGateLayout.jumpCost(formedTier());}
     public boolean engage(ServerPlayer player){
         if(!mayControl(player)||countdown>0||formedTier()==0)return false;
         var group=passengers();if(!group.contains(player)||group.size()>SurvivalGateLayout.passengers(formedTier())+(has("capacity_coil")?2:0)||stored<cost(group.size()))return false;
@@ -134,6 +135,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     }
     public void tick(){
         if(!(level instanceof ServerLevel server))return;
+        if(server.getGameTime()%(countdown>0?10:40)==0)GateHologramSync.broadcast(this);
         if(adminTest())stored=capacity();
         // Return platforms trickle-charge only with their explicitly built crystal cell.
         if(returnPlatform&&server.getGameTime()%20==0&&server.getBlockState(centre().offset(0,-2,0)).is(BlockInit.CRYSTAL_CELL.get())){stored=Math.min(capacity(),stored+1000);setChanged();}
@@ -188,10 +190,12 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         if(landing==null||landing.formedTier()==0)return false;
         BlockPos c=landing.centre();var pets=source.getEntitiesOfClass(Mob.class,pad(),mob->(mob instanceof TamableAnimal tame&&tame.isTame()&&group.stream().anyMatch(p->p.getUUID().equals(tame.getOwnerUUID())))||(mob.isLeashed()&&mob.getLeashHolder() instanceof ServerPlayer p&&group.contains(p)));
         // All validation and destination preparation completes before charging or moving anything.
-        stored-=fee;setChanged();
         var arrive=arrival(target,c);
+        boolean movedPlayer=false;
+        for(ServerPlayer player:group){player.removeEffect(MobEffects.LEVITATION);GateLaunchSync.sendDestination(player,target);var moved=player.changeDimension(arrive);if(moved!=null){bindHome(player);movedPlayer=true;}if(moved instanceof LivingEntity living)living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false));}
+        if(!movedPlayer)return false;
+        stored-=fee;setChanged();
         for(Mob pet:pets){pet.dropLeash(true,false);var moved=pet.changeDimension(arrive);if(moved instanceof LivingEntity living)living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false));}
-        for(ServerPlayer player:group){bindHome(player);player.removeEffect(MobEffects.LEVITATION);GateLaunchSync.sendDestination(player,target);var moved=player.changeDimension(arrive);if(moved instanceof LivingEntity living)living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false));}
         target.sendParticles(ParticleTypes.FLASH,c.getX()+.5,c.getY()+1.5,c.getZ()+.5,1,0,0,0,0);
         target.sendParticles(ParticleTypes.REVERSE_PORTAL,c.getX()+.5,c.getY()+1.5,c.getZ()+.5,24,1,.4,1,.04);
         return true;

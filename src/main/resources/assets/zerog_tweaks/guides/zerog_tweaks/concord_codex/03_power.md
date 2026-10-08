@@ -26,9 +26,9 @@ Gates run on **FE**. The simplest source is a <ItemLink id="zerog_tweaks:combust
 | --- | --- |
 | Battery | 1,000,000 FE |
 | Fastest charging | 1,000 FE/t |
-| Overworld to the Moon or Mars, 1 player | 125,000 FE |
+| Tier 1 successful gate jump (any eligible group) | 100,000 FE |
 | Each extra passenger | +10% |
 
-At 50 FE/t one trip is about two minutes of burning. The controller screen shows the stored FE.
+At 50 FE/t one Tier 1 trip needs 100 seconds of burning. The controller screen shows the stored FE.
 
 Next: [launch](04_launch.md).

@@ -42,12 +42,22 @@ public final class GateSchematicSync {
         clientPlan=plan;expires=System.nanoTime()+60_000_000_000L;
     }
     public static void send(ServerPlayer player,SurvivalGateBlockEntity gate){
+        send(player,gate,Math.max(1,gate.formedTier()));
+    }
+    public static Plan plan(SurvivalGateBlockEntity gate,int tier){
+        if(tier<1||tier>6)throw new IllegalArgumentException("Invalid schematic tier");
+        var resolved=gate.formation();var facing=resolved.facing();var centre=resolved.centre();
+        // Smaller plans still keep the actual terminal fixed if its current service slot lies outside that tier.
+        if(!SurvivalGateFormation.servicePositions(tier,facing).contains(gate.getBlockPos().subtract(centre)))
+            centre=SurvivalGateLayout.centre(gate.getBlockPos(),facing);
+        return new Plan(gate.getLevel().dimension().location(),gate.getBlockPos(),centre,facing.get2DDataValue(),tier);
+    }
+    public static void send(ServerPlayer player,SurvivalGateBlockEntity gate,int tier){
+        if(tier<1||tier>6)return;
         if(!(gate.getLevel() instanceof ServerLevel level)||!gate.mayControl(player)||player.serverLevel()!=level
                 ||player.distanceToSqr(gate.getBlockPos().getCenter())>64)return;
-        var resolved=gate.formation();int tier=Math.max(1,resolved.tier()>0?resolved.tier():resolved.coreTier());
-        Direction facing=resolved.facing();
         if(NetworkRegistry.hasChannel(player.connection,Plan.TYPE.id()))
-            PacketDistributor.sendToPlayer(player,new Plan(level.dimension().location(),gate.getBlockPos(),resolved.centre(),facing.get2DDataValue(),tier));
+            PacketDistributor.sendToPlayer(player,plan(gate,tier));
     }
     @SubscribeEvent public static void register(RegisterPayloadHandlersEvent event){
         event.registrar("1").playToClient(Plan.TYPE,Plan.CODEC,(plan,context)->context.enqueueWork(()->receive(plan)));

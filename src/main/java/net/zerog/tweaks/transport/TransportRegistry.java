@@ -19,8 +19,11 @@ import net.zerog.tweaks.registry.ItemInit;
 public final class TransportRegistry {
     private static final List<DeferredHolder<Block,TransportBlock>> BLOCKS=new ArrayList<>();
     public static final DeferredRegister<BlockEntityType<?>> TYPES=DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE,"zerog_tweaks");
+    public static final DeferredHolder<Block,CreativeEnergyCell> CREATIVE_CELL=BlockInit.BLOCKS.register("creative_energy_cell",()->new CreativeEnergyCell(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK).strength(-1,3600000).lightLevel(s->15)));
+    public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<CreativeEnergyCell.Cell>> CREATIVE_TYPE=TYPES.register("creative_energy_cell",()->BlockEntityType.Builder.of(CreativeEnergyCell.Cell::new,CREATIVE_CELL.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<TransportBlockEntity>> TYPE=TYPES.register("transport",()->BlockEntityType.Builder.of(TransportBlockEntity::new,BLOCKS.stream().map(DeferredHolder::get).toArray(Block[]::new)).build(null));
     static {
+        ItemInit.ITEMS.register("creative_energy_cell",()->new CreativeEnergyCell.CreativeItem(CREATIVE_CELL.get(),new Item.Properties().stacksTo(1)));
         for(int tier=0;tier<6;tier++)for(String suffix:new String[]{"energy_conduit","fluid_pipe","gas_tube","item_tube","energy_cell"})add(TransportTier.ALL[tier].name()+"_"+suffix,suffix,tier);
         for(String family:new String[]{"item","fluid","energy"})add(family+"_port",family+"_port",0);
         add("null_link","null_link",5);
@@ -29,6 +32,7 @@ public final class TransportRegistry {
     private static void add(String id,String family,int tier){var holder=BlockInit.BLOCKS.register(id,()->{var props=BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion();return family.endsWith("cell")?new TransportBlock.Cell(props,family,tier):family.endsWith("port")?new TransportBlock.Port(props,family,tier):family.equals("null_link")?new TransportBlock(props,family,tier):new TransportBlock.Wire(props,family,tier);});BLOCKS.add(holder);ItemInit.ITEMS.registerSimpleBlockItem(id,holder);}
     public static void register(IEventBus bus){TYPES.register(bus);bus.addListener(TransportRegistry::capabilities);}
     public static void capabilities(RegisterCapabilitiesEvent event){
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,CREATIVE_TYPE.get(),(be,side)->be.energy());
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,TYPE.get(),(be,side)->be.supports("energy")?be.energy(side):null);
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK,TYPE.get(),(be,side)->be.supports("item")?be.itemHandler(side):null);
         event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,TYPE.get(),(be,side)->be.supports("fluid")?be.fluidHandler(side):null);

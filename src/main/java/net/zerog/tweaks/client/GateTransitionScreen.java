@@ -94,7 +94,7 @@ public final class GateTransitionScreen extends ReceivingLevelScreen {
 
     static ReceivingLevelScreen create(BooleanSupplier received,Reason reason){
         var d=GateLaunchSync.pendingDestination();var mode=ZGWeatherConfig.TRANSITION_SCREEN.get();
-        return d==null||mode==ZGWeatherConfig.TransitionScreen.OFF?new ReceivingLevelScreen(received,reason)
+        return d==null?new ReceivingLevelScreen(received,reason)
                 :new GateTransitionScreen(received,reason,d,mode==ZGWeatherConfig.TransitionScreen.SHORT);
     }
 

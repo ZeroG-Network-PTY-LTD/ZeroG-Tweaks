@@ -428,3 +428,23 @@ its own fixture and avoids mock-player PB handshake failures. Zero discovered
 tests are a harness failure even if Gradle exits successfully. Return-travel mocks
 run in zerog_workflow_optional without PB and without workflowPlanetPreset (Nether
 required). Repository-only delivery does not authorize replacing live JARs/saves.
+
+## Controller plans and fixed gate tariff — 9 October
+
+Plans menu buttons111–116 request standing tiers1–6, authorized through the live
+nearby owner menu. GateSchematicSync.plan preserves the actual controller anchor:
+resolved centre where legal, controller-relative centre for a smaller tier that
+cannot include a relocated outer service slot. Preview never builds blocks.
+Gate jumps use SurvivalGateLayout.jumpCost:100000 doubled each tier through3200000,
+paid once after at least one actual player dimension change; admin0. Do not reapply
+old same-galaxy/passenger/lens discounts. Old battery capacities/stored FE and
+Recall pricing remain separate. Update Design Codex generator, runtime pages and
+Docs gate-build generator whenever these rules change.
+
+GateHologramSync is bounded transient nearby state, no saved entities/chunk tickets.
+Rendering and transition shader appearance require client approval.
+CreativeEnergyCell has unlimited FE under one shared300000FE/t quota across faces
+and automatic push; creative placement only, survival pickup/placement blocked,
+no recipe/loot. Preserve native32px gold atlas and Design generator. Mode tests
+MUST use a normal ServerPlayer: Minecraft's GameTestHelper mock hardcodes
+isCreative()==true even after setGameMode(SURVIVAL).

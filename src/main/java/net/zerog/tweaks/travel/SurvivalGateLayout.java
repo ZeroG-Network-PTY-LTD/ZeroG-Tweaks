@@ -90,5 +90,7 @@ public final class SurvivalGateLayout {
     }
     public static int galaxy(String id){if(id.equals("minecraft:overworld")||id.endsWith(":moon")||id.endsWith(":mars"))return 1;return switch(id){case "zerog_tweaks:cerulon"->2;case "zerog_tweaks:skarn"->3;case "zerog_tweaks:eidolon"->4;case "zerog_tweaks:solvane"->5;default->id.matches("zerog_tweaks:g[2-5]_.*")?id.charAt(14)-'0':0;};}
     public static int cost(int base,String source,String target,int players,boolean lens){long numerator=(long)base*(galaxy(source)==galaxy(target)?25:100)*(100+10L*Math.max(0,players-1))*(lens?80:100);return (int)Math.min(Integer.MAX_VALUE,(numerator+999999)/1000000);}
+    /** Owner-approved fixed gate tariff; recall-item pricing remains separate. */
+    public static int jumpCost(int tier){return 100000 << (Math.clamp(tier,1,6)-1);}
     private SurvivalGateLayout(){}
 }

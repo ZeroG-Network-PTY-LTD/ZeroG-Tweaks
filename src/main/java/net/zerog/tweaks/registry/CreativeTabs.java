@@ -56,7 +56,7 @@ public final class CreativeTabs {
                     .title(Component.literal("Z-Admintools"))
                     .icon(() -> new ItemStack(ItemInit.WEATHER_TESTER.get()))
                     .withTabsBefore(STORAGE_AND_TRANSPORT.getId())
-                    .displayItems((params, out) -> out.accept(ItemInit.WEATHER_TESTER.get())).build());
+                    .displayItems((params, out) -> {out.accept(ItemInit.WEATHER_TESTER.get());out.accept(item("creative_energy_cell"));}).build());
     public static java.util.List<Item> honeyLiquidItems() {
         return liquidItems().stream().filter(it -> ZGPlanetApiary.FAMILIES.values().stream()
                 .anyMatch(family -> family.bucket.get() == it)).toList();
@@ -87,6 +87,7 @@ public final class CreativeTabs {
                     if (catchAll) {
                         Set<String> listed = new HashSet<>(HIDDEN);
                         listed.add("weather_tester");
+                        listed.add("creative_energy_cell");
                         listed.add("concord_codex");
                         listed.add("recall_anchor");listed.add("group_anchor");
                         listed.add("storage_expansion_module");listed.add("generator_flux_module");

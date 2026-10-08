@@ -16,20 +16,22 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 /** Paginated destinations, live charge/tier and ready controls; no optimistic client actions. */
 public final class SurvivalGateScreen extends AbstractContainerScreen<SurvivalGateMenu> {
-    private int page;
+    private int page;private boolean plans;
     public SurvivalGateScreen(SurvivalGateMenu menu,Inventory inventory,Component title){super(menu,inventory,title);imageWidth=256;imageHeight=252;inventoryLabelY=158;}
     private void send(int button){if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,button);}
     @Override protected void init(){super.init();buttons();}
     private void buttons(){
         clearWidgets();var ids=SurvivalGateBlockEntity.destinations();
-        for(int row=0;row<4;row++){
+        if(plans){
+            for(int t=1;t<=6;t++){final int tier=t;addRenderableWidget(Button.builder(Component.literal("Tier "+t),b->send(110+tier)).bounds(leftPos+18+((t-1)%3)*74,topPos+35+((t-1)/3)*24,70,20).build()).active=menu.value(5)==1;}
+        }else for(int row=0;row<4;row++){
             int index=page*4+row;if(index>=ids.size())break;String id=ids.get(index);
             var button=addRenderableWidget(Button.builder(Component.literal(id.substring(id.indexOf(':')+1).replace('_',' ')),b->send(index)).bounds(leftPos+18,topPos+35+row*20,220,18).build());
             button.active=menu.value(5)==1&&menu.value(6)==0&&(menu.value(7)==1||SurvivalGateLayout.galaxy(id)<=Math.min(5,menu.value(0))&&(!id.endsWith("_moons")||menu.value(0)==6))&&menu.value(4)==0;
         }
         addRenderableWidget(Button.builder(Component.literal("<"),b->{page=Math.max(0,page-1);buttons();}).bounds(leftPos+18,topPos+116,22,18).build());
         addRenderableWidget(Button.builder(Component.literal(">"),b->{page=Math.min((ids.size()-1)/4,page+1);buttons();}).bounds(leftPos+43,topPos+116,22,18).build());
-        addRenderableWidget(Button.builder(Component.literal("Ghost"),b->send(105)).bounds(leftPos+68,topPos+116,39,18).build()).active=menu.value(5)==1;
+        addRenderableWidget(Button.builder(Component.literal(plans?"Worlds":"Plans"),b->{plans=!plans;buttons();}).bounds(leftPos+68,topPos+116,39,18).build()).active=menu.value(5)==1;
         boolean incomplete=menu.value(0)==0;
         addRenderableWidget(Button.builder(Component.literal(incomplete?"Align":"Engage"),b->send(incomplete?104:100)).bounds(leftPos+110,topPos+137,65,18).build()).active=menu.value(5)==1&&menu.value(4)==0;
         addRenderableWidget(Button.builder(Component.literal("Ready"),b->send(101)).bounds(leftPos+178,topPos+137,60,18).build()).active=menu.value(4)>0;
@@ -40,6 +42,7 @@ public final class SurvivalGateScreen extends AbstractContainerScreen<SurvivalGa
     @Override protected void renderBg(GuiGraphics g,float partial,int mouseX,int mouseY){
         g.fill(leftPos,topPos,leftPos+imageWidth,topPos+imageHeight,0xff17232f);g.fill(leftPos+2,topPos+2,leftPos+254,topPos+250,0xffd3d9de);
         int countdown=menu.value(4);
+        if(plans){g.drawString(font,"Standing plans at this controller",leftPos+18,topPos+88,0xff243747,false);g.drawString(font,"Jump: "+menu.jumpCost()+" FE",leftPos+18,topPos+101,0xff243747,false);}
         String status=countdown>0?"Tier "+menu.value(0)+" | Ready check: "+(countdown+19)/20+"s":menu.value(0)==0?"UNFORMED - use Align / Preview":menu.value(7)==1?"Tier "+menu.value(0)+" | ADMIN - FREE TRAVEL":"Tier "+menu.value(0)+" | "+menu.energy()+" / "+menu.energyCapacity()+" FE";
         g.drawString(font,font.plainSubstrByWidth(status,220),leftPos+18,topPos+21,0xff243747,false);
         if(countdown==0){g.fill(leftPos+18,topPos+31,leftPos+238,topPos+33,0xff38435a);int width=(int)Math.min(220,220L*menu.energy()/Math.max(1,menu.energyCapacity()));g.fill(leftPos+18,topPos+31,leftPos+18+width,topPos+33,menu.value(0)==0?0xffb44b51:0xff49bbba);}

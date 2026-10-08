@@ -19,7 +19,7 @@ Tamed pets owned by a passenger, and mobs on a passenger's lead, come along.
 ## Arriving
 
 Your first trip builds a **landing platform** on the planet: a small gate with a <ItemLink id="zerog_tweaks:crystal_cell" />
-under it. The cell recharges the platform by 1,000 FE every second, so after about two minutes you can use
+under it. The cell recharges the platform by 1,000 FE every second, so after about 100 seconds you can use
 the platform to fly **home** to the gate you left from.
 
 Next: [the Moon](05_moon.md).
