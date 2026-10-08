@@ -85,12 +85,27 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     public String selectedDestination(){return returnPlatform?homeDimension:selected>=0&&selected<destinations().size()?destinations().get(selected):"";}
     public int cost(int passengers){return adminTest()?0:SurvivalGateLayout.jumpCost(formedTier());}
     public boolean engage(ServerPlayer player){
-        if(!mayControl(player)||countdown>0||formedTier()==0)return false;
-        var group=passengers();if(!group.contains(player)||group.size()>SurvivalGateLayout.passengers(formedTier())+(has("capacity_coil")?2:0)||stored<cost(group.size()))return false;
-        if(!returnPlatform&&(selected<0||selected>=destinations().size()||!canReach(destinations().get(selected))))return false;
+        if(!mayControl(player)||countdown>0)return false;
+        if(formedTier()==0)return refusal(player,"Gate incomplete: use Plans or Preview to check the missing parts.");
+        var group=passengers();if(!group.contains(player))return refusal(player,"Stand on the central landing pad, then press Engage.");
+        if(group.size()>SurvivalGateLayout.passengers(formedTier())+(has("capacity_coil")?2:0))return refusal(player,"Too many passengers on this tier's pad.");
+        if(stored<cost(group.size()))return refusal(player,"Charge the Gate Energy Port: this jump needs "+cost(group.size())+" FE; stored "+stored+" FE.");
+        if(!returnPlatform&&(selected<0||selected>=destinations().size()||!canReach(destinations().get(selected))))return refusal(player,"Select an allowed destination in Worlds before engaging. Tier1 reaches Moon and Mars.");
         expected=group.stream().map(ServerPlayer::getUUID).collect(java.util.stream.Collectors.toSet());ready.clear();ready.add(player.getUUID());countdown=100;setChanged();
         for(var passenger:group)passenger.displayClientMessage(Component.literal("Concord gate ready check: right-click the controller and select Ready, or step off the pad to cancel."),false);
         return true;
+    }
+    private boolean refusal(ServerPlayer player,String reason){player.displayClientMessage(Component.literal(reason),false);return false;}
+    /** Confirmed passengers may rise in the launch column, but may not leave its horizontal footprint. */
+    private List<ServerPlayer> launchPassengers(){
+        var group=new ArrayList<>(passengers());
+        if(lifting&&level instanceof ServerLevel server){var bounds=pad();var column=new AABB(bounds.minX,bounds.minY,bounds.minZ,bounds.maxX,bounds.maxY+4,bounds.maxZ);
+            for(var player:server.getEntitiesOfClass(ServerPlayer.class,column,p->expected.contains(p.getUUID())&&p.isAlive()&&!p.isSpectator()))if(!group.contains(player))group.add(player);
+        }return group;
+    }
+    private void cancelWithReason(String reason){
+        if(level instanceof ServerLevel server)for(UUID id:expected){var player=server.getServer().getPlayerList().getPlayer(id);if(player!=null)player.displayClientMessage(Component.literal("Launch cancelled: "+reason),false);}
+        cancel();
     }
     public void confirm(ServerPlayer player){if(countdown>0&&expected.contains(player.getUUID())&&pad().contains(player.position()))ready.add(player.getUUID());}
     public void cancel(){if(lifting&&level instanceof ServerLevel server)stopLift(server);countdown=0;lifting=false;ready.clear();expected=Set.of();setChanged();}
@@ -140,9 +155,11 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         // Return platforms trickle-charge only with their explicitly built crystal cell.
         if(returnPlatform&&server.getGameTime()%20==0&&server.getBlockState(centre().offset(0,-2,0)).is(BlockInit.CRYSTAL_CELL.get())){stored=Math.min(capacity(),stored+1000);setChanged();}
         if(countdown<=0){if(litTier>0)lightPylons(server,litTier,0);return;}
-        var group=passengers();var present=group.stream().map(ServerPlayer::getUUID).collect(java.util.stream.Collectors.toSet());
+        var group=launchPassengers();var present=group.stream().map(ServerPlayer::getUUID).collect(java.util.stream.Collectors.toSet());
         int tier=formedTier();
-        if(tier==0||group.size()>SurvivalGateLayout.passengers(tier)+(has("capacity_coil")?2:0)||!present.equals(expected)||(!returnPlatform&&(selected<0||selected>=destinations().size()||!canReach(destinations().get(selected))))){cancel();return;}
+        if(tier==0){cancelWithReason("the gate structure changed. Use Preview.");return;}
+        if(group.size()>SurvivalGateLayout.passengers(tier)+(has("capacity_coil")?2:0)||!present.equals(expected)){cancelWithReason("the passenger group changed or someone left the pad.");return;}
+        if(!returnPlatform&&(selected<0||selected>=destinations().size()||!canReach(destinations().get(selected)))){cancelWithReason("the selected destination is not allowed by this tier.");return;}
         BlockPos c=centre();double phase=(100-countdown)*.16,radius=Math.max(.6,SurvivalGateLayout.padRadius(tier)*.75);
         for(int point=0;point<8;point++){double angle=phase+point*Math.PI/4;server.sendParticles(ParticleTypes.PORTAL,c.getX()+.5+Math.cos(angle)*radius,c.getY()+1.15+Math.sin(phase)*.12,c.getZ()+.5+Math.sin(angle)*radius,1,.04,.04,.04,.02);}
         if(countdown%10==0){
@@ -172,7 +189,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
             for(var p:group){p.addEffect(new MobEffectInstance(MobEffects.LEVITATION,countdown+5,0,false,false));GateLaunchSync.sendLift(p,countdown);}
         }
         if(--countdown==0){
-            if(ready.containsAll(expected)){if(!launch(group)&&lifting)stopLift(server);}
+            if(ready.containsAll(expected)){if(!launch(group)){for(var p:group)p.displayClientMessage(Component.literal("Launch failed: check destination availability, arrival gate and stored FE. No jump charge was taken."),false);if(lifting)stopLift(server);}}
             else{if(lifting)stopLift(server);for(var p:group)p.displayClientMessage(Component.literal("Launch cancelled: not everyone confirmed Ready."),false);}
             lifting=false;ready.clear();expected=Set.of();setChanged();
         }
@@ -195,6 +212,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         for(ServerPlayer player:group){player.removeEffect(MobEffects.LEVITATION);GateLaunchSync.sendDestination(player,target);var moved=player.changeDimension(arrive);if(moved!=null){bindHome(player);movedPlayer=true;}if(moved instanceof LivingEntity living)living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false));}
         if(!movedPlayer)return false;
         stored-=fee;setChanged();
+        com.mojang.logging.LogUtils.getLogger().info("ZeroG gate Tier{} travel to {} succeeded; charged {} FE",tier,id,fee);
         for(Mob pet:pets){pet.dropLeash(true,false);var moved=pet.changeDimension(arrive);if(moved instanceof LivingEntity living)living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false));}
         target.sendParticles(ParticleTypes.FLASH,c.getX()+.5,c.getY()+1.5,c.getZ()+.5,1,0,0,0,0);
         target.sendParticles(ParticleTypes.REVERSE_PORTAL,c.getX()+.5,c.getY()+1.5,c.getZ()+.5,24,1,.4,1,.04);

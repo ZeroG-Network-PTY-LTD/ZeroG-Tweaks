@@ -448,3 +448,26 @@ and automatic push; creative placement only, survival pickup/placement blocked,
 no recipe/loot. Preserve native32px gold atlas and Design generator. Mode tests
 MUST use a normal ServerPlayer: Minecraft's GameTestHelper mock hardcodes
 isCreative()==true even after setGameMode(SURVIVAL).
+
+## Inventory-funded gate construction and launch lift — 9 October
+
+Plans separates Plan T1–T6 (preview only) from Build T1–T6 (inventory-funded).
+Build retains the actual terminal and matching existing parts; checks loaded
+chunks, border, vanilla permissions and complete inventory before placing;
+refuses obstructions and rolls back failed formation before consuming materials.
+Creative still supplies the missing blocks. Do not add free blocks, terrain
+clearing or claim-mod compatibility claims without verified integration.
+Reject stale controllers, strangers, active countdowns and return-platform builds.
+GameTest fixtures have a barrier ceiling: clear the full T6 envelope in the
+construction fixture, never make the production builder overwrite barriers.
+
+The ordinary pad bounds remain the engagement/pet footprint. During launch lift,
+only the already-expected passenger IDs may rise four blocks above those bounds;
+sideways departure and changed groups still cancel. The lift-boundary regression
+must actually move a passenger above the old ceiling and verify dimension change
+and a single FE debit. Keep explicit refusal/cancellation reasons and successful
+travel receipts; do not substitute those for installed-client transition approval.
+Galaxy moons unlock at the corresponding galaxy tier, as the approved Codex says;
+keep the GUI consistent with canReach rather than imposing a separate T6-only rule.
+Actual outbound Moon/Mars tests use zerog_gate_outbound plus workflowPlanetPreset;
+bound Nether-return tests use zerog_workflow_optional without that preset.

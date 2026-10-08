@@ -35,6 +35,7 @@ public final class SurvivalGateMenu extends AbstractContainerMenu {
         if(!(player instanceof ServerPlayer server)||!stillValid(player))return false;
         if(button==101){gate.confirm(server);return true;}
         if(!gate.mayControl(server))return false;
+        if(button>=121&&button<=126)return GateAutoBuild.build(server,gate,button-120);
         if(button>=111&&button<=116){GateSchematicSync.send(server,gate,button-110);server.sendSystemMessage(Component.literal("Standing Tier "+(button-110)+" plan: green correct, cyan missing, red wrong. Preview only; no blocks placed."));return true;}
         if(button==100)return gate.engage(server);
         if(button==102){gate.preview(server);return true;}

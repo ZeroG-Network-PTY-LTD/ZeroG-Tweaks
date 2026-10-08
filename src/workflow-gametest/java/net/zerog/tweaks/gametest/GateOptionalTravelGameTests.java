@@ -13,6 +13,18 @@ import net.zerog.tweaks.travel.*;
 @GameTestHolder("zerog_workflow_optional")
 @PrefixGameTestTemplate(false)
 public final class GateOptionalTravelGameTests {
+    @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=200)
+    public static void animated_lift_keeps_passenger_in_launch_sequence(GameTestHelper h){
+        var source=h.getLevel();var target=source.getServer().getLevel(Level.NETHER);
+        var c=h.absolutePos(new BlockPos(6,4,6));var home=new BlockPos(1408,90,1408);
+        for(var part:SurvivalGateLayout.parts(1)){source.setBlock(c.offset(part.offset()),part.block().defaultBlockState(),3);target.setBlock(home.offset(part.offset()),part.block().defaultBlockState(),3);}
+        var gate=(SurvivalGateBlockEntity)source.getBlockEntity(c.offset(0,1,-2));var destination=(SurvivalGateBlockEntity)target.getBlockEntity(home.offset(0,1,-2));
+        var player=h.makeMockServerPlayerInLevel();player.moveTo(c.getX()+.5,c.getY()+1,c.getZ()+.5);gate.claim(player);destination.claim(player);
+        gate.returnPlatform=true;gate.homeDimension="minecraft:the_nether";gate.homeController=destination.getBlockPos();gate.stored=100000;
+        h.assertTrue(gate.engage(player),"Lift test could not engage");
+        h.runAfterDelay(85,()->player.moveTo(c.getX()+.5,c.getY()+4.2,c.getZ()+.5));
+        h.runAfterDelay(110,()->{h.assertTrue(player.serverLevel()==target&&gate.stored==0,"Gate cancelled when launch lift raised passenger above ordinary pad bounds");player.discard();h.succeed();});
+    }
     @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=150)
     public static void relocated_bound_return_is_reused_and_damage_is_not_overwritten(GameTestHelper helper){
         var source=helper.getLevel();var target=source.getServer().getLevel(Level.NETHER);

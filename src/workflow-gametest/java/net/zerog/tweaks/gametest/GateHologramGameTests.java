@@ -7,6 +7,40 @@ import net.zerog.tweaks.travel.*;
 
 @GameTestHolder("zerog_gate_display") @PrefixGameTestTemplate(false)
 public final class GateHologramGameTests {
+    @GameTest(templateNamespace="zerog_gate_display",template="equipment_empty",timeoutTicks=120)
+    public static void inventory_autobuild_and_destination_tiers(GameTestHelper h){
+        var level=h.getLevel();var player=ordinaryPlayer(h);var c=h.absolutePos(new BlockPos(8,4,8));
+        // The shared GameTest fixture has a barrier ceiling; clear the entire T6 build envelope.
+        for(var at:BlockPos.betweenClosed(c.offset(-8,-2,-8),c.offset(8,14,8)))level.setBlock(at,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
+        var pos=c.offset(0,1,-2);level.setBlock(pos,net.zerog.tweaks.registry.BlockInit.GATE_CONTROLLER.get().defaultBlockState(),3);
+        var gate=(SurvivalGateBlockEntity)level.getBlockEntity(pos);gate.claim(player);player.moveTo(pos.getCenter());
+        h.assertTrue(!GateAutoBuild.build(player,gate,1)&&gate.formedTier()==0,"Missing inventory built free gate");
+        var needs=new java.util.LinkedHashMap<net.minecraft.world.item.Item,Integer>();
+        for(var part:SurvivalGateLayout.parts(1))if(!part.offset().equals(new BlockPos(0,1,-2)))needs.merge(part.block().asItem(),1,Integer::sum);
+        needs.forEach((item,count)->player.getInventory().add(new net.minecraft.world.item.ItemStack(item,count)));
+        var obstruction=c.offset(2,-1,0);level.setBlock(obstruction,net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(),3);
+        int inventoryBefore=player.getInventory().items.stream().mapToInt(net.minecraft.world.item.ItemStack::getCount).sum();
+        h.assertTrue(!GateAutoBuild.build(player,gate,1)&&level.getBlockState(obstruction).is(net.minecraft.world.level.block.Blocks.STONE)
+                &&player.getInventory().items.stream().mapToInt(net.minecraft.world.item.ItemStack::getCount).sum()==inventoryBefore,"Obstructed build changed terrain or consumed inventory");
+        level.setBlock(obstruction,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
+        h.assertTrue(GateAutoBuild.build(player,gate,1)&&gate.formedTier()==1,"Funded Tier1 construction failed");
+        h.assertTrue(player.getInventory().items.stream().allMatch(net.minecraft.world.item.ItemStack::isEmpty),"Auto-build failed to consume exact materials");
+        h.assertTrue(gate.canReach("zerog_tweaks:moon")&&gate.canReach("zerog_tweaks:mars")&&!gate.canReach("zerog_tweaks:cerulon"),"Tier1 destination restrictions incorrect");
+        h.assertTrue(!gate.canReach("zerog_tweaks:g2_moons"),"Non-Tier6 moon cluster unlocked");
+        h.assertTrue(GateAutoBuild.build(player,gate,1),"Already complete build should be harmless");
+        for(int tier=2;tier<=6;tier++){
+            needs.clear();var plan=GateSchematicSync.plan(gate,tier);
+            for(var part:SurvivalGateFormation.displayPlan(level,plan.centre(),plan.facing(),tier,pos)){
+                var at=plan.centre().offset(SurvivalGateLayout.rotate(part.offset(),plan.facing()));
+                if(!level.getBlockState(at).is(part.block()))needs.merge(part.block().asItem(),1,Integer::sum);
+            }
+            needs.forEach((item,count)->{while(count>0){int amount=Math.min(64,count);player.getInventory().add(new net.minecraft.world.item.ItemStack(item,amount));count-=amount;}});
+            h.assertTrue(GateAutoBuild.build(player,gate,tier)&&gate.formedTier()==tier,"Funded construction failed at Tier "+tier);
+            h.assertTrue(player.getInventory().items.stream().allMatch(net.minecraft.world.item.ItemStack::isEmpty),"Tier "+tier+" did not consume exact upgrade materials");
+            h.assertTrue(gate.canReach("zerog_tweaks:g2_moons"),"Tier2+ must reach Galaxy2 moons, matching the approved Codex");
+        }
+        player.discard();h.succeed();
+    }
     private static net.minecraft.server.level.ServerPlayer ordinaryPlayer(GameTestHelper h){
         var cookie=net.minecraft.server.network.CommonListenerCookie.createInitial(new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"gate-mode-test"),false);
         var player=new net.minecraft.server.level.ServerPlayer(h.getLevel().getServer(),h.getLevel(),cookie.gameProfile(),cookie.clientInformation());

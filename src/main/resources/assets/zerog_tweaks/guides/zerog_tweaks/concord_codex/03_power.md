@@ -27,7 +27,7 @@ Gates run on **FE**. The simplest source is a <ItemLink id="zerog_tweaks:combust
 | Battery | 1,000,000 FE |
 | Fastest charging | 1,000 FE/t |
 | Tier 1 successful gate jump (any eligible group) | 100,000 FE |
-| Each extra passenger | +10% |
+| Additional passengers | No extra jump fee |
 
 At 50 FE/t one Tier 1 trip needs 100 seconds of burning. The controller screen shows the stored FE.
 

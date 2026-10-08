@@ -69,7 +69,7 @@ The gate is a multiblock. This is the whole Tier 1 build. Drag to rotate, scroll
 | <ItemLink id="zerog_tweaks:gate_controller" /> | 1 | Any legal service position, one block above the pad |
 | <ItemLink id="zerog_tweaks:gate_energy_port" /> | 1 | Another legal service position on any horizontal side |
 
-**Tip:** open the controller and press **Ghost** to toggle the current-tier wireframe for
+**Tip:** open the controller and choose **Plans**, then **Plan T1** for the standing wireframe for
 60 seconds: green means correct, cyan means missing, and red means the wrong block.
 It never places blocks. **Preview** lists required block counts by structural section,
 not world coordinates. A complete gate is explicitly marked complete; requirements
@@ -80,6 +80,13 @@ Controller facing is cosmetic. Service blocks belong at pad height +1, with
 Use exactly one controller and at least 1/1/2/2/4/4 Gate Energy Ports at tiers 1–6.
 The Ghost port positions are recommendations, not mandatory sockets. Ports are
 required even when charging the controller directly, and cannot be shared by gates.
+
+**Auto-build:** place and claim the controller, then use **Plans → Build T1**.
+Carry the missing structural blocks in your inventory. The server checks all
+materials first, preserves matching blocks and your controller, and refuses
+obstructions without consuming supplies. Use **Build T2–T6** to add later tiers.
+This is not free construction, even in creative. Clear the required footprint
+first; the builder does not excavate or remove other buildings.
 
 ## Recipes
 

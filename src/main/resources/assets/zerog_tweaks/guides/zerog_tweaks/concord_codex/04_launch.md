@@ -11,10 +11,13 @@ navigation:
 1. **Right-click the Gate Controller.** The first player to do this owns the gate. Only the owner can launch it.
 2. Pick a destination: **moon** or **mars** at Tier 1. Use the arrow buttons to page through the list.
 3. Stand on the pad and press **Engage**. A Tier 1 pad carries **2 players**.
-4. Everyone on the pad opens the controller and presses **Ready** before the 5-second countdown ends.
+4. The initiator is already Ready; other passengers open the controller and press **Ready** before the 5-second countdown ends.
    Step off the pad or press **Cancel** to abort.
 
 Tamed pets owned by a passenger, and mobs on a passenger's lead, come along.
+Remain above the pad during the launch lift; stepping sideways out of the pad
+cancels. A refused engagement or cancelled launch reports its reason. Successful
+travel uses the ZeroG galaxy/planet transition; a refused launch is not a teleport.
 
 ## Arriving
 

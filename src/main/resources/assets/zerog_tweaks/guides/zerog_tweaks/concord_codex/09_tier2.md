@@ -17,7 +17,8 @@ A Tier 2 gate is built **around** your Tier 1 gate. Keep everything and add:
 * a <ItemLink id="zerog_tweaks:selenite_block" />, and an <ItemLink id="zerog_tweaks:aresite_block" /> under the centre of the pad.
 
 Press **Preview** on the controller for the next tier's required blocks, grouped by
-structural section. **Ghost** shows the current tier, not the next-tier upgrade.
+structural section. **Plans** offers both standing previews and inventory-funded
+construction for every tier.
 
 ## Reach Galaxy 2
 
@@ -48,8 +49,9 @@ Player gate jumps cost exactly **100,000 / 200,000 / 400,000 / 800,000 /
 passenger count, same-galaxy travel and lenses do not change this tariff.
 Cancelled or invalid launches do not charge. Admin showcase gates remain free.
 
-Open the controller and choose **Plans**, then **Tier 1–6** to show a standing
+Open the controller and choose **Plans**, then **Plan T1–T6** to show a standing
 wireframe anchored to that controller. Green means correct, cyan missing and red
 wrong block. A selected plan does not upgrade or construct the actual gate.
+The separate **Build T1–T6** controls check and consume the missing blocks.
 The hologram above the terminal shows the selected galaxy/planet and charging
 countdown. Dimension jumps use the galaxy-to-planet transition artwork.

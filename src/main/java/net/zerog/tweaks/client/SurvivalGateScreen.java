@@ -23,11 +23,13 @@ public final class SurvivalGateScreen extends AbstractContainerScreen<SurvivalGa
     private void buttons(){
         clearWidgets();var ids=SurvivalGateBlockEntity.destinations();
         if(plans){
-            for(int t=1;t<=6;t++){final int tier=t;addRenderableWidget(Button.builder(Component.literal("Tier "+t),b->send(110+tier)).bounds(leftPos+18+((t-1)%3)*74,topPos+35+((t-1)/3)*24,70,20).build()).active=menu.value(5)==1;}
+            for(int t=1;t<=6;t++){final int tier=t;int x=leftPos+18+((t-1)%3)*74,y=topPos+35+((t-1)/3)*36;
+                addRenderableWidget(Button.builder(Component.literal("Plan T"+t),b->send(110+tier)).bounds(x,y,70,16).build()).active=menu.value(5)==1;
+                addRenderableWidget(Button.builder(Component.literal("Build T"+t),b->send(120+tier)).bounds(x,y+17,70,16).build()).active=menu.value(5)==1&&menu.value(4)==0&&menu.value(6)==0;}
         }else for(int row=0;row<4;row++){
             int index=page*4+row;if(index>=ids.size())break;String id=ids.get(index);
-            var button=addRenderableWidget(Button.builder(Component.literal(id.substring(id.indexOf(':')+1).replace('_',' ')),b->send(index)).bounds(leftPos+18,topPos+35+row*20,220,18).build());
-            button.active=menu.value(5)==1&&menu.value(6)==0&&(menu.value(7)==1||SurvivalGateLayout.galaxy(id)<=Math.min(5,menu.value(0))&&(!id.endsWith("_moons")||menu.value(0)==6))&&menu.value(4)==0;
+            var button=addRenderableWidget(Button.builder(Component.literal((menu.value(3)==index?"> ":"")+id.substring(id.indexOf(':')+1).replace('_',' ')),b->send(index)).bounds(leftPos+18,topPos+35+row*20,220,18).build());
+            button.active=menu.value(5)==1&&menu.value(6)==0&&menu.value(0)>0&&(menu.value(7)==1||SurvivalGateLayout.galaxy(id)<=Math.min(5,menu.value(0)))&&menu.value(4)==0&&minecraft!=null&&minecraft.level!=null&&!id.equals(minecraft.level.dimension().location().toString());
         }
         addRenderableWidget(Button.builder(Component.literal("<"),b->{page=Math.max(0,page-1);buttons();}).bounds(leftPos+18,topPos+116,22,18).build());
         addRenderableWidget(Button.builder(Component.literal(">"),b->{page=Math.min((ids.size()-1)/4,page+1);buttons();}).bounds(leftPos+43,topPos+116,22,18).build());
@@ -42,7 +44,7 @@ public final class SurvivalGateScreen extends AbstractContainerScreen<SurvivalGa
     @Override protected void renderBg(GuiGraphics g,float partial,int mouseX,int mouseY){
         g.fill(leftPos,topPos,leftPos+imageWidth,topPos+imageHeight,0xff17232f);g.fill(leftPos+2,topPos+2,leftPos+254,topPos+250,0xffd3d9de);
         int countdown=menu.value(4);
-        if(plans){g.drawString(font,"Standing plans at this controller",leftPos+18,topPos+88,0xff243747,false);g.drawString(font,"Jump: "+menu.jumpCost()+" FE",leftPos+18,topPos+101,0xff243747,false);}
+        if(plans){g.drawString(font,"Build consumes missing blocks",leftPos+18,topPos+106,0xff243747,false);}
         String status=countdown>0?"Tier "+menu.value(0)+" | Ready check: "+(countdown+19)/20+"s":menu.value(0)==0?"UNFORMED - use Align / Preview":menu.value(7)==1?"Tier "+menu.value(0)+" | ADMIN - FREE TRAVEL":"Tier "+menu.value(0)+" | "+menu.energy()+" / "+menu.energyCapacity()+" FE";
         g.drawString(font,font.plainSubstrByWidth(status,220),leftPos+18,topPos+21,0xff243747,false);
         if(countdown==0){g.fill(leftPos+18,topPos+31,leftPos+238,topPos+33,0xff38435a);int width=(int)Math.min(220,220L*menu.energy()/Math.max(1,menu.energyCapacity()));g.fill(leftPos+18,topPos+31,leftPos+18+width,topPos+33,menu.value(0)==0?0xffb44b51:0xff49bbba);}
