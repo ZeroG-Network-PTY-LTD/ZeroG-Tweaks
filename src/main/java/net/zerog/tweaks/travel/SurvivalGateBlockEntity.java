@@ -103,6 +103,26 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
             for(var player:server.getEntitiesOfClass(ServerPlayer.class,column,p->expected.contains(p.getUUID())&&p.isAlive()&&!p.isSpectator()))if(!group.contains(player))group.add(player);
         }return group;
     }
+    /** One scoped record on failure, no player names/UUIDs or per-tick log flood. */
+    private void logPassengerCancellation(ServerLevel server,List<ServerPlayer> group,int tier){
+        var log=com.mojang.logging.LogUtils.getLogger();var bounds=pad();var c=centre();
+        log.warn("[ZeroG-launch-diagnostic] tier={} elapsed={} lifting={} expected={} present={} ready={} pad={} source={} destination={}",
+            tier,100-countdown,lifting,expected.size(),group.size(),ready.size(),bounds,server.dimension().location(),selectedDestination());
+        int index=0;
+        for(UUID id:expected){
+            var p=server.getServer().getPlayerList().getPlayer(id);
+            // Test players are not registered in PlayerList; include the loaded entity fallback.
+            if(p==null&&server.getEntity(id) instanceof ServerPlayer loaded)p=loaded;
+            if(p==null){log.warn("[ZeroG-launch-diagnostic] passenger={} disconnected-or-unloaded",index++);continue;}
+            var pos=p.position();boolean horizontal=pos.x>=bounds.minX&&pos.x<bounds.maxX&&pos.z>=bounds.minZ&&pos.z<bounds.maxZ;
+            log.warn("[ZeroG-launch-diagnostic] passenger={} relative={} velocity={} dimension={} alive={} spectator={} horizontal={} ordinaryPad={} liftColumn={} levitation={} ready={} detected={}",
+                index++,pos.subtract(Vec3.atLowerCornerOf(c)),p.getDeltaMovement(),p.serverLevel().dimension().location(),p.isAlive(),p.isSpectator(),horizontal,
+                bounds.intersects(p.getBoundingBox()),new AABB(bounds.minX,bounds.minY,bounds.minZ,bounds.maxX,bounds.maxY+4,bounds.maxZ).intersects(p.getBoundingBox()),
+                p.hasEffect(MobEffects.LEVITATION),ready.contains(id),group.contains(p));
+        }
+        long newcomers=group.stream().filter(p->!expected.contains(p.getUUID())).count();
+        if(newcomers>0)log.warn("[ZeroG-launch-diagnostic] unexpected-passengers={}",newcomers);
+    }
     private void cancelWithReason(String reason){
         if(level instanceof ServerLevel server)for(UUID id:expected){var player=server.getServer().getPlayerList().getPlayer(id);if(player!=null)player.displayClientMessage(Component.literal("Launch cancelled: "+reason),false);}
         cancel();
@@ -158,7 +178,10 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         var group=launchPassengers();var present=group.stream().map(ServerPlayer::getUUID).collect(java.util.stream.Collectors.toSet());
         int tier=formedTier();
         if(tier==0){cancelWithReason("the gate structure changed. Use Preview.");return;}
-        if(group.size()>SurvivalGateLayout.passengers(tier)+(has("capacity_coil")?2:0)||!present.equals(expected)){cancelWithReason("the passenger group changed or someone left the pad.");return;}
+        if(group.size()>SurvivalGateLayout.passengers(tier)+(has("capacity_coil")?2:0)||!present.equals(expected)){
+            logPassengerCancellation(server,group,tier);
+            cancelWithReason("the passenger group changed or someone left the pad. Launch diagnostics were saved to latest.log; no jump charge was taken.");return;
+        }
         if(!returnPlatform&&(selected<0||selected>=destinations().size()||!canReach(destinations().get(selected)))){cancelWithReason("the selected destination is not allowed by this tier.");return;}
         BlockPos c=centre();double phase=(100-countdown)*.16,radius=Math.max(.6,SurvivalGateLayout.padRadius(tier)*.75);
         for(int point=0;point<8;point++){double angle=phase+point*Math.PI/4;server.sendParticles(ParticleTypes.PORTAL,c.getX()+.5+Math.cos(angle)*radius,c.getY()+1.15+Math.sin(phase)*.12,c.getZ()+.5+Math.sin(angle)*radius,1,.04,.04,.04,.02);}

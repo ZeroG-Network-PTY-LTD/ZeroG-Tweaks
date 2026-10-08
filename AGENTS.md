@@ -471,3 +471,15 @@ Galaxy moons unlock at the corresponding galaxy tier, as the approved Codex says
 keep the GUI consistent with canReach rather than imposing a separate T6-only rule.
 Actual outbound Moon/Mars tests use zerog_gate_outbound plus workflowPlanetPreset;
 bound Nether-return tests use zerog_workflow_optional without that preset.
+
+## Mining hints and unresolved client launch cancellation — 9 October
+
+Moonsteel remains Ferrox-gated per the approved ladder; Nullifite only opens
+Ferrox. MiningRequirements reads loaded block tags for inventory tooltips and
+wrong-tool survival actionbar hints. Do not lower ore requirements to fix missing
+feedback. Stone/fuel requirements remain their own tags, not a global ore minimum.
+Client launch cancellation still reproduces after the lifted-position mock passed.
+The scoped ZeroG-launch-diagnostic records only failure state and anonymous
+passenger-relative position/motion; no names, account arguments or per-tick flood.
+This instrumentation is not a verified teleport repair. Use the next actual client
+failure to distinguish vertical/horizontal exit, extra passengers and disconnects.
