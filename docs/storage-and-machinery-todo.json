@@ -3,11 +3,11 @@
   "updated": "2026-10-09",
   "candidate_version": "1.0.12-dev",
   "latest_delivery": {
-    "guide": "gate-autobuild-and-lift-repair-2026-10-09.md",
+    "guide": "launch-diagnostics-mining-feedback-2026-10-09.md",
     "artwork": "upgrade-card-icons-2026-10-07.md",
-    "receipt": "gate-autobuild-delivery-2026-10-09.json",
+    "receipt": "launch-diagnostics-mining-feedback-2026-10-09.md",
     "gate_building": "gate-building-tiers-1.21.1.md",
-    "scope": "Same1.0.12-dev installed59a37824b15e1bdf86856ef8eca1245af498de4ec252e4aa9e8056520a0f3c94 with prior-JAR backup. Inventory-funded Plan/Build controls for tiers1-6 preserve controllers and refuse obstructions. Fixed launch cancellation when confirmed passengers rise above ordinary pad bounds; sideways departure still cancels. Explicit launch/refusal messages and selected destination markers. Galaxy moons match the approved galaxy-tier progression. Eight gate regressions and two actual Moon/Mars outbound tests passed; each charged100000FE. Clean build and zero-error asset audit passed. No test fixtures in production. Hub/saves, other mods and settings unchanged. Client transition/GUI visual approval remains pending."
+    "scope": "Same1.0.12-dev installed447ba39df288c43eb8de92f8fd4f863274d15327605761befa7b455fc027ac14 with prior-JAR backup. Actual client passenger/pad cancellation still reproduces: earlier lifted-position mocks did not cover this failure. Added scoped anonymous failure-only launch diagnostics; teleport fix awaits that trace. Loaded-tag mining tooltips and wrong-tool survival actionbar hints added. Moonsteel remains Ferrox-gated per approved lore, not Nullifite. All14 isolated blocker/mining tests passed including correct-tool raw Moonsteel loot. Clean production build and zero-error asset audit passed; no test fixtures ship. Hub/saves, other mods and weather pause unchanged. Client hint appearance remains pending."
   },
   "commit_review": {
     "date": "2026-10-07",
@@ -18,6 +18,7 @@
     "guide": "genetics-legacy-cards-2026-10-07.md"
   },
   "next_priority_order": [
+    "actual-client-launch-cancellation-trace-and-repair",
     "gate-client-transition-and-auto-build-visual-review",
     "recipe-discovery-remaining-machines",
     "client-startup-loading-investigation",

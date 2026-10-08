@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Launch diagnostics and mining feedback — 9 October 2026
+
+[Player checks and evidence](docs/launch-diagnostics-mining-feedback-2026-10-09.md).
+The actual client still reports passenger/pad cancellation: the earlier lifted-position
+mock did not reproduce the full in-game failure. The diagnostic build records scoped,
+anonymous failure state; **teleport repair remains pending that trace**.
+ZeroG block tooltips and wrong-tool survival warnings now expose loaded mining requirements.
+Moonsteel keeps the lore-approved **Ferrox pickaxe** minimum; Nullifite is insufficient.
+All14 isolated blocker/mining tests passed. Hub and saves remain untouched.
+
 ## Inventory-funded gates and launch-lift repair — 9 October 2026
 
 [Build controls, tier destinations, costs and test evidence](docs/gate-autobuild-and-lift-repair-2026-10-09.md).
