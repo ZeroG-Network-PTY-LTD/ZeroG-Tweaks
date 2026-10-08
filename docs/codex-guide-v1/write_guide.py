@@ -240,6 +240,10 @@ page("07_mining.md", "7. Mining Ladder", "zerog_tweaks:nullifite_pickaxe", 70, b
 
 Each Sol ore needs the pickaxe from the step before it. With a weaker pickaxe the ore breaks but drops nothing.
 
+Hover a ZeroG block in inventory to see its loaded mining requirement. Trying to mine it with a weaker tool
+shows a red requirement above the hotbar. Moonsteel needs **Ferrox**, not Nullifite: visit Mars for Ferrox first.
+Stone variants use their own tool tags; they do not automatically inherit the ore ladder.
+
 | Ore | Found on | Needs at least |
 | --- | --- | --- |
 | {link("deepslate_nullifite_ore")} | Overworld | Netherite pickaxe |
