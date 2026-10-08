@@ -29,6 +29,7 @@ public final class SurvivalGateScreen extends AbstractContainerScreen<SurvivalGa
         }
         addRenderableWidget(Button.builder(Component.literal("<"),b->{page=Math.max(0,page-1);buttons();}).bounds(leftPos+18,topPos+116,22,18).build());
         addRenderableWidget(Button.builder(Component.literal(">"),b->{page=Math.min((ids.size()-1)/4,page+1);buttons();}).bounds(leftPos+43,topPos+116,22,18).build());
+        addRenderableWidget(Button.builder(Component.literal("Ghost"),b->send(105)).bounds(leftPos+68,topPos+116,39,18).build()).active=menu.value(5)==1;
         boolean incomplete=menu.value(0)==0;
         addRenderableWidget(Button.builder(Component.literal(incomplete?"Align":"Engage"),b->send(incomplete?104:100)).bounds(leftPos+110,topPos+137,65,18).build()).active=menu.value(5)==1&&menu.value(4)==0;
         addRenderableWidget(Button.builder(Component.literal("Ready"),b->send(101)).bounds(leftPos+178,topPos+137,60,18).build()).active=menu.value(4)>0;

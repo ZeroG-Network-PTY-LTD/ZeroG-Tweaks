@@ -3,6 +3,7 @@ package net.zerog.tweaks.travel;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -37,6 +38,7 @@ public final class SurvivalGateMenu extends AbstractContainerMenu {
         if(button==102){gate.preview(server);return true;}
         if(button==103){gate.cancel();return true;}
         if(button==104)return gate.align(server);
+        if(button==105){GateSchematicSync.send(server,gate);server.sendSystemMessage(Component.literal("Schematic toggle: green = correct; cyan = missing; red = wrong block. Current-tier plan; expires after 60 seconds."));return true;}
         if(button>=0&&button<SurvivalGateBlockEntity.destinations().size()&&gate.countdown==0&&gate.canReach(SurvivalGateBlockEntity.destinations().get(button))){gate.selected=button;gate.setChanged();return true;}return false;
     }
     @Override public ItemStack quickMoveStack(Player player,int index){

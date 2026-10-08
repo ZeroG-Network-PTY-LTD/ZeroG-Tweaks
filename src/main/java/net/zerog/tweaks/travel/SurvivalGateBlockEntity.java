@@ -121,10 +121,12 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         var orientation=formed==0?SurvivalGateLayout.closestFacing(server,worldPosition,facing()):facing();
         if(formed==0&&orientation!=facing())player.sendSystemMessage(Component.literal("Controller faces "+facing().getName()+"; the closest matching gate faces "+orientation.getName()+". Use Align."));
         var missing=SurvivalGateLayout.missingParts(server,worldPosition,orientation,tier);
-        player.sendSystemMessage(Component.literal("Gate tier "+formed+"; "+missing.size()+" missing/mismatched parts for tier "+tier+"."));
-        for(int i=0;i<Math.min(4,missing.size());i++){
-            var part=missing.get(i);player.sendSystemMessage(Component.empty().append(part.expected().getName()).append(" required at "+part.pos().getX()+", "+part.pos().getY()+", "+part.pos().getZ()));
-        }
+        if(formed>0)player.sendSystemMessage(Component.literal("Current gate: Tier "+formed+" complete. Alignment is valid."));
+        if(formed==6)player.sendSystemMessage(Component.literal("Maximum tier reached; no further upgrade is required."));
+        else player.sendSystemMessage(Component.literal((formed>0?"Optional next-tier upgrade: ":"Incomplete gate: ")+"Tier "+tier+" needs "+missing.size()+" missing/mismatched blocks."));
+        if(!missing.isEmpty())player.sendSystemMessage(Component.literal("Front/left/right are relative to the gate plan; the tall arches are at the rear."));
+        for(var requirement:SurvivalGateLayout.missingRequirements(server,worldPosition,orientation,tier))
+            player.sendSystemMessage(Component.literal(requirement.section()+": "+requirement.count()+" × ").append(requirement.expected().getName()));
         for(var part:missing)if(server.hasChunkAt(part.pos()))server.sendParticles(player,ParticleTypes.END_ROD,true,part.pos().getX()+.5,part.pos().getY()+.5,part.pos().getZ()+.5,2,.1,.1,.1,0);
     }
     public void tick(){

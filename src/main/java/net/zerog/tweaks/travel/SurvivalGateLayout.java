@@ -55,6 +55,30 @@ public final class SurvivalGateLayout {
         return formed;
     }
     public record MissingPart(BlockPos pos,Block expected){}
+    public record MissingRequirement(String section,Block expected,int count){}
+    /** Group construction faults by local structure section, never by world coordinates. */
+    public static List<MissingRequirement> missingRequirements(ServerLevel level,BlockPos controller,Direction facing,int tier){
+        record Key(String section,Block expected){}
+        var counts=new LinkedHashMap<Key,Integer>();
+        BlockPos origin=centre(controller,facing);
+        for(var part:parts(tier)){
+            BlockPos at=origin.offset(rotate(part.offset(),facing));
+            if(level.hasChunkAt(at)&&level.getBlockState(at).is(part.block()))continue;
+            counts.merge(new Key(section(part.offset(),part.block()),part.block()),1,Integer::sum);
+        }
+        return counts.entrySet().stream().map(e->new MissingRequirement(e.getKey().section(),e.getKey().expected(),e.getValue())).toList();
+    }
+    private static String section(BlockPos local,Block block){
+        if(block==BlockInit.GATE_CONTROLLER.get())return "Service row — controller";
+        if(block==BlockInit.GATE_ENERGY_PORT.get())return "Service row — energy ports";
+        if(block==BlockInit.GATE_PAD_PLATE.get())return "Landing pad — floor";
+        if(local.getY()==-1)return "Base frame — tier "+(Math.max(Math.abs(local.getX()),Math.abs(local.getZ()))-1)+" ring";
+        if(block==BlockInit.GATE_PYLON.get())return "Pylons — "+(local.getZ()<0?"front":"rear")+" "+(local.getX()<0?"left":"right")+" column";
+        if(block==BlockInit.GATE_LENS_HOUSING.get())return "Rear arch — tier "+(local.getZ()-1)+" lens";
+        if(local.getY()< -1)return "Foundation — buried core";
+        if(block==BlockInit.SELENITE_BLOCK.get())return "Rear arch — Selenite focus";
+        return "Rear arch — tier "+(local.getZ()-1)+" "+(local.getY()==2*(local.getZ()-1)?"crossbeam":local.getX()<0?"left column":"right column");
+    }
     public static List<MissingPart> missingParts(ServerLevel level,BlockPos controller,Direction facing,int tier){
         BlockPos origin=centre(controller,facing);
         return parts(tier).stream().map(p->new MissingPart(origin.offset(rotate(p.offset(),facing)),p.block()))

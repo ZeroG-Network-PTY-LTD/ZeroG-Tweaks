@@ -20,6 +20,34 @@ import net.zerog.tweaks.travel.SurvivalGateLayout;
 @GameTestHolder("zerog_gate_power")
 @PrefixGameTestTemplate(false)
 public final class GatePowerGameTests {
+    @GameTest(templateNamespace="zerog_gate_power",template="equipment_empty",timeoutTicks=100)
+    public static void schematic_packet_round_trips_and_rejects_unbounded_plans(GameTestHelper h){
+        var centre=h.absolutePos(new BlockPos(8,4,8));
+        var plan=new net.zerog.tweaks.travel.GateSchematicSync.Plan(h.getLevel().dimension().location(),centre.offset(0,1,-2),centre,Direction.NORTH.get2DDataValue(),6);
+        var buf=new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(),h.getLevel().registryAccess());
+        try {
+            net.zerog.tweaks.travel.GateSchematicSync.Plan.CODEC.encode(buf,plan);
+            h.assertTrue(net.zerog.tweaks.travel.GateSchematicSync.Plan.CODEC.decode(buf).equals(plan),"Schematic packet changed authoritative plan");
+        } finally {buf.release();}
+        boolean rejected=false;
+        try {new net.zerog.tweaks.travel.GateSchematicSync.Plan(plan.dimension(),centre.offset(20,1,0),centre,0,6);}catch(IllegalArgumentException expected){rejected=true;}
+        h.assertTrue(rejected,"Schematic accepted an unbounded controller footprint");h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_gate_power",template="equipment_empty",timeoutTicks=100)
+    public static void construction_guidance_groups_missing_blocks_by_section(GameTestHelper h){
+        var level=h.getLevel();BlockPos centre=h.absolutePos(new BlockPos(8,4,8));
+        for(var part:SurvivalGateLayout.parts(1))level.setBlock(centre.offset(part.offset()),part.block().defaultBlockState(),3);
+        BlockPos controller=centre.offset(0,1,-2);
+        h.assertTrue(SurvivalGateLayout.missingRequirements(level,controller,Direction.NORTH,1).isEmpty(),"Complete current tier reported repair requirements");
+        level.setBlock(centre.offset(2,1,0),net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
+        level.setBlock(centre.offset(-2,-1,0),net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
+        level.setBlock(centre.offset(2,-1,0),net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
+        var groups=SurvivalGateLayout.missingRequirements(level,controller,Direction.NORTH,1);
+        h.assertTrue(groups.size()==2,"Missing requirements were not grouped by section and block");
+        h.assertTrue(groups.stream().anyMatch(g->g.section().equals("Base frame — tier 1 ring")&&g.count()==2&&g.expected()==BlockInit.NULLIFITE_GATE_FRAME.get()),"Base ring count/name incorrect");
+        h.assertTrue(groups.stream().anyMatch(g->g.section().equals("Service row — energy ports")&&g.count()==1&&g.expected()==BlockInit.GATE_ENERGY_PORT.get()),"Energy service diagnosis incorrect");
+        h.succeed();
+    }
     @GameTest(templateNamespace="zerog_gate_power",template="equipment_empty",timeoutTicks=1000)
     public static void all_six_tiers_in_four_facings_share_port_energy_and_revoke_removed_handlers(GameTestHelper h){
         var level=h.getLevel();int checked=0;

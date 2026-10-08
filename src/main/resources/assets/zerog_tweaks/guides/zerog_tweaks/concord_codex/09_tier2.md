@@ -16,7 +16,8 @@ A Tier 2 gate is built **around** your Tier 1 gate. Keep everything and add:
 * a <ItemLink id="zerog_tweaks:gate_lens_housing" /> on top of the arch,
 * a <ItemLink id="zerog_tweaks:selenite_block" />, and an <ItemLink id="zerog_tweaks:aresite_block" /> under the centre of the pad.
 
-Press **Preview** on the controller to see exactly where each new block goes.
+Press **Preview** on the controller for the next tier's required blocks, grouped by
+structural section. **Ghost** shows the current tier, not the next-tier upgrade.
 
 ## Reach Galaxy 2
 
