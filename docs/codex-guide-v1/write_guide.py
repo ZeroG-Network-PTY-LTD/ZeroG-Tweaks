@@ -169,10 +169,10 @@ Gates run on **FE**. The simplest source is a {link("combustion_generator")}.
 | --- | --- |
 | Battery | 1,000,000 FE |
 | Fastest charging | 1,000 FE/t |
-| Overworld to the Moon or Mars, 1 player | 125,000 FE |
+| Tier 1 successful gate jump (any eligible group) | 100,000 FE |
 | Each extra passenger | +10% |
 
-At 50 FE/t one trip is about two minutes of burning. The controller screen shows the stored FE.
+At 50 FE/t one Tier 1 trip needs 100 seconds of burning. The controller screen shows the stored FE.
 
 Next: [launch](04_launch.md).
 """)
@@ -191,7 +191,7 @@ Tamed pets owned by a passenger, and mobs on a passenger's lead, come along.
 ## Arriving
 
 Your first trip builds a **landing platform** on the planet: a small gate with a {link("crystal_cell")}
-under it. The cell recharges the platform by 1,000 FE every second, so after about two minutes you can use
+under it. The cell recharges the platform by 1,000 FE every second, so after about 100 seconds you can use
 the platform to fly **home** to the gate you left from.
 
 Next: [the Moon](05_moon.md).
@@ -255,7 +255,7 @@ There are two ways back:
 
 1. Right-click your **home Gate Controller** with the anchor to bind it.
 2. Use the anchor anywhere to jump back to that gate.
-3. It costs **150%** of a normal trip, taken from the home gate's battery, and has a **1-minute** cooldown.
+3. Recall retains its separate legacy pricing (150% of the old configured travel formula), taken from the home gate's battery, and has a **1-minute** cooldown. It is not the new fixed gate-jump tariff.
 
 The {link("group_anchor")} works the same way and also brings scoreboard teammates within 8 blocks.
 
@@ -294,8 +294,21 @@ the existing duplication recipes let you copy one after finding it.
 
 The controller has upgrade slots (one at Tier 1):
 
-* {link("refracting_lens")}: trips cost less.
+* {link("refracting_lens")}: retained for compatibility; no discount on the fixed gate-jump tariff.
 * {link("cryo_core")}: the gate charges twice as fast.
 * {link("capacity_coil")}: 2 more passengers fit on the pad.
+
+## Jump budget and standing plans
+
+Player gate jumps cost exactly **100,000 / 200,000 / 400,000 / 800,000 /
+1,600,000 / 3,200,000 FE** at tiers 1–6. A successful group jump pays once;
+passenger count, same-galaxy travel and lenses do not change this tariff.
+Cancelled or invalid launches do not charge. Admin showcase gates remain free.
+
+Open the controller and choose **Plans**, then **Tier 1–6** to show a standing
+wireframe anchored to that controller. Green means correct, cyan missing and red
+wrong block. A selected plan does not upgrade or construct the actual gate.
+The hologram above the terminal shows the selected galaxy/planet and charging
+countdown. Dimension jumps use the galaxy-to-planet transition artwork.
 """)
 print(sorted(os.listdir(G)))
