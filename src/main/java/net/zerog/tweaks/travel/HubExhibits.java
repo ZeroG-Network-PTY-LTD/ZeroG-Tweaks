@@ -62,7 +62,7 @@ public final class HubExhibits {
         for(int x=0;x<=114;x++)for(int z=-1;z<=1;z++)floor(level,new BlockPos(x,63,z));
         sign(level,new BlockPos(3,64,12),"SOUTH: BEE SYSTEMS","12 working shells","Ports face outward","Walk around all sides");
         sign(level,new BlockPos(12,64,3),"EAST: SCHEMATICS","10 Vault room designs","Inspection structures","Not active boss arenas");
-        sign(level,new BlockPos(-3,64,-12),"NORTH: SIX TIERS","Choose34 destinations","Generate on arrival","Admin travel enabled");
+        sign(level,new BlockPos(-3,64,-12),"NORTH: TWO SETS","6 admin / 6 player","Player: finite power","Admin: free travel");
         int index=0;
         for(var layout:MultiblockGuides.layouts()) {
             var base=designOrigin(index++);pad(level,base,20,16);

@@ -199,15 +199,18 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     public static DimensionTransition transition(ServerLevel target,BlockPos centre){return new DimensionTransition(target,new Vec3(centre.getX()+.5,centre.getY()+1,centre.getZ()+.5),Vec3.ZERO,180,0,DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET));}
     public static SurvivalGateBlockEntity prepareArrival(ServerLevel target,SurvivalGateBlockEntity home){
         // Deterministic gate-specific landing location; never overwrite a previous platform.
-        int x=512+Math.floorMod(home.worldPosition.getX(),16)*32,z=512+Math.floorMod(home.worldPosition.getZ(),16)*32;
+        var hubColumn=PlanetTestHub.isHub(home.level.getServer())&&home.level.dimension()==net.minecraft.world.level.Level.OVERWORLD?HubTieredGates.landingColumn(home.worldPosition):null;
+        int x=hubColumn==null?512+Math.floorMod(home.worldPosition.getX(),16)*32:hubColumn.getX(),z=hubColumn==null?512+Math.floorMod(home.worldPosition.getZ(),16)*32:hubColumn.getZ();
         target.getChunk(x>>4,z>>4);int y=Math.min(target.getMaxBuildHeight()-10,Math.max(target.getSeaLevel()+4,target.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,x,z)+3));
         BlockPos c=new BlockPos(x,y,z),controller=c.offset(0,1,-2);
         // Locate persisted platforms in the loaded column instead of rebuilding above the old one.
         for(int scan=target.getMinBuildHeight();scan<target.getMaxBuildHeight();scan++)if(target.getBlockEntity(new BlockPos(x,scan,z-2)) instanceof SurvivalGateBlockEntity existing&&existing.returnPlatform&&existing.homeController.equals(home.worldPosition)&&existing.homeDimension.equals(home.level.dimension().location().toString())){
             SurvivalGateLayout.loadFootprint(target,existing.worldPosition,existing.facing());
+            if(home.owner!=null&&!home.owner.equals(existing.owner)){existing.owner=home.owner;existing.setChanged();}
             if(home.adminTest()){existing.getPersistentData().putBoolean(HubTieredGates.ADMIN,true);existing.setChanged();}
             return existing;
         }
+        if(hubColumn!=null)for(var p:BlockPos.betweenClosed(c.offset(-3,1,-3),c.offset(3,5,3)))target.setBlock(p,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
         for(var p:BlockPos.betweenClosed(c.offset(-3,-2,-3),c.offset(3,-1,3)))target.setBlock(p,BlockInit.LANDING_PLATFORM.get().defaultBlockState(),3);
         for(var part:SurvivalGateLayout.parts(1))target.setBlock(c.offset(part.offset()),part.block().defaultBlockState(),3);
         target.setBlock(c.offset(0,-2,0),BlockInit.CRYSTAL_CELL.get().defaultBlockState(),3);

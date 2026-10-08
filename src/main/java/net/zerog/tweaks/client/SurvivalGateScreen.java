@@ -39,8 +39,9 @@ public final class SurvivalGateScreen extends AbstractContainerScreen<SurvivalGa
     @Override protected void renderBg(GuiGraphics g,float partial,int mouseX,int mouseY){
         g.fill(leftPos,topPos,leftPos+imageWidth,topPos+imageHeight,0xff17232f);g.fill(leftPos+2,topPos+2,leftPos+254,topPos+250,0xffd3d9de);
         int countdown=menu.value(4);
-        String status=countdown>0?"Tier "+menu.value(0)+" | Ready check: "+(countdown+19)/20+"s":menu.value(7)==1?"Tier "+menu.value(0)+" | ADMIN - FREE TRAVEL":"Tier "+menu.value(0)+" | "+menu.energy()+" / "+menu.energyCapacity()+" FE";
+        String status=countdown>0?"Tier "+menu.value(0)+" | Ready check: "+(countdown+19)/20+"s":menu.value(0)==0?"UNFORMED - use Align / Preview":menu.value(7)==1?"Tier "+menu.value(0)+" | ADMIN - FREE TRAVEL":"Tier "+menu.value(0)+" | "+menu.energy()+" / "+menu.energyCapacity()+" FE";
         g.drawString(font,font.plainSubstrByWidth(status,220),leftPos+18,topPos+21,0xff243747,false);
+        if(countdown==0){g.fill(leftPos+18,topPos+31,leftPos+238,topPos+33,0xff38435a);int width=(int)Math.min(220,220L*menu.energy()/Math.max(1,menu.energyCapacity()));g.fill(leftPos+18,topPos+31,leftPos+18+width,topPos+33,menu.value(0)==0?0xffb44b51:0xff49bbba);}
         if(countdown>0){g.fill(leftPos+18,topPos+31,leftPos+238,topPos+33,0xff38435a);g.fill(leftPos+18,topPos+31,leftPos+18+(100-countdown)*220/100,topPos+33,0xff966ad6);}
         for(var slot:menu.slots){g.fill(leftPos+slot.x-1,topPos+slot.y-1,leftPos+slot.x+17,topPos+slot.y+17,0xff46535c);g.fill(leftPos+slot.x,topPos+slot.y,leftPos+slot.x+16,topPos+slot.y+16,0xff87929a);}
     }

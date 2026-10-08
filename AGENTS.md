@@ -1,5 +1,26 @@
 # AGENTS.md: build guide for ZeroG Tweaks
 
+## Compact dual-gate hub — 8 October 2026
+
+GameTest recurring jobs must schedule a fresh Runnable identity: 1.21.1
+GameTestInfo removes the executing callback after it returns. Reusing `this`
+silently removes the newly scheduled next step. Restart interrupted export
+verification in a fresh disposable world, not one with partly persisted flags.
+
+Owner requests six normal player gates plus six admin gates, with the existing
+compact districts retained. HubTieredGates.playerCentre adds two northern rows;
+only the original six controller positions may have ADMIN permissions. Player
+gates have finite cells, coal generators and configured conduits to the required
+gate_energy_port; menu energy is exact and the GUI shows a charge bar. Paths must
+never overwrite ring frames. Normal survival destination locations are unchanged;
+the twelve authored hub gates use separate compact return columns. The approved
+pregen scope is **50 total chunks per dimension**, not50x50: a10x5 rectangle per
+34 custom planets, requested1700 FULL chunks. Vanilla feature dependencies may
+save a halo beyond the requested rectangle. Opt-in zerog_hub_pregen prepares this
+only in a disposable server; production must not continuously pregen or retain
+forced tickets. Export through tools/export_dual_hub.py after real tests pass,
+preserving the exact old compact save recoverably and touching no unrelated saves.
+
 ## Owner weather pause — 8 October 2026
 
 Custom planetary weather is paused by `PlanetStorms.enabled() == false` in this
