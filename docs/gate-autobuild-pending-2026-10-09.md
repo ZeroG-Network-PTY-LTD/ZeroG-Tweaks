@@ -1,5 +1,8 @@
 # Gate auto-build and Tier 1 travel — pending verification
 
+Historical handoff at the usage threshold. Subsequent work and current evidence:
+[gate auto-build and lift repair](gate-autobuild-and-lift-repair-2026-10-09.md).
+
 Owner request: inventory-funded standing gate construction for tiers 1–6,
 tier-correct planetary destinations, and ZeroG transition on successful travel.
 

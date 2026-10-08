@@ -1,5 +1,18 @@
 # ZeroG Tweaks
 
+## Inventory-funded gates and launch-lift repair — 9 October 2026
+
+[Build controls, tier destinations, costs and test evidence](docs/gate-autobuild-and-lift-repair-2026-10-09.md).
+Controller **Plans** now separates standing previews from **Build T1–T6**:
+construction checks and consumes only missing inventory blocks, retaining the
+controller and refusing obstructions. Confirmed passengers remain in the bounded
+launch column while lifted; sideways departure still cancels. Engagement and
+cancellation show reasons instead of silently failing. Selected destinations
+are marked, and galaxy-moon buttons match the approved tier progression.
+Eight gate regression tests and two actual Tier1 Moon/Mars journeys passed;
+successful journeys each deducted exactly100000FE. Client transition and GUI
+appearance remain for player review. Existing saves are not rebuilt by this patch.
+
 ## Flexible gate terminals and service ports — 9 October 2026
 
 [Placement rules, diagnostics and test evidence](docs/gate-flexible-placement-2026-10-09.md).
