@@ -11,17 +11,37 @@ import net.zerog.tweaks.machine.*;
 public final class ProcessingRecipePanel {
     private record Row(String label,List<ItemStack> alternatives,List<Component> tooltip){}
     private final ProcessingBlockEntity machine;
+    private final net.minecraft.world.level.block.entity.BlockEntity legacy;
+    private final List<ProcessingRecipeCatalogue.Page> legacyPages;
     private final MachineItemCatalog items;
     private int tab,page,scroll;
     private ItemStack selected=ItemStack.EMPTY;
     public ProcessingRecipePanel(ProcessingBlockEntity machine){
-        this.machine=machine;
-        items=new MachineItemCatalog(stack->!ProcessingRecipeCatalogue.pages(machine,stack).isEmpty())
+        this.machine=machine;legacy=null;legacyPages=List.of();
+        items=new MachineItemCatalog(stack->!pages(stack).isEmpty())
             .onSelect(stack->{selected=stack;tab=1;page=0;scroll=0;});
     }
+    public ProcessingRecipePanel(net.minecraft.world.level.block.entity.BlockEntity legacy){
+        machine=null;this.legacy=legacy;
+        legacyPages=LegacyRecipeCatalogue.basePages(net.zerog.tweaks.genetics.GeneticsRuntime.id(legacy));
+        items=new MachineItemCatalog(stack->!pages(stack).isEmpty()).onSelect(stack->{selected=stack;tab=1;page=0;scroll=0;});
+    }
+    private List<ProcessingRecipeCatalogue.Page> pages(ItemStack selected){return machine!=null?ProcessingRecipeCatalogue.pages(machine,selected):LegacyRecipeCatalogue.adjusted(legacy,legacyPages,selected);}
     private List<Row> rows(){
         var rows=new ArrayList<Row>();
         if(tab==2){
+            if(machine==null){
+                boolean supported=net.zerog.tweaks.genetics.LegacyMachineCards.supports(legacy);
+                if(!supported){text(rows,"No machine cards supported");text(rows,"No FE cost for Silk Weaver");text(rows,"Recovery slots are not upgrades");return rows;}
+                var inv=net.zerog.tweaks.genetics.LegacyMachineCards.inventory(legacy);
+                for(int i=0;i<2;i++){
+                    var stack=inv.getStackInSlot(i);
+                    rows.add(new Row((i==0?"Acceleration":"Energy Coil")+": "+(stack.isEmpty()?"none":stack.getHoverName().getString()),stack.isEmpty()?List.of():List.of(stack.copy()),List.of()));
+                }
+                text(rows,"One card per family, tiers 1–6");text(rows,"Speed now: "+net.zerog.tweaks.genetics.LegacyMachineCards.speed(legacy)/100.0+"x");
+                text(rows,"FE saving now: "+net.zerog.tweaks.genetics.LegacyMachineCards.saving(legacy)+"%");
+                text(rows,"Maximum 2.5x / 30% saving");text(rows,"Compact / Void unsupported");text(rows,"Crafting costs deferred");return rows;
+            }
             text(rows,"Installed upgrades");
             for(int i=0;i<4;i++){
                 var stack=machine.inventory.getStackInSlot(machine.kind.upgrades()+i);
@@ -35,10 +55,11 @@ public final class ProcessingRecipePanel {
             text(rows,"Old items remain recoverable");text(rows,"No new casing/dust installs");
             text(rows,"Compact: safe input reserves");text(rows,"Void: selected new outputs");text(rows,"Upgrades button edits filter");text(rows,"Crafting costs deferred");return rows;
         }
-        var pages=ProcessingRecipeCatalogue.pages(machine,selected);
+        var pages=pages(selected);
         if(pages.isEmpty()){text(rows,"No registered recipes");return rows;}
         page=Math.min(page,pages.size()-1);var recipe=pages.get(page);
-        text(rows,recipe.id().toString());text(rows,"Shapeless: one slot each");
+        text(rows,recipe.id().toString());text(rows,machine!=null?"Shapeless: one slot each":"Input: slot 0");
+        if(machine==null)text(rows,net.zerog.tweaks.genetics.GeneticsRuntime.id(legacy).equals("starmetal_smelter")?"Flux: slot 2 (consumed)":"No pattern/catalyst required");
         for(int i=0;i<recipe.inputs().size();i++)ingredient(rows,"Input "+(i+1),recipe.inputs().get(i));
         if(recipe.catalyst().isPresent())ingredient(rows,"Catalyst",recipe.catalyst().get());else text(rows,"Catalyst: none required");
         for(var output:recipe.outputs()){
@@ -79,7 +100,7 @@ public final class ProcessingRecipePanel {
             if(mouseX>=x+4&&mouseX<x+width-4&&mouseY>=y&&mouseY<y+19)g.renderComponentTooltip(font,tips,mouseX,mouseY);
         }
         if(tab==1){
-            String[] labels={"< "+(page+1)+"/"+Math.max(1,ProcessingRecipeCatalogue.pages(machine,selected).size()),"Next >","All"};
+            String[] labels={"< "+(page+1)+"/"+Math.max(1,pages(selected).size()),"Next >","All"};
             for(int i=0;i<3;i++){
                 int bx=x+i*width/3;g.fill(bx,top+186,bx+width/3-1,top+208,0xff24354b);
                 g.drawString(font,font.plainSubstrByWidth(labels[i],width/3-6),bx+3,top+192,0xff9edbda,false);
@@ -93,7 +114,7 @@ public final class ProcessingRecipePanel {
         if(my<top+18){tab=Math.min(2,(int)((mx-x)*3/width));scroll=0;return true;}
         if(tab==0)return items.click(mx,my,left,top+20,viewport,machineWidth);
         if(tab==1&&my>=top+186){
-            int count=ProcessingRecipeCatalogue.pages(machine,selected).size();
+            int count=pages(selected).size();
             if(mx>=x+width*2/3){selected=ItemStack.EMPTY;page=0;}
             else if(count>0)page=Math.floorMod(page+(mx<x+width/3?-1:1),count);
             scroll=0;

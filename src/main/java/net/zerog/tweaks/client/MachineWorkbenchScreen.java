@@ -17,6 +17,7 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
     private final List<Slot> original;
     private boolean showInputs;
     private MachineItemCatalog inputs;
+    private ProcessingRecipePanel recipes;
     private final MachineFaceControls faceControls=new MachineFaceControls();
     public MachineWorkbenchScreen(AbstractContainerMenu menu,Inventory inventory,Component title,MachineGuiProfile profile) {
         super(menu,inventory,title);this.profile=profile;original=List.copyOf(menu.slots);
@@ -27,9 +28,12 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
     @Override protected void init() {
         super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showInputs);int n=profile.roles().size();
         inputs=new MachineItemCatalog(stack->original.stream().limit(profile.outputStart()).anyMatch(slot->slot.mayPlace(stack)));
+        if(recipes==null&&net.zerog.tweaks.machine.LegacyRecipeCatalogue.supports(profile.id())&&menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides)
+            recipes=new ProcessingRecipePanel(sides.sideMachine());
         if(imageWidth>256&&menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides)
             faceControls.add(leftPos+260,topPos+18,sides,w->addRenderableWidget(w),command->{if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,command);});
-        addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Inputs"),b->{showInputs=!showInputs;rebuildWidgets();}).bounds(leftPos+196,topPos+3,52,16).build());
+        var browse=addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal(recipes==null?"Inputs":"Recipes"),b->{showInputs=!showInputs;rebuildWidgets();}).bounds(leftPos+196,topPos+3,52,16).build());
+        if(recipes!=null)browse.active=MachineItemCatalog.panelWidth(width,imageWidth)>=120;
         for(int i=0;i<original.size();i++) {
             if(menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides&&net.zerog.tweaks.genetics.LegacyMachineCards.supports(sides.sideMachine())&&i>=original.size()-2)continue;
             int x,y;
@@ -64,7 +68,7 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
     }
     @Override public void render(GuiGraphics g,int mouseX,int mouseY,float partial) {
         super.render(g,mouseX,mouseY,partial);renderTooltip(g,mouseX,mouseY);
-        if(showInputs)inputs.render(g,font,leftPos,topPos,width,imageWidth,mouseX,mouseY,"Accepted inputs");
+        if(showInputs){if(recipes!=null)recipes.render(g,font,leftPos,topPos,width,imageWidth,mouseX,mouseY);else inputs.render(g,font,leftPos,topPos,width,imageWidth,mouseX,mouseY,"Accepted inputs");}
         var status=AlvearyMenuSync.clientState;
         if(status.menu()==menu.containerId&&status.capacity()>0&&isHovering(110,125,130,10,mouseX,mouseY))g.renderTooltip(font,Component.literal("Stored FE: "+status.energy()+" / "+status.capacity()+". Requires power; idle and blocked jobs do not consume energy."),mouseX,mouseY);
         for(int i=0;i<profile.positions().size();i++) {
@@ -73,5 +77,13 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
                 g.renderTooltip(font,Component.literal((profile.id().equals("silk_weaver")&&(i==1||i==2)||profile.id().equals("starmetal_smelter")&&i==1)?"Recovery only / no operating input":profile.id().equals("starmetal_smelter")?(i==0?"Starmetal recipe input":i==2?"Redstone flux":"Starmetal output"):profile.roles().get(i)),mouseX,mouseY);
         }
     }
-    @Override public boolean mouseClicked(double x,double y,int button){if(showInputs&&inputs.click(x,y,leftPos,topPos,width,imageWidth))return true;return super.mouseClicked(x,y,button);}
+    private boolean recipeArea(double x,double y){int panel=MachineItemCatalog.panelWidth(width,imageWidth);return showInputs&&recipes!=null&&panel>=120&&x>=leftPos-panel-4&&x<leftPos-4&&y>=topPos&&y<topPos+208;}
+    @Override public boolean mouseClicked(double x,double y,int button){
+        if(recipeArea(x,y)){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();return recipes.click(x,y,button,leftPos,topPos,width,imageWidth);}
+        if(showInputs&&recipes==null&&inputs.click(x,y,leftPos,topPos,width,imageWidth))return true;return super.mouseClicked(x,y,button);
+    }
+    @Override protected boolean hasClickedOutside(double x,double y,int left,int top,int button){return !recipeArea(x,y)&&super.hasClickedOutside(x,y,left,top,button);}
+    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(recipeArea(x,y)){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();return true;}return super.mouseDragged(x,y,button,dx,dy);}
+    @Override public boolean mouseReleased(double x,double y,int button){if(recipeArea(x,y)){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();}return super.mouseReleased(x,y,button);}
+    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(showInputs&&recipes!=null&&recipes.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
 }
