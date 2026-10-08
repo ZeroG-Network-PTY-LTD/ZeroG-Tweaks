@@ -15,6 +15,7 @@ import net.zerog.tweaks.travel.SurvivalGateLayout;
 public final class GateSchematicRenderer {
     private static GateSchematicSync.Plan lastPlan;
     private static java.util.List<net.zerog.tweaks.travel.PlanetGate.Part> parts=java.util.List.of();
+    private static long planTick=Long.MIN_VALUE;
     @SubscribeEvent public static void logout(net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut event){
         GateSchematicSync.clear();lastPlan=null;parts=java.util.List.of();
     }
@@ -24,7 +25,8 @@ public final class GateSchematicRenderer {
         if(plan==null)return;
         if(client.level==null||client.player==null||!client.level.dimension().location().equals(plan.dimension())){GateSchematicSync.clear();return;}
         if(client.player.distanceToSqr(plan.controller().getCenter())>48*48){GateSchematicSync.clear();return;}
-        if(!plan.equals(lastPlan)){parts=SurvivalGateLayout.parts(plan.tier());lastPlan=plan;}
+        long tick=client.level.getGameTime()/10;
+        if(!plan.equals(lastPlan)||tick!=planTick){parts=net.zerog.tweaks.travel.SurvivalGateFormation.displayPlan(client.level,plan.centre(),plan.facing(),plan.tier(),plan.controller());lastPlan=plan;planTick=tick;}
         var camera=event.getCamera().getPosition();var stack=event.getPoseStack();
         var buffers=client.renderBuffers().bufferSource();var lines=buffers.getBuffer(RenderType.lines());
         stack.pushPose();

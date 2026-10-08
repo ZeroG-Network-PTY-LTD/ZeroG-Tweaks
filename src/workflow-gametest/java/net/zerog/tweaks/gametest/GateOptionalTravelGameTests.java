@@ -13,14 +13,38 @@ import net.zerog.tweaks.travel.*;
 @GameTestHolder("zerog_workflow_optional")
 @PrefixGameTestTemplate(false)
 public final class GateOptionalTravelGameTests {
+    @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=150)
+    public static void relocated_bound_return_is_reused_and_damage_is_not_overwritten(GameTestHelper helper){
+        var source=helper.getLevel();var target=source.getServer().getLevel(Level.NETHER);
+        helper.assertTrue(target!=null,"Missing test Nether");
+        BlockPos centre=helper.absolutePos(new BlockPos(6,4,6));
+        for(var part:SurvivalGateLayout.parts(1))source.setBlock(centre.offset(part.offset()),part.block().defaultBlockState(),3);
+        var home=(SurvivalGateBlockEntity)source.getBlockEntity(centre.offset(0,1,-2));
+        var original=SurvivalGateBlockEntity.prepareArrival(target,home);
+        helper.assertTrue(original!=null&&original.formedTier()==1,"Initial bound return did not form");
+        BlockPos pad=original.centre(),old=original.getBlockPos(),moved=pad.offset(-2,1,0);
+        var saved=original.saveWithFullMetadata(target.registryAccess());
+        target.removeBlock(old,false);
+        target.setBlock(moved,net.zerog.tweaks.registry.BlockInit.GATE_CONTROLLER.get().defaultBlockState(),3);
+        var relocated=(SurvivalGateBlockEntity)target.getBlockEntity(moved);
+        relocated.loadWithComponents(saved,target.registryAccess());
+        helper.assertTrue(SurvivalGateBlockEntity.prepareArrival(target,home)==relocated,"Bound return was rebuilt instead of reused after preserved-data relocation");
+        target.removeBlock(pad,false);
+        helper.assertTrue(SurvivalGateBlockEntity.prepareArrival(target,home)==null,"Broken return was accepted");
+        helper.assertTrue(target.getBlockState(pad).isAir(),"Player damage was overwritten");
+        helper.succeed();
+    }
     @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=300)
     public static void cooperative_return_moves_players_and_charges_once(GameTestHelper helper){
         helper.assertTrue(!net.neoforged.fml.ModList.get().isLoaded("productivebees"),"Use isolated no-PB run for mock-player travel");
         var source=helper.getLevel();var target=source.getServer().getLevel(Level.NETHER);helper.assertTrue(target!=null,"Missing test Nether");
         BlockPos centre=helper.absolutePos(new BlockPos(6,4,6)),home=new BlockPos(1024,90,1024);
         for(var part:SurvivalGateLayout.parts(1)){source.setBlock(centre.offset(part.offset()),part.block().defaultBlockState(),3);target.setBlock(home.offset(part.offset()),part.block().defaultBlockState(),3);}
-        var gate=(SurvivalGateBlockEntity)source.getBlockEntity(centre.offset(0,1,-2));
-        var homeGate=(SurvivalGateBlockEntity)target.getBlockEntity(home.offset(0,1,-2));
+        source.removeBlock(centre.offset(0,1,-2),false);target.removeBlock(home.offset(0,1,-2),false);
+        source.setBlock(centre.offset(-2,1,0),net.zerog.tweaks.registry.BlockInit.GATE_CONTROLLER.get().defaultBlockState(),3);
+        target.setBlock(home.offset(2,1,1),net.zerog.tweaks.registry.BlockInit.GATE_CONTROLLER.get().defaultBlockState(),3);
+        var gate=(SurvivalGateBlockEntity)source.getBlockEntity(centre.offset(-2,1,0));
+        var homeGate=(SurvivalGateBlockEntity)target.getBlockEntity(home.offset(2,1,1));
         helper.assertTrue(homeGate.formedTier()==1,"Remote home construction was incomplete before countdown");
         var first=helper.makeMockServerPlayerInLevel();var second=helper.makeMockServerPlayerInLevel();
         first.teleportTo(source,centre.getX()+.3,centre.getY()+1,centre.getZ()+.5,0,0);
@@ -44,7 +68,7 @@ public final class GateOptionalTravelGameTests {
         var gate=(SurvivalGateBlockEntity)source.getBlockEntity(centre.offset(0,1,-2));gate.claim(owner);
         owner.moveTo(centre.getX()+.5,centre.getY()+1,centre.getZ()+.5);stranger.moveTo(owner.position());
         var menu=new SurvivalGateMenu(0,stranger.getInventory(),gate);
-        helper.assertTrue(!menu.clickMenuButton(stranger,100)&&!menu.clickMenuButton(stranger,102),"Non-owner initiated launch or preview");
+        helper.assertTrue(!menu.clickMenuButton(stranger,100)&&!menu.clickMenuButton(stranger,102)&&!menu.clickMenuButton(stranger,105),"Non-owner initiated launch, preview or hologram");
         helper.assertTrue(!menu.slots.get(0).mayPickup(stranger),"Non-owner stole upgrade");
         owner.getPersistentData().putBoolean("zerog_codex_moon",true);owner.getPersistentData().putLong("zerog_recall_until",12345);
         net.zerog.tweaks.event.PlanetGravity.cloned(new net.neoforged.neoforge.event.entity.player.PlayerEvent.Clone(stranger,owner,true));

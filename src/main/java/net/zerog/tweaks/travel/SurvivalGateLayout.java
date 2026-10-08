@@ -10,12 +10,16 @@ import net.zerog.tweaks.registry.BlockInit;
 
 /** Survival geometry, separate from the historical T6 test-hub layout. */
 public final class SurvivalGateLayout {
+    private static final java.util.Map<Integer,List<PlanetGate.Part>> PARTS=new java.util.concurrent.ConcurrentHashMap<>();
     public static int padRadius(int tier){return tier>=5?3:tier>=3?2:1;}
     public static int passengers(int tier){return tier>=5?8:tier>=3?4:2;}
     public static BlockPos rotate(BlockPos local,Direction facing){return switch(facing){case EAST->new BlockPos(-local.getZ(),local.getY(),local.getX());case SOUTH->new BlockPos(-local.getX(),local.getY(),-local.getZ());case WEST->new BlockPos(local.getZ(),local.getY(),-local.getX());default->local;};}
     public static BlockPos centre(BlockPos controller,Direction facing){return controller.subtract(rotate(new BlockPos(0,1,-2),facing));}
     public static List<PlanetGate.Part> parts(int tier){
         if(tier<1||tier>6)throw new IllegalArgumentException("Gate tier outside 1..6");
+        return PARTS.computeIfAbsent(tier,SurvivalGateLayout::buildParts);
+    }
+    private static List<PlanetGate.Part> buildParts(int tier){
         var p=new LinkedHashMap<BlockPos,Block>();
         Block[] frames={BlockInit.NULLIFITE_GATE_FRAME.get(),BlockInit.MOONSTEEL_GATE_FRAME.get(),BlockInit.CERULITE_GATE_FRAME.get(),BlockInit.SKARNITE_GATE_FRAME.get(),BlockInit.EIDOLITE_GATE_FRAME.get(),BlockInit.SOLVANITE_GATE_FRAME.get()};
         for(int t=1;t<=tier;t++){
@@ -43,16 +47,7 @@ public final class SurvivalGateLayout {
         return p.entrySet().stream().map(e->new PlanetGate.Part(e.getKey(),e.getValue())).toList();
     }
     public static int formedTier(ServerLevel level,BlockPos controller,Direction facing){
-        var centre=centre(controller,facing);int formed=0;
-        for(int t=1;t<=6;t++){
-            boolean complete=true;
-            for(var part:parts(t)){
-                BlockPos at=centre.offset(rotate(part.offset(),facing));
-                if(!level.hasChunkAt(at)||!level.getBlockState(at).is(part.block())){complete=false;break;}
-            }
-            if(complete)formed=t;
-        }
-        return formed;
+        return SurvivalGateFormation.resolve(level,controller,facing).tier();
     }
     public record MissingPart(BlockPos pos,Block expected){}
     public record MissingRequirement(String section,Block expected,int count){}
@@ -60,9 +55,9 @@ public final class SurvivalGateLayout {
     public static List<MissingRequirement> missingRequirements(ServerLevel level,BlockPos controller,Direction facing,int tier){
         record Key(String section,Block expected){}
         var counts=new LinkedHashMap<Key,Integer>();
-        BlockPos origin=centre(controller,facing);
-        for(var part:parts(tier)){
-            BlockPos at=origin.offset(rotate(part.offset(),facing));
+        var resolved=SurvivalGateFormation.resolve(level,controller,facing);BlockPos origin=resolved.centre();
+        for(var part:SurvivalGateFormation.displayPlan(level,origin,resolved.facing(),tier,controller)){
+            BlockPos at=origin.offset(rotate(part.offset(),resolved.facing()));
             if(level.hasChunkAt(at)&&level.getBlockState(at).is(part.block()))continue;
             counts.merge(new Key(section(part.offset(),part.block()),part.block()),1,Integer::sum);
         }
@@ -80,24 +75,18 @@ public final class SurvivalGateLayout {
         return "Rear arch — tier "+(local.getZ()-1)+" "+(local.getY()==2*(local.getZ()-1)?"crossbeam":local.getX()<0?"left column":"right column");
     }
     public static List<MissingPart> missingParts(ServerLevel level,BlockPos controller,Direction facing,int tier){
-        BlockPos origin=centre(controller,facing);
-        return parts(tier).stream().map(p->new MissingPart(origin.offset(rotate(p.offset(),facing)),p.block()))
+        var resolved=SurvivalGateFormation.resolve(level,controller,facing);BlockPos origin=resolved.centre();
+        return SurvivalGateFormation.displayPlan(level,origin,resolved.facing(),tier,controller).stream().map(p->new MissingPart(origin.offset(rotate(p.offset(),resolved.facing())),p.block()))
             .filter(p->!level.hasChunkAt(p.pos())||!level.getBlockState(p.pos()).is(p.expected())).toList();
     }
     /** Prefer the current facing on ties; hints never relax required blocks. */
     public static Direction closestFacing(ServerLevel level,BlockPos controller,Direction current){
-        Direction best=current;int count=missingParts(level,controller,current,1).size();
-        for(Direction candidate:new Direction[]{Direction.NORTH,Direction.EAST,Direction.SOUTH,Direction.WEST}){
-            int missing=missingParts(level,controller,candidate,1).size();
-            if(missing<count){count=missing;best=candidate;}
-        }
-        return best;
+        return SurvivalGateFormation.resolve(level,controller,current).facing();
     }
     /** Load only the maximum gate footprint before validating a remote, unloaded home. */
     public static void loadFootprint(ServerLevel level,BlockPos controller,Direction facing){
-        BlockPos centre=centre(controller,facing);
-        for(int x=(centre.getX()-7)>>4;x<=(centre.getX()+7)>>4;x++)
-            for(int z=(centre.getZ()-7)>>4;z<=(centre.getZ()+7)>>4;z++)level.getChunk(x,z);
+        for(int x=(controller.getX()-14)>>4;x<=(controller.getX()+14)>>4;x++)
+            for(int z=(controller.getZ()-14)>>4;z<=(controller.getZ()+14)>>4;z++)level.getChunk(x,z);
     }
     public static int galaxy(String id){if(id.equals("minecraft:overworld")||id.endsWith(":moon")||id.endsWith(":mars"))return 1;return switch(id){case "zerog_tweaks:cerulon"->2;case "zerog_tweaks:skarn"->3;case "zerog_tweaks:eidolon"->4;case "zerog_tweaks:solvane"->5;default->id.matches("zerog_tweaks:g[2-5]_.*")?id.charAt(14)-'0':0;};}
     public static int cost(int base,String source,String target,int players,boolean lens){long numerator=(long)base*(galaxy(source)==galaxy(target)?25:100)*(100+10L*Math.max(0,players-1))*(lens?80:100);return (int)Math.min(Integer.MAX_VALUE,(numerator+999999)/1000000);}

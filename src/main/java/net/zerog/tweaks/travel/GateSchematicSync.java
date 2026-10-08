@@ -44,10 +44,10 @@ public final class GateSchematicSync {
     public static void send(ServerPlayer player,SurvivalGateBlockEntity gate){
         if(!(gate.getLevel() instanceof ServerLevel level)||!gate.mayControl(player)||player.serverLevel()!=level
                 ||player.distanceToSqr(gate.getBlockPos().getCenter())>64)return;
-        int formed=gate.formedTier(),tier=Math.max(1,formed);
-        Direction facing=formed==0?SurvivalGateLayout.closestFacing(level,gate.getBlockPos(),gate.facing()):gate.facing();
+        var resolved=gate.formation();int tier=Math.max(1,resolved.tier()>0?resolved.tier():resolved.coreTier());
+        Direction facing=resolved.facing();
         if(NetworkRegistry.hasChannel(player.connection,Plan.TYPE.id()))
-            PacketDistributor.sendToPlayer(player,new Plan(level.dimension().location(),gate.getBlockPos(),SurvivalGateLayout.centre(gate.getBlockPos(),facing),facing.get2DDataValue(),tier));
+            PacketDistributor.sendToPlayer(player,new Plan(level.dimension().location(),gate.getBlockPos(),resolved.centre(),facing.get2DDataValue(),tier));
     }
     @SubscribeEvent public static void register(RegisterPayloadHandlersEvent event){
         event.registrar("1").playToClient(Plan.TYPE,Plan.CODEC,(plan,context)->context.enqueueWork(()->receive(plan)));

@@ -59,8 +59,14 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     };
     public SurvivalGateBlockEntity(BlockPos pos,BlockState state){super(SurvivalGates.CONTROLLER.get(),pos,state);}
     public Direction facing(){return getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);}
-    public BlockPos centre(){return SurvivalGateLayout.centre(worldPosition,facing());}
-    public int formedTier(){return level instanceof ServerLevel server?SurvivalGateLayout.formedTier(server,worldPosition,facing()):0;}
+    public SurvivalGateFormation.Resolution formation(){
+        return level instanceof ServerLevel server&&!isRemoved()&&server.getBlockEntity(worldPosition)==this
+                ?SurvivalGateFormation.resolve(server,worldPosition,facing())
+                :new SurvivalGateFormation.Resolution(SurvivalGateLayout.centre(worldPosition,facing()),facing(),0,0,List.of(),"Controller is not active.");
+    }
+    public BlockPos centre(){return formation().centre();}
+    public Direction structureFacing(){return formation().facing();}
+    public int formedTier(){return formation().tier();}
     public int upgradeSlots(){int t=formedTier();return t>=6?4:t>=5?3:t>=3?2:t>=1?1:0;}
     public boolean has(String id){for(int i=0;i<upgradeSlots();i++)if(BuiltInRegistries.ITEM.getKey(upgrades.getStackInSlot(i).getItem()).equals(ResourceLocation.fromNamespaceAndPath("zerog_tweaks",id)))return true;return false;}
     public int capacity(){return ZGProgressionConfig.baseCost(Math.max(1,formedTier()))*2;}
@@ -68,7 +74,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         public int receiveEnergy(int amount,boolean simulate){int tier=formedTier();if(tier==0||amount<=0)return 0;long tick=level.getGameTime();int used=receiveTick==tick?receivedThisTick:0;int rate=(1000<<(tier-1))*(has("cryo_core")?2:1);int accepted=Math.max(0,Math.min(amount,Math.min(capacity()-stored,rate-used)));if(!simulate&&accepted>0){if(receiveTick!=tick){receiveTick=tick;receivedThisTick=0;}receivedThisTick+=accepted;stored+=accepted;setChanged();}return accepted;}
         public int extractEnergy(int amount,boolean simulate){return 0;} public int getEnergyStored(){return stored;} public int getMaxEnergyStored(){return capacity();} public boolean canExtract(){return false;} public boolean canReceive(){return formedTier()>0;}
     };}
-    public boolean isPort(BlockPos pos){for(var part:SurvivalGateLayout.parts(Math.max(1,formedTier())))if(part.block()==BlockInit.GATE_ENERGY_PORT.get()&&centre().offset(SurvivalGateLayout.rotate(part.offset(),facing())).equals(pos))return true;return false;}
+    public boolean isPort(BlockPos pos){var resolved=formation();return resolved.tier()>0&&resolved.ports().contains(pos);}
     public void claim(ServerPlayer player){if(owner==null){owner=player.getUUID();setChanged();}}
     public boolean adminTest(){return level instanceof ServerLevel server&&getPersistentData().getBoolean(HubTieredGates.ADMIN)&&PlanetTestHub.isHub(server.getServer())&&(!returnPlatform?server==server.getServer().overworld()&&HubTieredGates.controllerPosition(worldPosition):homeDimension.equals("minecraft:overworld")&&HubTieredGates.controllerPosition(homeController));}
     public boolean mayControl(ServerPlayer player){return adminTest()||owner!=null&&owner.equals(player.getUUID());}
@@ -95,7 +101,8 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     /** Pylon columns of a tier (world positions, bottom to top), in order around the pad. */
     private List<List<BlockPos>> pylonColumns(int tier){
         BlockPos c=centre();var columns=new LinkedHashMap<Long,List<BlockPos>>();
-        for(var part:SurvivalGateLayout.parts(tier))if(part.block()==BlockInit.GATE_PYLON.get()){BlockPos at=c.offset(SurvivalGateLayout.rotate(part.offset(),facing()));columns.computeIfAbsent(BlockPos.asLong(at.getX(),0,at.getZ()),k->new ArrayList<>()).add(at);}
+        Direction orientation=structureFacing();
+        for(var part:SurvivalGateLayout.parts(tier))if(part.block()==BlockInit.GATE_PYLON.get()){BlockPos at=c.offset(SurvivalGateLayout.rotate(part.offset(),orientation));columns.computeIfAbsent(BlockPos.asLong(at.getX(),0,at.getZ()),k->new ArrayList<>()).add(at);}
         var list=new ArrayList<>(columns.values());list.forEach(column->column.sort(Comparator.comparingInt(BlockPos::getY)));
         list.sort(Comparator.comparingDouble(column->Math.atan2(column.get(0).getZ()-c.getZ(),column.get(0).getX()-c.getX())));
         return list;
@@ -108,18 +115,14 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     }
     public boolean align(ServerPlayer player){
         if(!(level instanceof ServerLevel server)||!mayControl(player)||countdown>0||formedTier()>0)return false;
-        var best=SurvivalGateLayout.closestFacing(server,worldPosition,facing());
-        if(best!=facing()){
-            server.setBlock(worldPosition,getBlockState().setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING,best),3);
-            setChanged();server.invalidateCapabilities(worldPosition);
-        }
+        // Recheck the assembled geometry. Terminal facing is now cosmetic; do not rotate it.
         preview(player);return true;
     }
     public void preview(ServerPlayer player){
         if(!(level instanceof ServerLevel server)||!mayControl(player))return;
-        int formed=formedTier(),tier=Math.min(6,Math.max(1,formed+1));
-        var orientation=formed==0?SurvivalGateLayout.closestFacing(server,worldPosition,facing()):facing();
-        if(formed==0&&orientation!=facing())player.sendSystemMessage(Component.literal("Controller faces "+facing().getName()+"; the closest matching gate faces "+orientation.getName()+". Use Align."));
+        var resolved=formation();int formed=resolved.tier(),tier=formed==0?Math.max(1,resolved.coreTier()):Math.min(6,formed+1);
+        var orientation=resolved.facing();
+        if(formed==0&&!resolved.problem().isEmpty())player.sendSystemMessage(Component.literal(resolved.problem()));
         var missing=SurvivalGateLayout.missingParts(server,worldPosition,orientation,tier);
         if(formed>0)player.sendSystemMessage(Component.literal("Current gate: Tier "+formed+" complete. Alignment is valid."));
         if(formed==6)player.sendSystemMessage(Component.literal("Maximum tier reached; no further upgrade is required."));
@@ -141,7 +144,8 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         BlockPos c=centre();double phase=(100-countdown)*.16,radius=Math.max(.6,SurvivalGateLayout.padRadius(tier)*.75);
         for(int point=0;point<8;point++){double angle=phase+point*Math.PI/4;server.sendParticles(ParticleTypes.PORTAL,c.getX()+.5+Math.cos(angle)*radius,c.getY()+1.15+Math.sin(phase)*.12,c.getZ()+.5+Math.sin(angle)*radius,1,.04,.04,.04,.02);}
         if(countdown%10==0){
-            for(var part:SurvivalGateLayout.parts(tier))if(part.block()==BlockInit.GATE_PYLON.get()&&part.offset().getY()==tier+1){BlockPos at=c.offset(SurvivalGateLayout.rotate(part.offset(),facing()));server.sendParticles(ParticleTypes.END_ROD,at.getX()+.5,at.getY()+1.05,at.getZ()+.5,2,.12,.08,.12,.005);}
+            Direction orientation=structureFacing();
+            for(var part:SurvivalGateLayout.parts(tier))if(part.block()==BlockInit.GATE_PYLON.get()&&part.offset().getY()==tier+1){BlockPos at=c.offset(SurvivalGateLayout.rotate(part.offset(),orientation));server.sendParticles(ParticleTypes.END_ROD,at.getX()+.5,at.getY()+1.05,at.getZ()+.5,2,.12,.08,.12,.005);}
             server.sendParticles(ParticleTypes.END_ROD,c.getX()+.5,c.getY()+1.2,c.getZ()+.5,4,radius,.1,radius,.04);
         }
         int elapsed=100-countdown;Vec3 core=new Vec3(c.getX()+.5,c.getY()+1.6,c.getZ()+.5);
@@ -156,7 +160,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         // Rift: a void crack opens in the core, across the gate's facing.
         if(elapsed==RIFT_AT)server.playSound(null,c,SoundEvents.RESPAWN_ANCHOR_CHARGE,SoundSource.BLOCKS,1.2F,.6F);
         if(elapsed>=RIFT_AT&&elapsed%2==0){
-            double open=Math.min(1,(elapsed-RIFT_AT)/(double)(LIFT_AT-RIFT_AT));Direction side=facing().getClockWise();
+            double open=Math.min(1,(elapsed-RIFT_AT)/(double)(LIFT_AT-RIFT_AT));Direction side=structureFacing().getClockWise();
             for(int k=-4;k<=4;k++){double jag=Math.sin(k*2.3+elapsed*.05)*.2*open;server.sendParticles(RIFT,core.x+side.getStepX()*jag,core.y+k*.22*open,core.z+side.getStepZ()*jag,1,.02,.02,.02,0);}
             server.sendParticles(ParticleTypes.REVERSE_PORTAL,core.x,core.y,core.z,3,.15*open,.5*open,.15*open,.02);
         }
@@ -181,6 +185,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         SurvivalGateBlockEntity landing;
         if(returnPlatform){target.getChunkAt(homeController);if(!(target.getBlockEntity(homeController) instanceof SurvivalGateBlockEntity home))return false;SurvivalGateLayout.loadFootprint(target,homeController,home.facing());if(home.formedTier()==0)return false;landing=home;}
         else landing=prepareArrival(target,this);
+        if(landing==null||landing.formedTier()==0)return false;
         BlockPos c=landing.centre();var pets=source.getEntitiesOfClass(Mob.class,pad(),mob->(mob instanceof TamableAnimal tame&&tame.isTame()&&group.stream().anyMatch(p->p.getUUID().equals(tame.getOwnerUUID())))||(mob.isLeashed()&&mob.getLeashHolder() instanceof ServerPlayer p&&group.contains(p)));
         // All validation and destination preparation completes before charging or moving anything.
         stored-=fee;setChanged();
@@ -205,12 +210,18 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         int x=hubColumn==null?512+Math.floorMod(home.worldPosition.getX(),16)*32:hubColumn.getX(),z=hubColumn==null?512+Math.floorMod(home.worldPosition.getZ(),16)*32:hubColumn.getZ();
         target.getChunk(x>>4,z>>4);int y=Math.min(target.getMaxBuildHeight()-10,Math.max(target.getSeaLevel()+4,target.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,x,z)+3));
         BlockPos c=new BlockPos(x,y,z),controller=c.offset(0,1,-2);
-        // Locate persisted platforms in the loaded column instead of rebuilding above the old one.
-        for(int scan=target.getMinBuildHeight();scan<target.getMaxBuildHeight();scan++)if(target.getBlockEntity(new BlockPos(x,scan,z-2)) instanceof SurvivalGateBlockEntity existing&&existing.returnPlatform&&existing.homeController.equals(home.worldPosition)&&existing.homeDimension.equals(home.level.dimension().location().toString())){
-            SurvivalGateLayout.loadFootprint(target,existing.worldPosition,existing.facing());
-            if(home.owner!=null&&!home.owner.equals(existing.owner)){existing.owner=home.owner;existing.setChanged();}
-            if(home.adminTest()){existing.getPersistentData().putBoolean(HubTieredGates.ADMIN,true);existing.setChanged();}
-            return existing;
+        // Search the bounded landing footprint, not a single fixed controller column.
+        for(int cx=(x-7)>>4;cx<=(x+7)>>4;cx++)for(int cz=(z-7)>>4;cz<=(z+7)>>4;cz++){
+            var chunk=target.getChunk(cx,cz);
+            for(var entity:new ArrayList<>(chunk.getBlockEntities().values()))if(entity instanceof SurvivalGateBlockEntity existing
+                    &&Math.abs((long)existing.worldPosition.getX()-x)<=7&&Math.abs((long)existing.worldPosition.getZ()-z)<=7
+                    &&existing.returnPlatform&&existing.homeController.equals(home.worldPosition)&&existing.homeDimension.equals(home.level.dimension().location().toString())){
+                SurvivalGateLayout.loadFootprint(target,existing.worldPosition,existing.facing());
+                if(existing.formedTier()==0)return null; // Never overwrite a player's damaged platform or charge an unsafe arrival.
+                if(home.owner!=null&&!home.owner.equals(existing.owner)){existing.owner=home.owner;existing.setChanged();}
+                if(home.adminTest()){existing.getPersistentData().putBoolean(HubTieredGates.ADMIN,true);existing.setChanged();}
+                return existing;
+            }
         }
         if(hubColumn!=null)for(var p:BlockPos.betweenClosed(c.offset(-3,1,-3),c.offset(3,5,3)))target.setBlock(p,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
         for(var p:BlockPos.betweenClosed(c.offset(-3,-2,-3),c.offset(3,-1,3)))target.setBlock(p,BlockInit.LANDING_PLATFORM.get().defaultBlockState(),3);

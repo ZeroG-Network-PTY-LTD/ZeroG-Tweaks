@@ -414,3 +414,17 @@ The isolated flat Solvane fixture proves book gating, not ecological generation.
 export_compact_hub.py --replace-compact stages a validated clean hub before moving
 only the exact current compact save to its recoverable archive. Do not reset or
 archive unrelated worlds. Player exploration/inventory start fresh in this reset.
+
+## Flexible gate service blocks — 9 October
+
+SurvivalGateFormation, not terminal facing or a fixed controller offset, determines
+the pad centre and structural orientation. Preserve mandatory structural cells.
+Legal services are padY+1, Chebyshev radius2..tier+1: exactly one controller and
+minimum1/1/2/2/4/4 energy ports. Keep bounded loaded-only capability discovery,
+shared-port/duplicate/ambiguous rejection and stale-handler revocation intact.
+Update the runtime Codex, Design write_guide.py and generated Docs guide together.
+GameTest namespace filtering follows templateNamespace: zerog_gate_flexible has
+its own fixture and avoids mock-player PB handshake failures. Zero discovered
+tests are a harness failure even if Gradle exits successfully. Return-travel mocks
+run in zerog_workflow_optional without PB and without workflowPlanetPreset (Nether
+required). Repository-only delivery does not authorize replacing live JARs/saves.

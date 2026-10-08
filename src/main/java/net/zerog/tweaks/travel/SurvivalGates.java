@@ -62,10 +62,14 @@ public final class SurvivalGates {
     }
     public static IEnergyStorage portEnergy(ServerLevel level,BlockPos pos){
         if(!level.getBlockState(pos).is(BlockInit.GATE_ENERGY_PORT.get()))return null;
-        for(var at:BlockPos.betweenClosed(pos.offset(-8,-3,-8),pos.offset(8,3,8))){
-            if(!level.hasChunkAt(at))continue;
-            if(level.getBlockEntity(at) instanceof SurvivalGateBlockEntity gate&&gate.formedTier()>0&&gate.isPort(pos))return gate.energy();
-        }return null;
+        SurvivalGateBlockEntity target=null;
+        for(var gate:SurvivalGateFormation.loadedControllers(level,pos,14)){
+            var resolved=gate.formation();
+            if(resolved.tier()==0||!resolved.ports().contains(pos))continue;
+            if(target!=null)return null;
+            target=gate;
+        }
+        return target==null?null:target.energy();
     }
     private SurvivalGates(){}
 }

@@ -52,12 +52,12 @@ def main():
     p.add_argument('--docs', type=Path, required=True)
     a=p.parse_args()
     source=Path(__file__).resolve().parents[1]/'src/main/java/net/zerog/tweaks/travel/SurvivalGateLayout.java'
-    manifest={'schema':1,'source':'SurvivalGateLayout.parts','source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(), 'coordinate_system':'north-facing; centre pad level is y=0; front is negative Z', 'tiers':[]}
+    manifest={'schema':2,'source':'SurvivalGateLayout.parts','source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(), 'formation_sha256':hashlib.sha256(source.with_name('SurvivalGateFormation.java').read_bytes()).hexdigest(), 'coordinate_system':'north-facing example; centre pad level is y=0; structural front is negative Z; terminal facing is cosmetic', 'tiers':[]}
     text=['# Concord gates — exact tier 1–6 construction guide', '',
           'Minecraft 1.21.1 · same 1.0.12-dev · runtime construction, not proposed concept art.', '',
           '## Reading the plans', '',
-          'Choose a centre **(X, Y, Z)**. Y is the pad-block level, not the foundation. All positions below are relative to that centre. For a north-facing gate, front is −Z; build the controller at **(0, +1, −2)** facing NORTH. Foundations occupy y=−1; tier 2+ also has Aresite at y=−2. Reserve a square `(2×tier+3)` blocks wide, from x/z `−(tier+1)` to `+(tier+1)`. Highest required layer: tier 1 y=2; tier 2 y=6; tiers 3–6 y=`2×tier+1`.', '',
-          'Rotate **every** coordinate for another facing: EAST `(−z,y,x)`, SOUTH `(−x,y,−z)`, WEST `(z,y,−x)`. Set the controller to the matching direction. Do not rotate only the controller.', '',
+          'Choose a centre **(X, Y, Z)**. Y is the pad-block level, not the foundation. All positions below are relative to that centre. For a north-facing structural example, front is −Z and the example controller is at **(0, +1, −2)**. Foundations occupy y=−1; tier 2+ also has Aresite at y=−2. Reserve a square `(2×tier+3)` blocks wide, from x/z `−(tier+1)` to `+(tier+1)`. Highest required layer: tier 1 y=2; tier 2 y=6; tiers 3–6 y=`2×tier+1`.', '',
+          'Rotate structural coordinates for another orientation: EAST `(−z,y,x)`, SOUTH `(−x,y,−z)`, WEST `(z,y,−x)`. The controller front does not rotate or determine the structure. Choose service positions independently under the rule below.', '',
           'Layer diagrams are viewed from above: north/−Z at the top; X increases to the right. Each character represents one block at that layer. `.` means no required part, not an instruction to fill it. Keep the passenger area unobstructed.', '',
           'Legend: `1` Nullifite Frame; `2` Moonsteel Frame; `3` Cerulite Frame; `4` Skarnite Frame; `5` Eidolite Frame; `6` Solvanite Frame; `P` Gate Pad Plate; `Y` Gate Pylon; `E` Gate Energy Port; `C` Gate Controller; `L` Gate Lens Housing; `S` Selenite Block; `A` Aresite Block.', '',
           '**Landing Platform blocks are optional landscaping, not formation requirements.** The compact hub uses them only under gate footprints. Frame rings must remain the specified gate-frame blocks, not Landing Platforms.', '',
@@ -66,13 +66,15 @@ def main():
           '2. Place the pad plates at y=0, retaining the four omitted `(±2,0,±2)` positions where the tier plan omits them.',
           '3. Build the four pylon columns for each active pylon ring. Existing inner columns grow taller when upgrading.',
           '4. Add the rear frame arches, their lens housings, and tier-2+ Selenite/Aresite blocks exactly as drawn.',
-          '5. Install energy ports and the correctly facing controller. Connect power to a **Gate Energy Port**, not a generic alveary port.',
+          '5. Install exactly one controller and at least 1/1/2/2/4/4 Gate Energy Ports for tiers 1–6. Service blocks may occupy any horizontal side at y=1 where max(abs(x),abs(z)) is between 2 and tier+1, without replacing a structural part. Controller facing is cosmetic. C/E positions in these diagrams are valid examples, not mandatory sockets. Connect power to a **Gate Energy Port**, not a generic alveary port.',
           '6. Open the controller, check its formed tier, choose a reachable destination and supply FE for survival travel. Preview can highlight missing next-tier blocks.', '',
           'A higher tier retains earlier rings/arches but changes pylon heights and pad/port positions. Use the full target-tier plan; simply adding an outer ring is insufficient. Counts below describe the complete final structure, not additive shopping lists.', '']
     bases=[500000,1000000,3000000,8000000,20000000,50000000]
     for tier in range(1,7):
         layout=parts(tier); counts=dict(sorted(collections.Counter(layout.values()).items())); r=tier+1
-        manifest['tiers'].append({'tier':tier,'counts':counts,'parts':[{'offset':list(pos),'block':'zerog_tweaks:'+block} for pos,block in sorted(layout.items())]})
+        structural={pos:block for pos,block in layout.items() if block not in ('gate_controller','gate_energy_port')}
+        services=[[x,1,z] for x in range(-r,r+1) for z in range(-r,r+1) if max(abs(x),abs(z))>=2 and (x,1,z) not in structural]
+        manifest['tiers'].append({'tier':tier,'counts':counts,'parts_are_default_example':True,'controller_count':1,'minimum_energy_ports':1 if tier<3 else 2 if tier<5 else 4,'legal_service_offsets':services,'parts':[{'offset':list(pos),'block':'zerog_tweaks:'+block} for pos,block in sorted(layout.items())]})
         text.extend([f'## Tier {tier} — {FRAMES[tier-1].title()}', '', f'Footprint **{2*r+1}×{2*r+1}**; required blocks **{len(layout)}**. Default base travel budget **{bases[tier-1]:,} FE**.', '', '| Required block ID | Count |', '| --- | ---: |'])
         text.extend(f'| `zerog_tweaks:{name}` | {count} |' for name,count in counts.items())
         for y in sorted({pos[1] for pos in layout}):
@@ -96,9 +98,9 @@ def main():
         x=-22+((t-1)%3)*22; z=-22-((t-1)//3)*22
         text.append(f'| {t} | `{x},64,{z}` | `{x},65,{z-2}` |')
     text.extend(['', '## Troubleshooting and Codex handoff', '',
-        '- Tier reads zero: press Preview for missing-block coordinates and the closest matching facing. Align turns only an unformed owner-controlled controller; it never supplies blocks. Check buried core, ring material, pylon height, arch top, lens location and required ports. Chunks containing the full footprint must be loaded.',
-        '- Higher tier not detected: compare **all** layers; earlier pylons must reach the new height and new ports replace specific pad/air positions.',
-        '- No charging: the Gate Energy Port must remain in its required position even when powering the controller directly. A formed port and controller share one buffer. Check cable/generator output faces and available generation. Exact stored FE is synchronized; full admin buffers do not accept extra charge.',
+        '- Tier reads zero: press Preview for missing blocks grouped by section, or Ghost for a temporary wireframe. Align rechecks without rotating the terminal or supplying blocks. Check buried core, ring material, pylon height, arch top, lens location and legal service-block counts. Chunks containing the full footprint must be loaded.',
+        '- Higher tier not detected: compare **all** layers; earlier pylons must reach the new height and the target tier needs its minimum number of legal ports.',
+        '- No charging: required Gate Energy Ports must occupy legal service positions even when powering the controller directly. A formed port and controller share one buffer; duplicate controllers and ports shared between complete gates are rejected. Check cable/generator output faces and available generation. Exact stored FE is synchronized; full admin buffers do not accept extra charge.',
         '- Cannot launch: inspect ownership, reachable tier, energy cost, passenger limit and Ready confirmations.',
         '- A normal survival gate showing free travel is not expected. Only designated compact-hub controllers and their bound returns are admin.', '',
         'The companion [coordinate manifest](gate-build-layouts-1.21.1.json) records every required block once, exact IDs/counts and the audited source hash for future localized Codex pages. Re-run the generator and review it whenever the layout source changes. This does not finalize deferred survival crafting ingredient costs.', ''])

@@ -76,7 +76,7 @@ public final class GatePowerGameTests {
             BlockPos removed=centre.offset(SurvivalGateLayout.rotate(new BlockPos(2,1,0),facing));
             var cached=level.getCapability(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,removed,Direction.UP);
             int before=gate.stored;level.setBlock(removed,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
-            h.assertTrue(gate.formedTier()==0&&cached.receiveEnergy(7,false)==0&&gate.stored==before,"Removed required port retained cached charging");
+            h.assertTrue(gate.formedTier()<tier&&cached.receiveEnergy(7,false)==0&&gate.stored==before,"Removed required port retained cached charging or original tier");
             for(var part:SurvivalGateLayout.parts(tier))level.setBlock(centre.offset(SurvivalGateLayout.rotate(part.offset(),facing)),net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
             checked++;
         }
@@ -124,11 +124,11 @@ public final class GatePowerGameTests {
         level.setBlock(port,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
         var gate=(SurvivalGateBlockEntity)level.getBlockEntity(controller);
         h.assertTrue(gate.formedTier()==0&&gate.energy().receiveEnergy(500,false)==0,"Malformed gate incorrectly accepted energy");
-        h.assertTrue(SurvivalGateLayout.closestFacing(level,controller,Direction.SOUTH)==Direction.NORTH,"Failed to identify saved-world reversed controller");
+        h.assertTrue(gate.centre().equals(centre),"Cosmetic reversed controller changed the actual pad centre");
         var missing=SurvivalGateLayout.missingParts(level,controller,Direction.NORTH,1);
-        h.assertTrue(missing.size()==1&&missing.getFirst().pos().equals(port)&&missing.getFirst().expected()==BlockInit.GATE_ENERGY_PORT.get(),"Missing-port diagnosis gave wrong coordinates");
+        h.assertTrue(missing.size()==1&&missing.getFirst().expected()==BlockInit.GATE_ENERGY_PORT.get(),"Missing-port diagnosis must recommend the required energy port");
         var owner=h.makeMockServerPlayerInLevel();gate.claim(owner);
-        h.assertTrue(gate.align(owner)&&gate.facing()==Direction.NORTH&&gate.formedTier()==0,"Align bypassed required energy port");
+        h.assertTrue(gate.align(owner)&&gate.facing()==Direction.SOUTH&&gate.formedTier()==0,"Align changed cosmetic facing or bypassed required energy port");
         level.setBlock(port,BlockInit.GATE_ENERGY_PORT.get().defaultBlockState(),3);
         var capability=level.getCapability(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,port,Direction.EAST);
         h.assertTrue(capability!=null&&capability.receiveEnergy(500,false)==500&&gate.stored==500,"Actual port did not charge repaired controller");

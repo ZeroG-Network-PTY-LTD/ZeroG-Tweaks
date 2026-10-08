@@ -4,6 +4,11 @@
 [Exact tier 1–6 gate construction guide](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/gate-building-tiers-1.21.1.md).
 Same1.0.12-dev; admin travel is hub-only. Client save-time approval remains pending.
 
+[Flexible gate service placement and verification](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/gate-flexible-placement-2026-10-09.md):
+controllers and Gate Energy Ports use legal positions on any horizontal side.
+Terminal facing is cosmetic; required geometry and tier port counts still apply.
+This repository candidate is not installed; existing saves remain untouched.
+
 ## Current same-version extension: storage and correctness first
 
 Original wood joinery, 27/54-slot chests/barrels, six fluid tanks (5,000–5,000,000 mB),
