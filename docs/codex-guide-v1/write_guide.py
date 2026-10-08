@@ -117,17 +117,20 @@ The gate is a multiblock. This is the whole Tier 1 build. Drag to rotate, scroll
 | {link("nullifite_gate_frame")} | 16 | A 5x5 ring, one layer **below** the pad |
 | {link("gate_pad_plate")} | 9 | The 3x3 pad in the middle of the ring |
 | {link("gate_pylon")} | 12 | Four corner columns, 3 tall, on the ring's corners |
-| {link("gate_controller")} | 1 | Middle of the front edge, one block above the pad |
-| {link("gate_energy_port")} | 1 | Middle of a side edge next to the front, one block above the pad |
+| {link("gate_controller")} | 1 | Any legal service position, one block above the pad |
+| {link("gate_energy_port")} | 1 | Another legal service position on any horizontal side |
 
 **Tip:** open the controller and press **Ghost** to toggle the current-tier wireframe for
 60 seconds: green means correct, cyan means missing, and red means the wrong block.
 It never places blocks. **Preview** lists required block counts by structural section,
 not world coordinates. A complete gate is explicitly marked complete; requirements
 for the next tier are labelled an **optional upgrade**, not an alignment error.
-On incomplete gates, **Align** turns only the controller toward the closest matching
-plan. It never replaces missing blocks. The Gate Energy Port is still required even
-if you connect a cable directly to the controller. Flexible service placement is pending.
+**Align** rechecks the structure; it never rotates the terminal or replaces blocks.
+Controller facing is cosmetic. Service blocks belong at pad height +1, with
+`max(abs(x), abs(z))` between 2 and tier +1, without replacing structural parts.
+Use exactly one controller and at least 1/1/2/2/4/4 Gate Energy Ports at tiers 1–6.
+The Ghost port positions are recommendations, not mandatory sockets. Ports are
+required even when charging the controller directly, and cannot be shared by gates.
 
 ## Recipes
 
