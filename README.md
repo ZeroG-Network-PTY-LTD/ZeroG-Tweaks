@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Compact player/admin gate pairs — 8 October 2026
+
+[Twelve gate locations, power setup and 50-chunk reset scope](docs/dual-gates-and-pregen50-2026-10-08.md).
+Six finite-powered player gates and six free admin gates cover tiers 1–6 north
+of the retained compact machine, bee and schematic districts. The same-version
+build adds a live controller charge bar and explicit unformed status. The test
+save is rebuilt with 50 requested FULL chunks per custom dimension, not a
+50×50 area; natural village/structure coverage and client travel remain separate
+checks. Earlier galleries, receipts, lore guides and JAR archives remain below.
+
 ## First crystal-wasteland ruin — 8 October 2026
 
 [Prism Spire layout, habitat and verification scope](docs/prism-spire-2026-10-08.md).
