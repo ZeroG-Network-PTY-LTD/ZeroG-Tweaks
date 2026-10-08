@@ -120,7 +120,7 @@ The gate is a multiblock. This is the whole Tier 1 build. Drag to rotate, scroll
 | {link("gate_controller")} | 1 | Any legal service position, one block above the pad |
 | {link("gate_energy_port")} | 1 | Another legal service position on any horizontal side |
 
-**Tip:** open the controller and press **Ghost** to toggle the current-tier wireframe for
+**Tip:** open the controller and choose **Plans**, then **Plan T1** for the standing wireframe for
 60 seconds: green means correct, cyan means missing, and red means the wrong block.
 It never places blocks. **Preview** lists required block counts by structural section,
 not world coordinates. A complete gate is explicitly marked complete; requirements
@@ -131,6 +131,13 @@ Controller facing is cosmetic. Service blocks belong at pad height +1, with
 Use exactly one controller and at least 1/1/2/2/4/4 Gate Energy Ports at tiers 1–6.
 The Ghost port positions are recommendations, not mandatory sockets. Ports are
 required even when charging the controller directly, and cannot be shared by gates.
+
+**Auto-build:** place and claim the controller, then use **Plans → Build T1**.
+Carry the missing structural blocks in your inventory. The server checks all
+materials first, preserves matching blocks and your controller, and refuses
+obstructions without consuming supplies. Use **Build T2–T6** to add later tiers.
+This is not free construction, even in creative. Clear the required footprint
+first; the builder does not excavate or remove other buildings.
 
 ## Recipes
 
@@ -170,7 +177,7 @@ Gates run on **FE**. The simplest source is a {link("combustion_generator")}.
 | Battery | 1,000,000 FE |
 | Fastest charging | 1,000 FE/t |
 | Tier 1 successful gate jump (any eligible group) | 100,000 FE |
-| Each extra passenger | +10% |
+| Additional passengers | No extra jump fee |
 
 At 50 FE/t one Tier 1 trip needs 100 seconds of burning. The controller screen shows the stored FE.
 
@@ -183,10 +190,13 @@ page("04_launch.md", "4. Launch", "zerog_tweaks:gate_pad_plate", 40, body=f"""
 1. **Right-click the Gate Controller.** The first player to do this owns the gate. Only the owner can launch it.
 2. Pick a destination: **moon** or **mars** at Tier 1. Use the arrow buttons to page through the list.
 3. Stand on the pad and press **Engage**. A Tier 1 pad carries **2 players**.
-4. Everyone on the pad opens the controller and presses **Ready** before the 5-second countdown ends.
+4. The initiator is already Ready; other passengers open the controller and press **Ready** before the 5-second countdown ends.
    Step off the pad or press **Cancel** to abort.
 
 Tamed pets owned by a passenger, and mobs on a passenger's lead, come along.
+Remain above the pad during the launch lift; stepping sideways out of the pad
+cancels. A refused engagement or cancelled launch reports its reason. Successful
+travel uses the ZeroG galaxy/planet transition; a refused launch is not a teleport.
 
 ## Arriving
 
@@ -274,7 +284,8 @@ A Tier 2 gate is built **around** your Tier 1 gate. Keep everything and add:
 * a {link("selenite_block")}, and an {link("aresite_block")} under the centre of the pad.
 
 Press **Preview** on the controller for the next tier's required blocks, grouped by
-structural section. **Ghost** shows the current tier, not the next-tier upgrade.
+structural section. **Plans** offers both standing previews and inventory-funded
+construction for every tier.
 
 ## Reach Galaxy 2
 
@@ -305,9 +316,10 @@ Player gate jumps cost exactly **100,000 / 200,000 / 400,000 / 800,000 /
 passenger count, same-galaxy travel and lenses do not change this tariff.
 Cancelled or invalid launches do not charge. Admin showcase gates remain free.
 
-Open the controller and choose **Plans**, then **Tier 1–6** to show a standing
+Open the controller and choose **Plans**, then **Plan T1–T6** to show a standing
 wireframe anchored to that controller. Green means correct, cyan missing and red
 wrong block. A selected plan does not upgrade or construct the actual gate.
+The separate **Build T1–T6** controls check and consume the missing blocks.
 The hologram above the terminal shows the selected galaxy/planet and charging
 countdown. Dimension jumps use the galaxy-to-planet transition artwork.
 """)
