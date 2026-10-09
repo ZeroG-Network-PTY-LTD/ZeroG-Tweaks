@@ -19,6 +19,21 @@ public final class GateHologramRenderer {
         var camera=e.getCamera();var position=camera.getPosition();var poses=e.getPoseStack();var buffers=mc.renderBuffers().bufferSource();
         for(var s:GateHologramSync.pending(mc.level.dimension().location())){
             var p=s.controller();if(mc.player.distanceToSqr(p.getCenter())>32*32||!mc.level.hasChunkAt(p)||!mc.level.getBlockState(p).is(net.zerog.tweaks.registry.BlockInit.GATE_CONTROLLER.get()))continue;
+            if(s.tier()>0&&(s.energy()>0||s.countdown()>0))for(var top:s.pylons()){
+                if(!mc.level.hasChunkAt(top))continue;
+                var state=mc.level.getBlockState(top);
+                if(!state.is(net.zerog.tweaks.registry.BlockInit.GATE_PYLON.get())||!state.getValue(GatePylonBlock.LIT))continue;
+                float partial=e.getPartialTick().getGameTimeDeltaPartialTick(false);
+                float pulse=(float)(.5+.5*Math.sin((mc.level.getGameTime()+partial)*.25));
+                float progress=s.countdown()>0?(100-s.countdown())/100F:0;
+                int height=s.countdown()>0?2+(int)(progress*6):1;
+                poses.pushPose();
+                try{poses.translate(top.getX()-position.x,top.getY()+1-position.y,top.getZ()-position.z);
+                    net.minecraft.client.renderer.blockentity.BeaconRenderer.renderBeaconBeam(poses,buffers,
+                        net.minecraft.client.renderer.blockentity.BeaconRenderer.BEAM_LOCATION,partial,1,mc.level.getGameTime(),0,height,
+                        s.countdown()>0?0xff88dcff:0xff5168ae,.06F+progress*.08F,.12F+progress*.15F+pulse*.03F);
+                }finally{poses.popPose();}
+            }
             poses.pushPose();
             try{
                 poses.translate(p.getX()+.5-position.x,p.getY()+2.1-position.y,p.getZ()+.5-position.z);
@@ -36,6 +51,8 @@ public final class GateHologramRenderer {
             }finally{poses.popPose();}
         }
         buffers.endBatch(RenderType.lines());
+        buffers.endBatch(RenderType.beaconBeam(net.minecraft.client.renderer.blockentity.BeaconRenderer.BEAM_LOCATION,false));
+        buffers.endBatch(RenderType.beaconBeam(net.minecraft.client.renderer.blockentity.BeaconRenderer.BEAM_LOCATION,true));
     }
     private GateHologramRenderer(){}
 }

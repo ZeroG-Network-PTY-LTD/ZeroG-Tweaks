@@ -129,7 +129,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     }
     public void confirm(ServerPlayer player){if(countdown>0&&expected.contains(player.getUUID())&&pad().contains(player.position()))ready.add(player.getUUID());}
     public void cancel(){if(lifting&&level instanceof ServerLevel server)stopLift(server);countdown=0;lifting=false;ready.clear();expected=Set.of();setChanged();}
-    /** Drop anyone already floating and clear their white-out. Pylons go dark on the next idle tick. */
+    /** Drop floating passengers and clear white-out; powered pylons return to idle lamps. */
     private void stopLift(ServerLevel server){
         for(UUID id:expected){var p=server.getServer().getPlayerList().getPlayer(id);if(p!=null){p.removeEffect(MobEffects.LEVITATION);GateLaunchSync.sendLift(p,0);}}
         lifting=false;
@@ -143,6 +143,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         list.sort(Comparator.comparingDouble(column->Math.atan2(column.get(0).getZ()-c.getZ(),column.get(0).getX()-c.getX())));
         return list;
     }
+    public List<BlockPos> pylonTops(){int tier=formedTier();return tier==0?List.of():pylonColumns(tier).stream().map(column->column.get(column.size()-1)).toList();}
     /** Light the first {@code count} pylon columns of {@code tier}; 0 puts them all out. */
     private void lightPylons(ServerLevel server,int tier,int count){
         var columns=pylonColumns(tier);
@@ -174,7 +175,12 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         if(adminTest())stored=capacity();
         // Return platforms trickle-charge only with their explicitly built crystal cell.
         if(returnPlatform&&server.getGameTime()%20==0&&server.getBlockState(centre().offset(0,-2,0)).is(BlockInit.CRYSTAL_CELL.get())){stored=Math.min(capacity(),stored+1000);setChanged();}
-        if(countdown<=0){if(litTier>0)lightPylons(server,litTier,0);return;}
+        if(countdown<=0){
+            if(server.getGameTime()%20==0){int tier=formedTier();
+                if(tier>0)lightPylons(server,tier,stored>0?pylonColumns(tier).size():0);
+                else if(litTier>0)lightPylons(server,litTier,0);
+            }return;
+        }
         var group=launchPassengers();var present=group.stream().map(ServerPlayer::getUUID).collect(java.util.stream.Collectors.toSet());
         int tier=formedTier();
         if(tier==0){cancelWithReason("the gate structure changed. Use Preview.");return;}

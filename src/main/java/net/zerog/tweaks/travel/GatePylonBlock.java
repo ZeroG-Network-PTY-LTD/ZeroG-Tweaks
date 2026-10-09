@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
-/** Gate pylon. LIT is set column by column by SurvivalGateBlockEntity during a launch; it only adds light. */
+/** Gate pylon. Controller sets powered-idle/launch LIT; client renders pillar-top beam lamps. */
 public final class GatePylonBlock extends Block {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
     public GatePylonBlock(Properties properties){super(properties);registerDefaultState(defaultBlockState().setValue(LIT,false));}

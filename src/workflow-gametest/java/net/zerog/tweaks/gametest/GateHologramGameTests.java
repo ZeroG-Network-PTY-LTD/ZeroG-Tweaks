@@ -7,6 +7,21 @@ import net.zerog.tweaks.travel.*;
 
 @GameTestHolder("zerog_gate_display") @PrefixGameTestTemplate(false)
 public final class GateHologramGameTests {
+    @GameTest(templateNamespace="zerog_gate_display",template="equipment_empty",timeoutTicks=100)
+    public static void powered_pylons_light_and_display_positions_are_bounded(GameTestHelper h){
+        var level=h.getLevel();var c=h.absolutePos(new BlockPos(6,4,6));
+        for(var part:SurvivalGateLayout.parts(1))level.setBlock(c.offset(part.offset()),part.block().defaultBlockState(),3);
+        var gate=(SurvivalGateBlockEntity)level.getBlockEntity(c.offset(0,1,-2));gate.stored=100000;
+        h.runAfterDelay(25,()->{
+            var status=GateHologramSync.describe(gate);
+            h.assertTrue(!status.pylons().isEmpty()&&status.pylons().size()<=32,"Missing bounded pillar display positions");
+            for(var top:status.pylons())h.assertTrue(level.getBlockState(top).getValue(GatePylonBlock.LIT),"Powered gate pillar stayed dark");
+            var buffer=new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(),level.registryAccess());
+            try{GateHologramSync.Status.CODEC.encode(buffer,status);h.assertTrue(status.equals(GateHologramSync.Status.CODEC.decode(buffer)),"Pillar display codec mismatch");}finally{buffer.release();}
+            gate.stored=0;
+        });
+        h.runAfterDelay(50,()->{for(var top:gate.pylonTops())h.assertTrue(!level.getBlockState(top).getValue(GatePylonBlock.LIT),"Unpowered pillar stayed lit");h.succeed();});
+    }
     @GameTest(templateNamespace="zerog_gate_display",template="equipment_empty",timeoutTicks=120)
     public static void inventory_autobuild_and_destination_tiers(GameTestHelper h){
         var level=h.getLevel();var player=ordinaryPlayer(h);var c=h.absolutePos(new BlockPos(8,4,8));

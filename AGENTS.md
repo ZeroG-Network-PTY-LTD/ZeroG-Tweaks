@@ -483,3 +483,15 @@ The scoped ZeroG-launch-diagnostic records only failure state and anonymous
 passenger-relative position/motion; no names, account arguments or per-tick flood.
 This instrumentation is not a verified teleport repair. Use the next actual client
 failure to distinguish vertical/horizontal exit, extra passengers and disconnects.
+
+## Powered gate pillar visuals and Flux Wrench — 9 October
+
+Formed, FE-charged pillars light while idle; countdown reuses sequential column
+lighting. GateHologramSync protocol2 carries max32 validated pillar tops within24
+blocks of the controller. Client beams use vanilla BeaconRenderer,1-block idle
+lamps and2..7-block warm-up beams; no beacon blocks, buffs or world scanning.
+Do not claim shader/client appearance from isolated state/codec tests.
+Flux Wrench retains its ID/handheld transforms. Native32 sprite is authored by
+Design/docs/flux-wrench-sci-fi/generate.py, run AFTER full-art-rollout-v4 so its
+older wrench cannot overwrite the approved9Oct sci-fi design. The AI concept
+sheet is reference only, not a downscaled runtime texture or implemented3D mesh.
