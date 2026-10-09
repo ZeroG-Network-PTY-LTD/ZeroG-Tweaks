@@ -23,6 +23,11 @@ import net.zerog.tweaks.registry.ZGPlanetCrops;
 /** Randomized 3-D colonies. No Star Glass or entity creation on worldgen workers. */
 public final class PlanetSettlementFeature extends Feature<NoneFeatureConfiguration> {
     public PlanetSettlementFeature() {super(NoneFeatureConfiguration.CODEC);}
+    public static net.minecraft.world.level.ChunkPos candidate(long seed,String dimension,int regionX,int regionZ) {
+        var site=RandomSource.create(seed ^ ((long)regionX*341873128712L)
+                ^ ((long)regionZ*132897987541L) ^ dimension.hashCode());
+        return new net.minecraft.world.level.ChunkPos(regionX*50+16+site.nextInt(18),regionZ*50+16+site.nextInt(18));
+    }
     public static List<BlockPos> homes(int layout) {
         return switch(Math.floorMod(layout,4)) {
             case 1 -> List.of(new BlockPos(-11,0,-10),new BlockPos(11,0,-10),new BlockPos(0,0,12));
@@ -38,19 +43,31 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
         // 16..33 guarantee at least 33 chunks between neighbouring region sites.
         int cx=context.origin().getX()>>4,cz=context.origin().getZ()>>4;
         int rx=Math.floorDiv(cx,50),rz=Math.floorDiv(cz,50);
-        var site=net.minecraft.util.RandomSource.create(context.level().getSeed() ^ ((long)rx*341873128712L)
-                ^ ((long)rz*132897987541L) ^ dimension.hashCode());
-        if(cx!=rx*50+16+site.nextInt(18) || cz!=rz*50+16+site.nextInt(18)) return false;
+        var site=candidate(context.level().getSeed(),dimension,rx,rz);
+        if(cx!=site.x || cz!=site.z) return false;
         var origin=context.origin().offset(8,0,8);
-        int y=context.level().getHeight(Heightmap.Types.WORLD_SURFACE_WG,origin.getX(),origin.getZ())-1;
+        int y=groundY(context.level(),origin.getX(),origin.getZ());
         // Land only. A sea-surface height is not the solid grass/soil surface.
         for(int x:new int[]{-18,0,18}) for(int z:new int[]{-18,0,18}) {
-            int h=context.level().getHeight(Heightmap.Types.WORLD_SURFACE_WG,origin.getX()+x,origin.getZ()+z)-1;
+            int h=groundY(context.level(),origin.getX()+x,origin.getZ()+z);
             var ground=new BlockPos(origin.getX()+x,h,origin.getZ()+z);
             if(Math.abs(h-y)>4 || !context.level().getFluidState(ground).isEmpty()
                     || !context.level().getBlockState(ground).isSolidRender(context.level(),ground)) return false;
         }
         return build(context.level(),new BlockPos(origin.getX(),y,origin.getZ()),dimension,context.random().nextInt(4),context.random());
+    }
+    private static int groundY(WorldGenLevel level,int x,int z) {
+        int y=level.getHeight(level instanceof net.minecraft.server.level.ServerLevel
+                ?Heightmap.Types.MOTION_BLOCKING_NO_LEAVES:Heightmap.Types.WORLD_SURFACE_WG,x,z)-1;
+        // WORLD_SURFACE_WG includes crowns and vines: descend through vegetation,
+        // not water, rather than placing the whole settlement on a tree canopy.
+        while(y>level.getMinBuildHeight()) {
+            var pos=new BlockPos(x,y,z);var state=level.getBlockState(pos);
+            if(state.getFluidState().isEmpty() && (state.is(net.minecraft.tags.BlockTags.LEAVES)
+                    || state.is(net.minecraft.tags.BlockTags.LOGS) || !state.isSolidRender(level,pos))) y--;
+            else break;
+        }
+        return y;
     }
     public static boolean build(WorldGenLevel level,BlockPos centre,String dimension,int layout,RandomSource random) {
         if(!ZGDimensionTerrain.SOILS.containsKey(dimension) || centre.getY()<level.getMinBuildHeight()+20 || centre.getY()>level.getMaxBuildHeight()-12) return false;
@@ -60,12 +77,21 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
                 && net.zerog.tweaks.travel.ArrivalProtection.intersects(server,centre.offset(-20,-18,-20),centre.offset(20,10,20))) return false;
         // Generated footprints may excavate terrain, but never overwrite existing
         // block entities (including neighbouring outposts and player machines).
-        for(var pos:BlockPos.betweenClosed(centre.offset(-20,-1,-20),centre.offset(20,9,20))) {
+        for(var pos:BlockPos.betweenClosed(centre.offset(-20,-4,-20),centre.offset(20,9,20))) {
             if(!level.hasChunkAt(pos) || level.getBlockEntity(pos)!=null) return false;
             if(level instanceof net.minecraft.server.level.WorldGenRegion
                     && level.getChunk(pos).getInhabitedTime()>0) return false;
             String block=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos).getBlock()).getPath();
             if(block.equals("landing_platform") || block.contains("gate_") || block.endsWith("_gate_frame")) return false;
+        }
+        // Check every graded column, not just nine survey samples: a ravine,
+        // pond or narrow ridge inside the homes/farms must reject the whole
+        // colony before any blocks are cleared or foundations are placed.
+        for(int x=-17;x<=17;x++)for(int z=-17;z<=17;z++) {
+            int y=groundY(level,centre.getX()+x,centre.getZ()+z);
+            var ground=new BlockPos(centre.getX()+x,y,centre.getZ()+z);
+            if(Math.abs(y-centre.getY())>4 || !level.getFluidState(ground).isEmpty()
+                    || !level.getBlockState(ground).isSolidRender(level,ground)) return false;
         }
         var hull=switch(PlanetEcologyProfile.theme(dimension)) {
             case "mars" -> BlockInit.MARTIAN_STONE_BRICKS.get();
@@ -99,8 +125,7 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
             // a sharp rectangular green/brown lawn onto unrelated terrain.
             if(Math.max(Math.abs(x),Math.abs(z))>17) continue;
             var floor=centre.offset(x,0,z);
-            var surfaceMap=level instanceof net.minecraft.server.level.ServerLevel?Heightmap.Types.MOTION_BLOCKING_NO_LEAVES:Heightmap.Types.WORLD_SURFACE_WG;
-            int surfaceY=level.getHeight(surfaceMap,floor.getX(),floor.getZ())-1;
+            int surfaceY=groundY(level,floor.getX(),floor.getZ());
             var nativeSurface=level.getBlockState(new BlockPos(floor.getX(),surfaceY,floor.getZ()));
             if(!nativeSurface.getFluidState().isEmpty() || !nativeSurface.isSolidRender(level,floor))
                 nativeSurface=ZGDimensionTerrain.SOILS.get(dimension).get().defaultBlockState();

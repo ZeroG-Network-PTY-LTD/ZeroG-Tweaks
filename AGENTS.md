@@ -495,3 +495,19 @@ Flux Wrench retains its ID/handheld transforms. Native32 sprite is authored by
 Design/docs/flux-wrench-sci-fi/generate.py, run AFTER full-art-rollout-v4 so its
 older wrench cannot overwrite the approved9Oct sci-fi design. The AI concept
 sheet is reference only, not a downscaled runtime texture or implemented3D mesh.
+
+## Owner acceptance and planetary ecology — 9 October
+
+The owner approved the installed gates, power, pipes, wrench and transitions.
+Do not keep their client-review entries as active blockers; preserve scoped
+diagnostics and do not infer approval of unrelated machines or planetary ecology.
+Planet mines use bounded seed-local corridor plans and local planetary timber;
+there are no vanilla Nether mineshafts. Keep dry/protected-footprint preflight,
+context-only randomness and existing loot/tool progression. Settlements preserve
+one candidate per50x50chunkregion, surface matching and every foundation layer's
+container protection. No automatic save reset or hub replacement follows this.
+Cave kelp requires source WATER blocks and terminal heads; wall vines stop before
+obstacles. Prismling cave exceptions apply only to covered authored Cerulon caves,
+not arbitrary underground relocation of Moon/Mars surface mobs. Isolated ordinary
+server surveys are necessary for natural placement; GameTest structure settings
+cannot prove that. Production builds must exclude all optional test fixtures.

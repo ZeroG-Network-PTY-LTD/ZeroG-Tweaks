@@ -6,6 +6,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CaveVines;
 import net.minecraft.world.level.block.MultifaceBlock;
@@ -60,27 +61,49 @@ public final class PlanetCaveEcologyFeature extends Feature<NoneFeatureConfigura
                     if(level.isEmptyBlock(pos) && random.nextInt(20)==0)for(var face:Direction.Plane.HORIZONTAL) {
                         if(!natural(level,pos.relative(face)))continue;
                         String kind=net.zerog.tweaks.registry.ZGAlienVines.KINDS.get(random.nextInt(4));
-                        var vine=net.zerog.tweaks.registry.ZGAlienVines.VINES.get(theme+"_"+kind).get().defaultBlockState()
-                                .setValue(VineBlock.getPropertyForFace(face),true)
-                                .setValue(CaveVines.BERRIES,kind.equals("fruit_ivy")&&random.nextBoolean());
-                        if(vine.canSurvive(level,pos)){level.setBlock(pos,vine,2);changed=true;}
+                        changed|=wallVine(level,random,pos,theme,kind,face,2+random.nextInt(4));
                         break;
                     }
                 } else if(level.getFluidState(pos).is(FluidTags.WATER) && natural(level,pos.below()) && random.nextInt(7)==0) {
-                    var aquatic=net.zerog.tweaks.registry.ZGPlanetAquatic.FAMILIES.get(theme);
-                    var kelp=aquatic.head().get().defaultBlockState();
-                    if(kelp.canSurvive(level,pos)) {
-                        int height=2+random.nextInt(5);
-                        for(int n=0;n<height;n++) {
-                            var p=pos.above(n);
-                            if(!level.getBlockState(p).is(Blocks.WATER)) break;
-                            var next=n+1<height&&level.getBlockState(p.above()).is(Blocks.WATER)?
-                                    aquatic.body().get().defaultBlockState():kelp;
-                            level.setBlock(p,next,2);changed=true;
-                        }
-                    }
+                    changed|=kelp(level,pos,theme,2+random.nextInt(5));
                 }
             }
+        }
+        return changed;
+    }
+    /** Native source-water rule: never turn flowing water or waterlogged blocks into kelp.
+     * Measure the complete column first so a shortened stand still ends in a head.
+     */
+    public static boolean kelp(LevelAccessor level,BlockPos start,String theme,int maximum) {
+        var aquatic=net.zerog.tweaks.registry.ZGPlanetAquatic.FAMILIES.get(theme);
+        if(aquatic==null||maximum<1||!sourceWater(level,start))return false;
+        var head=aquatic.head().get().defaultBlockState();
+        if(!head.canSurvive(level,start))return false;
+        int length=0;
+        while(length<Math.min(maximum,6)&&sourceWater(level,start.above(length)))length++;
+        for(int n=0;n<length;n++)level.setBlock(start.above(n),
+                n==length-1?head:aquatic.body().get().defaultBlockState(),2);
+        return length>0;
+    }
+    private static boolean sourceWater(LevelAccessor level,BlockPos pos) {
+        var state=level.getBlockState(pos);
+        return state.is(Blocks.WATER)&&state.getFluidState().isSource();
+    }
+    /** A supported attachment descends as one short strand, rather than isolated wall pixels.
+     * Each segment is independently checked against vanilla vine attachment rules.
+     */
+    public static boolean wallVine(LevelAccessor level,RandomSource random,BlockPos start,
+                                   String theme,String kind,Direction face,int maximum) {
+        var block=net.zerog.tweaks.registry.ZGAlienVines.VINES.get(theme+"_"+kind);
+        if(block==null||face.getAxis()==Direction.Axis.Y)return false;
+        boolean changed=false;
+        for(int n=0;n<Math.min(maximum,5);n++) {
+            var pos=start.below(n);
+            if(!level.isEmptyBlock(pos))break;
+            var state=block.get().defaultBlockState().setValue(VineBlock.getPropertyForFace(face),true)
+                    .setValue(CaveVines.BERRIES,kind.equals("fruit_ivy")&&random.nextInt(4)==0);
+            if(!state.canSurvive(level,pos))break;
+            level.setBlock(pos,state,2);changed=true;
         }
         return changed;
     }

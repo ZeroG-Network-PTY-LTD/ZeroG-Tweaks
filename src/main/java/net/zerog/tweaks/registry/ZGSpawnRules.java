@@ -20,15 +20,17 @@ import net.zerog.tweaks.ZeroGTweaks;
  * Where Cerulon's natural mobs may appear (which biome lists them is data: neoforge/biome_modifier/spawns_cerulon_*).
  * Land animals need Azure Moss (or vanilla animal ground) and daylight-level light. Prismlings spawn in the dark:
  * on the surface only in #zerog_tweaks:prismling_surface biomes (Cerulean Peaks, Concord Quarries: at night), elsewhere
- * only well below sea level (their main home is Starlight Caverns and Geode Depths);
+ * only below sea level or covered authored crystal caves (including highland caves);
  * Glimmerfish use the vanilla surface-water fish rule.
  */
 @EventBusSubscriber(modid = ZeroGTweaks.MODID)
 public final class ZGSpawnRules {
-    /** Prismlings never spawn within this many blocks of sea level or above it. */
+    /** Non-authored cave habitats need this many blocks of depth below sea level. */
     public static final int PRISMLING_DEPTH = 8;
     public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> PRISMLING_SURFACE = net.minecraft.tags.TagKey.create(
             net.minecraft.core.registries.Registries.BIOME, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID, "prismling_surface"));
+    public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> PRISMLING_CAVES = net.minecraft.tags.TagKey.create(
+            net.minecraft.core.registries.Registries.BIOME, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(ZeroGTweaks.MODID, "prismling_caves"));
 
     @SubscribeEvent
     public static void register(RegisterSpawnPlacementsEvent event) {
@@ -95,9 +97,18 @@ public final class ZGSpawnRules {
 
     public static boolean prismling(EntityType<? extends Monster> type, ServerLevelAccessor level, MobSpawnType reason,
                                     BlockPos pos, RandomSource random) {
-        if (reason == MobSpawnType.NATURAL && pos.getY() > level.getSeaLevel() - PRISMLING_DEPTH
-                && !level.getBiome(pos).is(PRISMLING_SURFACE)) return false;
+        if (reason == MobSpawnType.NATURAL && !prismlingHabitat(level,pos)) return false;
         return Monster.checkMonsterSpawnRules(type, level, reason, pos, random);
+    }
+
+    /** Crystal caves can occur above sea level in highlands. Only covered positions
+     * in the authored cave biomes bypass the depth rule; night surface encounters
+     * remain restricted to the existing explicit surface-biome tag.
+     */
+    public static boolean prismlingHabitat(LevelAccessor level,BlockPos pos) {
+        return level.getBiome(pos).is(PRISMLING_SURFACE)
+                || pos.getY()<=level.getSeaLevel()-PRISMLING_DEPTH
+                || level.getBiome(pos).is(PRISMLING_CAVES)&&!level.canSeeSky(pos);
     }
 
     private ZGSpawnRules() {}
