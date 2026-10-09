@@ -1,5 +1,14 @@
 # ZeroG Tweaks
 
+## Powered pillar lights and sci-fi Flux Wrench — 9 October 2026
+
+[Effects, artwork and player checks](docs/gate-pillar-lights-and-flux-wrench-2026-10-09.md).
+Powered gates show short blue pillar lamps; launch warm-up grows cyan beacon-style
+beams with a pulsing glow. No beacon buffs, entities or chunk tickets are added.
+The approved Flux Wrench redesign uses a new native32 sprite with cyan circuitry,
+violet socket and bevelled metal; its ID, interactions and hand positioning remain.
+All5 isolated gate-display tests passed; client beam/handheld appearance awaits review.
+
 ## Launch diagnostics and mining feedback — 9 October 2026
 
 [Player checks and evidence](docs/launch-diagnostics-mining-feedback-2026-10-09.md).
