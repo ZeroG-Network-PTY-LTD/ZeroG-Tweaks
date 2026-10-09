@@ -2,12 +2,18 @@
   "schema": 1,
   "updated": "2026-10-09",
   "candidate_version": "1.0.12-dev",
+  "owner_acceptance": {
+    "date": "2026-10-09",
+    "approved": ["gates", "power", "pipes", "Flux Wrench", "gate transitions"],
+    "evidence": "Owner confirmed these systems approved in the installed client. This does not close unrelated machine recipes, biology specifications, gas production or planetary generation audits.",
+    "next_work": "Planet-specific villages, varied abandoned mines, cave vegetation and suitable cave mobs; see planetary-generation-workflow-2026-10-09.md."
+  },
   "latest_delivery": {
-    "guide": "gate-pillar-lights-and-flux-wrench-2026-10-09.md",
-    "artwork": "gate-pillar-lights-and-flux-wrench-2026-10-09.md",
-    "receipt": "gate-pillar-lights-and-flux-wrench-2026-10-09.md",
+    "guide": "planetary-generation-workflow-2026-10-09.md",
+    "artwork": "planetary-generation-workflow-2026-10-09.md",
+    "receipt": "planetary-generation-workflow-2026-10-09.md",
     "gate_building": "gate-building-tiers-1.21.1.md",
-    "scope": "Same1.0.12-dev installede8a41d1921a294195960aeeb7e8109d141b9737667fab8bd2b57c063c6bb61da with prior-JAR backup. Powered pillars show idle lamps and progressive pulsing beacon-style launch beams, bounded nearby status protocol2, no buffs/entities/tickets. Approved native32 sci-fi Flux Wrench artwork preserves ID/behavior/handheld display; source/runtime/JAR pixels match. All5 isolated gate-display tests passed; clean production build and zero-error asset audit passed. Latest player teleport was reported successful; old cancellation cause remains unidentified and diagnostics retained. Existing mining hints/Ferrox Moonsteel ladder retained. Client beam/wrench review and one shared surface landing pad per dimension remain pending. Saves/other mods/weather pause unchanged."
+    "scope": "Same1.0.12-dev installedff8e85725e82a8b128fa96f8aabd6b1e5f3a9907cf4536cdee2ea17b5bd2f874 with prior-JAR backup while client closed.7targeted planetary generation tests passed; ordinary natural survey294FULLchunks across6Solplanets observed13minechests,ores/caveflora onall6 and8Ashwrights in1Skarnsettlement. Clean production build,7979models/1529blockstates/3963PNGs/130animation-metadata zero-error audit passed. New exploration Codex page matches Design generator. Gates/power/pipes/wrench/transitions owner-approved; earlier diagnostics retained. Saves/othermods/weatherpause unchanged. Broader biome/seed/hostile-population/client ecology review and shared surface arrival routing remain pending."
   },
   "commit_review": {
     "date": "2026-10-07",
@@ -18,8 +24,7 @@
     "guide": "genetics-legacy-cards-2026-10-07.md"
   },
   "next_priority_order": [
-    "actual-client-launch-cancellation-trace-and-repair",
-    "gate-client-transition-and-auto-build-visual-review",
+    "planetary-villages-mines-and-cave-ecology",
     "recipe-discovery-remaining-machines",
     "client-startup-loading-investigation",
     "custom-weather-owner-pause",
@@ -47,6 +52,7 @@
   "branch_ownership": {"runtime": "1.21.x", "artwork": "Design", "guides_jars_images": "Docs"},
   "rules": ["Install backed-up JAR before publishing", "No save resets without exact owner authorization; Cardinal Hub planetary-only no-backup reset explicitly authorized7October", "No Mekanism code or assets copied", "No new machine types before existing GUI/port audit", "Static asset/server checks are not client visual approval"],
   "tasks": [
+    {"id": "planetary-villages-mines-and-cave-ecology", "status": "installed_server_verified_pending_client_and_broader_sampling", "acceptance": "9 October: all7 targeted tests passed; ordinary structures-enabled seed0 server survey saved294 FULL chunks across6Sol planets,13 natural mine loot chests, cave flora/ores on all6 and1Skarn village with8Ashwrights. Bounded varied mine corridors use local timber; settlements preflight all terrain/foundation columns; kelp uses sources and wall vines stop at obstacles. Covered authored Cerulon caves permit existing Prismlings above the deep cutoff; predicate verified but natural hostile population not observed. Existing5mob assets match geometry sizes. Clean same-version build passed; ff8e85725e82a8b128fa96f8aabd6b1e5f3a9907cf4536cdee2ea17b5bd2f874 installed with backup while client closed. No player saves reset. All-biome/natural-population/client appearance coverage remains separate. See planetary-generation-workflow-2026-10-09.md."},
     {"id":"gate-six-tier-hologram-and-creative-cell","status":"targeted_server_verified_not_installed_pending_client","details":"Owner-approved9October: controller Plans selects standing tiers1-6 at its real terminal; transient galaxy/planet/countdown display; fixed player jump tariff100k doubled by formed tier through3.2M, admin free, successful jump charged once; gate transitions active despite legacy OFF. New creative-only gold animated cell has unlimited supply and shared300kFE/t output quota. All10 focused tests passed20261008_222923 including384flexible placement cases, real co-op teleport, failed-jump protection and normal-player creative/survival checks. Guide/source generators accompany candidate. Installed JAR/saves unchanged; shader/GUI approval remains pending. See gate-hologram-and-creative-cell-2026-10-09.md."},
     {"id":"gate-section-guidance-and-hologram","status":"server_verified_not_installed_pending_client","details":"9October: Preview names required block counts by structural section, explicitly separates completed current tier from optional next-tier upgrades, and removes world-coordinate construction instructions. Ghost toggles a bounded server-selected current-tier wireframe: green correct, cyan missing, red wrong;60second expiry, logout/dimension/range cleanup, no world writes or chunk tickets. All12 focused tests pass20261008_205629 with planetary fixtures, including24legacy tier/orientation/power combinations, grouped requirements and packet bounds. Client rendering is not headless-approved. Flexible service placement remains next; this batch does not implement it. See gate-guidance-2026-10-09.md."},
     {"id":"gate-flexible-controller-and-energy-port-placement","status":"targeted_server_verified_not_installed_pending_client","details":"9October implementation discovers true pad centre and structural orientation independently of terminal facing. Legal service row y=pad+1, radius2..tier+1, mandatory structural parts protected; exactly1 controller, minimum1/1/2/2/4/4 ports. Duplicate controllers, ambiguous centres and shared ports rejected; loaded-only bounded capability discovery and stale-handler revocation. Align/Preview/Ghost, shared FE, effects, launch pad and remote return lookup updated with guides/generators/audit mirror. Sixteen formation/power tests passed including384 independent relocation cases, plus96 synthetic audit layouts and3 optional-absence travel/controls/bound-return tests. Addon-present and production build evidence recorded in gate-flexible-placement-2026-10-09.md. Repository only: installed JAR, hub and saves unchanged. Client visuals and player-built travel still pending."},

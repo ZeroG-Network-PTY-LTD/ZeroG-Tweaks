@@ -1,5 +1,13 @@
 # ZeroG Tweaks
 
+## Planetary exploration update — 9 October 2026
+
+[Generation workflow and verification](docs/planetary-generation-workflow-2026-10-09.md).
+The owner has approved gates, power, pipes, Flux Wrench and transitions. The next
+batch adds varied local-timber mines, safer terrain-blended villages, source-water
+cave kelp, hanging wall vines and covered highland crystal-cave Prismling habitats.
+Existing saves are preserved; these generation changes apply to new chunks.
+
 ## Powered pillar lights and sci-fi Flux Wrench — 9 October 2026
 
 [Effects, artwork and player checks](docs/gate-pillar-lights-and-flux-wrench-2026-10-09.md).
@@ -7,14 +15,16 @@ Powered gates show short blue pillar lamps; launch warm-up grows cyan beacon-sty
 beams with a pulsing glow. No beacon buffs, entities or chunk tickets are added.
 The approved Flux Wrench redesign uses a new native32 sprite with cyan circuitry,
 violet socket and bevelled metal; its ID, interactions and hand positioning remain.
-All5 isolated gate-display tests passed; client beam/handheld appearance awaits review.
+All5 isolated gate-display tests passed; the owner subsequently approved the gates,
+wrench and transitions in the installed client.
 
 ## Launch diagnostics and mining feedback — 9 October 2026
 
 [Player checks and evidence](docs/launch-diagnostics-mining-feedback-2026-10-09.md).
-The actual client still reports passenger/pad cancellation: the earlier lifted-position
-mock did not reproduce the full in-game failure. The diagnostic build records scoped,
-anonymous failure state; **teleport repair remains pending that trace**.
+Earlier client attempts reported passenger/pad cancellation, which the lifted-position
+mock did not reproduce. A later player attempt succeeded and the owner approved
+gate travel. Scoped anonymous failure diagnostics remain for any recurrence;
+the historical cancellation cause was not established.
 ZeroG block tooltips and wrong-tool survival warnings now expose loaded mining requirements.
 Moonsteel keeps the lore-approved **Ferrox pickaxe** minimum; Nullifite is insufficient.
 All14 isolated blocker/mining tests passed. Hub and saves remain untouched.
