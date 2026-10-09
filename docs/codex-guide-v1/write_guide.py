@@ -187,6 +187,10 @@ Next: [launch](04_launch.md).
 page("04_launch.md", "4. Launch", "zerog_tweaks:gate_pad_plate", 40, body=f"""
 # 4. Launch
 
+A formed gate with stored FE lights its pillars with short beacon-style lamps.
+During warm-up the pillars activate in sequence; beams grow taller and pulse as
+the rift and lift approach. These are visual indicators, not beacon buffs.
+
 1. **Right-click the Gate Controller.** The first player to do this owns the gate. Only the owner can launch it.
 2. Pick a destination: **moon** or **mars** at Tier 1. Use the arrow buttons to page through the list.
 3. Stand on the pad and press **Engage**. A Tier 1 pad carries **2 players**.
