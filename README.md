@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Alveary production pages — 11 October 2026
+
+[Actual products, frame effects and player checks](docs/alveary-recipe-pages-2026-10-11.md).
+Controllers now display server-resolved bee product icons, quantities/chances,
+cycle power, honey and optional Starlight in read-only recipe tabs. Three isolated
+tests passed, including seven-tier checks and a real Productive Bees cycle.
+The same-version JAR is installed with backup; the hub and saves are untouched.
+Client appearance, remaining legacy adapters and undefined research rules remain
+separate review/TODO items.
+
 ## Generator recipe pages — 11 October 2026
 
 [Generator rules, verification and player checks](docs/generator-recipe-pages-2026-10-11.md).
