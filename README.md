@@ -1,5 +1,14 @@
 # ZeroG Tweaks
 
+## Generator recipe pages — 11 October 2026
+
+[Generator rules, verification and player checks](docs/generator-recipe-pages-2026-10-11.md).
+Combustion, Solar and Fusion explain actual fuel combinations, power budgets,
+buffer pauses and supported Flux Modules in read-only Items/Recipes/Upgrades tabs.
+Three isolated tests passed, covering 20 complete fuel burns and Solar controls.
+The same-version JAR is installed with an old-JAR backup; saves are untouched.
+Client layout review and alveary combination pages remain separate.
+
 ## Genetics recipe pages — 11 October 2026
 
 [Recipes, verification and player checks](docs/genetics-recipe-pages-2026-10-11.md).
