@@ -78,9 +78,16 @@ public final class CombustionBlockEntity extends BlockEntity {
         if(!id.getNamespace().equals("zerog_tweaks"))return 0;
         return switch(id.getPath()){case "nebulite"->2400;case "emberite"->4800;case "cryocite"->7200;case "coronite"->9600;default->0;};
     }
+    /** Shared by actual fuel ignition and the read-only recipe catalogue. */
+    public static int fuelOutput(ItemStack stack){
+        if(burnTime(stack)<=0)return 0;
+        return switch(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath()){
+            case "emberite"->100;case "cryocite"->150;case "coronite"->200;default->50;
+        };
+    }
     public static void tick(Level level,BlockPos pos,BlockState state,CombustionBlockEntity be){
         if(level.isClientSide)return;
-        if(be.burn==0&&be.stored<be.capacity()){var stack=be.fuel.getStackInSlot(0);int ticks=burnTime(stack);if(ticks>0){be.burn=be.burnTotal=ticks;be.output=switch(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath()){case "emberite"->100;case "cryocite"->150;case "coronite"->200;default->50;};be.fuel.extractItem(0,1,false);be.setChanged();}}
+        if(be.burn==0&&be.stored<be.capacity()){var stack=be.fuel.getStackInSlot(0);int ticks=burnTime(stack);if(ticks>0){be.burn=be.burnTotal=ticks;be.output=fuelOutput(stack);be.fuel.extractItem(0,1,false);be.setChanged();}}
         int numerator=be.outputQuarterFE()+be.energyRemainder,next=numerator/4;
         if(be.burn>0&&be.stored<=be.capacity()-next){be.burn--;be.stored+=next;be.energyRemainder=numerator%4;be.setChanged();MachineActivity.work(level,pos,"combustion_generator");}
         boolean lit=be.burn>0;if(state.getValue(BlockStateProperties.LIT)!=lit)level.setBlock(pos,state.setValue(BlockStateProperties.LIT,lit),3);
