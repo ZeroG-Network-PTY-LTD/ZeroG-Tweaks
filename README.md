@@ -1,5 +1,14 @@
 # ZeroG Tweaks
 
+## Genetics recipe pages — 11 October 2026
+
+[Recipes, verification and player checks](docs/genetics-recipe-pages-2026-10-11.md).
+Geno Station and Genetic Splicer now explain full job combinations, catalyst
+alternatives, output/container returns and server-synced upgrade-adjusted FE/time.
+All six isolated genetics tests passed, including 21 actual jobs across card tiers.
+The same-version JAR is installed with backup; client panel appearance remains for
+review. Generator/alveary full pages and exact survival recipe costs remain pending.
+
 ## Planetary exploration update — 9 October 2026
 
 [Generation workflow and verification](docs/planetary-generation-workflow-2026-10-09.md).
