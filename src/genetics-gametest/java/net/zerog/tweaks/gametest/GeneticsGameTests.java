@@ -16,6 +16,31 @@ import net.zerog.tweaks.genetics.*;
 @GameTestHolder("zerog_genetics")
 @PrefixGameTestTemplate(false)
 public final class GeneticsGameTests {
+    @GameTest(templateNamespace="zerog_tweaks",template="equipment_empty",timeoutTicks=200)
+    public static void recipe_pages_match_jobs_and_synchronized_card_metrics(GameTestHelper h) {
+        var specimen=ProductiveBeeGenes.analyse(bee(h));
+        for(String id:java.util.List.of("geno_station","genetic_splicer"))for(int mode=0;mode<(id.equals("geno_station")?2:1);mode++)for(int tier=0;tier<=6;tier++){
+            h.setBlock(new BlockPos(1,1,1),net.minecraft.world.level.block.Blocks.AIR);
+            var be=machine(h,id);var cards=LegacyMachineCards.inventory(be);
+            for(int slot=0;slot<2;slot++)cards.setStackInSlot(slot,tier==0?ItemStack.EMPTY:new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("zerog_tweaks:"+(slot==0?"acceleration":"energy_coil")+"_upgrade_card_t"+tier))));
+            var player=h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);player.setPos(be.getBlockPos().getCenter());
+            var menu=new GeneticsMenu(1,player.getInventory(),be);
+            h.assertTrue(menu.value(29)==LegacyMachineCards.speed(be)&&menu.value(30)==LegacyMachineCards.saving(be),"Catalogue upgrade metrics not synchronized");
+            var page=GeneticsRecipeCatalogue.page(id,mode,menu.value(29),menu.value(30));
+            ItemStack reagent=mode==1?GeneticsRuntime.product("serum_vial"):ItemStack.EMPTY;
+            if(id.equals("genetic_splicer")){
+                reagent=GeneticsRuntime.product("trait_serum");var tag=new net.minecraft.nbt.CompoundTag();var trait=new net.minecraft.nbt.CompoundTag();trait.putString("gene","productivity");trait.putString("value","productivity.normal");tag.put("zerog_tweaks:trait",trait);reagent.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA,net.minecraft.world.item.component.CustomData.of(tag));
+            }
+            inputs(be,specimen.copy(),reagent,id.equals("geno_station")?new ItemStack(Items.HONEY_BOTTLE):GeneticsRuntime.product("cosmic_jelly"));start(be,mode,0);
+            GeneticsRuntime.energy(be).receiveEnergy(40000,false);int energy=GeneticsRuntime.energy(be).getEnergyStored();var before=be.getPersistentData().copy();
+            GeneticsRecipeCatalogue.page(id,mode,menu.value(29),menu.value(30));h.assertTrue(before.equals(be.getPersistentData()),"Reading page mutated job");
+            tick(be,page.ticks()-1);h.assertTrue(GeneticsRuntime.inventory(be).getStackInSlot(3).isEmpty(),"Job completed before advertised duration");tick(be,1);
+            var inv=GeneticsRuntime.inventory(be);h.assertTrue(!inv.getStackInSlot(3).isEmpty()&&energy-GeneticsRuntime.energy(be).getEnergyStored()==page.energy(),"Page FE/time differs from actual job");
+            if(id.equals("geno_station"))h.assertTrue(inv.getStackInSlot(mode==1?5:4).is(Items.GLASS_BOTTLE),"Advertised bottle-return slot wrong");
+            else h.assertTrue(GeneticsRuntime.item(inv.getStackInSlot(4),"serum_vial"),"Advertised serum vial return wrong");
+        }
+        h.assertTrue(GeneticsRecipeCatalogue.page("silk_weaver",0,100,0).lines().isEmpty(),"Invented genetics adapter");h.succeed();
+    }
     private static final String PB="cy.jdkdigital.productivebees.";
     private static ItemStack card(String family){return new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("zerog_tweaks:"+family+"_upgrade_card_t6")));}
     private static ItemStack bee(GameTestHelper h) {

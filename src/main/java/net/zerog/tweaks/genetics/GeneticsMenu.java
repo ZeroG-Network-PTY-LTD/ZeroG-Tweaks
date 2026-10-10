@@ -34,7 +34,7 @@ public final class GeneticsMenu extends AbstractContainerMenu implements net.zer
         for(int row=0;row<3;row++)for(int col=0;col<9;col++)addSlot(new Slot(playerInv,9+row*9+col,48+col*18,159+row*18));
         for(int col=0;col<9;col++)addSlot(new Slot(playerInv,col,48+col*18,217));
         for(var slot:LegacyMachineCards.slots(machine))addSlot(slot);
-        data=playerInv.player.level().isClientSide?new SimpleContainerData(29):new ContainerData() {
+        data=playerInv.player.level().isClientSide?new SimpleContainerData(31):new ContainerData() {
             public int get(int index) {
                 if(index>=11&&index<29)return net.zerog.tweaks.machine.LegacyMachineSides.mode(machine,index-11);
                 var state=GeneticsRuntime.state(machine);
@@ -47,10 +47,11 @@ public final class GeneticsMenu extends AbstractContainerMenu implements net.zer
                     case 6->state.getBoolean("requested")?1:0;
                     case 7->GeneticsRuntime.status(machine);
                     case 8->GeneticsRuntime.chance(machine);
-                    case 9->state.getBoolean("last_success")?1:0;case 10->new GeneticsTank(machine).amount();default->0;
+                    case 9->state.getBoolean("last_success")?1:0;case 10->new GeneticsTank(machine).amount();
+                    case 29->LegacyMachineCards.speed(machine);case 30->LegacyMachineCards.saving(machine);default->0;
                 };
             }
-            public void set(int index,int value){}public int getCount(){return 29;}
+            public void set(int index,int value){}public int getCount(){return 31;}
         };
         addDataSlots(data);
     }
