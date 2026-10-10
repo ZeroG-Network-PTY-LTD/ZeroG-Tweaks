@@ -46,6 +46,7 @@ public final class AlvearyMenuSync {
     }
     @SubscribeEvent public static void tick(PlayerTickEvent.Post event) {
         if(!(event.getEntity() instanceof ServerPlayer player)||player.tickCount%20!=0)return;
+        net.zerog.tweaks.genetics.AlvearyRecipeSync.send(player);
         ApiaryMachineAccess.read(player.containerMenu).ifPresent(machine->{
             // All verified addon machine menus can receive the same read-only cycle status.
             String error=machine.error();if(error.length()>1024)error=error.substring(0,1024);
