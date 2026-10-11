@@ -82,6 +82,10 @@ public final class EntityInit {
                     .sized(3.6F, 10.8F).fireImmune().clientTrackingRange(16).build("zerog_tweaks:prism_sentinel"));
 
     private EntityInit() {}
+    public static final DeferredHolder<EntityType<?>,EntityType<net.zerog.tweaks.entity.BogLurker>> BOG_LURKER =
+        ENTITIES.register("bog_lurker",()->EntityType.Builder.<net.zerog.tweaks.entity.BogLurker>of(net.zerog.tweaks.entity.BogLurker::new,MobCategory.MONSTER).sized(1F,.7F).build("zerog_tweaks:bog_lurker"));
+    public static final DeferredHolder<EntityType<?>,EntityType<net.zerog.tweaks.entity.BogAcidSpit>> BOG_ACID_SPIT =
+        ENTITIES.register("bog_acid_spit",()->EntityType.Builder.<net.zerog.tweaks.entity.BogAcidSpit>of(net.zerog.tweaks.entity.BogAcidSpit::new,MobCategory.MISC).sized(.25F,.25F).clientTrackingRange(4).updateInterval(10).build("zerog_tweaks:bog_acid_spit"));
 
     public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.AshStrider>> ASH_STRIDER =
         ENTITIES.register("ash_strider",()->EntityType.Builder.<net.zerog.tweaks.entity.AshStrider>of(net.zerog.tweaks.entity.AshStrider::new,MobCategory.CREATURE).sized(1F,1.9F).fireImmune().build("zerog_tweaks:ash_strider"));
@@ -97,6 +101,7 @@ public final class EntityInit {
     }
 
     private static void attributes(EntityAttributeCreationEvent event) {
+        event.put(BOG_LURKER.get(),net.zerog.tweaks.entity.BogLurker.createAttributes().build());
         event.put(ASH_STRIDER.get(),net.zerog.tweaks.entity.AshStrider.createAttributes().build());
         event.put(RIME_STALKER.get(),net.zerog.tweaks.entity.RimeStalker.createAttributes().build());
         event.put(CRATER_DRIFTER.get(),net.zerog.tweaks.entity.CraterDrifter.createAttributes().build());

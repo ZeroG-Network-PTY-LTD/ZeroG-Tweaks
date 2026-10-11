@@ -35,6 +35,7 @@ public final class ZGSpawnRules {
     @SubscribeEvent
     public static void register(RegisterSpawnPlacementsEvent event) {
         var replace = RegisterSpawnPlacementsEvent.Operation.REPLACE;
+        event.register(EntityInit.BOG_LURKER.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Monster::checkMonsterSpawnRules,replace);
         event.register(EntityInit.ASH_STRIDER.get(),SpawnPlacementTypes.IN_LAVA,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             (type,level,reason,pos,random)->{
                 var top=pos.mutable();

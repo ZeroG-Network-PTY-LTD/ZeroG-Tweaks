@@ -104,6 +104,7 @@ public final class ZGDimensionFluids {
             entity.getPersistentData().putLong(contactKey, tick);
             switch (id) {
                 case "acid" -> {
+                    if(entity instanceof net.zerog.tweaks.entity.BogLurker)return;
                     if (entity instanceof ItemEntity item) {
                         var data = item.getPersistentData();
                         if (!data.contains("ZeroGAcidStart") || data.getLong("ZeroGAcidLast") < tick - 1) data.putLong("ZeroGAcidStart", tick);

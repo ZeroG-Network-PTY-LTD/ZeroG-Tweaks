@@ -45,5 +45,14 @@ It retaliates when hurt but does not hunt players. Its existing rare death
 loot is Heatproof Plating. A dedicated Cinder-Cap steering tool and revised
 stomp artwork remain future work; no Nether jockeys spawn with it.
 
+## Bog Lurker
+
+Toxic acid swamps, mud flats and moss bogs host this hostile amphibian.
+It is immune to acid and poison, moves faster through acid and rests with its
+eyes near the surface. Its spit is a moving projectile: 5 damage and Poison II
+for 80 ticks on a successful hit, within 10 blocks and with line of sight.
+It does not corrode terrain. Existing drops include Lurker Legs, Venom Glands
+and a rare Neutralizer. Dedicated swim/spit artwork and natural density need review.
+
 Spawn eggs now create these mobs. Server registration and habitat checks do
 not establish natural encounter density or client visual approval.
