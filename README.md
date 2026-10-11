@@ -1,5 +1,12 @@
 # ZeroG Tweaks
 
+## Recipe browser and acid habitats — 12 October 2026
+
+[Changes, verification and remaining review](docs/browser-diagnostics-and-acid-habitat-2026-10-12.md).
+Shared in-menu recipe browsing, temporary Flux Wrench port diagnostics, regular
+ocean Tidewraith habitat checks and acid-immune Bog Lurker pool behavior.
+No hub/save reset or weather reactivation; inactive design proposals stay pending.
+
 ## Electric bee-machine repair — 12 October 2026
 
 [Power, recipes, test evidence and player checks](docs/legacy-processor-power-repair-2026-10-12.md).
