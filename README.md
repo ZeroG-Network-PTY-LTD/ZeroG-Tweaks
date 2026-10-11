@@ -1,5 +1,14 @@
 # ZeroG Tweaks
 
+## Water separation and machine audit — 11 October 2026
+
+[Setup, output ratios, safe fullness pressure and verified machine contracts](docs/gas-production-and-machine-audit-2026-10-11.md).
+Water Separator adds configurable powered water -> hydrogen/oxygen (2:1), separate
+tanks, fluid/FE face controls and bounded Acceleration/Energy Coil support. Current
+eleven addon machine recipe/face contracts were re-audited against live processing.
+Exact crafting costs, bespoke separator artwork and client approval remain pending;
+this does not grant unsupported upgrades or complete undefined research rules.
+
 ## Stardust fuel repair — 11 October 2026
 
 [Verified furnace fuel and exact recipe pages](docs/stardust-fuel-repair-2026-10-11.md).
