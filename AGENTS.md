@@ -462,11 +462,11 @@ Reject stale controllers, strangers, active countdowns and return-platform build
 GameTest fixtures have a barrier ceiling: clear the full T6 envelope in the
 construction fixture, never make the production builder overwrite barriers.
 
-The ordinary pad bounds remain the engagement/pet footprint. During launch lift,
-only the already-expected passenger IDs may rise four blocks above those bounds;
-sideways departure and changed groups still cancel. The lift-boundary regression
-must actually move a passenger above the old ceiling and verify dimension change
-and a single FE debit. Keep explicit refusal/cancellation reasons and successful
+Owner update 11 October: launch charging is visual only. Never apply Levitation,
+move passengers upwards, or alter their camera FOV. Rotating light rings replace
+the old lift. Ordinary pad bounds apply throughout; departure and changed groups
+still cancel. Verify unchanged passenger height, no gate-applied Levitation,
+successful dimension change and a single FE debit. Keep explicit refusal/cancellation reasons and successful
 travel receipts; do not substitute those for installed-client transition approval.
 Galaxy moons unlock at the corresponding galaxy tier, as the approved Codex says;
 keep the GUI consistent with canReach rather than imposing a separate T6-only rule.

@@ -47,7 +47,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     private Set<UUID> expected=Set.of();
     private long receiveTick=Long.MIN_VALUE;
     private int receivedThisTick;
-    /** Launch sequence (design doc): lock-on 0-2s, rift 2-3.5s, lift 3.5-5s over the 100-tick countdown. */
+    /** Lock-on 0-2s, rift 2-3.5s, stationary visual charge 3.5-5s. Legacy lift names preserve packet compatibility. */
     private static final int RIFT_AT=40,LIFT_AT=70;
     private static final DustParticleOptions RIFT=new DustParticleOptions(new org.joml.Vector3f(.32F,.08F,.55F),1.4F);
     private int litTier,litColumns;
@@ -96,12 +96,9 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         return true;
     }
     private boolean refusal(ServerPlayer player,String reason){player.displayClientMessage(Component.literal(reason),false);return false;}
-    /** Confirmed passengers may rise in the launch column, but may not leave its horizontal footprint. */
+    /** Charging is visual only: passengers remain inside the ordinary pad footprint. */
     private List<ServerPlayer> launchPassengers(){
-        var group=new ArrayList<>(passengers());
-        if(lifting&&level instanceof ServerLevel server){var bounds=pad();var column=new AABB(bounds.minX,bounds.minY,bounds.minZ,bounds.maxX,bounds.maxY+4,bounds.maxZ);
-            for(var player:server.getEntitiesOfClass(ServerPlayer.class,column,p->expected.contains(p.getUUID())&&p.isAlive()&&!p.isSpectator()))if(!group.contains(player))group.add(player);
-        }return group;
+        return passengers();
     }
     /** One scoped record on failure, no player names/UUIDs or per-tick log flood. */
     private void logPassengerCancellation(ServerLevel server,List<ServerPlayer> group,int tier){
@@ -129,9 +126,9 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
     }
     public void confirm(ServerPlayer player){if(countdown>0&&expected.contains(player.getUUID())&&pad().contains(player.position()))ready.add(player.getUUID());}
     public void cancel(){if(lifting&&level instanceof ServerLevel server)stopLift(server);countdown=0;lifting=false;ready.clear();expected=Set.of();setChanged();}
-    /** Drop floating passengers and clear white-out; powered pylons return to idle lamps. */
+    /** Clear the visual charge; never remove effects applied by another system. */
     private void stopLift(ServerLevel server){
-        for(UUID id:expected){var p=server.getServer().getPlayerList().getPlayer(id);if(p!=null){p.removeEffect(MobEffects.LEVITATION);GateLaunchSync.sendLift(p,0);}}
+        for(UUID id:expected){var p=server.getServer().getPlayerList().getPlayer(id);if(p!=null)GateLaunchSync.sendLift(p,0);}
         lifting=false;
     }
     /** Pylon columns of a tier (world positions, bottom to top), in order around the pad. */
@@ -212,10 +209,18 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
             for(int k=-4;k<=4;k++){double jag=Math.sin(k*2.3+elapsed*.05)*.2*open;server.sendParticles(RIFT,core.x+side.getStepX()*jag,core.y+k*.22*open,core.z+side.getStepZ()*jag,1,.02,.02,.02,0);}
             server.sendParticles(ParticleTypes.REVERSE_PORTAL,core.x,core.y,core.z,3,.15*open,.5*open,.15*open,.02);
         }
-        // Lift: once everyone is Ready, passengers float up while their clients stretch the view and white out.
+        // Final charge is strictly visual: counter-rotating rings, no passenger movement or levitation.
+        if(elapsed>=LIFT_AT&&elapsed%2==0){
+            for(int ring=0;ring<2;ring++)for(int point=0;point<8;point++){
+                double angle=point*Math.PI/4+elapsed*.18*(ring==0?1:-1);
+                server.sendParticles(ring==0?ParticleTypes.END_ROD:RIFT,
+                    core.x+Math.cos(angle)*1.15,c.getY()+.35+ring*1.25,
+                    core.z+Math.sin(angle)*1.15,1,0,0,0,0);
+            }
+        }
         if(elapsed>=LIFT_AT&&!lifting&&ready.containsAll(expected)){
             lifting=true;server.playSound(null,c,SoundEvents.BEACON_ACTIVATE,SoundSource.BLOCKS,1.0F,1.4F);
-            for(var p:group){p.addEffect(new MobEffectInstance(MobEffects.LEVITATION,countdown+5,0,false,false));GateLaunchSync.sendLift(p,countdown);}
+            for(var p:group)GateLaunchSync.sendLift(p,countdown);
         }
         if(--countdown==0){
             if(ready.containsAll(expected)){if(!launch(group)){for(var p:group)p.displayClientMessage(Component.literal("Launch failed: check destination availability, arrival gate and stored FE. No jump charge was taken."),false);if(lifting)stopLift(server);}}
@@ -238,7 +243,7 @@ public final class SurvivalGateBlockEntity extends BlockEntity {
         // All validation and destination preparation completes before charging or moving anything.
         var arrive=arrival(target,c);
         boolean movedPlayer=false;
-        for(ServerPlayer player:group){player.removeEffect(MobEffects.LEVITATION);GateLaunchSync.sendDestination(player,target);var moved=player.changeDimension(arrive);if(moved!=null){bindHome(player);movedPlayer=true;}if(moved instanceof LivingEntity living)living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false));}
+        for(ServerPlayer player:group){GateLaunchSync.sendDestination(player,target);var moved=player.changeDimension(arrive);if(moved!=null){bindHome(player);movedPlayer=true;}if(moved instanceof LivingEntity living)living.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING,100,0,false,false));}
         if(!movedPlayer)return false;
         stored-=fee;setChanged();
         com.mojang.logging.LogUtils.getLogger().info("ZeroG gate Tier{} travel to {} succeeded; charged {} FE",tier,id,fee);
