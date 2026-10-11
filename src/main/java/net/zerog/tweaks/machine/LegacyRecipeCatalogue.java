@@ -11,12 +11,18 @@ import net.zerog.tweaks.genetics.*;
 
 /** Read-only discovery adapter for verified legacy processing contracts. */
 public final class LegacyRecipeCatalogue {
-    public static boolean supports(String id){return id.equals("centrifuge")||id.equals("gravitational_centrifuge")||id.equals("starmetal_smelter")||id.equals("silk_weaver")||twoInput(id);}
+    public static boolean supports(String id){return id.equals("stardust_smelter")||id.equals("centrifuge")||id.equals("gravitational_centrifuge")||id.equals("starmetal_smelter")||id.equals("silk_weaver")||twoInput(id);}
     private static boolean twoInput(String id){return id.equals("frame_assembler")||id.equals("frame_component_assembler")||id.equals("frame_infusion_altar")||id.equals("infusion_altar");}
     public static List<ProcessingRecipeCatalogue.Page> basePages(String id){
         if(!supports(id))return List.of();
         try{
             var families=Class.forName("com.zerog.aeroapiary.ZeroGSlotFamilies");
+            if(id.equals("stardust_smelter")){
+                var pages=new ArrayList<ProcessingRecipeCatalogue.Page>();
+                for(var item:BuiltInRegistries.ITEM){var input=new ItemStack(item);var out=StardustSmelterRuntime.result(input);
+                    if(!out.isEmpty())pages.add(page(id,input,List.of(out),Optional.empty(),0,StardustSmelterRuntime.TICKS));}
+                pages.sort(Comparator.comparing(p->p.id().toString()));return List.copyOf(pages);
+            }
             if(twoInput(id))return pairedPages(id,families);
             if(id.equals("silk_weaver")){
                 var input=GeneticsRuntime.product("silk_thread");var output=GeneticsRuntime.product("woven_silk");
@@ -68,7 +74,8 @@ public final class LegacyRecipeCatalogue {
             outputs.stream().map(stack->new ProcessingRecipe.Output(stack.copy(),1)).toList(),energy,ticks,energy,ticks);
     }
     public static List<ProcessingRecipeCatalogue.Page> adjusted(BlockEntity machine,List<ProcessingRecipeCatalogue.Page> pages,ItemStack selected){
-        var matching=pages.stream().filter(p->selected.isEmpty()||p.inputs().stream().anyMatch(i->i.ingredient().test(selected))
+        boolean fuel=machine!=null&&GeneticsRuntime.id(machine).equals("stardust_smelter")&&StardustSmelterRuntime.fuelTicks(selected)>0;
+        var matching=pages.stream().filter(p->fuel||selected.isEmpty()||p.inputs().stream().anyMatch(i->i.ingredient().test(selected))
             ||p.catalyst().map(i->i.ingredient().test(selected)).orElse(false)
             ||p.outputs().stream().anyMatch(o->ItemStack.isSameItemSameComponents(o.stack(),selected))).toList();
         if(matching.isEmpty()||machine==null||machine.getLevel()==null)return matching;

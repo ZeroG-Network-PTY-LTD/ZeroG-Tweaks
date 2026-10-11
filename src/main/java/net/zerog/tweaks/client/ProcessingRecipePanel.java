@@ -59,7 +59,15 @@ public final class ProcessingRecipePanel {
         if(pages.isEmpty()){text(rows,"No registered recipes");return rows;}
         page=Math.min(page,pages.size()-1);var recipe=pages.get(page);
         text(rows,recipe.id().toString());text(rows,machine!=null?"Shapeless: one slot each":"Input: slot 0");
-        if(machine==null)text(rows,recipe.inputs().size()>1?"Second input: slot 1 (consumed)":net.zerog.tweaks.genetics.GeneticsRuntime.id(legacy).equals("starmetal_smelter")?"Flux: slot 2 (consumed)":"No pattern/catalyst required");
+        boolean stardust=machine==null&&net.zerog.tweaks.genetics.GeneticsRuntime.id(legacy).equals("stardust_smelter");
+        if(machine==null)text(rows,stardust?"Fuel: slot 1, furnace durations":recipe.inputs().size()>1?"Second input: slot 1 (consumed)":net.zerog.tweaks.genetics.GeneticsRuntime.id(legacy).equals("starmetal_smelter")?"Flux: slot 2 (consumed)":"No pattern/catalyst required");
+        if(stardust){
+            int duration=net.zerog.tweaks.genetics.StardustSmelterRuntime.fuelTicks(selected);
+            text(rows,"Fuel consumed when fire starts");text(rows,"Fire shared across jobs");text(rows,"Burns while idle / blocked");
+            if(duration>0){text(rows,"Selected fuel: "+duration+" ticks");text(rows,"Continuous jobs: "+duration/recipe.ticks()+" (+"+duration%recipe.ticks()+" ticks)");}
+            else text(rows,"Select a fuel in Items for its budget");
+            text(rows,"Container fuel returns its container");
+        }
         for(int i=0;i<recipe.inputs().size();i++)ingredient(rows,"Input "+(i+1),recipe.inputs().get(i));
         if(recipe.catalyst().isPresent())ingredient(rows,"Catalyst",recipe.catalyst().get());else text(rows,"Catalyst: none required");
         for(var output:recipe.outputs()){

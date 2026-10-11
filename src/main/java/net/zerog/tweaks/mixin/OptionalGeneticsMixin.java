@@ -27,7 +27,8 @@ public abstract class OptionalGeneticsMixin {
             if(level.isClientSide||!net.zerog.tweaks.genetics.LegacyMachinePower.before(be))ci.cancel();
             return;
         }
-        if(GeneticsRuntime.handles(GeneticsRuntime.id(machine))){GeneticsRuntime.tick(machine);ci.cancel();}
+        if(GeneticsRuntime.id(machine).equals("stardust_smelter")){net.zerog.tweaks.genetics.StardustSmelterRuntime.tick(machine);ci.cancel();}
+        else if(GeneticsRuntime.handles(GeneticsRuntime.id(machine))){GeneticsRuntime.tick(machine);ci.cancel();}
         else if(GeneticsRuntime.id(machine).equals("silk_weaver")){net.zerog.tweaks.genetics.SilkWeaverRuntime.tick(machine);ci.cancel();}
         else if(machine instanceof net.minecraft.world.level.block.entity.BlockEntity be&&AlvearyRuntime.tier(be)>0){AlvearyRuntime.tick(be);ci.cancel();}
     }
@@ -37,7 +38,8 @@ public abstract class OptionalGeneticsMixin {
     }
     @Inject(method="mayPlaceIn",at=@At("HEAD"),cancellable=true,require=1)
     private static void zeroGGeneticsFilter(String id,int slot,ItemStack stack,CallbackInfoReturnable<Boolean> ci) {
-        if(GeneticsRuntime.handles(id))ci.setReturnValue(GeneticsRuntime.mayPlace(id,slot,stack));
+        if(id.equals("stardust_smelter"))ci.setReturnValue(slot==0?!net.zerog.tweaks.genetics.StardustSmelterRuntime.result(stack).isEmpty():slot==1&&net.zerog.tweaks.genetics.StardustSmelterRuntime.fuelTicks(stack)>0);
+        else if(GeneticsRuntime.handles(id))ci.setReturnValue(GeneticsRuntime.mayPlace(id,slot,stack));
         // The installed recipes never read these legacy placeholder inputs.
         // Existing stacks remain extractable; no inventory indices are removed.
         else if(id.equals("starmetal_smelter")&&slot==1||id.equals("silk_weaver")&&(slot==1||slot==2)||id.equals("frame_infusion_altar")&&slot==2)ci.setReturnValue(false);

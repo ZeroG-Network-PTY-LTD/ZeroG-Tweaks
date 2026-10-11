@@ -13,6 +13,42 @@ import net.zerog.tweaks.machine.*;
 @GameTestHolder("zerog_recipe_legacy") @PrefixGameTestTemplate(false)
 public final class LegacyRecipePageGameTests {
     @GameTest(templateNamespace="zerog_recipe_legacy",template="equipment_empty",timeoutTicks=200)
+    public static void stardust_fuel_budget_remainders_reload_and_automation(GameTestHelper h){
+        var be=machine(h,"stardust_smelter");var inv=GeneticsRuntime.inventory(be);
+        var pages=LegacyRecipeCatalogue.basePages("stardust_smelter");h.assertTrue(pages.size()==3,"Missing comb recipes");
+        h.assertTrue(!LegacyMachineCards.supports(be)&&pages.stream().allMatch(p->p.energy()==0&&p.ticks()==201),"Invented costs/upgrades");
+        var handler=LegacyMachineSides.items(be,net.minecraft.core.Direction.NORTH);
+        h.assertTrue(handler.insertItem(1,new ItemStack(Items.DIRT),false).is(Items.DIRT)&&handler.insertItem(0,new ItemStack(Items.DIRT),false).is(Items.DIRT),"Invalid automation input accepted");
+        for(var page:pages){
+            for(int i=0;i<inv.getSlots();i++)inv.setStackInSlot(i,ItemStack.EMPTY);GeneticsRuntime.state(be).remove(StardustSmelterRuntime.BURN);
+            var input=page.inputs().getFirst().ingredient().getItems()[0];inv.setStackInSlot(0,input.copyWithCount(2));inv.setStackInSlot(1,new ItemStack(Items.COAL));
+            inv.setStackInSlot(2,new ItemStack(Items.DIRT));tick(be);
+            h.assertTrue(inv.getStackInSlot(1).getCount()==1,"Blocked cold job ignited fuel");inv.setStackInSlot(2,ItemStack.EMPTY);
+            for(int i=0;i<100;i++)tick(be);
+            var saved=be.saveWithFullMetadata(h.getLevel().registryAccess());be.loadWithComponents(saved,h.getLevel().registryAccess());
+            inv=GeneticsRuntime.inventory(be);h.assertTrue(GeneticsRuntime.state(be).getInt(StardustSmelterRuntime.BURN)==1500,"Reload lost remaining burn");
+            for(int i=100;i<402;i++)tick(be);
+            var output=page.outputs().getFirst().stack();h.assertTrue(inv.getStackInSlot(0).isEmpty()&&ItemStack.isSameItemSameComponents(inv.getStackInSlot(2),output)&&inv.getStackInSlot(2).getCount()==2*output.getCount(),"Actual outputs differ from recipe page");
+            h.assertTrue(inv.getStackInSlot(1).isEmpty()&&GeneticsRuntime.state(be).getInt(StardustSmelterRuntime.BURN)==1198,"Coal budget incorrect across two jobs");
+            var before=be.getPersistentData().copy();h.assertTrue(LegacyRecipeCatalogue.adjusted(be,pages,new ItemStack(Items.COAL)).size()==3&&before.equals(be.getPersistentData()),"Fuel browsing changed job");
+        }
+        for(int i=0;i<inv.getSlots();i++)inv.setStackInSlot(i,ItemStack.EMPTY);GeneticsRuntime.state(be).remove(StardustSmelterRuntime.BURN);
+        inv.setStackInSlot(0,GeneticsRuntime.product("meteor_comb"));inv.setStackInSlot(1,new ItemStack(Items.LAVA_BUCKET));tick(be);
+        h.assertTrue(inv.getStackInSlot(1).is(Items.BUCKET)&&GeneticsRuntime.state(be).getInt(StardustSmelterRuntime.BURN)==19999,"Container fuel remainder/budget lost");
+        int left=GeneticsRuntime.state(be).getInt(StardustSmelterRuntime.BURN);inv.setStackInSlot(2,new ItemStack(Items.DIRT));tick(be);
+        h.assertTrue(inv.getStackInSlot(0).getCount()==1&&GeneticsRuntime.state(be).getInt(StardustSmelterRuntime.BURN)==left-1,"Blocked fire should decay without consuming comb");h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_recipe_legacy",template="equipment_empty",timeoutTicks=200)
+    public static void stardust_requires_fuel_and_does_not_consume_invalid_items(GameTestHelper h){
+        var be=machine(h,"stardust_smelter");var inv=GeneticsRuntime.inventory(be);
+        inv.setStackInSlot(0,GeneticsRuntime.product("meteor_comb"));
+        for(int i=0;i<201;i++)tick(be);
+        h.assertTrue(inv.getStackInSlot(0).getCount()==1&&inv.getStackInSlot(2).isEmpty(),"Stardust processed without fuel");
+        inv.setStackInSlot(1,new ItemStack(Items.DIRT));
+        for(int i=0;i<201;i++)tick(be);
+        h.assertTrue(inv.getStackInSlot(0).getCount()==1&&inv.getStackInSlot(1).is(Items.DIRT)&&inv.getStackInSlot(2).isEmpty(),"Invalid fuel consumed or enabled processing");h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_recipe_legacy",template="equipment_empty",timeoutTicks=200)
     public static void frame_combinations_match_consumption_outputs_and_blocked_jobs(GameTestHelper h){
         for(String id:new String[]{"frame_assembler","frame_component_assembler","frame_infusion_altar","infusion_altar"}){
             var be=machine(h,id);h.assertTrue(be!=null,"No live machine: "+id);
