@@ -8,6 +8,12 @@ navigation:
 
 # 7. Mining Ladder
 
+<Row>
+  <ItemImage id="zerog_tweaks:nullifite_pickaxe" scale="3" />
+  <ItemImage id="zerog_tweaks:ferrox_pickaxe" scale="3" />
+  <ItemImage id="zerog_tweaks:moonsteel_pickaxe" scale="3" />
+</Row>
+
 Each Sol ore needs the pickaxe from the step before it. With a weaker pickaxe the ore breaks but drops nothing.
 
 Hover a ZeroG block in inventory to see its loaded mining requirement. Trying to mine it with a weaker tool

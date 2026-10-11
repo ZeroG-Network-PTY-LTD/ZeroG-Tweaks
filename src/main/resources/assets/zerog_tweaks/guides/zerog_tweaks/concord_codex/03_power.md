@@ -10,6 +10,12 @@ item_ids:
 
 # 3. Power the Gate
 
+<Row>
+  <ItemImage id="zerog_tweaks:combustion_generator" scale="3" />
+  <ItemImage id="zerog_tweaks:gate_energy_port" scale="3" />
+  <ItemImage id="zerog_tweaks:gate_controller" scale="3" />
+</Row>
+
 Gates run on **FE**. The simplest source is a <ItemLink id="zerog_tweaks:combustion_generator" />.
 
 <RecipeFor id="zerog_tweaks:combustion_generator" />

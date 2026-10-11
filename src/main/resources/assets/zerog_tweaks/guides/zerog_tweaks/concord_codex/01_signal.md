@@ -13,6 +13,12 @@ item_ids:
 # 1. The Signal
 
 <Row>
+  <ItemImage id="zerog_tweaks:hull_plating" scale="3" />
+  <ItemImage id="zerog_tweaks:broken_console" scale="3" />
+  <ItemImage id="zerog_tweaks:dormant_wisp" scale="3" />
+</Row>
+
+<Row>
   <BlockImage id="zerog_tweaks:deepslate_nullifite_ore" scale="3" />
   <ItemImage id="zerog_tweaks:raw_nullifite" scale="3" />
 </Row>

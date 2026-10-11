@@ -8,6 +8,12 @@ navigation:
 
 # 4. Launch
 
+<Row>
+  <ItemImage id="zerog_tweaks:gate_controller" scale="3" />
+  <ItemImage id="zerog_tweaks:gate_pad_plate" scale="3" />
+  <ItemImage id="zerog_tweaks:capacity_coil" scale="3" />
+</Row>
+
 A formed gate with stored FE lights its pillars with short beacon-style lamps.
 During warm-up the pillars activate in sequence; beams grow taller and pulse as
 the rift and lift approach. These are visual indicators, not beacon buffs.

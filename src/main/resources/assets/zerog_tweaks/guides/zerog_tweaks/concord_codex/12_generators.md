@@ -1,10 +1,11 @@
 ---
 navigation:
-  title: "12. Generator Recipes"
-  icon: "zerog_tweaks:combustion_generator"
+  title: 12. Generator Recipes
+  icon: zerog_tweaks:combustion_generator
   position: 120
   parent: index.md
 ---
+
 # Generator Recipes
 
 Combustion Generator, Solar Array and Fusion Reactor have read-only Items,

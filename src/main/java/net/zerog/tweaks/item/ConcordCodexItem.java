@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 import net.zerog.tweaks.lore.ConcordPrologue;
 
 /**
- * Opens the GuideME walkthrough (assets/zerog_tweaks/guides/zerog_tweaks/concord_codex); sneaking opens the story
+ * Opens a reader-specific illustrated journal with links to the GuideME walkthrough; sneaking opens the story
  * pages in the native book viewer. Custom item IDs do not pass vanilla's WRITTEN_BOOK identity check.
  */
 public final class ConcordCodexItem extends Item {
@@ -67,8 +67,10 @@ public final class ConcordCodexItem extends Item {
             pages.addAll(pageKeys(server).stream().map(ConcordCodexItem::page).toList());
             player.getItemInHand(hand).set(DataComponents.WRITTEN_BOOK_CONTENT,new WrittenBookContent(Filterable.passThrough("Concord Codex"),"The Concord",0,pages,true));
             server.inventoryMenu.broadcastChanges();
-            // Right-click: the GuideME walkthrough. Sneak + right-click: Echo's story pages (unlocked per world visited).
+            // Right-click: authoritative journal snapshot. Sneak + right-click: native story-book fallback.
             if(player.isShiftKeyDown())server.connection.send(new ClientboundOpenBookPacket(hand));
+            else if(net.neoforged.neoforge.network.registration.NetworkRegistry.hasChannel(server.connection,net.zerog.tweaks.lore.CodexJournalSync.Journal.TYPE.id()))
+                net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(server,new net.zerog.tweaks.lore.CodexJournalSync.Journal(pages.stream().map(Filterable::raw).toList()));
             else guideme.GuidesCommon.openGuide(server,GUIDE);
         }return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand),level.isClientSide());
     }

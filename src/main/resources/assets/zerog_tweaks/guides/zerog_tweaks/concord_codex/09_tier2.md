@@ -8,6 +8,12 @@ navigation:
 
 # 9. Toward Tier 2
 
+<Row>
+  <ItemImage id="zerog_tweaks:moonsteel_gate_frame" scale="3" />
+  <ItemImage id="zerog_tweaks:selenite_block" scale="3" />
+  <ItemImage id="zerog_tweaks:aresite_block" scale="3" />
+</Row>
+
 > *Moonsteel frames, a Selenite lens and this core are the next step toward the Quiet Mines.*
 
 A Tier 2 gate is built **around** your Tier 1 gate. Keep everything and add:
