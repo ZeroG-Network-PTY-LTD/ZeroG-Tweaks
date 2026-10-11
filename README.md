@@ -896,6 +896,8 @@ sources — expect 5–15 minutes. Incremental builds after that run ~15s
 
 **Sunken Lab:** chemistry benches, biological containment, fractured synthesis tubes and ruined power cabinets now give two layouts a recognisable laboratory interior. Eight rotated placements passed apparatus/access/Neutralizer-loot tests; one ordinary toxic-world site generated naturally with its intended chest. Broader sampling and client visual approval remain pending. [Equipment plan and evidence](docs/sunken-lab-2026-10-11.md).
 
+**Sunken Relay:** two flooded communications ruins now generate on submerged ocean-floor sites, with decayed benches, antenna ribs and the existing Abyssal Pearl chest. Eight rotations passed waterlogging/access/loot checks; one natural ocean site passed25 water-cover/foundation samples. Distress-signal gameplay and broader/client review remain pending. [Layout, locator and verification](docs/sunken-relay-2026-10-11.md).
+
 Natural-world verification now confirms the **Collapsed Forge, Derelict Wreck and Solar Shrine**, each with its intended reward chest, in a fresh seed-zero server world. [Evidence and remaining limits](docs/three-ruins-natural-audit-2026-10-11.md).
 
 The Ingredients tab now includes **21 dimension-metal cogs and 21 compressed plates**. These use original native 32×32 C-style art, transparent cog bores, beveled plates and planet-family palettes. Nullifite, vanilla metals and gems are excluded. Fabrication machinery, exact survival costs and progressively harder future machine assembly remain pending—not implied by the registered ingredients.
