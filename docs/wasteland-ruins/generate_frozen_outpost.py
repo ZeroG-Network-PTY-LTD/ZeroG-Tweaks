@@ -47,7 +47,9 @@ def resources():
             'placement':{'type':'minecraft:random_spread','spacing':40,'separation':20,'salt':19477405}},
         f'worldgen/template_pool/{name}/start.json':{'fallback':'minecraft:empty','elements':[{'weight':1,'element':{
             'element_type':'minecraft:single_pool_element','location':Z+name+'/small_'+str(v),'projection':'rigid','processors':'minecraft:empty'}} for v in (0,1)]},
-        f'tags/worldgen/biome/has_structure/{name}.json':{'replace':False,'values':[Z+'hoarwood_taiga',Z+'phantom_ice_sheets']}}
+        f'tags/worldgen/biome/has_structure/{name}.json':{'replace':False,'values':[Z+b for b in (
+            'hoarwood_taiga','phantom_ice_sheets','wasteland_glaciers',
+            'wasteland_ice_spike_forest','wasteland_frozen_canyons')]}}
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--resources',type=Path,required=True);a=p.parse_args()

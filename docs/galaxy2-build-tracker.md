@@ -1,5 +1,15 @@
 # Galaxy 2 (Cerulon) build tracker
 
+> 11 October structure-route reconciliation: Prism Spire, Collapsed Forge and
+> Frozen Outpost now have authored runtime structures. Frozen Outpost's missing
+> frozen-wasteland biome eligibility is repaired in the generator and runtime;
+> ordinary seed-zero `g2_p4` inspection confirms a natural start and its chest.
+> See [current Frozen Outpost evidence](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/frozen-wasteland-route-fix-2026-10-11.md).
+> The four dedicated wasteland structures still missing are Sunken Relay,
+> Buried Observatory, Sunken Lab and Impact Site. Historical counts and unchecked
+> boxes below are not a current certification. Broad seeds and client approval
+> remain separate; do not invent pending lore or change the approved key contract.
+
 > 8October reconciliation: this tracker retains its older full audit below;
 > do not interpret every historical open entry as the current runtime state.
 > The earlier Concord Vault uncommon-loot fallback already includes Cobaltium,
