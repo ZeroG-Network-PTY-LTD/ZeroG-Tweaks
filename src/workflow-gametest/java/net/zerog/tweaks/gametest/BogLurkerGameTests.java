@@ -14,6 +14,17 @@ import net.zerog.tweaks.registry.*;
 @GameTestHolder("zerog_bog_lurker") @PrefixGameTestTemplate(false)
 public final class BogLurkerGameTests {
     @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=120)
+    public static void spit_expires_without_leaving_a_hazard(GameTestHelper h){
+        var spit=EntityInit.BOG_ACID_SPIT.get().create(h.getLevel());
+        spit.setPos(h.absolutePos(new BlockPos(4,3,4)).getCenter());
+        spit.setNoGravity(true);
+        h.getLevel().addFreshEntity(spit);
+        h.runAfterDelay(105,()->{
+            h.assertTrue(spit.isRemoved(),"Uncollided acid spit remained as a permanent hazard");
+            h.succeed();
+        });
+    }
+    @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=120)
     public static void collision_spit_and_immunities(GameTestHelper h){
         var level=h.getLevel();var mob=EntityInit.BOG_LURKER.get().create(level);
         mob.setPos(h.absolutePos(new BlockPos(4,3,4)).getCenter());mob.setNoAi(true);mob.setNoGravity(true);level.addFreshEntity(mob);
