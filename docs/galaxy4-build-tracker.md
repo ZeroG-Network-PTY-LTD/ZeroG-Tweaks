@@ -1,5 +1,10 @@
 # Galaxy 4 (Eidolon) build tracker
 
+> 11 October reconciliation: Derelict Wreck now exists with two editable layouts,
+> passing loot tests and a natural Eidolon chest. The old template/wreck blockers
+> below are historical; Captain encounter and peaceful resolution remain pending.
+> See [current evidence](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/progression-reconciliation-2026-10-11.md).
+
 What is left before players can reach Eidolon on a T4 gate, salvage the wrecks, climb the Salvium → Wraithsteel → Eidolite ladder, settle with the Eidolon Captain and build the T5 gate.
 
 - **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026; updated for `15200c39` (machines and power) on 6 Oct 2026.

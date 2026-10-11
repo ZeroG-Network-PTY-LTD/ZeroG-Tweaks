@@ -1,5 +1,10 @@
 # Galaxy 3 (Skarn) build tracker
 
+> 11 October reconciliation: Collapsed Forge now exists with two editable layouts,
+> passing loot tests and a natural Skarn chest. The old template/structure blockers
+> below are historical; Rift Tyrant and boss-key enforcement remain separate gaps.
+> See [current evidence](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/progression-reconciliation-2026-10-11.md).
+
 What is left before players can reach Skarn on a T3 gate, climb the Ruskite → Tectium → Skarnite ladder, beat the Rift Tyrant, explore the six wasteland slots and build the T4 gate.
 
 - **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026; updated for `15200c39` (machines and power) on 6 Oct 2026.

@@ -1,5 +1,10 @@
 # Galaxy 5 (Solvane) build tracker
 
+> 11 October reconciliation: Solar Shrine now exists with two editable layouts,
+> passing loot tests and a natural Solvane chest. The old template/shrine blockers
+> below are historical; Dying Star encounter and Heart ending remain pending.
+> See [current evidence](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/progression-reconciliation-2026-10-11.md).
+
 What is left before players can reach Solvane on a T5 gate, survive the heat, climb the Photium → Astrium → Solvanite ladder, defeat the Dying Star, make the ending choice and build the T6 gate.
 
 - **Audited against:** `1.21.x` at `5273b965` on 5 Oct 2026; updated for `15200c39` (machines and power) on 6 Oct 2026.
