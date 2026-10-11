@@ -11,21 +11,24 @@ import net.zerog.tweaks.genetics.*;
 
 /** Read-only discovery adapter for verified legacy processing contracts. */
 public final class LegacyRecipeCatalogue {
-    public static boolean supports(String id){return id.equals("centrifuge")||id.equals("starmetal_smelter")||id.equals("silk_weaver");}
+    public static boolean supports(String id){return id.equals("centrifuge")||id.equals("gravitational_centrifuge")||id.equals("starmetal_smelter")||id.equals("silk_weaver")||twoInput(id);}
+    private static boolean twoInput(String id){return id.equals("frame_assembler")||id.equals("frame_component_assembler")||id.equals("frame_infusion_altar")||id.equals("infusion_altar");}
     public static List<ProcessingRecipeCatalogue.Page> basePages(String id){
         if(!supports(id))return List.of();
         try{
             var families=Class.forName("com.zerog.aeroapiary.ZeroGSlotFamilies");
+            if(twoInput(id))return pairedPages(id,families);
             if(id.equals("silk_weaver")){
                 var input=GeneticsRuntime.product("silk_thread");var output=GeneticsRuntime.product("woven_silk");
                 return input.isEmpty()||output.isEmpty()?List.of():List.of(page(id,input,List.of(output),Optional.empty(),0,200));
             }
             var result=new ArrayList<ProcessingRecipeCatalogue.Page>();
-            var method=id.equals("centrifuge")?families.getDeclaredMethod("centrifugeProducts",ItemStack.class):families.getDeclaredMethod("starmetal",ItemStack.class,ItemStack.class);
+            boolean centrifuge=id.equals("centrifuge")||id.equals("gravitational_centrifuge");
+            var method=centrifuge?families.getDeclaredMethod("centrifugeProducts",ItemStack.class):families.getDeclaredMethod("starmetal",ItemStack.class,ItemStack.class);
             method.setAccessible(true);
             for(var item:BuiltInRegistries.ITEM){
                 var input=new ItemStack(item);List<ItemStack> outputs;
-                if(id.equals("centrifuge")){
+                if(centrifuge){
                     @SuppressWarnings("unchecked") var products=(List<ItemStack>)method.invoke(null,input.copy());outputs=products;
                 }else{
                     var product=(ItemStack)method.invoke(null,input.copy(),new ItemStack(Items.REDSTONE));
@@ -37,6 +40,26 @@ public final class LegacyRecipeCatalogue {
             }
             result.sort(Comparator.comparing(p->p.id().toString()));return List.copyOf(result);
         }catch(ReflectiveOperationException|LinkageError ex){return List.of();} // Optional addon/API absent: no invented recipes.
+    }
+    /** Enumerate only accepted inputs, and ask the installed recipe function for results. */
+    private static List<ProcessingRecipeCatalogue.Page> pairedPages(String id,Class<?> families) throws ReflectiveOperationException {
+        boolean assembler=id.equals("frame_assembler")||id.equals("frame_component_assembler");
+        var recipe=families.getDeclaredMethod(assembler?"frame":"infusion",ItemStack.class,ItemStack.class);recipe.setAccessible(true);
+        var filter=Class.forName("com.zerog.aeroapiary.ZeroGMachines").getMethod("mayPlaceIn",String.class,int.class,ItemStack.class);
+        var first=new ArrayList<ItemStack>();var second=new ArrayList<ItemStack>();
+        for(var item:BuiltInRegistries.ITEM){var stack=new ItemStack(item);if(stack.isEmpty())continue;
+            if((Boolean)filter.invoke(null,id,0,stack))first.add(stack);
+            if((Boolean)filter.invoke(null,id,1,stack))second.add(stack);
+        }
+        var pages=new ArrayList<ProcessingRecipeCatalogue.Page>();
+        for(var a:first)for(var b:second){
+            var out=(ItemStack)recipe.invoke(null,a.copy(),b.copy());if(out.isEmpty())continue;
+            var ak=BuiltInRegistries.ITEM.getKey(a.getItem());var bk=BuiltInRegistries.ITEM.getKey(b.getItem());
+            pages.add(new ProcessingRecipeCatalogue.Page(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","legacy/"+id+"/"+ak.getNamespace()+"/"+ak.getPath()+"/"+bk.getNamespace()+"/"+bk.getPath()),
+                List.of(new ProcessingRecipe.Counted(Ingredient.of(a),1,true),new ProcessingRecipe.Counted(Ingredient.of(b),1,true)),Optional.empty(),
+                List.of(new ProcessingRecipe.Output(out.copy(),1)),0,201,0,201));
+        }
+        pages.sort(Comparator.comparing(p->p.id().toString()));return List.copyOf(pages);
     }
     private static ProcessingRecipeCatalogue.Page page(String id,ItemStack input,List<ItemStack> outputs,Optional<ProcessingRecipe.Counted> catalyst,int energy,int ticks){
         var key=BuiltInRegistries.ITEM.getKey(input.getItem());

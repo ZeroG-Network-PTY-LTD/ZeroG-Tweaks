@@ -32,7 +32,7 @@ public final class ProcessingRecipePanel {
         if(tab==2){
             if(machine==null){
                 boolean supported=net.zerog.tweaks.genetics.LegacyMachineCards.supports(legacy);
-                if(!supported){text(rows,"No machine cards supported");text(rows,"No FE cost for Silk Weaver");text(rows,"Recovery slots are not upgrades");return rows;}
+                if(!supported){text(rows,"No machine cards supported");text(rows,"No FE cost in current processing");text(rows,"Recovery slots are not upgrades");return rows;}
                 var inv=net.zerog.tweaks.genetics.LegacyMachineCards.inventory(legacy);
                 for(int i=0;i<2;i++){
                     var stack=inv.getStackInSlot(i);
@@ -59,7 +59,7 @@ public final class ProcessingRecipePanel {
         if(pages.isEmpty()){text(rows,"No registered recipes");return rows;}
         page=Math.min(page,pages.size()-1);var recipe=pages.get(page);
         text(rows,recipe.id().toString());text(rows,machine!=null?"Shapeless: one slot each":"Input: slot 0");
-        if(machine==null)text(rows,net.zerog.tweaks.genetics.GeneticsRuntime.id(legacy).equals("starmetal_smelter")?"Flux: slot 2 (consumed)":"No pattern/catalyst required");
+        if(machine==null)text(rows,recipe.inputs().size()>1?"Second input: slot 1 (consumed)":net.zerog.tweaks.genetics.GeneticsRuntime.id(legacy).equals("starmetal_smelter")?"Flux: slot 2 (consumed)":"No pattern/catalyst required");
         for(int i=0;i<recipe.inputs().size();i++)ingredient(rows,"Input "+(i+1),recipe.inputs().get(i));
         if(recipe.catalyst().isPresent())ingredient(rows,"Catalyst",recipe.catalyst().get());else text(rows,"Catalyst: none required");
         for(var output:recipe.outputs()){

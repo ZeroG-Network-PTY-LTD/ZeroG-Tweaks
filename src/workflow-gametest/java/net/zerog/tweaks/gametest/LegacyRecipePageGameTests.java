@@ -12,6 +12,30 @@ import net.zerog.tweaks.machine.*;
 
 @GameTestHolder("zerog_recipe_legacy") @PrefixGameTestTemplate(false)
 public final class LegacyRecipePageGameTests {
+    @GameTest(templateNamespace="zerog_recipe_legacy",template="equipment_empty",timeoutTicks=200)
+    public static void frame_combinations_match_consumption_outputs_and_blocked_jobs(GameTestHelper h){
+        for(String id:new String[]{"frame_assembler","frame_component_assembler","frame_infusion_altar","infusion_altar"}){
+            var be=machine(h,id);h.assertTrue(be!=null,"No live machine: "+id);
+            var inv=GeneticsRuntime.inventory(be);var pages=LegacyRecipeCatalogue.basePages(id);
+            h.assertTrue(pages.size()==3,"Expected three verified combinations: "+id);
+            int output=id.equals("frame_infusion_altar")?3:2;
+            for(var page:pages){
+                for(int i=0;i<inv.getSlots();i++)inv.setStackInSlot(i,ItemStack.EMPTY);
+                h.assertTrue(page.energy()==0&&page.ticks()==201&&page.inputs().size()==2&&page.catalyst().isEmpty()&&!LegacyMachineCards.supports(be),"Invented costs/cards or wrong slot contract");
+                for(int i=0;i<2;i++)inv.setStackInSlot(i,page.inputs().get(i).ingredient().getItems()[0].copyWithCount(2));
+                inv.setStackInSlot(output,new ItemStack(Items.DIRT));
+                for(int i=0;i<201;i++)tick(be);
+                h.assertTrue(inv.getStackInSlot(0).getCount()==2&&inv.getStackInSlot(1).getCount()==2,"Blocked output consumed inputs");
+                inv.setStackInSlot(output,ItemStack.EMPTY);
+                for(int i=0;i<200;i++)tick(be);
+                h.assertTrue(inv.getStackInSlot(output).isEmpty(),"Completed before advertised boundary");tick(be);
+                h.assertTrue(inv.getStackInSlot(0).getCount()==1&&inv.getStackInSlot(1).getCount()==1,"Wrong consumed quantities");
+                var expected=page.outputs().getFirst().stack();h.assertTrue(ItemStack.isSameItemSameComponents(expected,inv.getStackInSlot(output))&&inv.getStackInSlot(output).getCount()==expected.getCount(),"Output differs from page");
+                h.assertTrue(!LegacyRecipeCatalogue.adjusted(be,pages,expected).isEmpty(),"Output recipe missing from catalogue");
+            }
+        }
+        h.assertTrue(LegacyRecipeCatalogue.basePages("gravitational_centrifuge").size()==LegacyRecipeCatalogue.basePages("centrifuge").size(),"Centrifuge alias missing");h.succeed();
+    }
     private static BlockEntity machine(GameTestHelper h,String id){
         var pos=new BlockPos(2,2,2);h.setBlock(pos,BuiltInRegistries.BLOCK.get(ResourceLocation.parse("aeroapiary:"+id)));
         return h.getBlockEntity(pos);
