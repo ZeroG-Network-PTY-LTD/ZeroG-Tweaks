@@ -910,6 +910,10 @@ The Ingredients tab now includes **21 dimension-metal cogs and 21 compressed pla
 
 Operator-only `/zero` now provides fixed planet teleport shortcuts, structure locators, gate/energy diagnostics, six-face machine capability summaries and hub status. [Complete command guide and safety notes](docs/admin-commands-2026-10-11.md). Survival gates and their progression remain separate.
 
+## Illustrated Concord Codex
+
+The Codex now opens a personal Concord field journal with recovered story pages, a Next task shortcut, enlarged item illustrations and scrolling text. Its reference desk includes six exact layer-by-layer gate guides, machine purpose pages and a comet/asteroid remnant cutaway. Existing lore unlocks are preserved. [How to read it and what to review](docs/codex-field-journal-2026-10-11.md).
+
 ## Credits
 
 Jake M. and Co-Owner — ZeroG Network PTY LTD
