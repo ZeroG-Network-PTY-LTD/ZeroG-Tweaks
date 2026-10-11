@@ -8,7 +8,7 @@ Oxygen and hydrogen, refillable canisters and six-tier gas networks already exis
 ## Functional requirements
 FR-1: A standalone Water Separator MUST convert vanilla water to hydrogen and oxygen atomically in a 2:1 ratio. Conservative defaults: 10 mB water to 20 mB hydrogen plus 10 mB oxygen, 100 ticks, 2,000 FE.
 FR-2: Each of its three tanks MUST hold 16,000 mB. Insufficient water, power or either output capacity MUST pause without consuming water or creating gas.
-FR-3: Pressure MUST be labelled as fill percentage, not physical pressure. Full outputs MUST block production; no leakage, explosions or damage.
+FR-3: Pressure MUST be labelled as fill percentage, not physical pressure. Full outputs MUST block production without fullness-induced leakage, explosions or damage. Separately approved misconnection effects are documented below.
 FR-4: Six faces MUST independently select Off/Water/Hydrogen/Oxygen fluid roles and FE Input/Off. Cached capabilities MUST honor current face settings and removed/replaced blocks.
 FR-5: Acceleration and Energy Coil tier 1–6 MUST use existing 2.5x/30% caps; Compact/Void MUST be rejected because this machine has no processing item inventory.
 FR-6: The GUI MUST show exact conversion, base/adjusted FE and time, tank volumes, fill percentages, progress and side controls. Fluid container exchange MUST respect the clicked face.
@@ -50,4 +50,4 @@ EC-4: Optional addons absent: separator MUST function with vanilla water and Zer
 |cards|two ItemStacks|Acceleration/Energy Coil; count one|
 
 ## Out of scope
-Exact survival machine/card crafting costs remain deferred. No gas breathing, fuels, chemical reactions, hazards or physical pressure units. Initial block reuses existing approved industrial textures explicitly; bespoke separator art stays on the artwork TODO. Remaining machine backlog follows this verified gas batch and is not declared complete by it.
+Exact survival machine/card crafting costs remain deferred. No gas breathing, fuels, chemical reactions or physical pressure units. The owner subsequently approved bounded misconnection leaks and brief hydrogen exposure: see [superseding gas-effect rules](gas-misbuild-effects-2026-10-11.md). Initial block reuses existing approved industrial textures explicitly; bespoke separator art stays on the artwork TODO. Remaining machine backlog follows this verified gas batch and is not declared complete by it.

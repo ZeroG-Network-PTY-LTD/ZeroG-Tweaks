@@ -10,7 +10,7 @@ Default processing:
 |---|---|---|---|
 |10 mB vanilla water|20 mB hydrogen + 10 mB oxygen|2,000 FE|100 ticks|
 
-The three tanks each hold 16,000 mB and the energy buffer holds 200,000 FE. No inputs are consumed until a complete cycle commits. Either full output, missing water or insufficient FE pauses production safely. Existing unfinished progress is retained while blocked; changes to cards or configured operation values restart uncommitted progress. Pressure is **fill percentage**, not a physical-pressure unit: no leaks, explosions, damage, breathing benefits or new gas fuel behavior.
+The three tanks each hold 16,000 mB and the energy buffer holds 200,000 FE. No inputs are consumed until a complete cycle commits. Either full output, missing water or insufficient FE pauses production safely. Existing unfinished progress is retained while blocked; changes to cards or configured operation values restart uncommitted progress. Pressure is **fill percentage**, not a physical-pressure unit. The subsequent owner-approved [misconnection leak rules](gas-misbuild-effects-2026-10-11.md) apply only to gas outlets attached to enabled liquid pipes; full tanks still pause safely. No explosions, breathing benefits or new gas fuel behavior.
 
 `zerog-gas-production-server.toml` configures water per cycle (1–8,000 mB), cycle FE (1–200,000) and duration (1–12,000 ticks). Outputs always remain twice/once the water volume as H2/O2. These are gameplay balance volumes, not a real chemical-volume simulation.
 

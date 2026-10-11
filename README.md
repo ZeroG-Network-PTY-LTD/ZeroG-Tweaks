@@ -1,5 +1,12 @@
 # ZeroG Tweaks
 
+## Incorrect gas connections — 11 October 2026
+
+[Leak rules and player checks](docs/gas-misbuild-effects-2026-10-11.md): connecting
+a liquid pipe to a Water Separator gas output vents a small configurable amount.
+Hydrogen gives brief nearby nausea/weakness; oxygen is visual-only. Correct gas
+tubes and full tanks remain safe. No explosions or terrain damage.
+
 ## Water separation and machine audit — 11 October 2026
 
 [Setup, output ratios, safe fullness pressure and verified machine contracts](docs/gas-production-and-machine-audit-2026-10-11.md).
