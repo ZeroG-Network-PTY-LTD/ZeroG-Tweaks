@@ -1,5 +1,14 @@
 # ZeroG Tweaks
 
+## Frame and infusion combinations — 11 October 2026
+
+[Exact combinations and verification](docs/frame-recipe-pages-2026-10-11.md).
+Both assemblers and both infusion altars now show their actual ingredient pairs,
+consumed counts, outputs, timing and supported upgrades, with a matching Codex
+chapter. All three isolated tests passed; same-version JAR installed with backup.
+No new machine costs or card effects were invented. Stardust Smelter fuel behavior
+remains a recorded repair; client layout approval stays pending.
+
 ## Alveary production pages — 11 October 2026
 
 [Actual products, frame effects and player checks](docs/alveary-recipe-pages-2026-10-11.md).
