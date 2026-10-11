@@ -884,6 +884,14 @@ sources — expect 5–15 minutes. Incremental builds after that run ~15s
     ├── build.gradle / settings.gradle / gradle.properties
     └── .gitignore                              build/ and IDE outputs excluded
 
+## Manufacturing components — 11 October
+
+The Ingredients tab now includes **21 dimension-metal cogs and 21 compressed plates**. These use original native 32×32 C-style art, transparent cog bores, beveled plates and planet-family palettes. Nullifite, vanilla metals and gems are excluded. Fabrication machinery, exact survival costs and progressively harder future machine assembly remain pending—not implied by the registered ingredients.
+
+![Planetary cogs and compressed plates](docs/images/manufacturing-components-20261011.png)
+
+[Component IDs, metal families, verification and pending manufacturing rules](docs/manufacturing-components-2026-10-11.md) · [Editable source artwork and generator](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design/docs/manufacturing-components)
+
 ## Credits
 
 Jake M. and Co-Owner — ZeroG Network PTY LTD
