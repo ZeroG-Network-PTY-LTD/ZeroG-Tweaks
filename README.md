@@ -892,6 +892,8 @@ sources — expect 5–15 minutes. Incremental builds after that run ~15s
 
 **Impact Site:** two original barren-world crater variants now carry the existing Stardust chest rewards. Eight rotated placements and one ordinary Galaxy 2 moon site passed server checks. Static ruins are separate from daily comet impacts; broader seeds and client appearance remain pending. [Layout, locator, evidence and installed build](docs/impact-site-2026-10-11.md).
 
+**Buried Observatory:** two desert observation rooms now provide a dedicated route to the existing Star Map Fragment chest rewards. Eight rotations and one ordinary desert site passed server checks; mine chests are tracked separately. No hidden coordinates or new lore were invented. [Layout, locator and delivery evidence](docs/buried-observatory-2026-10-11.md).
+
 Natural-world verification now confirms the **Collapsed Forge, Derelict Wreck and Solar Shrine**, each with its intended reward chest, in a fresh seed-zero server world. [Evidence and remaining limits](docs/three-ruins-natural-audit-2026-10-11.md).
 
 The Ingredients tab now includes **21 dimension-metal cogs and 21 compressed plates**. These use original native 32×32 C-style art, transparent cog bores, beveled plates and planet-family palettes. Nullifite, vanilla metals and gems are excluded. Fabrication machinery, exact survival costs and progressively harder future machine assembly remain pending—not implied by the registered ingredients.
