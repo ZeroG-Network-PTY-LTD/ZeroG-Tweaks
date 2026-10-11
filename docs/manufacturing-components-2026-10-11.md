@@ -1,5 +1,7 @@
 # Planetary cogs and compressed plates
 
+> Follow-up: [manual fabrication and selected progression casings](manufacturing-progression-recipes-2026-10-11.md) now enable these parts using the starting costs the owner continued with. The pending-fabrication text below describes this earlier item-only delivery, not the current build.
+
 42 new manufacturing ingredients cover 21 existing dimension metals. Find them in **ZeroG: Ingredients**. Each has a native 32×32 sprite and a generated-item model that uses that same image in inventory and in the world.
 
 | Origin | Eligible metals |

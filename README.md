@@ -886,6 +886,8 @@ sources — expect 5–15 minutes. Incremental builds after that run ~15s
 
 ## Manufacturing components — 11 October
 
+**Fabrication follow-up:** all 42 parts are now craftable (two ingots per plate, four per cog), with ingot-triggered recipe-book unlocks. Four casing stages now combine matching parts, local dusts and purple/blue/teal Star Glass while preserving their existing core chain and two-casing output. [Exact patterns and progression steps](docs/manufacturing-progression-recipes-2026-10-11.md). The earlier pending-fabrication note below is historical.
+
 **Frozen Outpost:** two original Hoarwood/permafrost shelters now route the existing Cryo Core chest rewards. Eight rotated placements passed isolated gameplay checks; natural rarity and client review remain pending. [Layout, loot and delivery receipt](docs/frozen-outpost-2026-10-11.md).
 
 Natural-world verification now confirms the **Collapsed Forge, Derelict Wreck and Solar Shrine**, each with its intended reward chest, in a fresh seed-zero server world. [Evidence and remaining limits](docs/three-ruins-natural-audit-2026-10-11.md).
