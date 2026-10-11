@@ -5,20 +5,22 @@ and Java loot hooks separately. Never opens a player save or generates terrain.
 """
 import argparse
 from collections import defaultdict
+import gzip
 import hashlib
 import json
 from pathlib import Path
 import re
+import struct
 import sys
 
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--resources', type=Path, default=Path('src/main/resources'))
 p.add_argument('--java', type=Path, default=Path('src/main/java'))
-p.add_argument('--nbt-library', type=Path, required=True)
+p.add_argument('--nbt-library', type=Path, help='Legacy compatibility option; the bundled reader needs no external library')
 p.add_argument('--report', type=Path, required=True)
 a = p.parse_args()
-sys.path.insert(0, str(a.nbt_library.resolve()))
-import nbtlib
+sys.path.insert(0, str(Path(__file__).resolve().parent / 'dev'))
+import worldscan
 
 root = a.resources / 'data/zerog_tweaks'
 sources = defaultdict(list)
@@ -44,7 +46,12 @@ for path in sorted((root / 'loot_table').rglob('*.json')):
                                   'entry_conditions': node.get('conditions', [])})
 
 for path in sorted((root / 'structure').rglob('*.nbt')):
-    template = nbtlib.load(path)
+    raw = gzip.decompress(path.read_bytes())
+    if not raw or raw[0] != 10:
+        raise ValueError(f'Expected compound-root structure NBT: {path}')
+    template, end = worldscan._read(raw, 3 + struct.unpack_from('>H', raw, 1)[0], 10)
+    if end != len(raw):
+        raise ValueError(f'Trailing structure NBT data: {path}')
     key = 'zerog_tweaks:' + path.relative_to(root / 'structure').with_suffix('').as_posix()
     for block in template.get('blocks', []):
         loot = block.get('nbt', {}).get('LootTable')
