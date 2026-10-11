@@ -77,7 +77,9 @@ else:
             planned_altars.append({'position':[x,y,z],'chunk':[x>>4,z>>4],
                 'observed_block':observed,'observed_properties':properties,'references':sorted((c or {}).get('structures',{}).get('References',{}))})
     assert 0<=a.radius<=9,'Bounded saved-chunk inspection only'
-    blocks=Counter();loot=Counter();anchors=[];saved=0
+    blocks=Counter();loot=Counter();anchors=[];saved=0;bound_chests=[]
+    piece_bounds=[(key,piece.get('BB')) for key,start in starts.items()
+        for piece in start.get('Children',[]) if len(piece.get('BB',[]))==6]
     for cx in range(a.chunk_x-a.radius,a.chunk_x+a.radius+1):
         for cz in range(a.chunk_z-a.radius,a.chunk_z+a.radius+1):
             c=worldscan.chunk(str(run/'world/dimensions'/ns/dim),cx,cz)
@@ -88,12 +90,19 @@ else:
                     if name in {'zerog_tweaks:vault_key_altar','zerog_tweaks:concord_lock','zerog_tweaks:settlement_anchor','zerog_tweaks:aresite_block'}:blocks[name]+=1
             for be in c.get('block_entities',[]):
                 if be.get('LootTable','').startswith('zerog_tweaks:'):loot[be['LootTable']]+=1
+                if be.get('id')=='minecraft:chest' and be.get('LootTable','').startswith('zerog_tweaks:'):
+                    x,y,z=be['x'],be['y'],be['z']
+                    for key,bb in piece_bounds:
+                        if bb[0]<=x<=bb[3] and bb[1]<=y<=bb[4] and bb[2]<=z<=bb[5]:
+                            bound_chests.append({'structure':key,'position':[x,y,z],
+                                'loot_table':be['LootTable'],'association':'inside saved piece bounds; not loot-roll proof'})
                 if be.get('id')=='zerog_tweaks:settlement_anchor':anchors.append({k:be.get(k) for k in ['x','y','z','residents','speciesResidents']})
     report={'seed':0,'dimension':a.dimension,'chunk':[a.chunk_x,a.chunk_z],
         'ordinary_server':True,'structure_generation_enabled':bool(metadata['generate_features']),
         'scope':'Saved natural structure starts; not complete room/chest or village coverage',
         'status':data.get('Status'),
         'saved_full_chunks':saved,'observed_blocks':dict(blocks),'unopened_chest_loot_tables':dict(loot),'settlement_anchors':anchors,'planned_key_altars':planned_altars,
+        'chests_inside_target_piece_bounds':bound_chests,
         'starts':{key:{'id':value.get('id'),'pieces':len(value.get('Children',[])),
             'piece_types':sorted({piece.get('id','unknown') for piece in value.get('Children',[])})}
             for key,value in starts.items()}}
