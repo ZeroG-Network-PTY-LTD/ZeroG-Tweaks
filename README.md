@@ -1,5 +1,14 @@
 # ZeroG Tweaks
 
+## Stardust fuel repair — 11 October 2026
+
+[Verified furnace fuel and exact recipe pages](docs/stardust-fuel-repair-2026-10-11.md).
+Stardust Smelter now requires actual furnace fuel, shares its saved burn budget
+across comb jobs and preserves container remainders. All five isolated recipe
+tests passed after reproducing the old fuel-free bug. The same-version JAR is
+installed with backup; yields, gates, saves and weather settings are unchanged.
+Recipes and Codex show exact outputs and fuel durations. Client review is pending.
+
 ## Frame and infusion combinations — 11 October 2026
 
 [Exact combinations and verification](docs/frame-recipe-pages-2026-10-11.md).
