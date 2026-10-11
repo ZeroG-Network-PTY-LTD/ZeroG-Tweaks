@@ -450,6 +450,22 @@ no recipe/loot. Preserve native32px gold atlas and Design generator. Mode tests
 MUST use a normal ServerPlayer: Minecraft's GameTestHelper mock hardcodes
 isCreative()==true even after setGameMode(SURVIVAL).
 
+## Water Separator — approved 11 October
+
+`water_separator` converts configurable vanilla water to H2/O2 at 2:1.
+Defaults 10mB water ->20mB H2+10mB O2, 2000FE, 100 ticks. Three16000mB
+tanks;200000FE buffer. Commit all resources atomically after work completes;
+missing input/power or either full output pauses without consuming inputs.
+Pressure means fill percentage only: no hazards, physical pressure or gas effects.
+Fluid roles Off/Water/H2/O2 and independent FE Input/Off apply to all six
+world faces, including cached handlers and manual container exchange. Null faces
+are not external endpoints. Only Acceleration/Energy Coil cards are supported;
+existing2.5x/30percent caps apply. Exact crafting costs remain deferred.
+Initial block intentionally reuses approved Crystal Growth textures; bespoke
+separator art is a TODO, not completed original art. Test real ticker/pipe/canister
+conservation, both full-output pauses, cards, menu validation and reload. No
+gate/weather/hub changes belong in this feature.
+
 ## Inventory-funded gate construction and launch lift — 9 October
 
 Plans separates Plan T1–T6 (preview only) from Build T1–T6 (inventory-funded).

@@ -127,6 +127,7 @@ public final class CreativeTabs {
                         net.zerog.tweaks.storage.WoodStorageRegistry.JOINERY.keySet().forEach(id->out.accept(item(id)));
                     }
                     if (name.equals("storage_and_transport")) {
+                        out.accept(net.zerog.tweaks.machine.GasSeparatorRegistry.ITEM.get());
                         out.accept(ZGGases.CANISTER.get());
                         ZGGases.ALL.forEach(gas->out.accept(ZGGases.filled(gas)));
                         ItemInit.MACHINE_UPGRADE_CARDS.values().forEach(card->out.accept(card.get()));
