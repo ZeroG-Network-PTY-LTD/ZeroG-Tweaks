@@ -894,7 +894,7 @@ sources — expect 5–15 minutes. Incremental builds after that run ~15s
 
 **Buried Observatory:** two desert observation rooms now provide a dedicated route to the existing Star Map Fragment chest rewards. Eight rotations and one ordinary desert site passed server checks; mine chests are tracked separately. No hidden coordinates or new lore were invented. [Layout, locator and delivery evidence](docs/buried-observatory-2026-10-11.md).
 
-**Sunken Lab:** chemistry benches, biological containment, fractured synthesis tubes and ruined power cabinets now give two layouts a recognisable laboratory interior. Eight rotated placements passed apparatus/access/Neutralizer-loot tests. Natural site sampling and client visual approval remain pending. [Equipment plan and evidence](docs/sunken-lab-2026-10-11.md).
+**Sunken Lab:** chemistry benches, biological containment, fractured synthesis tubes and ruined power cabinets now give two layouts a recognisable laboratory interior. Eight rotated placements passed apparatus/access/Neutralizer-loot tests; one ordinary toxic-world site generated naturally with its intended chest. Broader sampling and client visual approval remain pending. [Equipment plan and evidence](docs/sunken-lab-2026-10-11.md).
 
 Natural-world verification now confirms the **Collapsed Forge, Derelict Wreck and Solar Shrine**, each with its intended reward chest, in a fresh seed-zero server world. [Evidence and remaining limits](docs/three-ruins-natural-audit-2026-10-11.md).
 

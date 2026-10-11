@@ -26,7 +26,11 @@ Explore newly generated toxic terrain, or use the operator locator:
 
 ## Evidence boundaries
 
-Focused tests passed both variants in all rotations: service-spine floor/headroom, actual empty apparatus, four chamber bases/caps, broken glass opening, chest lid and Neutralizer loot (`20261011_092129_runWorkflowTests.log`, one required test). Two source contracts passed, verifying original palettes, source/runtime bytes, existing toxic biomes and absence of working power-machine giveaways. Normal clean build passed (`20261011_092526_clean.log`). Natural-generation sampling remains pending; a registered placement route is not proof of a generated site.
+Focused tests passed both variants in all rotations: service-spine floor/headroom, actual empty apparatus, four chamber bases/caps, broken glass opening, chest lid and Neutralizer loot (`20261011_092129_runWorkflowTests.log`, one required test). Two source contracts passed, verifying original palettes, source/runtime bytes, existing toxic biomes and absence of working power-machine giveaways. Normal clean build passed (`20261011_092526_clean.log`).
+
+An ordinary, structure-enabled seed-zero server also generated a natural Lab in `g2_p5`: locator `(48,224)`, start chunk `(3,14)`, one jigsaw piece,49 saved FULL chunks and one unopened Lab chest at `(84,64,194)` inside the piece bounds. A separate nearby mine chest using the Observatory table is not counted as Lab loot. [Saved-world report](reports/natural-sunken-lab-20261011.json). This is one site on one seed, not proof of every biome or rarity. The chest remained unopened; actual Neutralizer loot was verified in the focused tests, not rolled in this natural site.
+
+Temporary force loads were removed, the world flushed and the disposable server stopped normally (`20261011_092902_runServer.log`). No manual structure placement, client launch, save regeneration or JAR replacement was needed for this audit.
 
 Broader seeds, all habitats, actual client appearance and full biological/research gameplay remain pending. Sunken Relay is the last dedicated wasteland ruin still missing. This batch does not change weather, gates, recipes, daily comet events or the hub/save terrain.
 
@@ -35,3 +39,9 @@ Broader seeds, all habitats, actual client appearance and full biological/resear
 Same-version `1.0.12-dev` installed with the preceding JAR backed up outside `mods` at `zerog-mod-backups/20261011-092718-UTC`. Dependencies and saves were untouched. Asset audit: zero errors; three manufacturing regressions passed. [Install receipt](reports/sunken-lab-install-20261011.json) · [Asset report](reports/sunken-lab-assets-20261011.json) · [Build JAR](jars/zerog-tweaks-1.21.1-1.0.12-dev-sunken-lab-20261011.jar).
 
 [Editable layout generator](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Design/docs/wasteland-ruins/generate_sunken_lab.py) · [route graph](reports/sunken-lab-routes-20261011.json).
+
+## Next ruin: Sunken Relay
+
+The approved design assigns it to ocean wastelands—Deep Trenches, Kelp Jungles and Island Chains—with the existing Abyssal Pearl chest table and a still-broadcasting distress signal. Unlike the Lab, its placement must actually support ocean-floor terrain and water. The current dry-land structure rejects wet footprints, so reusing it would not fulfil that design.
+
+Pending implementation/tests: original submerged relay layouts, supported seabed siting, rotation-safe swimming/chest access, waterlogging, unchanged Pearl loot, natural ocean placement and client review. Signal text, recipients and quest consequences remain unspecified; do not invent a Broken Console log or hidden coordinates to close this gap. Dedicated signal behaviour is not implemented by a decorative antenna.
