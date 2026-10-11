@@ -456,7 +456,7 @@ isCreative()==true even after setGameMode(SURVIVAL).
 Defaults 10mB water ->20mB H2+10mB O2, 2000FE, 100 ticks. Three16000mB
 tanks;200000FE buffer. Commit all resources atomically after work completes;
 missing input/power or either full output pauses without consuming inputs.
-Pressure means fill percentage only: no hazards, physical pressure or gas effects.
+Pressure means fill percentage only, not physical pressure. Owner subsequently approved bounded leaks from enabled liquid pipes incorrectly connected to separator gas outputs: configurable 10 mB/sec default, short nearby hydrogen nausea/weakness, oxygen visual-only, no explosions or terrain damage. Correct gas tubes/full tanks must remain safe. Do not re-enable weather hazards.
 Fluid roles Off/Water/H2/O2 and independent FE Input/Off apply to all six
 world faces, including cached handlers and manual container exchange. Null faces
 are not external endpoints. Only Acceleration/Energy Coil cards are supported;

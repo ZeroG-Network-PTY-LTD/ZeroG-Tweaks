@@ -36,7 +36,32 @@ public final class GasSeparatorBlockEntity extends BlockEntity {
     public int duration(){return Math.max(1,(GasProductionConfig.TICKS.get()*100+speed()-1)/speed());}
     public int cost(){int saving=MachineUpgradeCards.tier(cards.getStackInSlot(1),MachineUpgradeCards.Family.ENERGY_COIL)*MachineUpgradeConfig.ENERGY_SAVING_PER_TIER.get();return (GasProductionConfig.ENERGY.get()*(100-saving)+99)/100;}
     public int status(){if(water.getFluidAmount()<GasProductionConfig.WATER.get())return 1;if(stored<cost())return 2;if(hydrogen.getSpace()<GasProductionConfig.WATER.get()*2||oxygen.getSpace()<GasProductionConfig.WATER.get())return 3;return 0;}
-    public static void tick(Level l,BlockPos p,BlockState s,GasSeparatorBlockEntity be){be.work();}
+    public static void tick(Level l,BlockPos p,BlockState s,GasSeparatorBlockEntity be){be.work();if(l.getGameTime()%20==0)be.leakIncorrectOutputs();}
+    /** Only an enabled liquid pipe attached to a gas outlet is a misbuild.
+     * Air, sealed outlets, full receivers and correct gas tubes never leak. */
+    public void leakIncorrectOutputs(){
+        if(!live()||!(level instanceof net.minecraft.server.level.ServerLevel server))return;
+        int amount=GasProductionConfig.LEAK.get();if(amount==0)return;
+        for(Direction side:Direction.values()){
+            int r=role(side);if(r!=2&&r!=3)continue;
+            BlockPos adjacent=worldPosition.relative(side);
+            if(!server.hasChunkAt(adjacent))continue;
+            if(!(server.getBlockEntity(adjacent) instanceof net.zerog.tweaks.transport.TransportBlockEntity pipe)
+                ||!pipe.block().family.equals("fluid_pipe")||!pipe.enabled()||!pipe.input(side.getOpposite()))continue;
+            FluidTank tank=r==2?hydrogen:oxygen;
+            if(tank.drain(amount,IFluidHandler.FluidAction.EXECUTE).isEmpty())continue;
+            var source=net.minecraft.world.phys.Vec3.atCenterOf(worldPosition).add(side.getStepX()*.65,side.getStepY()*.65+.4,side.getStepZ()*.65);
+            server.sendParticles(r==2?net.minecraft.core.particles.ParticleTypes.CLOUD:net.minecraft.core.particles.ParticleTypes.END_ROD,source.x,source.y,source.z,6,.2,.2,.2,.015);
+            if(r!=2)continue;
+            // Refresh only nearby exposure; never remove effects applied by another system.
+            for(var player:server.getEntitiesOfClass(net.minecraft.world.entity.player.Player.class,new net.minecraft.world.phys.AABB(source,source).inflate(2))){
+                if(player.isCreative()||player.isSpectator()||player.distanceToSqr(source)>4)continue;
+                if(server.clip(new net.minecraft.world.level.ClipContext(source,player.getEyePosition(),net.minecraft.world.level.ClipContext.Block.COLLIDER,net.minecraft.world.level.ClipContext.Fluid.NONE,player)).getType()!=net.minecraft.world.phys.HitResult.Type.MISS)continue;
+                player.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.CONFUSION,60,0));
+                player.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS,60,0));
+            }
+        }
+    }
     public void work(){
         if(!live()||level.isClientSide)return;
         int amount=GasProductionConfig.WATER.get(),energy=cost(),ticks=duration();

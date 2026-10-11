@@ -12,6 +12,49 @@ import net.zerog.tweaks.registry.*;
 @PrefixGameTestTemplate(false)
 public final class GasProductionGameTests {
     @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=80)
+    public static void hydrogen_exposure_and_oxygen_safe(GameTestHelper h){
+        var b=machine(h);var pos=b.getBlockPos().east();h.getLevel().setBlock(pos,net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(net.minecraft.resources.ResourceLocation.parse("zerog_tweaks:copper_fluid_pipe")).defaultBlockState(),3);
+        var pipe=(net.zerog.tweaks.transport.TransportBlockEntity)h.getLevel().getBlockEntity(pos);pipe.modes[Direction.WEST.ordinal()]=2;
+        var cookie=net.minecraft.server.network.CommonListenerCookie.createInitial(new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"gas-exposure-test"),false);
+        var player=new net.minecraft.server.level.ServerPlayer(h.getLevel().getServer(),h.getLevel(),cookie.gameProfile(),cookie.clientInformation());
+        var connection=new net.minecraft.network.Connection(net.minecraft.network.protocol.PacketFlow.SERVERBOUND);
+        new io.netty.channel.embedded.EmbeddedChannel(connection);
+        h.getLevel().getServer().getPlayerList().placeNewPlayer(connection,player,cookie);
+        player.setGameMode(net.minecraft.world.level.GameType.SURVIVAL);player.setPos(b.getBlockPos().getCenter().add(1.3,0,0));
+        b.oxygen.setFluid(new FluidStack(ZGGases.OXYGEN.fluid().get(),100));b.cycle(Direction.EAST);b.leakIncorrectOutputs();
+        h.assertTrue(!player.hasEffect(net.minecraft.world.effect.MobEffects.WEAKNESS),"Oxygen was toxic");
+        // Cycle Off -> Water -> Hydrogen, preserving the same physical connection.
+        b.cycle(Direction.EAST);b.cycle(Direction.EAST);b.cycle(Direction.EAST);
+        b.hydrogen.setFluid(new FluidStack(ZGGases.HYDROGEN.fluid().get(),100));b.leakIncorrectOutputs();
+        h.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.WEAKNESS)&&player.hasEffect(net.minecraft.world.effect.MobEffects.CONFUSION),"Nearby hydrogen exposure missing");
+        player.removeAllEffects();h.getLevel().setBlock(pos.above(),net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(),3);b.leakIncorrectOutputs();
+        h.assertTrue(!player.hasEffect(net.minecraft.world.effect.MobEffects.WEAKNESS),"Solid shelter did not block exposure");
+        h.getLevel().removeBlock(pos.above(),false);
+        player.removeAllEffects();player.setPos(b.getBlockPos().getCenter().add(4,0,0));b.leakIncorrectOutputs();
+        h.assertTrue(!player.hasEffect(net.minecraft.world.effect.MobEffects.WEAKNESS),"Distant player exposed");
+        player.discard();h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=80)
+    public static void incorrect_outlet_leaks_only(GameTestHelper h){
+        var b=machine(h);b.hydrogen.setFluid(new FluidStack(ZGGases.HYDROGEN.fluid().get(),1000));
+        b.leakIncorrectOutputs();h.assertTrue(b.hydrogen.getFluidAmount()==1000,"Unconnected outlet leaked");
+        var pos=b.getBlockPos().east();var blocks=net.minecraft.core.registries.BuiltInRegistries.BLOCK;
+        for(var tier:net.zerog.tweaks.transport.TransportTier.ALL){
+            var id=net.minecraft.resources.ResourceLocation.parse("zerog_tweaks:"+tier.name()+"_gas_tube");
+            h.assertTrue(blocks.containsKey(id),"Missing gas tube tier "+tier.name());
+            h.getLevel().setBlock(pos,blocks.get(id).defaultBlockState(),3);
+            b.leakIncorrectOutputs();h.assertTrue(b.hydrogen.getFluidAmount()==1000,"Correct gas tube leaked: "+tier.name());
+        }
+        h.getLevel().setBlock(pos,blocks.get(net.minecraft.resources.ResourceLocation.parse("zerog_tweaks:copper_fluid_pipe")).defaultBlockState(),3);
+        var pipe=(net.zerog.tweaks.transport.TransportBlockEntity)h.getLevel().getBlockEntity(pos);
+        h.assertTrue(pipe!=null,"Required liquid pipe missing");pipe.modes[Direction.WEST.ordinal()]=3;
+        b.leakIncorrectOutputs();h.assertTrue(b.hydrogen.getFluidAmount()==1000,"Disabled pipe leaked");
+        pipe.modes[Direction.WEST.ordinal()]=2;b.leakIncorrectOutputs();
+        h.assertTrue(b.hydrogen.getFluidAmount()==1000-GasProductionConfig.LEAK.get()&&pipe.tank.isEmpty(),"Wrong pipe did not vent bounded gas or accepted it");
+        b.cycle(Direction.EAST);b.cycle(Direction.EAST);int before=b.hydrogen.getFluidAmount();b.leakIncorrectOutputs();
+        h.assertTrue(b.hydrogen.getFluidAmount()==before,"Disabled gas outlet leaked");h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=80)
     public static void registered_ticker_pipe_extraction_and_canister(GameTestHelper h){
         var b=machine(h);feed(b);var ticker=((net.minecraft.world.level.block.EntityBlock)b.getBlockState().getBlock()).getTicker(h.getLevel(),b.getBlockState(),GasSeparatorRegistry.TYPE.get());h.assertTrue(ticker!=null,"No registered server ticker");
         for(int i=0;i<b.duration();i++)ticker.tick(h.getLevel(),b.getBlockPos(),b.getBlockState(),b);
