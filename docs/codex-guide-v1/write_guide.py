@@ -375,6 +375,15 @@ chests do not guarantee one. Cryo Pods and Broken Consoles are existing salvage
 blocks here, not a completed final-log encounter. Large wrecks, their guardian
 and the Captain's peaceful route remain separate unfinished content.
 
+## Solar Shrines
+
+On Solvane, search dry Corona Flats, Sunspot Plateaus and Gildwood Oasis terrain
+for open circular courts of Solar Stone, Radiant Bricks and Gildwood, with lit
+pillars. Follow the central approach to the chest. Existing rewards can include
+Photium, Radiantine, Astrium and Solvanite upgrade templates; no individual chest
+guarantees one. Shrine hymns, the Dying Star encounter and the Heart of Solvane
+ending remain unfinished. Finding a shrine does not complete those story tasks.
+
 These changes appear in newly generated terrain; explored chunks keep their
 existing blocks. Read [the mining ladder](07_mining.md) before harvesting ores.
 """)
