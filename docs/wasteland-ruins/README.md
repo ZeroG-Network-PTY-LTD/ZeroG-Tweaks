@@ -4,6 +4,7 @@
 
 - [Frozen Outpost](frozen-outpost.md): two cold-weather shelters, including frozen wasteland eligibility.
 - [Impact Site](impact-site.md): two static barren-world craters, existing Stardust loot, separate from timed comet impacts.
+- [Buried Observatory](buried-observatory.md): two desert observation rooms with existing Star Map Fragment loot; no invented hidden coordinates.
 
 These later source layouts preserve approved blocks and loot. Natural-world and client evidence is tracked on Docs; the original Prism Spire notes below remain its own specification.
 

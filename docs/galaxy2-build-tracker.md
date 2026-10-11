@@ -7,8 +7,11 @@
 > See [current Frozen Outpost evidence](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/frozen-wasteland-route-fix-2026-10-11.md).
 > Impact Site now has two authored barren-world crater variants with the existing
 > Stardust loot table; see [current evidence](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/impact-site-2026-10-11.md).
-> The three dedicated wasteland structures still missing are Sunken Relay,
-> Buried Observatory and Sunken Lab. Historical counts and unchecked
+> Buried Observatory now has two dedicated desert observation-room variants using
+> the existing Star Map Fragment loot table. Hidden coordinates/story rules are
+> not invented; [current evidence](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/buried-observatory-2026-10-11.md).
+> The two dedicated wasteland structures still missing are Sunken Relay
+> and Sunken Lab. Historical counts and unchecked
 > boxes below are not a current certification. Broad seeds and client approval
 > remain separate; do not invent pending lore or change the approved key contract.
 
