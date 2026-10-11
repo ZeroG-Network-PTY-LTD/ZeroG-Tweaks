@@ -1,0 +1,282 @@
+{
+  "schema": 1,
+  "scope": "Shipped jigsaw source graph only; no save access or natural placement proof",
+  "structure_routes": {
+    "zerog_tweaks:concord_vault": {
+      "potential_pools": [
+        "zerog_tweaks:concord_vault/branches",
+        "zerog_tweaks:concord_vault/caps",
+        "zerog_tweaks:concord_vault/corridors",
+        "zerog_tweaks:concord_vault/entrance",
+        "zerog_tweaks:concord_vault/start"
+      ],
+      "potential_templates": [
+        "zerog_tweaks:concord_vault/chamber",
+        "zerog_tweaks:concord_vault/corridor_cap",
+        "zerog_tweaks:concord_vault/corridor_crossing",
+        "zerog_tweaks:concord_vault/corridor_junction",
+        "zerog_tweaks:concord_vault/corridor_straight",
+        "zerog_tweaks:concord_vault/corridor_turn",
+        "zerog_tweaks:concord_vault/entrance_shaft",
+        "zerog_tweaks:concord_vault/rooms/collapsed_mine",
+        "zerog_tweaks:concord_vault/rooms/concord_shrine",
+        "zerog_tweaks:concord_vault/rooms/crystal_garden",
+        "zerog_tweaks:concord_vault/rooms/forge",
+        "zerog_tweaks:concord_vault/rooms/observatory",
+        "zerog_tweaks:concord_vault/rooms/prismling_nest",
+        "zerog_tweaks:concord_vault/rooms/star_library",
+        "zerog_tweaks:concord_vault/rooms/starlight_pool",
+        "zerog_tweaks:concord_vault/rooms/storage_hall",
+        "zerog_tweaks:concord_vault/rooms/trap_hall"
+      ],
+      "missing_references": [],
+      "non_template_elements": [],
+      "biomes": "#zerog_tweaks:is_cerulon",
+      "potential_chest_tables": [
+        "zerog_tweaks:chests/concord_vault/common",
+        "zerog_tweaks:chests/concord_vault/rare",
+        "zerog_tweaks:chests/concord_vault/uncommon"
+      ]
+    },
+    "zerog_tweaks:mars_aresite_shrine": {
+      "potential_pools": [
+        "zerog_tweaks:mars_aresite_shrine/start"
+      ],
+      "potential_templates": [
+        "zerog_tweaks:mars_aresite_shrine/shrine"
+      ],
+      "missing_references": [],
+      "non_template_elements": [],
+      "biomes": "#zerog_tweaks:has_structure/mars_aresite_shrine",
+      "potential_chest_tables": [
+        "zerog_tweaks:chests/mars_aresite_shrine"
+      ]
+    },
+    "zerog_tweaks:mars_crash_site": {
+      "potential_pools": [
+        "zerog_tweaks:mars_crash_site/start"
+      ],
+      "potential_templates": [
+        "zerog_tweaks:mars_crash_site/wreck_a",
+        "zerog_tweaks:mars_crash_site/wreck_b"
+      ],
+      "missing_references": [],
+      "non_template_elements": [],
+      "biomes": "#zerog_tweaks:has_structure/mars_crash_site",
+      "potential_chest_tables": [
+        "zerog_tweaks:chests/mars_crash_site"
+      ]
+    },
+    "zerog_tweaks:prism_sentinel_arena": {
+      "potential_pools": [
+        "zerog_tweaks:prism_sentinel_arena/start"
+      ],
+      "potential_templates": [
+        "zerog_tweaks:prism_sentinel_arena"
+      ],
+      "missing_references": [],
+      "non_template_elements": [],
+      "biomes": "#zerog_tweaks:has_structure/prism_sentinel_arena",
+      "potential_chest_tables": []
+    },
+    "zerog_tweaks:prism_spire": {
+      "potential_pools": [
+        "zerog_tweaks:prism_spire/start"
+      ],
+      "potential_templates": [
+        "zerog_tweaks:prism_spire/tower"
+      ],
+      "missing_references": [],
+      "non_template_elements": [],
+      "biomes": "#zerog_tweaks:has_structure/prism_spire",
+      "potential_chest_tables": [
+        "zerog_tweaks:chests/prism_spire"
+      ]
+    }
+  },
+  "authored_templates": {
+    "zerog_tweaks:concord_courier": {
+      "outgoing_pools": [],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/chamber": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors",
+        "zerog_tweaks:concord_vault/entrance"
+      ],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/chamber_stage_1": {
+      "outgoing_pools": [],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/chamber_stage_2": {
+      "outgoing_pools": [],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/chamber_stage_3": {
+      "outgoing_pools": [],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/corridor_cap": {
+      "outgoing_pools": [
+        "minecraft:empty"
+      ],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/corridor_crossing": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/branches"
+      ],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/corridor_junction": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/branches"
+      ],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/corridor_straight": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/branches"
+      ],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/corridor_turn": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/branches"
+      ],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/entrance_shaft": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/branches"
+      ],
+      "chest_tables": []
+    },
+    "zerog_tweaks:concord_vault/rooms/collapsed_mine": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors"
+      ],
+      "chest_tables": [
+        "zerog_tweaks:chests/concord_vault/common"
+      ]
+    },
+    "zerog_tweaks:concord_vault/rooms/concord_shrine": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors"
+      ],
+      "chest_tables": [
+        "zerog_tweaks:chests/concord_vault/rare"
+      ]
+    },
+    "zerog_tweaks:concord_vault/rooms/crystal_garden": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors"
+      ],
+      "chest_tables": [
+        "zerog_tweaks:chests/concord_vault/uncommon"
+      ]
+    },
+    "zerog_tweaks:concord_vault/rooms/forge": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors"
+      ],
+      "chest_tables": [
+        "zerog_tweaks:chests/concord_vault/uncommon"
+      ]
+    },
+    "zerog_tweaks:concord_vault/rooms/observatory": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors"
+      ],
+      "chest_tables": [
+        "zerog_tweaks:chests/concord_vault/rare"
+      ]
+    },
+    "zerog_tweaks:concord_vault/rooms/prismling_nest": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors"
+      ],
+      "chest_tables": [
+        "zerog_tweaks:chests/concord_vault/uncommon"
+      ]
+    },
+    "zerog_tweaks:concord_vault/rooms/star_library": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors"
+      ],
+      "chest_tables": [
+        "zerog_tweaks:chests/concord_vault/common",
+        "zerog_tweaks:chests/concord_vault/uncommon"
+      ]
+    },
+    "zerog_tweaks:concord_vault/rooms/starlight_pool": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors"
+      ],
+      "chest_tables": [
+        "zerog_tweaks:chests/concord_vault/rare"
+      ]
+    },
+    "zerog_tweaks:concord_vault/rooms/storage_hall": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors"
+      ],
+      "chest_tables": [
+        "zerog_tweaks:chests/concord_vault/common"
+      ]
+    },
+    "zerog_tweaks:concord_vault/rooms/trap_hall": {
+      "outgoing_pools": [
+        "zerog_tweaks:concord_vault/corridors"
+      ],
+      "chest_tables": [
+        "zerog_tweaks:chests/concord_vault/rare"
+      ]
+    },
+    "zerog_tweaks:mars_aresite_shrine/shrine": {
+      "outgoing_pools": [],
+      "chest_tables": [
+        "zerog_tweaks:chests/mars_aresite_shrine"
+      ]
+    },
+    "zerog_tweaks:mars_crash_site/wreck_a": {
+      "outgoing_pools": [],
+      "chest_tables": [
+        "zerog_tweaks:chests/mars_crash_site"
+      ]
+    },
+    "zerog_tweaks:mars_crash_site/wreck_b": {
+      "outgoing_pools": [],
+      "chest_tables": [
+        "zerog_tweaks:chests/mars_crash_site"
+      ]
+    },
+    "zerog_tweaks:prism_sentinel_arena": {
+      "outgoing_pools": [],
+      "chest_tables": []
+    },
+    "zerog_tweaks:prism_spire/tower": {
+      "outgoing_pools": [],
+      "chest_tables": [
+        "zerog_tweaks:chests/prism_spire"
+      ]
+    }
+  },
+  "chest_tables_without_jigsaw_route": [
+    "zerog_tweaks:chests/buried_observatory",
+    "zerog_tweaks:chests/collapsed_forge",
+    "zerog_tweaks:chests/derelict_wreck",
+    "zerog_tweaks:chests/frozen_outpost",
+    "zerog_tweaks:chests/impact_site",
+    "zerog_tweaks:chests/solar_shrine",
+    "zerog_tweaks:chests/sunken_lab",
+    "zerog_tweaks:chests/sunken_relay"
+  ],
+  "boundaries": [
+    "Possible reachability does not guarantee a selected room or successful placement.",
+    "Java-placed Courier, mineshaft chests and chamber stages are outside this jigsaw-only graph.",
+    "Loot chances, player access, processors, biome filters and datapack overrides need runtime checks."
+  ]
+}

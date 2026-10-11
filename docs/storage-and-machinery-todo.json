@@ -2,6 +2,13 @@
   "schema": 1,
   "updated": "2026-10-11",
   "candidate_version": "1.0.12-dev",
+  "latest_planetary_audit": {
+    "date": "2026-10-11",
+    "guide": "planetary-route-audit-2026-10-11.md",
+    "report": "reports/structure-routes-20261011.json",
+    "runtime": "c128a2dd",
+    "scope": "Read-only shipped-source graph: five configured structures, zero missing pool/template references. Eight chest tables lack dedicated jigsaw routes; Buried Observatory has a separate Java mineshaft binding. Four signature mobs still have eggs but no EntityInit registrations. Earlier seven tests/294-chunk seed-zero survey retained, not rerun. Additional seeds, habitats, natural hostile populations and client approval remain pending. No JAR or saves changed."
+  },
   "owner_acceptance": {
     "date": "2026-10-09",
     "approved": ["gates", "power", "pipes", "Flux Wrench", "gate transitions"],
