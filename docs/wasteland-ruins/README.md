@@ -1,5 +1,12 @@
 # Wasteland ruins — Prism Spire first implementation
 
+## Later authored layouts
+
+- [Frozen Outpost](frozen-outpost.md): two cold-weather shelters, including frozen wasteland eligibility.
+- [Impact Site](impact-site.md): two static barren-world craters, existing Stardust loot, separate from timed comet impacts.
+
+These later source layouts preserve approved blocks and loot. Natural-world and client evidence is tracked on Docs; the original Prism Spire notes below remain its own specification.
+
 This generator builds an original Concord ruin from the mod's existing
 Prismstone/Chiseled Prismstone/Cracked Prismstone Bricks and Pulsar Lamps.
 No textures or private reference artwork are copied. No new logs, characters,

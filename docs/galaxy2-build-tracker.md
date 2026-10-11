@@ -5,8 +5,10 @@
 > frozen-wasteland biome eligibility is repaired in the generator and runtime;
 > ordinary seed-zero `g2_p4` inspection confirms a natural start and its chest.
 > See [current Frozen Outpost evidence](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/frozen-wasteland-route-fix-2026-10-11.md).
-> The four dedicated wasteland structures still missing are Sunken Relay,
-> Buried Observatory, Sunken Lab and Impact Site. Historical counts and unchecked
+> Impact Site now has two authored barren-world crater variants with the existing
+> Stardust loot table; see [current evidence](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/blob/Docs/docs/impact-site-2026-10-11.md).
+> The three dedicated wasteland structures still missing are Sunken Relay,
+> Buried Observatory and Sunken Lab. Historical counts and unchecked
 > boxes below are not a current certification. Broad seeds and client approval
 > remain separate; do not invent pending lore or change the approved key contract.
 
