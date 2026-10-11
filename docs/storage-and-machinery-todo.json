@@ -2,10 +2,15 @@
   "schema": 1,
   "updated": "2026-10-11",
   "candidate_version": "1.0.12-dev",
+  "latest_derelict_wreck": {
+    "guide": "derelict-wreck-2026-10-11.md",
+    "status": "installed_focused_server_verified_pending_natural_and_client_review",
+    "scope": "Two small Frozen Graveyard ship variants now bind existing Derelict Wreck rewards. All two required focused tests passed 20261011_041047: eight rotated placements, access, real loot and native Eidolon terrain generation. Larger wrecks/Captain remain pending. Broad suite Moon gate-access reload assertion remains unresolved and tracked separately; approved gates unchanged. Natural ordinary-world discovery and client visuals remain pending."
+  },
   "latest_progression_audit": {
     "guide": "progression-reward-audit-2026-10-11.md",
     "report": "reports/progression-sources-20261011.json",
-    "scope": "22 key/template item sources audited. Twelve later-tier gear templates depend on three unbound chest tables (Collapsed Forge, Derelict Wreck, Solar Shrine) or unregistered alternate bosses. Captain/Heart inventory advancements do not implement peaceful encounter or ending choice. Preserve four-key Vault and approved gates. Bundled NBT audit reader removes external-library blocker; no runtime gameplay/JAR/save changes. Dedicated geometry and encounter specifications precede implementation."
+    "scope": "Historical 22-item audit: twelve later-tier gear templates depended on three unbound chest tables or unregistered alternate bosses. Subsequent small Derelict Wreck implementation now binds its four existing templates; natural discovery remains pending. Collapsed Forge/Solar Shrine and alternate bosses remain outstanding. Captain/Heart inventory advancements do not implement peaceful encounter or ending choice. Preserve four-key Vault and approved gates."
   },
   "latest_generation_sample": {
     "guide": "planet-generation-seed17-2026-10-11.md",
