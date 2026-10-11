@@ -8,9 +8,9 @@ The chest uses the existing Derelict Wreck loot table, including chances for Sal
 
 The focused tests check both layouts in all four orientations, chest lid clearance, corridor access, actual loaded loot and native Eidolon terrain generation. Ordinary-world discovery and client visual review are separate checks; a passing template test must not be presented as proof of those.
 
-Both required focused tests passed in `20261011_041047_runWorkflowTests.log`; the disposable server saved and stopped normally. The earlier broader run passed nine of eleven tests before the wreck bounds assertion was corrected. Its separate Moon gate reload assertion still requires investigation.
+Both required focused tests passed in `20261011_041047_runWorkflowTests.log`; the disposable server saved and stopped normally. The earlier broader run passed nine of eleven tests before the wreck bounds assertion and detached-controller fixture were corrected. The follow-up combined run passed all eleven required tests.
 
-The broader suite also exposed an existing Moon gate-access reload assertion failure. Its fixture constructs a detached controller, so the cause needs a focused loaded-controller persistence investigation. It remains unresolved; approved gate behavior has not been changed in this batch.
+The broader suite exposed a Moon gate-access reload assertion failure. Follow-up confirmed that its fixture queried a detached controller, correctly rejected by live-instance validation. The corrected fixture replaces the actual world controller and checks both restored access and stale-instance rejection. All eleven combined tests passed in `20261011_041843_runWorkflowTests.log`; see `gate-reload-fixture-2026-10-11.md`. Production gate behavior was unchanged.
 
 An initial wreck bounds assertion compared the terrain-blending reference box with the authored ship bounds. Minecraft expands that reference box by 12 blocks on each side. The test now checks the actual structure piece and the blending margin separately; the ship geometry was not enlarged.
 
@@ -19,7 +19,7 @@ An initial wreck bounds assertion compared the terrain-blending reference box wi
 - Collapsed Forge and Solar Shrine generation/rewards.
 - Larger wrecks, Eidolon Captain encounter and peaceful route.
 - Natural wreck discovery and client visual approval.
-- The separate gate-access reload regression investigation.
+- Whole-server restart coverage remains distinct from the now-passing installed-controller reload checks.
 - Exact survival costs and undefined bee research/biology rules remain deferred.
 
 Existing saves and the approved hub are unchanged. Newly generated Frozen Graveyard terrain is required for natural wreck placement.

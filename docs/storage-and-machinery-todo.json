@@ -2,10 +2,15 @@
   "schema": 1,
   "updated": "2026-10-11",
   "candidate_version": "1.0.12-dev",
+  "latest_gate_reload_audit": {
+    "guide": "gate-reload-fixture-2026-10-11.md",
+    "status": "test_fixture_corrected_combined_server_verified",
+    "scope": "Detached controller caused the old assertion, not production save corruption. Installed replacement reload and stale-instance rejection now checked across six tiers. All11 combined galaxy-access/wreck tests passed20261011_041843. Production code, installed JAR and saves unchanged; full-server restart is separate."
+  },
   "latest_derelict_wreck": {
     "guide": "derelict-wreck-2026-10-11.md",
     "status": "installed_focused_server_verified_pending_natural_and_client_review",
-    "scope": "Two small Frozen Graveyard ship variants now bind existing Derelict Wreck rewards. All two required focused tests passed 20261011_041047: eight rotated placements, access, real loot and native Eidolon terrain generation. Larger wrecks/Captain remain pending. Broad suite Moon gate-access reload assertion remains unresolved and tracked separately; approved gates unchanged. Natural ordinary-world discovery and client visuals remain pending."
+    "scope": "Two small Frozen Graveyard ship variants now bind existing Derelict Wreck rewards. All two required focused tests passed20261011_041047: eight rotated placements, access, real loot and native Eidolon terrain generation. Follow-up corrected detached-controller test setup: all11 combined tests passed20261011_041843 with production gates unchanged. Larger wrecks/Captain, natural ordinary-world discovery and client visuals remain pending."
   },
   "latest_progression_audit": {
     "guide": "progression-reward-audit-2026-10-11.md",
