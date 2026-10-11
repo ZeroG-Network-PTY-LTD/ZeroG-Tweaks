@@ -30,6 +30,15 @@ Aquatic cave kelp grows in source-water pockets, not flowing streams. Existing
 Prismlings inhabit Cerulon's dark crystal caves, including covered caves above
 sea level. Being underground does not make every surface creature a cave mob.
 
+## Collapsed Forges
+
+Search dry Skarn terrain and volcanic wasteland ash or basalt fields for ruined
+Concord smithies. Scorched Marble supports and broken Charwood roof beams frame
+an open passage, cold furnace and anvil. The chest can hold Ruskite, Pyrium,
+Tectium and Skarnite upgrade templates plus existing forge salvage; no individual
+chest guarantees a template. This ruin does not implement the Rift Tyrant fight
+or new smith dialogue.
+
 ## Small Hollow Fleet wrecks
 
 On Eidolon, search dry Frozen Graveyard terrain for damaged ships made from
