@@ -576,6 +576,87 @@ Remaining fire and progress survive save/reload. Changing comb type resets work.
 No FE or upgrade cards are required or supported here. This repair does not set
 survival crafting costs, change combustion-generator fuels or alter comb yields.
 ''')
+page('19_gas_separation.md', '19. Gas Separation', 'zerog_tweaks:water_separator', 190,
+     items=['zerog_tweaks:water_separator', 'zerog_tweaks:gas_canister'], body='''
+# Water Separation and Gas Transport
+
+<Row>
+  <BlockImage id="zerog_tweaks:water_separator" scale="3" />
+  <ItemImage id="zerog_tweaks:gas_canister" scale="3" />
+</Row>
+
+1. Place the Water Separator. Open its panel to identify the six **world faces**.
+2. The default **Up** face accepts water; **East** supplies hydrogen and **West** supplies oxygen.
+3. Connect power to an enabled FE input face. All six FE faces start enabled.
+4. Use **gas tubes**, not liquid pipes, to collect the gases in separate tanks.
+5. A gas canister holds up to 1,000 mB of one gas; partially filled canisters can be topped up with that same gas.
+
+Default processing uses 10 mB water and 2,000 FE over 100 ticks, producing
+20 mB hydrogen and 10 mB oxygen. Server settings can change these amounts;
+the live Recipe panel shows the current values. Three tanks hold 16,000 mB each
+and the FE buffer holds 200,000 FE. Either full gas tank safely pauses the job.
+Inputs are consumed only when a whole cycle completes.
+
+## Tubes and cards
+
+Gas-tube tiers follow Copper, Nullifite, Cyrrium, Tectium, Wraithsteel and Astrium.
+Keep hydrogen and oxygen networks separate. The weakest connected tier limits
+shared transfer rates; higher-tier branches do not bypass lower-tier sections.
+The separator accepts Acceleration and Energy Coil cards tiers 1-6, with the
+existing bounded speed/energy effects. It does not support Compact or Void cards.
+
+## Incorrect connections
+
+An enabled liquid pipe directly attached to a gas output vents up to 10 mB per
+second by default; the server can adjust or disable this loss. Hydrogen clouds
+give survival players within two blocks brief nausea and weakness when the
+outlet is unobstructed. Moving away stops refresh and the effects expire.
+Oxygen vent particles are non-toxic. Correct gas tubes, disabled faces, open
+outlets and full tanks do not leak. There are no explosions or terrain damage.
+Pressure gauges mean tank fullness, not a real physical pressure unit.
+
+Exact survival crafting costs and dedicated separator artwork remain pending.
+''')
+page('20_wasteland_creatures.md', '20. Wasteland Wildlife', 'zerog_tweaks:rime_stalker_spawn_egg', 200,
+     items=['zerog_tweaks:rime_stalker_spawn_egg', 'zerog_tweaks:crater_drifter_spawn_egg', 'zerog_tweaks:ash_strider_spawn_egg'], body='''
+# Wasteland Wildlife
+
+<Row>
+  <ItemImage id="zerog_tweaks:rime_stalker_spawn_egg" scale="3" />
+  <ItemImage id="zerog_tweaks:crater_drifter_spawn_egg" scale="3" />
+  <ItemImage id="zerog_tweaks:ash_strider_spawn_egg" scale="3" />
+</Row>
+
+## Rime Stalker
+
+Frozen wasteland glaciers, ice-spike forests and frozen canyons host this
+predator. It approaches from behind when you face it at a distance, then bites
+at close range. A successful bite adds 100 frozen ticks; the stalker itself
+cannot freeze. Existing loot includes Frost Pelt and a rare Cryo Core.
+Custom snowstorm concealment is pending while custom weather is paused.
+
+## Crater Drifter
+
+Barren cratered plains, dust badlands and canyon scars host this neutral
+floating scavenger. It drifts above the surface and does not seek out peaceful
+players. Attacking one provokes retaliation and alerts nearby drifters.
+It drops one Meteorite Fragment every 6,000 ticks; the timer survives reload.
+Its existing death loot includes Stardust. This is not a boss or a source of
+Broken Consoles, Dormant Wisps or Codex books.
+
+## Ash Strider
+
+Volcanic basalt fields, ash plains and lava lakes host this neutral mount.
+It can stand on lava and is immune to fire. Feed Cinder Caps to breed;
+use a saddle to mount, and the vanilla Warped Fungus on a Stick to steer.
+Breeding produces another Ash Strider, never a vanilla Strider.
+It retaliates when hurt but does not hunt players. Its existing rare death
+loot is Heatproof Plating. A dedicated Cinder-Cap steering tool and revised
+stomp artwork remain future work; no Nether jockeys spawn with it.
+
+Spawn eggs now create these mobs. Server registration and habitat checks do
+not establish natural encounter density or client visual approval.
+''')
 print(sorted(os.listdir(G)))
 from illustrated_journal import enhance
 enhance(A)
