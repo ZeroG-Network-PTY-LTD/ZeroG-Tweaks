@@ -2,6 +2,11 @@
   "schema": 1,
   "updated": "2026-10-11",
   "candidate_version": "1.0.12-dev",
+  "latest_progression_audit": {
+    "guide": "progression-reward-audit-2026-10-11.md",
+    "report": "reports/progression-sources-20261011.json",
+    "scope": "22 key/template item sources audited. Twelve later-tier gear templates depend on three unbound chest tables (Collapsed Forge, Derelict Wreck, Solar Shrine) or unregistered alternate bosses. Captain/Heart inventory advancements do not implement peaceful encounter or ending choice. Preserve four-key Vault and approved gates. Bundled NBT audit reader removes external-library blocker; no runtime gameplay/JAR/save changes. Dedicated geometry and encounter specifications precede implementation."
+  },
   "latest_generation_sample": {
     "guide": "planet-generation-seed17-2026-10-11.md",
     "report": "reports/planet-generation-seed17-20261011.json",
