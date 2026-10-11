@@ -18,6 +18,9 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
     private boolean showInputs;
     private MachineItemCatalog inputs;
     private ProcessingRecipePanel recipes;
+    private boolean recipeBrowser;
+    private int recipeAnchor(){return (width-174)/2+178;}
+    private int recipeTop(){return Math.max(24,(height-232)/2);}
     private final MachineFaceControls faceControls=new MachineFaceControls();
     public MachineWorkbenchScreen(AbstractContainerMenu menu,Inventory inventory,Component title,MachineGuiProfile profile) {
         super(menu,inventory,title);this.profile=profile;original=List.copyOf(menu.slots);
@@ -27,13 +30,19 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
     }
     @Override protected void init() {
         super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showInputs);int n=profile.roles().size();
+        if(recipeBrowser){
+            addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Back to machine"),b->{recipeBrowser=false;rebuildWidgets();}).bounds((width-140)/2,Math.min(height-22,recipeTop()+212),140,20).build());
+            return;
+        }
         inputs=new MachineItemCatalog(stack->original.stream().limit(profile.outputStart()).anyMatch(slot->slot.mayPlace(stack)));
         if(recipes==null&&net.zerog.tweaks.machine.LegacyRecipeCatalogue.supports(profile.id())&&menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides)
             recipes=new ProcessingRecipePanel(sides.sideMachine());
         if(imageWidth>256&&menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides)
             faceControls.add(leftPos+260,topPos+18,sides,w->addRenderableWidget(w),command->{if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,command);});
-        var browse=addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal(recipes==null?"Inputs":"Recipes"),b->{showInputs=!showInputs;rebuildWidgets();}).bounds(leftPos+196,topPos+3,52,16).build());
-        if(recipes!=null)browse.active=MachineItemCatalog.panelWidth(width,imageWidth)>=120;
+        addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal(recipes==null?"Inputs":"Recipes"),b->{
+            if(recipes!=null){recipeBrowser=true;quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();rebuildWidgets();}
+            else{showInputs=!showInputs;rebuildWidgets();}
+        }).bounds(leftPos+196,topPos+3,52,16).build());
         for(int i=0;i<original.size();i++) {
             if(menu instanceof net.zerog.tweaks.machine.MachineSideMenu sides&&net.zerog.tweaks.genetics.LegacyMachineCards.supports(sides.sideMachine())&&i>=original.size()-2)continue;
             int x,y;
@@ -67,6 +76,13 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
         }
     }
     @Override public void render(GuiGraphics g,int mouseX,int mouseY,float partial) {
+        if(recipeBrowser){
+            g.fill(0,0,width,height,0xff101c29);
+            g.drawCenteredString(font,"Machine recipes and upgrades",width/2,8,0xffe1edf7);
+            recipes.render(g,font,recipeAnchor(),recipeTop(),186,0,mouseX,mouseY);
+            for(var widget:renderables)widget.render(g,mouseX,mouseY,partial);
+            return;
+        }
         super.render(g,mouseX,mouseY,partial);renderTooltip(g,mouseX,mouseY);
         if(showInputs){if(recipes!=null)recipes.render(g,font,leftPos,topPos,width,imageWidth,mouseX,mouseY);else inputs.render(g,font,leftPos,topPos,width,imageWidth,mouseX,mouseY,"Accepted inputs");}
         var status=AlvearyMenuSync.clientState;
@@ -79,11 +95,13 @@ public final class MachineWorkbenchScreen extends AbstractContainerScreen<Abstra
     }
     private boolean recipeArea(double x,double y){int panel=MachineItemCatalog.panelWidth(width,imageWidth);return showInputs&&recipes!=null&&panel>=120&&x>=leftPos-panel-4&&x<leftPos-4&&y>=topPos&&y<topPos+208;}
     @Override public boolean mouseClicked(double x,double y,int button){
+        if(recipeBrowser){if(recipes.click(x,y,button,recipeAnchor(),recipeTop(),186,0))return true;for(var child:children())if(child.mouseClicked(x,y,button))return true;return true;}
         if(recipeArea(x,y)){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();return recipes.click(x,y,button,leftPos,topPos,width,imageWidth);}
         if(showInputs&&recipes==null&&inputs.click(x,y,leftPos,topPos,width,imageWidth))return true;return super.mouseClicked(x,y,button);
     }
     @Override protected boolean hasClickedOutside(double x,double y,int left,int top,int button){return !recipeArea(x,y)&&super.hasClickedOutside(x,y,left,top,button);}
-    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(recipeArea(x,y)){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();return true;}return super.mouseDragged(x,y,button,dx,dy);}
-    @Override public boolean mouseReleased(double x,double y,int button){if(recipeArea(x,y)){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();}return super.mouseReleased(x,y,button);}
-    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(showInputs&&recipes!=null&&recipes.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
+    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(recipeBrowser)return true;if(recipeArea(x,y)){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();return true;}return super.mouseDragged(x,y,button,dx,dy);}
+    @Override public boolean mouseReleased(double x,double y,int button){if(recipeBrowser)return true;if(recipeArea(x,y)){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();}return super.mouseReleased(x,y,button);}
+    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(recipeBrowser)return recipes.scroll(x,y,vertical,recipeAnchor(),recipeTop(),186,0);if(showInputs&&recipes!=null&&recipes.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
+    @Override public boolean keyPressed(int key,int scan,int modifiers){if(recipeBrowser){if(key==256){recipeBrowser=false;rebuildWidgets();}return true;}return super.keyPressed(key,scan,modifiers);}
 }

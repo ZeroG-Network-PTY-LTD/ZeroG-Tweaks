@@ -19,12 +19,19 @@ public abstract class OptionalGeneticsMixin {
     @Inject(method="tick",at=@At("HEAD"),cancellable=true,require=1)
     private static void zeroGGeneticsTick(@Coerce Object machine,Level level,CallbackInfo ci) {
         if(machine instanceof net.minecraft.world.level.block.entity.BlockEntity be&&GeneticsRuntime.legacyPowered(GeneticsRuntime.id(be))) {
-            if(GeneticsRuntime.state(be).getBoolean("card_dispatch"))return;
+            if(GeneticsRuntime.state(be).getBoolean("card_dispatch")){
+                if(GeneticsRuntime.id(be).equals("silk_weaver")){net.zerog.tweaks.genetics.SilkWeaverRuntime.tick(be);ci.cancel();}
+                return;
+            }
             if(net.zerog.tweaks.genetics.LegacyMachineCards.installed(be)){
                 net.zerog.tweaks.genetics.LegacyCardJobs.tick(be);ci.cancel();return;
             }
             if(GeneticsRuntime.state(be).contains("card_job"))net.zerog.tweaks.genetics.LegacyMachineCards.resetJob(be);
-            if(level.isClientSide||!net.zerog.tweaks.genetics.LegacyMachinePower.before(be))ci.cancel();
+            if(level.isClientSide||!net.zerog.tweaks.genetics.LegacyMachinePower.before(be)){ci.cancel();return;}
+            if(GeneticsRuntime.id(be).equals("silk_weaver")){
+                net.zerog.tweaks.genetics.SilkWeaverRuntime.tick(be);
+                net.zerog.tweaks.genetics.LegacyMachinePower.after(be);ci.cancel();
+            }
             return;
         }
         if(GeneticsRuntime.id(machine).equals("stardust_smelter")){net.zerog.tweaks.genetics.StardustSmelterRuntime.tick(machine);ci.cancel();}

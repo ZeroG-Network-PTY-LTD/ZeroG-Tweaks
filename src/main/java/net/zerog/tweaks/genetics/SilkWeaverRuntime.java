@@ -4,7 +4,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-/** Verified existing recipe: one thread -> one woven silk. No pattern consumption or invented FE. */
+/** Verified existing recipe: one thread -> one woven silk; LegacyMachinePower owns FE. */
 public final class SilkWeaverRuntime {
     public static void tick(Object object){
         if(!(object instanceof BlockEntity be)||!(be.getLevel() instanceof ServerLevel))return;

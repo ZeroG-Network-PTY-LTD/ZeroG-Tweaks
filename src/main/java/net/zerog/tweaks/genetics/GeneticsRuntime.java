@@ -20,7 +20,8 @@ public final class GeneticsRuntime {
         try{return (String)object.getClass().getMethod("getMachineId").invoke(object);}catch(ReflectiveOperationException ex){return "";}
     }
     public static boolean handles(String id){return id.equals("genetic_splicer")||id.equals("geno_station");}
-    public static boolean legacyPowered(String id){return id.equals("centrifuge")||id.equals("starmetal_smelter");}
+    public static final java.util.List<String> POWERED_PROCESSORS=java.util.List.of("centrifuge","gravitational_centrifuge","starmetal_smelter","silk_weaver","frame_assembler","frame_component_assembler","frame_infusion_altar","infusion_altar");
+    public static boolean legacyPowered(String id){return POWERED_PROCESSORS.contains(id);}
     public static boolean legacyFiltered(String id){return id.equals("stardust_smelter")||id.equals("starmetal_smelter")||id.equals("silk_weaver")||id.equals("frame_infusion_altar");}
     /** The verified addon's inventory lacks filters; apply its menu contract to pipes too. */
     public static net.neoforged.neoforge.items.IItemHandler legacyAutomation(Object machine) {

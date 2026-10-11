@@ -541,3 +541,22 @@ waterlogged chest/bars and unchanged chests/sunken_relay loot. Eight rotations
 verify access and actual Pearl loot; ordinary natural generation and saved
 water/support checks are separate. No distress dialogue, quest consequences,
 free machines or hidden coordinates are approved by decorative antenna artwork.
+
+## Legacy electric processors — 12 October
+
+Owner repair request supersedes the earlier no-FE frame/weaver contract.
+GeneticsRuntime.POWERED_PROCESSORS includes both centrifuges, Starmetal Smelter,
+Silk Weaver, both frame assemblers and both infusion altars. Register actual FE
+capabilities on every listed block, retain independent six-face controls and use
+the verified original recipe filters/outputs. New default work cost is20FE/t;
+the existing centrifuge20 and Starmetal80 costs remain configurable. Silk jobs
+are200 work calls, other legacy processors201. Card job scheduling, fingerprints
+and exact recipe-page FE/time must use those respective boundaries; both consumed
+frame ingredients participate in job invalidation. Acceleration/Coil support uses
+the existing2.5x/30% caps, not Compact/Void. Stardust remains furnace-fuel powered.
+Workbench Recipes now switches to a read-only view INSIDE the same container
+screen, with Back/Escape. Never open a separate Screen that closes the live menu,
+or disable recipes because the358px side-controls layout cannot fit a sidebar.
+Keep hidden inventory clicks/drag/hotbar actions blocked while browsing. Codex
+frame chapter and Design generator must match. Isolated processing/conduit tests
+do not certify client visual appearance.

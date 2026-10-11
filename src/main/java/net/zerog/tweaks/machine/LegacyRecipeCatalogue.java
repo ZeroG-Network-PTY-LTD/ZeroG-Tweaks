@@ -26,7 +26,7 @@ public final class LegacyRecipeCatalogue {
             if(twoInput(id))return pairedPages(id,families);
             if(id.equals("silk_weaver")){
                 var input=GeneticsRuntime.product("silk_thread");var output=GeneticsRuntime.product("woven_silk");
-                return input.isEmpty()||output.isEmpty()?List.of():List.of(page(id,input,List.of(output),Optional.empty(),0,200));
+                return input.isEmpty()||output.isEmpty()?List.of():List.of(page(id,input,List.of(output),Optional.empty(),200*LegacyMachinePower.cost(id),200));
             }
             var result=new ArrayList<ProcessingRecipeCatalogue.Page>();
             boolean centrifuge=id.equals("centrifuge")||id.equals("gravitational_centrifuge");
@@ -63,7 +63,7 @@ public final class LegacyRecipeCatalogue {
             var ak=BuiltInRegistries.ITEM.getKey(a.getItem());var bk=BuiltInRegistries.ITEM.getKey(b.getItem());
             pages.add(new ProcessingRecipeCatalogue.Page(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","legacy/"+id+"/"+ak.getNamespace()+"/"+ak.getPath()+"/"+bk.getNamespace()+"/"+bk.getPath()),
                 List.of(new ProcessingRecipe.Counted(Ingredient.of(a),1,true),new ProcessingRecipe.Counted(Ingredient.of(b),1,true)),Optional.empty(),
-                List.of(new ProcessingRecipe.Output(out.copy(),1)),0,201,0,201));
+                List.of(new ProcessingRecipe.Output(out.copy(),1)),201*LegacyMachinePower.cost(id),201,201*LegacyMachinePower.cost(id),201));
         }
         pages.sort(Comparator.comparing(p->p.id().toString()));return List.copyOf(pages);
     }
@@ -81,7 +81,7 @@ public final class LegacyRecipeCatalogue {
         if(matching.isEmpty()||machine==null||machine.getLevel()==null)return matching;
         boolean powered=GeneticsRuntime.legacyPowered(GeneticsRuntime.id(machine));
         int speed=powered?LegacyMachineCards.speed(machine):100,saving=powered?LegacyMachineCards.saving(machine):0;
-        int baseEnergy=powered?201*LegacyMachinePower.cost(GeneticsRuntime.id(machine)):0;
+        int baseEnergy=powered?LegacyMachinePower.workTicks(GeneticsRuntime.id(machine))*LegacyMachinePower.cost(GeneticsRuntime.id(machine)):0;
         return matching.stream().map(p->new ProcessingRecipeCatalogue.Page(p.id(),p.inputs(),p.catalyst(),p.outputs(),baseEnergy,p.baseTicks(),
             (int)(((long)baseEnergy*(100-saving)+99)/100),(p.baseTicks()*100+speed-1)/speed)).toList();
     }

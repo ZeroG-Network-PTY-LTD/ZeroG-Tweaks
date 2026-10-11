@@ -42,9 +42,9 @@ public final class AddonMachineContractGameTests {
         }
         h.succeed();
     }
-    @GameTest(templateNamespace="zerog_tweaks", template="equipment_empty", timeoutTicks=100)
-    public static void centrifuge_and_smelter_receive_actual_conduit_power(GameTestHelper h) {
-        for(String id:java.util.List.of("centrifuge","starmetal_smelter")) {
+    @GameTest(templateNamespace="zerog_recipe_legacy", template="equipment_empty", timeoutTicks=100)
+    public static void all_legacy_processors_receive_actual_conduit_power(GameTestHelper h) {
+        for(String id:GeneticsRuntime.POWERED_PROCESSORS) {
             var pos=new BlockPos(1,1,1);
             h.setBlock(pos,BuiltInRegistries.BLOCK.get(ResourceLocation.parse("aeroapiary:"+id)));
             var be=h.getBlockEntity(pos);
@@ -72,6 +72,7 @@ public final class AddonMachineContractGameTests {
             var be=h.getBlockEntity(pos);var inv=GeneticsRuntime.inventory(be);
             inv.setStackInSlot(0,GeneticsRuntime.product("silk_thread"));
             inv.setStackInSlot(2,GeneticsRuntime.product("woven_silk").copyWithCount(3));
+            GeneticsRuntime.state(be).putInt("energy",100000);
             var tick=Class.forName("com.zerog.aeroapiary.ZeroGMachines").getMethod("tick",be.getClass(),net.minecraft.world.level.Level.class);
             for(int i=0;i<201;i++)tick.invoke(null,be,h.getLevel());
             h.assertTrue(inv.getStackInSlot(0).isEmpty(),"Weaver failed to process thread");

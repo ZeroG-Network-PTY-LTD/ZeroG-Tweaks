@@ -8,7 +8,9 @@ import net.zerog.tweaks.power.PowerConfig;
 
 /** Power gate around verified addon recipes; no replacement recipe catalogue. */
 public final class LegacyMachinePower {
-    public static int cost(String id){return id.equals("centrifuge")?PowerConfig.CENTRIFUGE_COST.get():PowerConfig.STARMETAL_COST.get();}
+    public static int cost(String id){return id.equals("centrifuge")||id.equals("gravitational_centrifuge")?PowerConfig.CENTRIFUGE_COST.get():id.equals("starmetal_smelter")?PowerConfig.STARMETAL_COST.get():PowerConfig.LEGACY_PROCESSOR_COST.get();}
+    public static int workTicks(String id){return id.equals("silk_weaver")?200:201;}
+    public static int[] inputSlots(String id){return switch(id){case "starmetal_smelter"->new int[]{0,2};case "frame_assembler","frame_component_assembler","frame_infusion_altar","infusion_altar"->new int[]{0,1};default->new int[]{0};};}
     public static boolean before(BlockEntity be){
         var state=GeneticsRuntime.state(be);state.remove("paid_tick_cost");
         if(!ready(be)||state.getInt("energy")<cost(GeneticsRuntime.id(be)))return false;
@@ -34,9 +36,16 @@ public final class LegacyMachinePower {
         try {
             var inv=GeneticsRuntime.inventory(be);String id=GeneticsRuntime.id(be);
             var families=Class.forName("com.zerog.aeroapiary.ZeroGSlotFamilies");List<ItemStack> products;int start,end;
-            if(id.equals("centrifuge")){
+            if(id.equals("centrifuge")||id.equals("gravitational_centrifuge")){
                 var method=families.getDeclaredMethod("centrifugeProducts",ItemStack.class);method.setAccessible(true);
                 @SuppressWarnings("unchecked") var values=(List<ItemStack>)method.invoke(null,inv.getStackInSlot(0).copy());products=values;start=1;end=6;
+            }else if(id.equals("silk_weaver")){
+                var product=GeneticsRuntime.item(inv.getStackInSlot(0),"silk_thread")?GeneticsRuntime.product("woven_silk"):ItemStack.EMPTY;
+                products=product.isEmpty()?List.of():List.of(product);start=end=3;
+            }else if(id.equals("frame_assembler")||id.equals("frame_component_assembler")||id.equals("frame_infusion_altar")||id.equals("infusion_altar")){
+                var method=families.getDeclaredMethod(id.contains("assembler")?"frame":"infusion",ItemStack.class,ItemStack.class);method.setAccessible(true);
+                var product=(ItemStack)method.invoke(null,inv.getStackInSlot(0).copy(),inv.getStackInSlot(1).copy());
+                products=product.isEmpty()?List.of():List.of(product);start=end=id.equals("frame_infusion_altar")?3:2;
             }else{
                 var method=families.getDeclaredMethod("starmetal",ItemStack.class,ItemStack.class);method.setAccessible(true);
                 var product=(ItemStack)method.invoke(null,inv.getStackInSlot(0).copy(),inv.getStackInSlot(2).copy());

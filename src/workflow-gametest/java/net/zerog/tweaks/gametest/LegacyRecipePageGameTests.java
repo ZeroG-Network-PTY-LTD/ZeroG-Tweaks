@@ -57,7 +57,8 @@ public final class LegacyRecipePageGameTests {
             int output=id.equals("frame_infusion_altar")?3:2;
             for(var page:pages){
                 for(int i=0;i<inv.getSlots();i++)inv.setStackInSlot(i,ItemStack.EMPTY);
-                h.assertTrue(page.energy()==0&&page.ticks()==201&&page.inputs().size()==2&&page.catalyst().isEmpty()&&!LegacyMachineCards.supports(be),"Invented costs/cards or wrong slot contract");
+                h.assertTrue(page.energy()==201*LegacyMachinePower.cost(id)&&page.ticks()==201&&page.inputs().size()==2&&page.catalyst().isEmpty()&&LegacyMachineCards.supports(be),"Wrong powered recipe/card contract");
+                GeneticsRuntime.state(be).putInt("energy",100000);
                 for(int i=0;i<2;i++)inv.setStackInSlot(i,page.inputs().get(i).ingredient().getItems()[0].copyWithCount(2));
                 inv.setStackInSlot(output,new ItemStack(Items.DIRT));
                 for(int i=0;i<201;i++)tick(be);
@@ -79,7 +80,7 @@ public final class LegacyRecipePageGameTests {
     private static void tick(BlockEntity be){try{Class.forName("com.zerog.aeroapiary.ZeroGMachines").getMethod("tick",be.getClass(),net.minecraft.world.level.Level.class).invoke(null,be,be.getLevel());}catch(ReflectiveOperationException ex){throw new IllegalStateException(ex);}}
     @GameTest(templateNamespace="zerog_recipe_legacy",template="equipment_empty",timeoutTicks=200)
     public static void every_combination_matches_actual_processing_and_card_metrics(GameTestHelper h){
-        for(String id:new String[]{"centrifuge","starmetal_smelter"}){
+        for(String id:GeneticsRuntime.POWERED_PROCESSORS){
             var base=LegacyRecipeCatalogue.basePages(id);h.assertTrue(!base.isEmpty(),"Missing exact recipe pages for "+id);
             var be=machine(h,id);var inv=GeneticsRuntime.inventory(be);
             for(int tier=0;tier<=6;tier++){
@@ -90,15 +91,23 @@ public final class LegacyRecipePageGameTests {
                 for(var page:pages){
                     for(int i=0;i<inv.getSlots();i++)inv.setStackInSlot(i,ItemStack.EMPTY);
                     LegacyMachineCards.resetJob(be);GeneticsRuntime.state(be).putInt("energy",100000);
-                    var input=page.inputs().getFirst();inv.setStackInSlot(0,input.ingredient().getItems()[0].copyWithCount(input.count()));
+                    for(int i=0;i<page.inputs().size();i++){var input=page.inputs().get(i);inv.setStackInSlot(i,input.ingredient().getItems()[0].copyWithCount(input.count()));}
                     page.catalyst().ifPresent(c->inv.setStackInSlot(2,c.ingredient().getItems()[0].copyWithCount(c.count())));
+                    if(tier==0){
+                        GeneticsRuntime.state(be).putInt("energy",0);
+                        for(int step=0;step<page.ticks();step++)tick(be);
+                        h.assertTrue(inv.getStackInSlot(0).getCount()==page.inputs().getFirst().count(),"Unpowered processor consumed input: "+id);
+                        h.assertTrue(progress(be)==0,"Unpowered processor advanced: "+id);
+                        GeneticsRuntime.state(be).putInt("energy",100000);
+                    }
                     var before=be.getPersistentData().copy();var filtered=LegacyRecipeCatalogue.adjusted(be,base,page.outputs().getFirst().stack());
                     h.assertTrue(filtered.stream().anyMatch(p->p.id().equals(page.id()))&&before.equals(be.getPersistentData()),"Browsing mutated state or omitted output recipe");
                     for(int step=0;step<page.ticks();step++)tick(be);
                     h.assertTrue(inv.getStackInSlot(0).isEmpty(),"Advertised duration did not complete "+id+" tier "+tier);
                     h.assertTrue(100000-GeneticsRuntime.state(be).getInt("energy")==page.energy(),"Advertised FE differs from actual paid job");
                     for(var out:page.outputs()){
-                        int count=0;for(int i=id.equals("centrifuge")?1:3;i<= (id.equals("centrifuge")?6:3);i++)if(ItemStack.isSameItemSameComponents(inv.getStackInSlot(i),out.stack()))count+=inv.getStackInSlot(i).getCount();
+                        int start=id.contains("centrifuge")?1:id.equals("frame_assembler")||id.equals("frame_component_assembler")||id.equals("infusion_altar")?2:3;
+                        int count=0;for(int i=start;i<= (id.contains("centrifuge")?6:start);i++)if(ItemStack.isSameItemSameComponents(inv.getStackInSlot(i),out.stack()))count+=inv.getStackInSlot(i).getCount();
                         h.assertTrue(count==out.stack().getCount(),"Advertised output quantity differs from actual processing");
                     }
                     if(id.equals("starmetal_smelter"))h.assertTrue(page.catalyst().orElseThrow().consumed()&&inv.getStackInSlot(2).isEmpty(),"Smelter flux consumption not described");
@@ -108,12 +117,17 @@ public final class LegacyRecipePageGameTests {
         }
         h.succeed();
     }
+    private static int progress(BlockEntity be){try{return (Integer)be.getClass().getMethod("getProgress").invoke(be);}catch(ReflectiveOperationException ex){throw new IllegalStateException(ex);}}
     @GameTest(templateNamespace="zerog_recipe_legacy",template="equipment_empty",timeoutTicks=100)
-    public static void weaver_page_preserves_recovery_and_uses_no_power(GameTestHelper h){
+    public static void weaver_page_requires_power_and_preserves_recovery(GameTestHelper h){
         var be=machine(h,"silk_weaver");var pages=LegacyRecipeCatalogue.basePages("silk_weaver");h.assertTrue(pages.size()==1,"Missing Weaver recipe");
         var page=pages.getFirst();var inv=GeneticsRuntime.inventory(be);
         inv.setStackInSlot(0,GeneticsRuntime.product("silk_thread"));inv.setStackInSlot(2,new ItemStack(Items.DIRT));
-        h.assertTrue(page.energy()==0&&page.ticks()==200&&page.catalyst().isEmpty()&&!LegacyMachineCards.supports(be),"Invented Weaver power, catalyst or upgrades");
+        h.assertTrue(page.energy()==200*LegacyMachinePower.cost("silk_weaver")&&page.ticks()==200&&page.catalyst().isEmpty()&&LegacyMachineCards.supports(be),"Wrong Weaver power/catalyst/card contract");
+        for(int i=0;i<200;i++)tick(be);
+        h.assertTrue(inv.getStackInSlot(0).getCount()==1&&inv.getStackInSlot(3).isEmpty(),"Weaver processed without FE");
+        var energy=h.getLevel().getCapability(net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage.BLOCK,be.getBlockPos(),net.minecraft.core.Direction.NORTH);
+        h.assertTrue(energy!=null&&energy.receiveEnergy(page.energy(),false)==page.energy(),"Weaver cannot receive cable power");
         for(int i=0;i<200;i++)tick(be);
         h.assertTrue(inv.getStackInSlot(0).isEmpty()&&GeneticsRuntime.item(inv.getStackInSlot(3),"woven_silk")&&inv.getStackInSlot(3).getCount()==1&&inv.getStackInSlot(2).is(Items.DIRT),"Weaver page differs from actual recipe/recovery contract");h.succeed();
     }

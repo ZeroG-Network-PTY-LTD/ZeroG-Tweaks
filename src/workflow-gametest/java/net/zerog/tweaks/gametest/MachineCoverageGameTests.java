@@ -17,7 +17,8 @@ public final class MachineCoverageGameTests {
         for(String id:new String[]{"stardust_smelter","starmetal_smelter","silk_weaver","gravitational_centrifuge","centrifuge","frame_assembler","frame_component_assembler","frame_infusion_altar","infusion_altar","geno_station","genetic_splicer"}){
             var key=ResourceLocation.parse("aeroapiary:"+id);h.assertTrue(BuiltInRegistries.BLOCK.containsKey(key),"Audit cannot skip missing registered machine: "+id);
             var pos=new BlockPos(2,2,2);h.setBlock(pos,BuiltInRegistries.BLOCK.get(key));var be=h.getBlockEntity(pos);h.assertTrue(be!=null&&LegacyMachineSides.supports(be),"Machine has no side controller: "+id);
-            boolean powered=GeneticsRuntime.handles(id)||GeneticsRuntime.legacyPowered(id);
+            boolean powered=!id.equals("stardust_smelter");
+            h.assertTrue((GeneticsRuntime.handles(id)||GeneticsRuntime.legacyPowered(id))==powered,"Missing power contract on electric processor: "+id);
             h.assertTrue(LegacyMachineSides.supportsFamily(be,1)==powered&&LegacyMachineSides.supportsFamily(be,2)==GeneticsRuntime.handles(id),"Invented/missing FE or fluid faces: "+id);
             if(!GeneticsRuntime.handles(id))h.assertTrue(!LegacyRecipeCatalogue.basePages(id).isEmpty(),"Missing exact combinations: "+id);
             var player=h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);player.setPos(be.getBlockPos().getCenter());
