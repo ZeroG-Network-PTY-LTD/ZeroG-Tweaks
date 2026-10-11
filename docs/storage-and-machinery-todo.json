@@ -2,6 +2,11 @@
   "schema": 1,
   "updated": "2026-10-11",
   "candidate_version": "1.0.12-dev",
+  "latest_frozen_wasteland_route": {
+    "guide": "frozen-wasteland-route-fix-2026-10-11.md",
+    "status": "installed_source_and_galaxy_two_natural_verified_pending_client_and_later_galaxies",
+    "scope": "Fixed omitted frozen wasteland biome eligibility; generator and runtime agree. Two source regressions cover g2_p4/g3_p1/g4_p5/g5_p2 and exclude ocean. Ordinary seed0 g2_p4 chunk8,7 has one natural start and intended chest in49FULL chunks; three extra existing mine chests. Spacing/terrain/rewards unchanged. No hub or planetary terrain reset; later galaxy natural sites, broader seeds and client review pending."
+  },
   "latest_manufacturing_recipes": {
     "guide": "manufacturing-progression-recipes-2026-10-11.md",
     "status": "installed_server_verified_initial_manual_fabrication_pending_client_and_later_balance",
