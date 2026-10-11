@@ -83,12 +83,23 @@ public final class EntityInit {
 
     private EntityInit() {}
 
+    public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.AshStrider>> ASH_STRIDER =
+        ENTITIES.register("ash_strider",()->EntityType.Builder.<net.zerog.tweaks.entity.AshStrider>of(net.zerog.tweaks.entity.AshStrider::new,MobCategory.CREATURE).sized(1F,1.9F).fireImmune().build("zerog_tweaks:ash_strider"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.RimeStalker>> RIME_STALKER =
+        ENTITIES.register("rime_stalker",()->EntityType.Builder.<net.zerog.tweaks.entity.RimeStalker>of(net.zerog.tweaks.entity.RimeStalker::new,MobCategory.MONSTER).sized(.8F,1F).build("zerog_tweaks:rime_stalker"));
+    public static final DeferredHolder<EntityType<?>, EntityType<net.zerog.tweaks.entity.CraterDrifter>> CRATER_DRIFTER =
+        ENTITIES.register("crater_drifter",()->EntityType.Builder.<net.zerog.tweaks.entity.CraterDrifter>of(net.zerog.tweaks.entity.CraterDrifter::new,MobCategory.CREATURE).sized(.8F,1.4F).build("zerog_tweaks:crater_drifter"));
+
     public static void register(IEventBus modBus) {
         ENTITIES.register(modBus);
         modBus.addListener(EntityInit::attributes);
     }
 
     private static void attributes(EntityAttributeCreationEvent event) {
+        event.put(ASH_STRIDER.get(),net.zerog.tweaks.entity.AshStrider.createAttributes().build());
+        event.put(RIME_STALKER.get(),net.zerog.tweaks.entity.RimeStalker.createAttributes().build());
+        event.put(CRATER_DRIFTER.get(),net.zerog.tweaks.entity.CraterDrifter.createAttributes().build());
         event.put(METEOR_MAW.get(), net.zerog.tweaks.entity.MeteorMaw.createAttributes().build());
         event.put(CINDER_MITE.get(), net.zerog.tweaks.entity.CinderMite.createAttributes().build());
         event.put(REGOLITH_CRAWLER.get(), net.zerog.tweaks.entity.RegolithCrawler.createAttributes().build());

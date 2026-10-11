@@ -35,6 +35,15 @@ public final class ZGSpawnRules {
     @SubscribeEvent
     public static void register(RegisterSpawnPlacementsEvent event) {
         var replace = RegisterSpawnPlacementsEvent.Operation.REPLACE;
+        event.register(EntityInit.ASH_STRIDER.get(),SpawnPlacementTypes.IN_LAVA,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            (type,level,reason,pos,random)->{
+                var top=pos.mutable();
+                while(top.getY()<level.getMaxBuildHeight()-1&&level.getFluidState(top).is(net.minecraft.tags.FluidTags.LAVA))top.move(net.minecraft.core.Direction.UP);
+                return level.getBlockState(top).isAir();
+            },replace);
+        event.register(EntityInit.RIME_STALKER.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Monster::checkMonsterSpawnRules,replace);
+        event.register(EntityInit.CRATER_DRIFTER.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            (type,level,reason,pos,random)->level.getBlockState(pos.below()).isFaceSturdy(level,pos.below(),net.minecraft.core.Direction.UP)&&level.getRawBrightness(pos,0)>8,replace);
         event.register(EntityInit.MOON_HOPPER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ZGSpawnRules::landAnimal, replace);
         event.register(EntityInit.DUST_GRAZER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

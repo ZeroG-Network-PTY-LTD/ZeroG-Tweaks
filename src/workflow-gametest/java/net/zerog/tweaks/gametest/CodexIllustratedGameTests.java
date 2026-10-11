@@ -38,7 +38,7 @@ public final class CodexIllustratedGameTests {
         }
         var names=new java.util.ArrayList<String>(java.util.List.of("index.md","16_gate_atlas.md","17_machine_fieldbook.md","18_impacts.md"));
         for(int t=1;t<=6;t++)names.add("gate_t"+t+".md");
-        names.addAll(java.util.List.of("01_signal.md","03_power.md","04_launch.md","07_mining.md","09_tier2.md"));
+        names.addAll(java.util.List.of("01_signal.md","03_power.md","04_launch.md","07_mining.md","09_tier2.md","19_gas_separation.md","20_wasteland_creatures.md"));
         for(var name:names){
             var source=read(name);
             h.assertTrue(guideme.compiler.PageCompiler.parse("test",ResourceLocation.fromNamespaceAndPath("zerog_tweaks",name),source)!=null,"Page parse failed: "+name);

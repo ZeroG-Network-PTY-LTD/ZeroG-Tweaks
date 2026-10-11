@@ -21,6 +21,9 @@ public final class EntityInitHooks {
     @SuppressWarnings({"unchecked", "rawtypes"})
     @SubscribeEvent
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(EntityInit.RIME_STALKER.get(),c->new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c,"rime_stalker",.4F));
+        event.registerEntityRenderer(EntityInit.ASH_STRIDER.get(),c->new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c,"ash_strider",.5F));
+        event.registerEntityRenderer(EntityInit.CRATER_DRIFTER.get(),c->new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c,"crater_drifter",.4F));
         event.registerEntityRenderer(EntityInit.METEOR_MAW.get(),
                 c -> new net.zerog.tweaks.client.ZGGeoMobRenderer<>(c,"meteor_maw_ironfall",1.25F));
         event.registerEntityRenderer(EntityInit.CINDER_MITE.get(),
