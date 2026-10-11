@@ -30,5 +30,15 @@ Aquatic cave kelp grows in source-water pockets, not flowing streams. Existing
 Prismlings inhabit Cerulon's dark crystal caves, including covered caves above
 sea level. Being underground does not make every surface creature a cave mob.
 
+## Small Hollow Fleet wrecks
+
+On Eidolon, search dry Frozen Graveyard terrain for damaged ships made from
+Hull Plating and Corroded Hull. Enter through the broken sides; the central
+corridor leads to a real loot chest. Existing Derelict Wreck loot can include
+Salvium, Wraithsteel, Palladine and Eidolite upgrade templates, but individual
+chests do not guarantee one. Cryo Pods and Broken Consoles are existing salvage
+blocks here, not a completed final-log encounter. Large wrecks, their guardian
+and the Captain's peaceful route remain separate unfinished content.
+
 These changes appear in newly generated terrain; explored chunks keep their
 existing blocks. Read [the mining ladder](07_mining.md) before harvesting ores.
