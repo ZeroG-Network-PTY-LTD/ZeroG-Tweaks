@@ -56,6 +56,7 @@ public final class ZeroGTweaks {
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::tick);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::interact);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.PlanetTestHub::commands);
+        NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.ZeroAdminCommands::commands);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.travel.SurvivalGates::interact);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.PlanetGravity::changed);
         NeoForge.EVENT_BUS.addListener(net.zerog.tweaks.event.PlanetGravity::cloned);
