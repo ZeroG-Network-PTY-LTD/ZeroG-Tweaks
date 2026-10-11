@@ -53,7 +53,19 @@ public final class GalaxyMoonAccessGameTests {
             h.assertTrue(!gate.canReach("minecraft:overworld")&&!gate.canReach("minecraft:the_end"),"Self/unknown route exposed");
             var loaded=new SurvivalGateBlockEntity(at,gate.getBlockState());loaded.setLevel(level);
             loaded.loadWithComponents(gate.saveWithFullMetadata(level.registryAccess()),level.registryAccess());
+            // A detached deserialized instance is deliberately not a live controller.
+            h.assertTrue(loaded.formedTier()==0&&!loaded.canReach("zerog_tweaks:g2_moons"),"Detached controller bypassed live-instance validation");
+            int savedEnergy=gate.stored;
+            var saved=gate.saveWithFullMetadata(level.registryAccess());
+            var controllerState=gate.getBlockState();
+            level.setBlock(at,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
+            level.setBlock(at,controllerState,3);
+            loaded=(SurvivalGateBlockEntity)level.getBlockEntity(at);
+            loaded.loadWithComponents(saved,level.registryAccess());
+            h.assertTrue(loaded!=gate&&loaded.formedTier()==tier&&loaded.stored==savedEnergy,"Installed reload changed formation or saved energy");
+            h.assertTrue(gate.formedTier()==0&&!gate.canReach("zerog_tweaks:moon"),"Replaced controller retained travel access");
             h.assertTrue(loaded.canReach("zerog_tweaks:g2_moons")== (tier>=2),"Reload changed moon access");
+            gate=loaded;
             if(tier>1){
                 var edge=centre.offset(tier+1,-1,0);var state=level.getBlockState(edge);
                 level.setBlock(edge,net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),3);
