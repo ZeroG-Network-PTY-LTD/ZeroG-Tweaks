@@ -906,6 +906,10 @@ The Ingredients tab now includes **21 dimension-metal cogs and 21 compressed pla
 
 [Component IDs, metal families, verification and pending manufacturing rules](docs/manufacturing-components-2026-10-11.md) · [Editable source artwork and generator](https://github.com/ZeroG-Network-PTY-LTD/ZeroG-Tweaks/tree/Design/docs/manufacturing-components)
 
+## Administrator travel and inspection
+
+Operator-only `/zero` now provides fixed planet teleport shortcuts, structure locators, gate/energy diagnostics, six-face machine capability summaries and hub status. [Complete command guide and safety notes](docs/admin-commands-2026-10-11.md). Survival gates and their progression remain separate.
+
 ## Credits
 
 Jake M. and Co-Owner — ZeroG Network PTY LTD
