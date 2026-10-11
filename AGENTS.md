@@ -511,3 +511,16 @@ obstacles. Prismling cave exceptions apply only to covered authored Cerulon cave
 not arbitrary underground relocation of Moon/Mars surface mobs. Isolated ordinary
 server surveys are necessary for natural placement; GameTest structure settings
 cannot prove that. Production builds must exclude all optional test fixtures.
+
+## Submerged Relay placement — 11 October
+
+Sunken Relay uses a separate submerged_jigsaw type; do not weaken approved
+dry-land checks to allow ocean structures. Use OCEAN_FLOOR_WG, depth1 and an
+empty-builder guard before getBoundingBox: vanilla depth0 creates a stub with
+no pieces, as the first disposable locator exposed. Sample25 bounded columns
+for valid water above the entire piece and at most6 blocks of seabed variation;
+never fall back to a dry/shallow site. Templates contain explicit source water,
+waterlogged chest/bars and unchanged chests/sunken_relay loot. Eight rotations
+verify access and actual Pearl loot; ordinary natural generation and saved
+water/support checks are separate. No distress dialogue, quest consequences,
+free machines or hidden coordinates are approved by decorative antenna artwork.

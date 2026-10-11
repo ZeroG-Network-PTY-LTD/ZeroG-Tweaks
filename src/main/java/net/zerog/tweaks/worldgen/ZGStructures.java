@@ -24,6 +24,9 @@ public final class ZGStructures {
     public static final Supplier<StructureType<DryLandJigsawStructure>> DRY_LAND_JIGSAW =
             TYPES.register("dry_land_jigsaw", () -> () -> DryLandJigsawStructure.CODEC);
 
+    public static final Supplier<StructureType<SubmergedJigsawStructure>> SUBMERGED_JIGSAW =
+            TYPES.register("submerged_jigsaw", () -> () -> SubmergedJigsawStructure.CODEC);
+
     public static void register(IEventBus modBus) {
         TYPES.register(modBus);
         PIECES.register(modBus);
