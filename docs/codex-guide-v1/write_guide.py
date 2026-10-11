@@ -577,3 +577,5 @@ No FE or upgrade cards are required or supported here. This repair does not set
 survival crafting costs, change combustion-generator fuels or alter comb yields.
 ''')
 print(sorted(os.listdir(G)))
+from illustrated_journal import enhance
+enhance(A)
