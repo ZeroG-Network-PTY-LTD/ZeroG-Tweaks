@@ -1,5 +1,16 @@
 # ZeroG Tweaks
 
+## Wasteland creatures and field guide — 11 October 2026
+
+[Behavior, habitat and verification details](docs/wasteland-signatures-and-codex-2026-10-11.md).
+Rime Stalker, Crater Drifter and Ash Strider now use their existing approved
+models, textures, eggs and loot in gameplay. New Codex pages explain these
+creatures and Water Separator setup. Server checks cover habitat lists,
+freezing bites, saved fragment timers and saddle/breeding interactions.
+Natural encounter density and client visual approval remain pending; custom
+weather stays disabled. Undefined research rules and survival costs are not
+silently filled in.
+
 ## Incorrect gas connections — 11 October 2026
 
 [Leak rules and player checks](docs/gas-misbuild-effects-2026-10-11.md): connecting
