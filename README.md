@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Electric bee-machine repair — 12 October 2026
+
+[Power, recipes, test evidence and player checks](docs/legacy-processor-power-repair-2026-10-12.md).
+Silk Weaver, both centrifuges, frame assemblers and infusion altars now accept
+cable power with bounded Acceleration/Energy Coil support. Workbench recipes
+open a readable in-menu view instead of a disabled narrow sidebar. All8 final
+isolated tests passed; the same-version JAR is installed with an old-JAR backup.
+Client visual approval remains pending. Stardust retains furnace fuel.
+
+
 ## Bog Lurker and pending design decisions — 11 October 2026
 
 [Implemented behavior and selected-backlog status](docs/selected-backlog-and-bog-lurker-2026-10-11.md).
