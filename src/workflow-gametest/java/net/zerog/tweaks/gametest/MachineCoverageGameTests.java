@@ -23,9 +23,27 @@ public final class MachineCoverageGameTests {
             var player=h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);player.setPos(be.getBlockPos().getCenter());
             for(var side:Direction.values()){
                 var cached=h.getLevel().getCapability(Capabilities.ItemHandler.BLOCK,be.getBlockPos(),side);h.assertTrue(cached!=null,"No default item face: "+id);
+                ItemStack accepted=ItemStack.EMPTY;int inputSlot=-1;
+                search:for(int slot=0;slot<cached.getSlots();slot++)for(var item:BuiltInRegistries.ITEM){
+                    var candidate=new ItemStack(item);
+                    if(!candidate.isEmpty()&&cached.isItemValid(slot,candidate)&&cached.insertItem(slot,candidate,true).isEmpty()){
+                        accepted=candidate;inputSlot=slot;break search;
+                    }
+                }
+                h.assertTrue(inputSlot>=0,"No actually insertable test input: "+id);
                 h.assertTrue(LegacyMachineSides.command(be,player,503+side.ordinal()*4),"Off command rejected: "+id);
-                h.assertTrue(cached.insertItem(0,new ItemStack(Items.DIRT),false).is(Items.DIRT),"Disabled cached face accepted input: "+id);
+                h.assertTrue(cached.insertItem(inputSlot,accepted.copy(),false).getCount()==1,"Disabled cached face accepted valid input: "+id);
                 h.assertTrue(LegacyMachineSides.command(be,player,500+side.ordinal()*4),"Restore command rejected: "+id);
+                h.assertTrue(cached.insertItem(inputSlot,accepted.copy(),false).getCount()==1,"Restoring face revived stale handler: "+id);
+                var restored=h.getLevel().getCapability(Capabilities.ItemHandler.BLOCK,be.getBlockPos(),side);
+                h.assertTrue(restored!=null&&restored.insertItem(inputSlot,accepted.copy(),false).isEmpty(),"Restored face rejected valid input: "+id);
+                var recovered=restored.extractItem(inputSlot,1,false);
+                if(GeneticsRuntime.handles(id)){
+                    var retained=restored.getStackInSlot(inputSlot);
+                    h.assertTrue(recovered.isEmpty()&&retained.getCount()==1&&ItemStack.isSameItemSameComponents(retained,accepted),"Genetics specimen extraction/retention contract failed: "+id);
+                    // Fixture cleanup: players can recover specimens, but automated input extraction stays forbidden.
+                    GeneticsRuntime.inventory(be).extractItem(inputSlot,1,false);
+                }else h.assertTrue(recovered.getCount()==1&&ItemStack.isSameItemSameComponents(recovered,accepted),"Input round-trip lost/changed an item: "+id);
                 if(powered){h.assertTrue(LegacyMachineSides.command(be,player,527+side.ordinal()*4),"FE Off rejected: "+id);h.assertTrue(h.getLevel().getCapability(Capabilities.EnergyStorage.BLOCK,be.getBlockPos(),side)==null,"Disabled FE face still advertised: "+id);h.assertTrue(LegacyMachineSides.command(be,player,525+side.ordinal()*4),"FE Input rejected: "+id);}
             }
             h.assertTrue(LegacyMachineCards.supports(be)==powered,"Wrong upgrade contract: "+id);
