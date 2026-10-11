@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:rime_nickel_ingot"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "zerog_tweaks:manufacturing/rime_nickel_plate",
+      "zerog_tweaks:manufacturing/rime_nickel_cog"
+    ]
+  }
+}

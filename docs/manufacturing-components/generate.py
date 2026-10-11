@@ -85,7 +85,7 @@ def main():
                 sheet.paste(im.resize((56,56),Image.Resampling.NEAREST),(x,y),im.resize((56,56),Image.Resampling.NEAREST))
                 small=im.resize((16,16),Image.Resampling.NEAREST);sheet.paste(small,(x+20,y+64),small)
                 draw.text((x,y+84),kind,fill='#c48cff')
-                manifest.append({'id':identifier,'metal':metal,'planet':planet,'palette':ramp,'crafting':'pending_exact_costs_and_fabrication_route'})
+                manifest.append({'id':identifier,'metal':metal,'planet':planet,'palette':ramp,'crafting':'manual_bench_2_ingots_plate_4_ingots_cog'})
     # This resource has Windows line endings; preserve them to avoid a whole-file diff.
     langpath.write_text(json.dumps(lang,ensure_ascii=False,indent=2)+'\n', newline='\r\n')
     for kind,tag in (('cog','cogs'),('plate','plates')):
@@ -98,6 +98,6 @@ def main():
             common.write_text(json.dumps({'replace':False,'values':[f'zerog_tweaks:{r["id"]}']},indent=2)+'\n')
     (ROOT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     sheet.save(ROOT/'manufacturing-preview.png')
-    print(f'Generated {len(manifest)} components from {len(manifest)//2} dimension metals; no recipes invented.')
+    print(f'Generated {len(manifest)} component assets; run recipes.py for approved fabrication recipes.')
 
 if __name__=='__main__':main()

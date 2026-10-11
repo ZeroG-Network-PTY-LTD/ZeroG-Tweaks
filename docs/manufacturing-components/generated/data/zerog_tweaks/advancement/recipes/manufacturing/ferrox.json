@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "zerog_tweaks:ferrox_ingot"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "zerog_tweaks:manufacturing/ferrox_plate",
+      "zerog_tweaks:manufacturing/ferrox_cog"
+    ]
+  }
+}

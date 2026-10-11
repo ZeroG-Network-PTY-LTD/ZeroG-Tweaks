@@ -10,4 +10,8 @@ Run `python3 docs/manufacturing-components/generate.py --code /absolute/path/to/
 
 Only existing dimension-origin ingot metals are eligible. Overworld Nullifite, iron, copper, gold and all gemstone families are excluded. These new parts do not change tool tiers or make gate progression cheaper.
 
-Fabrication is intentionally pending: exact survival costs were deferred by the owner. There is no compressor machine in this batch and no invented shapeless “compression” recipe. Future machines should use the corresponding planet metals and harder story-aligned assembly steps as progression advances; agree quantities, energy, catalysts and fabrication equipment before enabling survival recipes.
+11 October follow-up: the owner continued after the proposed costs of two ingots per plate and four per cog. `recipes.py` now emits manual shaped crafting plus recipe-book unlocks for every family. This is initial bench fabrication, not a powered compressor. The original pending-cost note is superseded for these parts only; future machines and exact broader survival costs remain separate.
+
+Four existing casing stages use two plates, one cog, two local dusts, the previous core and any of the purple/blue/teal Star Glass variants. Output remains two casings and the predecessor chain is preserved. Two empty grid spaces leave room for future designs, but currently must stay empty. No mining/tool tiers, armour upgrades, recipe outputs or existing items are removed.
+
+Run `recipes.py --resources /absolute/path/to/1.21.x/src/main/resources` after older casing generators. Runtime and retained Design data must match. Step numbers refer to the existing mining ladder (profile level minus four), not new machine or gate tiers.
