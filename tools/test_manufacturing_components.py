@@ -1,7 +1,7 @@
 """Read-only component contract: metal whitelist, models, names, tags and native art.
 
-Use --jar after the normal build to check the exact deliverable. No runtime
-manufacturing recipes are assumed; their costs and machine route are pending.
+Use --jar after the normal build to check the exact deliverable. Initial manual
+fabrication is two ingots per plate/four per cog; powered machines remain future.
 """
 import argparse
 import io
@@ -18,6 +18,33 @@ EXPECTED=set('moonsteel lunarium ferrox olympium aresium cobaltium cyrrium aurel
 JAR=None
 
 class Components(unittest.TestCase):
+    def test_fabrication_costs_unlocks_and_casing_chain(self):
+        jar=ZipFile(JAR) if JAR else None
+        try:
+            def data(relative):
+                payload=(RES/relative).read_bytes()
+                if jar:self.assertEqual(jar.read(relative),payload)
+                return json.loads(payload)
+            for metal in EXPECTED:
+                for kind,count in [('plate',2),('cog',4)]:
+                    recipe=data(f'data/zerog_tweaks/recipe/manufacturing/{metal}_{kind}.json')
+                    self.assertEqual(''.join(recipe['pattern']).count('I'),count)
+                    self.assertEqual(recipe['key']['I']['item'],f'zerog_tweaks:{metal}_ingot')
+                    self.assertEqual(recipe['result'],{'id':f'zerog_tweaks:{metal}_{kind}','count':1})
+                unlock=data(f'data/zerog_tweaks/advancement/recipes/manufacturing/{metal}.json')
+                self.assertEqual(set(unlock['rewards']['recipes']),{f'zerog_tweaks:manufacturing/{metal}_{k}' for k in ('cog','plate')})
+                self.assertEqual(unlock['criteria']['has_ingot']['conditions']['items'][0]['items'],f'zerog_tweaks:{metal}_ingot')
+            glass=data('data/zerog_tweaks/tags/item/manufacturing/star_glass.json')
+            self.assertEqual(set(glass['values']),{'zerog_tweaks:'+s for s in ('star_glass','star_glass_blue','star_glass_teal')})
+            for metal,core in [('cyrrium','minecraft:iron_block'),('tectium','zerog_tweaks:cyrrium_casing'),('wraithsteel','zerog_tweaks:tectium_casing'),('astrium','zerog_tweaks:wraithsteel_casing')]:
+                recipe=data(f'data/zerog_tweaks/recipe/{metal}_casing.json')
+                self.assertEqual(recipe['pattern'],['PCP','D#D',' G '])
+                self.assertEqual(recipe['key']['#']['item'],core)
+                self.assertEqual(recipe['key']['G']['tag'],'zerog_tweaks:manufacturing/star_glass')
+                self.assertEqual(recipe['result']['count'],2)
+        finally:
+            if jar:jar.close()
+
     def test_only_dimension_metals(self):
         java=(ROOT/'src/main/java/net/zerog/tweaks/registry/ZGManufacturingComponents.java').read_text()
         metals=set(re.findall(r'"([a-z_]+)"',java.split('public static void init')[0]))
