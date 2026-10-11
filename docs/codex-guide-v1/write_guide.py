@@ -630,6 +630,18 @@ outlets and full tanks do not leak. There are no explosions or terrain damage.
 Pressure gauges mean tank fullness, not a real physical pressure unit.
 
 Exact survival crafting costs and dedicated separator artwork remain pending.
+
+## Recipes and diagnostics
+
+The Recipes button opens a read-only view inside the current machine menu.
+Back or Escape returns to the machine without closing its inventory. The
+separator's recipe, container examples and upgrade tabs show server-configured
+mB, FE and processing time. Bucket and canister icons are examples, not a
+requirement to consume a whole container.
+
+In Configure mode, right-click a supported machine with the Flux Wrench for
+a temporary, read-only port hologram. It shows six world faces and the stored
+energy snapshot for 15 seconds; click again to refresh. It does not alter modes.
 ''')
 page('20_wasteland_creatures.md', '20. Wasteland Wildlife', 'zerog_tweaks:rime_stalker_spawn_egg', 200,
      items=['zerog_tweaks:rime_stalker_spawn_egg', 'zerog_tweaks:crater_drifter_spawn_egg', 'zerog_tweaks:ash_strider_spawn_egg'], body='''
@@ -676,6 +688,18 @@ eyes near the surface. Its spit is a moving projectile: 5 damage and Poison II
 for 80 ticks on a successful hit, within 10 blocks and with line of sight.
 It does not corrode terrain. Existing drops include Lurker Legs, Venom Glands
 and a rare Neutralizer. Dedicated swim/spit artwork and natural density need review.
+
+Idle lurkers seek nearby loaded acid pools. Acid immersion permits spawning
+only when unobstructed; natural acid-pool spawning requires dim light.
+Acid and poison immunity also protects them while chasing prey in a pool.
+
+## Ocean Tidewraith
+
+Regular Tidewraiths can spawn above exposed water in deep trenches, kelp jungles
+and island chains. Defaults use single-mob groups, a one-in-eight natural
+placement check and a nearby limit of two within 128 blocks. Server settings
+can change the chance and limit. Covered water, dry land and acid are rejected.
+This does not add natural boss spawning or require player insomnia.
 
 Spawn eggs now create these mobs. Server registration and habitat checks do
 not establish natural encounter density or client visual approval.
