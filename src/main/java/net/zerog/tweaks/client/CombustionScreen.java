@@ -16,12 +16,13 @@ public final class CombustionScreen extends AbstractContainerScreen<CombustionMe
     private boolean showFuels;
     private boolean fuelFaces;
     private GeneratorRecipePanel fuels;
+    private final RecipeBrowser browser=new RecipeBrowser();
     public CombustionScreen(CombustionMenu menu,Inventory inventory,Component title){super(menu,inventory,title);imageWidth=278;imageHeight=210;inventoryLabelY=117;}
     @Override protected void init(){
         super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showFuels);
         if(fuels==null)fuels=new GeneratorRecipePanel(menu);
-        var recipes=addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Recipes / Fuels"),b->{showFuels=!showFuels;rebuildWidgets();}).bounds(leftPos+180,topPos+168,94,16).build());
-        recipes.active=MachineItemCatalog.panelWidth(width,imageWidth)>=120;
+        if(browser.init(width,height,fuels,w->addRenderableWidget(w),this::rebuildWidgets))return;
+        addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Recipes / Fuels"),b->{cancelRecipeDrag();browser.open();rebuildWidgets();}).bounds(leftPos+180,topPos+168,94,16).build());
         addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal(fuelFaces?"Show power":"Show fuel"),b->{fuelFaces=!fuelFaces;rebuildWidgets();}).bounds(leftPos+180,topPos+148,94,18).build());
         addRenderableWidget(fuelFaces?new SideConfigurationPanel(leftPos+180,topPos+18,s->menu.fuelDisabled(s)?3:1,s->send(200+s*2+(menu.fuelDisabled(s)?0:1))," (fuel only)",true).labels("Fuel faces","Items only"):
             new SideConfigurationPanel(leftPos+180,topPos+18,s->menu.outputDisabled(s)?3:2,s->send((menu.outputDisabled(s)?106:100)+s)," (generator output)").outputOnly());
@@ -49,13 +50,15 @@ public final class CombustionScreen extends AbstractContainerScreen<CombustionMe
     }
     private boolean recipeArea(double x,double y){return showFuels&&fuels.contains(x,y,leftPos,topPos,width,imageWidth);}
     private void cancelRecipeDrag(){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();}
-    @Override public boolean mouseClicked(double x,double y,int button){if(recipeArea(x,y)){cancelRecipeDrag();return fuels.click(x,y,button,leftPos,topPos,width,imageWidth);}return super.mouseClicked(x,y,button);}
+    @Override public boolean mouseClicked(double x,double y,int button){if(browser.isOpen()){browser.click(fuels,x,y,button,width,height);for(var child:children())if(child.mouseClicked(x,y,button))return true;return true;}if(recipeArea(x,y)){cancelRecipeDrag();return fuels.click(x,y,button,leftPos,topPos,width,imageWidth);}return super.mouseClicked(x,y,button);}
     @Override protected boolean hasClickedOutside(double x,double y,int left,int top,int button){return !recipeArea(x,y)&&super.hasClickedOutside(x,y,left,top,button);}
-    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(recipeArea(x,y)){cancelRecipeDrag();return true;}return super.mouseDragged(x,y,button,dx,dy);}
-    @Override public boolean mouseReleased(double x,double y,int button){if(recipeArea(x,y))cancelRecipeDrag();return super.mouseReleased(x,y,button);}
-    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(showFuels&&fuels.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
+    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(browser.isOpen())return true;if(recipeArea(x,y)){cancelRecipeDrag();return true;}return super.mouseDragged(x,y,button,dx,dy);}
+    @Override public boolean mouseReleased(double x,double y,int button){if(browser.consumeRelease(button))return true;if(recipeArea(x,y))cancelRecipeDrag();return super.mouseReleased(x,y,button);}
+    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(browser.isOpen())return browser.scroll(fuels,x,y,vertical,width,height);if(showFuels&&fuels.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
+    @Override public boolean keyPressed(int key,int scan,int modifiers){return browser.key(key,this::rebuildWidgets)||super.keyPressed(key,scan,modifiers);}
     @Override protected void renderLabels(GuiGraphics g,int x,int y){g.drawString(font,font.plainSubstrByWidth(title.getString(),160),titleLabelX,titleLabelY,0xffe6f4ff,false);g.drawString(font,playerInventoryTitle,inventoryLabelX,inventoryLabelY,0xffe6f4ff,false);}
     @Override public void render(GuiGraphics g,int x,int y,float partial){
+        if(browser.render(g,font,width,height,x,y,partial,fuels,renderables))return;
         super.render(g,x,y,partial);renderTooltip(g,x,y);
         if(showFuels)fuels.render(g,font,leftPos,topPos,width,imageWidth,x,y);
         if(x>=leftPos+128&&x<leftPos+140&&y>=topPos+22&&y<topPos+78)g.renderTooltip(font,Component.literal(menu.energy()+" / "+menu.capacity()+" FE"),x,y);

@@ -14,12 +14,13 @@ public final class PowerScreen extends AbstractContainerScreen<PowerMenu> {
     private boolean showInputs;
     private boolean fuelFaces;
     private GeneratorRecipePanel inputs;
+    private final RecipeBrowser browser=new RecipeBrowser();
     public PowerScreen(PowerMenu m,Inventory inv,Component title){super(m,inv,title);imageWidth=278;imageHeight=194;inventoryLabelY=101;}
     @Override protected void init(){
         super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showInputs);
         if(inputs==null)inputs=new GeneratorRecipePanel(menu);
-        var recipes=addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Recipes"),b->{showInputs=!showInputs;rebuildWidgets();}).bounds(leftPos+119,topPos+3,49,16).build());
-        recipes.active=MachineItemCatalog.panelWidth(width,imageWidth)>=120;
+        if(browser.init(width,height,inputs,w->addRenderableWidget(w),this::rebuildWidgets))return;
+        addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal("Recipes"),b->{cancelRecipeDrag();browser.open();rebuildWidgets();}).bounds(leftPos+119,topPos+3,49,16).build());
         if(!menu.solar()){
             addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.literal(fuelFaces?"Show power":"Show fuel"),b->{fuelFaces=!fuelFaces;rebuildWidgets();}).bounds(leftPos+180,topPos+148,94,18).build());
         }
@@ -40,14 +41,15 @@ public final class PowerScreen extends AbstractContainerScreen<PowerMenu> {
         for(var slot:menu.slots)g.fill(leftPos+slot.x-1,topPos+slot.y-1,leftPos+slot.x+17,topPos+slot.y+17,0xff08111d);
     }
     @Override protected void renderLabels(GuiGraphics g,int x,int y){g.drawString(font,font.plainSubstrByWidth(title.getString(),105),titleLabelX,titleLabelY,0xffe0eeff,false);g.drawString(font,playerInventoryTitle,inventoryLabelX,inventoryLabelY,0xffe0eeff,false);}
-    @Override public void render(GuiGraphics g,int x,int y,float partial){super.render(g,x,y,partial);renderTooltip(g,x,y);if(showInputs)inputs.render(g,font,leftPos,topPos,width,imageWidth,x,y);if(x>=leftPos+8&&x<leftPos+166&&y>=topPos+65&&y<topPos+86)g.renderTooltip(font,Component.literal(menu.value(0)+" / "+menu.value(1)+" FE"),x,y);int sx=menu.solar()?26:48;if(isHovering(sx,44,16,16,x,y))g.renderTooltip(font,Component.literal("Generator Flux Modules (maximum 3). Drain stored FE below the smaller buffer before removing a module."),x,y);}
+    @Override public void render(GuiGraphics g,int x,int y,float partial){if(browser.render(g,font,width,height,x,y,partial,inputs,renderables))return;super.render(g,x,y,partial);renderTooltip(g,x,y);if(showInputs)inputs.render(g,font,leftPos,topPos,width,imageWidth,x,y);if(x>=leftPos+8&&x<leftPos+166&&y>=topPos+65&&y<topPos+86)g.renderTooltip(font,Component.literal(menu.value(0)+" / "+menu.value(1)+" FE"),x,y);int sx=menu.solar()?26:48;if(isHovering(sx,44,16,16,x,y))g.renderTooltip(font,Component.literal("Generator Flux Modules (maximum 3). Drain stored FE below the smaller buffer before removing a module."),x,y);}
     private boolean recipeArea(double x,double y){return showInputs&&inputs.contains(x,y,leftPos,topPos,width,imageWidth);}
     private void cancelRecipeDrag(){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();}
-    @Override public boolean mouseClicked(double x,double y,int button){if(recipeArea(x,y)){cancelRecipeDrag();return inputs.click(x,y,button,leftPos,topPos,width,imageWidth);}return super.mouseClicked(x,y,button);}
+    @Override public boolean mouseClicked(double x,double y,int button){if(browser.isOpen()){browser.click(inputs,x,y,button,width,height);for(var child:children())if(child.mouseClicked(x,y,button))return true;return true;}if(recipeArea(x,y)){cancelRecipeDrag();return inputs.click(x,y,button,leftPos,topPos,width,imageWidth);}return super.mouseClicked(x,y,button);}
     @Override protected boolean hasClickedOutside(double x,double y,int left,int top,int button){return !recipeArea(x,y)&&super.hasClickedOutside(x,y,left,top,button);}
-    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(recipeArea(x,y)){cancelRecipeDrag();return true;}return super.mouseDragged(x,y,button,dx,dy);}
-    @Override public boolean mouseReleased(double x,double y,int button){if(recipeArea(x,y))cancelRecipeDrag();return super.mouseReleased(x,y,button);}
-    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(showInputs&&inputs.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
+    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(browser.isOpen())return true;if(recipeArea(x,y)){cancelRecipeDrag();return true;}return super.mouseDragged(x,y,button,dx,dy);}
+    @Override public boolean mouseReleased(double x,double y,int button){if(browser.consumeRelease(button))return true;if(recipeArea(x,y))cancelRecipeDrag();return super.mouseReleased(x,y,button);}
+    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(browser.isOpen())return browser.scroll(inputs,x,y,vertical,width,height);if(showInputs&&inputs.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
+    @Override public boolean keyPressed(int key,int scan,int modifiers){return browser.key(key,this::rebuildWidgets)||super.keyPressed(key,scan,modifiers);}
     @EventBusSubscriber(modid="zerog_tweaks",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
     public static final class Registration {@SubscribeEvent public static void screens(RegisterMenuScreensEvent e){e.register(PowerRegistry.MENU.get(),PowerScreen::new);}}
 }

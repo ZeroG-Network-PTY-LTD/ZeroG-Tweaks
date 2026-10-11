@@ -18,9 +18,21 @@ public final class AlvearyRuntimeScreen extends AbstractContainerScreen<AlvearyM
     private static final ResourceLocation BG=ResourceLocation.fromNamespaceAndPath("zerog_tweaks","textures/gui/alveary_controller_runtime.png"),ATLAS=ResourceLocation.fromNamespaceAndPath("zerog_tweaks","textures/gui/alveary_controller_widgets.png");
     private boolean genome;
     private boolean showRecipes;private AlvearyRecipePanel recipes;
+    private final RecipeBrowser browser=new RecipeBrowser();
     public AlvearyRuntimeScreen(AlvearyMenu menu,Inventory inv,Component title){super(menu,inv,title);imageWidth=256;imageHeight=250;inventoryLabelX=48;inventoryLabelY=158;}
     private void send(int id){if(minecraft!=null&&minecraft.gameMode!=null)minecraft.gameMode.handleInventoryButtonClick(menu.containerId,id);}
-    @Override protected void init(){super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showRecipes);if(recipes==null){recipes=new AlvearyRecipePanel(menu);AlvearyRecipeSync.clientState=null;}net.zerog.tweaks.event.AlvearyMenuSync.clientState=new net.zerog.tweaks.event.AlvearyMenuSync.State(-1,0,false,"");var button=addRenderableWidget(Button.builder(Component.literal("Recipes"),b->{showRecipes=!showRecipes;rebuildWidgets();}).bounds(leftPos+78,topPos+2,58,14).build());button.active=MachineItemCatalog.panelWidth(width,imageWidth)>=120;addRenderableWidget(Button.builder(Component.literal("?"),b->genome=!genome).bounds(leftPos+19,topPos+76,12,12).build());addRenderableWidget(Button.builder(Component.literal("E"),b->send(0)).bounds(leftPos+139,topPos+79,12,12).build());addRenderableWidget(Button.builder(Component.literal("S"),b->send(1)).bounds(leftPos+181,topPos+79,12,12).build());addRenderableWidget(Button.builder(Component.literal(">"),b->send(2)).bounds(leftPos+167,topPos+79,12,12).build());addRenderableWidget(Button.builder(Component.literal("V"),b->send(hasShiftDown()?4:3)).bounds(leftPos+153,topPos+79,12,12).build());}
+    @Override protected void init(){
+        super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showRecipes);
+        if(recipes==null){recipes=new AlvearyRecipePanel(menu);AlvearyRecipeSync.clientState=null;}
+        if(browser.init(width,height,recipes,w->addRenderableWidget(w),this::rebuildWidgets))return;
+        net.zerog.tweaks.event.AlvearyMenuSync.clientState=new net.zerog.tweaks.event.AlvearyMenuSync.State(-1,0,false,"");
+        addRenderableWidget(Button.builder(Component.literal("Recipes"),b->{cancelRecipeDrag();browser.open();rebuildWidgets();}).bounds(leftPos+78,topPos+2,58,14).build());
+        addRenderableWidget(Button.builder(Component.literal("?"),b->genome=!genome).bounds(leftPos+19,topPos+76,12,12).build());
+        addRenderableWidget(Button.builder(Component.literal("E"),b->send(0)).bounds(leftPos+139,topPos+79,12,12).build());
+        addRenderableWidget(Button.builder(Component.literal("S"),b->send(1)).bounds(leftPos+181,topPos+79,12,12).build());
+        addRenderableWidget(Button.builder(Component.literal(">"),b->send(2)).bounds(leftPos+167,topPos+79,12,12).build());
+        addRenderableWidget(Button.builder(Component.literal("V"),b->send(hasShiftDown()?4:3)).bounds(leftPos+153,topPos+79,12,12).build());
+    }
     private void sprite(GuiGraphics g,int u,int v,int w,int h,int x,int y){g.blit(ATLAS,leftPos+x,topPos+y,u,v,w,h,256,256);}
     @Override protected void renderBg(GuiGraphics g,float partial,int x,int y){g.blit(BG,leftPos,topPos,0,0,256,250,256,256);
         if(menu.slots.get(1).getItem().isEmpty())sprite(g,80,82,18,18,16,54);
@@ -34,7 +46,7 @@ public final class AlvearyRuntimeScreen extends AbstractContainerScreen<AlvearyM
     }
     @Override protected void renderLabels(GuiGraphics g,int x,int y){g.drawString(font,"Alveary T"+menu.value(0),8,5,0x404040,false);g.drawString(font,font.plainSubstrByWidth(status(),100),142,5,0x404040,false);g.drawString(font,"Inventory",48,158,0x404040,false);}
     private String status(){return switch(menu.value(1)){case 13->"Honey tank blocked";case 12->"Structure incomplete";case 11->"Needs FE";case 10->"Outputs full";case 8->"Resting";case 9->"Rain";case 1->"Missing supported bee / recipe";default->"Working";};}
-    @Override public void render(GuiGraphics g,int x,int y,float partial){super.render(g,x,y,partial);renderTooltip(g,x,y);
+    @Override public void render(GuiGraphics g,int x,int y,float partial){if(browser.render(g,font,width,height,x,y,partial,recipes,renderables))return;super.render(g,x,y,partial);renderTooltip(g,x,y);
         if(showRecipes)recipes.render(g,font,leftPos,topPos,width,imageWidth,x,y);
         var formation=net.zerog.tweaks.event.AlvearyMenuSync.clientState;
         if(isHovering(142,3,106,12,x,y)&&menu.value(1)==13)
@@ -52,11 +64,12 @@ public final class AlvearyRuntimeScreen extends AbstractContainerScreen<AlvearyM
     }
     private boolean recipeArea(double x,double y){return showRecipes&&recipes.contains(x,y,leftPos,topPos,width,imageWidth);}
     private void cancelRecipeDrag(){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();}
-    @Override public boolean mouseClicked(double x,double y,int button){if(recipeArea(x,y)){cancelRecipeDrag();return recipes.click(x,y,button,leftPos,topPos,width,imageWidth);}return super.mouseClicked(x,y,button);}
+    @Override public boolean mouseClicked(double x,double y,int button){if(browser.isOpen()){browser.click(recipes,x,y,button,width,height);for(var child:children())if(child.mouseClicked(x,y,button))return true;return true;}if(recipeArea(x,y)){cancelRecipeDrag();return recipes.click(x,y,button,leftPos,topPos,width,imageWidth);}return super.mouseClicked(x,y,button);}
     @Override protected boolean hasClickedOutside(double x,double y,int left,int top,int button){return !recipeArea(x,y)&&super.hasClickedOutside(x,y,left,top,button);}
-    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(recipeArea(x,y)){cancelRecipeDrag();return true;}return super.mouseDragged(x,y,button,dx,dy);}
-    @Override public boolean mouseReleased(double x,double y,int button){if(recipeArea(x,y))cancelRecipeDrag();return super.mouseReleased(x,y,button);}
-    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(showRecipes&&recipes.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
+    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(browser.isOpen())return true;if(recipeArea(x,y)){cancelRecipeDrag();return true;}return super.mouseDragged(x,y,button,dx,dy);}
+    @Override public boolean mouseReleased(double x,double y,int button){if(browser.consumeRelease(button))return true;if(recipeArea(x,y))cancelRecipeDrag();return super.mouseReleased(x,y,button);}
+    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(browser.isOpen())return browser.scroll(recipes,x,y,vertical,width,height);if(showRecipes&&recipes.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
+    @Override public boolean keyPressed(int key,int scan,int modifiers){return browser.key(key,this::rebuildWidgets)||super.keyPressed(key,scan,modifiers);}
     @EventBusSubscriber(modid="zerog_tweaks",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
     public static class Registration {@SubscribeEvent public static void register(RegisterMenuScreensEvent event){event.register(AlvearyRegistry.MENU.get(),AlvearyRuntimeScreen::new);}}
 }

@@ -11,6 +11,23 @@ import net.zerog.tweaks.registry.*;
 @GameTestHolder("zerog_gas_production")
 @PrefixGameTestTemplate(false)
 public final class GasProductionGameTests {
+    @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=100)
+    public static void separator_recipe_pages_match_real_outputs_and_costs_for_every_card_tier(GameTestHelper h){
+        var b=machine(h);var player=h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var menu=new GasSeparatorMenu(1,player.getInventory(),b);
+        for(int tier=0;tier<=6;tier++){
+            b.cards.setStackInSlot(0,tier==0?ItemStack.EMPTY:new ItemStack(ItemInit.MACHINE_UPGRADE_CARDS.get("acceleration_upgrade_card_t"+tier).get()));
+            b.cards.setStackInSlot(1,tier==0?ItemStack.EMPTY:new ItemStack(ItemInit.MACHINE_UPGRADE_CARDS.get("energy_coil_upgrade_card_t"+tier).get()));
+            b.water.setFluid(new FluidStack(Fluids.WATER,1000));b.hydrogen.setFluid(FluidStack.EMPTY);b.oxygen.setFluid(FluidStack.EMPTY);b.stored=100000;b.progress=0;
+            var before=b.saveWithoutMetadata(h.getLevel().registryAccess());var page=net.zerog.tweaks.machine.GasSeparatorRecipeCatalogue.page(menu);
+            h.assertTrue(page!=null&&page.water()==10&&page.hydrogen()==20&&page.oxygen()==10,"Separator recipe page lost its actual stoichiometry");
+            h.assertTrue(before.equals(b.saveWithoutMetadata(h.getLevel().registryAccess())),"Recipe browsing changed tank, power or cards");
+            for(int i=0;i<page.ticks();i++)b.work();
+            h.assertTrue(b.water.getFluidAmount()==1000-page.water()&&b.hydrogen.getFluidAmount()==page.hydrogen()&&b.oxygen.getFluidAmount()==page.oxygen(),"Advertised duration/volumes differ from actual cycle: tier "+tier);
+            h.assertTrue(100000-b.stored==page.energy(),"Advertised FE differs from actual separator debit: tier "+tier);
+        }
+        h.succeed();
+    }
     @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=80)
     public static void hydrogen_exposure_and_oxygen_safe(GameTestHelper h){
         var b=machine(h);var pos=b.getBlockPos().east();h.getLevel().setBlock(pos,net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(net.minecraft.resources.ResourceLocation.parse("zerog_tweaks:copper_fluid_pipe")).defaultBlockState(),3);

@@ -32,6 +32,7 @@ public final class TransportToolItem extends Item {
                 if(player.isShiftKeyDown())be.cycleFace(side);
                 player.displayClientMessage(port?Component.literal("Port: "+be.getBlockState().getValue(TransportBlock.MODE).getSerializedName())
                     :Component.literal(side.getName()+": "+WrenchModes.FACE_NAMES[be.modes[face]]),true);
+                if(!player.isShiftKeyDown()&&player instanceof net.minecraft.server.level.ServerPlayer server)net.zerog.tweaks.machine.MachineDiagnostics.show(server,be);
                 return InteractionResult.CONSUME;
             }
             if(!player.isShiftKeyDown()){player.displayClientMessage(Component.literal("Wrench mode: shift + right-click to pick up"),true);return InteractionResult.CONSUME;}

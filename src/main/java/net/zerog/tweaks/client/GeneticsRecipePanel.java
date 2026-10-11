@@ -7,7 +7,8 @@ import net.zerog.tweaks.genetics.GeneticsMenu;
 import net.zerog.tweaks.genetics.GeneticsRecipeCatalogue;
 
 /** Separate read-only recipe region; all clicks are consumed before inventory handling. */
-public final class GeneticsRecipePanel {
+public final class GeneticsRecipePanel implements RecipeBrowserPanel {
+    @Override public int contentHeight(){return 224;}
     private final GeneticsMenu menu;
     private final MachineItemCatalog items;
     private int tab = 1, mode, scroll;

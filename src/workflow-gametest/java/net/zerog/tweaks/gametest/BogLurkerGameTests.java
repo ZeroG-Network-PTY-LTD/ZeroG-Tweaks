@@ -13,6 +13,33 @@ import net.zerog.tweaks.registry.*;
 
 @GameTestHolder("zerog_bog_lurker") @PrefixGameTestTemplate(false)
 public final class BogLurkerGameTests {
+    @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=140)
+    public static void acid_pool_chase_and_idle_surface(GameTestHelper h){
+        var level=h.getLevel();
+        for(int x=2;x<=15;x++)for(int z=2;z<=6;z++){
+            h.setBlock(new BlockPos(x,1,z),net.minecraft.world.level.block.Blocks.STONE);
+            h.setBlock(new BlockPos(x,2,z),ZGDimensionFluids.ACID.block.get());
+            h.setBlock(new BlockPos(x,3,z),ZGDimensionFluids.ACID.block.get());
+            for(int y=4;y<=6;y++)h.setBlock(new BlockPos(x,y,z),net.minecraft.world.level.block.Blocks.AIR);
+        }
+        var mob=EntityInit.BOG_LURKER.get().create(level);
+        mob.setPos(h.absolutePos(new BlockPos(3,3,4)).getCenter());level.addFreshEntity(mob);
+        var target=EntityType.COW.create(level);target.setPos(h.absolutePos(new BlockPos(15,4,4)).getCenter());
+        target.setNoAi(true);target.setNoGravity(true);target.setInvulnerable(true);level.addFreshEntity(target);
+        mob.setTarget(target);double start=mob.getX();
+        h.runAfterDelay(60,()->{
+            h.assertTrue(mob.getX()>start+.5,"Bog Lurker could not approach a distant target through acid");
+            h.assertTrue(mob.getHealth()==28&&!mob.hasEffect(MobEffects.POISON),"Actual acid pool harmed its native mob");
+            mob.setTarget(null);target.discard();mob.setNoAi(true);
+            mob.setPos(h.absolutePos(new BlockPos(4,3,4)).getCenter());mob.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
+        });
+        h.runAfterDelay(100,()->{
+            double surface=h.absolutePos(new BlockPos(4,4,4)).getY();
+            h.assertTrue(Math.abs(mob.getEyeY()-surface)<.35,"Idle bog eyes did not settle at the acid surface");
+            h.assertTrue(mob.getHealth()==28,"Idle acid exposure damaged Bog Lurker");
+            mob.discard();h.succeed();
+        });
+    }
     @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=120)
     public static void spit_expires_without_leaving_a_hazard(GameTestHelper h){
         var spit=EntityInit.BOG_ACID_SPIT.get().create(h.getLevel());

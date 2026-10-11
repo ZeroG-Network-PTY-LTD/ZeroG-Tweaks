@@ -54,5 +54,17 @@ for 80 ticks on a successful hit, within 10 blocks and with line of sight.
 It does not corrode terrain. Existing drops include Lurker Legs, Venom Glands
 and a rare Neutralizer. Dedicated swim/spit artwork and natural density need review.
 
+Idle lurkers seek nearby loaded acid pools. Acid immersion permits spawning
+only when unobstructed; natural acid-pool spawning requires dim light.
+Acid and poison immunity also protects them while chasing prey in a pool.
+
+## Ocean Tidewraith
+
+Regular Tidewraiths can spawn above exposed water in deep trenches, kelp jungles
+and island chains. Defaults use single-mob groups, a one-in-eight natural
+placement check and a nearby limit of two within 128 blocks. Server settings
+can change the chance and limit. Covered water, dry land and acid are rejected.
+This does not add natural boss spawning or require player insomnia.
+
 Spawn eggs now create these mobs. Server registration and habitat checks do
 not establish natural encounter density or client visual approval.

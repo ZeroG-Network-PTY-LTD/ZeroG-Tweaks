@@ -35,7 +35,9 @@ public final class ZGSpawnRules {
     @SubscribeEvent
     public static void register(RegisterSpawnPlacementsEvent event) {
         var replace = RegisterSpawnPlacementsEvent.Operation.REPLACE;
-        event.register(EntityInit.BOG_LURKER.get(),SpawnPlacementTypes.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Monster::checkMonsterSpawnRules,replace);
+        event.register(EntityInit.TIDEWRAITH.get(),SpawnPlacementTypes.NO_RESTRICTIONS,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            ZGSpawnRules::tidewraithSpawn,replace);
+        event.register(EntityInit.BOG_LURKER.get(),SpawnPlacementTypes.NO_RESTRICTIONS,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,ZGSpawnRules::bogLurkerSpawn,replace);
         event.register(EntityInit.ASH_STRIDER.get(),SpawnPlacementTypes.IN_LAVA,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             (type,level,reason,pos,random)->{
                 var top=pos.mutable();
@@ -121,5 +123,35 @@ public final class ZGSpawnRules {
                 || level.getBiome(pos).is(PRISMLING_CAVES)&&!level.canSeeSky(pos);
     }
 
+    /** Regular ocean wildlife only: exposed air within four blocks above water.
+     * This is not the boss, a Phantom insomnia rule, or an underwater fish spawn.
+     */
+    public static boolean tidewraithSpawn(EntityType<? extends net.zerog.tweaks.entity.Tidewraith> type,ServerLevelAccessor level,MobSpawnType reason,BlockPos pos,RandomSource random){
+        if(level.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL||reason==MobSpawnType.CHUNK_GENERATION)return false;
+        if(reason!=MobSpawnType.NATURAL)return true;
+        if(!(level instanceof net.minecraft.server.level.ServerLevel server)||!server.getServer().isSameThread()
+            ||!tidewraithHabitat(level,pos)||random.nextInt(ZGEcologyConfig.TIDEWRAITH_CHANCE.get())!=0)return false;
+        return server.getEntitiesOfClass(net.zerog.tweaks.entity.Tidewraith.class,new net.minecraft.world.phys.AABB(pos).inflate(ZGEcologyConfig.TIDEWRAITH_RANGE.get()),
+            mob->mob.isAlive()&&!mob.isBoss()).size()<ZGEcologyConfig.TIDEWRAITH_NEARBY.get();
+    }
+    public static boolean bogLurkerSpawn(EntityType<? extends Monster> type,ServerLevelAccessor level,MobSpawnType reason,BlockPos pos,RandomSource random){
+        if(level.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL||reason==MobSpawnType.CHUNK_GENERATION)return false;
+        if(reason==MobSpawnType.NATURAL&&(!(level instanceof net.minecraft.server.level.ServerLevel server)||!server.getServer().isSameThread()))return false;
+        if(level.getFluidState(pos).getFluidType()==ZGDimensionFluids.ACID.type.get())
+            // Acid itself emits four block-light levels; vanilla's zero-light test
+            // would reject the native habitat even at night.
+            return MobSpawnType.ignoresLightRequirements(reason)||level.getMaxLocalRawBrightness(pos)<=7;
+        return Monster.checkMonsterSpawnRules(type,level,reason,pos,random);
+    }
+    public static boolean tidewraithHabitat(LevelAccessor level,BlockPos pos){
+        if(!level.getBlockState(pos).isAir()||!level.getBlockState(pos.above()).isAir()||!level.canSeeSky(pos))return false;
+        var below=pos.mutable();
+        for(int i=0;i<4;i++){
+            below.move(net.minecraft.core.Direction.DOWN);
+            if(level.getFluidState(below).is(net.minecraft.tags.FluidTags.WATER))return true;
+            if(!level.getBlockState(below).isAir())return false;
+        }
+        return false;
+    }
     private ZGSpawnRules() {}
 }

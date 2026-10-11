@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.zerog.tweaks.machine.*;
 
 /** Three read-only tabs outside player slots: clickable items, exact recipes, current upgrades. */
-public final class ProcessingRecipePanel {
+public final class ProcessingRecipePanel implements RecipeBrowserPanel {
     private record Row(String label,List<ItemStack> alternatives,List<Component> tooltip){}
     private final ProcessingBlockEntity machine;
     private final net.minecraft.world.level.block.entity.BlockEntity legacy;

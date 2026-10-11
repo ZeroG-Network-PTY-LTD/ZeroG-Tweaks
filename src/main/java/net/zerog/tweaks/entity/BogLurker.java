@@ -26,16 +26,43 @@ public final class BogLurker extends Monster implements RangedAttackMob,GeoEntit
     @Override protected PathNavigation createNavigation(Level level){return new AmphibiousPathNavigation(this,level);}
     @Override protected void registerGoals(){
         goalSelector.addGoal(0,new FloatGoal(this){@Override public boolean canUse(){return !inAcid()&&super.canUse();}});
+        goalSelector.addGoal(1,new SeekAcidGoal());
         goalSelector.addGoal(1,new RangedAttackGoal(this,1,40,10){
             @Override public boolean canUse(){return getTarget()!=null&&distanceToSqr(getTarget())>4&&super.canUse();}
             @Override public boolean canContinueToUse(){return canUse();}
         });
         goalSelector.addGoal(2,new MeleeAttackGoal(this,1,true));
-        goalSelector.addGoal(4,new RandomStrollGoal(this,.7));
+        goalSelector.addGoal(4,new RandomStrollGoal(this,.7){
+            @Override public boolean canUse(){return !inAcid()&&super.canUse();}
+            @Override public boolean canContinueToUse(){return !inAcid()&&super.canContinueToUse();}
+        });
         targetSelector.addGoal(1,new HurtByTargetGoal(this));
         targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this,Player.class,true));
     }
     private boolean inAcid(){return isInFluidType(ZGDimensionFluids.ACID.type.get());}
+    private boolean centredInAcid(){return level().getFluidState(blockPosition()).getFluidType()==ZGDimensionFluids.ACID.type.get();}
+    @Override public boolean checkSpawnObstruction(net.minecraft.world.level.LevelReader level){
+        return level.getFluidState(blockPosition()).getFluidType()==ZGDimensionFluids.ACID.type.get()?level.isUnobstructed(this):super.checkSpawnObstruction(level);
+    }
+    private final class SeekAcidGoal extends Goal {
+        private net.minecraft.core.BlockPos pool;
+        private int retry;
+        SeekAcidGoal(){setFlags(java.util.EnumSet.of(Flag.MOVE));}
+        @Override public boolean canUse(){
+            if(getTarget()!=null||centredInAcid())return false;
+            if(retry>0){retry--;return false;}retry=20;
+            pool=null;double nearest=Double.MAX_VALUE;var origin=blockPosition();
+            for(int dx=-8;dx<=8;dx++)for(int dz=-8;dz<=8;dz++)for(int dy=-2;dy<=2;dy++){
+                var p=origin.offset(dx,dy,dz);if(!level().hasChunkAt(p))continue;var fluid=level().getFluidState(p);
+                if(fluid.getFluidType()!=ZGDimensionFluids.ACID.type.get()||!fluid.isSource())continue;
+                double distance=distanceToSqr(p.getCenter());if(distance<nearest){nearest=distance;pool=p;}
+            }
+            return pool!=null;
+        }
+        @Override public void start(){if(pool!=null)getNavigation().moveTo(pool.getX()+.5,pool.getY()+.4,pool.getZ()+.5,.7);}
+        @Override public boolean canContinueToUse(){return getTarget()==null&&!centredInAcid()&&!getNavigation().isDone();}
+        @Override public void stop(){getNavigation().stop();pool=null;}
+    }
     @Override public boolean canSwimInFluidType(FluidType type){return type==ZGDimensionFluids.ACID.type.get()||super.canSwimInFluidType(type);}
     @Override public boolean canDrownInFluidType(FluidType type){return false;}
     @Override public boolean canBeAffected(MobEffectInstance effect){return !effect.is(MobEffects.POISON)&&super.canBeAffected(effect);}
@@ -47,7 +74,7 @@ public final class BogLurker extends Monster implements RangedAttackMob,GeoEntit
     }else super.travel(input);}
     @Override public void aiStep(){super.aiStep();if(!level().isClientSide){
         if(tickCount%110==0)triggerAnim("eyes","blink");
-        if(inAcid()&&getTarget()==null){getNavigation().stop();var state=level().getFluidState(blockPosition());
+        if(centredInAcid()&&getTarget()==null){getNavigation().stop();var state=level().getFluidState(blockPosition());
             double surface=blockPosition().getY()+state.getHeight(level(),blockPosition())+.05;
             setDeltaMovement(0,Math.clamp((surface-getEyeY())*.15,-.08,.08),0);}
     }}
@@ -57,6 +84,7 @@ public final class BogLurker extends Monster implements RangedAttackMob,GeoEntit
         var delta=target.getEyePosition().subtract(spit.position());spit.shoot(delta.x,delta.y+delta.horizontalDistance()*.1,delta.z,1.2F,2F);
         level().addFreshEntity(spit);triggerAnim("action","attack");
     }
+    @Override public boolean doHurtTarget(Entity target){boolean hit=super.doHurtTarget(target);if(hit&&!level().isClientSide)triggerAnim("action","attack");return hit;}
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar c){ZGGeoMob.registerControllers(this,c,"bog_lurker","walk");}
     @Override public AnimatableInstanceCache getAnimatableInstanceCache(){return cache;}
 }

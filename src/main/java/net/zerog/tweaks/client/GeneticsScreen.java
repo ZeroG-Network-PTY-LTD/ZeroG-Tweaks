@@ -22,6 +22,7 @@ public final class GeneticsScreen extends AbstractContainerScreen<GeneticsMenu> 
     private final java.util.List<Button> geneButtons=new java.util.ArrayList<>();
     private boolean showInputs;
     private GeneticsRecipePanel inputs;
+    private final RecipeBrowser browser=new RecipeBrowser();
     private final MachineFaceControls faceControls=new MachineFaceControls();
     public GeneticsScreen(GeneticsMenu menu,Inventory inv,Component title) {
         super(menu,inv,title);imageWidth=358;imageHeight=240;inventoryLabelX=48;inventoryLabelY=148;
@@ -31,9 +32,9 @@ public final class GeneticsScreen extends AbstractContainerScreen<GeneticsMenu> 
     @Override protected void init() {
         super.init();leftPos=MachineItemCatalog.machineLeft(width,imageWidth,showInputs);jobButtons.clear();geneButtons.clear();
         if(inputs==null)inputs=new GeneticsRecipePanel(menu);
+        if(browser.init(width,height,inputs,w->addRenderableWidget(w),this::rebuildWidgets))return;
         faceControls.add(leftPos+260,topPos+18,menu,w->addRenderableWidget(w),this::send);
-        var recipes=addRenderableWidget(Button.builder(Component.literal("Recipes"),b->{showInputs=!showInputs;rebuildWidgets();}).bounds(leftPos+196,topPos+1,52,16).build());
-        recipes.active=MachineItemCatalog.panelWidth(width,imageWidth)>=120;
+        addRenderableWidget(Button.builder(Component.literal("Recipes"),b->{cancelRecipeDrag();browser.open();rebuildWidgets();}).bounds(leftPos+196,topPos+1,52,16).build());
         if(!splicer)for(int i=0;i<5;i++){final int gene=i;
             geneButtons.add(addRenderableWidget(Button.builder(Component.literal(ProductiveBeeGenes.GENES[i].replace('_',' ')),b->send(10+gene)).bounds(leftPos+48,topPos+20+i*14,166,14).build()));
         }
@@ -68,6 +69,7 @@ public final class GeneticsScreen extends AbstractContainerScreen<GeneticsMenu> 
     }
     @Override protected void renderLabels(GuiGraphics g,int mx,int my){g.drawString(font,font.plainSubstrByWidth(title.getString(),98),8,5,0xff34303d,false);g.drawString(font,playerInventoryTitle,inventoryLabelX,inventoryLabelY,0xff34303d,false);}
     @Override public void render(GuiGraphics g,int mx,int my,float partial) {
+        if(browser.render(g,font,width,height,mx,my,partial,inputs,renderables))return;
         super.render(g,mx,my,partial);renderTooltip(g,mx,my);
         if(showInputs)inputs.render(g,font,leftPos,topPos,width,imageWidth,mx,my);
         var genes=ProductiveBeeGenes.read(menu.slots.get(0).getItem());
@@ -79,11 +81,12 @@ public final class GeneticsScreen extends AbstractContainerScreen<GeneticsMenu> 
     }
     private boolean recipeArea(double x,double y){return showInputs&&inputs.contains(x,y,leftPos,topPos,width,imageWidth);}
     private void cancelRecipeDrag(){quickCraftSlots.clear();isQuickCrafting=false;clearDraggingState();}
-    @Override public boolean mouseClicked(double x,double y,int button){if(recipeArea(x,y)){cancelRecipeDrag();return inputs.click(x,y,button,leftPos,topPos,width,imageWidth);}return super.mouseClicked(x,y,button);}
+    @Override public boolean mouseClicked(double x,double y,int button){if(browser.isOpen()){browser.click(inputs,x,y,button,width,height);for(var child:children())if(child.mouseClicked(x,y,button))return true;return true;}if(recipeArea(x,y)){cancelRecipeDrag();return inputs.click(x,y,button,leftPos,topPos,width,imageWidth);}return super.mouseClicked(x,y,button);}
     @Override protected boolean hasClickedOutside(double x,double y,int left,int top,int button){return !recipeArea(x,y)&&super.hasClickedOutside(x,y,left,top,button);}
-    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(recipeArea(x,y)){cancelRecipeDrag();return true;}return super.mouseDragged(x,y,button,dx,dy);}
-    @Override public boolean mouseReleased(double x,double y,int button){if(recipeArea(x,y))cancelRecipeDrag();return super.mouseReleased(x,y,button);}
-    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(showInputs&&inputs.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
+    @Override public boolean mouseDragged(double x,double y,int button,double dx,double dy){if(browser.isOpen())return true;if(recipeArea(x,y)){cancelRecipeDrag();return true;}return super.mouseDragged(x,y,button,dx,dy);}
+    @Override public boolean mouseReleased(double x,double y,int button){if(browser.consumeRelease(button))return true;if(recipeArea(x,y))cancelRecipeDrag();return super.mouseReleased(x,y,button);}
+    @Override public boolean mouseScrolled(double x,double y,double horizontal,double vertical){if(browser.isOpen())return browser.scroll(inputs,x,y,vertical,width,height);if(showInputs&&inputs.scroll(x,y,vertical,leftPos,topPos,width,imageWidth))return true;return super.mouseScrolled(x,y,horizontal,vertical);}
+    @Override public boolean keyPressed(int key,int scan,int modifiers){return browser.key(key,this::rebuildWidgets)||super.keyPressed(key,scan,modifiers);}
     private String status(){return switch(menu.value(7)){case 1->"Insert a filled Productive Bees cage with saved traits";case 2->"Missing reagent/catalyst";case 3->"Missing vial, selected gene or valid serum";case 4->"Output or bottle-return slots blocked";case 5->"Splicer needs power for the next work step";case 6->"Analyse this specimen before sampling or splicing";default->menu.value(6)==1?"Processing":"Ready";};}
     @EventBusSubscriber(modid="zerog_tweaks",value=Dist.CLIENT,bus=EventBusSubscriber.Bus.MOD)
     public static class Registration {

@@ -8,7 +8,8 @@ import net.minecraft.world.item.ItemStack;
 import net.zerog.tweaks.genetics.*;
 
 /** Read-only combinations; recipes are resolved on the server, not inferred from cage icons. */
-public final class AlvearyRecipePanel {
+public final class AlvearyRecipePanel implements RecipeBrowserPanel {
+    @Override public int contentHeight(){return 250;}
     private final AlvearyMenu menu;private int tab=1,scroll;
     private final MachineItemCatalog frames=new MachineItemCatalog(AlvearyRuntime::isFrame);
     public AlvearyRecipePanel(AlvearyMenu menu){this.menu=menu;}

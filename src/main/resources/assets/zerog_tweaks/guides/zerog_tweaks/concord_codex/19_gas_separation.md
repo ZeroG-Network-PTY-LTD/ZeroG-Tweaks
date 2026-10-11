@@ -47,3 +47,15 @@ outlets and full tanks do not leak. There are no explosions or terrain damage.
 Pressure gauges mean tank fullness, not a real physical pressure unit.
 
 Exact survival crafting costs and dedicated separator artwork remain pending.
+
+## Recipes and diagnostics
+
+The Recipes button opens a read-only view inside the current machine menu.
+Back or Escape returns to the machine without closing its inventory. The
+separator's recipe, container examples and upgrade tabs show server-configured
+mB, FE and processing time. Bucket and canister icons are examples, not a
+requirement to consume a whole container.
+
+In Configure mode, right-click a supported machine with the Flux Wrench for
+a temporary, read-only port hologram. It shows six world faces and the stored
+energy snapshot for 15 seconds; click again to refresh. It does not alter modes.

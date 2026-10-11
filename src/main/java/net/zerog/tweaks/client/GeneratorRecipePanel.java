@@ -13,7 +13,8 @@ import net.zerog.tweaks.power.GeneratorRecipeCatalogue;
 import net.zerog.tweaks.registry.ItemInit;
 
 /** Fuel selection and exact production rules outside the inventory. */
-public final class GeneratorRecipePanel {
+public final class GeneratorRecipePanel implements RecipeBrowserPanel {
+    @Override public int contentHeight(){return 224;}
     private final CombustionMenu combustion;
     private final PowerMenu power;
     private final MachineItemCatalog items;

@@ -544,6 +544,17 @@ free machines or hidden coordinates are approved by decorative antenna artwork.
 
 ## Legacy electric processors — 12 October
 
+Delivery extension: the scaled in-menu RecipeBrowser is shared by seven machine
+screen families. RecipeBrowserInput owns closing-click releases so Back cannot
+place/drop a carried stack in the restored hidden inventory. Separator catalogue
+values are synchronized server data; container icons are examples. Configure-mode
+wrench diagnostics send a bounded six-face/energy snapshot for15seconds, no saved
+entities, private contents, chunk tickets or automatic refresh. Ocean Tidewraith
+natural placement uses configurable chance/local cap and server-thread-only checks.
+Bog Lurkers remain acid/poison immune; pool-seeking AI must distinguish partial
+fluid contact from centre immersion to avoid stopping on the dry bank. Keep
+custom weather paused and client visual approval separate from server tests.
+
 Owner repair request supersedes the earlier no-FE frame/weaver contract.
 GeneticsRuntime.POWERED_PROCESSORS includes both centrifuges, Starmetal Smelter,
 Silk Weaver, both frame assemblers and both infusion altars. Register actual FE
