@@ -1,5 +1,13 @@
 # ZeroG Tweaks
 
+## Bog Lurker and pending design decisions — 11 October 2026
+
+[Implemented behavior and selected-backlog status](docs/selected-backlog-and-bog-lurker-2026-10-11.md).
+Bog Lurker now has acid/poison immunity, toxic habitat registration and a real
+acid-spit projectile. All 23 combined server tests passed. Research milestones,
+larger alvearies, Moon wrecks and recipe-cost proposals are awaiting approval,
+not silently activated. Existing machine contract limitations remain explicit.
+
 ## Wasteland creatures and field guide — 11 October 2026
 
 [Behavior, habitat and verification details](docs/wasteland-signatures-and-codex-2026-10-11.md).
