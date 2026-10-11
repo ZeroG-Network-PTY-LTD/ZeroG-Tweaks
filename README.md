@@ -886,6 +886,8 @@ sources — expect 5–15 minutes. Incremental builds after that run ~15s
 
 ## Manufacturing components — 11 October
 
+**Frozen Outpost:** two original Hoarwood/permafrost shelters now route the existing Cryo Core chest rewards. Eight rotated placements passed isolated gameplay checks; natural rarity and client review remain pending. [Layout, loot and delivery receipt](docs/frozen-outpost-2026-10-11.md).
+
 Natural-world verification now confirms the **Collapsed Forge, Derelict Wreck and Solar Shrine**, each with its intended reward chest, in a fresh seed-zero server world. [Evidence and remaining limits](docs/three-ruins-natural-audit-2026-10-11.md).
 
 The Ingredients tab now includes **21 dimension-metal cogs and 21 compressed plates**. These use original native 32×32 C-style art, transparent cog bores, beveled plates and planet-family palettes. Nullifite, vanilla metals and gems are excluded. Fabrication machinery, exact survival costs and progressively harder future machine assembly remain pending—not implied by the registered ingredients.
