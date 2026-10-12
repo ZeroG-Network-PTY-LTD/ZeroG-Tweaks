@@ -1,5 +1,15 @@
 # ZeroG Tweaks
 
+## Industrial pressing and separator ports — 12 October 2026
+
+[Recipes, verified delivery and testing steps](docs/owner-followups-2026-10-12.md).
+Industrial Compressor, reusable Plate Press and Cog Press have42 processing
+recipes for21 existing metal families. Front terminals reject automation; other
+faces provide supported item/power/fluid access.49 isolated checks and the
+production asset audit passed; same-version JAR installed with backup. Dedicated
+new artwork and survival crafting costs remain pending; terrain work is deferred.
+Code, design sources and documentation are maintained on their separate branches.
+
 ## Recipe browser and acid habitats — 12 October 2026
 
 [Changes, verification and remaining review](docs/browser-diagnostics-and-acid-habitat-2026-10-12.md).
