@@ -9,7 +9,7 @@ p.add_argument('--check',action='store_true')
 a=p.parse_args()
 data={'type':'neoforge:add_spawns','biomes':['zerog_tweaks:wasteland_'+name for name in
       ['deep_trenches','kelp_jungles','island_chains']],
-      'spawners':{'type':'zerog_tweaks:tidewraith','weight':10,'minCount':1,'maxCount':1}}
+      'spawners':{'type':'zerog_tweaks:tidewraith','weight':10,'minCount':3,'maxCount':4}}
 payload=json.dumps(data,indent=2)+'\n'
 if a.check:
     assert a.output.read_text()==payload,'Ocean spawn generator/runtime differ'

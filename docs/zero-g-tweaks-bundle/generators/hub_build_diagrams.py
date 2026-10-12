@@ -15,23 +15,20 @@ assert len(layouts)==8
 def svg(width,height,body):
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}"><rect width="100%" height="100%" fill="#0e1827"/><g font-family="sans-serif" fill="#e6effa">{body}</g></svg>'
 
-colours={'casing':'#60798e','controller':'#ab87e2','energy_port':'#e5b746','frame_housing':'#64c3a0','roof':'#aab9c8','air':'#172839'}
+colours={'casing':'#60798e','controller':'#ab87e2','energy_port':'#e5b746','input_item_port':'#64c3a0','output_item_port':'#e99755','input_fluid_port':'#5ca7d9','output_fluid_port':'#da6ac5','roof':'#aab9c8','air':'#172839'}
+cells={(c['x'],c['y'],c['z']):c['part'] for c in layouts[0]['cells']}
 body='<text x="28" y="36" font-size="25">5×5×5 formation reference • layers counted from Y=0</text>'
 for y in range(5):
     ox=28+y*220
     body+=f'<text x="{ox}" y="77" font-size="19">Y={y}</text>'
     for z in range(5):
         for x in range(5):
-            part='roof' if y==4 else 'casing'
-            if y in (1,2) and 0<x<4 and 0<z<4:part='air'
-            if y==0 and x==4 and z==4:part='controller'
-            elif y==0 and x==0 and z==0:part='energy_port'
-            elif y==1 and x==2 and z==4:part='frame_housing'
-            px=ox+x*35;py=95+z*35;letter={'casing':'C','roof':'R','air':'·','controller':'G','energy_port':'E','frame_housing':'F'}[part]
+            part=cells.get((x,y,z),'air')
+            px=ox+x*35;py=95+z*35;letter={'casing':'C','roof':'R','air':'·','controller':'G','energy_port':'E','input_item_port':'I','output_item_port':'O','input_fluid_port':'L','output_fluid_port':'H'}[part]
             body+=f'<rect x="{px}" y="{py}" width="33" height="33" fill="{colours[part]}"/><text x="{px+11}" y="{py+22}" font-size="17">{letter}</text>'
-body+='''<text x="28" y="306" font-size="17">Top view: north at top; controller is the southeast base corner. 107 blocks, 18 interior air cells.</text>
-<text x="28" y="338" font-size="16">G controller • E energy • F frame housing • C same-tier casing • R same-tier roof • · air</text>
-<text x="28" y="370" font-size="15">T3/T5/T6/T7. Alternate reference: energy at NE base; frame housing at west wall (Y=1, Z=2).</text>
+body+='''<text x="28" y="306" font-size="17">Top view: north at top; controller on south wall, Y=1. 107 blocks, 18 interior air cells.</text>
+<text x="28" y="338" font-size="16">G controller • E energy • I/O items • L/H fluids • C casing • R roof • · air</text>
+<text x="28" y="370" font-size="15">Five service ports on the south base. Reference matches hub; legal service positions may vary.</text>
 <text x="28" y="397" font-size="14">Roof Y=4 must remain roof blocks. Y=3 is solid in the installed validator. Schematic, not a game capture.</text>'''
 (root/'validated-build-layers.svg').write_text(svg(1140,425,body))
 
@@ -49,7 +46,7 @@ for index,layout in enumerate(layouts):
             body+=f'<polygon points="{" ".join(f"{a},{b}" for a,b in points)}" fill="{colour}" opacity="{opacity}" stroke="#162233" stroke-width=".6"/>'
     label=layout['id'].replace('_',' ')
     body+=f'<text x="{ox-140}" y="{oy+146}" font-size="15">{label}</text><text x="{ox-140}" y="{oy+170}" font-size="13" fill="#9fb6cc">{len(layout["cells"])} cells • authored design</text>'
-body+='''<text x="28" y="676" font-size="16">These are authored visual layouts, not the installed fixed-size validator recipe.</text>
+body+='''<text x="28" y="676" font-size="16">These are current hub shell references; cells match the installed shared build plan.</text>
 <text x="28" y="704" font-size="14" fill="#9fb6cc">Use the separate formation layer sheet for accepted 5×5×5 references. Colours indicate part roles, not actual textures.</text>'''
 (root/'eight-authored-apiaries.svg').write_text(svg(1220,735,body))
 (root/'provenance.json').write_text(json.dumps({'input':'assets/zerog_tweaks/guides/multiblocks.json','sha256':hashlib.sha256(args.guide.read_bytes()).hexdigest(),

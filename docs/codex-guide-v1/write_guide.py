@@ -599,7 +599,9 @@ page('19_gas_separation.md', '19. Gas Separation', 'zerog_tweaks:water_separator
   <ItemImage id="zerog_tweaks:gas_canister" scale="3" />
 </Row>
 
-1. Place the Water Separator. Open its panel to identify the six **world faces**.
+1. Find the Water Separator in Functional Blocks. Place its front toward you;
+   horizontal placement and rotation are supported. Open its panel to identify
+   the six **world faces**. Rotating the front does not remap configured ports.
 2. The default **Up** face accepts water; **East** supplies hydrogen and **West** supplies oxygen.
 3. Connect power to an enabled FE input face. All six FE faces start enabled.
 4. Use **gas tubes**, not liquid pipes, to collect the gases in separate tanks.
@@ -618,6 +620,10 @@ Keep hydrogen and oxygen networks separate. The weakest connected tier limits
 shared transfer rates; higher-tier branches do not bypass lower-tier sections.
 The separator accepts Acceleration and Energy Coil cards tiers 1-6, with the
 existing bounded speed/energy effects. It does not support Compact or Void cards.
+The front terminal is closed to pipes, cables and automated items. Other faces
+support configurable water/gas roles and power; item automation accepts supported
+upgrade cards only, not arbitrary processing ingredients. Rotation preserves
+saved world-face roles but always closes whichever face is now the terminal.
 
 ## Incorrect connections
 
@@ -696,13 +702,44 @@ Acid and poison immunity also protects them while chasing prey in a pool.
 ## Ocean Tidewraith
 
 Regular Tidewraiths can spawn above exposed water in deep trenches, kelp jungles
-and island chains. Defaults use single-mob groups, a one-in-eight natural
-placement check and a nearby limit of two within 128 blocks. Server settings
+and island chains. They are aggressive flying aquatic predators, travelling in
+packs of 3-4 and pursuing prey at higher elevations. Non-magma liquid immersion
+does not drown, poison, freeze or burn them; lava and magma slag remain dangerous.
+Defaults use a one-in-eight pack-start check and a nearby limit of four
+within 128 blocks. Server settings
 can change the chance and limit. Covered water, dry land and acid are rejected.
 This does not add natural boss spawning or require player insomnia.
 
 Spawn eggs now create these mobs. Server registration and habitat checks do
 not establish natural encounter density or client visual approval.
+''')
+page("21_industrial_compressor.md", "Industrial Compressor", "zerog_tweaks:industrial_compressor", 21, '''
+# Industrial Compressor
+
+The press shapes recovered planetary metals into manufacturing components.
+This is a powered processor, not a fluid refinery.
+
+1. Place the machine with its terminal facing you.
+2. Connect power to a side, back, top or bottom face. **The front is not a port.**
+3. Put a **Plate Press** in the tooling slot and **2 ingots** in the input.
+   A completed job makes **1 compressed plate**, using **2,000 FE / 100 ticks**.
+4. Swap to a **Cog Press** and insert **2 plates**. This makes **1 cog**,
+   using **4,000 FE / 160 ticks**. The press is reusable and is not consumed.
+5. Use **Recipes** to inspect every loaded material combination and current
+   upgrade-adjusted energy/time. Full outputs or missing power pause safely.
+
+All 21 registered planetary manufacturing metals are supported. Other materials
+are accepted only when an actual pressing recipe exists. Keep one material in
+the input slot. Tooling is separate from Acceleration/Energy Coil/Compact/Void cards.
+
+Side controls select reagent, tooling/catalyst or output access independently of
+power. The front always stays closed to automation, even after rotation.
+There is no fluid recipe or decorative fluid port. Exact survival crafting costs
+for the machine and presses remain pending approval; creative testing is available.
+
+<ItemImage id="zerog_tweaks:industrial_compressor" scale="3" />
+<ItemImage id="zerog_tweaks:plate_press" scale="2" />
+<ItemImage id="zerog_tweaks:cog_press" scale="2" />
 ''')
 print(sorted(os.listdir(G)))
 from illustrated_journal import enhance
