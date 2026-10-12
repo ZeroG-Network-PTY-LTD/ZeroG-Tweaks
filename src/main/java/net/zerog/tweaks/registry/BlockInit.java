@@ -53,6 +53,7 @@ public final class BlockInit {
     public static final DeferredBlock<Block> ABYSSAL_STONE_SLAB = BLOCKS.register("abyssal_stone_slab", () -> new net.minecraft.world.level.block.SlabBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<Block> ABYSSAL_STONE_WALL = BLOCKS.register("abyssal_stone_wall", () -> new net.minecraft.world.level.block.WallBlock(props(MapColor.STONE, SoundType.STONE, 2.5F, 7.0F)));
     public static final DeferredBlock<net.zerog.tweaks.machine.ProcessingBlock> ALLOY_FORGE = BLOCKS.registerBlock("alloy_forge", net.zerog.tweaks.machine.ProcessingBlock::new, props(MapColor.METAL, SoundType.METAL, 3.5F, 8.0F));
+    public static final DeferredBlock<net.zerog.tweaks.machine.ProcessingBlock> INDUSTRIAL_COMPRESSOR = BLOCKS.registerBlock("industrial_compressor", net.zerog.tweaks.machine.ProcessingBlock::new, props(MapColor.METAL, SoundType.METAL, 4.0F, 8.0F).requiresCorrectToolForDrops());
     public static final DeferredBlock<Block> ARESITE_BLOCK = BLOCKS.register("aresite_block", () -> new Block(props(MapColor.METAL, SoundType.METAL, 5.0F, 6.0F)));
     public static final DeferredBlock<Block> ARESITE_ORE = BLOCKS.register("aresite_ore", () -> new DropExperienceBlock(UniformInt.of(1, 3), props(MapColor.STONE, ZGSounds.GEM_ORE, 3.0F, 8.0F).requiresCorrectToolForDrops()));
     public static final DeferredBlock<SnowLayerBlock> ASHFALL = BLOCKS.registerBlock("ashfall", SnowLayerBlock::new, props(MapColor.STONE, SoundType.WOOL, 0.5F, 0.5F));

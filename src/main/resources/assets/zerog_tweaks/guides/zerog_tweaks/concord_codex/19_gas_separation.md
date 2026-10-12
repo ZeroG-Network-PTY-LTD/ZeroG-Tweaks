@@ -16,7 +16,9 @@ item_ids:
   <ItemImage id="zerog_tweaks:gas_canister" scale="3" />
 </Row>
 
-1. Place the Water Separator. Open its panel to identify the six **world faces**.
+1. Find the Water Separator in Functional Blocks. Place its front toward you;
+   horizontal placement and rotation are supported. Open its panel to identify
+   the six **world faces**. Rotating the front does not remap configured ports.
 2. The default **Up** face accepts water; **East** supplies hydrogen and **West** supplies oxygen.
 3. Connect power to an enabled FE input face. All six FE faces start enabled.
 4. Use **gas tubes**, not liquid pipes, to collect the gases in separate tanks.
@@ -35,6 +37,10 @@ Keep hydrogen and oxygen networks separate. The weakest connected tier limits
 shared transfer rates; higher-tier branches do not bypass lower-tier sections.
 The separator accepts Acceleration and Energy Coil cards tiers 1-6, with the
 existing bounded speed/energy effects. It does not support Compact or Void cards.
+The front terminal is closed to pipes, cables and automated items. Other faces
+support configurable water/gas roles and power; item automation accepts supported
+upgrade cards only, not arbitrary processing ingredients. Rotation preserves
+saved world-face roles but always closes whichever face is now the terminal.
 
 ## Incorrect connections
 

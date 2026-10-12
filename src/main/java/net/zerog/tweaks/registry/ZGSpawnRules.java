@@ -130,9 +130,13 @@ public final class ZGSpawnRules {
         if(level.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL||reason==MobSpawnType.CHUNK_GENERATION)return false;
         if(reason!=MobSpawnType.NATURAL)return true;
         if(!(level instanceof net.minecraft.server.level.ServerLevel server)||!server.getServer().isSameThread()
-            ||!tidewraithHabitat(level,pos)||random.nextInt(ZGEcologyConfig.TIDEWRAITH_CHANCE.get())!=0)return false;
-        return server.getEntitiesOfClass(net.zerog.tweaks.entity.Tidewraith.class,new net.minecraft.world.phys.AABB(pos).inflate(ZGEcologyConfig.TIDEWRAITH_RANGE.get()),
-            mob->mob.isAlive()&&!mob.isBoss()).size()<ZGEcologyConfig.TIDEWRAITH_NEARBY.get();
+            ||!tidewraithHabitat(level,pos))return false;
+        var nearby=server.getEntitiesOfClass(net.zerog.tweaks.entity.Tidewraith.class,new net.minecraft.world.phys.AABB(pos).inflate(ZGEcologyConfig.TIDEWRAITH_RANGE.get()),
+            mob->mob.isAlive()&&!mob.isBoss());
+        if(nearby.size()>=ZGEcologyConfig.TIDEWRAITH_NEARBY.get())return false;
+        long cohort=nearby.stream().filter(mob->mob.distanceToSqr(pos.getX()+.5,pos.getY(),pos.getZ()+.5)<=32*32).count();
+        if(cohort>=4)return false;
+        return cohort>0||random.nextInt(ZGEcologyConfig.TIDEWRAITH_CHANCE.get())==0;
     }
     public static boolean bogLurkerSpawn(EntityType<? extends Monster> type,ServerLevelAccessor level,MobSpawnType reason,BlockPos pos,RandomSource random){
         if(level.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL||reason==MobSpawnType.CHUNK_GENERATION)return false;

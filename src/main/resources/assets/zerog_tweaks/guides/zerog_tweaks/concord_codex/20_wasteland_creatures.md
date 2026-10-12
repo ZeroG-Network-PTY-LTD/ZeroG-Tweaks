@@ -61,8 +61,11 @@ Acid and poison immunity also protects them while chasing prey in a pool.
 ## Ocean Tidewraith
 
 Regular Tidewraiths can spawn above exposed water in deep trenches, kelp jungles
-and island chains. Defaults use single-mob groups, a one-in-eight natural
-placement check and a nearby limit of two within 128 blocks. Server settings
+and island chains. They are aggressive flying aquatic predators, travelling in
+packs of 3-4 and pursuing prey at higher elevations. Non-magma liquid immersion
+does not drown, poison, freeze or burn them; lava and magma slag remain dangerous.
+Defaults use a one-in-eight pack-start check and a nearby limit of four
+within 128 blocks. Server settings
 can change the chance and limit. Covered water, dry land and acid are rejected.
 This does not add natural boss spawning or require player insomnia.
 

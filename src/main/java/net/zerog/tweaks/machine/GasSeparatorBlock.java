@@ -12,13 +12,17 @@ import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 public final class GasSeparatorBlock extends BaseEntityBlock {
-    public GasSeparatorBlock(Properties p){super(p);}
+    public GasSeparatorBlock(Properties p){super(p);registerDefaultState(stateDefinition.any().setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING,Direction.NORTH));}
+    @Override protected void createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder<Block,BlockState> b){b.add(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING);}
+    @Override public BlockState getStateForPlacement(net.minecraft.world.item.context.BlockPlaceContext c){return defaultBlockState().setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING,c.getHorizontalDirection().getOpposite());}
+    @Override protected BlockState rotate(BlockState s,Rotation r){return s.setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING,r.rotate(s.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING)));}
+    @Override protected BlockState mirror(BlockState s,Mirror m){return s.rotate(m.getRotation(s.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING)));}
     @Override protected MapCodec<? extends BaseEntityBlock> codec(){return simpleCodec(GasSeparatorBlock::new);}
     @Override protected RenderShape getRenderShape(BlockState s){return RenderShape.MODEL;}
     @Override public BlockEntity newBlockEntity(BlockPos p,BlockState s){return new GasSeparatorBlockEntity(p,s);}
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level l,BlockState s,BlockEntityType<T> t){return l.isClientSide?null:createTickerHelper(t,GasSeparatorRegistry.TYPE.get(),GasSeparatorBlockEntity::tick);}
     @Override protected ItemInteractionResult useItemOn(ItemStack stack,BlockState s,Level l,BlockPos p,Player player,InteractionHand hand,BlockHitResult hit){
-        if(stack.getCapability(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.ITEM)!=null&&l.getBlockEntity(p) instanceof GasSeparatorBlockEntity be){
+        if(stack.getCapability(net.neoforged.neoforge.capabilities.Capabilities.FluidHandler.ITEM)!=null&&l.getBlockEntity(p) instanceof GasSeparatorBlockEntity be&&!be.terminalFace(hit.getDirection())){
             if(!l.isClientSide)net.neoforged.neoforge.fluids.FluidUtil.interactWithFluidHandler(player,hand,be.fluid(hit.getDirection()));
             return ItemInteractionResult.sidedSuccess(l.isClientSide);
         }return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;

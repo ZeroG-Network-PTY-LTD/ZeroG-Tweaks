@@ -13,7 +13,7 @@ import net.zerog.tweaks.registry.*;
 
 @GameTestHolder("zerog_bog_lurker") @PrefixGameTestTemplate(false)
 public final class BogLurkerGameTests {
-    @GameTest(templateNamespace="zerog_workflow_optional",template="equipment_empty",timeoutTicks=140)
+    @GameTest(templateNamespace="zerog_bog_chase",template="equipment_empty",timeoutTicks=140)
     public static void acid_pool_chase_and_idle_surface(GameTestHelper h){
         var level=h.getLevel();
         for(int x=2;x<=15;x++)for(int z=2;z<=6;z++){

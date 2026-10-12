@@ -89,6 +89,9 @@ public final class HubExhibits {
             var base=roomOrigin(index++);pad(level,base,17,21);
             var template=level.getStructureManager().get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","concord_vault/rooms/"+name)).orElseThrow();
             var settings=new StructurePlaceSettings().setIgnoreEntities(true).addProcessor(JigsawReplacementProcessor.INSTANCE);
+            level.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.PROCESSOR_LIST)
+                .getHolderOrThrow(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.PROCESSOR_LIST,ResourceLocation.parse("zerog_tweaks:planet_mines_no_rails")))
+                .value().list().forEach(settings::addProcessor);
             template.placeInWorld(level,base,base,settings,level.random,3);
             for(var pos:BlockPos.betweenClosed(base,base.offset(16,8,16))) {
                 if(level.getBlockEntity(pos) instanceof SpawnerBlockEntity spawner) {
@@ -107,18 +110,7 @@ public final class HubExhibits {
         keepLoaded(level,base,base.offset(4,0,6));
         for(int y=0;y<5;y++)for(int x=0;x<5;x++)for(int z=0;z<5;z++) {
             var pos=base.offset(x,y,z);
-            if((y==1||y==2)&&x>0&&x<4&&z>0&&z<4){level.setBlock(pos,Blocks.AIR.defaultBlockState(),3);continue;}
-            var state=part(tier+"_"+(y==4?"roof":y==1&&x==2&&z==4?"controller":"casing"));
-            if(y==0&&z==4) {
-                String id=x<2?"item_port":x==2?"energy_port":"fluid_port";
-                var key=ResourceLocation.fromNamespaceAndPath("zerog_tweaks",id);
-                if(!BuiltInRegistries.BLOCK.containsKey(key))throw new IllegalStateException("Missing service port "+key);
-                state=BuiltInRegistries.BLOCK.get(key).defaultBlockState()
-                    .setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH);
-                if(x==1||x==4)state=state.setValue(net.zerog.tweaks.transport.TransportBlock.MODE,
-                    net.zerog.tweaks.transport.TransportBlock.PortMode.OUTPUT);
-            }
-            level.setBlock(pos,state,3);
+            level.setBlock(pos,serviceShellState(tier,x,y,z),3);
         }
         var controller=base.offset(2,1,4);
         var result=net.zerog.tweaks.genetics.AlvearyFormation.locate(level,controller,Integer.parseInt(tier.substring(4)));
@@ -129,6 +121,26 @@ public final class HubExhibits {
         if(level.getBlockEntity(cellPos) instanceof net.zerog.tweaks.transport.TransportBlockEntity be){be.stored=be.capacity();java.util.Arrays.fill(be.modes,1);be.setChanged();}
         var cable=BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","astrium_energy_conduit"));
         level.setBlock(base.offset(2,0,5),cable.defaultBlockState(),3);
+    }
+    /** Single source for built hub shells, catalogue admission and regression fixtures. */
+    public static BlockState serviceShellState(String tier,int x,int y,int z){
+        if(x<0||x>4||y<0||y>4||z<0||z>4)throw new IllegalArgumentException("Outside service shell");
+        if((y==1||y==2)&&x>0&&x<4&&z>0&&z<4)return Blocks.AIR.defaultBlockState();
+        if(y==0&&z==4){
+            String id=x<2?"item_port":x==2?"energy_port":"fluid_port";
+            var key=ResourceLocation.fromNamespaceAndPath("zerog_tweaks",id);
+            if(!BuiltInRegistries.BLOCK.containsKey(key))throw new IllegalStateException("Missing service port "+key);
+            var state=BuiltInRegistries.BLOCK.get(key).defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH);
+            return x==1||x==4?state.setValue(net.zerog.tweaks.transport.TransportBlock.MODE,net.zerog.tweaks.transport.TransportBlock.PortMode.OUTPUT):state;
+        }
+        return part(tier+"_"+(y==4?"roof":y==1&&x==2&&z==4?"controller":"casing"));
+    }
+    public static java.util.Set<ResourceLocation> serviceShellItemIds(){
+        var tiers=new java.util.HashSet<>(VALIDATED_TIERS);MultiblockGuides.layouts().forEach(layout->tiers.add(prefix(layout.id())));
+        var ids=new java.util.HashSet<ResourceLocation>();
+        for(var tier:tiers)for(int x=0;x<5;x++)for(int y=0;y<5;y++)for(int z=0;z<5;z++){
+            var key=BuiltInRegistries.BLOCK.getKey(serviceShellState(tier,x,y,z).getBlock());if(key.getNamespace().equals("aeroapiary"))ids.add(key);
+        }return java.util.Set.copyOf(ids);
     }
     private static void buildMachineStations(ServerLevel level) {
         String[] ids={"alloy_forge","crystal_growth_chamber","salvage_station","combustion_generator","solar_array","fusion_reactor"};

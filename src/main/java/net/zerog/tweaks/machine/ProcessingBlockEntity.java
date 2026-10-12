@@ -38,9 +38,9 @@ public class ProcessingBlockEntity extends BlockEntity {
     private final int[] powerEpochs=new int[6];
     // 0 Auto, 1 reagents, 2 catalyst, 3 products, 4 Off. Independent from FE faces.
     private final int[] itemModes=new int[6],itemEpochs=new int[6];
-    public int itemMode(Direction side){return side==null?0:itemModes[side.ordinal()];}
+    public int itemMode(Direction side){return terminalFace(side)?4:side==null?0:itemModes[side.ordinal()];}
     public void setItemMode(Direction side,int mode){if(side==null||mode<0||mode>4)return;int face=side.ordinal();if(itemModes[face]==mode)return;itemModes[face]=mode;itemEpochs[face]++;setChanged();if(level!=null)level.invalidateCapabilities(worldPosition);}
-    public boolean faceDisabled(Direction side){return side!=null&&disabledFaces[side.ordinal()];}
+    public boolean faceDisabled(Direction side){return terminalFace(side)||side!=null&&disabledFaces[side.ordinal()];}
     public void setFaceDisabled(Direction side,boolean disabled){if(side==null||disabledFaces[side.ordinal()]==disabled)return;disabledFaces[side.ordinal()]=disabled;powerEpochs[side.ordinal()]++;setChanged();if(level!=null)level.invalidateCapabilities(worldPosition);}
     public ProcessingBlockEntity(BlockPos pos,BlockState state){
         this(ProcessingRegistry.TYPE.get(),pos,state,null);
@@ -48,7 +48,7 @@ public class ProcessingBlockEntity extends BlockEntity {
     protected ProcessingBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type,BlockPos pos,BlockState state,ProcessingRegistry.Kind selected){
         super(type,pos,state);
         String id=BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
-        kind=selected!=null?selected:id.equals("alloy_forge")?ProcessingRegistry.Kind.ALLOYING:id.equals("crystal_growth_chamber")?ProcessingRegistry.Kind.CRYSTAL:ProcessingRegistry.Kind.SALVAGING;
+        kind=selected!=null?selected:id.equals("industrial_compressor")?ProcessingRegistry.Kind.PRESSING:id.equals("alloy_forge")?ProcessingRegistry.Kind.ALLOYING:id.equals("crystal_growth_chamber")?ProcessingRegistry.Kind.CRYSTAL:ProcessingRegistry.Kind.SALVAGING;
         inventory=new CompactInventory(kind.slots(),kind.inputCount,this::compactTier){
             @Override public int getSlotLimit(int slot){return slot>=kind.upgrades()?1:64;}
             @Override public boolean isItemValid(int slot,ItemStack stack){
@@ -108,15 +108,17 @@ public class ProcessingBlockEntity extends BlockEntity {
         be.setChanged();
     }
     private void clearJob(){if(progress!=0||paid!=0){progress=0;paid=0;setChanged();}job="";configuration="";}
-    public IEnergyStorage energyInput(Direction side){int epoch=side==null?0:powerEpochs[side.ordinal()];return new IEnergyStorage(){private boolean live(){return !faceDisabled(side)&&!isRemoved()&&(side==null||epoch==powerEpochs[side.ordinal()]);}public int receiveEnergy(int n,boolean sim){if(!live())return 0;int a=Math.min(Math.max(0,n),1_000_000-stored);if(!sim&&a>0){stored+=a;setChanged();}return a;}public int extractEnergy(int n,boolean sim){return 0;}public int getEnergyStored(){return live()?stored:0;}public int getMaxEnergyStored(){return 1_000_000;}public boolean canExtract(){return false;}public boolean canReceive(){return live();}};}
+    public boolean terminalFace(Direction side){return kind==ProcessingRegistry.Kind.PRESSING&&(side==null||side==getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING));}
+    public IEnergyStorage energyInput(Direction side){if(terminalFace(side))return null;int epoch=side==null?0:powerEpochs[side.ordinal()];return new IEnergyStorage(){private boolean live(){return !terminalFace(side)&&!faceDisabled(side)&&!isRemoved()&&(side==null||epoch==powerEpochs[side.ordinal()]);}public int receiveEnergy(int n,boolean sim){if(!live())return 0;int a=Math.min(Math.max(0,n),1_000_000-stored);if(!sim&&a>0){stored+=a;setChanged();}return a;}public int extractEnergy(int n,boolean sim){return 0;}public int getEnergyStored(){return live()?stored:0;}public int getMaxEnergyStored(){return 1_000_000;}public boolean canExtract(){return false;}public boolean canReceive(){return live();}};}
     /** Top = reagents, back = catalyst, bottom/front = output, other sides = reagents. No remote upgrades. */
     public IItemHandler itemsFor(Direction side){
+        if(terminalFace(side))return null;
         Direction front=getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
         int mode=itemMode(side),epoch=side==null?0:itemEpochs[side.ordinal()];
         int start=switch(mode){case 1->0;case 2->kind.catalyst();case 3->kind.output();default->side==Direction.DOWN||side==front?kind.output():side==front.getOpposite()?kind.catalyst():0;};
         int count=mode==4?0:start==kind.output()?kind.outputCount:start==kind.catalyst()?1:kind.inputCount;
         return new IItemHandler(){
-            private boolean live(){return !isRemoved()&&itemMode(side)==mode&&(side==null||itemEpochs[side.ordinal()]==epoch)&&getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING)==front;}
+            private boolean live(){return !terminalFace(side)&&!isRemoved()&&itemMode(side)==mode&&(side==null||itemEpochs[side.ordinal()]==epoch)&&getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING)==front;}
             private boolean valid(int n){return live()&&n>=0&&n<count;}
             public int getSlots(){return live()?count:0;}
             public ItemStack getStackInSlot(int n){return valid(n)?inventory.getStackInSlot(start+n):ItemStack.EMPTY;}

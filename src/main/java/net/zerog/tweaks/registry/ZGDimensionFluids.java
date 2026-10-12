@@ -98,6 +98,9 @@ public final class ZGDimensionFluids {
         protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             super.entityInside(state, level, pos, entity);
             if (level.isClientSide) return;
+            // Regular Tidewraiths are aquatic aerial predators. Keep molten slag
+            // dangerous; no fire immunity or blanket damage immunity is granted.
+            if(entity instanceof net.zerog.tweaks.entity.Tidewraith tide&&!tide.isBoss()&&!id.equals("magma_slag"))return;
             long tick = level.getGameTime();
             String contactKey = "ZeroGFluidContact_" + id;
             if (entity.getPersistentData().contains(contactKey) && entity.getPersistentData().getLong(contactKey) == tick) return;

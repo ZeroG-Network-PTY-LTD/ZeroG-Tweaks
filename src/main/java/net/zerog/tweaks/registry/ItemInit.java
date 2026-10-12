@@ -22,6 +22,9 @@ import net.zerog.tweaks.item.ZGGeoArmorItem;
 
 public final class ItemInit {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ZeroGTweaks.MODID);
+    public static final DeferredItem<BlockItem> INDUSTRIAL_COMPRESSOR = ITEMS.registerSimpleBlockItem("industrial_compressor",BlockInit.INDUSTRIAL_COMPRESSOR);
+    public static final DeferredItem<Item> PLATE_PRESS = ITEMS.registerSimpleItem("plate_press",new Item.Properties().stacksTo(1));
+    public static final DeferredItem<Item> COG_PRESS = ITEMS.registerSimpleItem("cog_press",new Item.Properties().stacksTo(1));
     public static final java.util.Map<String,DeferredItem<Item>> MACHINE_UPGRADE_CARDS = net.zerog.tweaks.machine.MachineUpgradeCards.register(ITEMS);
     /** Administrative visual preview only: no recipe and no survival functionality. */
     public static final DeferredItem<Item> WEATHER_TESTER = ITEMS.register("weather_tester",

@@ -544,6 +544,45 @@ free machines or hidden coordinates are approved by decorative antenna artwork.
 
 ## Legacy electric processors — 12 October
 
+Owner scope change12October: terrain experiments remain local/unactivated; do not
+reset any save. Prioritize Water Separator and Industrial Compressor. Pressing
+uses the native data-driven recipe system:2 ingots ->1 plate with reusable
+plate_press;2 plates ->1 cog with reusable cog_press.42 recipes cover21 existing
+metal families.2000FE/100ticks and4000FE/160ticks are datapack-editable defaults,
+not approved survival crafting costs. New machine/press crafting stays deferred.
+Compressor front/null faces expose no item/FE capability; cached access must also
+refuse after rotation. Other faces support independent item and FE controls.
+Separator front has no fluid/item/FE port; nonfront items accept supported cards
+only. Never add a fake fluid tank to a dry compressor. Compressor chassis reuses
+existing Alloy Forge textures and original press cube models use Tectium metal;
+bespoke new artwork is pending, not a completed approved-cog-art rollout.
+
+Owner follow-up12October: Water Separator has horizontal front placement/
+rotation; six configured WORLD faces remain unchanged. It belongs in Functional
+Blocks, not catch-all Ingredients or the Storage/Transport tab. Regular
+Tidewraiths are water/non-magma-liquid-safe aggressive packs3-4; nearby cap
+minimum/default4 supersedes cap2. Do not give lava/slag fire immunity or alter
+boss spawning/size/breathing. Loaded-neighbour patrol and high pursuit remain
+bounded. Configure-mode diagnostics still consume wrench clicks intentionally.
+
+Only actual hub service-shell tier blocks remain in the usable bee catalogue.
+HubExhibits.serviceShellState drives builds, allowlist and guide regressions.
+ApiaryCatalogue uses the creative event REMOVE API (returned entry sets are
+unmodifiable). Keep IDs for old saves; no hidden machines/frames/combs/hives.
+The live multiblock guide is the107-block five-port hub shell, not the archived
+larger/crowned concept. Design generate_hub_guide.py must stay synchronized.
+
+Planetary mineshafts no longer place rails; preserve discarded RNG draws so
+corridor layouts do not change accidentally. Concord branch/hub rooms use the
+vanilla planet_mines_no_rails processor; historical source NBT is retained.
+Bog chase fixtures must run separately from mock-player-heavy namespaces;
+fixed acid spawn tests use full night18000 and known fluid positions, not a
+moving mob's partly dry block. No relaxed production light/target rules.
+Realistic terrain and a fresh world are pending explicit preparation; current
+saves remain untouched. Existing common-to-rare vein sizes have source tests;
+they are not measured fresh-world deposit evidence. Copper/per-material art
+remains pending while the required asset-production CLI is unavailable.
+
 Delivery extension: the scaled in-menu RecipeBrowser is shared by seven machine
 screen families. RecipeBrowserInput owns closing-click releases so Back cannot
 place/drop a carried stack in the restored hidden inventory. Separator catalogue

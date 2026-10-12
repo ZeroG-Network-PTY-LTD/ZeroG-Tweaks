@@ -12,8 +12,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.RailBlock;
-import net.minecraft.world.level.block.state.properties.RailShape;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -31,12 +29,14 @@ public final class PlanetMineshaftFeature extends Feature<NoneFeatureConfigurati
     public static List<Corridor> plan(RandomSource random) {
         Direction forward=random.nextBoolean()?Direction.NORTH:Direction.EAST;
         List<Corridor> result=new ArrayList<>();
-        result.add(new Corridor(BlockPos.ZERO.relative(forward,-15),forward,30,random.nextInt(3)==0));
+        random.nextInt(3); // Preserve existing seed-local corridor RNG; rail decoration is retired.
+        result.add(new Corridor(BlockPos.ZERO.relative(forward,-15),forward,30,false));
         int branches=2+random.nextInt(3);
         for(int n=0;n<branches;n++) {
             Direction side=(n%2==0)?forward.getClockWise():forward.getCounterClockWise();
             int section=-10+n*5+random.nextInt(3);
-            result.add(new Corridor(BlockPos.ZERO.relative(forward,section),side,5*(2+random.nextInt(2)),random.nextInt(3)==0));
+            int length=5*(2+random.nextInt(2));random.nextInt(3);
+            result.add(new Corridor(BlockPos.ZERO.relative(forward,section),side,length,false));
         }
         return List.copyOf(result);
     }
@@ -98,11 +98,6 @@ public final class PlanetMineshaftFeature extends Feature<NoneFeatureConfigurati
                 level.setBlock(base.relative(corridor.direction().getClockWise(),w).above(y),fence.defaultBlockState(),2);
             for(int w=-1;w<=1;w++) level.setBlock(base.relative(corridor.direction().getClockWise(),w).above(3),planks.defaultBlockState(),2);
             if(t==3) level.setBlock(base.above(3),Blocks.SEA_LANTERN.defaultBlockState(),2);
-        }
-        for(var corridor:corridors) if(corridor.rails()) for(int t=0;t<=corridor.length();t++) {
-            var base=centre.offset(corridor.start()).relative(corridor.direction(),t);
-            level.setBlock(base,Blocks.RAIL.defaultBlockState().setValue(RailBlock.SHAPE,
-                    corridor.direction().getAxis()==Direction.Axis.X?RailShape.EAST_WEST:RailShape.NORTH_SOUTH),2);
         }
         var last=corridors.get(corridors.size()-1);
         var chest=centre.offset(last.start()).relative(last.direction(),last.length()-1);

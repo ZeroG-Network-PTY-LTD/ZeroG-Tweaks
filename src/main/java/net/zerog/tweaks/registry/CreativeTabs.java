@@ -92,6 +92,8 @@ public final class CreativeTabs {
                         listed.add("recall_anchor");listed.add("group_anchor");
                         listed.add("storage_expansion_module");listed.add("generator_flux_module");
                         listed.add("gas_canister");
+                        listed.add("water_separator");
+                        listed.add("industrial_compressor");
                         ItemInit.MACHINE_UPGRADE_CARDS.keySet().forEach(listed::add);
                         net.zerog.tweaks.storage.WoodStorageRegistry.CONTAINERS.keySet().forEach(listed::add);
                         net.zerog.tweaks.storage.WoodStorageRegistry.JOINERY.keySet().forEach(listed::add);
@@ -127,7 +129,6 @@ public final class CreativeTabs {
                         net.zerog.tweaks.storage.WoodStorageRegistry.JOINERY.keySet().forEach(id->out.accept(item(id)));
                     }
                     if (name.equals("storage_and_transport")) {
-                        out.accept(net.zerog.tweaks.machine.GasSeparatorRegistry.ITEM.get());
                         out.accept(ZGGases.CANISTER.get());
                         ZGGases.ALL.forEach(gas->out.accept(ZGGases.filled(gas)));
                         ItemInit.MACHINE_UPGRADE_CARDS.values().forEach(card->out.accept(card.get()));
@@ -143,6 +144,8 @@ public final class CreativeTabs {
                     }
                     if (name.equals("food_and_drinks")) ZGPlanetCrops.PLANET_CROPS.values().stream().sorted().forEach(id -> out.accept(item(id)));
                     if(name.equals("functional_blocks")) {
+                        out.accept(net.zerog.tweaks.machine.GasSeparatorRegistry.ITEM.get());
+                        out.accept(ItemInit.INDUSTRIAL_COMPRESSOR.get());
                         for(var tier:net.zerog.tweaks.transport.TransportTier.ALL)
                             for(String suffix:new String[]{"energy_conduit","fluid_pipe","gas_tube","item_tube","energy_cell"})out.accept(item(tier.name()+"_"+suffix));
                         for(String id:new String[]{"item_port","fluid_port","energy_port","null_link"})out.accept(item(id));

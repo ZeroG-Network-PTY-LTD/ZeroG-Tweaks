@@ -28,10 +28,21 @@ public final class GasSeparatorBlockEntity extends BlockEntity {
     private FluidTank tank(int id){return new FluidTank(CAPACITY,s->s.is(id==0?Fluids.WATER:id==1?ZGGases.HYDROGEN.fluid().get():ZGGases.OXYGEN.fluid().get())){@Override protected void onContentsChanged(){setChanged();}};}
     public GasSeparatorBlockEntity(BlockPos p,BlockState s){super(GasSeparatorRegistry.TYPE.get(),p,s);}
     public boolean live(){return level!=null&&!isRemoved()&&level.getBlockEntity(worldPosition)==this;}
-    public int role(Direction side){return roles[side.ordinal()];}
-    public boolean power(Direction side){return power[side.ordinal()];}
-    public void cycle(Direction side){roles[side.ordinal()]=(roles[side.ordinal()]+1)%4;setChanged();}
-    public void togglePower(Direction side){power[side.ordinal()]=!power[side.ordinal()];setChanged();}
+    /** Only supported upgrade cards are item inputs; fluids use dedicated tanks. */
+    public net.neoforged.neoforge.items.IItemHandler items(Direction side){return new net.neoforged.neoforge.items.IItemHandler(){
+        private boolean valid(int slot){return live()&&!terminalFace(side)&&slot>=0&&slot<2;}
+        public int getSlots(){return live()&&!terminalFace(side)?2:0;}
+        public ItemStack getStackInSlot(int slot){return valid(slot)?cards.getStackInSlot(slot):ItemStack.EMPTY;}
+        public ItemStack insertItem(int slot,ItemStack stack,boolean simulate){return valid(slot)?cards.insertItem(slot,stack,simulate):stack;}
+        public ItemStack extractItem(int slot,int amount,boolean simulate){return valid(slot)?cards.extractItem(slot,amount,simulate):ItemStack.EMPTY;}
+        public int getSlotLimit(int slot){return valid(slot)?1:0;}
+        public boolean isItemValid(int slot,ItemStack stack){return valid(slot)&&cards.isItemValid(slot,stack);}
+    };}
+    public boolean terminalFace(Direction side){return side==null||side==getBlockState().getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING);}
+    public int role(Direction side){return terminalFace(side)?0:roles[side.ordinal()];}
+    public boolean power(Direction side){return !terminalFace(side)&&power[side.ordinal()];}
+    public void cycle(Direction side){if(terminalFace(side))return;roles[side.ordinal()]=(roles[side.ordinal()]+1)%4;setChanged();}
+    public void togglePower(Direction side){if(terminalFace(side))return;power[side.ordinal()]=!power[side.ordinal()];setChanged();}
     public int speed(){return 100+MachineUpgradeCards.tier(cards.getStackInSlot(0),MachineUpgradeCards.Family.ACCELERATION)*MachineUpgradeConfig.SPEED_PERCENT_PER_TIER.get();}
     public int duration(){return Math.max(1,(GasProductionConfig.TICKS.get()*100+speed()-1)/speed());}
     public int cost(){int saving=MachineUpgradeCards.tier(cards.getStackInSlot(1),MachineUpgradeCards.Family.ENERGY_COIL)*MachineUpgradeConfig.ENERGY_SAVING_PER_TIER.get();return (GasProductionConfig.ENERGY.get()*(100-saving)+99)/100;}
@@ -75,13 +86,13 @@ public final class GasSeparatorBlockEntity extends BlockEntity {
             stored-=energy;progress=0;
         }setChanged();
     }
-    public IEnergyStorage energy(Direction side){return new IEnergyStorage(){
+    public IEnergyStorage energy(Direction side){if(terminalFace(side))return null;return new IEnergyStorage(){
         public int receiveEnergy(int max,boolean simulate){if(max<=0||!live()||!power(side))return 0;int n=Math.min(max,Math.min(10000,ENERGY_CAPACITY-stored));if(!simulate){stored+=n;setChanged();}return n;}
         public int extractEnergy(int max,boolean simulate){return 0;}
         public int getEnergyStored(){return live()?stored:0;}public int getMaxEnergyStored(){return ENERGY_CAPACITY;}
         public boolean canReceive(){return live()&&power(side);}public boolean canExtract(){return false;}
     };}
-    public IFluidHandler fluid(Direction side){return new IFluidHandler(){
+    public IFluidHandler fluid(Direction side){if(terminalFace(side))return null;return new IFluidHandler(){
         private FluidTank assigned(){return switch(role(side)){case 1->water;case 2->hydrogen;case 3->oxygen;default->null;};}
         public int getTanks(){return 1;}public int getTankCapacity(int i){return i==0?CAPACITY:0;}
         public FluidStack getFluidInTank(int i){var t=assigned();return i==0&&live()&&t!=null?t.getFluid().copy():FluidStack.EMPTY;}

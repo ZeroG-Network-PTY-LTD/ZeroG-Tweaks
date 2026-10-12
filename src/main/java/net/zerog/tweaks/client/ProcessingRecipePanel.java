@@ -69,7 +69,7 @@ public final class ProcessingRecipePanel implements RecipeBrowserPanel {
             text(rows,"Container fuel returns its container");
         }
         for(int i=0;i<recipe.inputs().size();i++)ingredient(rows,"Input "+(i+1),recipe.inputs().get(i));
-        if(recipe.catalyst().isPresent())ingredient(rows,"Catalyst",recipe.catalyst().get());else text(rows,"Catalyst: none required");
+        if(recipe.catalyst().isPresent())ingredient(rows,machine!=null&&machine.kind==ProcessingRegistry.Kind.PRESSING?"Reusable press":"Catalyst",recipe.catalyst().get());else text(rows,"Catalyst: none required");
         for(var output:recipe.outputs()){
             String chance=String.format(Locale.ROOT,"%.1f%%",output.chance()*100);
             rows.add(new Row("Out: "+output.stack().getCount()+"x / "+chance,List.of(output.stack().copy()),List.of(output.stack().getHoverName(),Component.literal("Output chance: "+chance))));

@@ -19,6 +19,7 @@ public final class GasSeparatorRegistry {
     private static void capabilities(RegisterCapabilitiesEvent e){
         e.registerBlockEntity(Capabilities.FluidHandler.BLOCK,TYPE.get(),(be,side)->side==null?null:be.fluid(side));
         e.registerBlockEntity(Capabilities.EnergyStorage.BLOCK,TYPE.get(),(be,side)->side==null?null:be.energy(side));
+        e.registerBlockEntity(Capabilities.ItemHandler.BLOCK,TYPE.get(),(be,side)->be.terminalFace(side)?null:be.items(side));
     }
     private GasSeparatorRegistry(){}
 }

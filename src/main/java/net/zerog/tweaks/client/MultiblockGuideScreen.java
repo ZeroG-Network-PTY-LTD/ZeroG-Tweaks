@@ -79,10 +79,11 @@ public final class MultiblockGuideScreen extends Screen {
     public static int partColor(String part) {
         return switch (part) {
             case "controller" -> 0xffe4b74d;
-            case "input_hatch", "hatch", "frame_loader" -> 0xff53ca78;
-            case "output_hatch", "honey_port" -> 0xffe68b45;
+            case "input_item_port", "input_hatch", "hatch", "frame_loader" -> 0xff53ca78;
+            case "output_item_port", "output_hatch", "honey_port" -> 0xffe68b45;
             case "energy_port" -> 0xffee5965;
-            case "fluid_port", "humidifier" -> 0xff55bbdf;
+            case "input_fluid_port", "fluid_port", "humidifier" -> 0xff55bbdf;
+            case "output_fluid_port" -> 0xff8fa9ff;
             case "frame_housing" -> 0xffb987de;
             case "glass" -> 0xff7197aa;
             case "roof", "crown" -> 0xff6a7b92;
@@ -143,7 +144,7 @@ public final class MultiblockGuideScreen extends Screen {
         g.flush(); g.disableScissor();
         renderDetails(g);
         g.drawString(font,"Drag: 360 view | Wheel: zoom | Click: part",8,height-23,0xffaabed6,false);
-        g.drawString(font,"Reference diagram only - not machine formation",8,height-12,0xffd6b472,false);
+        g.drawString(font,"Hub reference; valid service positions may vary",8,height-12,0xffd6b472,false);
         super.render(g,mouseX,mouseY,delta);
     }
     private void renderDetails(GuiGraphics g) {
@@ -155,7 +156,7 @@ public final class MultiblockGuideScreen extends Screen {
         if (selected!=null) {
             g.drawString(font,label(selected.part()),x,y,0xffffff7a,false);y+=11;
             g.drawString(font,"X="+selected.x()+" Y="+selected.y()+" Z="+selected.z(),x,y,0xffdce9ff,false);y+=11;
-            g.drawString(font,"Only authored part at this cell",x,y,0xffa9bcd1,false);y+=12;
+            g.drawString(font,"Part in the hub reference",x,y,0xffa9bcd1,false);y+=12;
         }
         g.drawString(font,"Parts / total quantity",x,y,0xffdce9ff,false);y+=12;
         var roles=new ArrayList<>(layout().quantities().entrySet());
@@ -169,7 +170,7 @@ public final class MultiblockGuideScreen extends Screen {
         }
         g.drawString(font,"Genes + cryo: external modules",x,height-58,0xffb987de,false);
         g.drawString(font,"No shell/hatch replacements",x,height-47,0xffa9bcd1,false);
-        g.drawString(font,"Apiary blocks: runtime pending",x,height-36,0xffd6b472,false);
+        g.drawString(font,"Controller row 2; ports at base",x,height-36,0xffd6b472,false);
     }
     private static boolean contains(Face face,double x,double y) {
         boolean positive=false, negative=false;

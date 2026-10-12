@@ -46,6 +46,14 @@ public class Tidewraith extends FlyingMob implements Enemy, GeoEntity {
     }
 
     public boolean isBoss() { return false; }
+    @Override public boolean canDrownInFluidType(net.neoforged.neoforge.fluids.FluidType type) {
+        return isBoss()?super.canDrownInFluidType(type):false;
+    }
+    @Override public boolean canSwimInFluidType(net.neoforged.neoforge.fluids.FluidType type) {
+        return !isBoss()&&type!=net.neoforged.neoforge.common.NeoForgeMod.LAVA_TYPE.value()
+                &&type!=net.zerog.tweaks.registry.ZGDimensionFluids.MAGMA.type.get()||super.canSwimInFluidType(type);
+    }
+    @Override public int getMaxSpawnClusterSize(){return isBoss()?super.getMaxSpawnClusterSize():4;}
     public int getVariant() { return this.entityData.get(VARIANT); }
     public void setVariant(int variant) { this.entityData.set(VARIANT, Mth.clamp(variant, 0, 3)); }
     public String assetId() { return isBoss() ? "tidewraith_boss" : "tidewraith"; }
@@ -154,9 +162,14 @@ public class Tidewraith extends FlyingMob implements Enemy, GeoEntity {
                 }
             } else if (destination == null || --patrolTicks <= 0 || horizontalCollision
                     || position().distanceToSqr(destination) < 1) {
-                // Roam near the current location, staying inside the level's build bounds.
-                destination = position().add(random.nextInt(17) - 8,
-                        random.nextInt(7) - 3, random.nextInt(17) - 8);
+                // Regular packs follow their oldest loaded member, without saved
+                // links, chunk tickets or teleporting across unloaded terrain.
+                var leader=isBoss()?null:level().getEntitiesOfClass(Tidewraith.class,getBoundingBox().inflate(32),
+                    mob->mob!=Tidewraith.this&&!mob.isBoss()&&mob.isAlive()&&mob.getId()<getId()).stream()
+                    .min(java.util.Comparator.comparingInt(Entity::getId)).orElse(null);
+                destination=leader==null?position().add(random.nextInt(17)-8,
+                    random.nextInt(isBoss()?7:25)-(isBoss()?3:12),random.nextInt(17)-8):
+                    leader.position().add((getId()%3-1)*3,2,((getId()/3)%3-1)*3);
                 destination = new Vec3(destination.x,
                         Mth.clamp(destination.y, level().getMinBuildHeight() + 2,
                                 level().getMaxBuildHeight() - 4), destination.z);

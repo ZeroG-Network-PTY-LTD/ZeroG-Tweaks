@@ -16,7 +16,7 @@ public final class OceanSignatureGameTests {
             var biome=h.getLevel().registryAccess().registryOrThrow(Registries.BIOME).get(ResourceLocation.parse("zerog_tweaks:wasteland_"+id));
             var entries=biome.getMobSettings().getMobs(MobCategory.MONSTER).unwrap();
             var regular=entries.stream().filter(e->e.type==EntityInit.TIDEWRAITH.get()).toList();
-            h.assertTrue(regular.size()==1&&regular.getFirst().getWeight().asInt()==10&&regular.getFirst().minCount==1&&regular.getFirst().maxCount==1,"Missing rare lone Tidewraith in ocean habitat: "+id);
+            h.assertTrue(regular.size()==1&&regular.getFirst().getWeight().asInt()==10&&regular.getFirst().minCount==3&&regular.getFirst().maxCount==4,"Missing3-4 member Tidewraith pack in ocean habitat: "+id);
             h.assertTrue(entries.stream().noneMatch(e->e.type==EntityInit.TIDEWRAITH_BOSS.get()),"Boss accidentally added to natural habitat");
         }
         h.succeed();
@@ -35,7 +35,10 @@ public final class OceanSignatureGameTests {
         for(int i=0;i<64;i++)accepted|=net.minecraft.world.entity.SpawnPlacements.checkSpawnRules(EntityInit.TIDEWRAITH.get(),h.getLevel(),net.minecraft.world.entity.MobSpawnType.NATURAL,actual,random);
         h.assertTrue(accepted,"Natural placement not wired to valid water habitat");
         var nearby=new java.util.ArrayList<net.zerog.tweaks.entity.Tidewraith>();
-        for(int i=0;i<net.zerog.tweaks.registry.ZGEcologyConfig.TIDEWRAITH_NEARBY.get();i++){var mob=EntityInit.TIDEWRAITH.get().create(h.getLevel());mob.setPos(actual.getCenter().add(i,0,2));mob.setNoAi(true);h.getLevel().addFreshEntity(mob);nearby.add(mob);}
+        for(int i=0;i<net.zerog.tweaks.registry.ZGEcologyConfig.TIDEWRAITH_NEARBY.get();i++){
+            var mob=EntityInit.TIDEWRAITH.get().create(h.getLevel());mob.setPos(actual.getCenter().add(i,0,2));mob.setNoAi(true);h.getLevel().addFreshEntity(mob);nearby.add(mob);
+            if(i==0)for(int attempt=0;attempt<32;attempt++)h.assertTrue(net.minecraft.world.entity.SpawnPlacements.checkSpawnRules(EntityInit.TIDEWRAITH.get(),h.getLevel(),net.minecraft.world.entity.MobSpawnType.NATURAL,actual,random),"Per-member rarity roll prevents a started pack from filling");
+        }
         for(int i=0;i<64;i++)h.assertTrue(!net.minecraft.world.entity.SpawnPlacements.checkSpawnRules(EntityInit.TIDEWRAITH.get(),h.getLevel(),net.minecraft.world.entity.MobSpawnType.NATURAL,actual,random),"Nearby population limit was bypassed");
         nearby.forEach(net.minecraft.world.entity.Entity::discard);
         h.setBlock(pos.above(),net.minecraft.world.level.block.Blocks.STONE);

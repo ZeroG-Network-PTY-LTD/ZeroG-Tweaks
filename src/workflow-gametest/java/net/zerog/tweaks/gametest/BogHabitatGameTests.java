@@ -9,7 +9,7 @@ import net.zerog.tweaks.registry.*;
 public final class BogHabitatGameTests {
     @GameTest(templateNamespace="zerog_bog_habitat",template="equipment_empty",timeoutTicks=180)
     public static void submerged_spawn_and_idle_pool_seeking_are_real_gameplay(GameTestHelper h){
-        var level=h.getLevel();level.setDayTime(13000);
+        var level=h.getLevel();level.setDayTime(18000); // Full night, not still-bright twilight.
         for(int x=1;x<=10;x++)for(int z=1;z<=8;z++){
             h.setBlock(new BlockPos(x,1,z),Blocks.STONE);
             for(int y=2;y<=8;y++)h.setBlock(new BlockPos(x,y,z),Blocks.AIR);
@@ -25,11 +25,11 @@ public final class BogHabitatGameTests {
             h.assertTrue(dry.isInFluidType(ZGDimensionFluids.ACID.type.get()),"Idle pool search failed: relative="+dry.position().subtract(h.absolutePos(new BlockPos(3,2,4)).getCenter())+", centreAcid="+(level.getFluidState(dry.blockPosition()).getFluidType()==ZGDimensionFluids.ACID.type.get()));
             h.assertTrue(dry.getHealth()==28&&!dry.hasEffect(net.minecraft.world.effect.MobEffects.POISON),"Seeking its habitat harmed the lurker");
             double surface=h.absolutePos(new BlockPos(6,3,4)).getY();h.assertTrue(Math.abs(dry.getEyeY()-surface)<.35,"AI surface error: eyeDelta="+(dry.getEyeY()-surface)+", centreAcid="+(level.getFluidState(dry.blockPosition()).getFluidType()==ZGDimensionFluids.ACID.type.get())+", velocity="+dry.getDeltaMovement());
-            h.assertTrue(SpawnPlacements.checkSpawnRules(EntityInit.BOG_LURKER.get(),level,MobSpawnType.NATURAL,dry.blockPosition(),net.minecraft.util.RandomSource.create(42)),"Acid glow still blocks natural low-light spawning");
+            h.assertTrue(SpawnPlacements.checkSpawnRules(EntityInit.BOG_LURKER.get(),level,MobSpawnType.NATURAL,wetPos,net.minecraft.util.RandomSource.create(42)),"Acid placement rejected: time="+level.getDayTime()+", light="+level.getMaxLocalRawBrightness(wetPos)+", fluid="+level.getFluidState(wetPos));
             level.setDayTime(6000);
         });
         h.runAfterDelay(130,()->{
-            h.assertTrue(!SpawnPlacements.checkSpawnRules(EntityInit.BOG_LURKER.get(),level,MobSpawnType.NATURAL,dry.blockPosition(),net.minecraft.util.RandomSource.create(42)),"Exposed daylight acid spawned a hostile ambush mob");
+            h.assertTrue(!SpawnPlacements.checkSpawnRules(EntityInit.BOG_LURKER.get(),level,MobSpawnType.NATURAL,wetPos,net.minecraft.util.RandomSource.create(42)),"Exposed daylight acid spawned a hostile ambush mob");
             dry.discard();h.succeed();
         });
     }

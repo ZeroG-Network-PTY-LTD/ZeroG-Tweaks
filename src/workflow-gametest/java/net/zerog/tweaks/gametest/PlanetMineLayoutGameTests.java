@@ -76,11 +76,7 @@ public final class PlanetMineLayoutGameTests {
                 helper.assertTrue(level.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity,
                         "Mine chest has no loot container");
             }
-            if(state.is(net.minecraft.world.level.block.Blocks.RAIL)) {
-                var shape=state.getValue(net.minecraft.world.level.block.RailBlock.SHAPE);
-                helper.assertTrue(shape==net.minecraft.world.level.block.state.properties.RailShape.NORTH_SOUTH
-                        ||shape==net.minecraft.world.level.block.state.properties.RailShape.EAST_WEST,"Mine rail shape invalid");
-            }
+            helper.assertTrue(!state.is(net.minecraft.tags.BlockTags.RAILS),"Planet mine generated a retired railway block");
         }
         helper.assertTrue(fences>12&&planks>80&&chests==1,"Missing local timber supports or chest");helper.succeed();
     }

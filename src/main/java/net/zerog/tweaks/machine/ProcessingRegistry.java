@@ -14,7 +14,7 @@ import java.util.*;
 public final class ProcessingRegistry {
     public enum Kind {
         REFINING("refining",1,1), ALLOYING("alloying",3,3),
-        CRYSTAL("crystal_growth",2,3), SALVAGING("salvaging",1,3);
+        CRYSTAL("crystal_growth",2,3), SALVAGING("salvaging",1,3), PRESSING("pressing",1,1);
         public final String id;public final int inputCount,outputCount;
         Kind(String id,int in,int out){this.id=id;inputCount=in;outputCount=out;}
         public int catalyst(){return inputCount;}
@@ -30,7 +30,7 @@ public final class ProcessingRegistry {
     public static final Map<Kind,DeferredHolder<RecipeType<?>,RecipeType<ProcessingRecipe>>> TYPES_BY_KIND=new EnumMap<>(Kind.class);
     public static final Map<Kind,DeferredHolder<RecipeSerializer<?>,ProcessingRecipe.Serializer>> SERIALIZERS_BY_KIND=new EnumMap<>(Kind.class);
     static{for(var kind:Kind.values()){TYPES_BY_KIND.put(kind,TYPES.register(kind.id,()->new RecipeType<ProcessingRecipe>(){public String toString(){return "zerog_tweaks:"+kind.id;}}));SERIALIZERS_BY_KIND.put(kind,SERIALIZERS.register(kind.id,()->new ProcessingRecipe.Serializer(kind)));}}
-    public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<ProcessingBlockEntity>> TYPE=ENTITIES.register("processing_machine",()->BlockEntityType.Builder.of(ProcessingBlockEntity::new,BlockInit.ALLOY_FORGE.get(),BlockInit.CRYSTAL_GROWTH_CHAMBER.get(),BlockInit.SALVAGE_STATION.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<ProcessingBlockEntity>> TYPE=ENTITIES.register("processing_machine",()->BlockEntityType.Builder.of(ProcessingBlockEntity::new,BlockInit.ALLOY_FORGE.get(),BlockInit.CRYSTAL_GROWTH_CHAMBER.get(),BlockInit.SALVAGE_STATION.get(),BlockInit.INDUSTRIAL_COMPRESSOR.get()).build(null));
     public static final DeferredHolder<MenuType<?>,MenuType<ProcessingMenu>> MENU=MENUS.register("processing_machine",()->IMenuTypeExtension.create((id,inv,buf)->{
         var pos=buf.readBlockPos();if(inv.player.level().getBlockEntity(pos) instanceof ProcessingBlockEntity be)return new ProcessingMenu(id,inv,be);throw new IllegalStateException("Missing processing machine");}));
     public static void register(IEventBus bus){TYPES.register(bus);SERIALIZERS.register(bus);ENTITIES.register(bus);MENUS.register(bus);bus.addListener(ProcessingRegistry::capabilities);}
