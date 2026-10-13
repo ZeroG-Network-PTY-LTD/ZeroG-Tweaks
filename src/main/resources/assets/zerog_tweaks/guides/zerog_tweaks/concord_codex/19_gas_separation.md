@@ -20,7 +20,8 @@ item_ids:
    horizontal placement and rotation are supported. Open its panel to identify
    the six **world faces**. Rotating the front does not remap configured ports.
 2. The default **Up** face accepts water; **East** supplies hydrogen and **West** supplies oxygen.
-3. Connect power to an enabled FE input face. All six FE faces start enabled.
+3. Connect power to an enabled **non-front** FE input face. Stored face settings
+   start enabled, but the front terminal always rejects external power and pipes.
 4. Use **gas tubes**, not liquid pipes, to collect the gases in separate tanks.
 5. A gas canister holds up to 1,000 mB of one gas; partially filled canisters can be topped up with that same gas.
 
@@ -29,6 +30,28 @@ Default processing uses 10 mB water and 2,000 FE over 100 ticks, producing
 the live Recipe panel shows the current values. Three tanks hold 16,000 mB each
 and the FE buffer holds 200,000 FE. Either full gas tank safely pauses the job.
 Inputs are consumed only when a whole cycle completes.
+
+## Gas catalogue and storage
+
+Creative testing uses the **ZeroG: Gases** tab: one empty canister, filled Oxygen
+and Hydrogen canisters, and both gases in every existing storage-tank tier.
+Prefilled entries are test supplies, not new survival crafting recipes.
+
+<Row>
+  <BlockImage id="zerog_tweaks:copper_fluid_tank" scale="2" />
+  <BlockImage id="zerog_tweaks:astrium_fluid_tank" scale="2" />
+</Row>
+
+Tank capacities are Copper 5,000; Nullifite 20,000; Cyrrium 100,000;
+Tectium 500,000; Wraithsteel 2,000,000; Astrium 5,000,000 mB.
+Hover filled tanks to read the gas and exact amount. Place one, then right-click
+to inspect its **Gas Storage Tank** panel and world-face controls. Breaking or
+wrench-picking-up a filled shell preserves its contents when placed again.
+
+Use a separate tank/network for each gas; water, Oxygen and Hydrogen cannot mix
+in one tank. The same shell supports liquid storage too. Its fullness display
+is not a real-world pressure gauge. Survival supplies come from the separator
+and gas canisters/tubes, not free creative-tab contents.
 
 ## Tubes and cards
 

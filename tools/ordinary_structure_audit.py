@@ -18,6 +18,7 @@ p.add_argument('--dimension',default='zerog_tweaks:cerulon')
 p.add_argument('--chunk-x',type=int)
 p.add_argument('--chunk-z',type=int)
 p.add_argument('--radius',type=int,default=0)
+p.add_argument('--seed',type=int,default=0,help='Explicit expected disposable-world seed; default0 preserves earlier audits')
 p.add_argument('--report',type=Path)
 p.add_argument('--require-vault-keys',action='store_true',help='Fail unless all four planned natural altars are actually present')
 a=p.parse_args();run=a.run.resolve()
@@ -31,7 +32,7 @@ if a.action=='prepare':
         'server-ip=127.0.0.1','server-port=25587','enable-rcon=true',
         'rcon.port=25588','rcon.password='+secrets.token_hex(24),
         'broadcast-rcon-to-ops=false','online-mode=true','level-name=world',
-        'level-seed=0','generate-structures=true','view-distance=3',
+        'level-seed='+str(a.seed),'generate-structures=true','view-distance=3',
         'simulation-distance=3','spawn-protection=0','max-players=1',
         'sync-chunk-writes=true','initial-enabled-packs=vanilla',
         'motd=Disposable ZeroG structure audit'])+'\n')
@@ -52,7 +53,7 @@ else:
     import worldscan
     raw=gzip.decompress((run/'world/level.dat').read_bytes())
     metadata=worldscan._read(raw,3+struct.unpack_from('>H',raw,1)[0],10)[0]['Data']['WorldGenSettings']
-    assert int(metadata['seed'])==0 and metadata['generate_features'],'Wrong seed or structures disabled'
+    assert int(metadata['seed'])==a.seed and metadata['generate_features'],'Wrong seed or structures disabled'
     data=worldscan.chunk(str(run/'world/dimensions'/ns/dim),a.chunk_x,a.chunk_z)
     assert data, 'Target chunk has not been saved'
     starts=data.get('structures',{}).get('starts',{})
@@ -77,7 +78,7 @@ else:
             planned_altars.append({'position':[x,y,z],'chunk':[x>>4,z>>4],
                 'observed_block':observed,'observed_properties':properties,'references':sorted((c or {}).get('structures',{}).get('References',{}))})
     assert 0<=a.radius<=9,'Bounded saved-chunk inspection only'
-    blocks=Counter();loot=Counter();anchors=[];saved=0;bound_chests=[]
+    blocks=Counter();loot=Counter();anchors=[];saved=0;bound_chests=[];settlement_palette=Counter()
     piece_bounds=[(key,piece.get('BB')) for key,start in starts.items()
         for piece in start.get('Children',[]) if len(piece.get('BB',[]))==6]
     for cx in range(a.chunk_x-a.radius,a.chunk_x+a.radius+1):
@@ -88,6 +89,8 @@ else:
             for section in c.get('sections',[]):
                 for _,name,_ in worldscan.section_blocks(section):
                     if name in {'zerog_tweaks:vault_key_altar','zerog_tweaks:concord_lock','zerog_tweaks:settlement_anchor','zerog_tweaks:aresite_block'}:blocks[name]+=1
+                    if name.endswith('_farmland') or name.endswith('_door'):
+                        settlement_palette[name]+=1
             for be in c.get('block_entities',[]):
                 if be.get('LootTable','').startswith('zerog_tweaks:'):loot[be['LootTable']]+=1
                 if be.get('id')=='minecraft:chest' and be.get('LootTable','').startswith('zerog_tweaks:'):
@@ -97,11 +100,12 @@ else:
                             bound_chests.append({'structure':key,'position':[x,y,z],
                                 'loot_table':be['LootTable'],'association':'inside saved piece bounds; not loot-roll proof'})
                 if be.get('id')=='zerog_tweaks:settlement_anchor':anchors.append({k:be.get(k) for k in ['x','y','z','residents','speciesResidents']})
-    report={'seed':0,'dimension':a.dimension,'chunk':[a.chunk_x,a.chunk_z],
+    report={'seed':int(metadata['seed']),'dimension':a.dimension,'chunk':[a.chunk_x,a.chunk_z],
         'ordinary_server':True,'structure_generation_enabled':bool(metadata['generate_features']),
         'scope':'Saved natural structure starts; not complete room/chest or village coverage',
         'status':data.get('Status'),
         'saved_full_chunks':saved,'observed_blocks':dict(blocks),'unopened_chest_loot_tables':dict(loot),'settlement_anchors':anchors,'planned_key_altars':planned_altars,
+        'farmland_and_door_blocks_in_sample_not_exclusive_to_settlement':dict(sorted(settlement_palette.items())),
         'chests_inside_target_piece_bounds':bound_chests,
         'starts':{key:{'id':value.get('id'),'pieces':len(value.get('Children',[])),
             'piece_types':sorted({piece.get('id','unknown') for piece in value.get('Children',[])})}
