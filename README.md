@@ -1,5 +1,13 @@
 # ZeroG Tweaks
 
+## Material-matched components
+
+[Actual texture correction, Copper pressing and verification](docs/material-matched-components.md).
+44 native cog/plate sprites now match their individual ingots rather than sharing
+planet-wide palettes. Copper components and two compressor recipes bring the
+catalogue to44 combinations.17 isolated checks and the source/JAR audit passed;
+same-version build installed with backup. Client visual review remains pending.
+
 ## Industrial pressing and separator ports — 12 October 2026
 
 [Recipes, verified delivery and testing steps](docs/owner-followups-2026-10-12.md).
