@@ -20,17 +20,20 @@ p.add_argument('--verification-log', type=Path, required=True)
 p.add_argument('--report', type=Path, required=True)
 p.add_argument('--archive-cardinal', action='store_true')
 p.add_argument('--replace-compact', action='store_true',help='Archive the existing exact compact save after staging a validated clean export')
+p.add_argument('--name',default='ZeroG_Planet_Showcase_1_0_12_Compact_Hub_Seed0',help='New standalone ZeroG hub save name')
+p.add_argument('--include-test-structures',action='store_true',help='Copy verified bounded Cerulon/Skarn/Eidolon test regions only')
 a = p.parse_args()
 tested, saves = a.tested.resolve(), a.saves.resolve()
 assert saves.is_dir() and saves.name == 'saves'
-final_destination = saves / 'ZeroG_Planet_Showcase_1_0_12_Compact_Hub_Seed0'
+assert re.fullmatch(r'ZeroG_[A-Za-z0-9_]{1,100}',a.name),'Unsafe hub save name'
+final_destination = saves / a.name
 assert not final_destination.exists() or a.replace_compact, 'Existing save requires explicit --replace-compact'
 destination = final_destination
 if final_destination.exists():
     destination=saves.parent/'zerog-hub-staging'/datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S-UTC')/final_destination.name
     destination.parent.mkdir(parents=True,exist_ok=False)
 log = a.verification_log.read_text(encoding='utf-8')
-assert re.search(r'All [2-9]\d* required tests passed', log) and 'BUILD SUCCESSFUL' in log
+assert re.search(r'All [1-9]\d* required tests passed', log) and 'BUILD SUCCESSFUL' in log
 sys.path.insert(0, str(a.nbt_library.resolve()))
 import nbtlib
 
@@ -59,7 +62,7 @@ assert len([v for v in copied if v.startswith('region/')]) == 4
 (destination / 'data').mkdir()
 ledger.save(destination / 'data/zerog_planet_gates.dat')
 d = level['Data']
-d['LevelName'] = nbtlib.String('ZeroG Compact Hub 1.0.12 — Seed 0')
+d['LevelName'] = nbtlib.String(a.name.replace('_',' '))
 d['GameType'] = nbtlib.Int(1)
 d['allowCommands'] = nbtlib.Byte(1)
 d['SpawnX'], d['SpawnY'], d['SpawnZ'] = map(nbtlib.Int, (0, 65, 0))
@@ -70,6 +73,22 @@ for name, value in {'doDaylightCycle': 'true', 'doWeatherCycle': 'true', 'doMobS
 level.save(destination / 'level.dat')
 assert not (destination / 'dimensions').exists()
 assert not (destination / 'data/chunks.dat').exists()
+if a.include_test_structures:
+    structure_receipt=json.loads((tested/'zerog-structure-showcase.json').read_text())
+    assert structure_receipt['verified'] and structure_receipt['origin']==[512,90,512]
+    assert structure_receipt['dimensions']==['cerulon','skarn','eidolon']
+    assert structure_receipt['templates']==3 and structure_receipt['loot_chests']==6 and structure_receipt['spawners']==3
+    assert not structure_receipt['natural_generation']
+    for planet in structure_receipt['dimensions']:
+        relative=Path('dimensions/zerog_tweaks')/planet
+        assert (tested/relative/'region/r.1.1.mca').is_file()
+        for folder in ('region','entities','poi'):
+            source=tested/relative/folder/'r.1.1.mca'
+            if source.exists():
+                target=destination/relative/folder
+                target.mkdir(parents=True,exist_ok=True)
+                shutil.copy2(source,target/source.name)
+    shutil.copy2(tested/'zerog-structure-showcase.json',destination/'zerog-structure-showcase.json')
 archived_compact=None
 if destination!=final_destination:
     archived_compact=saves.parent/'zerog-hub-archives'/datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S-UTC')/final_destination.name
@@ -90,7 +109,7 @@ if a.archive_cardinal and old.exists():
 report = {'installed': True, 'destination': str(destination), 'archived_cardinal': str(archive) if archive else None,
           'archived_compact':str(archived_compact) if archived_compact else None,
           'seed': 0, 'gate_tiers': list(range(1, 7)), 'admin_travel': True,
-          'planetary_terrain_copied': False, 'planetary_generation': 'on first visit',
+          'planetary_terrain_copied': a.include_test_structures, 'planetary_generation': 'on first visit outside explicitly copied test regions',
           'forced_chunks_copied': False, 'copied_overworld_files': copied,
           'save_changes': True, 'unrelated_saves_changed': False,
           'verification_log': str(a.verification_log),

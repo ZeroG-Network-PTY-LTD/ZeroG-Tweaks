@@ -14,6 +14,98 @@ import net.zerog.tweaks.registry.BlockInit;
 @GameTestHolder("zerog_tweaks")
 @PrefixGameTestTemplate(false)
 public final class PlanetMineLayoutGameTests {
+    @GameTest(templateNamespace="zerog_planet_generation",template="equipment_empty",timeoutTicks=1200)
+    public static void natural_vent_fields_place_three_to_six_distinct_vents(GameTestHelper helper) {
+        var level=helper.getLevel().getServer().getLevel(net.minecraft.resources.ResourceKey.create(
+            net.minecraft.core.registries.Registries.DIMENSION,
+            net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","mars")));
+        helper.assertTrue(level!=null,"Missing fixture planet");
+        var centre=new BlockPos(7000,200,7000);
+        for(int x=436;x<=438;x++)for(int z=436;z<=438;z++)level.getChunk(x,z);
+        for(String theme:new String[]{"moon","skarn"})for(int seed=0;seed<32;seed++) {
+            for(var p:BlockPos.betweenClosed(centre.offset(-8,-1,-8),new BlockPos(7008,level.getMaxBuildHeight()-1,7008)))
+                level.setBlock(p,p.getY()<=200?net.minecraft.world.level.block.Blocks.STONE.defaultBlockState():net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
+            net.zerog.tweaks.worldgen.AmbientPlanetLandforms.place(level,RandomSource.create(seed),centre,theme,net.minecraft.world.level.block.Blocks.STONE);
+            int count=0;
+            for(var p:BlockPos.betweenClosed(centre.offset(-8,0,-8),centre.offset(8,5,8)))
+                if(level.getBlockState(p).is(net.zerog.tweaks.registry.ZGGasVents.AMBIENT_VENTS.get(theme).get()))count++;
+            helper.assertTrue(count>=3&&count<=6,"Vent field has "+count+" distinct blocks, theme="+theme+", seed="+seed);
+        }
+        helper.succeed();
+    }
+    @GameTest(templateNamespace="zerog_planet_generation",template="equipment_empty",timeoutTicks=1200)
+    public static void undersized_vent_fields_leave_terrain_and_containers_unchanged(GameTestHelper helper) {
+        var level=helper.getLevel().getServer().getLevel(net.minecraft.resources.ResourceKey.create(
+            net.minecraft.core.registries.Registries.DIMENSION,
+            net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","mars")));
+        helper.assertTrue(level!=null,"Missing fixture planet");
+        var centre=new BlockPos(7064,200,7064);
+        for(int x=441;x<=442;x++)for(int z=441;z<=442;z++)level.getChunk(x,z);
+        for(var p:BlockPos.betweenClosed(centre.offset(-8,-1,-8),new BlockPos(7072,level.getMaxBuildHeight()-1,7072)))
+            level.setBlock(p,p.getY()<=200?net.minecraft.world.level.block.Blocks.DIRT.defaultBlockState():net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
+        level.setBlock(centre,net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(),2);
+        level.setBlock(centre.east(),net.minecraft.world.level.block.Blocks.STONE.defaultBlockState(),2);
+        var chest=centre.north();level.setBlock(chest,net.minecraft.world.level.block.Blocks.CHEST.defaultBlockState(),2);
+        var identity=level.getBlockEntity(chest);
+        for(int seed=0;seed<32;seed++)net.zerog.tweaks.worldgen.AmbientPlanetLandforms.place(level,RandomSource.create(seed),centre,"moon",net.minecraft.world.level.block.Blocks.STONE);
+        helper.assertTrue(level.getBlockState(centre).is(net.minecraft.world.level.block.Blocks.STONE)&&level.getBlockState(centre.east()).is(net.minecraft.world.level.block.Blocks.STONE),"Partial undersized field altered surface");
+        helper.assertTrue(level.getBlockEntity(chest)==identity,"Vent field replaced protected container");
+        helper.succeed();
+    }
+    @GameTest(templateNamespace="zerog_planet_generation",template="equipment_empty",timeoutTicks=1200)
+    public static void village_tries_other_layouts_without_draining_a_blocked_home(GameTestHelper helper) {
+        var level=helper.getLevel().getServer().getLevel(net.minecraft.resources.ResourceKey.create(
+                net.minecraft.core.registries.Registries.DIMENSION,
+                net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","mars")));
+        helper.assertTrue(level!=null,"Missing workflowPlanetPreset Mars");
+        var centre=new BlockPos(6824,200,6824);
+        for(int x=(centre.getX()-22)>>4;x<=(centre.getX()+22)>>4;x++)for(int z=(centre.getZ()-22)>>4;z<=(centre.getZ()+22)>>4;z++)level.getChunk(x,z);
+        var soil=net.zerog.tweaks.registry.ZGDimensionTerrain.SOILS.get("mars").get();
+        for(var at:BlockPos.betweenClosed(centre.offset(-22,-8,-22),new BlockPos(centre.getX()+22,level.getMaxBuildHeight()-1,centre.getZ()+22)))
+            level.setBlock(at,at.getY()<=centre.getY()?soil.defaultBlockState():net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
+        var pond=centre.offset(-10,0,-10);
+        level.setBlock(pond,net.minecraft.world.level.block.Blocks.WATER.defaultBlockState(),2);
+        helper.assertTrue(!PlanetSettlementFeature.build(level,centre,"mars",0,RandomSource.create(3)),"Wet preferred home was accepted");
+        helper.assertTrue(PlanetSettlementFeature.tryLayouts(level,centre,"mars",0,RandomSource.create(3)),"Other dry layouts were never attempted");
+        helper.assertTrue(level.getFluidState(pond).is(net.minecraft.world.level.material.Fluids.WATER),"Layout retry drained original pond");
+        helper.assertTrue(level.getBlockState(centre).is(BlockInit.SETTLEMENT_ANCHOR.get()),"Successful alternative missing anchor");
+        helper.succeed();
+    }
+    @GameTest(templateNamespace="zerog_planet_generation",template="equipment_empty",timeoutTicks=1200)
+    public static void settlement_preserves_unused_pond_and_beehive(GameTestHelper helper) {
+        var level=helper.getLevel().getServer().getLevel(net.minecraft.resources.ResourceKey.create(
+                net.minecraft.core.registries.Registries.DIMENSION,
+                net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","mars")));
+        helper.assertTrue(level!=null,"Missing workflowPlanetPreset Mars");
+        var centre=new BlockPos(6728,200,6728);
+        for(int x=(centre.getX()-22)>>4;x<=(centre.getX()+22)>>4;x++)for(int z=(centre.getZ()-22)>>4;z<=(centre.getZ()+22)>>4;z++)level.getChunk(x,z);
+        var soil=net.zerog.tweaks.registry.ZGDimensionTerrain.SOILS.get("mars").get();
+        for(var at:BlockPos.betweenClosed(centre.offset(-22,-8,-22),new BlockPos(centre.getX()+22,level.getMaxBuildHeight()-1,centre.getZ()+22)))
+            level.setBlock(at,at.getY()<=centre.getY()?soil.defaultBlockState():net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
+        var pond=centre.offset(-17,0,-11);var hive=centre.offset(-9,1,-18);
+        level.setBlock(pond,net.minecraft.world.level.block.Blocks.WATER.defaultBlockState(),2);
+        level.setBlock(hive,net.minecraft.world.level.block.Blocks.BEEHIVE.defaultBlockState(),2);
+        var oldHive=level.getBlockEntity(hive);
+        helper.assertTrue(PlanetSettlementFeature.build(level,centre,"mars",0,RandomSource.create(3)),"Unused edge pond/hive aborted the whole village");
+        helper.assertTrue(level.getFluidState(pond).is(net.minecraft.world.level.material.Fluids.WATER),"Village drained unused pond");
+        helper.assertTrue(level.getBlockEntity(hive)==oldHive,"Village overwrote unused beehive");
+        helper.succeed();
+    }
+    @GameTest(templateNamespace="zerog_planet_generation",template="equipment_empty",timeoutTicks=40)
+    public static void village_selects_one_dry_alternative_without_widening_spacing(GameTestHelper helper) {
+        for(String planet:new String[]{"moon","cerulon","eidolon","solvane"})for(int rx=-2;rx<=2;rx++)for(int rz=-2;rz<=2;rz++) {
+            var sites=PlanetSettlementFeature.searchCandidates(17,planet,rx,rz);
+            helper.assertTrue(sites.size()>=3&&sites.size()<=5,"Unbounded or duplicated search");
+            var base=sites.getFirst();var viable=sites.get(1);
+            var selected=PlanetSettlementFeature.terrainCandidate(17,planet,rx,rz,p->p.equals(viable)?0:1);
+            helper.assertTrue(selected.equals(viable),"Village discarded its only attempt instead of selecting dry alternative");
+            helper.assertTrue(PlanetSettlementFeature.terrainCandidate(17,planet,rx,rz,p->0).equals(base),"Valid original site moved unnecessarily");
+            helper.assertTrue(PlanetSettlementFeature.terrainCandidate(17,planet,rx,rz,p->1).equals(base),"No viable site should retain guarded legacy attempt");
+            for(var site:sites)helper.assertTrue(site.x>=rx*50+16&&site.x<=rx*50+33&&site.z>=rz*50+16&&site.z<=rz*50+33,
+                    "Search reduced thirty-three-chunk neighbour separation");
+        }
+        helper.succeed();
+    }
     @GameTest(templateNamespace="zerog_planet_generation",template="equipment_empty",timeoutTicks=40)
     public static void expanded_mines_have_long_spines_and_multiple_workings(GameTestHelper helper) {
         for(int seed=0;seed<128;seed++) {
@@ -135,10 +227,10 @@ public final class PlanetMineLayoutGameTests {
         helper.assertTrue(!PlanetSettlementFeature.build(level,centre,"mars",1,RandomSource.create(3)),"Colony overwrote buried machine");
         helper.assertTrue(level.getBlockState(centre).is(soil),"Rejected colony wrote anchor");
         level.setBlock(centre.below(3),soil.defaultBlockState(),2);
-        for(int y=0;y<=5;y++)level.setBlock(centre.offset(6,-y,7),net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
+        for(int y=0;y<=5;y++)level.setBlock(centre.offset(10,-y,11),net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
         helper.assertTrue(!PlanetSettlementFeature.build(level,centre,"mars",1,RandomSource.create(3)),"Colony accepted hidden ravine");
         helper.assertTrue(level.getBlockState(centre).is(soil),"Ravine rejection partially wrote colony");
-        for(int y=0;y<=5;y++)level.setBlock(centre.offset(6,-y,7),soil.defaultBlockState(),2);
+        for(int y=0;y<=5;y++)level.setBlock(centre.offset(10,-y,11),soil.defaultBlockState(),2);
         helper.assertTrue(PlanetSettlementFeature.build(level,centre,"mars",1,RandomSource.create(3)),"Supported Mars colony rejected");
         for(var home:PlanetSettlementFeature.homes(1)) {
             var door=level.getBlockState(centre.offset(home).offset(0,1,4));

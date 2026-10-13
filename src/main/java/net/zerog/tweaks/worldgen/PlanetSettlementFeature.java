@@ -29,6 +29,42 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
                 ^ ((long)regionZ*132897987541L) ^ dimension.hashCode());
         return new net.minecraft.world.level.ChunkPos(regionX*50+16+site.nextInt(18),regionZ*50+16+site.nextInt(18));
     }
+    public static List<net.minecraft.world.level.ChunkPos> searchCandidates(long seed,String dimension,int rx,int rz) {
+        var base=candidate(seed,dimension,rx,rz);
+        var sites=new java.util.LinkedHashSet<net.minecraft.world.level.ChunkPos>();
+        sites.add(base);
+        for(int[] delta:new int[][]{{6,0},{-6,0},{0,6},{0,-6}}) {
+            int x=Math.max(rx*50+16,Math.min(rx*50+33,base.x+delta[0]));
+            int z=Math.max(rz*50+16,Math.min(rz*50+33,base.z+delta[1]));
+            sites.add(new net.minecraft.world.level.ChunkPos(x,z));
+        }
+        return List.copyOf(sites);
+    }
+    /** Selection depends only on immutable base terrain, never generated neighbour chunks. */
+    public static net.minecraft.world.level.ChunkPos terrainCandidate(long seed,String dimension,int rx,int rz,
+            java.util.function.ToIntFunction<net.minecraft.world.level.ChunkPos> score) {
+        for(var site:searchCandidates(seed,dimension,rx,rz))if(score.applyAsInt(site)==0)return site;
+        return candidate(seed,dimension,rx,rz);
+    }
+    private static int terrainScore(FeaturePlaceContext<NoneFeatureConfiguration> context,net.minecraft.world.level.ChunkPos site) {
+        return terrainScore(context.chunkGenerator(),context.level(),context.level().getLevel().getChunkSource().randomState(),site);
+    }
+    public static net.minecraft.world.level.ChunkPos terrainCandidate(net.minecraft.server.level.ServerLevel level,int rx,int rz) {
+        return terrainCandidate(level.getSeed(),level.dimension().location().getPath(),rx,rz,
+                site->terrainScore(level.getChunkSource().getGenerator(),level,level.getChunkSource().randomState(),site));
+    }
+    private static int terrainScore(net.minecraft.world.level.chunk.ChunkGenerator generator,
+            net.minecraft.world.level.LevelHeightAccessor heights,net.minecraft.world.level.levelgen.RandomState randomState,
+            net.minecraft.world.level.ChunkPos site) {
+        int x=site.getMinBlockX()+8,z=site.getMinBlockZ()+8;
+        int centreY=generator.getFirstFreeHeight(x,z,Heightmap.Types.OCEAN_FLOOR_WG,heights,randomState)-1;
+        for(int dx:new int[]{-18,0,18})for(int dz:new int[]{-18,0,18}) {
+            int surface=generator.getFirstFreeHeight(x+dx,z+dz,Heightmap.Types.WORLD_SURFACE_WG,heights,randomState);
+            int floor=generator.getFirstFreeHeight(x+dx,z+dz,Heightmap.Types.OCEAN_FLOOR_WG,heights,randomState);
+            if(surface!=floor || Math.abs(floor-1-centreY)>MAX_GRADE)return 1;
+        }
+        return 0;
+    }
     public static List<BlockPos> homes(int layout) {
         return switch(Math.floorMod(layout,4)) {
             case 1 -> List.of(new BlockPos(-11,0,-10),new BlockPos(11,0,-10),new BlockPos(0,0,12));
@@ -37,6 +73,20 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
             default -> List.of(new BlockPos(-10,0,-10),new BlockPos(10,0,-10),new BlockPos(0,0,11));
         };
     }
+    public static boolean usedColumn(int x,int z,int layout,String dimension) {
+        return usedColumn(x,z,homes(layout),PlanetEcologyProfile.theme(dimension).equals("mars"));
+    }
+    private static boolean usedColumn(int x,int z,List<BlockPos> homes,boolean shrine) {
+        if(Math.max(Math.abs(x),Math.abs(z))>17)return false;
+        if(Math.abs(x)<=1 || Math.abs(z)<=1)return true;
+        for(var home:homes) {
+            if(Math.abs(x-home.getX())<=4 && Math.abs(z-home.getZ())<=4)return true;
+            if(z==home.getZ()+5 && x>=Math.min(0,home.getX()) && x<=Math.max(0,home.getX()))return true;
+        }
+        if(Math.abs(Math.abs(x)-12)<=3 && Math.abs(z-12)<=2)return true;
+        if(shrine && x>=4 && x<=6 && z>=2 && z<=4)return true;
+        return x==-16 && z==5 || x==-14 && z>=3 && z<=7;
+    }
     @Override public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
         String dimension=context.level().getLevel().dimension().location().getPath();
         if(!ZGDimensionTerrain.SOILS.containsKey(dimension)) return false;
@@ -44,18 +94,15 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
         // 16..33 guarantee at least 33 chunks between neighbouring region sites.
         int cx=context.origin().getX()>>4,cz=context.origin().getZ()>>4;
         int rx=Math.floorDiv(cx,50),rz=Math.floorDiv(cz,50);
-        var site=candidate(context.level().getSeed(),dimension,rx,rz);
+        if(!searchCandidates(context.level().getSeed(),dimension,rx,rz)
+                .contains(new net.minecraft.world.level.ChunkPos(cx,cz)))return false;
+        var site=terrainCandidate(context.level().getSeed(),dimension,rx,rz,pos->terrainScore(context,pos));
         if(cx!=site.x || cz!=site.z) return false;
         var origin=context.origin().offset(8,0,8);
         int y=groundY(context.level(),origin.getX(),origin.getZ());
-        // Land only. A sea-surface height is not the solid grass/soil surface.
-        for(int x:new int[]{-18,0,18}) for(int z:new int[]{-18,0,18}) {
-            int h=groundY(context.level(),origin.getX()+x,origin.getZ()+z);
-            var ground=new BlockPos(origin.getX()+x,h,origin.getZ()+z);
-            if(Math.abs(h-y)>MAX_GRADE || !context.level().getFluidState(ground).isEmpty()
-                    || !context.level().getBlockState(ground).isSolidRender(context.level(),ground)) return false;
-        }
-        return build(context.level(),new BlockPos(origin.getX(),y,origin.getZ()),dimension,context.random().nextInt(4),context.random());
+        // The actual layout's used columns are validated by build. Unused corner
+        // ponds are not permission to reject every house, or drain a square lawn.
+        return tryLayouts(context.level(),new BlockPos(origin.getX(),y,origin.getZ()),dimension,context.random().nextInt(4),context.random());
     }
     private static int groundY(WorldGenLevel level,int x,int z) {
         int y=level.getHeight(level instanceof net.minecraft.server.level.ServerLevel
@@ -70,16 +117,26 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
         }
         return y;
     }
+    public static boolean tryLayouts(WorldGenLevel level,BlockPos centre,String dimension,int preferred,RandomSource random) {
+        for(int offset=0;offset<4;offset++) {
+            if(build(level,centre,dimension,Math.floorMod(preferred+offset,4),random)) return true;
+        }
+        return false;
+    }
     public static boolean build(WorldGenLevel level,BlockPos centre,String dimension,int layout,RandomSource random) {
         if(!ZGDimensionTerrain.SOILS.containsKey(dimension) || centre.getY()<level.getMinBuildHeight()+20 || centre.getY()>level.getMaxBuildHeight()-12) return false;
         // Never consult server SavedData from a worldgen worker. Only explicit
         // server-side placement needs the registered arrival-region exclusion.
         if(level instanceof net.minecraft.server.level.ServerLevel server
                 && net.zerog.tweaks.travel.ArrivalProtection.intersects(server,centre.offset(-20,-18,-20),centre.offset(20,10,20))) return false;
-        // Generated footprints may excavate terrain, but never overwrite existing
-        // block entities (including neighbouring outposts and player machines).
+        var used=new boolean[35][35];var housePositions=homes(layout);
+        boolean hasShrine=PlanetEcologyProfile.theme(dimension).equals("mars");
+        for(int x=-17;x<=17;x++)for(int z=-17;z<=17;z++)used[x+17][z+17]=usedColumn(x,z,housePositions,hasShrine);
+        // Protect every actual write, without rejecting unrelated edge beehives.
         for(var pos:BlockPos.betweenClosed(centre.offset(-20,-MAX_GRADE,-20),centre.offset(20,11,20))) {
-            if(!level.hasChunkAt(pos) || level.getBlockEntity(pos)!=null) return false;
+            int x=pos.getX()-centre.getX(),z=pos.getZ()-centre.getZ();
+            if(Math.max(Math.abs(x),Math.abs(z))>17 || !used[x+17][z+17])continue;
+            if(!level.hasChunkAt(pos) || level.getBlockEntity(pos)!=null)return false;
             if(level instanceof net.minecraft.server.level.WorldGenRegion
                     && level.getChunk(pos).getInhabitedTime()>0) return false;
             String block=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(level.getBlockState(pos).getBlock()).getPath();
@@ -90,17 +147,19 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
         // colony before any blocks are cleared or foundations are placed.
         int[][] heights=new int[35][35];
         for(int x=-17;x<=17;x++)for(int z=-17;z<=17;z++) {
+            if(!used[x+17][z+17])continue;
             int y=groundY(level,centre.getX()+x,centre.getZ()+z);
             heights[x+17][z+17]=y;
             var ground=new BlockPos(centre.getX()+x,y,centre.getZ()+z);
             if(Math.abs(y-centre.getY())>MAX_GRADE || !level.getFluidState(ground).isEmpty()
-                    || !level.getBlockState(ground).isSolidRender(level,ground)) return false;
+                    || !level.getBlockState(ground).isSolidRender(level,ground))return false;
         }
         // Grading a continuous gentle slope is not permission to fill a ravine
         // or bulldoze a cliff. Check adjacent columns before any terrain writes.
         for(int x=0;x<35;x++)for(int z=0;z<35;z++) {
-            if(x>0 && Math.abs(heights[x][z]-heights[x-1][z])>4) return false;
-            if(z>0 && Math.abs(heights[x][z]-heights[x][z-1])>4) return false;
+            if(!used[x][z])continue;
+            if(x>0 && used[x-1][z] && Math.abs(heights[x][z]-heights[x-1][z])>4)return false;
+            if(z>0 && used[x][z-1] && Math.abs(heights[x][z]-heights[x][z-1])>4)return false;
         }
         var hull=switch(PlanetEcologyProfile.theme(dimension)) {
             case "mars" -> BlockInit.MARTIAN_STONE_BRICKS.get();
@@ -132,7 +191,7 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
         for(int x=-19;x<=19;x++) for(int z=-19;z<=19;z++) {
             // Leave the outer transition band untouched, rather than stamping
             // a sharp rectangular green/brown lawn onto unrelated terrain.
-            if(Math.max(Math.abs(x),Math.abs(z))>17) continue;
+            if(Math.max(Math.abs(x),Math.abs(z))>17 || !used[x+17][z+17]) continue;
             var floor=centre.offset(x,0,z);
             int surfaceY=groundY(level,floor.getX(),floor.getZ());
             var nativeSurface=level.getBlockState(new BlockPos(floor.getX(),surfaceY,floor.getZ()));

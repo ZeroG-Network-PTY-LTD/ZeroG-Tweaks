@@ -18,7 +18,7 @@ import net.zerog.tweaks.transport.TransportBlockEntity;
 public final class HubWorkshop {
     public static final List<String> MACHINES=List.of("ore_refinery","alloy_forge","crystal_growth_chamber","salvage_station",
         "combustion_generator","solar_array","fusion_reactor","geno_station","genetic_splicer","centrifuge",
-        "starmetal_smelter","silk_weaver","frame_infusion_altar");
+        "starmetal_smelter","silk_weaver","frame_infusion_altar","water_separator","industrial_compressor");
     public static BlockPos origin(int i){return new BlockPos(-108+(i%3)*20,64,8+(i/3)*14);}
     private static ResourceLocation key(String id){return ResourceLocation.fromNamespaceAndPath("zerog_tweaks",id);}
     private static ItemStack stack(String id,int n){var k=ResourceLocation.parse(id);return BuiltInRegistries.ITEM.containsKey(k)?new ItemStack(BuiltInRegistries.ITEM.get(k),n):ItemStack.EMPTY;}
@@ -28,10 +28,10 @@ public final class HubWorkshop {
         var ledger=GateLedger.get(level.getServer());if(ledger.workshopBuilt)return "Supplied workshop already built; player edits and supplies preserved.";
         var kits=new ArrayList<List<ItemStack>>();var blocks=new ArrayList<ResourceLocation>();
         for(int i=0;i<MACHINES.size();i++){
-            var id=MACHINES.get(i);var block=ResourceLocation.fromNamespaceAndPath(i<7?"zerog_tweaks":"aeroapiary",id);blocks.add(block);
+            var id=MACHINES.get(i);var block=ResourceLocation.fromNamespaceAndPath(i<7||i>=13?"zerog_tweaks":"aeroapiary",id);blocks.add(block);
             var kit=new LinkedHashMap<String,ItemStack>();
-            if(i<4){
-                var kind=ProcessingRegistry.Kind.values()[i];
+            if(i<4||id.equals("industrial_compressor")){
+                var kind=id.equals("industrial_compressor")?ProcessingRegistry.Kind.PRESSING:ProcessingRegistry.Kind.values()[i];
                 var recipes=level.getRecipeManager().getAllRecipesFor(ProcessingRegistry.TYPES_BY_KIND.get(kind).get()).stream().sorted(Comparator.comparing(h->h.id().toString())).toList();
                 if(recipes.isEmpty())return "No loaded "+kind.id+" recipes; workshop not placed.";
                 for(var recipe:recipes){var entries=new ArrayList<>(recipe.value().inputs());recipe.value().catalyst().ifPresent(entries::add);
@@ -56,14 +56,18 @@ public final class HubWorkshop {
                     add(kit,stack("zerog_tweaks:royal_jelly_bucket",1));add(kit,stack("zerog_tweaks:cosmic_jelly_bucket",1));
                 }
             }
-            else if(i>=9&&BuiltInRegistries.BLOCK.containsKey(block)){
+            else if(id.equals("water_separator")){
+                add(kit,new ItemStack(Items.WATER_BUCKET));add(kit,new ItemStack(Items.BUCKET,16));
+                add(kit,stack("zerog_tweaks:gas_canister",1));
+            }
+            else if(i>=9&&i<13&&BuiltInRegistries.BLOCK.containsKey(block)){
                 try {var filter=Class.forName("com.zerog.aeroapiary.ZeroGMachines").getMethod("mayPlaceIn",String.class,int.class,ItemStack.class);
                     for(var item:BuiltInRegistries.ITEM){var sample=new ItemStack(item);if(sample.isEmpty())continue;
                         for(int slot=0;slot<3;slot++)if((Boolean)filter.invoke(null,id,slot,sample)){add(kit,sample.copyWithCount(Math.min(16,sample.getMaxStackSize())));break;}
                     }
                 }catch(ReflectiveOperationException ex){return "Addon ingredient contract unavailable; workshop not placed.";}
             }
-            if(i<7&&!BuiltInRegistries.BLOCK.containsKey(block))return "Missing machine "+block+"; workshop not placed.";
+            if((i<7||i>=13)&&!BuiltInRegistries.BLOCK.containsKey(block))return "Missing machine "+block+"; workshop not placed.";
             if(kit.size()>108)return "Supply kit exceeds four chests: "+id+"; workshop not placed.";
             kits.add(List.copyOf(kit.values()));
         }
@@ -77,7 +81,7 @@ public final class HubWorkshop {
         for(String tier:net.zerog.tweaks.storage.StorageTankRegistry.TIERS)for(String family:List.of("energy_cell","energy_conduit","item_tube","fluid_pipe","fluid_tank"))add(serviceKit,stack("zerog_tweaks:"+tier+"_"+family,1));
         if(serviceKit.size()>108)return "Alveary kit exceeds four chests; workshop not placed.";
         // All plots checked before any modification. Native flat ground is the only replaceable floor.
-        for(var p:BlockPos.betweenClosed(new BlockPos(-110,63,5),new BlockPos(-48,69,78))){
+        for(var p:BlockPos.betweenClosed(new BlockPos(-110,63,5),new BlockPos(-48,69,98))){
             var state=level.getBlockState(p);
             if(p.getY()==63? !state.isAir()&&!state.is(Blocks.STONE)&&!state.is(BlockInit.LANDING_PLATFORM.get()):!state.isAir())return "Workshop plot occupied at "+p.toShortString()+"; nothing overwritten.";
         }
@@ -85,7 +89,7 @@ public final class HubWorkshop {
             var pos=new BlockPos(x,63,z);var state=level.getBlockState(pos);
             if(!state.isAir()&&!state.is(Blocks.STONE)&&!state.is(Blocks.STONE_BRICKS)&&!state.is(BlockInit.LANDING_PLATFORM.get()))return "Workshop access floor occupied at "+pos.toShortString()+"; nothing overwritten.";
         }
-        var serviceBase=origin(13);var supplies=List.copyOf(serviceKit.values());
+        var serviceBase=origin(MACHINES.size());var supplies=List.copyOf(serviceKit.values());
         for(int x=-2;x<=12;x++)for(int z=-3;z<=6;z++)level.setBlock(serviceBase.offset(x,-1,z),Blocks.STONE_BRICKS.defaultBlockState(),2);
         for(int c=0;c<4;c++){var pos=serviceBase.offset(3+c*2,0,0);level.setBlock(pos,Blocks.CHEST.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,Direction.SOUTH),3);
             if(level.getBlockEntity(pos) instanceof ChestBlockEntity chest){for(int s=0;s<27&&c*27+s<supplies.size();s++)chest.setItem(s,supplies.get(c*27+s).copy());chest.setChanged();}
@@ -109,13 +113,13 @@ public final class HubWorkshop {
         }
         for(int x=-108;x<=0;x++)for(int z=-6;z<=-4;z++)pathFloor(level,new BlockPos(x,63,z));
         connectPaths(level);
-        sign(level,new BlockPos(-12,64,-5),"WEST: WORKSHOP","13 machine stations","Test materials / power","Recipes balanced later");
+        sign(level,new BlockPos(-12,64,-5),"WEST: WORKSHOP",MACHINES.size()+" machine stations","Test materials / power","Recipes balanced later");
         ledger.workshopBuilt=true;ledger.setDirty();return "Built supplied workshop west of hub; original exhibits and gates preserved.";
     }
     public static void connectPaths(ServerLevel level){
         if(!PlanetTestHub.isHub(level.getServer())||level!=level.getServer().overworld())throw new IllegalStateException("Hub-only paths");
-        for(int z=-6;z<=78;z++)for(int x=-46;x<=-44;x++)pathFloor(level,new BlockPos(x,63,z));
-        for(int row=0;row<5;row++)for(int x=-108;x<=-44;x++)for(int z=18+row*14;z<=19+row*14;z++)pathFloor(level,new BlockPos(x,63,z));
+        for(int z=-6;z<=98;z++)for(int x=-46;x<=-44;x++)pathFloor(level,new BlockPos(x,63,z));
+        for(int row=0;row<=MACHINES.size()/3;row++)for(int x=-108;x<=-44;x++)for(int z=18+row*14;z<=19+row*14;z++)pathFloor(level,new BlockPos(x,63,z));
         for(int z=0;z<=90;z++)for(int x=-1;x<=1;x++)pathFloor(level,new BlockPos(x,63,z));
     }
     private static void pathFloor(ServerLevel level,BlockPos pos){var state=level.getBlockState(pos);if(state.isAir()||state.is(Blocks.STONE)||state.is(BlockInit.LANDING_PLATFORM.get()))level.setBlock(pos,Blocks.STONE_BRICKS.defaultBlockState(),2);}

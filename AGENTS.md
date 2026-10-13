@@ -638,3 +638,25 @@ write envelope). Expand arrival-protection checks with that footprint. Keep dry
 roof/floor and container preflight, local timber, no rails and original loot.
 This is an expanded bounded feature, not an unlimited multi-chunk mine network;
 do not claim larger mine density or natural distribution from plan tests alone.
+
+Village placement may now select one of at most five deterministic sites inside
+the original16..33 chunk offsets of a50x50 region. Prefer the original site when
+its immutable base terrain is suitable, otherwise the first dry gentle alternative;
+if none qualifies retain the guarded original attempt. Never select independently
+from generated neighbour contents, force-load terrain, consult worker SavedData,
+or generate every alternative. Full grading/container/fluid/ravine checks remain.
+Read-only candidate auditing needs --search-alternatives for this newer selector;
+an unobserved village there is inconclusive without runtime noise selection.
+
+Settlement preflight and grading cover actual used layout columns, not unused
+edge lawns. Preserve unrelated ponds and beehives. Try at most four existing
+layouts at the one selected site; every failed build must return before writes,
+and stop at the first successful layout. Twelve targeted gameplay checks pass;
+do not equate controlled-layout or native-selector tests with natural frequency.
+
+Ambient vent fields select3–6 once, shuffle unique bounded candidate columns
+using feature-local RandomSource, and write only after sufficient valid sites
+are collected. Hot extinct cones preflight the whole footprint and select only
+the same3–6 top apertures. No partial undersized fields or container overwrites.
+Fourteen generation regressions pass, including64 count fixtures and undersized
+fields. This does not implement new cone artwork or re-enable ambient weather.
