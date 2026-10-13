@@ -26,8 +26,18 @@ public final class StorageTankRegistry {
     private static final DeferredRegister<MenuType<?>> MENUS=DeferredRegister.create(Registries.MENU,"zerog_tweaks");
     public static final java.util.function.Supplier<BlockEntityType<StorageTankBlockEntity>> TYPE=TYPES.register("fluid_storage_tank",()->BlockEntityType.Builder.of(StorageTankBlockEntity::new,BLOCKS.stream().map(DeferredHolder::get).toArray(Block[]::new)).build(null));
     public static final java.util.function.Supplier<MenuType<StorageTankMenu>> MENU=MENUS.register("fluid_storage_tank",()->IMenuTypeExtension.create((id,inv,buf)->new StorageTankMenu(id,inv,inv.player.level().getBlockEntity(buf.readBlockPos()))));
-    static {for(int i=0;i<TIERS.length;i++){final int tier=i;String id=TIERS[i]+"_fluid_tank";var block=BlockInit.BLOCKS.register(id,()->new StorageTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion(),tier));BLOCKS.add(block);ItemInit.ITEMS.register(id,()->new net.minecraft.world.item.BlockItem(block.get(),new net.minecraft.world.item.Item.Properties().stacksTo(1)));}}
+    static {for(int i=0;i<TIERS.length;i++){final int tier=i;String id=TIERS[i]+"_fluid_tank";var block=BlockInit.BLOCKS.register(id,()->new StorageTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion(),tier));BLOCKS.add(block);ItemInit.ITEMS.register(id,()->new StorageTankItem(block.get(),new net.minecraft.world.item.Item.Properties().stacksTo(1),tier));}}
     public static void register(IEventBus bus){TYPES.register(bus);MENUS.register(bus);bus.addListener(StorageTankRegistry::capabilities);}
+    public static net.minecraft.world.item.ItemStack filledGas(int tier, net.zerog.tweaks.registry.ZGGases.Gas gas, net.minecraft.core.HolderLookup.Provider registries) {
+        if (tier < 0 || tier >= BLOCKS.size()) throw new IllegalArgumentException("Invalid tank tier");
+        var block = BLOCKS.get(tier).get();
+        var entity = new StorageTankBlockEntity(net.minecraft.core.BlockPos.ZERO, block.defaultBlockState());
+        entity.tank.fill(new net.neoforged.neoforge.fluids.FluidStack(gas.fluid().get(), CAPACITIES[tier]), net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction.EXECUTE);
+        var stack = new net.minecraft.world.item.ItemStack(block);
+        stack.set(net.minecraft.core.component.DataComponents.BLOCK_ENTITY_DATA, net.minecraft.world.item.component.CustomData.of(entity.saveWithFullMetadata(registries)));
+        stack.set(net.minecraft.core.component.DataComponents.BLOCK_STATE, net.minecraft.world.item.component.BlockItemStateProperties.EMPTY.with(StorageTankBlock.LEVEL, 8));
+        return stack;
+    }
     private static void capabilities(RegisterCapabilitiesEvent event){event.registerBlockEntity(Capabilities.FluidHandler.BLOCK,TYPE.get(),(be,face)->be.handler(face));}
     private StorageTankRegistry(){}
 }

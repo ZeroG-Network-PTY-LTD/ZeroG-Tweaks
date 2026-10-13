@@ -49,8 +49,21 @@ public final class CreativeTabs {
             tab("liquids", "liquid_starlight_bucket", new String[0], SPAWN_EGGS.getId(), false);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> HONEY_LIQUIDS =
             tab("honey_liquids", "flora_bee_honey_bucket", new String[0], LIQUIDS.getId(), false);
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> GASES =
+            TABS.register("gases", () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.zerog_tweaks.gases"))
+                    .icon(() -> ZGGases.filled(ZGGases.OXYGEN))
+                    .withTabsBefore(HONEY_LIQUIDS.getId())
+                    .displayItems((params, out) -> {
+                        out.accept(ZGGases.CANISTER.get());
+                        for (var gas : ZGGases.ALL) {
+                            out.accept(ZGGases.filled(gas));
+                            for (int tier = 0; tier < 6; tier++)
+                                out.accept(net.zerog.tweaks.storage.StorageTankRegistry.filledGas(tier, gas, params.holders()));
+                        }
+                    }).build());
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> STORAGE_AND_TRANSPORT =
-            tab("storage_and_transport", "copper_fluid_tank", new String[0], HONEY_LIQUIDS.getId(), false);
+            tab("storage_and_transport", "copper_fluid_tank", new String[0], GASES.getId(), false);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ADMIN_TOOLS =
             TABS.register("admin_tools", () -> CreativeModeTab.builder()
                     .title(Component.literal("Z-Admintools"))
@@ -129,8 +142,6 @@ public final class CreativeTabs {
                         net.zerog.tweaks.storage.WoodStorageRegistry.JOINERY.keySet().forEach(id->out.accept(item(id)));
                     }
                     if (name.equals("storage_and_transport")) {
-                        out.accept(ZGGases.CANISTER.get());
-                        ZGGases.ALL.forEach(gas->out.accept(ZGGases.filled(gas)));
                         ItemInit.MACHINE_UPGRADE_CARDS.values().forEach(card->out.accept(card.get()));
                         net.zerog.tweaks.storage.WoodStorageRegistry.CONTAINERS.keySet().forEach(id->out.accept(item(id)));
                         for(var tier:net.zerog.tweaks.transport.TransportTier.ALL)

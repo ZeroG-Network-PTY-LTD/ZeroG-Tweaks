@@ -28,6 +28,10 @@ public final class StorageTankBlock extends BaseEntityBlock {
     @Override public BlockState getStateForPlacement(BlockPlaceContext context){return defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,context.getHorizontalDirection().getOpposite());}
     @Override protected RenderShape getRenderShape(BlockState state){return RenderShape.MODEL;}
     @Override public BlockEntity newBlockEntity(BlockPos pos,BlockState state){return new StorageTankBlockEntity(pos,state);}
+    @Override public void setPlacedBy(Level level,BlockPos pos,BlockState state,net.minecraft.world.entity.LivingEntity placer,ItemStack stack){
+        super.setPlacedBy(level,pos,state,placer,stack);
+        if(!level.isClientSide && level.getBlockEntity(pos) instanceof StorageTankBlockEntity tank) tank.changed();
+    }
     public static ItemStack contentsItem(StorageTankBlockEntity be){var item=new ItemStack(be.getBlockState().getBlock());item.set(DataComponents.BLOCK_ENTITY_DATA,CustomData.of(be.saveWithFullMetadata(be.getLevel().registryAccess())));return item;}
     @Override protected List<ItemStack> getDrops(BlockState state,LootParams.Builder builder){var entity=builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY);return List.of(entity instanceof StorageTankBlockEntity be?contentsItem(be):new ItemStack(this));}
     @Override public BlockState playerWillDestroy(Level level,BlockPos pos,BlockState state,Player player){if(!level.isClientSide&&player.getAbilities().instabuild&&level.getBlockEntity(pos) instanceof StorageTankBlockEntity be&&!be.tank.isEmpty())popResource(level,pos,contentsItem(be));return super.playerWillDestroy(level,pos,state,player);}
