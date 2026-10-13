@@ -22,6 +22,7 @@ import net.zerog.tweaks.registry.ZGPlanetCrops;
 
 /** Randomized 3-D colonies. No Star Glass or entity creation on worldgen workers. */
 public final class PlanetSettlementFeature extends Feature<NoneFeatureConfiguration> {
+    private static final int MAX_GRADE = 6;
     public PlanetSettlementFeature() {super(NoneFeatureConfiguration.CODEC);}
     public static net.minecraft.world.level.ChunkPos candidate(long seed,String dimension,int regionX,int regionZ) {
         var site=RandomSource.create(seed ^ ((long)regionX*341873128712L)
@@ -51,7 +52,7 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
         for(int x:new int[]{-18,0,18}) for(int z:new int[]{-18,0,18}) {
             int h=groundY(context.level(),origin.getX()+x,origin.getZ()+z);
             var ground=new BlockPos(origin.getX()+x,h,origin.getZ()+z);
-            if(Math.abs(h-y)>4 || !context.level().getFluidState(ground).isEmpty()
+            if(Math.abs(h-y)>MAX_GRADE || !context.level().getFluidState(ground).isEmpty()
                     || !context.level().getBlockState(ground).isSolidRender(context.level(),ground)) return false;
         }
         return build(context.level(),new BlockPos(origin.getX(),y,origin.getZ()),dimension,context.random().nextInt(4),context.random());
@@ -77,7 +78,7 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
                 && net.zerog.tweaks.travel.ArrivalProtection.intersects(server,centre.offset(-20,-18,-20),centre.offset(20,10,20))) return false;
         // Generated footprints may excavate terrain, but never overwrite existing
         // block entities (including neighbouring outposts and player machines).
-        for(var pos:BlockPos.betweenClosed(centre.offset(-20,-4,-20),centre.offset(20,9,20))) {
+        for(var pos:BlockPos.betweenClosed(centre.offset(-20,-MAX_GRADE,-20),centre.offset(20,11,20))) {
             if(!level.hasChunkAt(pos) || level.getBlockEntity(pos)!=null) return false;
             if(level instanceof net.minecraft.server.level.WorldGenRegion
                     && level.getChunk(pos).getInhabitedTime()>0) return false;
@@ -87,11 +88,19 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
         // Check every graded column, not just nine survey samples: a ravine,
         // pond or narrow ridge inside the homes/farms must reject the whole
         // colony before any blocks are cleared or foundations are placed.
+        int[][] heights=new int[35][35];
         for(int x=-17;x<=17;x++)for(int z=-17;z<=17;z++) {
             int y=groundY(level,centre.getX()+x,centre.getZ()+z);
+            heights[x+17][z+17]=y;
             var ground=new BlockPos(centre.getX()+x,y,centre.getZ()+z);
-            if(Math.abs(y-centre.getY())>4 || !level.getFluidState(ground).isEmpty()
+            if(Math.abs(y-centre.getY())>MAX_GRADE || !level.getFluidState(ground).isEmpty()
                     || !level.getBlockState(ground).isSolidRender(level,ground)) return false;
+        }
+        // Grading a continuous gentle slope is not permission to fill a ravine
+        // or bulldoze a cliff. Check adjacent columns before any terrain writes.
+        for(int x=0;x<35;x++)for(int z=0;z<35;z++) {
+            if(x>0 && Math.abs(heights[x][z]-heights[x-1][z])>4) return false;
+            if(z>0 && Math.abs(heights[x][z]-heights[x][z-1])>4) return false;
         }
         var hull=switch(PlanetEcologyProfile.theme(dimension)) {
             case "mars" -> BlockInit.MARTIAN_STONE_BRICKS.get();
@@ -129,13 +138,13 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
             var nativeSurface=level.getBlockState(new BlockPos(floor.getX(),surfaceY,floor.getZ()));
             if(!nativeSurface.getFluidState().isEmpty() || !nativeSurface.isSolidRender(level,floor))
                 nativeSurface=ZGDimensionTerrain.SOILS.get(dimension).get().defaultBlockState();
-            for(int y=1;y<=9;y++) level.setBlock(floor.above(y),Blocks.AIR.defaultBlockState(),2);
-            for(int y=0;y<5;y++) level.setBlock(floor.below(y),ZGDimensionTerrain.SOILS.get(dimension).get().defaultBlockState(),2);
+            for(int y=1;y<=11;y++) level.setBlock(floor.above(y),Blocks.AIR.defaultBlockState(),2);
+            for(int y=0;y<=MAX_GRADE;y++) level.setBlock(floor.below(y),ZGDimensionTerrain.SOILS.get(dimension).get().defaultBlockState(),2);
             level.setBlock(floor,nativeSurface,2);
             if(Math.abs(x)<=1 || Math.abs(z)<=1) level.setBlock(floor,hull.defaultBlockState(),2);
         }
         // No raised sea platforms or long pylons: accepted terrain must already
-        // be within four blocks of this ground-level footprint.
+        // be within six blocks with no sharp cliff/ravine steps.
         int index=0;
         for(var home:homes(layout)) {
             var at=centre.offset(home);

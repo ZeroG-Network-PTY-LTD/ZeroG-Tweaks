@@ -620,3 +620,21 @@ or disable recipes because the358px side-controls layout cannot fit a sidebar.
 Keep hidden inventory clicks/drag/hotbar actions blocked while browsing. Codex
 frame chapter and Design generator must match. Isolated processing/conduit tests
 do not certify client visual appearance.
+
+## Gentle-slope settlement grading — 13 October
+
+The owner's `1_21_1 alpha` seed exposed a dry village candidate rejected for a
+five-block slope. Village grading now permits six blocks relative to the centre,
+but still rejects adjacent column steps above four blocks, fluids, cliffs,
+containers and arrival footprints. Preflight covers the full six-block depth and
+eleven-block clearance; seven foundation layers prevent floating low columns.
+Keep the seed-selected 50x50-chunk rarity and native farmland/door palettes.
+This change affects new generation only; do not reset or retrofit player saves.
+The gentle-slope regression must remain alongside ravine and buried-machine tests.
+
+Planet mines now have a44-block spine and4–6 staggered15/20-block workings.
+All cells fit within23 blocks of the centred anchor (worldgen's immediate-neighbour
+write envelope). Expand arrival-protection checks with that footprint. Keep dry
+roof/floor and container preflight, local timber, no rails and original loot.
+This is an expanded bounded feature, not an unlimited multi-chunk mine network;
+do not claim larger mine density or natural distribution from plan tests alone.

@@ -25,17 +25,17 @@ public final class PlanetMineshaftFeature extends Feature<NoneFeatureConfigurati
     public PlanetMineshaftFeature() { super(NoneFeatureConfiguration.CODEC); }
     public record Corridor(BlockPos start, Direction direction, int length, boolean rails) {}
 
-    /** Seed-local plan: one spine and two to four staggered branches, no unbounded recursion. */
+    /** Seed-local expanded workings; fit the feature's immediate-neighbour write envelope. */
     public static List<Corridor> plan(RandomSource random) {
         Direction forward=random.nextBoolean()?Direction.NORTH:Direction.EAST;
         List<Corridor> result=new ArrayList<>();
         random.nextInt(3); // Preserve existing seed-local corridor RNG; rail decoration is retired.
-        result.add(new Corridor(BlockPos.ZERO.relative(forward,-15),forward,30,false));
-        int branches=2+random.nextInt(3);
+        result.add(new Corridor(BlockPos.ZERO.relative(forward,-22),forward,44,false));
+        int branches=4+random.nextInt(3);
         for(int n=0;n<branches;n++) {
             Direction side=(n%2==0)?forward.getClockWise():forward.getCounterClockWise();
-            int section=-10+n*5+random.nextInt(3);
-            int length=5*(2+random.nextInt(2));random.nextInt(3);
+            int section=-17+n*6+random.nextInt(3);
+            int length=5*(3+random.nextInt(2));random.nextInt(3);
             result.add(new Corridor(BlockPos.ZERO.relative(forward,section),side,length,false));
         }
         return List.copyOf(result);
@@ -55,7 +55,7 @@ public final class PlanetMineshaftFeature extends Feature<NoneFeatureConfigurati
         for(var corridor:corridors) for(int t=0;t<=corridor.length();t++) for(int w=-1;w<=1;w++)
             cells.add(centre.offset(corridor.start()).relative(corridor.direction(),t).relative(corridor.direction().getClockWise(),w));
         if(level instanceof net.minecraft.server.level.ServerLevel server
-                && net.zerog.tweaks.travel.ArrivalProtection.intersects(server,centre.offset(-17,-1,-17),centre.offset(17,4,17))) return false;
+                && net.zerog.tweaks.travel.ArrivalProtection.intersects(server,centre.offset(-24,-1,-24),centre.offset(24,4,24))) return false;
         int grounded=0,covered=0;
         for(var base:cells) {
             if(!level.hasChunkAt(base.below()) || !level.hasChunkAt(base.above(4))) return false;

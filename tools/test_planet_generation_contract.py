@@ -38,9 +38,11 @@ class PlanetGenerationContract(unittest.TestCase):
     def test_rare_settlements_have_region_spacing_and_ground_height(self):
         source=(ROOT/'src/main/java/net/zerog/tweaks/worldgen/PlanetSettlementFeature.java').read_text()
         self.assertIn('Math.floorDiv(cx,50)',source)
-        self.assertIn('rx*50+16+site.nextInt(18)',source)
-        self.assertIn('getZ())-1',source)
-        self.assertIn('Math.abs(h-y)>4',source)
+        self.assertIn('regionX*50+16+site.nextInt(18)',source)
+        self.assertIn('x,z)-1',source)
+        self.assertIn('MAX_GRADE = 6',source)
+        self.assertIn('Math.abs(h-y)>MAX_GRADE',source)
+        self.assertIn('Math.abs(heights[x][z]-heights[x-1][z])>4',source)
         self.assertNotIn('depth<64',source)
         self.assertIn('level.setBlock(floor,nativeSurface,2)',source)
 

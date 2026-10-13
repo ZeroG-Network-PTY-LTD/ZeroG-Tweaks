@@ -15,16 +15,32 @@ import net.zerog.tweaks.registry.BlockInit;
 @PrefixGameTestTemplate(false)
 public final class PlanetMineLayoutGameTests {
     @GameTest(templateNamespace="zerog_planet_generation",template="equipment_empty",timeoutTicks=40)
+    public static void expanded_mines_have_long_spines_and_multiple_workings(GameTestHelper helper) {
+        for(int seed=0;seed<128;seed++) {
+            var plan=PlanetMineshaftFeature.plan(RandomSource.create(seed));
+            helper.assertTrue(plan.getFirst().length()>=44,"Main mine spine remains only thirty blocks");
+            helper.assertTrue(plan.size()>=5&&plan.size()<=7,"Missing bounded expanded workings");
+            helper.assertTrue(plan.stream().mapToInt(PlanetMineshaftFeature.Corridor::length).sum()>=104,"Mine remains a small crossing");
+            for(var corridor:plan)for(int t=0;t<=corridor.length();t++)for(int w=-1;w<=1;w++) {
+                var at=BlockPos.ZERO.offset(8,0,8).offset(corridor.start()).relative(corridor.direction(),t)
+                        .relative(corridor.direction().getClockWise(),w);
+                helper.assertTrue(at.getX()>=-16&&at.getX()<=31&&at.getZ()>=-16&&at.getZ()<=31,"Mine escaped worldgen's neighbour write envelope");
+                helper.assertTrue(!corridor.rails(),"Expanded mine restored rails");
+            }
+        }
+        helper.succeed();
+    }
+    @GameTest(templateNamespace="zerog_planet_generation",template="equipment_empty",timeoutTicks=40)
     public static void mine_plans_are_varied_bounded_and_seed_repeatable(GameTestHelper helper) {
         var variants=new HashSet<String>();
         for(int seed=0;seed<128;seed++) {
             var plan=PlanetMineshaftFeature.plan(RandomSource.create(seed));
             helper.assertTrue(plan.equals(PlanetMineshaftFeature.plan(RandomSource.create(seed))),"Mine plan not seed repeatable");
-            helper.assertTrue(plan.size()>=3&&plan.size()<=5,"Unbounded mine branches");
+            helper.assertTrue(plan.size()>=5&&plan.size()<=7,"Unbounded mine branches");
             variants.add(plan.toString());
             for(var corridor:plan) for(int t=0;t<=corridor.length();t++) for(int w=-1;w<=1;w++) {
                 BlockPos at=corridor.start().relative(corridor.direction(),t).relative(corridor.direction().getClockWise(),w);
-                helper.assertTrue(Math.abs(at.getX())<=16&&Math.abs(at.getZ())<=16,"Mine escaped bounded footprint");
+                helper.assertTrue(Math.abs(at.getX())<=23&&Math.abs(at.getZ())<=23,"Mine escaped bounded footprint");
             }
         }
         helper.assertTrue(variants.size()>64,"Mine plans repeat one crossing");helper.succeed();
@@ -58,8 +74,8 @@ public final class PlanetMineLayoutGameTests {
                 net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","mars")));
         helper.assertTrue(level!=null,"Missing workflowPlanetPreset Mars");
         var centre=new BlockPos(6408,40,6408);
-        for(int x=(centre.getX()-20)>>4;x<=(centre.getX()+20)>>4;x++)for(int z=(centre.getZ()-20)>>4;z<=(centre.getZ()+20)>>4;z++)level.getChunk(x,z);
-        for(var at:BlockPos.betweenClosed(centre.offset(-17,-1,-17),centre.offset(17,4,17)))level.setBlock(at,BlockInit.MARTIAN_STONE.get().defaultBlockState(),2);
+        for(int x=(centre.getX()-24)>>4;x<=(centre.getX()+24)>>4;x++)for(int z=(centre.getZ()-24)>>4;z<=(centre.getZ()+24)>>4;z++)level.getChunk(x,z);
+        for(var at:BlockPos.betweenClosed(centre.offset(-24,-1,-24),centre.offset(24,4,24)))level.setBlock(at,BlockInit.MARTIAN_STONE.get().defaultBlockState(),2);
         // Any protected block aborts before a single corridor block changes.
         level.setBlock(centre,BlockInit.GATE_CONTROLLER.get().defaultBlockState(),2);
         helper.assertTrue(!PlanetMineshaftFeature.build(level,centre,RandomSource.create(2)),"Mine overwrote controller");
@@ -68,7 +84,7 @@ public final class PlanetMineLayoutGameTests {
         helper.assertTrue(PlanetMineshaftFeature.build(level,centre,RandomSource.create(2)),"Dry underground Mars mine rejected");
         int fences=0,planks=0,chests=0;
         String family=net.zerog.tweaks.worldgen.PlanetEcologyProfile.tree("mars");
-        for(var at:BlockPos.betweenClosed(centre.offset(-17,-1,-17),centre.offset(17,4,17))) {
+        for(var at:BlockPos.betweenClosed(centre.offset(-24,-1,-24),centre.offset(24,4,24))) {
             var state=level.getBlockState(at);String id=net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath();
             if(id.equals(family+"_fence"))fences++;if(id.equals(family+"_planks"))planks++;
             if(state.is(net.minecraft.world.level.block.Blocks.CHEST)) {
@@ -78,7 +94,31 @@ public final class PlanetMineLayoutGameTests {
             }
             helper.assertTrue(!state.is(net.minecraft.tags.BlockTags.RAILS),"Planet mine generated a retired railway block");
         }
-        helper.assertTrue(fences>12&&planks>80&&chests==1,"Missing local timber supports or chest");helper.succeed();
+        helper.assertTrue(fences>24&&planks>200&&chests==1,"Missing expanded local timber supports or chest");helper.succeed();
+    }
+    @GameTest(templateNamespace="zerog_planet_generation",template="equipment_empty",timeoutTicks=1200)
+    public static void settlement_accepts_gentle_slope_without_floating_foundations(GameTestHelper helper) {
+        var level=helper.getLevel().getServer().getLevel(net.minecraft.resources.ResourceKey.create(
+                net.minecraft.core.registries.Registries.DIMENSION,
+                net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("zerog_tweaks","mars")));
+        helper.assertTrue(level!=null,"Missing workflowPlanetPreset Mars");
+        var centre=new BlockPos(6600,200,6600);
+        for(int x=(centre.getX()-22)>>4;x<=(centre.getX()+22)>>4;x++)for(int z=(centre.getZ()-22)>>4;z<=(centre.getZ()+22)>>4;z++)level.getChunk(x,z);
+        var soil=net.zerog.tweaks.registry.ZGDimensionTerrain.SOILS.get("mars").get();
+        for(var at:BlockPos.betweenClosed(centre.offset(-22,-8,-22),new BlockPos(centre.getX()+22,level.getMaxBuildHeight()-1,centre.getZ()+22))) {
+            int ground=centre.getY()+Math.floorDiv(at.getX()-centre.getX(),3);
+            level.setBlock(at,at.getY()<=ground?soil.defaultBlockState():net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(),2);
+        }
+        level.setBlock(centre.below(6),BlockInit.GATE_CONTROLLER.get().defaultBlockState(),2);
+        helper.assertTrue(!PlanetSettlementFeature.build(level,centre,"mars",0,RandomSource.create(3)),"Expanded grading overwrote deep controller");
+        helper.assertTrue(level.getBlockState(centre).is(soil),"Protected rejection partially wrote colony");
+        level.setBlock(centre.below(6),soil.defaultBlockState(),2);
+        helper.assertTrue(PlanetSettlementFeature.build(level,centre,"mars",0,RandomSource.create(3)),"Gentle five/six-block slope rejected");
+        for(int x=-17;x<=17;x++)for(int z=-17;z<=17;z++) {
+            var at=centre.offset(x,-6,z);
+            helper.assertTrue(level.getBlockState(at).is(soil),"Graded foundation left a floating column");
+        }
+        helper.succeed();
     }
     @GameTest(templateNamespace="zerog_planet_generation",template="equipment_empty",timeoutTicks=1200)
     public static void settlement_grades_native_terrain_and_rejects_buried_machines(GameTestHelper helper) {
