@@ -20,7 +20,8 @@ This is a powered processor, not a fluid refinery.
 5. Use **Recipes** to inspect every loaded material combination and current
    upgrade-adjusted energy/time. Full outputs or missing power pause safely.
 
-All 21 registered planetary manufacturing metals are supported. Other materials
+All21 planetary manufacturing metals plus vanilla Copper are supported (44 recipes).
+Copper ingots are vanilla items; Copper plates/cogs are ZeroG components. Other materials
 are accepted only when an actual pressing recipe exists. Keep one material in
 the input slot. Tooling is separate from Acceleration/Energy Coil/Compact/Void cards.
 

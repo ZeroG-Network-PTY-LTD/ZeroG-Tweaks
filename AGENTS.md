@@ -544,6 +544,16 @@ free machines or hidden coordinates are approved by decorative antenna artwork.
 
 ## Legacy electric processors — 12 October
 
+Material-colour repair: Design/docs/manufacturing-components/generate.py reads
+six material tones from each actual native ingot, excluding shared inlays.
+Never restore shared planet palettes. Native44 PNGs and visual-refresh copies
+must match source hashes; run Design validate.py and packaged audit with its
+native-source-manifest.json. Copper is the explicit manufacturing exception:
+ALL_METALS includes Copper, METALS preserves21 planetary families/bench recipes.
+Copper pressing consumes minecraft:copper_ingot, never a fabricated custom ingot.
+No new bench/machine/press crafting costs. Canva review copies are not runtime
+texture sources; native-source fallback is disclosed and not GLB/GPU evidence.
+
 Owner scope change12October: terrain experiments remain local/unactivated; do not
 reset any save. Prioritize Water Separator and Industrial Compressor. Pressing
 uses the native data-driven recipe system:2 ingots ->1 plate with reusable

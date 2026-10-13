@@ -31,7 +31,7 @@ public final class CompressorGameTests {
    h.runAfterDelay(25,()->{h.assertTrue(b.stored==0&&power.stored==1000,"Conduit charged rotated front terminal");h.succeed();});
   });
  }
- private static ItemStack item(String id,int count){return new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("zerog_tweaks:"+id)),count);}
+ private static ItemStack item(String id,int count){return new ItemStack(id.equals("copper_ingot")?Items.COPPER_INGOT:BuiltInRegistries.ITEM.get(ResourceLocation.parse("zerog_tweaks:"+id)),count);}
  private static ProcessingBlockEntity machine(GameTestHelper h){
   var pos=h.absolutePos(new BlockPos(2,2,2));h.getLevel().setBlock(pos,BlockInit.INDUSTRIAL_COMPRESSOR.get().defaultBlockState(),3);
   return (ProcessingBlockEntity)h.getLevel().getBlockEntity(pos);
@@ -39,8 +39,8 @@ public final class CompressorGameTests {
  @GameTest(templateNamespace="zerog_owner_followup",template="equipment_empty",timeoutTicks=100)
  public static void pressing_loaded_recipes_and_reusable_tooling(GameTestHelper h){
   var b=machine(h);var pages=ProcessingRecipeCatalogue.pages(b,ItemStack.EMPTY);
-  h.assertTrue(pages.size()==ZGManufacturingComponents.METALS.size()*2,"Incomplete material recipe catalogue");
-  for(String metal:ZGManufacturingComponents.METALS){
+  h.assertTrue(pages.size()==ZGManufacturingComponents.ALL_METALS.size()*2,"Incomplete material recipe catalogue");
+  for(String metal:ZGManufacturingComponents.ALL_METALS){
    for(String mode:new String[]{"plate","cog"}){
     String source=metal+(mode.equals("plate")?"_ingot":"_plate");
     b.inventory.setStackInSlot(0,item(source,2));b.inventory.setStackInSlot(b.kind.catalyst(),item(mode+"_press",1));b.inventory.setStackInSlot(b.kind.output(),ItemStack.EMPTY);b.stored=10000;
