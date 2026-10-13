@@ -1,5 +1,11 @@
 # ZeroG Tweaks
 
+## Approved HD Codex artwork
+
+[Native64 artwork, source checks and same-version delivery](docs/codex-hd-art-2026-10-13.md).
+The new Concord star-map book icon is installed; lore, quest unlocking and screens
+are unchanged. Artwork approved; in-client appearance review remains pending.
+
 ## Natural terrain and village evidence
 
 [Connected deposits, natural settlements and remaining checks](docs/ore-and-natural-settlement-audit-2026-10-13.md).
