@@ -14,6 +14,7 @@ def generate(resources):
         path.write_text(json.dumps(data,indent=2)+'\n')
     for _,metals in GROUPS.values():
         for metal in metals:
+            if metal=='copper':continue  # Compressor only; no newly invented bench/survival costs.
             for kind,pattern in [('plate',['I','I']),('cog',[' I ','I I',' I '])]:
                 identifier=metal+'_'+kind
                 emit('recipe/manufacturing/'+identifier+'.json',{'type':'minecraft:crafting_shaped','category':'misc',

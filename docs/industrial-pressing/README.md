@@ -10,7 +10,7 @@ referencing existing Tectium texture. Dedicated machine/press pixel art remains
 pending; these are not the owner's newly approved metal cog/plate art rollout.
 
 Functionality:2 ingots ->1 plate with reusable Plate Press;2 plates ->1 cog
-with reusable Cog Press.42 actual recipes cover21 existing planetary metals.
+with reusable Cog Press.44 actual recipes cover21 planetary metals plus Copper.
 Front is interaction-only; other faces have independent item and FE controls.
 No fluid input exists for this dry process. Survival crafting costs remain
 deferred. Native recipe/upgrade GUI and actual conduit/tube checks passed;

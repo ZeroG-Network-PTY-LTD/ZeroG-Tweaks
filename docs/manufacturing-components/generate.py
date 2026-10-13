@@ -7,6 +7,9 @@ import argparse
 import importlib.util
 import json
 import math
+import hashlib
+import zipfile,io
+from collections import Counter
 from pathlib import Path
 from PIL import Image, ImageDraw
 
@@ -22,12 +25,30 @@ GROUPS = {
     'skarn': ('copper', ['ruskite', 'tectium', 'pyrium', 'basaltine']),
     'eidolon': ('moonsteel', ['salvium', 'wraithsteel', 'palladine', 'rime_nickel']),
     'solvane': ('solvanite', ['photium', 'radiantine', 'astrium', 'helion']),
+    'overworld': ('copper', ['copper']),
 }
 
-def sprite(kind, ramp):
+def material_ramp(assets,metal):
+    """Use the actual ingot's six material tones, never a planet-group palette."""
+    path=assets/f'textures/item/{metal}_ingot.png'
+    if metal=='copper':
+        path=assets.parents[4]/'build/moddev/artifacts/neoforge-21.1.252-client-extra-aka-minecraft-resources.jar'
+        with zipfile.ZipFile(path) as jar:raw=jar.read('assets/minecraft/textures/item/copper_ingot.png')
+        ingot=Image.open(io.BytesIO(raw)).convert('RGBA')
+        assert ingot.size==(16,16),'Unexpected vanilla Copper contract'
+    else:
+        ingot=Image.open(path).convert('RGBA')
+        assert ingot.size==(32,32),f'Unexpected ingot contract: {path}'
+    accents={c[:3] for c in kit.R['glow']}
+    counts=Counter(c[:3] for c in ingot.getdata() if c[3]==255 and c[:3] not in accents)
+    dominant=counts.most_common(6)
+    assert len(dominant)==6 and min(n for _,n in dominant)>=(1 if metal=='copper' else 10),f'Unverified material ramp: {metal}'
+    ramp=sorted((c for c,_ in dominant),key=lambda c: .2126*c[0]+.7152*c[1]+.0722*c[2])
+    return [tuple(c)+(255,) for c in ramp],ingot,path
+
+def sprite(kind, r):
     im = Image.new('RGBA', (32, 32))
     d = ImageDraw.Draw(im)
-    r = kit.R[ ramp ]
     if kind == 'cog':
         # Eight broad, balanced teeth; a visible bore, dark extrusion and bevel.
         points = []
@@ -71,23 +92,35 @@ def main():
     langpath=assets/'lang/en_us.json';lang=json.loads(langpath.read_text())
     manifest=[];sheet=Image.new('RGB',(640, len(GROUPS)*148),(23,25,35))
     draw=ImageDraw.Draw(sheet)
-    for row,(planet,(ramp,metals)) in enumerate(GROUPS.items()):
+    for row,(planet,(_,metals)) in enumerate(GROUPS.items()):
         draw.text((8,row*148+4),planet.upper(),fill='#e6f4ff')
         for col,metal in enumerate(metals):
+            ramp,ingot,ingot_path=material_ramp(assets,metal)
             draw.text((col*128+8,row*148+20),metal,fill='#9fb6d8')
             for pos,kind in enumerate(('cog','plate')):
                 identifier=f'{metal}_{kind}';im=sprite(kind,ramp)
-                im.save(source/f'{identifier}.png');im.save(textures/f'{identifier}.png')
+                src=source/f'{identifier}.png';im.save(src)
+                payload=src.read_bytes();targets=[textures/f'{identifier}.png']
+                relative=f'assets/zerog_tweaks/textures/item/manufacturing/{identifier}.png'
+                for pack in (res/'resourcepacks').glob('*'):
+                    if pack.name=='visual_refresh' or (pack/relative).exists():targets.append(pack/relative)
+                for target in targets:target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(payload)
                 model={'parent':'minecraft:item/generated','textures':{'layer0':f'zerog_tweaks:item/manufacturing/{identifier}'}}
                 (assets/f'models/item/{identifier}.json').write_text(json.dumps(model,indent=2)+'\n')
                 lang[f'item.zerog_tweaks.{identifier}']=metal.replace('_',' ').title()+(' Cog' if kind=='cog' else ' Compressed Plate')
                 x=col*128+pos*60+8;y=row*148+40
-                sheet.paste(im.resize((56,56),Image.Resampling.NEAREST),(x,y),im.resize((56,56),Image.Resampling.NEAREST))
+                sheet.paste(im.resize((64,64),Image.Resampling.NEAREST),(x,y),im.resize((64,64),Image.Resampling.NEAREST))
                 small=im.resize((16,16),Image.Resampling.NEAREST);sheet.paste(small,(x+20,y+64),small)
                 draw.text((x,y+84),kind,fill='#c48cff')
-                manifest.append({'id':identifier,'metal':metal,'planet':planet,'palette':ramp,'crafting':'manual_bench_2_ingots_plate_4_ingots_cog'})
+                manifest.append({'id':identifier,'metal':metal,'planet':planet,
+                    'palette':[list(c[:3]) for c in ramp],
+                    'ingot_source':ingot_path.relative_to(args.code).as_posix(),
+                    'ingot_sha256':hashlib.sha256(ingot_path.read_bytes()).hexdigest(),
+                    'sha256':hashlib.sha256(payload).hexdigest(),'path':relative,
+                    'layers':[p.relative_to(res).as_posix() for p in targets],
+                    'crafting':'compressor_only_2_vanilla_ingots_plate_2_plates_cog' if metal=='copper' else 'manual_bench_2_ingots_plate_4_ingots_cog'})
     # This resource has Windows line endings; preserve them to avoid a whole-file diff.
-    langpath.write_text(json.dumps(lang,ensure_ascii=False,indent=2)+'\n', newline='\r\n')
+    langpath.write_text(json.dumps(lang,indent=2)+'\n')
     for kind,tag in (('cog','cogs'),('plate','plates')):
         values=[f'zerog_tweaks:{r["id"]}' for r in manifest if r['id'].endswith('_'+kind)]
         path=res/f'data/zerog_tweaks/tags/item/manufacturing/{tag}.json';path.parent.mkdir(parents=True,exist_ok=True)
@@ -97,6 +130,8 @@ def main():
             common=res/f'data/c/tags/item/{tag}/{r["metal"]}.json';common.parent.mkdir(parents=True,exist_ok=True)
             common.write_text(json.dumps({'replace':False,'values':[f'zerog_tweaks:{r["id"]}']},indent=2)+'\n')
     (ROOT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    (ROOT/'native-source-manifest.json').write_text(json.dumps({'files':manifest,
+        'scope':'Native PNG/ingot palette and packaged byte checks, not client visual approval'},indent=2)+'\n')
     sheet.save(ROOT/'manufacturing-preview.png')
     print(f'Generated {len(manifest)} component assets; run recipes.py for approved fabrication recipes.')
 
