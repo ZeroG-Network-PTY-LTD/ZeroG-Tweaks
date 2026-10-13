@@ -1,0 +1,22 @@
+{
+  "version": "1.0.12-dev",
+  "runtime_change": "Codex gas storage and non-front connection instructions; existing gameplay retained",
+  "successful_regression_batches": [
+    {"required_passed": 19, "log": "20261013_021206_runWorkflowTests.log", "scope": "Codex parser/layers, gas creative storage, material and port checks"},
+    {"required_passed": 7, "log": "20261013_021428_runWorkflowTests.log", "scope": "Addon-present legacy recipe/eleven-machine face and upgrade contracts"},
+    {"required_passed": 24, "log": "20261013_021728_runWorkflowTests.log", "scope": "No-addon optional gas/network/interaction boundaries"}
+  ],
+  "excluded_run": {"log": "20261013_021618_runWorkflowTests.log", "reason": "Zero discovered tests despite Gradle success; not a pass"},
+  "ordinary_worlds": [
+    {"seed": 0, "candidate_sites": 10, "sampled_full_chunks": 490, "settlements_observed": 2, "force_loads_removed": true, "normal_stop": true, "log": "20261013_015912_runServer.log"},
+    {"seed": 17, "candidate_sites": 6, "sampled_full_chunks": 294, "settlements_observed": 1, "force_loads_removed": true, "normal_stop": true, "log": "20261013_020731_runServer.log"}
+  ],
+  "live_resident_queries": [
+    {"seed": 0, "dimension": "zerog_tweaks:skarn", "custom_species": "ashwright", "count": 8, "vanilla_villagers_found": false},
+    {"seed": 0, "dimension": "zerog_tweaks:mars", "custom_species": "rustborn", "count": 8, "vanilla_villagers_found": false},
+    {"seed": 17, "dimension": "zerog_tweaks:skarn", "custom_species": "ashwright", "count": 8, "vanilla_villagers_found": false}
+  ],
+  "saved_ore_audit": {"chunks": 108, "ore_blocks": 31328, "independent_counts_match": true, "rails_observed": 0, "boundary_components_reported_separately": true},
+  "static_source_checks": {"structure_routes": 13, "tracked_progression_items": 22, "missing_references": 0, "unbound_chest_sources": 0, "machine_gui_profiles": 37, "gui_source_errors": 0},
+  "boundaries": ["No player save reset", "No custom weather activation", "No unapproved biology/research/crafting rules", "No GPU/client appearance claim", "Candidate sampling is not global village rarity"]
+}

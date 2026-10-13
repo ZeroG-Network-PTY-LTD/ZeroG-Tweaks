@@ -1,5 +1,14 @@
 # ZeroG Tweaks
 
+## Natural terrain and village evidence
+
+[Connected deposits, natural settlements and remaining checks](docs/ore-and-natural-settlement-audit-2026-10-13.md).
+Two-seed ordinary-world samples confirm populated planetary villages on Mars and
+Skarn, matching farmland/doors and the Martian Aresite shrine. Saved ore deposits
+and cave vegetation are measured, not inferred from registry names. Codex gas
+instructions now explain full tanks and non-front machine connections.
+Broader natural coverage, client review and undefined progression remain pending.
+
 ## Gas catalogue and prefilled tanks
 
 [ZeroG: Gases — use and testing](docs/gas-creative-storage.md).
