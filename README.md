@@ -1,5 +1,12 @@
 # ZeroG Tweaks
 
+## Gas catalogue and prefilled tanks
+
+[ZeroG: Gases — use and testing](docs/gas-creative-storage.md).
+Oxygen and Hydrogen now have dedicated creative entries and full tanks at all six
+tiers, with preserved contents and exact mB tooltips.18 isolated checks passed.
+Inventory shell art is reused; client visual review remains pending.
+
 ## Material-matched components
 
 [Actual texture correction, Copper pressing and verification](docs/material-matched-components.md).
