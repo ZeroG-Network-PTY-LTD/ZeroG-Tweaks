@@ -1,6 +1,11 @@
 {
   "schema": 1,
   "updated": "2026-10-13",
+  "latest_native_terrain_checkpoint": {
+    "guide": "native-terrain-checkpoint-2026-10-13.md",
+    "status": "two_native_tests_and_eleven_source_checks_passed_runtime_unchanged",
+    "scope": "Test-only all34 native dimension preset;68 heightmap rows at two seeds and108 actual Sol chunks with observed ores. Existing shapes sampled distinct, but65-block local steepness needs review. Structure generation disabled by GameTest harness: village/ruin frequency and natural mob density remain ordinary-server tasks. No experimental profiles, player saves, weather or installed JAR changed."
+  },
   "latest_gas_creative_storage": {
     "guide": "gas-creative-storage.md",
     "status": "installed_eighteen_server_checks_passed_client_review_pending",

@@ -22,6 +22,10 @@ The inventory shell artwork is reused. The in-world renderer already supports ga
 wisps. GPU appearance, inventory chamber artwork and human visual approval remain
 pending; isolated server tests do not establish visual approval.
 
+Owner approved the displayed Oxygen/Hydrogen canister and Copper tank-face artwork
+on13October. This is artwork approval, not a claim that every tier was inspected
+in the running client.
+
 No new gases, production balance, terrain regeneration or survival crafting costs
 are introduced. Existing pending work remains pending.
 
