@@ -1,6 +1,31 @@
 {
   "schema": 1,
   "updated": "2026-10-13",
+  "latest_vent_cluster_count_repair": {
+    "guide": "vent-cluster-repair-2026-10-13.md",
+    "status": "fourteen_gameplay_checks_passed_local_not_installed",
+    "scope": "Actual Skarn seed11 regression reproduced2distinct vents. Fixed single3-6target, unique bounded preflighted positions, sparse-field all-or-nothing placement and3-6hot-cone apertures. All14generation checks pass, with64flat count fixtures and32sparse/protected-container cases. No weather reactivation or new artwork. Hold for combined JAR delivery; installed4212a8bf and saves untouched."
+  },
+  "latest_hub_and_structure_delivery": {
+    "guide": "hub-and-planet-structure-showcase-2026-10-13.md",
+    "status": "installed_same_version_five_server_checks_passed_pending_visual_approval",
+    "scope": "New independent ZeroG_Workshop_Structures_20261013_Seed0 save:15 supplied machine stations, existing gates/transport/apiary exhibits and three authored planetary test-region structures with six loot chests/three hostile spawners. All5addon-enabled hub/placement checks pass; normal build excludes test classes. JAR4212a8bf installed with backup while client closed. Old worlds preserved. First block translation, not exact image match; natural placement, balanced hostile encounters and cone-vent artwork remain pending. Existing Moon/Cerulon village reliability remains open."
+  },
+  "latest_structure_workshop_tool": {
+    "guide": "structure-workshop.md",
+    "status": "local_native_compiler_five_tests_passed_not_game_dev_cli",
+    "scope": "Owner requested a production tool. Created standalone standard-library structure_workshop.py v0.1.0 for block-exact Java1.21.1 NBT, chest loot and capped spawner metadata, receipts and no-overwrite output. Five tests include existing independent NBT reader, bounds, story/unresolved loot and safe paths. This is not game-dev or image-to-3D; approved water/hot/ice template authoring and actual game verification remain pending. No JAR, save or natural spawning changed."
+  },
+  "latest_owner_structure_and_vent_request": {
+    "guide": "structure-vent-handoff-2026-10-13.md",
+    "status": "references_saved_implementation_pending_usage_cutoff_and_asset_cli",
+    "scope": "Water bio-habitats, hot ring monoliths and cold icy outposts with planet-local soil/grass; audit existing templates before adding missing equivalents. Dark cone-topped vent art and3-6 unique terrain-blended clusters requested. Current ordinary vent loop redraws count and permits duplicates; hot cones exceed6. No new logic/assets activated. Weather remains disabled, no inferred story loot/new equipment mechanics. Required game-dev CLI unavailable."
+  },
+  "latest_natural_village_reliability": {
+    "guide": "village-terrain-search-and-footprint-2026-10-13.md",
+    "status": "twelve_gameplay_checks_passed_natural_moon_cerulon_coverage_unresolved",
+    "scope": "Bounded deterministic terrain alternatives retain one site per original region. Used-column preflight preserves unrelated ponds/beehives; at most four existing layouts are tried without partial failed writes. Twelve gameplay regressions pass, plus native repeatability/no-chunk-generation and four candidate tests. Final ordinary seed-zero Moon(22,18)/Cerulon(31,16) sites remained empty, each with25 FULL chunks; broader reliability is unresolved. Disposable server stopped after ticket removal. Normal same-version build passed, not installed yet. Lunar outposts are approval-only Design drafts, no story loot or generation activated. Existing saves and installed JAR untouched."
+  },
   "latest_owner_generation_repair": {
     "guide": "settlement-generation-investigation-2026-10-13.md",
     "status": "village_same_seed_repair_and_expanded_mines_nine_gameplay_checks_passed",
