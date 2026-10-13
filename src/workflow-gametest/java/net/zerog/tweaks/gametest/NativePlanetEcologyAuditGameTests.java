@@ -12,6 +12,38 @@ import net.neoforged.neoforge.gametest.*;
 @GameTestHolder("zerog_native_ecology") @PrefixGameTestTemplate(false)
 public final class NativePlanetEcologyAuditGameTests {
     @GameTest(templateNamespace="zerog_native_ecology",template="equipment_empty",timeoutTicks=12000)
+    public static void all_planet_heightmaps_are_seeded_bounded_and_distinct(GameTestHelper h){
+        var rows=new com.google.gson.JsonArray();
+        var fingerprints=new java.util.HashSet<String>();
+        for(var world:h.getLevel().getServer().getAllLevels()){
+            if(!world.dimension().location().getNamespace().equals("zerog_tweaks"))continue;
+            h.assertTrue(world.getChunkSource().getGenerator() instanceof NoiseBasedChunkGenerator,"Non-native planet");
+            var generator=(NoiseBasedChunkGenerator)world.getChunkSource().getGenerator();
+            var seedFingerprints=new java.util.HashSet<String>();
+            for(long seed:new long[]{0,20261012}){
+                var random=RandomState.create(generator.generatorSettings().value(),world.registryAccess().lookupOrThrow(Registries.NOISE),seed);
+                var heights=new java.util.ArrayList<Integer>();int maxSlope=0;
+                for(int x=-2;x<=2;x++)for(int z=-2;z<=2;z++){
+                    int bx=1024+x*128,bz=1024+z*128;
+                    int y=generator.getBaseHeight(bx,bz,Heightmap.Types.OCEAN_FLOOR_WG,world,random);
+                    int adjacent=generator.getBaseHeight(bx+16,bz,Heightmap.Types.OCEAN_FLOOR_WG,world,random);
+                    h.assertTrue(y>world.getMinBuildHeight()&&y<world.getMaxBuildHeight(),"Unbounded ground height: "+world.dimension().location());
+                    maxSlope=Math.max(maxSlope,Math.abs(adjacent-y));heights.add(y);
+                }
+                h.assertTrue(new java.util.HashSet<>(heights).size()>3,"Flat planet profile");
+                h.assertTrue(seedFingerprints.add(heights.toString()),"Planet profile ignores seed");
+                h.assertTrue(fingerprints.add(seed+":"+heights),"Mirrored planet profile");
+                var row=new com.google.gson.JsonObject();row.addProperty("dimension",world.dimension().location().toString());
+                row.addProperty("seed",seed);row.addProperty("largest_sampled_16_block_height_change",maxSlope);
+                row.add("ground_heights",new com.google.gson.Gson().toJsonTree(heights));rows.add(row);
+            }
+        }
+        h.assertTrue(rows.size()==68,"Expected all34 dimensions at2 seeds");
+        try{java.nio.file.Files.writeString(java.nio.file.Path.of("planet-heightmap-survey.json"),new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(rows));}
+        catch(java.io.IOException e){throw new RuntimeException(e);}
+        h.succeed();
+    }
+    @GameTest(templateNamespace="zerog_native_ecology",template="equipment_empty",timeoutTicks=12000)
     public static void six_planets_generate_native_chunks_and_report_ecology(GameTestHelper h){
         var report=new com.google.gson.JsonObject();report.addProperty("scope","18 naturally generated sampled chunks per Sol planet; not natural-spawn, rarity, all-biome or client approval");
         report.addProperty("seed",h.getLevel().getSeed());var rows=new com.google.gson.JsonArray();report.add("planets",rows);
