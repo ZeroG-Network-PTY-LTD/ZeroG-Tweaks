@@ -1,6 +1,11 @@
 {
   "schema": 1,
   "updated": "2026-10-14",
+  "compressor_client_repair": {
+    "guide": "compressor-client-hotfix-2026-10-14.md",
+    "status": "geometry_regression_passed_input_client_retest_required",
+    "scope": "Separated coincident chassis trim and terminal faces; allow client input clicks through to unchanged server recipe validation. Exact original slot-rejection cause not reproduced on client. Verify manual insertion/rendering after hotfix; do not reset machines/worlds."
+  },
   "latest_admin_travel_update": {
     "guide": "admin-travel-2026-10-14.md",
     "status": "three_isolated_command_tests_passed_client_showcase_review_pending",
