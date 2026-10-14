@@ -12,6 +12,17 @@ import net.zerog.tweaks.registry.*;
 @GameTestHolder("zerog_owner_followup") @PrefixGameTestTemplate(false)
 public final class CompressorGameTests {
  @GameTest(templateNamespace="zerog_owner_followup",template="equipment_empty",timeoutTicks=100)
+ public static void pressing_menu_routes_real_dies_and_ingots(GameTestHelper h){
+  var b=machine(h);var player=h.makeMockServerPlayerInLevel();player.setPos(b.getBlockPos().getCenter());
+  var menu=new ProcessingMenu(0,player.getInventory(),b);int hotbar=b.kind.slots()+27;
+  player.getInventory().setItem(0,item("plate_press",1));
+  h.assertTrue(!menu.quickMoveStack(player,hotbar).isEmpty()&&b.inventory.getStackInSlot(1).is(item("plate_press",1).getItem()),"Menu rejected Plate Press");
+  player.getInventory().setItem(1,new ItemStack(Items.COPPER_INGOT,2));
+  h.assertTrue(!menu.quickMoveStack(player,hotbar+1).isEmpty()&&b.inventory.getStackInSlot(0).getCount()==2,"Menu rejected copper recipe ingots");
+  h.assertTrue(!menu.slots.get(1).mayPlace(new ItemStack(Items.COBBLESTONE)),"Server catalyst slot accepted invalid die");
+  player.discard();h.succeed();
+ }
+ @GameTest(templateNamespace="zerog_owner_followup",template="equipment_empty",timeoutTicks=100)
  public static void pressing_has_no_bench_routes_and_visual_sync_cannot_change_inventory(GameTestHelper h){
   for(var recipe:h.getLevel().getRecipeManager().getRecipes()){
    if(recipe.value().getType()!=net.minecraft.world.item.crafting.RecipeType.CRAFTING)continue;

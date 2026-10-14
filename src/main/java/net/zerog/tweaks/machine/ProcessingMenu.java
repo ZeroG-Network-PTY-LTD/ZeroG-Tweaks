@@ -8,12 +8,22 @@ public final class ProcessingMenu extends AbstractContainerMenu {
     private boolean upgradeView;
     private int voidPage;
     public ProcessingMenu(int id,Inventory inv,ProcessingBlockEntity be){super(ProcessingRegistry.MENU.get(),id);machine=be;
-        for(int i=0;i<be.kind.inputCount;i++)addSlot(new SlotItemHandler(be.inventory,i,16+i*20,36));
-        addSlot(new SlotItemHandler(be.inventory,be.kind.catalyst(),16,72));
+        for(int i=0;i<be.kind.inputCount;i++)addSlot(inputSlot(inv,be,i,16+i*20,36));
+        addSlot(inputSlot(inv,be,be.kind.catalyst(),16,72));
         for(int i=0;i<be.kind.outputCount;i++)addSlot(new SlotItemHandler(be.inventory,be.kind.output()+i,120+i*20,36));
         for(int i=0;i<4;i++)addSlot(new SlotItemHandler(be.inventory,be.kind.upgrades()+i,120+i*20,72));
         for(int r=0;r<3;r++)for(int c=0;c<9;c++)addSlot(new Slot(inv,9+r*9+c,16+c*18,126+r*18));for(int c=0;c<9;c++)addSlot(new Slot(inv,c,16+c*18,184));
         data=inv.player.level().isClientSide?new SimpleContainerData(46):new ContainerData(){public int get(int i){return switch(i){case 0->be.stored&65535;case 1->be.stored>>>16;case 2->be.progress;case 3->be.casingTier();case 4->be.speedQuarter();case 5->be.getLevel().getRecipeManager().getRecipeFor(ProcessingRegistry.TYPES_BY_KIND.get(be.kind).get(),be.input(),be.getLevel()).map(h->be.duration(h.value())).orElse(0);case 6->cost(be)&65535;case 7->cost(be)>>>16;case 20->be.speedPercent();case 21,22,23->i-21<be.kind.inputCount?be.inventory.total(i-21):0;case 24->64+148*be.compactTier();case 25->upgradeView?1:0;case 26->voidPage;case 27->be.voidInstalled()?1:0;default->i>=28&&i<46?encodedTemplate(i):i>=14&&i<20?be.itemMode(net.minecraft.core.Direction.values()[i-14]):i>=8&&i<14&&be.faceDisabled(net.minecraft.core.Direction.values()[i-8])?1:0;};}public void set(int i,int v){}public int getCount(){return 46;}};addDataSlots(data);
+    }
+    private static SlotItemHandler inputSlot(Inventory player,ProcessingBlockEntity be,int index,int x,int y){
+        return new SlotItemHandler(be.inventory,index,x,y){
+            @Override public boolean mayPlace(ItemStack stack){
+                // Client recipes are not authoritative. Never suppress the click
+                // before the server gets to validate its loaded pressing recipes.
+                if(be.kind==ProcessingRegistry.Kind.PRESSING&&player.player.level().isClientSide)return !stack.isEmpty();
+                return super.mayPlace(stack);
+            }
+        };
     }
     public int value(int i){return data.get(i);}public int energy(){return(value(0)&65535)|(value(1)<<16);}
     public boolean upgradesView(){return value(25)==1;}
