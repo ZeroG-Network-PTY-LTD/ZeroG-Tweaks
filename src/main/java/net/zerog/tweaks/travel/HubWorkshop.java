@@ -40,7 +40,8 @@ public final class HubWorkshop {
                         add(kit,options[0].copyWithCount(Math.min(options[0].getMaxStackSize(),entry.consumed()?entry.count()*16:entry.count())));
                     }
                 }
-                for(String upgrade:List.of("cyrrium_casing","tectium_casing","wraithsteel_casing","astrium_casing","cryo_core","pulsar_dust","tremor_dust","spectral_dust","fusion_dust"))add(kit,stack("zerog_tweaks:"+upgrade,1));
+                for(String family:List.of("acceleration","energy_coil","item_compact"))for(int tier:new int[]{1,6})add(kit,stack("zerog_tweaks:"+family+"_upgrade_card_t"+tier,1));
+                add(kit,stack("zerog_tweaks:void_upgrade_card",1));
             }else if(i==4){add(kit,new ItemStack(Items.COAL,64));add(kit,new ItemStack(Items.OAK_LOG,64));}
             else if(i==6)add(kit,stack("zerog_tweaks:fusion_dust",64));
             else if((i==7||i==8)&&BuiltInRegistries.BLOCK.containsKey(block)){
@@ -67,6 +68,7 @@ public final class HubWorkshop {
                     }
                 }catch(ReflectiveOperationException ex){return "Addon ingredient contract unavailable; workshop not placed.";}
             }
+            if(i>=7&&i<=13)for(String family:List.of("acceleration","energy_coil"))for(int tier:new int[]{1,6})add(kit,stack("zerog_tweaks:"+family+"_upgrade_card_t"+tier,1));
             if((i<7||i>=13)&&!BuiltInRegistries.BLOCK.containsKey(block))return "Missing machine "+block+"; workshop not placed.";
             if(kit.size()>108)return "Supply kit exceeds four chests: "+id+"; workshop not placed.";
             kits.add(List.copyOf(kit.values()));
@@ -78,7 +80,7 @@ public final class HubWorkshop {
         add(serviceKit,sampleBee(level));
         for(String id:List.of("liquid_starlight_bucket","moon_honey_bucket","mars_honey_bucket","cerulon_honey_bucket","skarn_honey_bucket","eidolon_honey_bucket","solvane_honey_bucket","royal_jelly_bucket","cosmic_jelly_bucket","flux_wrench","item_filter_card","fluid_filter_card","generator_flux_module","storage_expansion_module","item_port","fluid_port","energy_port"))add(serviceKit,stack("zerog_tweaks:"+id,1));
         add(serviceKit,new ItemStack(Items.BUCKET,16));
-        for(String tier:net.zerog.tweaks.storage.StorageTankRegistry.TIERS)for(String family:List.of("energy_cell","energy_conduit","item_tube","fluid_pipe","fluid_tank"))add(serviceKit,stack("zerog_tweaks:"+tier+"_"+family,1));
+        for(String tier:net.zerog.tweaks.storage.StorageTankRegistry.TIERS)for(String family:List.of("energy_cell","energy_conduit","item_tube","fluid_pipe","fluid_tank","gas_tube"))add(serviceKit,stack("zerog_tweaks:"+tier+"_"+family,1));
         if(serviceKit.size()>108)return "Alveary kit exceeds four chests; workshop not placed.";
         // All plots checked before any modification. Native flat ground is the only replaceable floor.
         for(var p:BlockPos.betweenClosed(new BlockPos(-110,63,5),new BlockPos(-48,69,98))){
