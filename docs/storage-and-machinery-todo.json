@@ -1,10 +1,17 @@
 {
   "schema": 1,
   "updated": "2026-10-14",
+  "compressor_animation_timing": {
+    "status": "owner_reported_deferred_until_after_usage_reset",
+    "guide": "compressor-chamber-lighting-2026-10-14.md",
+    "issue": "Piston descent, conversion from ingots to finished plate/cog, and piston lift are visually delayed/out of sequence in the installed client.",
+    "acceptance": "Display input on the die, descend ram, reveal finished result at the compression stage before ram rises, then retract smoothly. Preserve server-authoritative completion, exact ingredient/FE costs, reusable dies and output conservation; visual timing must never award output early. Test pauses/unpowered jobs and cycle boundaries; obtain client approval.",
+    "scope": "Owner approves compressor processing, lighting and scale. Remaining animation sequencing is deferred explicitly; no code/JAR/save changes in this note-only update. Resume only after owner continues following usage reset."
+  },
   "compressor_chamber_display": {
     "guide": "compressor-chamber-lighting-2026-10-14.md",
-    "status": "owner_processing_approved_lighting_size_hotfix_client_review_pending",
-    "scope": "Owner confirms machine works. Chamber now uses front-face sampled sky light/minimum10render block light; die0.80and contents0.60scale in NONEcontext; raised die/items and reduced ram travel prevent enlarged die collisions. Two source-bound clearance tests pass; no recipe/inventory/power changes, no save rebuild. Client GPU appearance still pending."
+    "status": "owner_passed_processing_lighting_and_scale_animation_timing_deferred",
+    "scope": "Owner confirms compressor passed after hotfix: processing, chamber lighting and size accepted. Two source-bound clearance tests pass; no recipe/inventory/power changes, no save rebuild. Remaining piston/result timing delay recorded separately for later repair; do not reopen accepted lighting/scale as pending."
   },
   "maintenance_refresh_20261014": {
     "guide": "maintenance-and-fresh-hub-2026-10-14.md",

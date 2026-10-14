@@ -32,3 +32,13 @@ regeneration, save changes or new server tests are needed for unchanged processi
 Same-version JAR installed with old-JAR backup while client closed. Archive:
 `jars/zerog-tweaks-1.21.1-1.0.12-dev-chamber-light-20261014.jar`.
 SHA256: `0c1375d42d8111b8e86cc808ef4deb7db512c1557df46b37b782b74c8d122dd5`.
+
+## Owner review — 14 October
+
+Owner reports "compressor passed". Processing, lighting and die/item scale are
+accepted. A remaining visual delay between ram descent, showing the finished
+plate/cog and ram lift is explicitly deferred until after the usage reset.
+Repair the visual sequence later without generating outputs before the server
+completes the recipe or changing ingredients/FE/die preservation. Check paused
+jobs and cycle boundaries, then seek client timing approval. No new JAR or save
+changes were made for this TODO update; work stops until the owner resumes.
