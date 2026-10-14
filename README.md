@@ -1,5 +1,11 @@
 # ZeroG Tweaks
 
+## Alpha inspection commands — 14 October
+
+[Illustrated command guide and safe exploration](docs/admin-travel-2026-10-14.md):
+three authored structure shortcuts, planetary `/zero random`, and the existing
+dimension, gate and machine diagnostics. Operator tools only; no terrain resets.
+
 ## Approved HD Codex artwork
 
 [Native64 artwork, source checks and same-version delivery](docs/codex-hd-art-2026-10-13.md).
