@@ -14,8 +14,9 @@ def generate(resources):
     for a,b in [([0,0,12],[16,16,16]),([0,0,0],[3,16,12]),([13,0,0],[16,16,12]),
                 ([3,0,0],[13,3,12]),([3,13,0],[13,16,12])]:elements.append(cube(a,b,'dark'))
     for x in (0,14):
-        for z in (0,14):elements.append(cube([x,0,z],[x+2,16,z+2],'silver'))
-    elements.append(cube([3,0,0],[13,3,.2],'terminal'))
+        for z in (0,14):elements.append(cube([x-.02,-.02,z-.02],[x+2.02,16.02,z+2.02],'silver'))
+    # Separate visible trim/terminal planes from the backing chassis: no z-fighting.
+    elements.append(cube([3,.02,-.02],[13,2.98,-.01],'terminal'))
     elements.append(cube([3,3,1],[13,3.5,11],'silver'))
     model={'parent':'minecraft:block/block','textures':{'particle':'zerog_tweaks:block/alloy_forge_side',
         'dark':'zerog_tweaks:block/alloy_forge_side','silver':'minecraft:block/iron_block',
