@@ -12,6 +12,43 @@ import net.zerog.tweaks.registry.*;
 @GameTestHolder("zerog_owner_followup") @PrefixGameTestTemplate(false)
 public final class CompressorGameTests {
  @GameTest(templateNamespace="zerog_owner_followup",template="equipment_empty",timeoutTicks=100)
+ public static void pressing_has_no_bench_routes_and_visual_sync_cannot_change_inventory(GameTestHelper h){
+  for(var recipe:h.getLevel().getRecipeManager().getRecipes()){
+   if(recipe.value().getType()!=net.minecraft.world.item.crafting.RecipeType.CRAFTING)continue;
+   var result=recipe.value().getResultItem(h.getLevel().registryAccess());
+   for(String metal:ZGManufacturingComponents.ALL_METALS)for(String kind:new String[]{"plate","cog"})
+    h.assertTrue(!result.is(item(metal+"_"+kind,1).getItem()),"Crafting-table component route remains: "+recipe.id());
+  }
+  var b=machine(h);b.inventory.setStackInSlot(0,item("moonsteel_ingot",4));b.inventory.setStackInSlot(1,item("cog_press",1));b.stored=10000;
+  ProcessingBlockEntity.tick(h.getLevel(),b.getBlockPos(),b.getBlockState(),b);
+  var tag=b.getUpdateTag(h.getLevel().registryAccess());
+  h.assertTrue(tag.getBoolean("PressVisual")&&!tag.contains("Inventory")&&!tag.contains("VoidFilters"),"Visual packet leaks full machine state");
+  var visual=new ProcessingBlockEntity(b.getBlockPos(),b.getBlockState());
+  visual.loadWithComponents(tag,h.getLevel().registryAccess());
+  h.assertTrue(visual.displayProgress==1&&visual.displayDuration==160&&visual.displayInput.is(item("moonsteel_ingot",1).getItem())&&visual.displayDie.is(item("cog_press",1).getItem())&&visual.displayResult.is(item("moonsteel_cog",1).getItem()),"Press visual state did not round-trip");
+  h.assertTrue(visual.inventory.getStackInSlot(0).isEmpty()&&b.inventory.getStackInSlot(0).getCount()==4,"Visual decode mutated inventory");h.succeed();
+ }
+ @GameTest(templateNamespace="zerog_owner_followup",template="equipment_empty",timeoutTicks=100)
+ public static void every_nonfront_face_accepts_inputs_dies_power_and_extracts_output(GameTestHelper h){
+  var b=machine(h);var level=h.getLevel();var pos=b.getBlockPos();
+  for(Direction front:Direction.Plane.HORIZONTAL){
+   level.setBlock(pos,b.getBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING,front),3);
+   for(Direction side:Direction.values()){
+    var items=level.getCapability(Capabilities.ItemHandler.BLOCK,pos,side);
+    var power=level.getCapability(Capabilities.EnergyStorage.BLOCK,pos,side);
+    if(side==front){h.assertTrue(items==null&&power==null,"Front terminal has ports");continue;}
+    h.assertTrue(items!=null&&power!=null&&items.getSlots()==3,"Missing combined Auto face");
+    b.inventory.setStackInSlot(0,ItemStack.EMPTY);b.inventory.setStackInSlot(b.kind.catalyst(),ItemStack.EMPTY);b.stored=0;
+    h.assertTrue(items.insertItem(0,item("moonsteel_ingot",4),false).isEmpty(),"Face rejected ingots");
+    h.assertTrue(items.insertItem(1,item("cog_press",1),false).isEmpty(),"Face rejected reusable die");
+    h.assertTrue(items.extractItem(0,4,false).isEmpty()&&items.extractItem(1,1,false).isEmpty(),"Face extracted ingredients/die");
+    b.inventory.setStackInSlot(b.kind.output(),item("moonsteel_cog",1));
+    h.assertTrue(items.extractItem(2,1,false).is(item("moonsteel_cog",1).getItem()),"Face failed output extraction");
+    h.assertTrue(power.receiveEnergy(100,false)==100&&b.stored==100,"Face rejected FE");
+   }
+  }h.succeed();
+ }
+ @GameTest(templateNamespace="zerog_owner_followup",template="equipment_empty",timeoutTicks=100)
  public static void actual_conduits_and_item_tubes_feed_and_extract_without_front_access(GameTestHelper h){
   var b=machine(h);var level=h.getLevel();var pos=b.getBlockPos();
   java.util.function.BiFunction<BlockPos,String,net.zerog.tweaks.transport.TransportBlockEntity> place=(at,id)->{
@@ -42,8 +79,8 @@ public final class CompressorGameTests {
   h.assertTrue(pages.size()==ZGManufacturingComponents.ALL_METALS.size()*2,"Incomplete material recipe catalogue");
   for(String metal:ZGManufacturingComponents.ALL_METALS){
    for(String mode:new String[]{"plate","cog"}){
-    String source=metal+(mode.equals("plate")?"_ingot":"_plate");
-    b.inventory.setStackInSlot(0,item(source,2));b.inventory.setStackInSlot(b.kind.catalyst(),item(mode+"_press",1));b.inventory.setStackInSlot(b.kind.output(),ItemStack.EMPTY);b.stored=10000;
+    String source=metal+"_ingot";int count=mode.equals("plate")?2:4;
+    b.inventory.setStackInSlot(0,item(source,count));b.inventory.setStackInSlot(b.kind.catalyst(),item(mode+"_press",1));b.inventory.setStackInSlot(b.kind.output(),ItemStack.EMPTY);b.stored=10000;
     var recipe=h.getLevel().getRecipeManager().getRecipeFor(ProcessingRegistry.TYPES_BY_KIND.get(b.kind).get(),b.input(),h.getLevel());
     h.assertTrue(recipe.isPresent(),"Missing actual recipe: "+metal+"/"+mode);
     int cost=b.energyCost(recipe.get().value());

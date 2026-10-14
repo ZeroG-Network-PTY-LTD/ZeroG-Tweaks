@@ -15,7 +15,7 @@ This is a powered processor, not a fluid refinery.
 2. Connect power to a side, back, top or bottom face. **The front is not a port.**
 3. Put a **Plate Press** in the tooling slot and **2 ingots** in the input.
    A completed job makes **1 compressed plate**, using **2,000 FE / 100 ticks**.
-4. Swap to a **Cog Press** and insert **2 plates**. This makes **1 cog**,
+4. Swap to a **Cog Press** and insert **4 ingots**. This makes **1 cog**,
    using **4,000 FE / 160 ticks**. The press is reusable and is not consumed.
 5. Use **Recipes** to inspect every loaded material combination and current
    upgrade-adjusted energy/time. Full outputs or missing power pause safely.

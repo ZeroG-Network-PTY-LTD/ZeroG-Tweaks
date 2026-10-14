@@ -16,6 +16,8 @@ import java.util.*;
 public class ProcessingBlockEntity extends BlockEntity {
     public final ProcessingRegistry.Kind kind;
     public int stored, progress, paid;
+    public ItemStack displayInput=ItemStack.EMPTY,displayDie=ItemStack.EMPTY,displayResult=ItemStack.EMPTY;
+    public int displayProgress,displayDuration=1;
     private String job="", configuration="";
     public final CompactInventory inventory;
     public static final int VOID_FILTER_SIZE=36;
@@ -58,7 +60,7 @@ public class ProcessingBlockEntity extends BlockEntity {
                 if(level==null)return false;
                 return level.getRecipeManager().getAllRecipesFor(ProcessingRegistry.TYPES_BY_KIND.get(kind).get()).stream().anyMatch(h->slot==kind.catalyst()?h.value().catalyst().map(c->c.ingredient().test(stack)).orElse(false):h.value().inputs().stream().anyMatch(c->c.ingredient().test(stack)));
             }
-            @Override protected void onContentsChanged(int slot){setChanged();}
+            @Override protected void onContentsChanged(int slot){setChanged();if(kind==ProcessingRegistry.Kind.PRESSING&&level!=null&&!level.isClientSide)level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),2);}
         };
     }
     private static String id(ItemStack s){return BuiltInRegistries.ITEM.getKey(s.getItem()).toString();}
@@ -96,6 +98,7 @@ public class ProcessingBlockEntity extends BlockEntity {
         int ticks=be.duration(r),next=Math.min(ticks,be.progress+1),target=(int)((long)be.energyCost(r)*next/ticks),cost=Math.max(0,target-be.paid);
         if(be.stored<cost)return;
         be.stored-=cost;be.paid=target;be.progress=next;
+        if(be.kind==ProcessingRegistry.Kind.PRESSING&&(next==1||next%5==0))level.sendBlockUpdated(pos,state,state,2);
         MachineActivity.work(level,pos,net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(state.getBlock()).getPath());
         if(next==ticks){
             int[] slots=r.assignment(be.input());if(slots==null){be.clearJob();return;}
@@ -107,7 +110,17 @@ public class ProcessingBlockEntity extends BlockEntity {
         }
         be.setChanged();
     }
-    private void clearJob(){if(progress!=0||paid!=0){progress=0;paid=0;setChanged();}job="";configuration="";}
+    private void clearJob(){if(progress!=0||paid!=0){progress=0;paid=0;setChanged();if(kind==ProcessingRegistry.Kind.PRESSING&&level!=null&&!level.isClientSide)level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),2);}job="";configuration="";}
+    @Override public net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket getUpdatePacket(){return kind==ProcessingRegistry.Kind.PRESSING?net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket.create(this):null;}
+    @Override public CompoundTag getUpdateTag(HolderLookup.Provider lookup){
+        if(kind!=ProcessingRegistry.Kind.PRESSING)return super.getUpdateTag(lookup);
+        var tag=new CompoundTag();tag.putBoolean("PressVisual",true);tag.putInt("Step",progress);
+        tag.put("Input",inventory.getStackInSlot(0).copyWithCount(1).saveOptional(lookup));
+        tag.put("Die",inventory.getStackInSlot(kind.catalyst()).copyWithCount(1).saveOptional(lookup));
+        var recipe=level==null?java.util.Optional.<net.minecraft.world.item.crafting.RecipeHolder<ProcessingRecipe>>empty():level.getRecipeManager().getRecipeFor(ProcessingRegistry.TYPES_BY_KIND.get(kind).get(),input(),level);
+        var result=recipe.isPresent()?recipe.get().value().outputs().getFirst().stack():inventory.getStackInSlot(kind.output());
+        tag.put("Result",result.copyWithCount(1).saveOptional(lookup));tag.putInt("Duration",recipe.isPresent()?duration(recipe.get().value()):1);return tag;
+    }
     public boolean terminalFace(Direction side){return kind==ProcessingRegistry.Kind.PRESSING&&(side==null||side==getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING));}
     public IEnergyStorage energyInput(Direction side){if(terminalFace(side))return null;int epoch=side==null?0:powerEpochs[side.ordinal()];return new IEnergyStorage(){private boolean live(){return !terminalFace(side)&&!faceDisabled(side)&&!isRemoved()&&(side==null||epoch==powerEpochs[side.ordinal()]);}public int receiveEnergy(int n,boolean sim){if(!live())return 0;int a=Math.min(Math.max(0,n),1_000_000-stored);if(!sim&&a>0){stored+=a;setChanged();}return a;}public int extractEnergy(int n,boolean sim){return 0;}public int getEnergyStored(){return live()?stored:0;}public int getMaxEnergyStored(){return 1_000_000;}public boolean canExtract(){return false;}public boolean canReceive(){return live();}};}
     /** Top = reagents, back = catalyst, bottom/front = output, other sides = reagents. No remote upgrades. */
@@ -115,6 +128,16 @@ public class ProcessingBlockEntity extends BlockEntity {
         if(terminalFace(side))return null;
         Direction front=getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
         int mode=itemMode(side),epoch=side==null?0:itemEpochs[side.ordinal()];
+        if(kind==ProcessingRegistry.Kind.PRESSING&&mode==0)return new IItemHandler(){
+            private boolean live(){return !terminalFace(side)&&!isRemoved()&&itemMode(side)==0&&itemEpochs[side.ordinal()]==epoch&&getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING)==front;}
+            private boolean valid(int slot){return live()&&slot>=0&&slot<=kind.output();}
+            public int getSlots(){return live()?kind.output()+1:0;}
+            public ItemStack getStackInSlot(int slot){return valid(slot)?inventory.getStackInSlot(slot):ItemStack.EMPTY;}
+            public ItemStack insertItem(int slot,ItemStack stack,boolean simulate){return valid(slot)&&slot<kind.output()?inventory.insertItem(slot,stack,simulate):stack;}
+            public ItemStack extractItem(int slot,int amount,boolean simulate){return valid(slot)&&slot==kind.output()?inventory.extractItem(slot,amount,simulate):ItemStack.EMPTY;}
+            public int getSlotLimit(int slot){return valid(slot)?inventory.getSlotLimit(slot):0;}
+            public boolean isItemValid(int slot,ItemStack stack){return valid(slot)&&slot<kind.output()&&inventory.isItemValid(slot,stack);}
+        };
         int start=switch(mode){case 1->0;case 2->kind.catalyst();case 3->kind.output();default->side==Direction.DOWN||side==front?kind.output():side==front.getOpposite()?kind.catalyst():0;};
         int count=mode==4?0:start==kind.output()?kind.outputCount:start==kind.catalyst()?1:kind.inputCount;
         return new IItemHandler(){
@@ -135,7 +158,9 @@ public class ProcessingBlockEntity extends BlockEntity {
         }
         tag.put("VoidFilter",entries);tag.putInt("VoidRevision",voidRevision);
     }
-    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){super.loadAdditional(tag,lookup);int[] modes=tag.getIntArray("ItemFaces");for(int i=0;i<6;i++){itemModes[i]=i<modes.length&&modes[i]>=0&&modes[i]<=4?modes[i]:0;itemEpochs[i]++;powerEpochs[i]++;disabledFaces[i]=(tag.getInt("DisabledFaces")&(1<<i))!=0;}
+    @Override protected void loadAdditional(CompoundTag tag,HolderLookup.Provider lookup){
+        if(tag.getBoolean("PressVisual")){displayProgress=tag.getInt("Step");displayDuration=Math.max(1,tag.getInt("Duration"));displayInput=ItemStack.parseOptional(lookup,tag.getCompound("Input"));displayDie=ItemStack.parseOptional(lookup,tag.getCompound("Die"));displayResult=ItemStack.parseOptional(lookup,tag.getCompound("Result"));return;}
+        super.loadAdditional(tag,lookup);int[] modes=tag.getIntArray("ItemFaces");for(int i=0;i<6;i++){itemModes[i]=i<modes.length&&modes[i]>=0&&modes[i]<=4?modes[i]:0;itemEpochs[i]++;powerEpochs[i]++;disabledFaces[i]=(tag.getInt("DisabledFaces")&(1<<i))!=0;}
         var savedInventory=tag.getCompound("Inventory").copy();savedInventory.putInt("Size",kind.slots());
         inventory.deserializeNBT(lookup,savedInventory);stored=Math.clamp(tag.getInt("Energy"),0,1_000_000);progress=Math.clamp(tag.getInt("Progress"),0,72_000);paid=Math.clamp(tag.getInt("Paid"),0,10_000_000);job=tag.getString("Job");configuration=tag.getString("Configuration");
         Arrays.fill(voidTemplates,null);voidRevision=Math.max(0,tag.getInt("VoidRevision"));

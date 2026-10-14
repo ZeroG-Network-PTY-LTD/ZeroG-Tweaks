@@ -17,10 +17,10 @@ metals.append('copper')
 for metal in metals:
     for mode,input_id,output_id,count,energy,ticks in (
         ('plate',metal+'_ingot',metal+'_plate',2,2000,100),
-        ('cog',metal+'_plate',metal+'_cog',2,4000,160)):
+        ('cog',metal+'_ingot',metal+'_cog',4,4000,160)):
         write(RES/f'data/zerog_tweaks/recipe/pressing/{metal}_{mode}.json',{
             'type':'zerog_tweaks:pressing',
-            'inputs':[{'ingredient':{'item':('minecraft:' if metal=='copper' and mode=='plate' else 'zerog_tweaks:')+input_id},'count':count}],
+            'inputs':[{'ingredient':{'item':('minecraft:' if metal=='copper' else 'zerog_tweaks:')+input_id},'count':count}],
             'catalyst':{'ingredient':{'item':'zerog_tweaks:'+mode+'_press'},'count':1,'consumed':False},
             'outputs':[{'stack':{'id':'zerog_tweaks:'+output_id,'count':1}}],
             'energy':energy,'time':ticks})
@@ -28,21 +28,9 @@ assets=RES/'assets/zerog_tweaks'
 write(assets/'blockstates/industrial_compressor.json',{'variants':{
     'facing='+face:{'model':'zerog_tweaks:block/industrial_compressor','y':angle}
     for face,angle in [('north',0),('east',90),('south',180),('west',270)]}})
-write(assets/'models/block/industrial_compressor.json',{
-    'parent':'minecraft:block/orientable_with_bottom','textures':{
-        'front':'zerog_tweaks:block/alloy_forge_front','side':'zerog_tweaks:block/alloy_forge_side',
-        'top':'zerog_tweaks:block/alloy_forge_top','bottom':'zerog_tweaks:block/alloy_forge_bottom'}})
+# Chassis/die geometry belongs to Design/docs/industrial-pressing/generate_chassis.py.
+# Preserve its open chamber and recessed dies; never restore older cube models.
 write(assets/'models/item/industrial_compressor.json',{'parent':'zerog_tweaks:block/industrial_compressor'})
-def cube(lo,hi):
-    return {'from':lo,'to':hi,'faces':{face:{'texture':'#metal','uv':[0,0,16,16]} for face in ['up','down','north','south','west','east']}}
-for mode in ['plate','cog']:
-    elements=[cube([3,6,3],[13,9,13]),cube([6,9,6],[10,13,10])]
-    if mode=='cog':
-        elements += [cube([1,5,6],[3,8,10]),cube([13,5,6],[15,8,10]),
-                     cube([6,5,1],[10,8,3]),cube([6,5,13],[10,8,15])]
-    write(assets/f'models/item/{mode}_press.json',{'parent':'minecraft:block/block',
-        'textures':{'metal':'zerog_tweaks:block/tectium_block','particle':'zerog_tweaks:block/tectium_block'},
-        'elements':elements,'display':{'gui':{'rotation':[30,225,0],'translation':[0,0,0],'scale':[.85,.85,.85]}}})
 write(RES/'data/zerog_tweaks/loot_table/blocks/industrial_compressor.json',{'type':'minecraft:block',
     'pools':[{'rolls':1,'entries':[{'type':'minecraft:item','name':'zerog_tweaks:industrial_compressor'}],
               'conditions':[{'condition':'minecraft:survives_explosion'}]}]})

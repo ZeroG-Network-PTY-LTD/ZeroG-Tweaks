@@ -660,3 +660,14 @@ are collected. Hot extinct cones preflight the whole footprint and select only
 the same3–6 top apertures. No partial undersized fields or container overwrites.
 Fourteen generation regressions pass, including64 count fixtures and undersized
 fields. This does not implement new cone artwork or re-enable ambient weather.
+
+Owner14October compressor contract supersedes the two-plate cog route: reusable
+Plate Press with2ingots ->1plate; Cog Press with4ingots ->1cog. No crafting-table
+component routes. Both Design recipes.py and tools/generate_compressor_data.py
+must preserve this, including vanilla Copper. Auto exposes input/die/output on
+all non-front faces; extraction is product-only. Explicit face modes still apply.
+CompressorRenderer uses bounded server display state, never inventory mutation;
+ram is dynamic, not baked twice. Native geometry generator is on Design in
+docs/industrial-pressing/generate_chassis.py. It reuses existing metal textures;
+client resemblance to approved concept remains a separate review. Oxygen-assisted
+future pressing costs/ports remain inactive pending specifications.

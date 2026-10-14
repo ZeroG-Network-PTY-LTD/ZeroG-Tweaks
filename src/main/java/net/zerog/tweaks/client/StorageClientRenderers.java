@@ -11,6 +11,7 @@ import net.zerog.tweaks.storage.WoodStorageRegistry;
 @EventBusSubscriber(modid="zerog_tweaks",bus=EventBusSubscriber.Bus.MOD,value=Dist.CLIENT)
 public final class StorageClientRenderers {
     @SubscribeEvent public static void register(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(net.zerog.tweaks.machine.ProcessingRegistry.TYPE.get(),CompressorRenderer::new);
         event.registerBlockEntityRenderer(StorageTankRegistry.TYPE.get(),StorageTankRenderer::new);
         event.registerBlockEntityRenderer(WoodStorageRegistry.TYPE.get(),WoodStorageRenderer::new);
         event.registerBlockEntityRenderer(net.zerog.tweaks.transport.TransportRegistry.TYPE.get(),TransportMotionRenderer::new);
