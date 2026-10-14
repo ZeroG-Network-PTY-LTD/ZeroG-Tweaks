@@ -118,7 +118,7 @@ def main():
                     'ingot_sha256':hashlib.sha256(ingot_path.read_bytes()).hexdigest(),
                     'sha256':hashlib.sha256(payload).hexdigest(),'path':relative,
                     'layers':[p.relative_to(res).as_posix() for p in targets],
-                    'crafting':'compressor_only_2_vanilla_ingots_plate_2_plates_cog' if metal=='copper' else 'manual_bench_2_ingots_plate_4_ingots_cog'})
+                    'crafting':'compressor_only_2_ingots_plate_4_ingots_cog_reusable_dies'})
     # This resource has Windows line endings; preserve them to avoid a whole-file diff.
     langpath.write_text(json.dumps(lang,indent=2)+'\n')
     for kind,tag in (('cog','cogs'),('plate','plates')):

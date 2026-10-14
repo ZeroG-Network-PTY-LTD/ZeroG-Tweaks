@@ -6,10 +6,13 @@ block-built structures with loot rooms/aggressive mobs. Initial authoring genera
 produces49x64x49 block-exact specifications using existing local grass/soil and
 native decorative blocks. No custom textures were invented or copied from mods.
 
-Authoritative source: sources-v2, exported by the separately implemented native
-Structure Workshop compiler on1.21.x. exports-v2 has NBT, ordinary loot tables
+Current candidate source: sources-v3, exported by the separately implemented native
+Structure Workshop compiler on1.21.x. exports-v3 has NBT, ordinary loot tables
 and SHA256 receipts. v2 fixed a stair overwriting the initial spawner position;
 superseded sources-v1/exports-v1 are local discarded experiments, not ship targets.
+v3 restores staircase clearance after tower skirt detailing. Seven static checks
+pass; isolated native collision verification is in progress. Installed showcase
+still uses v2 until the next explicitly verified combined delivery.
 
 Generation command from this folder:
 

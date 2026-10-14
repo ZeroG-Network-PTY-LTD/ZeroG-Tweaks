@@ -1,7 +1,7 @@
 """Approved starting fabrication costs and selected progression casings.
 
-Manual bench fabrication is the initial route, not a working compressor machine.
-Later machines can add processing routes without removing this source contract.
+Owner14October: machine-only fabrication with reusable dies. Two ingots make a
+plate; four ingots directly make a cog. Never regenerate crafting-table routes.
 """
 import argparse, json
 from pathlib import Path
@@ -14,18 +14,19 @@ def generate(resources):
         path.write_text(json.dumps(data,indent=2)+'\n')
     for _,metals in GROUPS.values():
         for metal in metals:
-            if metal=='copper':continue  # Compressor only; no newly invented bench/survival costs.
-            for kind,pattern in [('plate',['I','I']),('cog',[' I ','I I',' I '])]:
+            for kind,count in [('plate',2),('cog',4)]:
                 identifier=metal+'_'+kind
-                emit('recipe/manufacturing/'+identifier+'.json',{'type':'minecraft:crafting_shaped','category':'misc',
-                    'pattern':pattern,'key':{'I':{'item':'zerog_tweaks:'+metal+'_ingot'}},
-                    'result':{'id':'zerog_tweaks:'+identifier,'count':1}})
+                emit('recipe/pressing/'+identifier+'.json',{'type':'zerog_tweaks:pressing',
+                    'inputs':[{'ingredient':{'item':'minecraft:copper_ingot' if metal=='copper' else 'zerog_tweaks:'+metal+'_ingot'},'count':count}],
+                    'catalyst':{'ingredient':{'item':'zerog_tweaks:'+kind+'_press'},'count':1,'consumed':False},
+                    'outputs':[{'stack':{'id':'zerog_tweaks:'+identifier,'count':1}}],
+                    'energy':2000 if kind=='plate' else 4000,'time':100 if kind=='plate' else 160})
             emit('advancement/recipes/manufacturing/'+metal+'.json',{
                 'parent':'minecraft:recipes/root',
                 'criteria':{'has_ingot':{'trigger':'minecraft:inventory_changed','conditions':{
-                    'items':[{'items':'zerog_tweaks:'+metal+'_ingot'}]}}},
+                    'items':[{'items':'minecraft:copper_ingot' if metal=='copper' else 'zerog_tweaks:'+metal+'_ingot'}]}}},
                 'requirements':[['has_ingot']],
-                'rewards':{'recipes':['zerog_tweaks:manufacturing/'+metal+'_plate','zerog_tweaks:manufacturing/'+metal+'_cog']}})
+                'rewards':{'recipes':['zerog_tweaks:pressing/'+metal+'_plate','zerog_tweaks:pressing/'+metal+'_cog']}})
     emit('tags/item/manufacturing/star_glass.json',{'replace':False,'values':[
         'zerog_tweaks:star_glass','zerog_tweaks:star_glass_blue','zerog_tweaks:star_glass_teal']})
     # Existing chain and two-casing output are preserved. Two empty lower corners
@@ -45,4 +46,4 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--resources',type=Path,required=True);a=p.parse_args()
     generate(a.resources)
     generate(Path(__file__).parent/'generated')
-    print('42 fabrication recipes,21 recipe-book unlocks,4 progression casings and3 Star Glass alternatives.')
+    print('Machine-only pressing recipes and unlocks regenerated; no crafting-table component routes.')

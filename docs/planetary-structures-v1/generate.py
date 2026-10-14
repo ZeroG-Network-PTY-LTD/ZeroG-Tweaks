@@ -110,6 +110,11 @@ def make(name):
     # Flora is original native material, restrained accents, no ore in soil.
     for x, z in ((7, 24), (40, 32), (32, 7), (10, 37)):
         put(x, 14 if theme == 'eidolon' else 13, z, glow)
+    # Final clearance pass: later tower skirts otherwise seal the gallery stairs.
+    for i in range(10):
+        y,z=12-i,40-i
+        box(22,y,z,26,y,z,trim)
+        box(22,y+1,z,26,min(y+4,16),z,'minecraft:air')
     loot = {'type': 'minecraft:chest', 'pools': [{'rolls': 3, 'entries': [
         {'type': 'minecraft:item', 'name': 'minecraft:iron_ingot', 'weight': 4},
         {'type': 'minecraft:item', 'name': 'minecraft:copper_ingot', 'weight': 6},
