@@ -1,5 +1,13 @@
 # ZeroG Tweaks
 
+## Fresh supplied test hub — 14 October
+
+[Hub layout, compatible upgrade supplies and maintenance evidence](docs/maintenance-and-fresh-hub-2026-10-14.md).
+Open `ZeroG_Fresh_Workshop_20261014_Seed0`:12tiered gates,15supplied workshop
+stations, southern service shells and transport demonstrations. Fresh planets
+generate on first visit. Rejected monoliths are excluded; redesign remains with
+the owner's other agent. Advanced undefined research/biology remains pending.
+
 ## Alpha inspection commands — 14 October
 
 [Illustrated command guide and safe exploration](docs/admin-travel-2026-10-14.md):
