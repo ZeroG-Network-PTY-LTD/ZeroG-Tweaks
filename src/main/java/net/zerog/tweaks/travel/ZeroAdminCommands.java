@@ -26,6 +26,9 @@ import net.neoforged.neoforge.event.RegisterCommandsEvent;
 /** Explicit operator tools, not a survival-gate unlock or a world-reset interface. */
 public final class ZeroAdminCommands {
     public static final Map<String,String> DESTINATIONS;
+    public static final Map<String,String> SHOWCASES=Map.of("water_bio_habitat","cerulon",
+            "hot_ring_monolith","skarn","ice_spire_outpost","eidolon");
+    private static final Map<java.util.UUID,Long> RANDOM_COOLDOWNS=new java.util.HashMap<>();
     public static final List<String> STRUCTURES=List.of("buried_observatory","collapsed_forge","concord_vault",
             "derelict_wreck","frozen_outpost","impact_site","mars_aresite_shrine","mars_crash_site",
             "prism_sentinel_arena","prism_spire","solar_shrine","sunken_lab","sunken_relay");
@@ -57,6 +60,11 @@ public final class ZeroAdminCommands {
                             travel(c.getSource(),alias,BlockPosArgument.getBlockPos(c,"position")))));
         }
         root.then(travel);
+        root.then(Commands.literal("random").executes(c->randomTravel(c.getSource())));
+        var showcase=Commands.literal("showcase");
+        SHOWCASES.forEach((name,planet)->showcase.then(Commands.literal(name)
+                .executes(c->showcase(c.getSource(),name,planet))));
+        root.then(showcase);
         root.then(Commands.literal("home").executes(c->travel(c.getSource(),"overworld",null)));
         root.then(Commands.literal("structures").executes(c->{
             say(c.getSource(),"Registered ZeroG structures: "+String.join(", ",STRUCTURES));return STRUCTURES.size();
@@ -80,13 +88,53 @@ public final class ZeroAdminCommands {
         root.then(Commands.literal("hub").then(Commands.literal("status").executes(c->
                 c.getSource().getServer().getCommands().getDispatcher().execute("zerog hub status",c.getSource()))));
         event.getDispatcher().register(root);
+        // Do not replace another mod's existing /random command.
+        if(event.getDispatcher().getRoot().getChild("random")==null)
+            event.getDispatcher().register(Commands.literal("random").requires(s->s.hasPermission(2))
+                    .executes(c->randomTravel(c.getSource())));
     }
 
     private static int help(CommandSourceStack source) {
         say(source,"/zero dimensions | tp <planet> [x y z] | home | structures | locate <structure> [planet]");
         say(source,"/zero status | gate <x y z> | machine <x y z> | hub status. Operator level2 required.");
+        say(source,"/zero showcase <water_bio_habitat|hot_ring_monolith|ice_spire_outpost> | /zero random (alias /random if available)");
         say(source,"Automatic travel searches dry footing near destination spawn; explicit coordinates are inspection travel, not guaranteed safe.");
         return 1;
+    }
+    private static int showcase(CommandSourceStack source,String name,String planet) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        var target=destination(source,planet);
+        if(target==null)return fail(source,"Showcase dimension unavailable.");
+        // These are authored test regions, not registered natural structures. Never create or clear terrain here.
+        var marker=new BlockPos(526,94,526);
+        target.getChunkAt(marker);
+        if(!target.getBlockState(marker).is(Blocks.CHEST))return fail(source,"No authored showcase chest found in this world (or it was removed). Use the supplied structure-test hub; this command does not build structures.");
+        for(int[] offset:new int[][]{{24,58},{24,50},{-2,24},{50,24}}) {
+            int x=512+offset[0],z=512+offset[1];target.getChunk(x>>4,z>>4);
+            var feet=new BlockPos(x,target.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,x,z),z);
+            if(safeFooting(target,feet))return travel(source,planet,feet);
+        }
+        return fail(source,"Showcase has no safe exterior footing. Inspect with spectator /zero tp instead.");
+    }
+    private static int randomTravel(CommandSourceStack source) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        var player=source.getPlayerOrException();var level=source.getLevel();
+        String alias=level.dimension().location().getPath();
+        if(!"zerog_tweaks".equals(level.dimension().location().getNamespace())||!DESTINATIONS.containsKey(alias))
+            return fail(source,"Random travel is limited to ZeroG planetary dimensions. Use /zero tp <planet> first.");
+        long now=System.nanoTime();
+        if(now<RANDOM_COOLDOWNS.getOrDefault(player.getUUID(),0L))return fail(source,"Wait 30 seconds between random-travel searches.");
+        RANDOM_COOLDOWNS.put(player.getUUID(),now+30_000_000_000L);
+        RANDOM_COOLDOWNS.entrySet().removeIf(e->e.getValue()<now);
+        // Local RNG avoids shared worldgen random access. At most eight new columns/chunks per invocation.
+        var rng=new java.util.Random();var origin=player.blockPosition();
+        for(int attempt=0;attempt<8;attempt++) {
+            double angle=rng.nextDouble()*Math.PI*2;int radius=128+rng.nextInt(385);
+            int x=origin.getX()+(int)(Math.cos(angle)*radius),z=origin.getZ()+(int)(Math.sin(angle)*radius);
+            if(!level.getWorldBorder().isWithinBounds(new BlockPos(x,origin.getY(),z)))continue;
+            level.getChunk(x>>4,z>>4);
+            var feet=new BlockPos(x,level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,x,z),z);
+            if(safeFooting(level,feet))return travel(source,alias,feet);
+        }
+        return fail(source,"No safe dry surface found in eight attempts. Nothing was moved or built; try again after cooldown.");
     }
     private static ServerLevel destination(CommandSourceStack source,String alias) {
         String id=DESTINATIONS.get(alias);

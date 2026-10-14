@@ -23,12 +23,16 @@ public final class ZeroAdminCommandGameTests {
             h.assertTrue(commands.getRoot().getChild("zero").getChild("tp").getChild(name)!=null,"Missing literal travel shortcut "+name);
         h.assertTrue(commands.execute("zero dimensions",admin)==35,"Dimension catalogue failed");
         h.assertTrue(commands.execute("zero structures",admin)==13,"Structure catalogue failed");
+        h.assertTrue(commands.getRoot().getChild("zero").getChild("random")!=null,"Missing bounded random travel");
+        for(String name:ZeroAdminCommands.SHOWCASES.keySet())
+            h.assertTrue(commands.getRoot().getChild("zero").getChild("showcase").getChild(name)!=null,"Missing showcase shortcut "+name);
         h.assertTrue(commands.execute("zero locate sunken_relay invalid_planet",admin)==0,"Unknown destination accepted");
         h.succeed();
     }
     @GameTest(templateNamespace="zerog_admin_commands",template="equipment_empty",timeoutTicks=500)
     public static void explicit_travel_and_collision_refusal(GameTestHelper h) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
         var level=h.getLevel();var player=h.makeMockServerPlayerInLevel();var source=player.createCommandSourceStack().withPermission(2);
+        h.assertTrue(level.getServer().getCommands().getDispatcher().execute("zero random",source)==0,"Random travel escaped planetary scope");
         var feet=h.absolutePos(new BlockPos(3,3,3));
         level.setBlock(feet.below(),Blocks.STONE.defaultBlockState(),3);
         level.setBlock(feet,Blocks.AIR.defaultBlockState(),3);level.setBlock(feet.above(),Blocks.AIR.defaultBlockState(),3);
@@ -58,6 +62,13 @@ public final class ZeroAdminCommandGameTests {
         var source=player.createCommandSourceStack().withPermission(2);
         h.assertTrue(server.getCommands().getDispatcher().execute("zero tp moon 0 120 0",source)==1,"Moon command failed");
         h.assertTrue(player.serverLevel()==moon&&player.blockPosition().equals(feet),"Wrong Moon arrival");
+        var moonSource=player.createCommandSourceStack().withPermission(2);
+        int randomResult=server.getCommands().getDispatcher().execute("zero random",moonSource);
+        if(randomResult==1)h.assertTrue(ZeroAdminCommands.safeFooting(moon,player.blockPosition()),"Random destination unsafe");
+        else h.assertTrue(player.blockPosition().equals(feet),"Failed random travel moved player");
+        var after=player.blockPosition();
+        h.assertTrue(server.getCommands().getDispatcher().execute("zero random",player.createCommandSourceStack().withPermission(2))==0,"Random cooldown bypassed");
+        h.assertTrue(player.blockPosition().equals(after),"Cooldown moved player");
         h.assertTrue(server.getCommands().getDispatcher().execute("zero tp overworld 0 120 0",player.createCommandSourceStack().withPermission(2))==1,"Return command failed");
         h.assertTrue(player.serverLevel()==h.getLevel(),"Wrong return dimension");
         player.discard();h.succeed();
