@@ -1,5 +1,11 @@
 # Alpha inspection: structures and random travel
 
+> Superseded showcase placement: the Kimi integration now uses saved grounded
+> site positions, with `/zero showcase ice`, `water`, `hot` aliases and explicit
+> `build` subcommands. See [current site guide](kimi-structure-sites-2026-10-14.md).
+> The former512,90,512chest-marker instructions below are historical, not the
+> current travel implementation.
+
 ![Command navigation diagram](images/admin-travel-20261014.svg)
 
 All commands below require operator permission level 2. They are inspection
