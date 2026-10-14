@@ -46,22 +46,23 @@ def reachable(blocks,start,size):
 
 
 class ShowcasePaths(unittest.TestCase):
-    def test_surface_entrance_reaches_both_loot_rooms(self):
+    def test_surface_entrance_reaches_all_four_loot_rooms(self):
         for name in NAMES:
             with self.subTest(template=name):
                 data,blocks=template(name)
-                seen=reachable(blocks,(24,13,40),data['size'])
+                n=data['size'][0];c=n//2;depth=14 if name=='ice_spire_outpost' else 20 if name=='hot_ring_monolith' else 16
+                seen=reachable(blocks,(c,depth+1,c+depth+1),data['size'])
                 self.assertTrue(seen,'Blocked surface entrance')
-                for target in ((13,4,14),(33,4,14),(24,4,24)):
+                for target in ((x-1,2,z) for x in (8,n-9) for z in (8,n-9)):
                     self.assertTrue(target in seen,f'Gallery/loot access blocked: {name} {target}')
 
-    def test_templates_keep_two_chests_and_one_hostile_spawner(self):
+    def test_templates_keep_four_chests_and_one_hostile_spawner(self):
         for name in NAMES:
             data,blocks=template(name)
-            self.assertEqual(sum(v=='minecraft:chest' for v in blocks.values()),2)
+            self.assertEqual(sum(v=='minecraft:chest' for v in blocks.values()),4)
             self.assertEqual(sum(v=='minecraft:spawner' for v in blocks.values()),1)
             spawner=next(b['nbt'] for b in data['blocks'] if 'SpawnData' in b.get('nbt',{}))
-            self.assertIn(spawner['SpawnData']['entity']['id'],('minecraft:drowned','minecraft:magma_cube','minecraft:stray'))
+            self.assertIn(spawner['SpawnData']['entity']['id'],('minecraft:spider','minecraft:husk','minecraft:stray'))
 
 
 if __name__=='__main__':unittest.main()

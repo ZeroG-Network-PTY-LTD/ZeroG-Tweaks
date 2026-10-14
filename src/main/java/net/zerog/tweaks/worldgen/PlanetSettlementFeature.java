@@ -33,7 +33,7 @@ public final class PlanetSettlementFeature extends Feature<NoneFeatureConfigurat
         var base=candidate(seed,dimension,rx,rz);
         var sites=new java.util.LinkedHashSet<net.minecraft.world.level.ChunkPos>();
         sites.add(base);
-        for(int[] delta:new int[][]{{6,0},{-6,0},{0,6},{0,-6}}) {
+        for(int[] delta:new int[][]{{6,0},{-6,0},{0,6},{0,-6},{4,4},{-4,-4}}) {
             int x=Math.max(rx*50+16,Math.min(rx*50+33,base.x+delta[0]));
             int z=Math.max(rz*50+16,Math.min(rz*50+33,base.z+delta[1]));
             sites.add(new net.minecraft.world.level.ChunkPos(x,z));

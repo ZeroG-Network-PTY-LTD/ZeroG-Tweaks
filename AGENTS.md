@@ -671,3 +671,21 @@ ram is dynamic, not baked twice. Native geometry generator is on Design in
 docs/industrial-pressing/generate_chassis.py. It reuses existing metal textures;
 client resemblance to approved concept remains a separate review. Oxygen-assisted
 future pressing costs/ports remain inactive pending specifications.
+
+## Resized structure inspection sites — 14 October
+
+Owner accepted interim custom-block drafts: water48x48x52/depth16,
+hot48x48x56/depth20, ice54x54x50/depth14. PlanetShowcaseSites dimensions,
+surface offsets and entrance anchors must match the Design revision generator.
+No fixed49x64x49 bounds or localY12 anchor may be restored. Commands persist
+origins; ordinary teleport never builds. Explicit build performs protected
+terrain preflight, bounded foundations and preserves an existing site/player edits.
+These are inspection sites, not natural random generation. Four loot rooms,
+three-wide descending stairs and one hostile spawner have native regression checks.
+install_kimi_sites.py admits only absent distant regions and site SavedData into
+the explicitly named Fresh Workshop; never overwrite exploration or copy test
+players, global level.dat, forced tickets or the GameTest Overworld.
+Village search now permits two extra diagonal alternatives while retaining one
+site per50x50 region, immutable noise selection and the original grading guards.
+Mob adjustments are +1 maximum group size for three ordinary species only;
+rare blazes, weather pause and the approved compressor timing deferral remain.

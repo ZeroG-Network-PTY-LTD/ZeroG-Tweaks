@@ -23,26 +23,27 @@ public final class StructureGalleryCollisionGameTests {
             for(int x=48;x<=51;x++)for(int z=48;z<=51;z++)level.getChunk(x,z);
             var template=level.getStructureManager().getOrCreate(ResourceLocation.fromNamespaceAndPath("zerog_tweaks","planetary_showcase/"+structures[index]));
             h.assertTrue(template.placeInWorld(level,origin,origin,new StructurePlaceSettings(),level.random,2),"Template did not place");
-            for(int step=0;step<10;step++)for(int x=22;x<=26;x++) {
-                var floor=origin.offset(x,12-step,40-step);
+            int width=net.zerog.tweaks.travel.PlanetShowcaseSites.width(structures[index]),depth=net.zerog.tweaks.travel.PlanetShowcaseSites.surface(structures[index]),c=width/2;
+            for(int step=0;step<depth-1;step++)for(int x=c-1;x<=c+1;x++) {
+                var floor=origin.offset(x,1+step,c+2+step);
                 h.assertTrue(!level.getBlockState(floor).getCollisionShape(level,floor).isEmpty(),"Missing stair support");
                 for(int dy=1;dy<=3;dy++) {
                     var cell=floor.above(dy);
                     h.assertTrue(level.getBlockState(cell).getCollisionShape(level,cell).isEmpty(),"Native stair collision at "+structures[index]+" step="+step);
                 }
             }
-            for(int x:new int[]{14,34}) {
-                var pos=origin.offset(x,4,14);
+            for(int x:new int[]{8,width-9})for(int z:new int[]{8,width-9}) {
+                var pos=origin.offset(x,2,z);
                 h.assertTrue(level.getBlockEntity(pos) instanceof ChestBlockEntity,"Missing loot-room chest");
                 var chest=(ChestBlockEntity)level.getBlockEntity(pos);
                 boolean present=false;for(int slot=0;slot<27;slot++)present|=!chest.getItem(slot).isEmpty();
                 h.assertTrue(present,"No generated loot");
                 for(int dy=0;dy<2;dy++) {
-                    var at=origin.offset(x-1,4+dy,14);
+                    var at=origin.offset(x-1,2+dy,z);
                     h.assertTrue(level.getBlockState(at).getCollisionShape(level,at).isEmpty(),"Blocked chest approach");
                 }
             }
-            h.assertTrue(level.getBlockEntity(origin.offset(18,4,32)) instanceof SpawnerBlockEntity,"Missing hostile spawner");
+            h.assertTrue(level.getBlockEntity(origin.offset(c-4,2,c-4)) instanceof SpawnerBlockEntity,"Missing hostile spawner");
         }
         h.succeed();
     }

@@ -63,7 +63,11 @@ public final class ZeroAdminCommands {
         root.then(Commands.literal("random").executes(c->randomTravel(c.getSource())));
         var showcase=Commands.literal("showcase");
         SHOWCASES.forEach((name,planet)->showcase.then(Commands.literal(name)
-                .executes(c->showcase(c.getSource(),name,planet))));
+                .executes(c->showcase(c.getSource(),name,planet))
+                .then(Commands.literal("build").executes(c->{var target=destination(c.getSource(),planet);if(target==null)return fail(c.getSource(),"Dimension unavailable.");say(c.getSource(),PlanetShowcaseSites.get(target).build(target,name));return PlanetShowcaseSites.get(target).origin(name)==null?0:1;}))));
+        Map.of("ice","ice_spire_outpost","water","water_bio_habitat","hot","hot_ring_monolith").forEach((alias,name)->showcase.then(Commands.literal(alias)
+                .executes(c->showcase(c.getSource(),name,SHOWCASES.get(name)))
+                .then(Commands.literal("build").executes(c->{var target=destination(c.getSource(),SHOWCASES.get(name));if(target==null)return fail(c.getSource(),"Dimension unavailable.");say(c.getSource(),PlanetShowcaseSites.get(target).build(target,name));return PlanetShowcaseSites.get(target).origin(name)==null?0:1;}))));
         root.then(showcase);
         root.then(Commands.literal("home").executes(c->travel(c.getSource(),"overworld",null)));
         root.then(Commands.literal("structures").executes(c->{
@@ -104,16 +108,10 @@ public final class ZeroAdminCommands {
     private static int showcase(CommandSourceStack source,String name,String planet) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
         var target=destination(source,planet);
         if(target==null)return fail(source,"Showcase dimension unavailable.");
-        // These are authored test regions, not registered natural structures. Never create or clear terrain here.
-        var marker=new BlockPos(526,94,526);
-        target.getChunkAt(marker);
-        if(!target.getBlockState(marker).is(Blocks.CHEST))return fail(source,"No authored showcase chest found in this world (or it was removed). Use the supplied structure-test hub; this command does not build structures.");
-        for(int[] offset:new int[][]{{24,58},{24,50},{-2,24},{50,24}}) {
-            int x=512+offset[0],z=512+offset[1];target.getChunk(x>>4,z>>4);
-            var feet=new BlockPos(x,target.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,x,z),z);
-            if(safeFooting(target,feet))return travel(source,planet,feet);
-        }
-        return fail(source,"Showcase has no safe exterior footing. Inspect with spectator /zero tp instead.");
+        var sites=PlanetShowcaseSites.get(target);var origin=sites.origin(name);
+        if(origin==null)return fail(source,"No saved site. Explicitly build with /zero showcase "+name+" build; normal teleport never builds or clears terrain.");
+        var feet=sites.arrival(target,name);if(feet==null)return fail(source,"Saved site has no safe entrance footing. Inspect with spectator /zero tp "+planet+" "+origin.toShortString());
+        return travel(source,planet,feet);
     }
     private static int randomTravel(CommandSourceStack source) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
         var player=source.getPlayerOrException();var level=source.getLevel();
