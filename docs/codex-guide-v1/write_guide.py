@@ -425,8 +425,10 @@ Base powered analysis is 100 ticks / 2,000 FE, sampling 300 ticks / 6,000 FE, an
 splicing 400 ticks / 24,000 FE. The Geno Station works four times slower without
 power; the Splicer requires power. Mixed-power jobs vary with powered work.
 
-Acceleration and Energy Coil cards have separate sockets and tiers 1-6, capped
-at 2.5x speed and 30% total FE savings. The pages use server-synced current effects.
+Acceleration and Energy Coil cards have separate sockets and tiers 1-6.
+Each successive tier doubles T1 speed and halves T1 whole-recipe FE, rounded
+up with a minimum 100 FE per powered job. Defaults are 1.25x speed at T1 and
+40x at T6. Recipe pages use server-synced current effects and exact costs.
 Cards do not improve splice chance or traits. Compact and Void are unsupported.
 Exact crafting costs and advanced Codex research rules remain pending.
 """)
@@ -551,7 +553,8 @@ Its old slot 2 is recovery-only. A blocked output pauses processing without
 consuming ingredients. Completion takes 201 processing ticks in the current
 runtime. These machines now require cable power: the default is 20 FE per work
 tick, or 4,020 FE per base job. Their six faces have independent power/input
-controls, and Acceleration/Energy Coil cards use the existing 2.5x/30% caps.
+controls, and Acceleration/Energy Coil effects double per tier relative to T1.
+Energy is charged per whole recipe, never below 100 FE; pages show exact costs.
 
 ## Silk and centrifuges
 
@@ -644,7 +647,7 @@ Gas-tube tiers follow Copper, Nullifite, Cyrrium, Tectium, Wraithsteel and Astri
 Keep hydrogen and oxygen networks separate. The weakest connected tier limits
 shared transfer rates; higher-tier branches do not bypass lower-tier sections.
 The separator accepts Acceleration and Energy Coil cards tiers 1-6, with the
-existing bounded speed/energy effects. It does not support Compact or Void cards.
+doubled tier rates and a 100 FE minimum per recipe. It does not support Compact or Void cards.
 The front terminal is closed to pipes, cables and automated items. Other faces
 support configurable water/gas roles and power; item automation accepts supported
 upgrade cards only, not arbitrary processing ingredients. Rotation preserves
