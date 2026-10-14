@@ -39,8 +39,8 @@ public final class ProcessingRecipePanel implements RecipeBrowserPanel {
                     rows.add(new Row((i==0?"Acceleration":"Energy Coil")+": "+(stack.isEmpty()?"none":stack.getHoverName().getString()),stack.isEmpty()?List.of():List.of(stack.copy()),List.of()));
                 }
                 text(rows,"One card per family, tiers 1–6");text(rows,"Speed now: "+net.zerog.tweaks.genetics.LegacyMachineCards.speed(legacy)/100.0+"x");
-                text(rows,"FE saving now: "+net.zerog.tweaks.genetics.LegacyMachineCards.saving(legacy)+"%");
-                text(rows,"Maximum 2.5x / 30% saving");text(rows,"Compact / Void unsupported");text(rows,"Crafting costs deferred");return rows;
+                text(rows,"Coil tier: "+net.zerog.tweaks.genetics.LegacyMachineCards.coilTier(legacy)+"; recipe floor 100 FE");
+                text(rows,"Each tier doubles; minimum 100 FE");text(rows,"Compact / Void unsupported");text(rows,"Crafting costs deferred");return rows;
             }
             text(rows,"Installed upgrades");
             for(int i=0;i<4;i++){
@@ -49,7 +49,7 @@ public final class ProcessingRecipePanel implements RecipeBrowserPanel {
             }
             text(rows,"Cards: tiers 1 through 6");text(rows,"One card per family");
             text(rows,"Speed now: "+machine.speedPercent()/100.0+"x");
-            text(rows,"Acceleration cap: 2.5x");text(rows,"Coil saving cap: 30%");
+            text(rows,"Acceleration: doubles per tier");text(rows,"Coil: halves cost; minimum 100 FE");
             text(rows,"Server-configured effects");
             text(rows,machine.usesCards()?"Legacy bonuses inactive":"Legacy bonuses preserved");
             text(rows,"Old items remain recoverable");text(rows,"No new casing/dust installs");

@@ -59,7 +59,7 @@ Gas-tube tiers follow Copper, Nullifite, Cyrrium, Tectium, Wraithsteel and Astri
 Keep hydrogen and oxygen networks separate. The weakest connected tier limits
 shared transfer rates; higher-tier branches do not bypass lower-tier sections.
 The separator accepts Acceleration and Energy Coil cards tiers 1-6, with the
-existing bounded speed/energy effects. It does not support Compact or Void cards.
+doubled tier rates and a 100 FE minimum per recipe. It does not support Compact or Void cards.
 The front terminal is closed to pipes, cables and automated items. Other faces
 support configurable water/gas roles and power; item automation accepts supported
 upgrade cards only, not arbitrary processing ingredients. Rotation preserves

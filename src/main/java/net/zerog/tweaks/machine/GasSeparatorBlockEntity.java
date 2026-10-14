@@ -43,9 +43,9 @@ public final class GasSeparatorBlockEntity extends BlockEntity {
     public boolean power(Direction side){return !terminalFace(side)&&power[side.ordinal()];}
     public void cycle(Direction side){if(terminalFace(side))return;roles[side.ordinal()]=(roles[side.ordinal()]+1)%4;setChanged();}
     public void togglePower(Direction side){if(terminalFace(side))return;power[side.ordinal()]=!power[side.ordinal()];setChanged();}
-    public int speed(){return 100+MachineUpgradeCards.tier(cards.getStackInSlot(0),MachineUpgradeCards.Family.ACCELERATION)*MachineUpgradeConfig.SPEED_PERCENT_PER_TIER.get();}
+    public int speed(){return MachineUpgradeConfig.speedPercent(MachineUpgradeCards.tier(cards.getStackInSlot(0),MachineUpgradeCards.Family.ACCELERATION));}
     public int duration(){return Math.max(1,(GasProductionConfig.TICKS.get()*100+speed()-1)/speed());}
-    public int cost(){int saving=MachineUpgradeCards.tier(cards.getStackInSlot(1),MachineUpgradeCards.Family.ENERGY_COIL)*MachineUpgradeConfig.ENERGY_SAVING_PER_TIER.get();return (GasProductionConfig.ENERGY.get()*(100-saving)+99)/100;}
+    public int cost(){return MachineUpgradeConfig.recipeEnergy(GasProductionConfig.ENERGY.get(),MachineUpgradeCards.tier(cards.getStackInSlot(1),MachineUpgradeCards.Family.ENERGY_COIL));}
     public int status(){if(water.getFluidAmount()<GasProductionConfig.WATER.get())return 1;if(stored<cost())return 2;if(hydrogen.getSpace()<GasProductionConfig.WATER.get()*2||oxygen.getSpace()<GasProductionConfig.WATER.get())return 3;return 0;}
     public static void tick(Level l,BlockPos p,BlockState s,GasSeparatorBlockEntity be){be.work();if(l.getGameTime()%20==0)be.leakIncorrectOutputs();}
     /** Only an enabled liquid pipe attached to a gas outlet is a misbuild.

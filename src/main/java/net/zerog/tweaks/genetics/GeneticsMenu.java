@@ -48,7 +48,7 @@ public final class GeneticsMenu extends AbstractContainerMenu implements net.zer
                     case 7->GeneticsRuntime.status(machine);
                     case 8->GeneticsRuntime.chance(machine);
                     case 9->state.getBoolean("last_success")?1:0;case 10->new GeneticsTank(machine).amount();
-                    case 29->LegacyMachineCards.speed(machine);case 30->LegacyMachineCards.saving(machine);default->0;
+                    case 29->LegacyMachineCards.speed(machine);case 30->LegacyMachineCards.coilTier(machine);default->0;
                 };
             }
             public void set(int index,int value){}public int getCount(){return 31;}

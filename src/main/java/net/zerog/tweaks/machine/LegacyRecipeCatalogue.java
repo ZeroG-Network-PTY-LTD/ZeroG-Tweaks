@@ -83,7 +83,7 @@ public final class LegacyRecipeCatalogue {
         int speed=powered?LegacyMachineCards.speed(machine):100,saving=powered?LegacyMachineCards.saving(machine):0;
         int baseEnergy=powered?LegacyMachinePower.workTicks(GeneticsRuntime.id(machine))*LegacyMachinePower.cost(GeneticsRuntime.id(machine)):0;
         return matching.stream().map(p->new ProcessingRecipeCatalogue.Page(p.id(),p.inputs(),p.catalyst(),p.outputs(),baseEnergy,p.baseTicks(),
-            (int)(((long)baseEnergy*(100-saving)+99)/100),(p.baseTicks()*100+speed-1)/speed)).toList();
+            powered?LegacyMachineCards.recipeCost(machine,baseEnergy):0,(p.baseTicks()*100+speed-1)/speed)).toList();
     }
     private LegacyRecipeCatalogue(){}
 }

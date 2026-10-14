@@ -6,13 +6,13 @@ import java.util.List;
 /** Read-only operation descriptions. Metrics use the same quarter-work budget as live jobs. */
 public final class GeneticsRecipeCatalogue {
     public record Page(String title, List<String> lines, int ticks, int energy) {}
-    public static Page page(String id, int mode, int speed, int saving) {
+    public static Page page(String id, int mode, int speed, int coilTier) {
         if (!GeneticsRuntime.handles(id)) return new Page("Unsupported machine", List.of(), 0, 0);
         boolean splice = id.equals("genetic_splicer"), sample = !splice && mode == 1;
         int duration = GeneticsRuntime.duration(id, mode);
-        speed = Math.clamp(speed, 100, 250); saving = Math.clamp(saving, 0, 30);
+        speed = Math.clamp(speed, 100, 4000); coilTier = Math.clamp(coilTier, 0, 6);
         int ticks = (duration * 100 + speed - 1) / speed;
-        int energy = (duration * GeneticsRuntime.cost(id) * (100 - saving) + 99) / 100;
+        int energy = net.zerog.tweaks.machine.MachineUpgradeConfig.recipeEnergy((long)duration * GeneticsRuntime.cost(id),coilTier);
         var lines = new ArrayList<String>();
         lines.add("Slot 0: 1 filled bee cage");
         lines.add("Requires five saved, valid bee traits");

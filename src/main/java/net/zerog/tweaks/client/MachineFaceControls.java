@@ -18,7 +18,7 @@ public final class MachineFaceControls {
         boolean cards=net.zerog.tweaks.genetics.LegacyMachineCards.supports(menu.sideMachine());
         var upgrades=Button.builder(Component.literal(cards?"Cards: A / E":"Upgrades: none"),b->{}).bounds(x,y+197,94,18).build();
         upgrades.active=false;
-        upgrades.setTooltip(Tooltip.create(Component.literal(cards?"A: Acceleration; E: Energy Coil. One card per family, tiers 1–6. Limits: 2.5x speed / 30% total job FE saving. Compact and Void are not supported here.":"This machine has no supported upgrade sockets. Recipe reagents and genetics catalysts are not upgrades.")));
+        upgrades.setTooltip(Tooltip.create(Component.literal(cards?"A: Acceleration; E: Energy Coil. One card per family, tiers 1–6. Speed doubles and whole-job FE halves per tier; minimum 100 FE. Compact and Void are not supported here.":"This machine has no supported upgrade sockets. Recipe reagents and genetics catalysts are not upgrades.")));
         add.accept(upgrades);
     }
     private String iLabel(){return family==0?"Item faces":family==1?"Power faces":"Fluid faces";}

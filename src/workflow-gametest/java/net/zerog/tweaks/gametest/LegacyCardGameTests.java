@@ -22,10 +22,10 @@ public final class LegacyCardGameTests {
             var inv=GeneticsRuntime.inventory(be);inv.setStackInSlot(0,GeneticsRuntime.product(id.equals("centrifuge")?"meteor_comb":"stardust"));
             if(id.equals("starmetal_smelter"))inv.setStackInSlot(2,new ItemStack(net.minecraft.world.item.Items.REDSTONE));
             GeneticsRuntime.state(be).putInt("energy",40000);
-            for(int i=0;i<80;i++)tick(be);
+            for(int i=0;i<5;i++)tick(be);
             h.assertTrue(!inv.getStackInSlot(0).isEmpty(),"Recipe consumed before full job");tick(be);
-            h.assertTrue(inv.getStackInSlot(0).isEmpty(),"Acceleration did not finish at 81 ticks: "+id);
-            int spent=(201*LegacyMachinePower.cost(id)*70+99)/100;
+            h.assertTrue(inv.getStackInSlot(0).isEmpty(),"Acceleration did not finish at 6 ticks: "+id);
+            int spent=net.zerog.tweaks.machine.MachineUpgradeConfig.recipeEnergy(201L*LegacyMachinePower.cost(id),6);
             h.assertTrue(GeneticsRuntime.state(be).getInt("energy")==40000-spent,"Job FE not exact: "+id);
             if(id.equals("starmetal_smelter"))h.assertTrue(inv.getStackInSlot(3).getCount()==3&&GeneticsRuntime.item(inv.getStackInSlot(3),"starmetal_nugget"),"Authoritative output changed");
         }h.succeed();
@@ -37,10 +37,10 @@ public final class LegacyCardGameTests {
         var inv=GeneticsRuntime.inventory(be);inv.setStackInSlot(0,GeneticsRuntime.product("stardust"));inv.setStackInSlot(2,new ItemStack(net.minecraft.world.item.Items.REDSTONE));inv.setStackInSlot(3,new ItemStack(net.minecraft.world.item.Items.STONE,64));
         GeneticsRuntime.state(be).putInt("energy",40000);for(int i=0;i<20;i++)tick(be);
         h.assertTrue(GeneticsRuntime.state(be).getInt("energy")==40000&&inv.getStackInSlot(0).getCount()==1,"Blocked job spent FE/input");
-        inv.setStackInSlot(3,ItemStack.EMPTY);for(int i=0;i<40;i++)tick(be);
+        inv.setStackInSlot(3,ItemStack.EMPTY);for(int i=0;i<3;i++)tick(be);
         var tag=be.saveWithFullMetadata(h.getLevel().registryAccess());var loaded=BlockEntity.loadStatic(be.getBlockPos(),be.getBlockState(),tag,h.getLevel().registryAccess());loaded.setLevel(h.getLevel());h.getLevel().setBlockEntity(loaded);be=loaded;
-        for(int i=0;i<41;i++)tick(be);h.assertTrue(GeneticsRuntime.state(be).getInt("energy")==28744&&GeneticsRuntime.inventory(be).getStackInSlot(3).getCount()==3,"Reload duplicated job FE/output");
-        inv=GeneticsRuntime.inventory(be);inv.setStackInSlot(0,GeneticsRuntime.product("stardust"));inv.setStackInSlot(2,new ItemStack(net.minecraft.world.item.Items.REDSTONE));for(int i=0;i<10;i++)tick(be);
+        for(int i=0;i<3;i++)tick(be);h.assertTrue(GeneticsRuntime.state(be).getInt("energy")==40000-net.zerog.tweaks.machine.MachineUpgradeConfig.recipeEnergy(201L*LegacyMachinePower.cost("starmetal_smelter"),6)&&GeneticsRuntime.inventory(be).getStackInSlot(3).getCount()==3,"Reload duplicated job FE/output");
+        inv=GeneticsRuntime.inventory(be);inv.setStackInSlot(0,GeneticsRuntime.product("stardust"));inv.setStackInSlot(2,new ItemStack(net.minecraft.world.item.Items.REDSTONE));for(int i=0;i<2;i++)tick(be);
         cards=LegacyMachineCards.inventory(be);cards.extractItem(0,1,false);h.assertTrue(GeneticsRuntime.state(be).getInt("card_elapsed")==0,"Removal kept accelerated paid job");
         h.assertTrue(inv.getStackInSlot(0).getCount()==1&&inv.getStackInSlot(3).getCount()==3,"Card removal destroyed operating inventory");
         var bounds=new net.minecraft.world.phys.AABB(be.getBlockPos()).inflate(2);h.getLevel().destroyBlock(be.getBlockPos(),true);

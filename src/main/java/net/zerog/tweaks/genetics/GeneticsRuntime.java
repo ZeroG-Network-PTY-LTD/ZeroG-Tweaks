@@ -86,7 +86,7 @@ public final class GeneticsRuntime {
     public static int nextPowerCost(BlockEntity be){
         if(!LegacyMachineCards.installed(be))return cost(id(be));
         var data=state(be);int units=duration(id(be),data.getInt("mode"))*4;
-        long total=((long)duration(id(be),data.getInt("mode"))*cost(id(be))*(100-LegacyMachineCards.saving(be))+99)/100;
+        long total=LegacyMachineCards.recipeCost(be,(long)duration(id(be),data.getInt("mode"))*cost(id(be)));
         int target=(int)((total*(data.getInt("card_units")+poweredStep(be))+units-1)/units);
         return Math.max(0,target-data.getInt("card_paid"));
     }
@@ -140,6 +140,7 @@ public final class GeneticsRuntime {
         var input=new CompoundTag();for(int i=0;i<3;i++)if(!inv.getStackInSlot(i).isEmpty())input.put("s"+i,inv.getStackInSlot(i).save(level.registryAccess()));
         if(!mayPlace(id(be),2,inv.getStackInSlot(2)))input.putString("fluid",state.getString("fluid"));
         input.putInt("speed",LegacyMachineCards.speed(be));input.putInt("saving",LegacyMachineCards.saving(be));
+        input.putInt("total",LegacyMachineCards.recipeCost(be,(long)duration(id(be),state.getInt("mode"))*cost(id(be))));
         if(state.contains("input")&&!state.getCompound("input").equals(input)){cancel(be);return;}
         if(!state.contains("input"))state.put("input",input);
         if(status(be)!=0)return;

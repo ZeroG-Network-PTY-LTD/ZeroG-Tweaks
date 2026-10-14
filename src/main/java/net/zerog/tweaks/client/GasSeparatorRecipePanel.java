@@ -14,7 +14,7 @@ public final class GasSeparatorRecipePanel implements RecipeBrowserPanel {
     private List<String> lines(){
         var page=GasSeparatorRecipeCatalogue.page(menu);
         if(page==null)return List.of("Waiting for server recipe values");
-        if(tab==2)return List.of("One card per family, tiers 1-6","Acceleration: up to 2.5x speed","Energy Coil: up to 30% FE saved","Current: "+page.energy()+" FE / "+page.ticks()+" ticks","Cards keep gas quantities unchanged","Compact / Void unsupported","Exact crafting costs deferred");
+        if(tab==2)return List.of("One card per family, tiers 1-6","Acceleration: speed doubles per tier","Energy Coil: halves job FE; minimum 100 FE","Current: "+page.energy()+" FE / "+page.ticks()+" ticks","Cards keep gas quantities unchanged","Compact / Void unsupported","Exact crafting costs deferred");
         return List.of("Input: "+page.water()+" mB water","Output: "+page.hydrogen()+" mB hydrogen","Output: "+page.oxygen()+" mB oxygen","Base: "+page.baseEnergy()+" FE / "+page.baseTicks()+" ticks","With cards: "+page.energy()+" FE / "+page.ticks()+" ticks","All resources commit together","Blocked/full output pauses safely","Water faces: input only","H2 / O2 faces: output only","Collect gas in canisters","Use gas tubes, not liquid pipes","Pressure means fullness only");
     }
     private List<ItemStack> examples(){return List.of(new ItemStack(Items.WATER_BUCKET),new ItemStack(ZGGases.CANISTER.get()),ZGGases.filled(ZGGases.HYDROGEN),ZGGases.filled(ZGGases.OXYGEN),new ItemStack(ItemInit.MACHINE_UPGRADE_CARDS.get("acceleration_upgrade_card_t1").get()),new ItemStack(ItemInit.MACHINE_UPGRADE_CARDS.get("energy_coil_upgrade_card_t1").get()));}

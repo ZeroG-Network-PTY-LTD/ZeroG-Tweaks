@@ -41,7 +41,9 @@ Base powered analysis is 100 ticks / 2,000 FE, sampling 300 ticks / 6,000 FE, an
 splicing 400 ticks / 24,000 FE. The Geno Station works four times slower without
 power; the Splicer requires power. Mixed-power jobs vary with powered work.
 
-Acceleration and Energy Coil cards have separate sockets and tiers 1-6, capped
-at 2.5x speed and 30% total FE savings. The pages use server-synced current effects.
+Acceleration and Energy Coil cards have separate sockets and tiers 1-6.
+Each successive tier doubles T1 speed and halves T1 whole-recipe FE, rounded
+up with a minimum 100 FE per powered job. Defaults are 1.25x speed at T1 and
+40x at T6. Recipe pages use server-synced current effects and exact costs.
 Cards do not improve splice chance or traits. Compact and Void are unsupported.
 Exact crafting costs and advanced Codex research rules remain pending.

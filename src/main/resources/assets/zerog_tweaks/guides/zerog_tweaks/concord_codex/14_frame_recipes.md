@@ -33,7 +33,8 @@ Its old slot 2 is recovery-only. A blocked output pauses processing without
 consuming ingredients. Completion takes 201 processing ticks in the current
 runtime. These machines now require cable power: the default is 20 FE per work
 tick, or 4,020 FE per base job. Their six faces have independent power/input
-controls, and Acceleration/Energy Coil cards use the existing 2.5x/30% caps.
+controls, and Acceleration/Energy Coil effects double per tier relative to T1.
+Energy is charged per whole recipe, never below 100 FE; pages show exact costs.
 
 ## Silk and centrifuges
 

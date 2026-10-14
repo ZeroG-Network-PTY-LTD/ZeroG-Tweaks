@@ -674,6 +674,21 @@ future pressing costs/ports remain inactive pending specifications.
 
 ## Resized structure inspection sites — 14 October
 
+## Owner card doubling — 14 October
+
+Supersedes all earlier 2.5x/30percent card caps. Retain old server config keys
+as T1 baselines: default speed125percent and recipe cost95percent of base.
+T2-T6 multiply T1 speed by2/4/8/16/32, and divide T1 whole-recipe FE by those
+same factors, rounded up with a fixed minimum100FE. Do not apply this floor
+to each tick, increase storage buffers, compound duplicate cards or alter
+Item Compact/Void. MachineUpgradeConfig owns the shared arithmetic; processors,
+separator, legacy schedules and genetics recipe pages must match it exactly.
+Geno hand-cranking remains unchanged; paid work uses cumulative rounding.
+Changed pricing fingerprints invalidate old partial paid jobs conservatively.
+The existing resized structure sites and compressor timing deferral remain.
+
+### Resized site delivery contract
+
 Owner accepted interim custom-block drafts: water48x48x52/depth16,
 hot48x48x56/depth20, ice54x54x50/depth14. PlanetShowcaseSites dimensions,
 surface offsets and entrance anchors must match the Design revision generator.

@@ -24,7 +24,7 @@ public final class GeneticsRecipePanel implements RecipeBrowserPanel {
     private java.util.List<String> lines() {
         if (tab != 2) return GeneticsRecipeCatalogue.page(menu.machineId, mode, menu.value(29), menu.value(30)).lines();
         return java.util.List.of("One card per family, tiers 1-6", "Acceleration: " + menu.value(29)/100.0 + "x",
-                "Energy Coil: " + menu.value(30) + "% FE saving", "Caps: 2.5x / 30% total FE", "Compact / Void unsupported",
+                "Energy Coil tier: " + menu.value(30), "Each tier doubles; recipe floor 100 FE", "Compact / Void unsupported",
                 "Cards never change genes or success chance", "Card changes reset job; inputs retained", "Exact crafting costs deferred");
     }
     public void render(GuiGraphics g, Font font, int left, int top, int viewport, int machineWidth, int mx, int my) {

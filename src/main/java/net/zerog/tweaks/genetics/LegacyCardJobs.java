@@ -14,12 +14,13 @@ public final class LegacyCardJobs {
         for(int i:inputs)if(!inv.getStackInSlot(i).isEmpty())job.put("s"+i,inv.getStackInSlot(i).save(level.registryAccess()));
         int speed=LegacyMachineCards.speed(be),saving=LegacyMachineCards.saving(be),cost=LegacyMachinePower.cost(GeneticsRuntime.id(be));
         job.putInt("speed",speed);job.putInt("saving",saving);job.putInt("cost",cost);
+        job.putInt("total",LegacyMachineCards.recipeCost(be,(long)LegacyMachinePower.workTicks(GeneticsRuntime.id(be))*cost));
         if(state.contains("card_job")&&!state.getCompound("card_job").equals(job))LegacyMachineCards.resetJob(be);
         if(!LegacyMachinePower.ready(be))return;
         if(!state.contains("card_job"))state.put("card_job",job);
         int work=LegacyMachinePower.workTicks(GeneticsRuntime.id(be));
         int duration=(work*100+speed-1)/speed,elapsed=state.getInt("card_elapsed"),next=elapsed+1;
-        long total=((long)work*cost*(100-saving)+99)/100;
+        long total=LegacyMachineCards.recipeCost(be,(long)work*cost);
         int paid=(int)((total*next+duration-1)/duration),charge=paid-state.getInt("card_paid");
         if(state.getInt("energy")<charge)return;
         int steps=next*work/duration-elapsed*work/duration;

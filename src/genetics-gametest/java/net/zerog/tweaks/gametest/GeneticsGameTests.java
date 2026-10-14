@@ -25,7 +25,7 @@ public final class GeneticsGameTests {
             for(int slot=0;slot<2;slot++)cards.setStackInSlot(slot,tier==0?ItemStack.EMPTY:new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse("zerog_tweaks:"+(slot==0?"acceleration":"energy_coil")+"_upgrade_card_t"+tier))));
             var player=h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);player.setPos(be.getBlockPos().getCenter());
             var menu=new GeneticsMenu(1,player.getInventory(),be);
-            h.assertTrue(menu.value(29)==LegacyMachineCards.speed(be)&&menu.value(30)==LegacyMachineCards.saving(be),"Catalogue upgrade metrics not synchronized");
+            h.assertTrue(menu.value(29)==LegacyMachineCards.speed(be)&&menu.value(30)==LegacyMachineCards.coilTier(be),"Catalogue upgrade metrics not synchronized");
             var page=GeneticsRecipeCatalogue.page(id,mode,menu.value(29),menu.value(30));
             ItemStack reagent=mode==1?GeneticsRuntime.product("serum_vial"):ItemStack.EMPTY;
             if(id.equals("genetic_splicer")){
@@ -123,18 +123,18 @@ public final class GeneticsGameTests {
     public static void cards_speed_genetics_without_changing_traits_or_hand_cranking(GameTestHelper h){
         var be=machine(h,"geno_station");var traits=ProductiveBeeGenes.read(bee(h));
         var cards=LegacyMachineCards.inventory(be);cards.setStackInSlot(0,card("acceleration"));cards.setStackInSlot(1,card("energy_coil"));
-        inputs(be,bee(h),ItemStack.EMPTY,new ItemStack(Items.HONEY_BOTTLE));start(be,0,0);GeneticsRuntime.energy(be).receiveEnergy(10000,false);tick(be,20);
-        var saved=be.saveWithFullMetadata(h.getLevel().registryAccess());var loaded=BlockEntity.loadStatic(be.getBlockPos(),be.getBlockState(),saved,h.getLevel().registryAccess());loaded.setLevel(h.getLevel());h.getLevel().setBlockEntity(loaded);be=loaded;tick(be,19);
+        inputs(be,bee(h),ItemStack.EMPTY,new ItemStack(Items.HONEY_BOTTLE));start(be,0,0);GeneticsRuntime.energy(be).receiveEnergy(10000,false);tick(be,1);
+        var saved=be.saveWithFullMetadata(h.getLevel().registryAccess());var loaded=BlockEntity.loadStatic(be.getBlockPos(),be.getBlockState(),saved,h.getLevel().registryAccess());loaded.setLevel(h.getLevel());h.getLevel().setBlockEntity(loaded);be=loaded;tick(be,1);
         h.assertTrue(GeneticsRuntime.inventory(be).getStackInSlot(3).isEmpty(),"Card analysis completed early");tick(be,1);
-        h.assertTrue(ProductiveBeeGenes.read(GeneticsRuntime.inventory(be).getStackInSlot(3)).equals(traits)&&GeneticsRuntime.energy(be).getEnergyStored()==8600,"Card analysis timing/FE/traits wrong");
+        h.assertTrue(ProductiveBeeGenes.read(GeneticsRuntime.inventory(be).getStackInSlot(3)).equals(traits)&&GeneticsRuntime.energy(be).getEnergyStored()==9900,"Card analysis timing/FE/traits wrong");
         var specimen=GeneticsRuntime.inventory(be).extractItem(3,1,false);GeneticsRuntime.inventory(be).extractItem(4,64,false);
         inputs(be,specimen,GeneticsRuntime.product("serum_vial"),new ItemStack(Items.HONEY_BOTTLE));start(be,1,0);tick(be,120);
         var serum=GeneticsRuntime.inventory(be).extractItem(4,1,false);var returned=GeneticsRuntime.inventory(be).extractItem(3,1,false);
-        h.assertTrue(!GeneticsRuntime.serum(serum).isEmpty()&&GeneticsRuntime.energy(be).getEnergyStored()==4400,"Card sampling cost/output wrong");
+        h.assertTrue(!GeneticsRuntime.serum(serum).isEmpty()&&GeneticsRuntime.energy(be).getEnergyStored()==9721,"Card sampling cost/output wrong");
         be=machine(h,"genetic_splicer");cards=LegacyMachineCards.inventory(be);cards.setStackInSlot(0,card("acceleration"));cards.setStackInSlot(1,card("energy_coil"));
         inputs(be,returned,serum,GeneticsRuntime.product("cosmic_jelly"));start(be,0,0);GeneticsRuntime.energy(be).receiveEnergy(40000,false);
         GeneticsRuntime.inventory(be).setStackInSlot(3,new ItemStack(Items.STONE,64));tick(be,30);h.assertTrue(GeneticsRuntime.energy(be).getEnergyStored()==40000,"Blocked card splice spent energy");GeneticsRuntime.inventory(be).setStackInSlot(3,ItemStack.EMPTY);tick(be,160);
-        h.assertTrue(!GeneticsRuntime.inventory(be).getStackInSlot(3).isEmpty()&&GeneticsRuntime.energy(be).getEnergyStored()==23200,"Card splice timing/FE wrong");
+        h.assertTrue(!GeneticsRuntime.inventory(be).getStackInSlot(3).isEmpty()&&GeneticsRuntime.energy(be).getEnergyStored()==39287,"Card splice timing/FE wrong");
         be=machine(h,"geno_station");cards=LegacyMachineCards.inventory(be);cards.setStackInSlot(0,card("acceleration"));
         inputs(be,bee(h),ItemStack.EMPTY,new ItemStack(Items.HONEY_BOTTLE));start(be,0,0);tick(be,20);cards.extractItem(0,1,false);
         h.assertTrue(!GeneticsRuntime.state(be).getBoolean("requested")&&GeneticsRuntime.inventory(be).getStackInSlot(0).getCount()==1,"Card removal did not cancel safely");cards.setStackInSlot(0,card("acceleration"));

@@ -21,8 +21,11 @@ public final class LegacyMachineCards {
         public ItemStack insertItem(int slot,ItemStack stack,boolean simulate){if(!isItemValid(slot,stack))return stack;var h=read();if(!h.getStackInSlot(slot).isEmpty())return stack;int count=Math.min(1,stack.getCount());if(!simulate){h.setStackInSlot(slot,stack.copyWithCount(count));save(h);}return stack.copyWithCount(stack.getCount()-count);}
         public ItemStack extractItem(int slot,int count,boolean simulate){var h=read();var result=h.extractItem(slot,count,simulate);if(!simulate&&!result.isEmpty())save(h);return result;}
     };}
-    public static int speed(BlockEntity be){return 100+Math.min(150,MachineUpgradeCards.tier(inventory(be).getStackInSlot(0),MachineUpgradeCards.Family.ACCELERATION)*MachineUpgradeConfig.SPEED_PERCENT_PER_TIER.get());}
-    public static int saving(BlockEntity be){return Math.min(30,MachineUpgradeCards.tier(inventory(be).getStackInSlot(1),MachineUpgradeCards.Family.ENERGY_COIL)*MachineUpgradeConfig.ENERGY_SAVING_PER_TIER.get());}
+    public static int speed(BlockEntity be){return MachineUpgradeConfig.speedPercent(MachineUpgradeCards.tier(inventory(be).getStackInSlot(0),MachineUpgradeCards.Family.ACCELERATION));}
+    public static int coilTier(BlockEntity be){return MachineUpgradeCards.tier(inventory(be).getStackInSlot(1),MachineUpgradeCards.Family.ENERGY_COIL);}
+    public static int recipeCost(BlockEntity be,long base){return MachineUpgradeConfig.recipeEnergy(base,coilTier(be));}
+    /** Rounded display-only percentage; authoritative costs use recipeCost. */
+    public static int saving(BlockEntity be){int tier=coilTier(be);return tier==0?0:100-(100-MachineUpgradeConfig.ENERGY_SAVING_PER_TIER.get()+MachineUpgradeConfig.tierFactor(tier)-1)/MachineUpgradeConfig.tierFactor(tier);}
     public static boolean installed(BlockEntity be){return speed(be)>100||saving(be)>0;}
     public static void resetJob(BlockEntity be){
         GeneticsRuntime.cancel(be);var state=GeneticsRuntime.state(be);state.remove("card_job");state.remove("card_elapsed");state.remove("card_paid");state.remove("card_units");state.remove("card_carry");
