@@ -29,3 +29,7 @@ This is bounded gameplay placement evidence, not natural density measurement or
 client visual approval. Black faceted cone models/textures are still pending.
 The repair is NOT in installed JAR4212a8bf; hold it for the next combined delivery.
 Existing worlds and showcase save were not edited. Test servers shut down normally.
+
+Follow-up14October: repair included in the backed-up compressor JAR4fcff84a.
+Already-generated fields remain unchanged; new generation uses the corrected
+count logic. Cone artwork is still pending.

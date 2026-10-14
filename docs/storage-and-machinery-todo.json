@@ -1,9 +1,19 @@
 {
   "schema": 1,
-  "updated": "2026-10-13",
+  "updated": "2026-10-14",
+  "latest_compressor_direct_ingot_update": {
+    "guide": "compressor-direct-ingot-pressing-2026-10-14.md",
+    "status": "installed_same_version_twenty_server_checks_passed_client_visual_review_pending",
+    "scope": "Reusable Plate/Cog Press items,2ingots->plate and4ingots->cog across22families. Removed42bench component routes and synchronized generators/Codex. All5nonfront faces support combined Auto item routing and FE, front/null blocked;20required checks pass including all orientations, recipe/FE/reload/real lines and visual-state round trip/no bench routes. Open press chassis/recessed dies and synchronized ram/item renderer implemented with existing metal art; exact concept/client appearance unverified. Oxygen-assisted higher crafts deferred."
+  },
+  "latest_structure_gallery_clearance": {
+    "guide": "structure-gallery-clearance-repair-2026-10-14.md",
+    "status": "installed_jar_templates_verified_existing_showcase_world_remains_v2",
+    "scope": "Final generator pass restores blocked stairs. Seven static checks and dedicated native collision/loot/spawner test pass. Templates v3 included in installed4fcff84a JAR; existing showcase region remains v2 and was not silently overwritten. Actual player walking and natural placement remain pending."
+  },
   "latest_vent_cluster_count_repair": {
     "guide": "vent-cluster-repair-2026-10-13.md",
-    "status": "fourteen_gameplay_checks_passed_local_not_installed",
+    "status": "fourteen_gameplay_checks_passed_installed_with_compressor_batch",
     "scope": "Actual Skarn seed11 regression reproduced2distinct vents. Fixed single3-6target, unique bounded preflighted positions, sparse-field all-or-nothing placement and3-6hot-cone apertures. All14generation checks pass, with64flat count fixtures and32sparse/protected-container cases. No weather reactivation or new artwork. Hold for combined JAR delivery; installed4212a8bf and saves untouched."
   },
   "latest_hub_and_structure_delivery": {
